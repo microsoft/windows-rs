@@ -1,148 +1,148 @@
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "rpc", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::winnt::HANDLE, flags : u32, srcdomain : windows_sys::core::PCSTR, srcprincipal : windows_sys::core::PCSTR, srcdomaincontroller : windows_sys::core::PCSTR, srcdomaincreds : super::rpc::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_sys::core::PCSTR, dstprincipal : windows_sys::core::PCSTR) -> u32);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "rpc", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::winnt::HANDLE, flags : u32, srcdomain : windows_sys::core::PCWSTR, srcprincipal : windows_sys::core::PCWSTR, srcdomaincontroller : windows_sys::core::PCWSTR, srcdomaincreds : super::rpc::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_sys::core::PCWSTR, dstprincipal : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "rpc", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceA(servername : windows_sys::core::PCSTR, annotation : windows_sys::core::PCSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "rpc", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceW(servername : windows_sys::core::PCWSTR, annotation : windows_sys::core::PCWSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindToISTGA(sitename : windows_sys::core::PCSTR, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindToISTGW(sitename : windows_sys::core::PCWSTR, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "rpc", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "rpc", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "rpc", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "rpc", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "rpc", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "rpc", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindingSetTimeout(hds : super::winnt::HANDLE, ctimeoutsecs : u32) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerA(serviceclass : windows_sys::core::PCSTR, servicename : windows_sys::core::PCSTR, pcspnlength : *mut u32, pszspn : windows_sys::core::PSTR) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerW(serviceclass : windows_sys::core::PCWSTR, servicename : windows_sys::core::PCWSTR, pcspnlength : *mut u32, pszspn : windows_sys::core::PWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsCrackNamesA(hds : super::winnt::HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const windows_sys::core::PCSTR, ppresult : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsCrackNamesW(hds : super::winnt::HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const windows_sys::core::PCWSTR, ppresult : *mut PDS_NAME_RESULTW) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoA(infolevel : u32, cinfo : u32, pinfo : *const core::ffi::c_void));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoW(infolevel : u32, cinfo : u32, pinfo : *const core::ffi::c_void));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeNameResultA(presult : *const DS_NAME_RESULTA));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeNameResultW(presult : *const DS_NAME_RESULTW));
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 windows_link::link!("ntdsapi.dll" "system" fn DsFreePasswordCredentials(authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapA(pguidmap : *const DS_SCHEMA_GUID_MAPA));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapW(pguidmap : *const DS_SCHEMA_GUID_MAPW));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayA(cspn : u32, rpszspn : *mut windows_sys::core::PSTR));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : u32, rpszspn : *mut windows_sys::core::PWSTR));
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoA(hds : super::winnt::HANDLE, domainname : windows_sys::core::PCSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoW(hds : super::winnt::HANDLE, domainname : windows_sys::core::PCWSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut core::ffi::c_void) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsGetSpnA(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_sys::core::PCSTR, servicename : windows_sys::core::PCSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const windows_sys::core::PCSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut windows_sys::core::PSTR) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsGetSpnW(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_sys::core::PCWSTR, servicename : windows_sys::core::PCWSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const windows_sys::core::PCWSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut windows_sys::core::PWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityA(hds : super::winnt::HANDLE, flags : u32, srcprincipal : windows_sys::core::PCSTR, dstprincipal : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityW(hds : super::winnt::HANDLE, flags : u32, srcprincipal : windows_sys::core::PCWSTR, dstprincipal : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteA(hds : super::winnt::HANDLE, site : windows_sys::core::PCSTR, ppdomains : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteW(hds : super::winnt::HANDLE, site : windows_sys::core::PCWSTR, ppdomains : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListInfoForServerA(hds : super::winnt::HANDLE, server : windows_sys::core::PCSTR, ppinfo : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListInfoForServerW(hds : super::winnt::HANDLE, server : windows_sys::core::PCWSTR, ppinfo : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListRolesA(hds : super::winnt::HANDLE, pproles : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListRolesW(hds : super::winnt::HANDLE, pproles : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteA(hds : super::winnt::HANDLE, domain : windows_sys::core::PCSTR, site : windows_sys::core::PCSTR, ppservers : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteW(hds : super::winnt::HANDLE, domain : windows_sys::core::PCWSTR, site : windows_sys::core::PCWSTR, ppservers : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListServersInSiteA(hds : super::winnt::HANDLE, site : windows_sys::core::PCSTR, ppservers : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListServersInSiteW(hds : super::winnt::HANDLE, site : windows_sys::core::PCWSTR, ppservers : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListSitesA(hds : super::winnt::HANDLE, ppsites : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListSitesW(hds : super::winnt::HANDLE, ppsites : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsA(user : windows_sys::core::PCSTR, domain : windows_sys::core::PCSTR, password : windows_sys::core::PCSTR, pauthidentity : *mut super::rpc::RPC_AUTH_IDENTITY_HANDLE) -> u32);
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsW(user : windows_sys::core::PCWSTR, domain : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, pauthidentity : *mut super::rpc::RPC_AUTH_IDENTITY_HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsA(hds : super::winnt::HANDLE, cguids : u32, rguids : *const windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsW(hds : super::winnt::HANDLE, cguids : u32, rguids : *const windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostA(hds : super::winnt::HANDLE, pszfromsite : windows_sys::core::PCSTR, rgsztosites : *const windows_sys::core::PCSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut PDS_SITE_COST_INFO) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostW(hds : super::winnt::HANDLE, pwszfromsite : windows_sys::core::PCWSTR, rgwsztosites : *const windows_sys::core::PCWSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut PDS_SITE_COST_INFO) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesFree(rgsiteinfo : *const DS_SITE_COST_INFO));
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainA(hds : super::winnt::HANDLE, domaindn : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainW(hds : super::winnt::HANDLE, domaindn : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::winnt::HANDLE, serverdn : windows_sys::core::PCSTR, domaindn : windows_sys::core::PCSTR, flastdcindomain : *mut windows_sys::core::BOOL, fcommit : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::winnt::HANDLE, serverdn : windows_sys::core::PCWSTR, domaindn : windows_sys::core::PCWSTR, flastdcindomain : *mut windows_sys::core::BOOL, fcommit : windows_sys::core::BOOL) -> u32);
-#[cfg(all(feature = "Win32_schedule", feature = "Win32_winnt"))]
+#[cfg(all(feature = "schedule", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddA(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCSTR, sourcedsadn : windows_sys::core::PCSTR, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : *const super::schedule::SCHEDULE, options : u32) -> u32);
-#[cfg(all(feature = "Win32_schedule", feature = "Win32_winnt"))]
+#[cfg(all(feature = "schedule", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddW(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCWSTR, sourcedsadn : windows_sys::core::PCWSTR, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : *const super::schedule::SCHEDULE, options : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaConsistencyCheck(hds : super::winnt::HANDLE, taskid : DS_KCC_TASKID, dwflags : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaDelA(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCSTR, dsasrc : windows_sys::core::PCSTR, options : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaDelW(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCWSTR, dsasrc : windows_sys::core::PCWSTR, options : u32) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaFreeInfo(infotype : DS_REPL_INFO_TYPE, pinfo : *const core::ffi::c_void));
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaGetInfo2W(hds : super::winnt::HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const windows_sys::core::GUID, pszattributename : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, dwflags : u32, dwenumerationcontext : u32, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaGetInfoW(hds : super::winnt::HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const windows_sys::core::GUID, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-#[cfg(all(feature = "Win32_schedule", feature = "Win32_winnt"))]
+#[cfg(all(feature = "schedule", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyA(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCSTR, puuidsourcedsa : *const windows_sys::core::GUID, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : *const super::schedule::SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
-#[cfg(all(feature = "Win32_schedule", feature = "Win32_winnt"))]
+#[cfg(all(feature = "schedule", feature = "winnt"))]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyW(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCWSTR, puuidsourcedsa : *const windows_sys::core::GUID, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : *const super::schedule::SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncA(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCSTR, puuiddsasrc : *const windows_sys::core::GUID, options : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllA(hds : super::winnt::HANDLE, psznamecontext : windows_sys::core::PCSTR, ulflags : u32, pfncallback : *mut u8, pcallbackdata : *const core::ffi::c_void, perrors : *mut *mut PDS_REPSYNCALL_ERRINFOA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllW(hds : super::winnt::HANDLE, psznamecontext : windows_sys::core::PCWSTR, ulflags : u32, pfncallback : *mut u8, pcallbackdata : *const core::ffi::c_void, perrors : *mut *mut PDS_REPSYNCALL_ERRINFOW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncW(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCWSTR, puuiddsasrc : *const windows_sys::core::GUID, options : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsA(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCSTR, dsadest : windows_sys::core::PCSTR, puuiddsadest : *const windows_sys::core::GUID, options : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsW(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCWSTR, dsadest : windows_sys::core::PCWSTR, puuiddsadest : *const windows_sys::core::GUID, options : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaVerifyObjectsA(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCSTR, puuiddsasrc : *const windows_sys::core::GUID, uloptions : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaVerifyObjectsW(hds : super::winnt::HANDLE, namecontext : windows_sys::core::PCWSTR, puuiddsasrc : *const windows_sys::core::GUID, uloptions : u32) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnA(operation : DS_SPN_WRITE_OP, serviceclass : windows_sys::core::PCSTR, userobjectdn : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnW(operation : DS_SPN_WRITE_OP, serviceclass : windows_sys::core::PCWSTR, userobjectdn : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsUnBindA(phds : *const super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsUnBindW(phds : *const super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnA(hds : super::winnt::HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_sys::core::PCSTR, cspn : u32, rpszspn : *const windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnW(hds : super::winnt::HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_sys::core::PCWSTR, cspn : u32, rpszspn : *const windows_sys::core::PCWSTR) -> u32);
 pub const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2;
 pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1;
@@ -406,7 +406,7 @@ pub const DS_REPDEL_NO_SOURCE: u32 = 32;
 pub const DS_REPDEL_REF_OK: u32 = 64;
 pub const DS_REPDEL_WRITEABLE: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_ATTR_META_DATA {
     pub pszAttributeName: windows_sys::core::PWSTR,
@@ -416,14 +416,14 @@ pub struct DS_REPL_ATTR_META_DATA {
     pub usnOriginatingChange: super::winnt::USN,
     pub usnLocalChange: super::winnt::USN,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_ATTR_META_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_ATTR_META_DATA_2 {
     pub pszAttributeName: windows_sys::core::PWSTR,
@@ -434,14 +434,14 @@ pub struct DS_REPL_ATTR_META_DATA_2 {
     pub usnLocalChange: super::winnt::USN,
     pub pszLastOriginatingDsaDN: windows_sys::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_ATTR_META_DATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_ATTR_META_DATA_BLOB {
     pub oszAttributeName: u32,
@@ -453,98 +453,98 @@ pub struct DS_REPL_ATTR_META_DATA_BLOB {
     pub oszLastOriginatingDsaDN: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
     pub rgMetaData: [DS_REPL_VALUE_META_DATA; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_ATTR_VALUE_META_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
     pub rgMetaData: [DS_REPL_VALUE_META_DATA_2; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_ATTR_VALUE_META_DATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
     pub rgMetaData: [DS_REPL_VALUE_META_DATA_EXT; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_ATTR_VALUE_META_DATA_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_CURSOR {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
     pub usnAttributeFilter: super::winnt::USN,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_CURSORS {
     pub cNumCursors: u32,
     pub dwReserved: u32,
     pub rgCursor: [DS_REPL_CURSOR; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DS_REPL_CURSORS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_CURSORS_2 {
     pub cNumCursors: u32,
     pub dwEnumerationContext: u32,
     pub rgCursor: [DS_REPL_CURSOR_2; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_CURSORS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_CURSORS_3W {
     pub cNumCursors: u32,
     pub dwEnumerationContext: u32,
     pub rgCursor: [DS_REPL_CURSOR_3W; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_CURSORS_3W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_CURSOR_2 {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
@@ -552,7 +552,7 @@ pub struct DS_REPL_CURSOR_2 {
     pub ftimeLastSyncSuccess: super::minwindef::FILETIME,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_CURSOR_3W {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
@@ -560,14 +560,14 @@ pub struct DS_REPL_CURSOR_3W {
     pub ftimeLastSyncSuccess: super::minwindef::FILETIME,
     pub pszSourceDsaDN: windows_sys::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_CURSOR_3W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_CURSOR_BLOB {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
@@ -591,21 +591,21 @@ pub const DS_REPL_INFO_PENDING_OPS: DS_REPL_INFO_TYPE = 5;
 pub type DS_REPL_INFO_TYPE = i32;
 pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = 12;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_KCC_DSA_FAILURESW {
     pub cNumEntries: u32,
     pub dwReserved: u32,
     pub rgDsaFailure: [DS_REPL_KCC_DSA_FAILUREW; 1],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DS_REPL_KCC_DSA_FAILURESW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_KCC_DSA_FAILUREW {
     pub pszDsaDN: windows_sys::core::PWSTR,
@@ -614,14 +614,14 @@ pub struct DS_REPL_KCC_DSA_FAILUREW {
     pub cNumFailures: u32,
     pub dwLastResult: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DS_REPL_KCC_DSA_FAILUREW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
     pub oszDsaDN: u32,
@@ -650,21 +650,21 @@ pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512;
 pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128;
 pub const DS_REPL_NBR_WRITEABLE: u32 = 16;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_NEIGHBORSW {
     pub cNumNeighbors: u32,
     pub dwReserved: u32,
     pub rgNeighbor: [DS_REPL_NEIGHBORW; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_NEIGHBORSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_NEIGHBORW {
     pub pszNamingContext: windows_sys::core::PWSTR,
@@ -684,14 +684,14 @@ pub struct DS_REPL_NEIGHBORW {
     pub dwLastSyncResult: u32,
     pub cNumConsecutiveSyncFailures: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_NEIGHBORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_NEIGHBORW_BLOB {
     pub oszNamingContext: u32,
@@ -712,35 +712,35 @@ pub struct DS_REPL_NEIGHBORW_BLOB {
     pub cNumConsecutiveSyncFailures: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_OBJ_META_DATA {
     pub cNumEntries: u32,
     pub dwReserved: u32,
     pub rgMetaData: [DS_REPL_ATTR_META_DATA; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_OBJ_META_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_OBJ_META_DATA_2 {
     pub cNumEntries: u32,
     pub dwReserved: u32,
     pub rgMetaData: [DS_REPL_ATTR_META_DATA_2; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_OBJ_META_DATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_OPW {
     pub ftimeEnqueued: super::minwindef::FILETIME,
@@ -754,14 +754,14 @@ pub struct DS_REPL_OPW {
     pub uuidNamingContextObjGuid: windows_sys::core::GUID,
     pub uuidDsaObjGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DS_REPL_OPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_OPW_BLOB {
     pub ftimeEnqueued: super::minwindef::FILETIME,
@@ -782,21 +782,21 @@ pub const DS_REPL_OP_TYPE_MODIFY: DS_REPL_OP_TYPE = 3;
 pub const DS_REPL_OP_TYPE_SYNC: DS_REPL_OP_TYPE = 0;
 pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_PENDING_OPSW {
     pub ftimeCurrentOpStarted: super::minwindef::FILETIME,
     pub cNumPendingOps: u32,
     pub rgPendingOp: [DS_REPL_OPW; 1],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DS_REPL_PENDING_OPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_QUEUE_STATISTICSW {
     pub ftimeCurrentOpStarted: super::minwindef::FILETIME,
@@ -807,10 +807,10 @@ pub struct DS_REPL_QUEUE_STATISTICSW {
     pub ftimeOldestDel: super::minwindef::FILETIME,
     pub ftimeOldestUpdRefs: super::minwindef::FILETIME,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DS_REPL_QUEUE_STATISTICSW_BLOB = DS_REPL_QUEUE_STATISTICSW;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_VALUE_META_DATA {
     pub pszAttributeName: windows_sys::core::PWSTR,
@@ -825,14 +825,14 @@ pub struct DS_REPL_VALUE_META_DATA {
     pub usnOriginatingChange: super::winnt::USN,
     pub usnLocalChange: super::winnt::USN,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_VALUE_META_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_VALUE_META_DATA_2 {
     pub pszAttributeName: windows_sys::core::PWSTR,
@@ -848,14 +848,14 @@ pub struct DS_REPL_VALUE_META_DATA_2 {
     pub usnLocalChange: super::winnt::USN,
     pub pszLastOriginatingDsaDN: windows_sys::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_VALUE_META_DATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB {
     pub oszAttributeName: u32,
@@ -872,7 +872,7 @@ pub struct DS_REPL_VALUE_META_DATA_BLOB {
     pub oszLastOriginatingDsaDN: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
     pub oszAttributeName: u32,
@@ -892,7 +892,7 @@ pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
     pub dwCurrentLinkState: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub pszAttributeName: windows_sys::core::PWSTR,
@@ -911,7 +911,7 @@ pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub dwPriorLinkState: u32,
     pub dwCurrentLinkState: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for DS_REPL_VALUE_META_DATA_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

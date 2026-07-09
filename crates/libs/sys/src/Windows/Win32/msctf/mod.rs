@@ -34,26 +34,26 @@ pub const TF_CT_NONE: TF_DA_COLORTYPE = 0;
 pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = 1;
 pub type TF_DA_ATTR_INFO = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,
     pub Anonymous: TF_DA_COLOR_0,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for TF_DA_COLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union TF_DA_COLOR_0 {
     pub nIndex: i32,
     pub cr: super::windef::COLORREF,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for TF_DA_COLOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -66,7 +66,7 @@ pub const TF_DISABLE_COMMANDING: u32 = 4;
 pub const TF_DISABLE_DICTATION: u32 = 2;
 pub const TF_DISABLE_SPEECH: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct TF_DISPLAYATTRIBUTE {
     pub crText: TF_DA_COLOR,
@@ -76,7 +76,7 @@ pub struct TF_DISPLAYATTRIBUTE {
     pub crLine: TF_DA_COLOR,
     pub bAttr: TF_DA_ATTR_INFO,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for TF_DISPLAYATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -129,7 +129,7 @@ pub const TF_IAS_NO_DEFAULT_COMPOSITION: u32 = 2147483648;
 pub const TF_IAS_QUERYONLY: u32 = 2;
 pub const TF_IE_CORRECTION: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
@@ -142,7 +142,7 @@ pub struct TF_INPUTPROCESSORPROFILE {
     pub hkl: super::minwindef::HKL,
     pub dwFlags: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for TF_INPUTPROCESSORPROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -170,7 +170,7 @@ pub const TF_IPP_FLAG_ENABLED: u32 = 2;
 pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4;
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: windows_sys::core::GUID,
@@ -232,13 +232,13 @@ pub const TF_PROFILE_TIGRINYA: windows_sys::core::GUID = windows_sys::core::GUID
 pub const TF_PROFILE_WUBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x82590c13_f4dd_44f4_ba1d_8667246fdf8e);
 pub const TF_PROFILE_YI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x409c8376_007b_4357_ae8e_26316ee3fb0d);
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct TF_PROPERTYVAL {
     pub guidId: windows_sys::core::GUID,
     pub varValue: super::oaidl::VARIANT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for TF_PROPERTYVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -290,7 +290,7 @@ pub const TF_SS_REGIONS: u32 = 2;
 pub const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16;
 pub const TF_SS_TKBPREDICTIONENABLE: u32 = 32;
 pub const TF_SS_TRANSITORY: u32 = 4;
-#[cfg(feature = "Win32_textstor")]
+#[cfg(feature = "textstor")]
 pub type TF_STATUS = super::textstor::TS_STATUS;
 pub const TF_ST_CORRECTION: u32 = 1;
 pub const TF_S_ASYNC: u32 = 262912;

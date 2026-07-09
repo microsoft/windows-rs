@@ -1,59 +1,59 @@
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shobjidl_core", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn AssocGetDetailsOfPropKey(psf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, pkey : *const super::wtypes::PROPERTYKEY, pv : *mut super::oaidl::VARIANT, pffoundpropkey : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : *const super::shtypes::ITEMIDLIST, hwnd : super::windef::HWND, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, psf : *mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::minwindef::HKEY, ppcm : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : *const super::shtypes::ITEMIDLIST, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, ppdtobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn DAD_AutoScroll(hwnd : super::windef::HWND, pad : *mut AUTO_SCROLL_DATA, pptnow : *const super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn DAD_DragEnterEx(hwndtarget : super::windef::HWND, ptstart : super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn DAD_DragEnterEx2(hwndtarget : super::windef::HWND, ptstart : super::windef::POINT, pdtobject : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn DAD_DragLeave() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn DAD_DragMove(pt : super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+#[cfg(all(feature = "commctrl", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn DAD_SetDragImage(him : *mut super::commctrl::_IMAGELIST, pptoffset : *mut super::windef::POINT) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn DAD_ShowDragImage(fshow : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn DriveType(idrive : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn GetFileNameFromBrowse(hwnd : super::windef::HWND, pszfilepath : windows_sys::core::PWSTR, cchfilepath : u32, pszworkingdir : windows_sys::core::PCWSTR, pszdefext : windows_sys::core::PCWSTR, pszfilters : windows_sys::core::PCWSTR, psztitle : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILAppendID(pidl : *const super::shtypes::ITEMIDLIST, pmkid : *const super::shtypes::SHITEMID, fappend : windows_sys::core::BOOL) -> super::shtypes::LPITEMIDLIST);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILClone(pidl : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILCloneFirst(pidl : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILCombine(pidl1 : *const super::shtypes::ITEMIDLIST, pidl2 : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILCreateFromPathA(pszpath : windows_sys::core::PCSTR) -> super::shtypes::LPITEMIDLIST);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILCreateFromPathW(pszpath : windows_sys::core::PCWSTR) -> super::shtypes::LPITEMIDLIST);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILFindChild(pidlparent : *const super::shtypes::ITEMIDLIST, pidlchild : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILFindLastID(pidl : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILFree(pidl : *const super::shtypes::ITEMIDLIST));
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILGetNext(pidl : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILGetSize(pidl : *const super::shtypes::ITEMIDLIST) -> u32);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILIsEqual(pidl1 : *const super::shtypes::ITEMIDLIST, pidl2 : *const super::shtypes::ITEMIDLIST) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILIsParent(pidl1 : *const super::shtypes::ITEMIDLIST, pidl2 : *const super::shtypes::ITEMIDLIST, fimmediate : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILLoadFromStreamEx(pstm : *mut core::ffi::c_void, pidl : *mut super::shtypes::LPITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILRemoveLastID(pidl : *mut super::shtypes::ITEMIDLIST) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILSaveToStream(pstm : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn IsNetDrive(idrive : i32) -> i32);
 windows_link::link!("shell32.dll" "system" fn IsUserAnAdmin() -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 windows_link::link!("shell32.dll" "system" fn OpenRegStream(hkey : super::minwindef::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, grfmode : u32) -> *mut core::ffi::c_void);
 windows_link::link!("shell32.dll" "system" fn PathCleanupSpec(pszdir : windows_sys::core::PCWSTR, pszspec : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("shell32.dll" "system" fn PathGetShortPath(pszlongpath : windows_sys::core::PWSTR));
@@ -61,186 +61,186 @@ windows_link::link!("shell32.dll" "system" fn PathIsExe(pszpath : windows_sys::c
 windows_link::link!("shell32.dll" "system" fn PathMakeUniqueName(pszuniquename : windows_sys::core::PWSTR, cchmax : u32, psztemplate : windows_sys::core::PCWSTR, pszlongplate : windows_sys::core::PCWSTR, pszdir : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn PathResolve(pszpath : windows_sys::core::PWSTR, dirs : *const windows_sys::core::PCWSTR, fflags : u32) -> i32);
 windows_link::link!("shell32.dll" "system" fn PathYetAnotherMakeUniqueName(pszuniquename : windows_sys::core::PWSTR, pszpath : windows_sys::core::PCWSTR, pszshort : windows_sys::core::PCWSTR, pszfilespec : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn PickIconDlg(hwnd : super::windef::HWND, psziconpath : windows_sys::core::PWSTR, cchiconpath : u32, piiconindex : *mut i32) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn PifMgr_CloseProperties(hprops : super::winnt::HANDLE, flopt : u32) -> super::winnt::HANDLE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn PifMgr_GetProperties(hprops : super::winnt::HANDLE, pszgroup : windows_sys::core::PCSTR, lpprops : *mut core::ffi::c_void, cbprops : i32, flopt : u32) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn PifMgr_OpenProperties(pszapp : windows_sys::core::PCWSTR, pszpif : windows_sys::core::PCWSTR, hinf : u32, flopt : u32) -> super::winnt::HANDLE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn PifMgr_SetProperties(hprops : super::winnt::HANDLE, pszgroup : windows_sys::core::PCSTR, lpprops : *const core::ffi::c_void, cbprops : i32, flopt : u32) -> i32);
 windows_link::link!("shell32.dll" "system" fn ReadCabinetState(pcs : *mut CABINETSTATE, clength : i32) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn RealDriveType(idrive : i32, foktohitnet : windows_sys::core::BOOL) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn RestartDialog(hwnd : super::windef::HWND, pszprompt : windows_sys::core::PCWSTR, dwreturn : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn RestartDialogEx(hwnd : super::windef::HWND, pszprompt : windows_sys::core::PCWSTR, dwreturn : u32, dwreasoncode : u32) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_prsht"))]
+#[cfg(all(feature = "minwindef", feature = "prsht"))]
 windows_link::link!("shell32.dll" "system" fn SHAddFromPropSheetExtArray(hpsxa : HPSXA, lpfnaddpage : super::prsht::LPFNADDPROPSHEETPAGE, lparam : super::minwindef::LPARAM) -> u32);
 windows_link::link!("shell32.dll" "system" fn SHAddToRecentDocs(uflags : u32, pv : *const core::ffi::c_void));
 windows_link::link!("shell32.dll" "system" fn SHAlloc(cb : usize) -> *mut core::ffi::c_void);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHBindToFolderIDListParent(psfroot : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::shtypes::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHBindToFolderIDListParentEx(psfroot : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, ppbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::shtypes::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHBindToObject(psf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, pbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHBindToParent(pidl : *const super::shtypes::ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::shtypes::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHBrowseForFolderA(lpbi : *const BROWSEINFOA) -> super::shtypes::LPITEMIDLIST);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHBrowseForFolderW(lpbi : *const BROWSEINFOW) -> super::shtypes::LPITEMIDLIST);
 windows_link::link!("shell32.dll" "system" fn SHCLSIDFromString(psz : windows_sys::core::PCWSTR, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHChangeNotification_Lock(hchange : super::winnt::HANDLE, dwprocid : u32, pppidl : *mut *mut super::shtypes::LPITEMIDLIST, plevent : *mut i32) -> super::winnt::HANDLE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn SHChangeNotification_Unlock(hlock : super::winnt::HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn SHChangeNotify(weventid : i32, uflags : u32, dwitem1 : *const core::ffi::c_void, dwitem2 : *const core::ffi::c_void));
 windows_link::link!("shell32.dll" "system" fn SHChangeNotifyDeregister(ulid : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHChangeNotifyRegister(hwnd : super::windef::HWND, fsources : i32, fevents : i32, wmsg : u32, centries : i32, pshcne : *const SHChangeNotifyEntry) -> u32);
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHCloneSpecialIDList(hwnd : super::windef::HWND, csidl : i32, fcreate : windows_sys::core::BOOL) -> super::shtypes::LPITEMIDLIST);
 windows_link::link!("shell32.dll" "system" fn SHCoCreateInstance(pszclsid : windows_sys::core::PCWSTR, pclsid : *const windows_sys::core::GUID, punkouter : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : *const super::shtypes::ITEMIDLIST, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, pdtinner : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHCreateDirectory(hwnd : super::windef::HWND, pszpath : windows_sys::core::PCWSTR) -> i32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwinbase", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateDirectoryExA(hwnd : super::windef::HWND, pszpath : windows_sys::core::PCSTR, psa : *const super::minwinbase::SECURITY_ATTRIBUTES) -> i32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwinbase", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateDirectoryExW(hwnd : super::windef::HWND, pszpath : windows_sys::core::PCWSTR, psa : *const super::minwinbase::SECURITY_ATTRIBUTES) -> i32);
 windows_link::link!("shell32.dll" "system" fn SHCreateFileExtractIconW(pszfile : windows_sys::core::PCWSTR, dwfileattributes : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_shobjidl_core"))]
+#[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateShellFolderView(pcsfv : *const SFV_CREATE, ppsv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateShellFolderViewEx(pcsfv : *const CSFV, ppsv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateShellItem(pidlparent : *const super::shtypes::ITEMIDLIST, psfparent : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, ppsi : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidl", feature = "wtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateStdEnumFmtEtc(cfmt : u32, afmt : *const super::objidl::FORMATETC, ppenumformatetc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHDefExtractIconA(psziconfile : windows_sys::core::PCSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::windef::HICON, phiconsmall : *mut super::windef::HICON, niconsize : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHDefExtractIconW(psziconfile : windows_sys::core::PCWSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::windef::HICON, phiconsmall : *mut super::windef::HICON, niconsize : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHDestroyPropSheetExtArray(hpsxa : HPSXA));
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHDoDragDrop(hwnd : super::windef::HWND, pdata : *mut core::ffi::c_void, pdsrc : *mut core::ffi::c_void, dweffect : u32, pdweffect : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHFindFiles(pidlfolder : *const super::shtypes::ITEMIDLIST, pidlsavefile : *const super::shtypes::ITEMIDLIST) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHFind_InitMenuPopup(hmenu : super::windef::HMENU, hwndowner : super::windef::HWND, idcmdfirst : u32, idcmdlast : u32) -> *mut core::ffi::c_void);
 windows_link::link!("shell32.dll" "system" fn SHFlushSFCache());
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHFormatDrive(hwnd : super::windef::HWND, drive : u32, fmtid : u32, options : u32) -> u32);
 windows_link::link!("shell32.dll" "system" fn SHFree(pv : *const core::ffi::c_void));
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn SHGetAttributesFromDataObject(pdo : *mut core::ffi::c_void, dwattributemask : u32, pdwattributes : *mut u32, pcitems : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHGetDataFromIDListA(psf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, nformat : i32, pv : *mut core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHGetDataFromIDListW(psf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, nformat : i32, pv : *mut core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 windows_link::link!("shell32.dll" "system" fn SHGetDesktopFolder(ppshf : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "windef", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHGetFolderLocation(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, ppidl : *mut super::shtypes::LPITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHGetFolderPathA(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszpath : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirA(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszsubdir : windows_sys::core::PCSTR, pszpath : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirW(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszsubdir : windows_sys::core::PCWSTR, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHGetFolderPathW(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHGetIconOverlayIndexA(psziconpath : windows_sys::core::PCSTR, iiconindex : i32) -> i32);
 windows_link::link!("shell32.dll" "system" fn SHGetIconOverlayIndexW(psziconpath : windows_sys::core::PCWSTR, iiconindex : i32) -> i32);
 windows_link::link!("shell32.dll" "system" fn SHGetInstanceExplorer(ppunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHGetKnownFolderIDList(rfid : *const super::shtypes::KNOWNFOLDERID, dwflags : u32, htoken : super::winnt::HANDLE, ppidl : *mut super::shtypes::LPITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHGetKnownFolderItem(rfid : *const super::shtypes::KNOWNFOLDERID, flags : KNOWN_FOLDER_FLAG, htoken : super::winnt::HANDLE, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHGetKnownFolderPath(rfid : *const super::shtypes::KNOWNFOLDERID, dwflags : u32, htoken : super::winnt::HANDLE, ppszpath : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 windows_link::link!("shell32.dll" "system" fn SHGetMalloc(ppmalloc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListA(pidl : *const super::shtypes::ITEMIDLIST, pszpath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListEx(pidl : *const super::shtypes::ITEMIDLIST, pszpath : windows_sys::core::PWSTR, cchpath : u32, uopts : GPFIDL_FLAGS) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListW(pidl : *const super::shtypes::ITEMIDLIST, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHGetRealIDL(psf : *mut core::ffi::c_void, pidlsimple : *const super::shtypes::ITEMIDLIST, ppidlreal : *mut super::shtypes::LPITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 windows_link::link!("shell32.dll" "system" fn SHGetSetFolderCustomSettings(pfcs : *mut SHFOLDERCUSTOMSETTINGS, pszpath : windows_sys::core::PCWSTR, dwreadwrite : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHGetSetSettings(lpss : *mut SHELLSTATEA, dwmask : u32, bset : windows_sys::core::BOOL));
 windows_link::link!("shell32.dll" "system" fn SHGetSettings(psfs : *mut SHELLFLAGSTATE, dwmask : u32));
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHGetSpecialFolderLocation(hwnd : super::windef::HWND, csidl : i32, ppidl : *mut super::shtypes::LPITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHGetSpecialFolderPathA(hwnd : super::windef::HWND, pszpath : windows_sys::core::PSTR, csidl : i32, fcreate : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHGetSpecialFolderPathW(hwnd : super::windef::HWND, pszpath : windows_sys::core::PWSTR, csidl : i32, fcreate : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHHandleUpdateImage(pidlextra : *const super::shtypes::ITEMIDLIST) -> i32);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHILCreateFromPath(pszpath : windows_sys::core::PCWSTR, ppidl : *mut super::shtypes::LPITEMIDLIST, rgfinout : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHLimitInputEdit(hwndedit : super::windef::HWND, psf : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHLoadInProc(rclsid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHMapPIDLToSystemImageListIndex(pshf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, piindexsel : *mut i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHObjectProperties(hwnd : super::windef::HWND, shopobjecttype : u32, pszobjectname : windows_sys::core::PCWSTR, pszpropertypage : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : *const super::shtypes::ITEMIDLIST, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHOpenWithDialog(hwndparent : super::windef::HWND, poainfo : *const OPENASINFO) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHParseDisplayName(pszname : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, ppidl : *mut super::shtypes::LPITEMIDLIST, sfgaoin : super::shobjidl_core::SFGAOF, psfgaoout : *mut super::shobjidl_core::SFGAOF) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHPathPrepareForWriteA(hwnd : super::windef::HWND, punkenablemodless : *mut core::ffi::c_void, pszpath : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHPathPrepareForWriteW(hwnd : super::windef::HWND, punkenablemodless : *mut core::ffi::c_void, pszpath : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_propidlbase")]
+#[cfg(feature = "propidlbase")]
 windows_link::link!("shell32.dll" "system" fn SHPropStgCreate(psstg : *mut core::ffi::c_void, fmtid : *const windows_sys::core::GUID, pclsid : *const windows_sys::core::GUID, grfflags : u32, grfmode : u32, dwdisposition : u32, ppstg : *mut *mut core::ffi::c_void, pucodepage : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn SHPropStgReadMultiple(pps : *mut core::ffi::c_void, ucodepage : u32, cpspec : u32, rgpspec : *const super::propidlbase::PROPSPEC, rgvar : *mut super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn SHPropStgWriteMultiple(pps : *mut core::ffi::c_void, pucodepage : *mut u32, cpspec : u32, rgpspec : *const super::propidlbase::PROPSPEC, rgvar : *mut super::propidlbase::PROPVARIANT, propidnamefirst : super::wtypes::PROPID) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_prsht"))]
+#[cfg(all(feature = "minwindef", feature = "prsht"))]
 windows_link::link!("shell32.dll" "system" fn SHReplaceFromPropSheetExtArray(hpsxa : HPSXA, upageid : u32, lpfnreplacewith : super::prsht::LPFNADDPROPSHEETPAGE, lparam : super::minwindef::LPARAM) -> u32);
 windows_link::link!("shell32.dll" "system" fn SHRestricted(rest : RESTRICTIONS) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn SHSetFolderPathA(csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszpath : windows_sys::core::PCSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn SHSetFolderPathW(csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHSetInstanceExplorer(punk : *mut core::ffi::c_void));
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHSetKnownFolderPath(rfid : *const super::shtypes::KNOWNFOLDERID, dwflags : u32, htoken : super::winnt::HANDLE, pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHShellFolderView_Message(hwndmain : super::windef::HWND, umsg : u32, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHStartNetConnectionDialogW(hwnd : super::windef::HWND, pszremotename : windows_sys::core::PCWSTR, dwtype : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHUpdateImageA(pszhashitem : windows_sys::core::PCSTR, iindex : i32, uflags : u32, iimageindex : i32));
 windows_link::link!("shell32.dll" "system" fn SHUpdateImageW(pszhashitem : windows_sys::core::PCWSTR, iindex : i32, uflags : u32, iimageindex : i32));
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHValidateUNC(hwndowner : super::windef::HWND, pszfile : windows_sys::core::PWSTR, fconnect : u32) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndex(pwsziconpath : windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
 windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexA(psziconpath : windows_sys::core::PCSTR, iiconindex : i32, uiconflags : u32) -> i32);
 windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexW(psziconpath : windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
-#[cfg(feature = "Win32_commctrl")]
+#[cfg(feature = "commctrl")]
 windows_link::link!("shell32.dll" "system" fn Shell_GetImageLists(phiml : *mut super::commctrl::HIMAGELIST, phimlsmall : *mut super::commctrl::HIMAGELIST) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn Shell_MergeMenus(hmdst : super::windef::HMENU, hmsrc : super::windef::HMENU, uinsert : u32, uidadjust : u32, uidadjustmax : u32, uflags : u32) -> u32);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SignalFileOpen(pidl : *const super::shtypes::ITEMIDLIST) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn StgMakeUniqueName(pstgparent : *mut core::ffi::c_void, pszfilespec : windows_sys::core::PCWSTR, grfmode : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn Win32DeleteFile(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn WriteCabinetState(pcs : *const CABINETSTATE) -> windows_sys::core::BOOL);
@@ -265,7 +265,7 @@ pub const AD_GETWP_IMAGE: u32 = 1;
 pub const AD_GETWP_LAST_APPLIED: u32 = 2;
 pub type AUTOCOMPLETELISTOPTIONS = i32;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct AUTO_SCROLL_DATA {
     pub iNextSample: i32,
@@ -274,13 +274,13 @@ pub struct AUTO_SCROLL_DATA {
     pub pts: [super::windef::POINT; 3],
     pub dwTimes: [u32; 3],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for AUTO_SCROLL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type BFFCALLBACK = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, umsg: u32, lparam: super::minwindef::LPARAM, lpdata: super::minwindef::LPARAM) -> i32>;
 pub const BFFM_ENABLEOK: u32 = 1125;
 pub const BFFM_INITIALIZED: u32 = 1;
@@ -315,7 +315,7 @@ pub const BIF_UAHINT: u32 = 256;
 pub const BIF_USENEWUI: u32 = 80;
 pub const BIF_VALIDATE: u32 = 32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct BROWSEINFOA {
     pub hwndOwner: super::windef::HWND,
@@ -327,14 +327,14 @@ pub struct BROWSEINFOA {
     pub lParam: super::minwindef::LPARAM,
     pub iImage: i32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 impl Default for BROWSEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct BROWSEINFOW {
     pub hwndOwner: super::windef::HWND,
@@ -346,7 +346,7 @@ pub struct BROWSEINFOW {
     pub lParam: super::minwindef::LPARAM,
     pub iImage: i32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 impl Default for BROWSEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -453,7 +453,7 @@ pub const COMP_TYPE_MAX: u32 = 4;
 pub const COMP_TYPE_PICTURE: u32 = 1;
 pub const COMP_TYPE_WEBSITE: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct CSFV {
     pub cbSize: u32,
@@ -464,7 +464,7 @@ pub struct CSFV {
     pub pfnCallback: LPFNVIEWCALLBACK,
     pub fvm: super::shobjidl_core::FOLDERVIEWMODE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 impl Default for CSFV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -540,7 +540,7 @@ pub struct DATABLOCK_HEADER {
     pub dwSignature: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::windef::HWND,
@@ -553,14 +553,14 @@ pub struct DEFCONTEXTMENU {
     pub cKeys: u32,
     pub aKeys: *const super::minwindef::HKEY,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 impl Default for DEFCONTEXTMENU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[derive(Clone, Copy)]
 pub struct DETAILSINFO {
     pub pidl: super::shtypes::LPCITEMIDLIST,
@@ -569,14 +569,14 @@ pub struct DETAILSINFO {
     pub str: super::shtypes::STRRET,
     pub iImage: i32,
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl Default for DETAILSINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DFMICS {
     pub cbSize: u32,
@@ -587,7 +587,7 @@ pub struct DFMICS {
     pub pici: super::shobjidl_core::LPCMINVOKECOMMANDINFO,
     pub punkSite: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 impl Default for DFMICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -635,7 +635,7 @@ impl Default for DROPDESCRIPTION {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DROPFILES {
     pub pFiles: u32,
@@ -747,7 +747,7 @@ pub const FD_SIZEPOINT: FD_FLAGS = 2;
 pub const FD_UNICODE: FD_FLAGS = -2147483648;
 pub const FD_WRITESTIME: FD_FLAGS = 32;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct FILEDESCRIPTORA {
     pub dwFlags: u32,
@@ -762,14 +762,14 @@ pub struct FILEDESCRIPTORA {
     pub nFileSizeLow: u32,
     pub cFileName: [i8; 260],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for FILEDESCRIPTORA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct FILEDESCRIPTORW {
     pub dwFlags: u32,
@@ -784,33 +784,33 @@ pub struct FILEDESCRIPTORW {
     pub nFileSizeLow: u32,
     pub cFileName: [u16; 260],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for FILEDESCRIPTORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct FILEGROUPDESCRIPTORA {
     pub cItems: u32,
     pub fgd: [FILEDESCRIPTORA; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for FILEGROUPDESCRIPTORA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct FILEGROUPDESCRIPTORW {
     pub cItems: u32,
     pub fgd: [FILEDESCRIPTORW; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for FILEGROUPDESCRIPTORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -909,9 +909,9 @@ pub const KF_FLAG_NO_PACKAGE_REDIRECTION: KNOWN_FOLDER_FLAG = 65536;
 pub const KF_FLAG_RETURN_FILTER_REDIRECTION_TARGET: KNOWN_FOLDER_FLAG = 262144;
 pub const KF_FLAG_SIMPLE_IDLIST: KNOWN_FOLDER_FLAG = 256;
 pub type KNOWN_FOLDER_FLAG = u32;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 pub type LPBROWSEINFOA = *mut BROWSEINFOA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 pub type LPBROWSEINFOW = *mut BROWSEINFOW;
 pub type LPCABINETSTATE = *mut CABINETSTATE;
 pub type LPCCOMPONENT = *const COMPONENT;
@@ -924,37 +924,37 @@ pub type LPCOMPONENTSOPT = *mut COMPONENTSOPT;
 pub type LPCOMPPOS = *mut COMPPOS;
 pub type LPCOMPSTATEINFO = *mut COMPSTATEINFO;
 pub type LPCPROPPRG = *const PROPPRG;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type LPCSFV = *mut CSFV;
 pub type LPCWALLPAPEROPT = *const WALLPAPEROPT;
 pub type LPDATABLOCK_HEADER = *mut DATABLOCK_HEADER;
 pub type LPDBLIST = *mut DATABLOCK_HEADER;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDROPFILES = *mut DROPFILES;
 pub type LPEXP_DARWIN_LINK = *mut EXP_DARWIN_LINK;
 pub type LPEXP_SPECIAL_FOLDER = *mut EXP_SPECIAL_FOLDER;
 pub type LPEXP_SZ_LINK = *mut EXP_SZ_LINK;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPFILEDESCRIPTORA = *mut FILEDESCRIPTORA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPFILEDESCRIPTORW = *mut FILEDESCRIPTORW;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPFILEGROUPDESCRIPTORA = *mut FILEGROUPDESCRIPTORA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPFILEGROUPDESCRIPTORW = *mut FILEGROUPDESCRIPTORW;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "shobjidl_core", feature = "windef"))]
 pub type LPFNDFMCALLBACK = Option<unsafe extern "system" fn(psf: *mut core::ffi::c_void, hwnd: super::windef::HWND, pdtobj: *mut core::ffi::c_void, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
 pub type LPFNVIEWCALLBACK = Option<unsafe extern "system" fn(psvouter: *mut core::ffi::c_void, psf: *mut core::ffi::c_void, hwndmain: super::windef::HWND, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_sys::core::HRESULT>;
 pub type LPIDA = *mut CIDA;
 pub type LPIE4COMPONENT = *mut IE4COMPONENT;
-#[cfg(feature = "Win32_winnetwk")]
+#[cfg(feature = "winnetwk")]
 pub type LPNRESARRAY = *mut NRESARRAY;
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "wincontypes", feature = "windef"))]
 pub type LPNT_CONSOLE_PROPS = *mut NT_CONSOLE_PROPS;
 pub type LPNT_FE_CONSOLE_PROPS = *mut NT_FE_CONSOLE_PROPS;
 pub type LPPROPPRG = *mut PROPPRG;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPQCMINFO = *mut QCMINFO;
 pub type LPSHChangeDWORDAsIDList = *mut SHChangeDWORDAsIDList;
 pub type LPSHChangeUpdateImageIDList = *mut SHChangeUpdateImageIDList;
@@ -962,7 +962,7 @@ pub type LPSHDESCRIPTIONID = *mut SHDESCRIPTIONID;
 pub type LPSHELLFLAGSTATE = *mut SHELLFLAGSTATE;
 pub type LPSHELLSTATEA = *mut SHELLSTATEA;
 pub type LPSHELLSTATEW = *mut SHELLSTATEW;
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 pub type LPSHFOLDERCUSTOMSETTINGS = *mut SHFOLDERCUSTOMSETTINGS;
 pub type LPWALLPAPEROPT = *mut WALLPAPEROPT;
 pub const MAX_COLUMN_DESC_LEN: u32 = 128;
@@ -971,20 +971,20 @@ pub const MM_ADDSEPARATOR: u32 = 1;
 pub const MM_DONTREMOVESEPS: u32 = 4;
 pub const MM_SUBMENUSHAVEIDS: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnetwk")]
+#[cfg(feature = "winnetwk")]
 #[derive(Clone, Copy)]
 pub struct NRESARRAY {
     pub cItems: u32,
     pub nr: [super::winnetwk::NETRESOURCE; 1],
 }
-#[cfg(feature = "Win32_winnetwk")]
+#[cfg(feature = "winnetwk")]
 impl Default for NRESARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "wincontypes", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct NT_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
@@ -1009,7 +1009,7 @@ pub struct NT_CONSOLE_PROPS {
     pub bHistoryNoDup: windows_sys::core::BOOL,
     pub ColorTable: [super::windef::COLORREF; 16],
 }
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "wincontypes", feature = "windef"))]
 impl Default for NT_CONSOLE_PROPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1048,18 +1048,18 @@ impl Default for OPENASINFO {
     }
 }
 pub type OPEN_AS_INFO_FLAGS = i32;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 pub type PBROWSEINFOA = *mut BROWSEINFOA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 pub type PBROWSEINFOW = *mut BROWSEINFOW;
 pub const PCS_FATAL: u32 = 2147483648;
 pub const PCS_PATHTOOLONG: u32 = 8;
 pub const PCS_REMOVEDCHAR: u32 = 2;
 pub const PCS_REPLACEDCHAR: u32 = 1;
 pub const PCS_TRUNCATED: u32 = 4;
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 pub type PDETAILSINFO = *mut DETAILSINFO;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 pub type PDFMICS = *mut DFMICS;
 pub const PDTIMER_PAUSE: u32 = 2;
 pub const PDTIMER_RESET: u32 = 1;
@@ -1152,7 +1152,7 @@ impl Default for PROPPRG {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct QCMINFO {
     pub hmenu: super::windef::HMENU,
@@ -1161,7 +1161,7 @@ pub struct QCMINFO {
     pub idCmdLast: u32,
     pub pIdMap: *const QCMINFO_IDMAP,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for QCMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1396,7 +1396,7 @@ pub const SFVM_INITMENUPOPUP: u32 = 7;
 pub const SFVM_INVOKECOMMAND: u32 = 2;
 pub const SFVM_MERGEMENU: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_prsht"))]
+#[cfg(all(feature = "minwindef", feature = "prsht"))]
 #[derive(Clone, Copy, Default)]
 pub struct SFVM_PROPPAGE_DATA {
     pub dwReserved: u32,
@@ -1416,7 +1416,7 @@ pub const SFVS_SELECT_ALLITEMS: u32 = 1;
 pub const SFVS_SELECT_INVERT: u32 = 2;
 pub const SFVS_SELECT_NONE: u32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_shobjidl_core"))]
+#[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
 #[derive(Clone, Copy)]
 pub struct SFV_CREATE {
     pub cbSize: u32,
@@ -1424,7 +1424,7 @@ pub struct SFV_CREATE {
     pub psvOuter: *mut core::ffi::c_void,
     pub psfvcb: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_shobjidl_core"))]
+#[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
 impl Default for SFV_CREATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1432,39 +1432,39 @@ impl Default for SFV_CREATE {
 }
 pub type SHARD = i32;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 #[derive(Clone, Copy)]
 pub struct SHARDAPPIDINFO {
     pub psi: *mut core::ffi::c_void,
     pub pszAppID: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 impl Default for SHARDAPPIDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[derive(Clone, Copy)]
 pub struct SHARDAPPIDINFOIDLIST {
     pub pidl: super::shtypes::LPCITEMIDLIST,
     pub pszAppID: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl Default for SHARDAPPIDINFOIDLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 #[derive(Clone, Copy)]
 pub struct SHARDAPPIDINFOLINK {
     pub psl: *mut core::ffi::c_void,
     pub pszAppID: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 impl Default for SHARDAPPIDINFOLINK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1532,13 +1532,13 @@ pub struct SHChangeDWORDAsIDList {
     pub cbZero: u16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[derive(Clone, Copy)]
 pub struct SHChangeNotifyEntry {
     pub pidl: super::shtypes::LPCITEMIDLIST,
     pub fRecursive: windows_sys::core::BOOL,
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl Default for SHChangeNotifyEntry {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1630,7 +1630,7 @@ pub const SHFMT_NOFORMAT: u32 = 4294967293;
 pub const SHFMT_OPT_FULL: u32 = 1;
 pub const SHFMT_OPT_SYSONLY: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 #[derive(Clone, Copy)]
 pub struct SHFOLDERCUSTOMSETTINGS {
     pub dwSize: u32,
@@ -1649,7 +1649,7 @@ pub struct SHFOLDERCUSTOMSETTINGS {
     pub pszLogo: windows_sys::core::PWSTR,
     pub cchLogo: u32,
 }
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 impl Default for SHFOLDERCUSTOMSETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

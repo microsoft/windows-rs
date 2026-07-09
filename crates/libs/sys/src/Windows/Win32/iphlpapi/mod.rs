@@ -1,161 +1,161 @@
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 windows_link::link!("iphlpapi.dll" "system" fn AddIPAddress(address : super::ntddndis::IPAddr, ipmask : super::ntddndis::IPMask, ifindex : u32, ntecontext : *mut u32, nteinstance : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("iphlpapi.dll" "system" fn CancelIPChangeNotify(notifyoverlapped : *const super::minwinbase::OVERLAPPED) -> windows_sys::core::BOOL);
 windows_link::link!("iphlpapi.dll" "system" fn CancelIfTimestampConfigChange(notificationhandle : HIFTIMESTAMPCHANGE));
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 windows_link::link!("iphlpapi.dll" "system" fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid : *const super::ifdef::NET_LUID, crosstimestamp : *mut INTERFACE_HARDWARE_CROSSTIMESTAMP) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 windows_link::link!("iphlpapi.dll" "system" fn CreateIpForwardEntry(proute : *const super::ipmib::MIB_IPFORWARDROW) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn CreateIpNetEntry(parpentry : *const super::ipmib::MIB_IPNETROW_LH) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn CreatePersistentTcpPortReservation(startport : u16, numberofports : u16, token : *mut u64) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn CreatePersistentUdpPortReservation(startport : u16, numberofports : u16, token : *mut u64) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn CreateProxyArpEntry(dwaddress : u32, dwmask : u32, dwifindex : u32) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn DeleteIPAddress(ntecontext : u32) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 windows_link::link!("iphlpapi.dll" "system" fn DeleteIpForwardEntry(proute : *const super::ipmib::MIB_IPFORWARDROW) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn DeleteIpNetEntry(parpentry : *const super::ipmib::MIB_IPNETROW_LH) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn DeletePersistentTcpPortReservation(startport : u16, numberofports : u16) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn DeletePersistentUdpPortReservation(startport : u16, numberofports : u16) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn DeleteProxyArpEntry(dwaddress : u32, dwmask : u32, dwifindex : u32) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("iphlpapi.dll" "system" fn DisableMediaSense(phandle : *mut super::winnt::HANDLE, poverlapped : *const super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("iphlpapi.dll" "system" fn EnableRouter(phandle : *mut super::winnt::HANDLE, poverlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn FlushIpNetTable(dwifindex : u32) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn GetAdapterIndex(adaptername : windows_sys::core::PCWSTR, ifindex : *mut u32) -> u32);
-#[cfg(feature = "Win32_ipexport")]
+#[cfg(feature = "ipexport")]
 windows_link::link!("iphlpapi.dll" "system" fn GetAdapterOrderMap() -> super::ipexport::PIP_ADAPTER_ORDER_MAP);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons", feature = "Win32_iptypes", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "iptypes", feature = "nldef", feature = "winnt", feature = "ws2"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetAdaptersAddresses(family : u32, flags : u32, reserved : *const core::ffi::c_void, adapteraddresses : *mut super::iptypes::IP_ADAPTER_ADDRESSES_LH, sizepointer : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_corecrt", feature = "Win32_iptypes"))]
+#[cfg(all(feature = "corecrt", feature = "iptypes"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetAdaptersInfo(adapterinfo : *mut super::iptypes::IP_ADAPTER_INFO, sizepointer : *mut u32) -> u32);
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 windows_link::link!("iphlpapi.dll" "system" fn GetBestInterface(dwdestaddr : super::ntddndis::IPAddr, pdwbestifindex : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetBestRoute(dwdestaddr : u32, dwsourceaddr : u32, pbestroute : *mut super::ipmib::MIB_IPFORWARDROW) -> u32);
-#[cfg(feature = "Win32_iprtrmib")]
+#[cfg(feature = "iprtrmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetExtendedTcpTable(ptcptable : *mut core::ffi::c_void, pdwsize : *mut u32, border : windows_sys::core::BOOL, ulaf : u32, tableclass : super::iprtrmib::TCP_TABLE_CLASS, reserved : u32) -> u32);
-#[cfg(feature = "Win32_iprtrmib")]
+#[cfg(feature = "iprtrmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetExtendedUdpTable(pudptable : *mut core::ffi::c_void, pdwsize : *mut u32, border : windows_sys::core::BOOL, ulaf : u32, tableclass : super::iprtrmib::UDP_TABLE_CLASS, reserved : u32) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn GetFriendlyIfIndex(ifindex : u32) -> u32);
-#[cfg(feature = "Win32_ipmib")]
+#[cfg(feature = "ipmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetIcmpStatistics(statistics : *mut super::ipmib::MIB_ICMP) -> u32);
-#[cfg(feature = "Win32_ipmib")]
+#[cfg(feature = "ipmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetIcmpStatisticsEx(statistics : *mut super::ipmib::MIB_ICMP_EX_XPSP1, family : u32) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ifmib", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ifmib", feature = "ipifcons"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetIfEntry(pifrow : *mut super::ifmib::MIB_IFROW) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ifmib", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ifmib", feature = "ipifcons"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetIfTable(piftable : *mut super::ifmib::MIB_IFTABLE, pdwsize : *mut u32, border : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 windows_link::link!("iphlpapi.dll" "system" fn GetInterfaceActiveTimestampCapabilities(interfaceluid : *const super::ifdef::NET_LUID, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 windows_link::link!("iphlpapi.dll" "system" fn GetInterfaceCurrentTimestampCapabilities(interfaceluid : *const super::ifdef::NET_LUID, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 windows_link::link!("iphlpapi.dll" "system" fn GetInterfaceHardwareTimestampCapabilities(interfaceluid : *const super::ifdef::NET_LUID, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
-#[cfg(feature = "Win32_ipexport")]
+#[cfg(feature = "ipexport")]
 windows_link::link!("iphlpapi.dll" "system" fn GetInterfaceInfo(piftable : *mut super::ipexport::IP_INTERFACE_INFO, dwoutbuflen : *mut u32) -> u32);
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 windows_link::link!("iphlpapi.dll" "system" fn GetInterfaceSupportedTimestampCapabilities(interfaceluid : *const super::ifdef::NET_LUID, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetIpAddrTable(pipaddrtable : *mut super::ipmib::MIB_IPADDRTABLE, pdwsize : *mut u32, border : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_ipexport")]
+#[cfg(feature = "ipexport")]
 windows_link::link!("iphlpapi.dll" "system" fn GetIpErrorString(errorcode : super::ipexport::IP_STATUS, buffer : windows_sys::core::PWSTR, size : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetIpForwardTable(pipforwardtable : *mut super::ipmib::MIB_IPFORWARDTABLE, pdwsize : *mut u32, border : windows_sys::core::BOOL) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetIpNetTable(ipnettable : *mut super::ipmib::MIB_IPNETTABLE, sizepointer : *mut u32, order : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_ipmib")]
+#[cfg(feature = "ipmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetIpStatistics(statistics : *mut super::ipmib::MIB_IPSTATS_LH) -> u32);
-#[cfg(feature = "Win32_ipmib")]
+#[cfg(feature = "ipmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetIpStatisticsEx(statistics : *mut super::ipmib::MIB_IPSTATS_LH, family : u32) -> u32);
-#[cfg(feature = "Win32_iptypes")]
+#[cfg(feature = "iptypes")]
 windows_link::link!("iphlpapi.dll" "system" fn GetNetworkParams(pfixedinfo : *mut super::iptypes::FIXED_INFO_W2KSP1, poutbuflen : *mut u32) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn GetNumberOfInterfaces(pdwnumif : *mut u32) -> u32);
-#[cfg(feature = "Win32_iprtrmib")]
+#[cfg(feature = "iprtrmib")]
 windows_link::link!("iphlpapi.dll" "C" fn GetOwnerModuleFromPidAndInfo(ulpid : u32, pinfo : *const u64, class : super::iprtrmib::TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut core::ffi::c_void, pdwsize : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_iprtrmib", feature = "Win32_tcpmib"))]
+#[cfg(all(feature = "iprtrmib", feature = "tcpmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromTcp6Entry(ptcpentry : *const super::tcpmib::MIB_TCP6ROW_OWNER_MODULE, class : super::iprtrmib::TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut core::ffi::c_void, pdwsize : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_iprtrmib", feature = "Win32_tcpmib"))]
+#[cfg(all(feature = "iprtrmib", feature = "tcpmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromTcpEntry(ptcpentry : *const super::tcpmib::MIB_TCPROW_OWNER_MODULE, class : super::iprtrmib::TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut core::ffi::c_void, pdwsize : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_iprtrmib", feature = "Win32_udpmib"))]
+#[cfg(all(feature = "iprtrmib", feature = "udpmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromUdp6Entry(pudpentry : *const super::udpmib::MIB_UDP6ROW_OWNER_MODULE, class : super::iprtrmib::TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut core::ffi::c_void, pdwsize : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_iprtrmib", feature = "Win32_udpmib"))]
+#[cfg(all(feature = "iprtrmib", feature = "udpmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromUdpEntry(pudpentry : *const super::udpmib::MIB_UDPROW_OWNER_MODULE, class : super::iprtrmib::TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut core::ffi::c_void, pdwsize : *mut u32) -> u32);
-#[cfg(feature = "Win32_iptypes")]
+#[cfg(feature = "iptypes")]
 windows_link::link!("iphlpapi.dll" "system" fn GetPerAdapterInfo(ifindex : u32, pperadapterinfo : *mut super::iptypes::IP_PER_ADAPTER_INFO_W2KSP1, poutbuflen : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_tcpestats", feature = "Win32_tcpmib"))]
+#[cfg(all(feature = "in6addr", feature = "tcpestats", feature = "tcpmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetPerTcp6ConnectionEStats(row : *const super::tcpmib::MIB_TCP6ROW, estatstype : super::tcpestats::TCP_ESTATS_TYPE, rw : *mut u8, rwversion : u32, rwsize : u32, ros : *mut u8, rosversion : u32, rossize : u32, rod : *mut u8, rodversion : u32, rodsize : u32) -> u32);
-#[cfg(all(feature = "Win32_tcpestats", feature = "Win32_tcpmib"))]
+#[cfg(all(feature = "tcpestats", feature = "tcpmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetPerTcpConnectionEStats(row : *const super::tcpmib::MIB_TCPROW_LH, estatstype : super::tcpestats::TCP_ESTATS_TYPE, rw : *mut u8, rwversion : u32, rwsize : u32, ros : *mut u8, rosversion : u32, rossize : u32, rod : *mut u8, rodversion : u32, rodsize : u32) -> u32);
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 windows_link::link!("iphlpapi.dll" "system" fn GetRTTAndHopCount(destipaddress : super::ntddndis::IPAddr, hopcount : *mut u32, maxhops : u32, rtt : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_tcpmib"))]
+#[cfg(all(feature = "in6addr", feature = "tcpmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetTcp6Table(tcptable : *mut super::tcpmib::MIB_TCP6TABLE, sizepointer : *mut u32, order : windows_sys::core::BOOL) -> u32);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_tcpmib"))]
+#[cfg(all(feature = "in6addr", feature = "tcpmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetTcp6Table2(tcptable : *mut super::tcpmib::MIB_TCP6TABLE2, sizepointer : *mut u32, order : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_tcpmib")]
+#[cfg(feature = "tcpmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetTcpStatistics(statistics : *mut super::tcpmib::MIB_TCPSTATS_LH) -> u32);
-#[cfg(feature = "Win32_tcpmib")]
+#[cfg(feature = "tcpmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetTcpStatisticsEx(statistics : *mut super::tcpmib::MIB_TCPSTATS_LH, family : u32) -> u32);
-#[cfg(feature = "Win32_tcpmib")]
+#[cfg(feature = "tcpmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetTcpStatisticsEx2(statistics : *mut super::tcpmib::MIB_TCPSTATS2, family : u32) -> u32);
-#[cfg(feature = "Win32_tcpmib")]
+#[cfg(feature = "tcpmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetTcpTable(tcptable : *mut super::tcpmib::MIB_TCPTABLE, sizepointer : *mut u32, order : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_tcpmib")]
+#[cfg(feature = "tcpmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetTcpTable2(tcptable : *mut super::tcpmib::MIB_TCPTABLE2, sizepointer : *mut u32, order : windows_sys::core::BOOL) -> u32);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_udpmib"))]
+#[cfg(all(feature = "in6addr", feature = "udpmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetUdp6Table(udp6table : *mut super::udpmib::MIB_UDP6TABLE, sizepointer : *mut u32, order : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_udpmib")]
+#[cfg(feature = "udpmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetUdpStatistics(stats : *mut super::udpmib::MIB_UDPSTATS) -> u32);
-#[cfg(feature = "Win32_udpmib")]
+#[cfg(feature = "udpmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetUdpStatisticsEx(statistics : *mut super::udpmib::MIB_UDPSTATS, family : u32) -> u32);
-#[cfg(feature = "Win32_udpmib")]
+#[cfg(feature = "udpmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetUdpStatisticsEx2(statistics : *mut super::udpmib::MIB_UDPSTATS2, family : u32) -> u32);
-#[cfg(feature = "Win32_udpmib")]
+#[cfg(feature = "udpmib")]
 windows_link::link!("iphlpapi.dll" "system" fn GetUdpTable(udptable : *mut super::udpmib::MIB_UDPTABLE, sizepointer : *mut u32, order : windows_sys::core::BOOL) -> u32);
-#[cfg(all(feature = "Win32_ipexport", feature = "Win32_ntddndis"))]
+#[cfg(all(feature = "ipexport", feature = "ntddndis"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetUniDirectionalAdapterInfo(pipifinfo : *mut super::ipexport::IP_UNIDIRECTIONAL_ADAPTER_ADDRESS, dwoutbuflen : *mut u32) -> u32);
-#[cfg(feature = "Win32_ipexport")]
+#[cfg(feature = "ipexport")]
 windows_link::link!("iphlpapi.dll" "system" fn IpReleaseAddress(adapterinfo : *const super::ipexport::IP_ADAPTER_INDEX_MAP) -> u32);
-#[cfg(feature = "Win32_ipexport")]
+#[cfg(feature = "ipexport")]
 windows_link::link!("iphlpapi.dll" "system" fn IpRenewAddress(adapterinfo : *const super::ipexport::IP_ADAPTER_INDEX_MAP) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn LookupPersistentTcpPortReservation(startport : u16, numberofports : u16, token : *mut u64) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn LookupPersistentUdpPortReservation(startport : u16, numberofports : u16, token : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_iptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "iptypes", feature = "winnt"))]
 windows_link::link!("iphlpapi.dll" "system" fn NhpAllocateAndGetInterfaceInfoFromStack(pptable : *mut *mut super::iptypes::IP_INTERFACE_NAME_INFO, pdwcount : *mut u32, border : windows_sys::core::BOOL, hheap : super::winnt::HANDLE, dwflags : u32) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("iphlpapi.dll" "system" fn NotifyAddrChange(handle : *mut super::winnt::HANDLE, overlapped : *const super::minwinbase::OVERLAPPED) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn NotifyIfTimestampConfigChange(callercontext : *const core::ffi::c_void, callback : PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, notificationhandle : *mut HIFTIMESTAMPCHANGE) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("iphlpapi.dll" "system" fn NotifyRouteChange(handle : *mut super::winnt::HANDLE, overlapped : *const super::minwinbase::OVERLAPPED) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn RegisterInterfaceTimestampConfigChange(callback : PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, notificationhandle : *mut HIFTIMESTAMPCHANGE) -> u32);
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 windows_link::link!("iphlpapi.dll" "system" fn ResolveNeighbor(networkaddress : *const super::ws2::SOCKADDR, physicaladdress : *mut core::ffi::c_void, physicaladdresslength : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("iphlpapi.dll" "system" fn RestoreMediaSense(poverlapped : *const super::minwinbase::OVERLAPPED, lpdwenablecount : *mut u32) -> u32);
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 windows_link::link!("iphlpapi.dll" "system" fn SendARP(destip : super::ntddndis::IPAddr, srcip : super::ntddndis::IPAddr, pmacaddr : *mut core::ffi::c_void, phyaddrlen : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ifmib", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ifmib", feature = "ipifcons"))]
 windows_link::link!("iphlpapi.dll" "system" fn SetIfEntry(pifrow : *const super::ifmib::MIB_IFROW) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 windows_link::link!("iphlpapi.dll" "system" fn SetIpForwardEntry(proute : *const super::ipmib::MIB_IPFORWARDROW) -> u32);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn SetIpNetEntry(parpentry : *const super::ipmib::MIB_IPNETROW_LH) -> u32);
-#[cfg(feature = "Win32_ipmib")]
+#[cfg(feature = "ipmib")]
 windows_link::link!("iphlpapi.dll" "system" fn SetIpStatistics(pipstats : *const super::ipmib::MIB_IPSTATS_LH) -> u32);
-#[cfg(feature = "Win32_ipmib")]
+#[cfg(feature = "ipmib")]
 windows_link::link!("iphlpapi.dll" "system" fn SetIpStatisticsEx(statistics : *const super::ipmib::MIB_IPSTATS_LH, family : u32) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn SetIpTTL(nttl : u32) -> u32);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_tcpestats", feature = "Win32_tcpmib"))]
+#[cfg(all(feature = "in6addr", feature = "tcpestats", feature = "tcpmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn SetPerTcp6ConnectionEStats(row : *const super::tcpmib::MIB_TCP6ROW, estatstype : super::tcpestats::TCP_ESTATS_TYPE, rw : *const u8, rwversion : u32, rwsize : u32, offset : u32) -> u32);
-#[cfg(all(feature = "Win32_tcpestats", feature = "Win32_tcpmib"))]
+#[cfg(all(feature = "tcpestats", feature = "tcpmib"))]
 windows_link::link!("iphlpapi.dll" "system" fn SetPerTcpConnectionEStats(row : *const super::tcpmib::MIB_TCPROW_LH, estatstype : super::tcpestats::TCP_ESTATS_TYPE, rw : *const u8, rwversion : u32, rwsize : u32, offset : u32) -> u32);
-#[cfg(feature = "Win32_tcpmib")]
+#[cfg(feature = "tcpmib")]
 windows_link::link!("iphlpapi.dll" "system" fn SetTcpEntry(ptcprow : *const super::tcpmib::MIB_TCPROW_LH) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("iphlpapi.dll" "system" fn UnenableRouter(poverlapped : *const super::minwinbase::OVERLAPPED, lpdwenablecount : *mut u32) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn UnregisterInterfaceTimestampConfigChange(notificationhandle : HIFTIMESTAMPCHANGE));
 pub type HIFTIMESTAMPCHANGE = *mut core::ffi::c_void;

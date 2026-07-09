@@ -1,10 +1,10 @@
 #[cfg(feature = "Foundation_Numerics")]
 windows_link::link!("d2d1.dll" "system" fn D2D1ComputeMaximumScaleFactor(matrix : *const super::super::Foundation::Numerics::Matrix3x2) -> f32);
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 windows_link::link!("d2d1.dll" "system" fn D2D1ConvertColorSpace(sourcecolorspace : D2D1_COLOR_SPACE, destinationcolorspace : D2D1_COLOR_SPACE, color : *const D2D_COLOR_F) -> D2D_COLOR_F);
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 windows_link::link!("d2d1.dll" "system" fn D2D1CreateDevice(dxgidevice : *mut core::ffi::c_void, creationproperties : *const D2D1_CREATION_PROPERTIES, d2ddevice : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 windows_link::link!("d2d1.dll" "system" fn D2D1CreateDeviceContext(dxgisurface : *mut core::ffi::c_void, creationproperties : *const D2D1_CREATION_PROPERTIES, d2ddevicecontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("d2d1.dll" "system" fn D2D1CreateFactory(factorytype : D2D1_FACTORY_TYPE, riid : *const windows_sys::core::GUID, pfactoryoptions : *const D2D1_FACTORY_OPTIONS, ppifactory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Foundation_Numerics")]
@@ -133,7 +133,7 @@ pub const D2D1_ANTIALIAS_MODE_ALIASED: D2D1_ANTIALIAS_MODE = 1;
 pub const D2D1_ANTIALIAS_MODE_FORCE_DWORD: D2D1_ANTIALIAS_MODE = -1;
 pub const D2D1_ANTIALIAS_MODE_PER_PRIMITIVE: D2D1_ANTIALIAS_MODE = 0;
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_dcommon"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "dcommon"))]
 #[derive(Clone, Copy, Default)]
 pub struct D2D1_ARC_SEGMENT {
     pub point: super::super::Foundation::Numerics::Vector2,
@@ -217,7 +217,7 @@ pub const D2D1_BITMAP_OPTIONS_GDI_COMPATIBLE: D2D1_BITMAP_OPTIONS = 8;
 pub const D2D1_BITMAP_OPTIONS_NONE: D2D1_BITMAP_OPTIONS = 0;
 pub const D2D1_BITMAP_OPTIONS_TARGET: D2D1_BITMAP_OPTIONS = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 #[derive(Clone, Copy, Default)]
 pub struct D2D1_BITMAP_PROPERTIES {
     pub pixelFormat: super::dcommon::D2D1_PIXEL_FORMAT,
@@ -225,7 +225,7 @@ pub struct D2D1_BITMAP_PROPERTIES {
     pub dpiY: f32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 #[derive(Clone, Copy)]
 pub struct D2D1_BITMAP_PROPERTIES1 {
     pub pixelFormat: super::dcommon::D2D1_PIXEL_FORMAT,
@@ -234,7 +234,7 @@ pub struct D2D1_BITMAP_PROPERTIES1 {
     pub bitmapOptions: D2D1_BITMAP_OPTIONS,
     pub colorContext: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 impl Default for D2D1_BITMAP_PROPERTIES1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -576,14 +576,14 @@ pub const D2D1_EDGEDETECTION_PROP_MODE: D2D1_EDGEDETECTION_PROP = 2;
 pub const D2D1_EDGEDETECTION_PROP_OVERLAY_EDGES: D2D1_EDGEDETECTION_PROP = 3;
 pub const D2D1_EDGEDETECTION_PROP_STRENGTH: D2D1_EDGEDETECTION_PROP = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 #[derive(Clone, Copy)]
 pub struct D2D1_EFFECT_INPUT_DESCRIPTION {
     pub effect: *mut core::ffi::c_void,
     pub inputIndex: u32,
     pub inputRectangle: super::dcommon::D2D_RECT_F,
 }
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 impl Default for D2D1_EFFECT_INPUT_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -688,7 +688,7 @@ pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_CUBICS_AND_LINES: D2D1_GEOMETRY_SI
 pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_FORCE_DWORD: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = -1;
 pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_LINES: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = 1;
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "dxgi"))]
 #[derive(Clone, Copy, Default)]
 pub struct D2D1_GRADIENT_MESH_PATCH {
     pub point00: super::super::Foundation::Numerics::Vector2,
@@ -717,7 +717,7 @@ pub struct D2D1_GRADIENT_MESH_PATCH {
     pub rightEdgeMode: D2D1_PATCH_EDGE_MODE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
 pub struct D2D1_GRADIENT_STOP {
     pub position: f32,
@@ -759,21 +759,21 @@ pub type D2D1_HUETORGB_PROP = i32;
 pub const D2D1_HUETORGB_PROP_FORCE_DWORD: D2D1_HUETORGB_PROP = -1;
 pub const D2D1_HUETORGB_PROP_INPUT_COLOR_SPACE: D2D1_HUETORGB_PROP = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct D2D1_HWND_RENDER_TARGET_PROPERTIES {
     pub hwnd: super::windef::HWND,
     pub pixelSize: super::dcommon::D2D_SIZE_U,
     pub presentOptions: D2D1_PRESENT_OPTIONS,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 impl Default for D2D1_HWND_RENDER_TARGET_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 #[derive(Clone, Copy, Default)]
 pub struct D2D1_IMAGE_BRUSH_PROPERTIES {
     pub sourceRectangle: super::dcommon::D2D_RECT_F,
@@ -843,7 +843,7 @@ pub const D2D1_LAYER_OPTIONS_FORCE_DWORD: D2D1_LAYER_OPTIONS = 4294967295;
 pub const D2D1_LAYER_OPTIONS_INITIALIZE_FOR_CLEARTYPE: D2D1_LAYER_OPTIONS = 1;
 pub const D2D1_LAYER_OPTIONS_NONE: D2D1_LAYER_OPTIONS = 0;
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_dcommon"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "dcommon"))]
 #[derive(Clone, Copy)]
 pub struct D2D1_LAYER_PARAMETERS {
     pub contentBounds: super::dcommon::D2D_RECT_F,
@@ -854,14 +854,14 @@ pub struct D2D1_LAYER_PARAMETERS {
     pub opacityBrush: *mut core::ffi::c_void,
     pub layerOptions: D2D1_LAYER_OPTIONS,
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_dcommon"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "dcommon"))]
 impl Default for D2D1_LAYER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_dcommon"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "dcommon"))]
 #[derive(Clone, Copy)]
 pub struct D2D1_LAYER_PARAMETERS1 {
     pub contentBounds: super::dcommon::D2D_RECT_F,
@@ -872,7 +872,7 @@ pub struct D2D1_LAYER_PARAMETERS1 {
     pub opacityBrush: *mut core::ffi::c_void,
     pub layerOptions: D2D1_LAYER_OPTIONS1,
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_dcommon"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "dcommon"))]
 impl Default for D2D1_LAYER_PARAMETERS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1092,7 +1092,7 @@ pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
     pub radiusY: f32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 #[derive(Clone, Copy, Default)]
 pub struct D2D1_RENDERING_CONTROLS {
     pub bufferPrecision: D2D1_BUFFER_PRECISION,
@@ -1103,7 +1103,7 @@ pub const D2D1_RENDERING_PRIORITY_FORCE_DWORD: D2D1_RENDERING_PRIORITY = -1;
 pub const D2D1_RENDERING_PRIORITY_LOW: D2D1_RENDERING_PRIORITY = 1;
 pub const D2D1_RENDERING_PRIORITY_NORMAL: D2D1_RENDERING_PRIORITY = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 #[derive(Clone, Copy, Default)]
 pub struct D2D1_RENDER_TARGET_PROPERTIES {
     pub r#type: D2D1_RENDER_TARGET_TYPE,
@@ -1131,7 +1131,7 @@ pub type D2D1_RGBTOHUE_PROP = i32;
 pub const D2D1_RGBTOHUE_PROP_FORCE_DWORD: D2D1_RGBTOHUE_PROP = -1;
 pub const D2D1_RGBTOHUE_PROP_OUTPUT_COLOR_SPACE: D2D1_RGBTOHUE_PROP = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 #[derive(Clone, Copy, Default)]
 pub struct D2D1_ROUNDED_RECT {
     pub rect: super::dcommon::D2D_RECT_F,
@@ -1504,7 +1504,7 @@ pub const D2D1_YCBCR_PROP_TRANSFORM_MATRIX: D2D1_YCBCR_PROP = 1;
 pub const D2DERR_FILE_NOT_FOUND: i32 = -2147024894;
 pub const D2DERR_INSUFFICIENT_BUFFER: i32 = -2147024774;
 pub const D2DERR_UNSUPPORTED_PIXEL_FORMAT: i32 = -2003292288;
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 pub type D2D_COLOR_F = super::dxgi::D3DCOLORVALUE;
 pub const FACILITY_D2D: u32 = 2201;
 #[repr(C)]

@@ -24,7 +24,7 @@ pub type ITEMID_CHILD = ITEMIDLIST;
 pub type KF_REDIRECT_FLAGS = u32;
 pub type KNOWNFOLDERID = windows_sys::core::GUID;
 pub type LPCITEMIDLIST = *const ITEMIDLIST;
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub type LPCSHCOLUMNID = *const SHCOLUMNID;
 pub type LPCSHITEMID = *const SHITEMID;
 pub type LPITEMIDLIST = *mut ITEMIDLIST;
@@ -94,7 +94,7 @@ pub const SHCOLSTATE_TYPE_DATE: SHCOLSTATE = 3;
 pub const SHCOLSTATE_TYPE_INT: SHCOLSTATE = 2;
 pub const SHCOLSTATE_TYPE_STR: SHCOLSTATE = 1;
 pub const SHCOLSTATE_VIEWONLY: SHCOLSTATE = 65536;
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub type SHCOLUMNID = super::wtypes::PROPERTYKEY;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -147,5 +147,5 @@ pub const STRRET_OFFSET: STRRET_TYPE = 1;
 pub type STRRET_TYPE = i32;
 pub const STRRET_WSTR: STRRET_TYPE = 0;
 pub type TASKOWNERID = windows_sys::core::GUID;
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 pub type wirePIDL = *mut super::wtypesbase::BYTE_BLOB;

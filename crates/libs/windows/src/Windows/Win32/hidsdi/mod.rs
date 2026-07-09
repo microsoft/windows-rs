@@ -1,28 +1,28 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_FlushQueue(hiddeviceobject: super::winnt::HANDLE) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_FlushQueue(hiddeviceobject : super::winnt::HANDLE) -> bool);
     unsafe { HidD_FlushQueue(hiddeviceobject) }
 }
-#[cfg(feature = "Win32_hidpi")]
+#[cfg(feature = "hidpi")]
 #[inline]
 pub unsafe fn HidD_FreePreparsedData(preparseddata: *const super::hidpi::_HIDP_PREPARSED_DATA) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_FreePreparsedData(preparseddata : *const super::hidpi::_HIDP_PREPARSED_DATA) -> bool);
     unsafe { HidD_FreePreparsedData(preparseddata) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_GetAttributes(hiddeviceobject: super::winnt::HANDLE, attributes: *mut HIDD_ATTRIBUTES) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetAttributes(hiddeviceobject : super::winnt::HANDLE, attributes : *mut HIDD_ATTRIBUTES) -> bool);
     unsafe { HidD_GetAttributes(hiddeviceobject, attributes as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_GetConfiguration(hiddeviceobject: super::winnt::HANDLE, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetConfiguration(hiddeviceobject : super::winnt::HANDLE, configuration : *mut HIDD_CONFIGURATION, configurationlength : u32) -> bool);
     unsafe { HidD_GetConfiguration(hiddeviceobject, configuration as _, configurationlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_GetFeature(hiddeviceobject: super::winnt::HANDLE, reportbuffer: *mut core::ffi::c_void, reportbufferlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetFeature(hiddeviceobject : super::winnt::HANDLE, reportbuffer : *mut core::ffi::c_void, reportbufferlength : u32) -> bool);
@@ -37,79 +37,79 @@ pub unsafe fn HidD_GetHidGuid() -> windows_core::GUID {
         result__
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_GetIndexedString(hiddeviceobject: super::winnt::HANDLE, stringindex: u32, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetIndexedString(hiddeviceobject : super::winnt::HANDLE, stringindex : u32, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
     unsafe { HidD_GetIndexedString(hiddeviceobject, stringindex, buffer as _, bufferlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_GetInputReport(hiddeviceobject: super::winnt::HANDLE, reportbuffer: *mut core::ffi::c_void, reportbufferlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetInputReport(hiddeviceobject : super::winnt::HANDLE, reportbuffer : *mut core::ffi::c_void, reportbufferlength : u32) -> bool);
     unsafe { HidD_GetInputReport(hiddeviceobject, reportbuffer as _, reportbufferlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_GetManufacturerString(hiddeviceobject: super::winnt::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetManufacturerString(hiddeviceobject : super::winnt::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
     unsafe { HidD_GetManufacturerString(hiddeviceobject, buffer as _, bufferlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::winnt::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetMsGenreDescriptor(hiddeviceobject : super::winnt::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
     unsafe { HidD_GetMsGenreDescriptor(hiddeviceobject, buffer as _, bufferlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_GetNumInputBuffers(hiddeviceobject: super::winnt::HANDLE, numberbuffers: *mut u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetNumInputBuffers(hiddeviceobject : super::winnt::HANDLE, numberbuffers : *mut u32) -> bool);
     unsafe { HidD_GetNumInputBuffers(hiddeviceobject, numberbuffers as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::winnt::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetPhysicalDescriptor(hiddeviceobject : super::winnt::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
     unsafe { HidD_GetPhysicalDescriptor(hiddeviceobject, buffer as _, bufferlength) }
 }
-#[cfg(all(feature = "Win32_hidpi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "hidpi", feature = "winnt"))]
 #[inline]
 pub unsafe fn HidD_GetPreparsedData(hiddeviceobject: super::winnt::HANDLE, preparseddata: *mut super::hidpi::PHIDP_PREPARSED_DATA) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetPreparsedData(hiddeviceobject : super::winnt::HANDLE, preparseddata : *mut super::hidpi::PHIDP_PREPARSED_DATA) -> bool);
     unsafe { HidD_GetPreparsedData(hiddeviceobject, preparseddata as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_GetProductString(hiddeviceobject: super::winnt::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetProductString(hiddeviceobject : super::winnt::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
     unsafe { HidD_GetProductString(hiddeviceobject, buffer as _, bufferlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_GetSerialNumberString(hiddeviceobject: super::winnt::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_GetSerialNumberString(hiddeviceobject : super::winnt::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
     unsafe { HidD_GetSerialNumberString(hiddeviceobject, buffer as _, bufferlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_SetConfiguration(hiddeviceobject: super::winnt::HANDLE, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_SetConfiguration(hiddeviceobject : super::winnt::HANDLE, configuration : *const HIDD_CONFIGURATION, configurationlength : u32) -> bool);
     unsafe { HidD_SetConfiguration(hiddeviceobject, configuration, configurationlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_SetFeature(hiddeviceobject: super::winnt::HANDLE, reportbuffer: *const core::ffi::c_void, reportbufferlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_SetFeature(hiddeviceobject : super::winnt::HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> bool);
     unsafe { HidD_SetFeature(hiddeviceobject, reportbuffer, reportbufferlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_SetNumInputBuffers(hiddeviceobject: super::winnt::HANDLE, numberbuffers: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_SetNumInputBuffers(hiddeviceobject : super::winnt::HANDLE, numberbuffers : u32) -> bool);
     unsafe { HidD_SetNumInputBuffers(hiddeviceobject, numberbuffers) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn HidD_SetOutputReport(hiddeviceobject: super::winnt::HANDLE, reportbuffer: *const core::ffi::c_void, reportbufferlength: u32) -> bool {
     windows_core::link!("hid.dll" "system" fn HidD_SetOutputReport(hiddeviceobject : super::winnt::HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> bool);

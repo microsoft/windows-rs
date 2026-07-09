@@ -450,7 +450,7 @@ pub type NDIS_FDDI_ATTACHMENT_TYPE = i32;
 pub type NDIS_FDDI_LCONNECTION_STATE = i32;
 pub type NDIS_FDDI_RING_MGT_STATE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_oidtypes", feature = "Win32_types"))]
+#[cfg(all(feature = "oidtypes", feature = "types"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_GUID {
     pub Guid: windows_sys::core::GUID,
@@ -458,27 +458,27 @@ pub struct NDIS_GUID {
     pub Size: u32,
     pub Flags: u32,
 }
-#[cfg(all(feature = "Win32_oidtypes", feature = "Win32_types"))]
+#[cfg(all(feature = "oidtypes", feature = "types"))]
 impl Default for NDIS_GUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_oidtypes", feature = "Win32_types"))]
+#[cfg(all(feature = "oidtypes", feature = "types"))]
 #[derive(Clone, Copy)]
 pub union NDIS_GUID_0 {
     pub Oid: super::oidtypes::NDIS_OID,
     pub Status: super::types::NDIS_STATUS,
 }
-#[cfg(all(feature = "Win32_oidtypes", feature = "Win32_types"))]
+#[cfg(all(feature = "oidtypes", feature = "types"))]
 impl Default for NDIS_GUID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -489,16 +489,16 @@ pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
 }
 pub const NDIS_HARDWARE_CROSSTIMESTAMP_REVISION_1: u32 = 1;
 pub type NDIS_HARDWARE_STATUS = i32;
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 pub type NDIS_IF_COUNTED_STRING = super::ifdef::IF_COUNTED_STRING;
 pub const NDIS_IF_MAX_STRING_SIZE: u32 = 256;
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 pub type NDIS_IF_PHYSICAL_ADDRESS = super::ifdef::IF_PHYSICAL_ADDRESS;
 pub type NDIS_INTERRUPT_MODERATION = i32;
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_REINITIALIZE: u32 = 2;
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_RESET: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -533,7 +533,7 @@ pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_IP_OPER_STATE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -542,7 +542,7 @@ pub struct NDIS_IP_OPER_STATE {
 }
 pub const NDIS_IP_OPER_STATE_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_IP_OPER_STATUS {
     pub AddressFamily: u32,
@@ -550,7 +550,7 @@ pub struct NDIS_IP_OPER_STATUS {
     pub OperationalStatusFlags: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_IP_OPER_STATUS_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -558,7 +558,7 @@ pub struct NDIS_IP_OPER_STATUS_INFO {
     pub NumberofAddressFamiliesReturned: u32,
     pub IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 impl Default for NDIS_IP_OPER_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -572,7 +572,7 @@ pub struct NDIS_IRDA_PACKET_INFO {
     pub MinTurnAroundTime: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_LINK_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -591,7 +591,7 @@ pub struct NDIS_LINK_SPEED {
 }
 pub const NDIS_LINK_SPEED_UNKNOWN: i32 = -1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_LINK_STATE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -621,9 +621,9 @@ pub const NDIS_MAC_OPTION_TRANSFERS_NOT_PEND: u32 = 4;
 pub const NDIS_MAX_PHYS_ADDRESS_LENGTH: u32 = 32;
 pub const NDIS_MEDIA_CAP_RECEIVE: u32 = 2;
 pub const NDIS_MEDIA_CAP_TRANSMIT: u32 = 1;
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 pub type NDIS_MEDIA_CONNECT_STATE = super::ifdef::NET_IF_MEDIA_CONNECT_STATE;
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 pub type NDIS_MEDIA_DUPLEX_STATE = super::ifdef::NET_IF_MEDIA_DUPLEX_STATE;
 pub type NDIS_MEDIA_STATE = i32;
 pub type NDIS_MEDIUM = i32;
@@ -678,7 +678,7 @@ pub const NDIS_OBJECT_TYPE_SG_DMA_DESCRIPTION: u32 = 131;
 pub const NDIS_OBJECT_TYPE_STATUS_INDICATION: u32 = 152;
 pub const NDIS_OBJECT_TYPE_TIMER_CHARACTERISTICS: u32 = 151;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_OFFLOAD {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -690,7 +690,7 @@ pub struct NDIS_OFFLOAD {
 }
 pub const NDIS_OFFLOAD_FLAGS_GROUP_CHECKSUM_CAPABILITIES: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_OFFLOAD_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -725,7 +725,7 @@ pub const NDIS_OFFLOAD_PARAMETERS_TX_RX_DISABLED: u32 = 1;
 pub const NDIS_OFFLOAD_PARAMETERS_TX_RX_ENABLED: u32 = 4;
 pub const NDIS_OFFLOAD_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_OPER_STATE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -747,7 +747,7 @@ pub const NDIS_PACKET_TYPE_PROMISCUOUS: u32 = 32;
 pub const NDIS_PACKET_TYPE_SMT: u32 = 64;
 pub const NDIS_PACKET_TYPE_SOURCE_ROUTING: u32 = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -792,7 +792,7 @@ pub const NDIS_PNP_WAKE_UP_LINK_CHANGE: u32 = 4;
 pub const NDIS_PNP_WAKE_UP_MAGIC_PACKET: u32 = 1;
 pub const NDIS_PNP_WAKE_UP_PATTERN_MATCH: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_PORT {
     pub Next: PNDIS_PORT,
@@ -801,14 +801,14 @@ pub struct NDIS_PORT {
     pub ProtocolReserved: *mut core::ffi::c_void,
     pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 impl Default for NDIS_PORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_PORT_ARRAY {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -817,7 +817,7 @@ pub struct NDIS_PORT_ARRAY {
     pub ElementSize: u32,
     pub Ports: [NDIS_PORT_CHARACTERISTICS; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 impl Default for NDIS_PORT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -825,7 +825,7 @@ impl Default for NDIS_PORT_ARRAY {
 }
 pub const NDIS_PORT_ARRAY_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -837,7 +837,7 @@ pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
 pub const NDIS_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: u32 = 1;
 pub type NDIS_PORT_AUTHORIZATION_STATE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_PORT_CHARACTERISTICS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -858,7 +858,7 @@ pub const NDIS_PORT_CHAR_USE_DEFAULT_AUTH_SETTINGS: u32 = 1;
 pub type NDIS_PORT_CONTROLL_STATE = NDIS_PORT_CONTROL_STATE;
 pub type NDIS_PORT_CONTROL_STATE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_PORT_STATE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -889,7 +889,7 @@ pub const NDIS_RECEIVE_HASH_FLAG_ENABLE_HASH: u32 = 1;
 pub const NDIS_RECEIVE_HASH_FLAG_HASH_INFO_UNCHANGED: u32 = 2;
 pub const NDIS_RECEIVE_HASH_FLAG_HASH_KEY_UNCHANGED: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_RECEIVE_HASH_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -900,7 +900,7 @@ pub struct NDIS_RECEIVE_HASH_PARAMETERS {
 }
 pub const NDIS_RECEIVE_HASH_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -910,7 +910,7 @@ pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
 }
 pub const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -996,7 +996,7 @@ pub const NDIS_STATISTICS_FLAGS_VALID_RCV_ERROR: u32 = 32;
 pub const NDIS_STATISTICS_FLAGS_VALID_XMIT_DISCARDS: u32 = 32768;
 pub const NDIS_STATISTICS_FLAGS_VALID_XMIT_ERROR: u32 = 1024;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_STATISTICS_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1022,21 +1022,21 @@ pub struct NDIS_STATISTICS_INFO {
 }
 pub const NDIS_STATISTICS_INFO_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_oidtypes")]
+#[cfg(feature = "oidtypes")]
 #[derive(Clone, Copy)]
 pub struct NDIS_STATISTICS_VALUE {
     pub Oid: super::oidtypes::NDIS_OID,
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-#[cfg(feature = "Win32_oidtypes")]
+#[cfg(feature = "oidtypes")]
 impl Default for NDIS_STATISTICS_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_oidtypes")]
+#[cfg(feature = "oidtypes")]
 #[derive(Clone, Copy)]
 pub struct NDIS_STATISTICS_VALUE_EX {
     pub Oid: super::oidtypes::NDIS_OID,
@@ -1044,7 +1044,7 @@ pub struct NDIS_STATISTICS_VALUE_EX {
     pub Length: u32,
     pub Data: [u8; 1],
 }
-#[cfg(feature = "Win32_oidtypes")]
+#[cfg(feature = "oidtypes")]
 impl Default for NDIS_STATISTICS_VALUE_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1052,7 +1052,7 @@ impl Default for NDIS_STATISTICS_VALUE_EX {
 }
 pub type NDIS_SUPPORTED_PAUSE_FUNCTIONS = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_TCP_CONNECTION_OFFLOAD {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1129,7 +1129,7 @@ pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy)]
 pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1137,7 +1137,7 @@ pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     pub TimeoutArrayLength: u32,
     pub TimeoutArray: [u32; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1145,7 +1145,7 @@ impl Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
 }
 pub const NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1233,7 +1233,7 @@ impl Default for NDIS_WLAN_BSSID_EX {
 }
 pub const NDIS_WMI_DEFAULT_METHOD_ID: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_WMI_ENUM_ADAPTER {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1242,7 +1242,7 @@ pub struct NDIS_WMI_ENUM_ADAPTER {
     pub DeviceNameLength: u16,
     pub DeviceName: [i8; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 impl Default for NDIS_WMI_ENUM_ADAPTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1250,7 +1250,7 @@ impl Default for NDIS_WMI_ENUM_ADAPTER {
 }
 pub const NDIS_WMI_ENUM_ADAPTER_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_WMI_EVENT_HEADER {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1262,7 +1262,7 @@ pub struct NDIS_WMI_EVENT_HEADER {
     pub DeviceNameOffset: u32,
     pub Padding: [u8; 4],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 impl Default for NDIS_WMI_EVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1308,7 +1308,7 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     pub Receive: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_WMI_METHOD_HEADER {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1318,7 +1318,7 @@ pub struct NDIS_WMI_METHOD_HEADER {
     pub Timeout: u32,
     pub Padding: [u8; 4],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 impl Default for NDIS_WMI_METHOD_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1331,7 +1331,7 @@ pub const NDIS_WMI_OBJECT_TYPE_METHOD: u32 = 2;
 pub const NDIS_WMI_OBJECT_TYPE_OUTPUT_INFO: u32 = 5;
 pub const NDIS_WMI_OBJECT_TYPE_SET: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_WMI_OFFLOAD {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1342,7 +1342,7 @@ pub struct NDIS_WMI_OFFLOAD {
     pub Flags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_WMI_OUTPUT_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1352,7 +1352,7 @@ pub struct NDIS_WMI_OUTPUT_INFO {
 }
 pub const NDIS_WMI_OUTPUT_INFO_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_WMI_SET_HEADER {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1362,7 +1362,7 @@ pub struct NDIS_WMI_SET_HEADER {
     pub Timeout: u32,
     pub Padding: [u8; 4],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 impl Default for NDIS_WMI_SET_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1370,7 +1370,7 @@ impl Default for NDIS_WMI_SET_HEADER {
 }
 pub const NDIS_WMI_SET_HEADER_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1728,7 +1728,7 @@ pub type OFFLOAD_CONF_ALGO = i32;
 pub const OFFLOAD_INBOUND_SA: u32 = 1;
 pub type OFFLOAD_INTEGRITY_ALGO = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct OFFLOAD_IPSEC_ADD_SA {
     pub SrcAddr: IPAddr,
@@ -1747,14 +1747,14 @@ pub struct OFFLOAD_IPSEC_ADD_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for OFFLOAD_IPSEC_ADD_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub SrcAddr: IPAddr,
@@ -1775,7 +1775,7 @@ pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1787,25 +1787,25 @@ pub const OFFLOAD_IPSEC_CONF_MAX: OFFLOAD_CONF_ALGO = 4;
 pub const OFFLOAD_IPSEC_CONF_NONE: OFFLOAD_CONF_ALGO = 0;
 pub const OFFLOAD_IPSEC_CONF_RESERVED: OFFLOAD_CONF_ALGO = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct OFFLOAD_IPSEC_DELETE_SA {
     pub OffloadHandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for OFFLOAD_IPSEC_DELETE_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     pub OffloadHandle: super::winnt::HANDLE,
     pub EncapTypeEntryOffldHandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2601,85 +2601,85 @@ pub type PNDIS_DEVICE_POWER_STATE = *mut NDIS_DEVICE_POWER_STATE;
 pub type PNDIS_FDDI_ATTACHMENT_TYPE = *mut NDIS_FDDI_ATTACHMENT_TYPE;
 pub type PNDIS_FDDI_LCONNECTION_STATE = *mut NDIS_FDDI_LCONNECTION_STATE;
 pub type PNDIS_FDDI_RING_MGT_STATE = *mut NDIS_FDDI_RING_MGT_STATE;
-#[cfg(all(feature = "Win32_oidtypes", feature = "Win32_types"))]
+#[cfg(all(feature = "oidtypes", feature = "types"))]
 pub type PNDIS_GUID = *mut NDIS_GUID;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_HARDWARE_CROSSTIMESTAMP = *mut NDIS_HARDWARE_CROSSTIMESTAMP;
 pub type PNDIS_HARDWARE_STATUS = *mut NDIS_HARDWARE_STATUS;
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 pub type PNDIS_IF_COUNTED_STRING = *mut super::ifdef::IF_COUNTED_STRING;
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 pub type PNDIS_IF_PHYSICAL_ADDRESS = *mut super::ifdef::IF_PHYSICAL_ADDRESS;
 pub type PNDIS_INTERRUPT_MODERATION = *mut NDIS_INTERRUPT_MODERATION;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_INTERRUPT_MODERATION_PARAMETERS = *mut NDIS_INTERRUPT_MODERATION_PARAMETERS;
 pub type PNDIS_IPSEC_OFFLOAD_V1 = *mut NDIS_IPSEC_OFFLOAD_V1;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 pub type PNDIS_IP_OPER_STATE = *mut NDIS_IP_OPER_STATE;
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 pub type PNDIS_IP_OPER_STATUS = *mut NDIS_IP_OPER_STATUS;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 pub type PNDIS_IP_OPER_STATUS_INFO = *mut NDIS_IP_OPER_STATUS_INFO;
 pub type PNDIS_IRDA_PACKET_INFO = *mut NDIS_IRDA_PACKET_INFO;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 pub type PNDIS_LINK_PARAMETERS = *mut NDIS_LINK_PARAMETERS;
 pub type PNDIS_LINK_SPEED = *mut NDIS_LINK_SPEED;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 pub type PNDIS_LINK_STATE = *mut NDIS_LINK_STATE;
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 pub type PNDIS_MEDIA_CONNECT_STATE = *mut super::ifdef::NET_IF_MEDIA_CONNECT_STATE;
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 pub type PNDIS_MEDIA_DUPLEX_STATE = *mut super::ifdef::NET_IF_MEDIA_DUPLEX_STATE;
 pub type PNDIS_MEDIA_STATE = *mut NDIS_MEDIA_STATE;
 pub type PNDIS_MEDIUM = *mut NDIS_MEDIUM;
 pub type PNDIS_NETWORK_CHANGE_TYPE = *mut NDIS_NETWORK_CHANGE_TYPE;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_OFFLOAD = *mut NDIS_OFFLOAD;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_OFFLOAD_PARAMETERS = *mut NDIS_OFFLOAD_PARAMETERS;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 pub type PNDIS_OPER_STATE = *mut NDIS_OPER_STATE;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_PCI_DEVICE_CUSTOM_PROPERTIES = *mut NDIS_PCI_DEVICE_CUSTOM_PROPERTIES;
 pub type PNDIS_PHYSICAL_MEDIUM = *mut NDIS_PHYSICAL_MEDIUM;
 pub type PNDIS_PM_PACKET_PATTERN = *mut NDIS_PM_PACKET_PATTERN;
 pub type PNDIS_PM_WAKE_UP_CAPABILITIES = *mut NDIS_PM_WAKE_UP_CAPABILITIES;
 pub type PNDIS_PNP_CAPABILITIES = *mut NDIS_PNP_CAPABILITIES;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 pub type PNDIS_PORT = *mut NDIS_PORT;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 pub type PNDIS_PORT_ARRAY = *mut NDIS_PORT_ARRAY;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_PORT_AUTHENTICATION_PARAMETERS = *mut NDIS_PORT_AUTHENTICATION_PARAMETERS;
 pub type PNDIS_PORT_AUTHORIZATION_STATE = *mut NDIS_PORT_AUTHORIZATION_STATE;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 pub type PNDIS_PORT_CHARACTERISTICS = *mut NDIS_PORT_CHARACTERISTICS;
 pub type PNDIS_PORT_CONTROLL_STATE = PNDIS_PORT_CONTROL_STATE;
 pub type PNDIS_PORT_CONTROL_STATE = *mut NDIS_PORT_CONTROL_STATE;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 pub type PNDIS_PORT_STATE = *mut NDIS_PORT_STATE;
 pub type PNDIS_PROCESSOR_VENDOR = *mut NDIS_PROCESSOR_VENDOR;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_RECEIVE_HASH_PARAMETERS = *mut NDIS_RECEIVE_HASH_PARAMETERS;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_RECEIVE_SCALE_CAPABILITIES = *mut NDIS_RECEIVE_SCALE_CAPABILITIES;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_RECEIVE_SCALE_PARAMETERS = *mut NDIS_RECEIVE_SCALE_PARAMETERS;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_STATISTICS_INFO = *mut NDIS_STATISTICS_INFO;
-#[cfg(feature = "Win32_oidtypes")]
+#[cfg(feature = "oidtypes")]
 pub type PNDIS_STATISTICS_VALUE = *mut NDIS_STATISTICS_VALUE;
-#[cfg(feature = "Win32_oidtypes")]
+#[cfg(feature = "oidtypes")]
 pub type PNDIS_STATISTICS_VALUE_EX = *mut NDIS_STATISTICS_VALUE_EX;
 pub type PNDIS_SUPPORTED_PAUSE_FUNCTIONS = *mut NDIS_SUPPORTED_PAUSE_FUNCTIONS;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_TCP_CONNECTION_OFFLOAD = *mut NDIS_TCP_CONNECTION_OFFLOAD;
 pub type PNDIS_TCP_IP_CHECKSUM_OFFLOAD = *mut NDIS_TCP_IP_CHECKSUM_OFFLOAD;
 pub type PNDIS_TCP_LARGE_SEND_OFFLOAD_V1 = *mut NDIS_TCP_LARGE_SEND_OFFLOAD_V1;
 pub type PNDIS_TCP_LARGE_SEND_OFFLOAD_V2 = *mut NDIS_TCP_LARGE_SEND_OFFLOAD_V2;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES = *mut NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_TIMESTAMP_CAPABILITIES = *mut NDIS_TIMESTAMP_CAPABILITIES;
 pub type PNDIS_TIMESTAMP_CAPABILITY_FLAGS = *mut NDIS_TIMESTAMP_CAPABILITY_FLAGS;
 pub type PNDIS_VAR_DATA_DESC = *mut NDIS_VAR_DATA_DESC;
@@ -2689,20 +2689,20 @@ pub type PNDIS_WAN_PROTOCOL_CAPS = *mut NDIS_WAN_PROTOCOL_CAPS;
 pub type PNDIS_WAN_QUALITY = *mut NDIS_WAN_QUALITY;
 pub type PNDIS_WLAN_BSSID = *mut NDIS_WLAN_BSSID;
 pub type PNDIS_WLAN_BSSID_EX = *mut NDIS_WLAN_BSSID_EX;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader"))]
 pub type PNDIS_WMI_ENUM_ADAPTER = *mut NDIS_WMI_ENUM_ADAPTER;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 pub type PNDIS_WMI_EVENT_HEADER = *mut NDIS_WMI_EVENT_HEADER;
 pub type PNDIS_WMI_IPSEC_OFFLOAD_V1 = *mut NDIS_WMI_IPSEC_OFFLOAD_V1;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 pub type PNDIS_WMI_METHOD_HEADER = *mut NDIS_WMI_METHOD_HEADER;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_WMI_OFFLOAD = *mut NDIS_WMI_OFFLOAD;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_WMI_OUTPUT_INFO = *mut NDIS_WMI_OUTPUT_INFO;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ndisport", feature = "Win32_objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
 pub type PNDIS_WMI_SET_HEADER = *mut NDIS_WMI_SET_HEADER;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type PNDIS_WMI_TCP_CONNECTION_OFFLOAD = *mut NDIS_WMI_TCP_CONNECTION_OFFLOAD;
 pub type PNDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD = *mut NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD;
 pub type PNDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 = *mut NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1;
@@ -2713,13 +2713,13 @@ pub type PNETWORK_ADDRESS_IP6 = *mut NETWORK_ADDRESS_IP6;
 pub type PNETWORK_ADDRESS_IPX = *mut NETWORK_ADDRESS_IPX;
 pub type PNETWORK_ADDRESS_LIST = *mut NETWORK_ADDRESS_LIST;
 pub type POFFLOAD_ALGO_INFO = *mut OFFLOAD_ALGO_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type POFFLOAD_IPSEC_ADD_SA = *mut OFFLOAD_IPSEC_ADD_SA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type POFFLOAD_IPSEC_ADD_UDPESP_SA = *mut OFFLOAD_IPSEC_ADD_UDPESP_SA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type POFFLOAD_IPSEC_DELETE_SA = *mut OFFLOAD_IPSEC_DELETE_SA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type POFFLOAD_IPSEC_DELETE_UDPESP_SA = *mut OFFLOAD_IPSEC_DELETE_UDPESP_SA;
 pub type POFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY = *mut OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY;
 pub type POFFLOAD_SECURITY_ASSOCIATION = *mut OFFLOAD_SECURITY_ASSOCIATION;

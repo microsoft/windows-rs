@@ -1,7 +1,7 @@
 pub const CONTROL_C_EXIT: i32 = -1073741510;
 pub const CREATE_PROCESS_DEBUG_EVENT: u32 = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CREATE_PROCESS_DEBUG_INFO {
     pub hFile: super::winnt::HANDLE,
@@ -15,7 +15,7 @@ pub struct CREATE_PROCESS_DEBUG_INFO {
     pub lpImageName: *mut core::ffi::c_void,
     pub fUnicode: u16,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for CREATE_PROCESS_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23,25 +23,25 @@ impl Default for CREATE_PROCESS_DEBUG_INFO {
 }
 pub const CREATE_THREAD_DEBUG_EVENT: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::winnt::HANDLE,
     pub lpThreadLocalBase: *mut core::ffi::c_void,
     pub lpStartAddress: LPTHREAD_START_ROUTINE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for CREATE_THREAD_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type CRITICAL_SECTION = super::winnt::RTL_CRITICAL_SECTION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type CRITICAL_SECTION_DEBUG = super::winnt::RTL_CRITICAL_SECTION_DEBUG;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_EVENT {
     pub dwDebugEventCode: u32,
@@ -49,14 +49,14 @@ pub struct DEBUG_EVENT {
     pub dwThreadId: u32,
     pub u: DEBUG_EVENT_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEBUG_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DEBUG_EVENT_0 {
     pub Exception: EXCEPTION_DEBUG_INFO,
@@ -69,7 +69,7 @@ pub union DEBUG_EVENT_0 {
     pub DebugString: OUTPUT_DEBUG_STRING_INFO,
     pub RipInfo: RIP_INFO,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEBUG_EVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -81,7 +81,7 @@ pub const EXCEPTION_BREAKPOINT: i32 = -2147483645;
 pub const EXCEPTION_DATATYPE_MISALIGNMENT: i32 = -2147483646;
 pub const EXCEPTION_DEBUG_EVENT: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct EXCEPTION_DEBUG_INFO {
     pub ExceptionRecord: super::winnt::EXCEPTION_RECORD,
@@ -178,7 +178,7 @@ pub const LMEM_VALID_FLAGS: u32 = 3954;
 pub const LMEM_ZEROINIT: u32 = 64;
 pub const LOAD_DLL_DEBUG_EVENT: u32 = 6;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LOAD_DLL_DEBUG_INFO {
     pub hFile: super::winnt::HANDLE,
@@ -188,7 +188,7 @@ pub struct LOAD_DLL_DEBUG_INFO {
     pub lpImageName: *mut core::ffi::c_void,
     pub fUnicode: u16,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LOAD_DLL_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -196,33 +196,33 @@ impl Default for LOAD_DLL_DEBUG_INFO {
 }
 pub const LOCKFILE_EXCLUSIVE_LOCK: u32 = 2;
 pub const LOCKFILE_FAIL_IMMEDIATELY: u32 = 1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPCONTEXT = super::winnt::PCONTEXT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPCREATE_PROCESS_DEBUG_INFO = *mut CREATE_PROCESS_DEBUG_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPCREATE_THREAD_DEBUG_INFO = *mut CREATE_THREAD_DEBUG_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPCRITICAL_SECTION = super::winnt::PRTL_CRITICAL_SECTION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPCRITICAL_SECTION_DEBUG = super::winnt::PRTL_CRITICAL_SECTION_DEBUG;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPDEBUG_EVENT = *mut DEBUG_EVENT;
 pub type LPENCLAVE_ROUTINE = PENCLAVE_ROUTINE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPEXCEPTION_DEBUG_INFO = *mut EXCEPTION_DEBUG_INFO;
 pub type LPEXIT_PROCESS_DEBUG_INFO = *mut EXIT_PROCESS_DEBUG_INFO;
 pub type LPEXIT_THREAD_DEBUG_INFO = *mut EXIT_THREAD_DEBUG_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPLOAD_DLL_DEBUG_INFO = *mut LOAD_DLL_DEBUG_INFO;
 pub type LPOUTPUT_DEBUG_STRING_INFO = *mut OUTPUT_DEBUG_STRING_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPOVERLAPPED = *mut OVERLAPPED;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPOVERLAPPED_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPOVERLAPPED_ENTRY = *mut OVERLAPPED_ENTRY;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPPROCESS_HEAP_ENTRY = *mut PROCESS_HEAP_ENTRY;
 pub type LPRIP_INFO = *mut RIP_INFO;
 pub type LPSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
@@ -230,11 +230,11 @@ pub type LPSYSTEMTIME = *mut SYSTEMTIME;
 pub type LPTHREAD_START_ROUTINE = PTHREAD_START_ROUTINE;
 pub const LPTR: u32 = 64;
 pub type LPUNLOAD_DLL_DEBUG_INFO = *mut UNLOAD_DLL_DEBUG_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPWIN32_FIND_DATA = LPWIN32_FIND_DATAA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPWIN32_FIND_DATAA = *mut WIN32_FIND_DATAA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPWIN32_FIND_DATAW = *mut WIN32_FIND_DATAW;
 pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = 25;
 pub const MaximumFileInfoByNameClass: FILE_INFO_BY_NAME_CLASS = 4;
@@ -255,7 +255,7 @@ impl Default for OUTPUT_DEBUG_STRING_INFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct OVERLAPPED {
     pub Internal: usize,
@@ -263,34 +263,34 @@ pub struct OVERLAPPED {
     pub Anonymous: OVERLAPPED_0,
     pub hEvent: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for OVERLAPPED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union OVERLAPPED_0 {
     pub Anonymous: OVERLAPPED_0_0,
     pub Pointer: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for OVERLAPPED_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct OVERLAPPED_0_0 {
     pub Offset: u32,
     pub OffsetHigh: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct OVERLAPPED_ENTRY {
     pub lpCompletionKey: usize,
@@ -298,26 +298,26 @@ pub struct OVERLAPPED_ENTRY {
     pub Internal: usize,
     pub dwNumberOfBytesTransferred: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for OVERLAPPED_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCRITICAL_SECTION = super::winnt::PRTL_CRITICAL_SECTION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCRITICAL_SECTION_DEBUG = super::winnt::PRTL_CRITICAL_SECTION_DEBUG;
 pub type PENCLAVE_ROUTINE = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
 pub type PFILE_INFO_BY_HANDLE_CLASS = *mut FILE_INFO_BY_HANDLE_CLASS;
 pub type PFILE_INFO_BY_NAME_CLASS = *mut FILE_INFO_BY_NAME_CLASS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PPROCESS_HEAP_ENTRY = *mut PROCESS_HEAP_ENTRY;
 pub type PREAD_DIRECTORY_NOTIFY_INFORMATION_CLASS = *mut READ_DIRECTORY_NOTIFY_INFORMATION_CLASS;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PREASON_CONTEXT = *mut REASON_CONTEXT;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_HEAP_ENTRY {
     pub lpData: *mut core::ffi::c_void,
@@ -327,40 +327,40 @@ pub struct PROCESS_HEAP_ENTRY {
     pub wFlags: u16,
     pub Anonymous: PROCESS_HEAP_ENTRY_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PROCESS_HEAP_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union PROCESS_HEAP_ENTRY_0 {
     pub Block: PROCESS_HEAP_ENTRY_0_0,
     pub Region: PROCESS_HEAP_ENTRY_0_1,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PROCESS_HEAP_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_HEAP_ENTRY_0_0 {
     pub hMem: super::winnt::HANDLE,
     pub dwReserved: [u32; 3],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PROCESS_HEAP_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: u32,
@@ -368,7 +368,7 @@ pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub lpFirstBlock: *mut core::ffi::c_void,
     pub lpLastBlock: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PROCESS_HEAP_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -383,42 +383,42 @@ pub const PROCESS_HEAP_UNCOMMITTED_RANGE: u32 = 2;
 pub type PSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
 pub type PSYSTEMTIME = *mut SYSTEMTIME;
 pub type PTHREAD_START_ROUTINE = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> u32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PWIN32_FIND_DATA = PWIN32_FIND_DATAA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PWIN32_FIND_DATAA = *mut WIN32_FIND_DATAA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PWIN32_FIND_DATAW = *mut WIN32_FIND_DATAW;
 pub type READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct REASON_CONTEXT {
     pub Version: u32,
     pub Flags: u32,
     pub Reason: REASON_CONTEXT_0,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for REASON_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union REASON_CONTEXT_0 {
     pub Detailed: REASON_CONTEXT_0_0,
     pub SimpleReasonString: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for REASON_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct REASON_CONTEXT_0_0 {
     pub LocalizedReasonModule: super::minwindef::HMODULE,
@@ -426,7 +426,7 @@ pub struct REASON_CONTEXT_0_0 {
     pub ReasonStringCount: u32,
     pub ReasonStrings: *mut windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for REASON_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -479,10 +479,10 @@ impl Default for UNLOAD_DLL_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type WIN32_FIND_DATA = WIN32_FIND_DATAA;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct WIN32_FIND_DATAA {
     pub dwFileAttributes: u32,
@@ -496,14 +496,14 @@ pub struct WIN32_FIND_DATAA {
     pub cFileName: [i8; 260],
     pub cAlternateFileName: [i8; 14],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for WIN32_FIND_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct WIN32_FIND_DATAW {
     pub dwFileAttributes: u32,
@@ -517,7 +517,7 @@ pub struct WIN32_FIND_DATAW {
     pub cFileName: [u16; 260],
     pub cAlternateFileName: [u16; 14],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for WIN32_FIND_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

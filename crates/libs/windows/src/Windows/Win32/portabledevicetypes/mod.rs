@@ -4,11 +4,11 @@ impl IPortableDeviceKeyCollection {
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcelems) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetAt(&self, dwindex: u32, pkey: *const super::wtypes::PROPERTYKEY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), dwindex, pkey) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Add(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), key) }
     }
@@ -24,18 +24,18 @@ impl IPortableDeviceKeyCollection {
 pub struct IPortableDeviceKeyCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::wtypes::PROPERTYKEY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetAt: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Add: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub trait IPortableDeviceKeyCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self, pcelems: *const u32) -> windows_core::Result<()>;
     fn GetAt(&self, dwindex: u32, pkey: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<()>;
@@ -43,7 +43,7 @@ pub trait IPortableDeviceKeyCollection_Impl: windows_core::IUnknownImpl {
     fn Clear(&self) -> windows_core::Result<()>;
     fn RemoveAt(&self, dwindex: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl IPortableDeviceKeyCollection_Vtbl {
     pub const fn new<Identity: IPortableDeviceKeyCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IPortableDeviceKeyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelems: *const u32) -> windows_core::HRESULT {
@@ -89,7 +89,7 @@ impl IPortableDeviceKeyCollection_Vtbl {
         iid == &<IPortableDeviceKeyCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl windows_core::RuntimeName for IPortableDeviceKeyCollection {}
 windows_core::imp::define_interface!(IPortableDevicePropVariantCollection, IPortableDevicePropVariantCollection_Vtbl, 0x89b2e422_4f1b_4316_bcef_a44afea83eb3);
 windows_core::imp::interface_hierarchy!(IPortableDevicePropVariantCollection, windows_core::IUnknown);
@@ -97,22 +97,22 @@ impl IPortableDevicePropVariantCollection {
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcelems) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAt(&self, dwindex: u32, pvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pvalue)) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Add(&self, pvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(pvalue)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetType(&self) -> windows_core::Result<super::wtypes::VARTYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ChangeType(&self, vt: super::wtypes::VARTYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ChangeType)(windows_core::Interface::as_raw(self), vt) }
     }
@@ -128,26 +128,26 @@ impl IPortableDevicePropVariantCollection {
 pub struct IPortableDevicePropVariantCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetAt: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     Add: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARTYPE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetType: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARTYPE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ChangeType: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPortableDevicePropVariantCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self, pcelems: *const u32) -> windows_core::Result<()>;
     fn GetAt(&self, dwindex: u32, pvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
@@ -157,7 +157,7 @@ pub trait IPortableDevicePropVariantCollection_Impl: windows_core::IUnknownImpl 
     fn Clear(&self) -> windows_core::Result<()>;
     fn RemoveAt(&self, dwindex: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IPortableDevicePropVariantCollection_Vtbl {
     pub const fn new<Identity: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelems: *const u32) -> windows_core::HRESULT {
@@ -223,7 +223,7 @@ impl IPortableDevicePropVariantCollection_Vtbl {
         iid == &<IPortableDevicePropVariantCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPortableDevicePropVariantCollection {}
 windows_core::imp::define_interface!(IPortableDeviceValues, IPortableDeviceValues_Vtbl, 0x6848f6f2_3155_4f86_b6f5_263eeeab3143);
 windows_core::imp::interface_hierarchy!(IPortableDeviceValues, windows_core::IUnknown);
@@ -231,221 +231,221 @@ impl IPortableDeviceValues {
     pub unsafe fn GetCount(&self, pcelt: *const u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcelt) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAt(&self, index: u32, pkey: *mut super::wtypes::PROPERTYKEY, pvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, pkey as _, core::mem::transmute(pvalue)) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, key: *const super::wtypes::PROPERTYKEY, pvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), key, core::mem::transmute(pvalue)) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetStringValue<P1>(&self, key: *const super::wtypes::PROPERTYKEY, value: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetStringValue)(windows_core::Interface::as_raw(self), key, value.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetStringValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetUnsignedIntegerValue(&self, key: *const super::wtypes::PROPERTYKEY, value: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUnsignedIntegerValue)(windows_core::Interface::as_raw(self), key, value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetUnsignedIntegerValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUnsignedIntegerValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetSignedIntegerValue(&self, key: *const super::wtypes::PROPERTYKEY, value: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSignedIntegerValue)(windows_core::Interface::as_raw(self), key, value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetSignedIntegerValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSignedIntegerValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetUnsignedLargeIntegerValue(&self, key: *const super::wtypes::PROPERTYKEY, value: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUnsignedLargeIntegerValue)(windows_core::Interface::as_raw(self), key, value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetUnsignedLargeIntegerValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<u64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUnsignedLargeIntegerValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetSignedLargeIntegerValue(&self, key: *const super::wtypes::PROPERTYKEY, value: i64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSignedLargeIntegerValue)(windows_core::Interface::as_raw(self), key, value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetSignedLargeIntegerValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<i64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSignedLargeIntegerValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetFloatValue(&self, key: *const super::wtypes::PROPERTYKEY, value: f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFloatValue)(windows_core::Interface::as_raw(self), key, value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetFloatValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFloatValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetErrorValue(&self, key: *const super::wtypes::PROPERTYKEY, value: windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetErrorValue)(windows_core::Interface::as_raw(self), key, value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetErrorValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<windows_core::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetErrorValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetKeyValue(&self, key: *const super::wtypes::PROPERTYKEY, value: *const super::wtypes::PROPERTYKEY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetKeyValue)(windows_core::Interface::as_raw(self), key, value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetKeyValue(&self, key: *const super::wtypes::PROPERTYKEY, pvalue: *mut super::wtypes::PROPERTYKEY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetKeyValue)(windows_core::Interface::as_raw(self), key, pvalue as _) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetBoolValue(&self, key: *const super::wtypes::PROPERTYKEY, value: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBoolValue)(windows_core::Interface::as_raw(self), key, value.into()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetBoolValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBoolValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetIUnknownValue<P1>(&self, key: *const super::wtypes::PROPERTYKEY, pvalue: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetIUnknownValue)(windows_core::Interface::as_raw(self), key, pvalue.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetIUnknownValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIUnknownValue)(windows_core::Interface::as_raw(self), key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetGuidValue(&self, key: *const super::wtypes::PROPERTYKEY, value: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetGuidValue)(windows_core::Interface::as_raw(self), key, value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetGuidValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<windows_core::GUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGuidValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetBufferValue(&self, key: *const super::wtypes::PROPERTYKEY, pvalue: *const u8, cbvalue: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBufferValue)(windows_core::Interface::as_raw(self), key, pvalue, cbvalue) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetBufferValue(&self, key: *const super::wtypes::PROPERTYKEY, ppvalue: *mut *mut u8, pcbvalue: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBufferValue)(windows_core::Interface::as_raw(self), key, ppvalue as _, pcbvalue as _) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetIPortableDeviceValuesValue<P1>(&self, key: *const super::wtypes::PROPERTYKEY, pvalue: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetIPortableDeviceValuesValue)(windows_core::Interface::as_raw(self), key, pvalue.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetIPortableDeviceValuesValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIPortableDeviceValuesValue)(windows_core::Interface::as_raw(self), key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetIPortableDevicePropVariantCollectionValue<P1>(&self, key: *const super::wtypes::PROPERTYKEY, pvalue: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IPortableDevicePropVariantCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetIPortableDevicePropVariantCollectionValue)(windows_core::Interface::as_raw(self), key, pvalue.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetIPortableDevicePropVariantCollectionValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<IPortableDevicePropVariantCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIPortableDevicePropVariantCollectionValue)(windows_core::Interface::as_raw(self), key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetIPortableDeviceKeyCollectionValue<P1>(&self, key: *const super::wtypes::PROPERTYKEY, pvalue: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IPortableDeviceKeyCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetIPortableDeviceKeyCollectionValue)(windows_core::Interface::as_raw(self), key, pvalue.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetIPortableDeviceKeyCollectionValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<IPortableDeviceKeyCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIPortableDeviceKeyCollectionValue)(windows_core::Interface::as_raw(self), key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetIPortableDeviceValuesCollectionValue<P1>(&self, key: *const super::wtypes::PROPERTYKEY, pvalue: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IPortableDeviceValuesCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetIPortableDeviceValuesCollectionValue)(windows_core::Interface::as_raw(self), key, pvalue.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetIPortableDeviceValuesCollectionValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<IPortableDeviceValuesCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIPortableDeviceValuesCollectionValue)(windows_core::Interface::as_raw(self), key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn RemoveValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveValue)(windows_core::Interface::as_raw(self), key) }
     }
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn CopyValuesFromPropertyStore<P0>(&self, pstore: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::propsys::IPropertyStore>,
     {
         unsafe { (windows_core::Interface::vtable(self).CopyValuesFromPropertyStore)(windows_core::Interface::as_raw(self), pstore.param().abi()) }
     }
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn CopyValuesToPropertyStore<P0>(&self, pstore: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::propsys::IPropertyStore>,
@@ -461,161 +461,161 @@ impl IPortableDeviceValues {
 pub struct IPortableDeviceValues_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::wtypes::PROPERTYKEY, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetAt: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetStringValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetStringValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetUnsignedIntegerValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetUnsignedIntegerValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetUnsignedIntegerValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetUnsignedIntegerValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetSignedIntegerValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetSignedIntegerValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetSignedIntegerValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetSignedIntegerValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetUnsignedLargeIntegerValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetUnsignedLargeIntegerValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetUnsignedLargeIntegerValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetUnsignedLargeIntegerValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetSignedLargeIntegerValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetSignedLargeIntegerValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetSignedLargeIntegerValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetSignedLargeIntegerValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetFloatValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, f32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetFloatValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetFloatValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut f32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetFloatValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetErrorValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetErrorValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetErrorValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetErrorValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetKeyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *const super::wtypes::PROPERTYKEY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetKeyValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetKeyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut super::wtypes::PROPERTYKEY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetKeyValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetBoolValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetBoolValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetBoolValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetBoolValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetIUnknownValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetIUnknownValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetIUnknownValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetIUnknownValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetGuidValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetGuidValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetGuidValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetGuidValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetBufferValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *const u8, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetBufferValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetBufferValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetBufferValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetIPortableDeviceValuesValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetIPortableDeviceValuesValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetIPortableDeviceValuesValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetIPortableDeviceValuesValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetIPortableDevicePropVariantCollectionValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetIPortableDevicePropVariantCollectionValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetIPortableDevicePropVariantCollectionValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetIPortableDevicePropVariantCollectionValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetIPortableDeviceKeyCollectionValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetIPortableDeviceKeyCollectionValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetIPortableDeviceKeyCollectionValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetIPortableDeviceKeyCollectionValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetIPortableDeviceValuesCollectionValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetIPortableDeviceValuesCollectionValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetIPortableDeviceValuesCollectionValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetIPortableDeviceValuesCollectionValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub RemoveValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     RemoveValue: usize,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub CopyValuesFromPropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     CopyValuesFromPropertyStore: usize,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub CopyValuesToPropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     CopyValuesToPropertyStore: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_propsys", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPortableDeviceValues_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self, pcelt: *const u32) -> windows_core::Result<()>;
     fn GetAt(&self, index: u32, pkey: *mut super::wtypes::PROPERTYKEY, pvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
@@ -658,7 +658,7 @@ pub trait IPortableDeviceValues_Impl: windows_core::IUnknownImpl {
     fn CopyValuesToPropertyStore(&self, pstore: windows_core::Ref<super::propsys::IPropertyStore>) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_propsys", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
 impl IPortableDeviceValues_Vtbl {
     pub const fn new<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *const u32) -> windows_core::HRESULT {
@@ -1039,7 +1039,7 @@ impl IPortableDeviceValues_Vtbl {
         iid == &<IPortableDeviceValues as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_propsys", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPortableDeviceValues {}
 windows_core::imp::define_interface!(IPortableDeviceValuesCollection, IPortableDeviceValuesCollection_Vtbl, 0x6e3f2d79_4e07_48c4_8208_d8c2e5af4a99);
 windows_core::imp::interface_hierarchy!(IPortableDeviceValuesCollection, windows_core::IUnknown);

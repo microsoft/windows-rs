@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("netapi32.dll" "system" fn NetStatisticsGet(servername : super::winnt::LPTSTR, service : super::winnt::LPTSTR, level : u32, options : u32, buffer : *mut super::minwindef::LPBYTE) -> u32);
 pub type LPSTAT_SERVER_0 = *mut STAT_SERVER_0;
 pub type LPSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;

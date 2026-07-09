@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 #[inline]
 pub unsafe fn MFCreateSinkWriterFromMediaSink<P0, P1>(pmediasink: P0, pattributes: P1) -> windows_core::Result<IMFSinkWriter>
 where
@@ -11,7 +11,7 @@ where
         MFCreateSinkWriterFromMediaSink(pmediasink.param().abi(), pattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[inline]
 pub unsafe fn MFCreateSinkWriterFromURL<P0, P1, P2>(pwszoutputurl: P0, pbytestream: P1, pattributes: P2) -> windows_core::Result<IMFSinkWriter>
 where
@@ -25,7 +25,7 @@ where
         MFCreateSinkWriterFromURL(pwszoutputurl.param().abi(), pbytestream.param().abi(), pattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[inline]
 pub unsafe fn MFCreateSourceReaderFromByteStream<P0, P1>(pbytestream: P0, pattributes: P1) -> windows_core::Result<IMFSourceReader>
 where
@@ -38,7 +38,7 @@ where
         MFCreateSourceReaderFromByteStream(pbytestream.param().abi(), pattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 #[inline]
 pub unsafe fn MFCreateSourceReaderFromMediaSource<P0, P1>(pmediasource: P0, pattributes: P1) -> windows_core::Result<IMFSourceReader>
 where
@@ -51,7 +51,7 @@ where
         MFCreateSourceReaderFromMediaSource(pmediasource.param().abi(), pattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[inline]
 pub unsafe fn MFCreateSourceReaderFromURL<P0, P1>(pwszurl: P0, pattributes: P1) -> windows_core::Result<IMFSourceReader>
 where
@@ -67,7 +67,7 @@ where
 windows_core::imp::define_interface!(IMFReadWriteClassFactory, IMFReadWriteClassFactory_Vtbl, 0xe7fe2e12_661c_40da_92f9_4f002ab67627);
 windows_core::imp::interface_hierarchy!(IMFReadWriteClassFactory, windows_core::IUnknown);
 impl IMFReadWriteClassFactory {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn CreateInstanceFromURL<P1, P2>(&self, clsid: *const windows_core::GUID, pwszurl: P1, pattributes: P2, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -75,7 +75,7 @@ impl IMFReadWriteClassFactory {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateInstanceFromURL)(windows_core::Interface::as_raw(self), clsid, pwszurl.param().abi(), pattributes.param().abi(), riid, ppvobject as _) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn CreateInstanceFromObject<P1, P2>(&self, clsid: *const windows_core::GUID, punkobject: P1, pattributes: P2, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -88,21 +88,21 @@ impl IMFReadWriteClassFactory {
 #[doc(hidden)]
 pub struct IMFReadWriteClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub CreateInstanceFromURL: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     CreateInstanceFromURL: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub CreateInstanceFromObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     CreateInstanceFromObject: usize,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFReadWriteClassFactory_Impl: windows_core::IUnknownImpl {
     fn CreateInstanceFromURL(&self, clsid: *const windows_core::GUID, pwszurl: &windows_core::PCWSTR, pattributes: windows_core::Ref<super::mfobjects::IMFAttributes>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateInstanceFromObject(&self, clsid: *const windows_core::GUID, punkobject: windows_core::Ref<windows_core::IUnknown>, pattributes: windows_core::Ref<super::mfobjects::IMFAttributes>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFReadWriteClassFactory_Vtbl {
     pub const fn new<Identity: IMFReadWriteClassFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateInstanceFromURL<Identity: IMFReadWriteClassFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsid: *const windows_core::GUID, pwszurl: windows_core::PCWSTR, pattributes: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -127,12 +127,12 @@ impl IMFReadWriteClassFactory_Vtbl {
         iid == &<IMFReadWriteClassFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFReadWriteClassFactory {}
 windows_core::imp::define_interface!(IMFSinkWriter, IMFSinkWriter_Vtbl, 0x3137f1cd_fe5e_4805_a5d8_fb477448cb3d);
 windows_core::imp::interface_hierarchy!(IMFSinkWriter, windows_core::IUnknown);
 impl IMFSinkWriter {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn AddStream<P0>(&self, ptargetmediatype: P0) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<super::mfobjects::IMFMediaType>,
@@ -142,7 +142,7 @@ impl IMFSinkWriter {
             (windows_core::Interface::vtable(self).AddStream)(windows_core::Interface::as_raw(self), ptargetmediatype.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetInputMediaType<P1, P2>(&self, dwstreamindex: u32, pinputmediatype: P1, pencodingparameters: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaType>,
@@ -153,7 +153,7 @@ impl IMFSinkWriter {
     pub unsafe fn BeginWriting(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BeginWriting)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn WriteSample<P1>(&self, dwstreamindex: u32, psample: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFSample>,
@@ -186,18 +186,18 @@ impl IMFSinkWriter {
 #[doc(hidden)]
 pub struct IMFSinkWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub AddStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     AddStream: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetInputMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetInputMediaType: usize,
     pub BeginWriting: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub WriteSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     WriteSample: usize,
     pub SendStreamTick: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i64) -> windows_core::HRESULT,
     pub PlaceMarker: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
@@ -207,7 +207,7 @@ pub struct IMFSinkWriter_Vtbl {
     pub GetServiceForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MF_SINK_WRITER_STATISTICS) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFSinkWriter_Impl: windows_core::IUnknownImpl {
     fn AddStream(&self, ptargetmediatype: windows_core::Ref<super::mfobjects::IMFMediaType>) -> windows_core::Result<u32>;
     fn SetInputMediaType(&self, dwstreamindex: u32, pinputmediatype: windows_core::Ref<super::mfobjects::IMFMediaType>, pencodingparameters: windows_core::Ref<super::mfobjects::IMFAttributes>) -> windows_core::Result<()>;
@@ -221,7 +221,7 @@ pub trait IMFSinkWriter_Impl: windows_core::IUnknownImpl {
     fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetStatistics(&self, dwstreamindex: u32, pstats: *mut MF_SINK_WRITER_STATISTICS) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFSinkWriter_Vtbl {
     pub const fn new<Identity: IMFSinkWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddStream<Identity: IMFSinkWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptargetmediatype: *mut core::ffi::c_void, pdwstreamindex: *mut u32) -> windows_core::HRESULT {
@@ -315,7 +315,7 @@ impl IMFSinkWriter_Vtbl {
         iid == &<IMFSinkWriter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFSinkWriter {}
 windows_core::imp::define_interface!(IMFSinkWriterCallback, IMFSinkWriterCallback_Vtbl, 0x666f76de_33d2_41b9_a458_29ed0a972c58);
 windows_core::imp::interface_hierarchy!(IMFSinkWriterCallback, windows_core::IUnknown);
@@ -418,7 +418,7 @@ impl windows_core::RuntimeName for IMFSinkWriterCallback2 {}
 windows_core::imp::define_interface!(IMFSinkWriterEncoderConfig, IMFSinkWriterEncoderConfig_Vtbl, 0x17c3779e_3cde_4ede_8c60_3899f5f53ad6);
 windows_core::imp::interface_hierarchy!(IMFSinkWriterEncoderConfig, windows_core::IUnknown);
 impl IMFSinkWriterEncoderConfig {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetTargetMediaType<P1, P2>(&self, dwstreamindex: u32, ptargetmediatype: P1, pencodingparameters: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaType>,
@@ -426,7 +426,7 @@ impl IMFSinkWriterEncoderConfig {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTargetMediaType)(windows_core::Interface::as_raw(self), dwstreamindex, ptargetmediatype.param().abi(), pencodingparameters.param().abi()) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn PlaceEncodingParameters<P1>(&self, dwstreamindex: u32, pencodingparameters: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFAttributes>,
@@ -438,21 +438,21 @@ impl IMFSinkWriterEncoderConfig {
 #[doc(hidden)]
 pub struct IMFSinkWriterEncoderConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetTargetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetTargetMediaType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub PlaceEncodingParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     PlaceEncodingParameters: usize,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFSinkWriterEncoderConfig_Impl: windows_core::IUnknownImpl {
     fn SetTargetMediaType(&self, dwstreamindex: u32, ptargetmediatype: windows_core::Ref<super::mfobjects::IMFMediaType>, pencodingparameters: windows_core::Ref<super::mfobjects::IMFAttributes>) -> windows_core::Result<()>;
     fn PlaceEncodingParameters(&self, dwstreamindex: u32, pencodingparameters: windows_core::Ref<super::mfobjects::IMFAttributes>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFSinkWriterEncoderConfig_Vtbl {
     pub const fn new<Identity: IMFSinkWriterEncoderConfig_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetTargetMediaType<Identity: IMFSinkWriterEncoderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: u32, ptargetmediatype: *mut core::ffi::c_void, pencodingparameters: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -477,7 +477,7 @@ impl IMFSinkWriterEncoderConfig_Vtbl {
         iid == &<IMFSinkWriterEncoderConfig as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFSinkWriterEncoderConfig {}
 windows_core::imp::define_interface!(IMFSinkWriterEx, IMFSinkWriterEx_Vtbl, 0x588d72ab_5bc1_496a_8714_b70617141b25);
 impl core::ops::Deref for IMFSinkWriterEx {
@@ -488,7 +488,7 @@ impl core::ops::Deref for IMFSinkWriterEx {
 }
 windows_core::imp::interface_hierarchy!(IMFSinkWriterEx, windows_core::IUnknown, IMFSinkWriter);
 impl IMFSinkWriterEx {
-    #[cfg(feature = "Win32_mftransform")]
+    #[cfg(feature = "mftransform")]
     pub unsafe fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: Option<*mut windows_core::GUID>, pptransform: *mut Option<super::mftransform::IMFTransform>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTransformForStream)(windows_core::Interface::as_raw(self), dwstreamindex, dwtransformindex, pguidcategory.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pptransform)) }
     }
@@ -497,16 +497,16 @@ impl IMFSinkWriterEx {
 #[doc(hidden)]
 pub struct IMFSinkWriterEx_Vtbl {
     pub base__: IMFSinkWriter_Vtbl,
-    #[cfg(feature = "Win32_mftransform")]
+    #[cfg(feature = "mftransform")]
     pub GetTransformForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mftransform"))]
+    #[cfg(not(feature = "mftransform"))]
     GetTransformForStream: usize,
 }
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_mftransform"))]
+#[cfg(all(feature = "mfobjects", feature = "mftransform"))]
 pub trait IMFSinkWriterEx_Impl: IMFSinkWriter_Impl {
     fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut windows_core::GUID, pptransform: windows_core::OutRef<super::mftransform::IMFTransform>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_mftransform"))]
+#[cfg(all(feature = "mfobjects", feature = "mftransform"))]
 impl IMFSinkWriterEx_Vtbl {
     pub const fn new<Identity: IMFSinkWriterEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTransformForStream<Identity: IMFSinkWriterEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut windows_core::GUID, pptransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -521,7 +521,7 @@ impl IMFSinkWriterEx_Vtbl {
         iid == &<IMFSinkWriterEx as windows_core::Interface>::IID || iid == &<IMFSinkWriter as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_mftransform"))]
+#[cfg(all(feature = "mfobjects", feature = "mftransform"))]
 impl windows_core::RuntimeName for IMFSinkWriterEx {}
 windows_core::imp::define_interface!(IMFSourceReader, IMFSourceReader_Vtbl, 0x70ae66f2_c809_4e4f_8915_bdcb406b7993);
 windows_core::imp::interface_hierarchy!(IMFSourceReader, windows_core::IUnknown);
@@ -535,32 +535,32 @@ impl IMFSourceReader {
     pub unsafe fn SetStreamSelection(&self, dwstreamindex: u32, fselected: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStreamSelection)(windows_core::Interface::as_raw(self), dwstreamindex, fselected.into()) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetNativeMediaType(&self, dwstreamindex: u32, dwmediatypeindex: u32) -> windows_core::Result<super::mfobjects::IMFMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNativeMediaType)(windows_core::Interface::as_raw(self), dwstreamindex, dwmediatypeindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetCurrentMediaType(&self, dwstreamindex: u32) -> windows_core::Result<super::mfobjects::IMFMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentMediaType)(windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetCurrentMediaType<P2>(&self, dwstreamindex: u32, pdwreserved: Option<*const u32>, pmediatype: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<super::mfobjects::IMFMediaType>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentMediaType)(windows_core::Interface::as_raw(self), dwstreamindex, pdwreserved.unwrap_or(core::mem::zeroed()) as _, pmediatype.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const windows_core::GUID, varposition: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentPosition)(windows_core::Interface::as_raw(self), guidtimeformat, core::mem::transmute(varposition)) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn ReadSample(&self, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: Option<*mut u32>, pdwstreamflags: Option<*mut u32>, plltimestamp: Option<*mut i64>, ppsample: Option<*mut Option<super::mfobjects::IMFSample>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadSample)(windows_core::Interface::as_raw(self), dwstreamindex, dwcontrolflags, pdwactualstreamindex.unwrap_or(core::mem::zeroed()) as _, pdwstreamflags.unwrap_or(core::mem::zeroed()) as _, plltimestamp.unwrap_or(core::mem::zeroed()) as _, ppsample.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -570,7 +570,7 @@ impl IMFSourceReader {
     pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetServiceForStream)(windows_core::Interface::as_raw(self), dwstreamindex, guidservice, riid, ppvobject as _) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const windows_core::GUID) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -584,34 +584,34 @@ pub struct IMFSourceReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetStreamSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetNativeMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetNativeMediaType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetCurrentMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetCurrentMediaType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetCurrentMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetCurrentMediaType: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub SetCurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     SetCurrentPosition: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub ReadSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, *mut u32, *mut i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     ReadSample: usize,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetServiceForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPresentationAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetPresentationAttribute: usize,
 }
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFSourceReader_Impl: windows_core::IUnknownImpl {
     fn GetStreamSelection(&self, dwstreamindex: u32) -> windows_core::Result<windows_core::BOOL>;
     fn SetStreamSelection(&self, dwstreamindex: u32, fselected: windows_core::BOOL) -> windows_core::Result<()>;
@@ -624,7 +624,7 @@ pub trait IMFSourceReader_Impl: windows_core::IUnknownImpl {
     fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const windows_core::GUID) -> windows_core::Result<super::propidlbase::PROPVARIANT>;
 }
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFSourceReader_Vtbl {
     pub const fn new<Identity: IMFSourceReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStreamSelection<Identity: IMFSourceReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: u32, pfselected: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -729,12 +729,12 @@ impl IMFSourceReader_Vtbl {
         iid == &<IMFSourceReader as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFSourceReader {}
 windows_core::imp::define_interface!(IMFSourceReaderCallback, IMFSourceReaderCallback_Vtbl, 0xdeec8d99_fa1d_4d82_84c2_2c8969944867);
 windows_core::imp::interface_hierarchy!(IMFSourceReaderCallback, windows_core::IUnknown);
 impl IMFSourceReaderCallback {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn OnReadSample<P4>(&self, hrstatus: windows_core::HRESULT, dwstreamindex: u32, dwstreamflags: u32, lltimestamp: i64, psample: P4) -> windows_core::HRESULT
     where
         P4: windows_core::Param<super::mfobjects::IMFSample>,
@@ -744,7 +744,7 @@ impl IMFSourceReaderCallback {
     pub unsafe fn OnFlush(&self, dwstreamindex: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnFlush)(windows_core::Interface::as_raw(self), dwstreamindex) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn OnEvent<P1>(&self, dwstreamindex: u32, pevent: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaEvent>,
@@ -756,23 +756,23 @@ impl IMFSourceReaderCallback {
 #[doc(hidden)]
 pub struct IMFSourceReaderCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub OnReadSample: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32, u32, i64, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     OnReadSample: usize,
     pub OnFlush: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     OnEvent: usize,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFSourceReaderCallback_Impl: windows_core::IUnknownImpl {
     fn OnReadSample(&self, hrstatus: windows_core::HRESULT, dwstreamindex: u32, dwstreamflags: u32, lltimestamp: i64, psample: windows_core::Ref<super::mfobjects::IMFSample>) -> windows_core::Result<()>;
     fn OnFlush(&self, dwstreamindex: u32) -> windows_core::Result<()>;
     fn OnEvent(&self, dwstreamindex: u32, pevent: windows_core::Ref<super::mfobjects::IMFMediaEvent>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFSourceReaderCallback_Vtbl {
     pub const fn new<Identity: IMFSourceReaderCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnReadSample<Identity: IMFSourceReaderCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT, dwstreamindex: u32, dwstreamflags: u32, lltimestamp: i64, psample: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -804,7 +804,7 @@ impl IMFSourceReaderCallback_Vtbl {
         iid == &<IMFSourceReaderCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFSourceReaderCallback {}
 windows_core::imp::define_interface!(IMFSourceReaderCallback2, IMFSourceReaderCallback2_Vtbl, 0xcf839fe6_8c2a_4dd2_b6ea_c22d6961af05);
 impl core::ops::Deref for IMFSourceReaderCallback2 {
@@ -829,12 +829,12 @@ pub struct IMFSourceReaderCallback2_Vtbl {
     pub OnTransformChange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnStreamError: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFSourceReaderCallback2_Impl: IMFSourceReaderCallback_Impl {
     fn OnTransformChange(&self) -> windows_core::Result<()>;
     fn OnStreamError(&self, dwstreamindex: u32, hrstatus: windows_core::HRESULT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFSourceReaderCallback2_Vtbl {
     pub const fn new<Identity: IMFSourceReaderCallback2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnTransformChange<Identity: IMFSourceReaderCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -859,7 +859,7 @@ impl IMFSourceReaderCallback2_Vtbl {
         iid == &<IMFSourceReaderCallback2 as windows_core::Interface>::IID || iid == &<IMFSourceReaderCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFSourceReaderCallback2 {}
 windows_core::imp::define_interface!(IMFSourceReaderEx, IMFSourceReaderEx_Vtbl, 0x7b981cf0_560e_4116_9875_b099895f23d7);
 impl core::ops::Deref for IMFSourceReaderEx {
@@ -870,7 +870,7 @@ impl core::ops::Deref for IMFSourceReaderEx {
 }
 windows_core::imp::interface_hierarchy!(IMFSourceReaderEx, windows_core::IUnknown, IMFSourceReader);
 impl IMFSourceReaderEx {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetNativeMediaType<P1>(&self, dwstreamindex: u32, pmediatype: P1) -> windows_core::Result<u32>
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaType>,
@@ -889,7 +889,7 @@ impl IMFSourceReaderEx {
     pub unsafe fn RemoveAllTransformsForStream(&self, dwstreamindex: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllTransformsForStream)(windows_core::Interface::as_raw(self), dwstreamindex) }
     }
-    #[cfg(feature = "Win32_mftransform")]
+    #[cfg(feature = "mftransform")]
     pub unsafe fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: Option<*mut windows_core::GUID>, pptransform: *mut Option<super::mftransform::IMFTransform>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTransformForStream)(windows_core::Interface::as_raw(self), dwstreamindex, dwtransformindex, pguidcategory.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pptransform)) }
     }
@@ -898,25 +898,25 @@ impl IMFSourceReaderEx {
 #[doc(hidden)]
 pub struct IMFSourceReaderEx_Vtbl {
     pub base__: IMFSourceReader_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetNativeMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetNativeMediaType: usize,
     pub AddTransformForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAllTransformsForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mftransform")]
+    #[cfg(feature = "mftransform")]
     pub GetTransformForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mftransform"))]
+    #[cfg(not(feature = "mftransform"))]
     GetTransformForStream: usize,
 }
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_mftransform", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFSourceReaderEx_Impl: IMFSourceReader_Impl {
     fn SetNativeMediaType(&self, dwstreamindex: u32, pmediatype: windows_core::Ref<super::mfobjects::IMFMediaType>) -> windows_core::Result<u32>;
     fn AddTransformForStream(&self, dwstreamindex: u32, ptransformoractivate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveAllTransformsForStream(&self, dwstreamindex: u32) -> windows_core::Result<()>;
     fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut windows_core::GUID, pptransform: windows_core::OutRef<super::mftransform::IMFTransform>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_mftransform", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFSourceReaderEx_Vtbl {
     pub const fn new<Identity: IMFSourceReaderEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetNativeMediaType<Identity: IMFSourceReaderEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: u32, pmediatype: *mut core::ffi::c_void, pdwstreamflags: *mut u32) -> windows_core::HRESULT {
@@ -961,7 +961,7 @@ impl IMFSourceReaderEx_Vtbl {
         iid == &<IMFSourceReaderEx as windows_core::Interface>::IID || iid == &<IMFSourceReader as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_mftransform", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFSourceReaderEx {}
 pub const MF_SINK_WRITER_ALL_STREAMS: i32 = -2;
 pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: i32 = -1;

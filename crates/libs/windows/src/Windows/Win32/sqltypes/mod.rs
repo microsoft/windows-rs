@@ -115,7 +115,7 @@ pub struct SQLHENV(pub SQLHANDLE);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SQLHSTMT(pub SQLHANDLE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SQLHWND(pub super::windef::HWND);

@@ -20,18 +20,18 @@ pub const FSRM_DISPID_STORAGE_MODULE_IMPLEMENTATION: u32 = 102891520;
 pub const FsrmAlwaysModified: i32 = -1;
 pub const FsrmMaxNumberPropertyDefinitions: u32 = 100;
 pub const FsrmNeverModified: u32 = 0;
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmClassificationManager, IFsrmClassificationManager_Vtbl, 0xd2dc89da_ee91_48a0_85d8_cc72a56f7d04);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IFsrmClassificationManager {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IFsrmClassificationManager, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IFsrmClassificationManager {
     pub unsafe fn ClassificationReportFormats(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
@@ -60,14 +60,14 @@ impl IFsrmClassificationManager {
     pub unsafe fn SetClassificationReportMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClassificationReportMailTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailto)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ClassificationReportEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClassificationReportEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetClassificationReportEnabled(&self, reportenabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClassificationReportEnabled)(windows_core::Interface::as_raw(self), reportenabled) }
     }
@@ -83,81 +83,81 @@ impl IFsrmClassificationManager {
             (windows_core::Interface::vtable(self).ClassificationLastError)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn ClassificationRunningStatus(&self) -> windows_core::Result<super::fsrmenums::FsrmReportRunningStatus> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClassificationRunningStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn EnumPropertyDefinitions(&self, options: super::fsrmenums::FsrmEnumOptions) -> windows_core::Result<super::fsrm::IFsrmCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumPropertyDefinitions)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub unsafe fn CreatePropertyDefinition(&self) -> windows_core::Result<IFsrmPropertyDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreatePropertyDefinition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub unsafe fn GetPropertyDefinition(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<IFsrmPropertyDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPropertyDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn EnumRules(&self, ruletype: super::fsrmenums::FsrmRuleType, options: super::fsrmenums::FsrmEnumOptions) -> windows_core::Result<super::fsrm::IFsrmCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumRules)(windows_core::Interface::as_raw(self), ruletype, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn CreateRule(&self, ruletype: super::fsrmenums::FsrmRuleType) -> windows_core::Result<IFsrmRule> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateRule)(windows_core::Interface::as_raw(self), ruletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn GetRule(&self, rulename: &windows_core::BSTR, ruletype: super::fsrmenums::FsrmRuleType) -> windows_core::Result<IFsrmRule> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRule)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(rulename), ruletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: super::fsrmenums::FsrmPipelineModuleType, options: super::fsrmenums::FsrmEnumOptions) -> windows_core::Result<super::fsrm::IFsrmCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumModuleDefinitions)(windows_core::Interface::as_raw(self), moduletype, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn CreateModuleDefinition(&self, moduletype: super::fsrmenums::FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateModuleDefinition)(windows_core::Interface::as_raw(self), moduletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn GetModuleDefinition(&self, modulename: &windows_core::BSTR, moduletype: super::fsrmenums::FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetModuleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(modulename), moduletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn RunClassification(&self, context: super::fsrmenums::FsrmReportGenerationContext, reserved: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunClassification)(windows_core::Interface::as_raw(self), context, core::mem::transmute_copy(reserved)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -167,14 +167,14 @@ impl IFsrmClassificationManager {
     pub unsafe fn CancelClassification(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CancelClassification)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn EnumFileProperties(&self, filepath: &windows_core::BSTR, options: super::fsrmenums::FsrmGetFilePropertyOptions) -> windows_core::Result<super::fsrm::IFsrmCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumFileProperties)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn GetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, options: super::fsrmenums::FsrmGetFilePropertyOptions) -> windows_core::Result<IFsrmProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -188,7 +188,7 @@ impl IFsrmClassificationManager {
         unsafe { (windows_core::Interface::vtable(self).ClearFileProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute_copy(property)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassificationManager_Vtbl {
@@ -199,77 +199,77 @@ pub struct IFsrmClassificationManager_Vtbl {
     pub SetLogging: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ClassificationReportMailTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetClassificationReportMailTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ClassificationReportEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ClassificationReportEnabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetClassificationReportEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetClassificationReportEnabled: usize,
     pub ClassificationLastReportPathWithoutExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClassificationLastError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub ClassificationRunningStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::fsrmenums::FsrmReportRunningStatus) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     ClassificationRunningStatus: usize,
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub EnumPropertyDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmEnumOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums")))]
+    #[cfg(not(all(feature = "fsrm", feature = "fsrmenums")))]
     EnumPropertyDefinitions: usize,
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub CreatePropertyDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrm"))]
+    #[cfg(not(feature = "fsrm"))]
     CreatePropertyDefinition: usize,
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub GetPropertyDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrm"))]
+    #[cfg(not(feature = "fsrm"))]
     GetPropertyDefinition: usize,
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub EnumRules: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmRuleType, super::fsrmenums::FsrmEnumOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums")))]
+    #[cfg(not(all(feature = "fsrm", feature = "fsrmenums")))]
     EnumRules: usize,
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub CreateRule: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmRuleType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums")))]
+    #[cfg(not(all(feature = "fsrm", feature = "fsrmenums")))]
     CreateRule: usize,
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub GetRule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::fsrmenums::FsrmRuleType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums")))]
+    #[cfg(not(all(feature = "fsrm", feature = "fsrmenums")))]
     GetRule: usize,
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub EnumModuleDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmPipelineModuleType, super::fsrmenums::FsrmEnumOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums")))]
+    #[cfg(not(all(feature = "fsrm", feature = "fsrmenums")))]
     EnumModuleDefinitions: usize,
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub CreateModuleDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmPipelineModuleType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums")))]
+    #[cfg(not(all(feature = "fsrm", feature = "fsrmenums")))]
     CreateModuleDefinition: usize,
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub GetModuleDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::fsrmenums::FsrmPipelineModuleType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums")))]
+    #[cfg(not(all(feature = "fsrm", feature = "fsrmenums")))]
     GetModuleDefinition: usize,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub RunClassification: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmReportGenerationContext, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     RunClassification: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub WaitForClassificationCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     WaitForClassificationCompletion: usize,
     pub CancelClassification: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums"))]
+    #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub EnumFileProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::fsrmenums::FsrmGetFilePropertyOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums")))]
+    #[cfg(not(all(feature = "fsrm", feature = "fsrmenums")))]
     EnumFileProperties: usize,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub GetFileProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::fsrmenums::FsrmGetFilePropertyOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     GetFileProperty: usize,
     pub SetFileProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearFileProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassificationManager_Impl: super::oaidl::IDispatch_Impl {
     fn ClassificationReportFormats(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
     fn SetClassificationReportFormats(&self, formats: *const super::oaidl::SAFEARRAY) -> windows_core::Result<()>;
@@ -299,7 +299,7 @@ pub trait IFsrmClassificationManager_Impl: super::oaidl::IDispatch_Impl {
     fn SetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, propertyvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ClearFileProperty(&self, filepath: &windows_core::BSTR, property: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassificationManager_Vtbl {
     pub const fn new<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ClassificationReportFormats<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formats: *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT {
@@ -613,41 +613,41 @@ impl IFsrmClassificationManager_Vtbl {
         iid == &<IFsrmClassificationManager as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmClassificationManager {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmClassificationManager2, IFsrmClassificationManager2_Vtbl, 0x0004c1c9_127e_4765_ba07_6a3147bca112);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IFsrmClassificationManager2 {
     type Target = IFsrmClassificationManager;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IFsrmClassificationManager2, windows_core::IUnknown, super::oaidl::IDispatch, IFsrmClassificationManager);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IFsrmClassificationManager2 {
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn ClassifyFiles(&self, filepaths: *const super::oaidl::SAFEARRAY, propertynames: *const super::oaidl::SAFEARRAY, propertyvalues: *const super::oaidl::SAFEARRAY, options: super::fsrmenums::FsrmGetFilePropertyOptions) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ClassifyFiles)(windows_core::Interface::as_raw(self), filepaths, propertynames, propertyvalues, options) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassificationManager2_Vtbl {
     pub base__: IFsrmClassificationManager_Vtbl,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub ClassifyFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY, *const super::oaidl::SAFEARRAY, *const super::oaidl::SAFEARRAY, super::fsrmenums::FsrmGetFilePropertyOptions) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     ClassifyFiles: usize,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassificationManager2_Impl: IFsrmClassificationManager_Impl {
     fn ClassifyFiles(&self, filepaths: *const super::oaidl::SAFEARRAY, propertynames: *const super::oaidl::SAFEARRAY, propertyvalues: *const super::oaidl::SAFEARRAY, options: super::fsrmenums::FsrmGetFilePropertyOptions) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassificationManager2_Vtbl {
     pub const fn new<Identity: IFsrmClassificationManager2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ClassifyFiles<Identity: IFsrmClassificationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepaths: *const super::oaidl::SAFEARRAY, propertynames: *const super::oaidl::SAFEARRAY, propertyvalues: *const super::oaidl::SAFEARRAY, options: super::fsrmenums::FsrmGetFilePropertyOptions) -> windows_core::HRESULT {
@@ -662,29 +662,29 @@ impl IFsrmClassificationManager2_Vtbl {
         iid == &<IFsrmClassificationManager2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmClassificationManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmClassificationManager2 {}
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmClassificationRule, IFsrmClassificationRule_Vtbl, 0xafc052c2_5315_45ab_841b_c6db0e120148);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl core::ops::Deref for IFsrmClassificationRule {
     type Target = IFsrmRule;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::interface_hierarchy!(IFsrmClassificationRule, windows_core::IUnknown, super::oaidl::IDispatch, super::fsrm::IFsrmObject, IFsrmRule);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl IFsrmClassificationRule {
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn ExecutionOption(&self) -> windows_core::Result<super::fsrmenums::FsrmExecutionOption> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExecutionOption)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn SetExecutionOption(&self, executionoption: super::fsrmenums::FsrmExecutionOption) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetExecutionOption)(windows_core::Interface::as_raw(self), executionoption) }
     }
@@ -707,25 +707,25 @@ impl IFsrmClassificationRule {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassificationRule_Vtbl {
     pub base__: IFsrmRule_Vtbl,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub ExecutionOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::fsrmenums::FsrmExecutionOption) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     ExecutionOption: usize,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub SetExecutionOption: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmExecutionOption) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     SetExecutionOption: usize,
     pub PropertyAffected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPropertyAffected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassificationRule_Impl: IFsrmRule_Impl {
     fn ExecutionOption(&self) -> windows_core::Result<super::fsrmenums::FsrmExecutionOption>;
     fn SetExecutionOption(&self, executionoption: super::fsrmenums::FsrmExecutionOption) -> windows_core::Result<()>;
@@ -734,7 +734,7 @@ pub trait IFsrmClassificationRule_Impl: IFsrmRule_Impl {
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetValue(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassificationRule_Vtbl {
     pub const fn new<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ExecutionOption<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionoption: *mut super::fsrmenums::FsrmExecutionOption) -> windows_core::HRESULT {
@@ -805,20 +805,20 @@ impl IFsrmClassificationRule_Vtbl {
         iid == &<IFsrmClassificationRule as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<super::fsrm::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmRule as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmClassificationRule {}
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmClassifierModuleDefinition, IFsrmClassifierModuleDefinition_Vtbl, 0xbb36ea26_6318_4b8c_8592_f72dd602e7a5);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl core::ops::Deref for IFsrmClassifierModuleDefinition {
     type Target = IFsrmPipelineModuleDefinition;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::interface_hierarchy!(IFsrmClassifierModuleDefinition, windows_core::IUnknown, super::oaidl::IDispatch, super::fsrm::IFsrmObject, IFsrmPipelineModuleDefinition);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl IFsrmClassifierModuleDefinition {
     pub unsafe fn PropertiesAffected(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
@@ -838,19 +838,19 @@ impl IFsrmClassifierModuleDefinition {
     pub unsafe fn SetPropertiesUsed(&self, propertiesused: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPropertiesUsed)(windows_core::Interface::as_raw(self), propertiesused) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn NeedsExplicitValue(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NeedsExplicitValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetNeedsExplicitValue(&self, needsexplicitvalue: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNeedsExplicitValue)(windows_core::Interface::as_raw(self), needsexplicitvalue) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassifierModuleDefinition_Vtbl {
@@ -859,16 +859,16 @@ pub struct IFsrmClassifierModuleDefinition_Vtbl {
     pub SetPropertiesAffected: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
     pub PropertiesUsed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
     pub SetPropertiesUsed: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub NeedsExplicitValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     NeedsExplicitValue: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetNeedsExplicitValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetNeedsExplicitValue: usize,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassifierModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Impl {
     fn PropertiesAffected(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
     fn SetPropertiesAffected(&self, propertiesaffected: *const super::oaidl::SAFEARRAY) -> windows_core::Result<()>;
@@ -877,7 +877,7 @@ pub trait IFsrmClassifierModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Im
     fn NeedsExplicitValue(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetNeedsExplicitValue(&self, needsexplicitvalue: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassifierModuleDefinition_Vtbl {
     pub const fn new<Identity: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PropertiesAffected<Identity: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiesaffected: *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT {
@@ -948,29 +948,29 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         iid == &<IFsrmClassifierModuleDefinition as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<super::fsrm::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmClassifierModuleDefinition {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmClassifierModuleImplementation, IFsrmClassifierModuleImplementation_Vtbl, 0x4c968fc6_6edb_4051_9c18_73b7291ae106);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IFsrmClassifierModuleImplementation {
     type Target = IFsrmPipelineModuleImplementation;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IFsrmClassifierModuleImplementation, windows_core::IUnknown, super::oaidl::IDispatch, IFsrmPipelineModuleImplementation);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IFsrmClassifierModuleImplementation {
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn LastModified(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastModified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub unsafe fn UseRulesAndDefinitions<P0, P1>(&self, rules: P0, propertydefinitions: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::fsrm::IFsrmCollection>,
@@ -984,11 +984,11 @@ impl IFsrmClassifierModuleImplementation {
     {
         unsafe { (windows_core::Interface::vtable(self).OnBeginFile)(windows_core::Interface::as_raw(self), propertybag.param().abi(), arrayruleids) }
     }
-    #[cfg(all(feature = "Win32_fsrmenums", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "fsrmenums", feature = "wtypes"))]
     pub unsafe fn DoesPropertyValueApply(&self, property: &windows_core::BSTR, value: &windows_core::BSTR, applyvalue: *mut super::wtypes::VARIANT_BOOL, idrule: super::fsrmenums::FSRM_OBJECT_ID, idpropdef: super::fsrmenums::FSRM_OBJECT_ID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DoesPropertyValueApply)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property), core::mem::transmute_copy(value), applyvalue as _, core::mem::transmute(idrule), core::mem::transmute(idpropdef)) }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: super::fsrmenums::FSRM_OBJECT_ID, idpropdef: super::fsrmenums::FSRM_OBJECT_ID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyValueToApply)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property), core::mem::transmute(value), core::mem::transmute(idrule), core::mem::transmute(idpropdef)) }
     }
@@ -996,31 +996,31 @@ impl IFsrmClassifierModuleImplementation {
         unsafe { (windows_core::Interface::vtable(self).OnEndFile)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmClassifierModuleImplementation_Vtbl {
     pub base__: IFsrmPipelineModuleImplementation_Vtbl,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub LastModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     LastModified: usize,
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub UseRulesAndDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrm"))]
+    #[cfg(not(feature = "fsrm"))]
     UseRulesAndDefinitions: usize,
     pub OnBeginFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_fsrmenums", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "fsrmenums", feature = "wtypes"))]
     pub DoesPropertyValueApply: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL, super::fsrmenums::FSRM_OBJECT_ID, super::fsrmenums::FSRM_OBJECT_ID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_fsrmenums", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "fsrmenums", feature = "wtypes")))]
     DoesPropertyValueApply: usize,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub GetPropertyValueToApply: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, super::fsrmenums::FSRM_OBJECT_ID, super::fsrmenums::FSRM_OBJECT_ID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     GetPropertyValueToApply: usize,
     pub OnEndFile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassifierModuleImplementation_Impl: IFsrmPipelineModuleImplementation_Impl {
     fn LastModified(&self) -> windows_core::Result<super::oaidl::VARIANT>;
     fn UseRulesAndDefinitions(&self, rules: windows_core::Ref<super::fsrm::IFsrmCollection>, propertydefinitions: windows_core::Ref<super::fsrm::IFsrmCollection>) -> windows_core::Result<()>;
@@ -1029,7 +1029,7 @@ pub trait IFsrmClassifierModuleImplementation_Impl: IFsrmPipelineModuleImplement
     fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: &super::fsrmenums::FSRM_OBJECT_ID, idpropdef: &super::fsrmenums::FSRM_OBJECT_ID) -> windows_core::Result<()>;
     fn OnEndFile(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassifierModuleImplementation_Vtbl {
     pub const fn new<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LastModified<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodified: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -1088,20 +1088,20 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
         iid == &<IFsrmClassifierModuleImplementation as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmClassifierModuleImplementation {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmPipelineModuleConnector, IFsrmPipelineModuleConnector_Vtbl, 0xc16014f3_9aa1_46b3_b0a7_ab146eb205f2);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IFsrmPipelineModuleConnector {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IFsrmPipelineModuleConnector, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IFsrmPipelineModuleConnector {
     pub unsafe fn ModuleImplementation(&self) -> windows_core::Result<IFsrmPipelineModuleImplementation> {
         unsafe {
@@ -1127,7 +1127,7 @@ impl IFsrmPipelineModuleConnector {
             (windows_core::Interface::vtable(self).HostingProcessPid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub unsafe fn Bind<P0, P1>(&self, moduledefinition: P0, moduleimplementation: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IFsrmPipelineModuleDefinition>,
@@ -1136,7 +1136,7 @@ impl IFsrmPipelineModuleConnector {
         unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), moduledefinition.param().abi(), moduleimplementation.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPipelineModuleConnector_Vtbl {
@@ -1145,12 +1145,12 @@ pub struct IFsrmPipelineModuleConnector_Vtbl {
     pub ModuleName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HostingUserAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HostingProcessPid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub Bind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrm"))]
+    #[cfg(not(feature = "fsrm"))]
     Bind: usize,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPipelineModuleConnector_Impl: super::oaidl::IDispatch_Impl {
     fn ModuleImplementation(&self) -> windows_core::Result<IFsrmPipelineModuleImplementation>;
     fn ModuleName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1158,7 +1158,7 @@ pub trait IFsrmPipelineModuleConnector_Impl: super::oaidl::IDispatch_Impl {
     fn HostingProcessPid(&self) -> windows_core::Result<i32>;
     fn Bind(&self, moduledefinition: windows_core::Ref<IFsrmPipelineModuleDefinition>, moduleimplementation: windows_core::Ref<IFsrmPipelineModuleImplementation>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPipelineModuleConnector_Vtbl {
     pub const fn new<Identity: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ModuleImplementation<Identity: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipelinemoduleimplementation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1228,20 +1228,20 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         iid == &<IFsrmPipelineModuleConnector as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPipelineModuleConnector {}
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmPipelineModuleDefinition, IFsrmPipelineModuleDefinition_Vtbl, 0x515c1277_2c81_440e_8fcf_367921ed4f59);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl core::ops::Deref for IFsrmPipelineModuleDefinition {
     type Target = super::fsrm::IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::interface_hierarchy!(IFsrmPipelineModuleDefinition, windows_core::IUnknown, super::oaidl::IDispatch, super::fsrm::IFsrmObject);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl IFsrmPipelineModuleDefinition {
     pub unsafe fn ModuleClsid(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1279,43 +1279,43 @@ impl IFsrmPipelineModuleDefinition {
     pub unsafe fn SetVersion(&self, version: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(version)) }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn ModuleType(&self) -> windows_core::Result<super::fsrmenums::FsrmPipelineModuleType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModuleType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Enabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetEnabled(&self, enabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn NeedsFileContent(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NeedsFileContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNeedsFileContent)(windows_core::Interface::as_raw(self), needsfilecontent) }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn Account(&self) -> windows_core::Result<super::fsrmenums::FsrmAccountType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Account)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn SetAccount(&self, retrievalaccount: super::fsrmenums::FsrmAccountType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAccount)(windows_core::Interface::as_raw(self), retrievalaccount) }
     }
@@ -1338,7 +1338,7 @@ impl IFsrmPipelineModuleDefinition {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), parameters) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPipelineModuleDefinition_Vtbl {
@@ -1351,40 +1351,40 @@ pub struct IFsrmPipelineModuleDefinition_Vtbl {
     pub SetCompany: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub ModuleType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::fsrmenums::FsrmPipelineModuleType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     ModuleType: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Enabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetEnabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub NeedsFileContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     NeedsFileContent: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetNeedsFileContent: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetNeedsFileContent: usize,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub Account: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::fsrmenums::FsrmAccountType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     Account: usize,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub SetAccount: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmAccountType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     SetAccount: usize,
     pub SupportedExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
     pub SetSupportedExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPipelineModuleDefinition_Impl: super::fsrm::IFsrmObject_Impl {
     fn ModuleClsid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetModuleClsid(&self, moduleclsid: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -1406,7 +1406,7 @@ pub trait IFsrmPipelineModuleDefinition_Impl: super::fsrm::IFsrmObject_Impl {
     fn Parameters(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
     fn SetParameters(&self, parameters: *const super::oaidl::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPipelineModuleDefinition_Vtbl {
     pub const fn new<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ModuleClsid<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleclsid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1610,22 +1610,22 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<super::fsrm::IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPipelineModuleDefinition {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmPipelineModuleImplementation, IFsrmPipelineModuleImplementation_Vtbl, 0xb7907906_2b02_4cb5_84a9_fdf54613d6cd);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IFsrmPipelineModuleImplementation {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IFsrmPipelineModuleImplementation, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IFsrmPipelineModuleImplementation {
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub unsafe fn OnLoad<P0>(&self, moduledefinition: P0) -> windows_core::Result<IFsrmPipelineModuleConnector>
     where
         P0: windows_core::Param<IFsrmPipelineModuleDefinition>,
@@ -1639,23 +1639,23 @@ impl IFsrmPipelineModuleImplementation {
         unsafe { (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPipelineModuleImplementation_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub OnLoad: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrm"))]
+    #[cfg(not(feature = "fsrm"))]
     OnLoad: usize,
     pub OnUnload: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPipelineModuleImplementation_Impl: super::oaidl::IDispatch_Impl {
     fn OnLoad(&self, moduledefinition: windows_core::Ref<IFsrmPipelineModuleDefinition>) -> windows_core::Result<IFsrmPipelineModuleConnector>;
     fn OnUnload(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPipelineModuleImplementation_Vtbl {
     pub const fn new<Identity: IFsrmPipelineModuleImplementation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnLoad<Identity: IFsrmPipelineModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduledefinition: *mut core::ffi::c_void, moduleconnector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1682,20 +1682,20 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
         iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPipelineModuleImplementation {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmProperty, IFsrmProperty_Vtbl, 0x4a73fee4_4102_4fcc_9ffb_38614f9ee768);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IFsrmProperty {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IFsrmProperty, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IFsrmProperty {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1722,7 +1722,7 @@ impl IFsrmProperty {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmProperty_Vtbl {
@@ -1732,14 +1732,14 @@ pub struct IFsrmProperty_Vtbl {
     pub Sources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
     pub PropertyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmProperty_Impl: super::oaidl::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Sources(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
     fn PropertyFlags(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmProperty_Vtbl {
     pub const fn new<Identity: IFsrmProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IFsrmProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1802,20 +1802,20 @@ impl IFsrmProperty_Vtbl {
         iid == &<IFsrmProperty as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmProperty {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmPropertyBag, IFsrmPropertyBag_Vtbl, 0x774589d1_d300_4f7a_9a24_f7b766800250);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IFsrmPropertyBag {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IFsrmPropertyBag, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IFsrmPropertyBag {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1847,49 +1847,49 @@ impl IFsrmPropertyBag {
             (windows_core::Interface::vtable(self).VolumeIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FileId(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ParentDirectoryId(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ParentDirectoryId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Size(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Size)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SizeAllocated(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SizeAllocated)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreationTime(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn LastAccessTime(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastAccessTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn LastModificationTime(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1938,7 +1938,7 @@ impl IFsrmPropertyBag {
     pub unsafe fn AddMessage(&self, message: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(message)) }
     }
-    #[cfg(all(feature = "Win32_fsrmenums", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetFileStreamInterface(&self, accessmode: super::fsrmenums::FsrmFileStreamingMode, interfacetype: super::fsrmenums::FsrmFileStreamingInterfaceType) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1946,7 +1946,7 @@ impl IFsrmPropertyBag {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyBag_Vtbl {
@@ -1956,33 +1956,33 @@ pub struct IFsrmPropertyBag_Vtbl {
     pub VolumeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RelativeNamespaceRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub VolumeIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub FileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     FileId: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub ParentDirectoryId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     ParentDirectoryId: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Size: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub SizeAllocated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     SizeAllocated: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub CreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     CreationTime: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub LastAccessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     LastAccessTime: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub LastModificationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     LastModificationTime: usize,
     pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub OwnerSid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1992,12 +1992,12 @@ pub struct IFsrmPropertyBag_Vtbl {
     pub GetFileProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFileProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_fsrmenums", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase"))]
     pub GetFileStreamInterface: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmFileStreamingMode, super::fsrmenums::FsrmFileStreamingInterfaceType, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_fsrmenums", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase")))]
     GetFileStreamInterface: usize,
 }
-#[cfg(all(feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPropertyBag_Impl: super::oaidl::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn RelativePath(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2021,7 +2021,7 @@ pub trait IFsrmPropertyBag_Impl: super::oaidl::IDispatch_Impl {
     fn AddMessage(&self, message: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetFileStreamInterface(&self, accessmode: super::fsrmenums::FsrmFileStreamingMode, interfacetype: super::fsrmenums::FsrmFileStreamingInterfaceType) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPropertyBag_Vtbl {
     pub const fn new<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2293,29 +2293,29 @@ impl IFsrmPropertyBag_Vtbl {
         iid == &<IFsrmPropertyBag as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPropertyBag {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmPropertyBag2, IFsrmPropertyBag2_Vtbl, 0x0e46bdbd_2402_4fed_9c30_9266e6eb2cc9);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IFsrmPropertyBag2 {
     type Target = IFsrmPropertyBag;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IFsrmPropertyBag2, windows_core::IUnknown, super::oaidl::IDispatch, IFsrmPropertyBag);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IFsrmPropertyBag2 {
-    #[cfg(all(feature = "Win32_fsrmenums", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetFieldValue(&self, field: super::fsrmenums::FsrmPropertyBagField) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFieldValue)(windows_core::Interface::as_raw(self), field, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub unsafe fn GetUntrustedInFileProperties(&self) -> windows_core::Result<super::fsrm::IFsrmCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2323,26 +2323,26 @@ impl IFsrmPropertyBag2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyBag2_Vtbl {
     pub base__: IFsrmPropertyBag_Vtbl,
-    #[cfg(all(feature = "Win32_fsrmenums", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase"))]
     pub GetFieldValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmPropertyBagField, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_fsrmenums", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase")))]
     GetFieldValue: usize,
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub GetUntrustedInFileProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrm"))]
+    #[cfg(not(feature = "fsrm"))]
     GetUntrustedInFileProperties: usize,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPropertyBag2_Impl: IFsrmPropertyBag_Impl {
     fn GetFieldValue(&self, field: super::fsrmenums::FsrmPropertyBagField) -> windows_core::Result<super::oaidl::VARIANT>;
     fn GetUntrustedInFileProperties(&self) -> windows_core::Result<super::fsrm::IFsrmCollection>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPropertyBag2_Vtbl {
     pub const fn new<Identity: IFsrmPropertyBag2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFieldValue<Identity: IFsrmPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, field: super::fsrmenums::FsrmPropertyBagField, value: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -2379,20 +2379,20 @@ impl IFsrmPropertyBag2_Vtbl {
         iid == &<IFsrmPropertyBag2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmPropertyBag as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPropertyBag2 {}
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmPropertyDefinition, IFsrmPropertyDefinition_Vtbl, 0xede0150f_e9a3_419c_877c_01fe5d24c5d3);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl core::ops::Deref for IFsrmPropertyDefinition {
     type Target = super::fsrm::IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::interface_hierarchy!(IFsrmPropertyDefinition, windows_core::IUnknown, super::oaidl::IDispatch, super::fsrm::IFsrmObject);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl IFsrmPropertyDefinition {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -2403,14 +2403,14 @@ impl IFsrmPropertyDefinition {
     pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)) }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn Type(&self) -> windows_core::Result<super::fsrmenums::FsrmPropertyDefinitionType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn SetType(&self, r#type: super::fsrmenums::FsrmPropertyDefinitionType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), r#type) }
     }
@@ -2442,20 +2442,20 @@ impl IFsrmPropertyDefinition {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), parameters) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyDefinition_Vtbl {
     pub base__: super::fsrm::IFsrmObject_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::fsrmenums::FsrmPropertyDefinitionType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     Type: usize,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmPropertyDefinitionType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     SetType: usize,
     pub PossibleValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
     pub SetPossibleValues: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
@@ -2464,7 +2464,7 @@ pub struct IFsrmPropertyDefinition_Vtbl {
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPropertyDefinition_Impl: super::fsrm::IFsrmObject_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2477,7 +2477,7 @@ pub trait IFsrmPropertyDefinition_Impl: super::fsrm::IFsrmObject_Impl {
     fn Parameters(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
     fn SetParameters(&self, parameters: *const super::oaidl::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPropertyDefinition_Vtbl {
     pub const fn new<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2588,20 +2588,20 @@ impl IFsrmPropertyDefinition_Vtbl {
         iid == &<IFsrmPropertyDefinition as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<super::fsrm::IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPropertyDefinition {}
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmPropertyDefinition2, IFsrmPropertyDefinition2_Vtbl, 0x47782152_d16c_4229_b4e1_0ddfe308b9f6);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl core::ops::Deref for IFsrmPropertyDefinition2 {
     type Target = IFsrmPropertyDefinition;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::interface_hierarchy!(IFsrmPropertyDefinition2, windows_core::IUnknown, super::oaidl::IDispatch, super::fsrm::IFsrmObject, IFsrmPropertyDefinition);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl IFsrmPropertyDefinition2 {
     pub unsafe fn PropertyDefinitionFlags(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -2631,7 +2631,7 @@ impl IFsrmPropertyDefinition2 {
         }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyDefinition2_Vtbl {
@@ -2642,7 +2642,7 @@ pub struct IFsrmPropertyDefinition2_Vtbl {
     pub AppliesTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ValueDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPropertyDefinition2_Impl: IFsrmPropertyDefinition_Impl {
     fn PropertyDefinitionFlags(&self) -> windows_core::Result<i32>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2650,7 +2650,7 @@ pub trait IFsrmPropertyDefinition2_Impl: IFsrmPropertyDefinition_Impl {
     fn AppliesTo(&self) -> windows_core::Result<i32>;
     fn ValueDefinitions(&self) -> windows_core::Result<super::fsrm::IFsrmCollection>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPropertyDefinition2_Vtbl {
     pub const fn new<Identity: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PropertyDefinitionFlags<Identity: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertydefinitionflags: *mut i32) -> windows_core::HRESULT {
@@ -2720,20 +2720,20 @@ impl IFsrmPropertyDefinition2_Vtbl {
         iid == &<IFsrmPropertyDefinition2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<super::fsrm::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPropertyDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPropertyDefinition2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmPropertyDefinitionValue, IFsrmPropertyDefinitionValue_Vtbl, 0xe946d148_bd67_4178_8e22_1c44925ed710);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IFsrmPropertyDefinitionValue {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IFsrmPropertyDefinitionValue, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IFsrmPropertyDefinitionValue {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -2760,7 +2760,7 @@ impl IFsrmPropertyDefinitionValue {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmPropertyDefinitionValue_Vtbl {
@@ -2770,14 +2770,14 @@ pub struct IFsrmPropertyDefinitionValue_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UniqueID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPropertyDefinitionValue_Impl: super::oaidl::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn UniqueID(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPropertyDefinitionValue_Vtbl {
     pub const fn new<Identity: IFsrmPropertyDefinitionValue_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IFsrmPropertyDefinitionValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2840,20 +2840,20 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
         iid == &<IFsrmPropertyDefinitionValue as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPropertyDefinitionValue {}
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmRule, IFsrmRule_Vtbl, 0xcb0df960_16f5_4495_9079_3f9360d831df);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl core::ops::Deref for IFsrmRule {
     type Target = super::fsrm::IFsrmObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::interface_hierarchy!(IFsrmRule, windows_core::IUnknown, super::oaidl::IDispatch, super::fsrm::IFsrmObject);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl IFsrmRule {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -2864,7 +2864,7 @@ impl IFsrmRule {
     pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)) }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn RuleType(&self) -> windows_core::Result<super::fsrmenums::FsrmRuleType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2907,7 +2907,7 @@ impl IFsrmRule {
     pub unsafe fn SetParameters(&self, parameters: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), parameters) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn LastModified(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2915,16 +2915,16 @@ impl IFsrmRule {
         }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmRule_Vtbl {
     pub base__: super::fsrm::IFsrmObject_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub RuleType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::fsrmenums::FsrmRuleType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     RuleType: usize,
     pub ModuleDefinitionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetModuleDefinitionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2934,12 +2934,12 @@ pub struct IFsrmRule_Vtbl {
     pub SetRuleFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub LastModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     LastModified: usize,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmRule_Impl: super::fsrm::IFsrmObject_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2954,7 +2954,7 @@ pub trait IFsrmRule_Impl: super::fsrm::IFsrmObject_Impl {
     fn SetParameters(&self, parameters: *const super::oaidl::SAFEARRAY) -> windows_core::Result<()>;
     fn LastModified(&self) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmRule_Vtbl {
     pub const fn new<Identity: IFsrmRule_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3091,86 +3091,86 @@ impl IFsrmRule_Vtbl {
         iid == &<IFsrmRule as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<super::fsrm::IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmRule {}
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmStorageModuleDefinition, IFsrmStorageModuleDefinition_Vtbl, 0x15a81350_497d_4aba_80e9_d4dbcc5521fe);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl core::ops::Deref for IFsrmStorageModuleDefinition {
     type Target = IFsrmPipelineModuleDefinition;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::interface_hierarchy!(IFsrmStorageModuleDefinition, windows_core::IUnknown, super::oaidl::IDispatch, super::fsrm::IFsrmObject, IFsrmPipelineModuleDefinition);
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl IFsrmStorageModuleDefinition {
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn Capabilities(&self) -> windows_core::Result<super::fsrmenums::FsrmStorageModuleCaps> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Capabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn SetCapabilities(&self, capabilities: super::fsrmenums::FsrmStorageModuleCaps) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCapabilities)(windows_core::Interface::as_raw(self), capabilities) }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn StorageType(&self) -> windows_core::Result<super::fsrmenums::FsrmStorageModuleType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StorageType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub unsafe fn SetStorageType(&self, storagetype: super::fsrmenums::FsrmStorageModuleType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStorageType)(windows_core::Interface::as_raw(self), storagetype) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn UpdatesFileContent(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdatesFileContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetUpdatesFileContent(&self, updatesfilecontent: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUpdatesFileContent)(windows_core::Interface::as_raw(self), updatesfilecontent) }
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl"))]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmStorageModuleDefinition_Vtbl {
     pub base__: IFsrmPipelineModuleDefinition_Vtbl,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub Capabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::fsrmenums::FsrmStorageModuleCaps) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     Capabilities: usize,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub SetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmStorageModuleCaps) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     SetCapabilities: usize,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub StorageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::fsrmenums::FsrmStorageModuleType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     StorageType: usize,
-    #[cfg(feature = "Win32_fsrmenums")]
+    #[cfg(feature = "fsrmenums")]
     pub SetStorageType: unsafe extern "system" fn(*mut core::ffi::c_void, super::fsrmenums::FsrmStorageModuleType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrmenums"))]
+    #[cfg(not(feature = "fsrmenums"))]
     SetStorageType: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub UpdatesFileContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     UpdatesFileContent: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetUpdatesFileContent: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetUpdatesFileContent: usize,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmStorageModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Impl {
     fn Capabilities(&self) -> windows_core::Result<super::fsrmenums::FsrmStorageModuleCaps>;
     fn SetCapabilities(&self, capabilities: super::fsrmenums::FsrmStorageModuleCaps) -> windows_core::Result<()>;
@@ -3179,7 +3179,7 @@ pub trait IFsrmStorageModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Impl 
     fn UpdatesFileContent(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetUpdatesFileContent(&self, updatesfilecontent: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmStorageModuleDefinition_Vtbl {
     pub const fn new<Identity: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Capabilities<Identity: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilities: *mut super::fsrmenums::FsrmStorageModuleCaps) -> windows_core::HRESULT {
@@ -3250,22 +3250,22 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         iid == &<IFsrmStorageModuleDefinition as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<super::fsrm::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_fsrmenums", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmStorageModuleDefinition {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmStorageModuleImplementation, IFsrmStorageModuleImplementation_Vtbl, 0x0af4a0da_895a_4e50_8712_a96724bcec64);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IFsrmStorageModuleImplementation {
     type Target = IFsrmPipelineModuleImplementation;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IFsrmStorageModuleImplementation, windows_core::IUnknown, super::oaidl::IDispatch, IFsrmPipelineModuleImplementation);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IFsrmStorageModuleImplementation {
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub unsafe fn UseDefinitions<P0>(&self, propertydefinitions: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::fsrm::IFsrmCollection>,
@@ -3285,25 +3285,25 @@ impl IFsrmStorageModuleImplementation {
         unsafe { (windows_core::Interface::vtable(self).SaveProperties)(windows_core::Interface::as_raw(self), propertybag.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsrmStorageModuleImplementation_Vtbl {
     pub base__: IFsrmPipelineModuleImplementation_Vtbl,
-    #[cfg(feature = "Win32_fsrm")]
+    #[cfg(feature = "fsrm")]
     pub UseDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_fsrm"))]
+    #[cfg(not(feature = "fsrm"))]
     UseDefinitions: usize,
     pub LoadProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SaveProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmStorageModuleImplementation_Impl: IFsrmPipelineModuleImplementation_Impl {
     fn UseDefinitions(&self, propertydefinitions: windows_core::Ref<super::fsrm::IFsrmCollection>) -> windows_core::Result<()>;
     fn LoadProperties(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>) -> windows_core::Result<()>;
     fn SaveProperties(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmStorageModuleImplementation_Vtbl {
     pub const fn new<Identity: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn UseDefinitions<Identity: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertydefinitions: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3335,6 +3335,6 @@ impl IFsrmStorageModuleImplementation_Vtbl {
         iid == &<IFsrmStorageModuleImplementation as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_fsrm", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmStorageModuleImplementation {}
 pub const MessageSizeLimit: u32 = 4096;

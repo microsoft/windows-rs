@@ -1,712 +1,712 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn AbortDoc(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn AbortPath(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("gdi32.dll" "system" fn AddFontMemResourceEx(pfileview : *const core::ffi::c_void, cjsize : u32, pvresrved : *const core::ffi::c_void, pnumfonts : *const u32) -> super::winnt::HANDLE);
 windows_link::link!("gdi32.dll" "system" fn AddFontResourceA(param0 : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("gdi32.dll" "system" fn AddFontResourceExA(name : windows_sys::core::PCSTR, fl : u32, res : *const core::ffi::c_void) -> i32);
 windows_link::link!("gdi32.dll" "system" fn AddFontResourceExW(name : windows_sys::core::PCWSTR, fl : u32, res : *const core::ffi::c_void) -> i32);
 windows_link::link!("gdi32.dll" "system" fn AddFontResourceW(param0 : windows_sys::core::PCWSTR) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("msimg32.dll" "system" fn AlphaBlend(hdcdest : super::windef::HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : super::windef::HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, ftn : BLENDFUNCTION) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn AngleArc(hdc : super::windef::HDC, x : i32, y : i32, r : u32, startangle : f32, sweepangle : f32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn AnimatePalette(hpal : super::windef::HPALETTE, istartindex : u32, centries : u32, ppe : *const PALETTEENTRY) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn Arc(hdc : super::windef::HDC, x1 : i32, y1 : i32, x2 : i32, y2 : i32, x3 : i32, y3 : i32, x4 : i32, y4 : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ArcTo(hdc : super::windef::HDC, left : i32, top : i32, right : i32, bottom : i32, xr1 : i32, yr1 : i32, xr2 : i32, yr2 : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn BeginPath(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn BitBlt(hdc : super::windef::HDC, x : i32, y : i32, cx : i32, cy : i32, hdcsrc : super::windef::HDC, x1 : i32, y1 : i32, rop : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CancelDC(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CheckColorsInGamut(hdc : super::windef::HDC, lprgbtriple : *const RGBTRIPLE, dlpbuffer : *mut core::ffi::c_void, ncount : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ChoosePixelFormat(hdc : super::windef::HDC, ppfd : *const PIXELFORMATDESCRIPTOR) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn Chord(hdc : super::windef::HDC, x1 : i32, y1 : i32, x2 : i32, y2 : i32, x3 : i32, y3 : i32, x4 : i32, y4 : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CloseEnhMetaFile(hdc : super::windef::HDC) -> super::windef::HENHMETAFILE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CloseFigure(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn CloseMetaFile(hdc : super::windef::HDC) -> super::minwindef::HMETAFILE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ColorCorrectPalette(hdc : super::windef::HDC, hpal : super::windef::HPALETTE, defirst : u32, num : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ColorMatchToTarget(hdc : super::windef::HDC, hdctarget : super::windef::HDC, action : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn CombineRgn(hrgndst : super::minwindef::HRGN, hrgnsrc1 : super::minwindef::HRGN, hrgnsrc2 : super::minwindef::HRGN, imode : i32) -> i32);
 windows_link::link!("gdi32.dll" "system" fn CombineTransform(lpxfout : *mut XFORM, lpxf1 : *const XFORM, lpxf2 : *const XFORM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CopyEnhMetaFileA(henh : super::windef::HENHMETAFILE, lpfilename : windows_sys::core::PCSTR) -> super::windef::HENHMETAFILE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CopyEnhMetaFileW(henh : super::windef::HENHMETAFILE, lpfilename : windows_sys::core::PCWSTR) -> super::windef::HENHMETAFILE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn CopyMetaFileA(param0 : super::minwindef::HMETAFILE, param1 : windows_sys::core::PCSTR) -> super::minwindef::HMETAFILE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn CopyMetaFileW(param0 : super::minwindef::HMETAFILE, param1 : windows_sys::core::PCWSTR) -> super::minwindef::HMETAFILE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateBitmap(nwidth : i32, nheight : i32, nplanes : u32, nbitcount : u32, lpbits : *const core::ffi::c_void) -> super::windef::HBITMAP);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateBitmapIndirect(pbm : *const BITMAP) -> super::windef::HBITMAP);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateBrushIndirect(plbrush : *const LOGBRUSH) -> super::windef::HBRUSH);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateColorSpaceA(lplcs : *const LOGCOLORSPACEA) -> super::windef::HCOLORSPACE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateColorSpaceW(lplcs : *const LOGCOLORSPACEW) -> super::windef::HCOLORSPACE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateCompatibleBitmap(hdc : super::windef::HDC, cx : i32, cy : i32) -> super::windef::HBITMAP);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateCompatibleDC(hdc : super::windef::HDC) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateDCA(pwszdriver : windows_sys::core::PCSTR, pwszdevice : windows_sys::core::PCSTR, pszport : windows_sys::core::PCSTR, pdm : *const DEVMODEA) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateDCW(pwszdriver : windows_sys::core::PCWSTR, pwszdevice : windows_sys::core::PCWSTR, pszport : windows_sys::core::PCWSTR, pdm : *const DEVMODEW) -> super::windef::HDC);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn CreateDIBPatternBrush(h : super::minwindef::HGLOBAL, iusage : u32) -> super::windef::HBRUSH);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateDIBPatternBrushPt(lppackeddib : *const core::ffi::c_void, iusage : u32) -> super::windef::HBRUSH);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn CreateDIBSection(hdc : super::windef::HDC, pbmi : *const BITMAPINFO, usage : u32, ppvbits : *mut *mut core::ffi::c_void, hsection : super::winnt::HANDLE, offset : u32) -> super::windef::HBITMAP);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateDIBitmap(hdc : super::windef::HDC, pbmih : *const BITMAPINFOHEADER, flinit : u32, pjbits : *const core::ffi::c_void, pbmi : *const BITMAPINFO, iusage : u32) -> super::windef::HBITMAP);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateDiscardableBitmap(hdc : super::windef::HDC, cx : i32, cy : i32) -> super::windef::HBITMAP);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn CreateEllipticRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> super::minwindef::HRGN);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn CreateEllipticRgnIndirect(lprect : *const super::windef::RECT) -> super::minwindef::HRGN);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateEnhMetaFileA(hdc : super::windef::HDC, lpfilename : windows_sys::core::PCSTR, lprc : *const super::windef::RECT, lpdesc : windows_sys::core::PCSTR) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateEnhMetaFileW(hdc : super::windef::HDC, lpfilename : windows_sys::core::PCWSTR, lprc : *const super::windef::RECT, lpdesc : windows_sys::core::PCWSTR) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateFontA(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : windows_sys::core::PCSTR) -> super::windef::HFONT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateFontIndirectA(lplf : *const LOGFONTA) -> super::windef::HFONT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateFontIndirectExA(param0 : *const ENUMLOGFONTEXDVA) -> super::windef::HFONT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateFontIndirectExW(param0 : *const ENUMLOGFONTEXDVW) -> super::windef::HFONT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateFontIndirectW(lplf : *const LOGFONTW) -> super::windef::HFONT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateFontW(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : windows_sys::core::PCWSTR) -> super::windef::HFONT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateHalftonePalette(hdc : super::windef::HDC) -> super::windef::HPALETTE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateHatchBrush(ihatch : i32, color : super::windef::COLORREF) -> super::windef::HBRUSH);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateICA(pszdriver : windows_sys::core::PCSTR, pszdevice : windows_sys::core::PCSTR, pszport : windows_sys::core::PCSTR, pdm : *const DEVMODEA) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateICW(pszdriver : windows_sys::core::PCWSTR, pszdevice : windows_sys::core::PCWSTR, pszport : windows_sys::core::PCWSTR, pdm : *const DEVMODEW) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateMetaFileA(pszfile : windows_sys::core::PCSTR) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateMetaFileW(pszfile : windows_sys::core::PCWSTR) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreatePalette(plpal : *const LOGPALETTE) -> super::windef::HPALETTE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreatePatternBrush(hbm : super::windef::HBITMAP) -> super::windef::HBRUSH);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreatePen(istyle : i32, cwidth : i32, color : super::windef::COLORREF) -> super::windef::HPEN);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreatePenIndirect(plpen : *const LOGPEN) -> super::windef::HPEN);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn CreatePolyPolygonRgn(pptl : *const super::windef::POINT, pc : *const i32, cpoly : i32, imode : i32) -> super::minwindef::HRGN);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn CreatePolygonRgn(pptl : *const super::windef::POINT, cpoint : i32, imode : i32) -> super::minwindef::HRGN);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn CreateRectRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> super::minwindef::HRGN);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn CreateRectRgnIndirect(lprect : *const super::windef::RECT) -> super::minwindef::HRGN);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn CreateRoundRectRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32, w : i32, h : i32) -> super::minwindef::HRGN);
 windows_link::link!("gdi32.dll" "system" fn CreateScalableFontResourceA(fdwhidden : u32, lpszfont : windows_sys::core::PCSTR, lpszfile : windows_sys::core::PCSTR, lpszpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn CreateScalableFontResourceW(fdwhidden : u32, lpszfont : windows_sys::core::PCWSTR, lpszfile : windows_sys::core::PCWSTR, lpszpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn CreateSolidBrush(color : super::windef::COLORREF) -> super::windef::HBRUSH);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn DPtoLP(hdc : super::windef::HDC, lppt : *mut super::windef::POINT, c : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn DeleteColorSpace(hcs : super::windef::HCOLORSPACE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn DeleteDC(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn DeleteEnhMetaFile(hmf : super::windef::HENHMETAFILE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn DeleteMetaFile(hmf : super::minwindef::HMETAFILE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn DeleteObject(ho : super::windef::HGDIOBJ) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn DescribePixelFormat(hdc : super::windef::HDC, ipixelformat : i32, nbytes : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("winspool.drv" "system" fn DeviceCapabilitiesA(pdevice : windows_sys::core::PCSTR, pport : windows_sys::core::PCSTR, fwcapability : u16, poutput : windows_sys::core::PSTR, pdevmode : *const DEVMODEA) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("winspool.drv" "system" fn DeviceCapabilitiesW(pdevice : windows_sys::core::PCWSTR, pport : windows_sys::core::PCWSTR, fwcapability : u16, poutput : windows_sys::core::PWSTR, pdevmode : *const DEVMODEW) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn DrawEscape(hdc : super::windef::HDC, iescape : i32, cjin : i32, lpin : windows_sys::core::PCSTR) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn Ellipse(hdc : super::windef::HDC, left : i32, top : i32, right : i32, bottom : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn EndDoc(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn EndPage(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn EndPath(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn EnumEnhMetaFile(hdc : super::windef::HDC, hmf : super::windef::HENHMETAFILE, proc : ENHMFENUMPROC, param : *const core::ffi::c_void, lprect : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn EnumFontFamiliesA(hdc : super::windef::HDC, lplogfont : windows_sys::core::PCSTR, lpproc : FONTENUMPROCA, lparam : super::minwindef::LPARAM) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn EnumFontFamiliesExA(hdc : super::windef::HDC, lplogfont : *const LOGFONTA, lpproc : FONTENUMPROCA, lparam : super::minwindef::LPARAM, dwflags : u32) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn EnumFontFamiliesExW(hdc : super::windef::HDC, lplogfont : *const LOGFONTW, lpproc : FONTENUMPROCW, lparam : super::minwindef::LPARAM, dwflags : u32) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn EnumFontFamiliesW(hdc : super::windef::HDC, lplogfont : windows_sys::core::PCWSTR, lpproc : FONTENUMPROCW, lparam : super::minwindef::LPARAM) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn EnumFontsA(hdc : super::windef::HDC, lplogfont : windows_sys::core::PCSTR, lpproc : FONTENUMPROCA, lparam : super::minwindef::LPARAM) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn EnumFontsW(hdc : super::windef::HDC, lplogfont : windows_sys::core::PCWSTR, lpproc : FONTENUMPROCW, lparam : super::minwindef::LPARAM) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn EnumICMProfilesA(hdc : super::windef::HDC, proc : ICMENUMPROCA, param : super::minwindef::LPARAM) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn EnumICMProfilesW(hdc : super::windef::HDC, proc : ICMENUMPROCW, param : super::minwindef::LPARAM) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn EnumMetaFile(hdc : super::windef::HDC, hmf : super::minwindef::HMETAFILE, proc : MFENUMPROC, param : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn EnumObjects(hdc : super::windef::HDC, ntype : i32, lpfunc : GOBJENUMPROC, lparam : super::minwindef::LPARAM) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn EqualRgn(hrgn1 : super::minwindef::HRGN, hrgn2 : super::minwindef::HRGN) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn Escape(hdc : super::windef::HDC, iescape : i32, cjin : i32, pvin : windows_sys::core::PCSTR, pvout : *mut core::ffi::c_void) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ExcludeClipRect(hdc : super::windef::HDC, left : i32, top : i32, right : i32, bottom : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ExtCreatePen(ipenstyle : u32, cwidth : u32, plbrush : *const LOGBRUSH, cstyle : u32, pstyle : *const u32) -> super::windef::HPEN);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn ExtCreateRegion(lpx : *const XFORM, ncount : u32, lpdata : *const RGNDATA) -> super::minwindef::HRGN);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::windef::HDC, iescape : i32, cjinput : i32, lpindata : windows_sys::core::PCSTR, cjoutput : i32, lpoutdata : windows_sys::core::PSTR) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ExtFloodFill(hdc : super::windef::HDC, x : i32, y : i32, color : super::windef::COLORREF, r#type : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn ExtSelectClipRgn(hdc : super::windef::HDC, hrgn : super::minwindef::HRGN, mode : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ExtTextOutA(hdc : super::windef::HDC, x : i32, y : i32, options : u32, lprect : *const super::windef::RECT, lpstring : windows_sys::core::PCSTR, c : u32, lpdx : *const i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ExtTextOutW(hdc : super::windef::HDC, x : i32, y : i32, options : u32, lprect : *const super::windef::RECT, lpstring : windows_sys::core::PCWSTR, c : u32, lpdx : *const i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn FillPath(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn FillRgn(hdc : super::windef::HDC, hrgn : super::minwindef::HRGN, hbr : super::windef::HBRUSH) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn FixBrushOrgEx(hdc : super::windef::HDC, x : i32, y : i32, ptl : *const super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn FlattenPath(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn FloodFill(hdc : super::windef::HDC, x : i32, y : i32, color : super::windef::COLORREF) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn FrameRgn(hdc : super::windef::HDC, hrgn : super::minwindef::HRGN, hbr : super::windef::HBRUSH, w : i32, h : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GdiAlphaBlend(hdcdest : super::windef::HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : super::windef::HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, ftn : BLENDFUNCTION) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GdiComment(hdc : super::windef::HDC, nsize : u32, lpdata : *const u8) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn GdiFlush() -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn GdiGetBatchLimit() -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GdiGradientFill(hdc : super::windef::HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const core::ffi::c_void, ncount : u32, ulmode : u32) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn GdiSetBatchLimit(dw : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GdiTransparentBlt(hdcdest : super::windef::HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : super::windef::HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, crtransparent : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetArcDirection(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetAspectRatioFilterEx(hdc : super::windef::HDC, lpsize : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetBitmapBits(hbit : super::windef::HBITMAP, cb : i32, lpvbits : *mut core::ffi::c_void) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetBitmapDimensionEx(hbit : super::windef::HBITMAP, lpsize : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetBkColor(hdc : super::windef::HDC) -> super::windef::COLORREF);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetBkMode(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetBoundsRect(hdc : super::windef::HDC, lprect : *mut super::windef::RECT, flags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetBrushOrgEx(hdc : super::windef::HDC, lppt : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharABCWidthsA(hdc : super::windef::HDC, wfirst : u32, wlast : u32, lpabc : *mut ABC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharABCWidthsFloatA(hdc : super::windef::HDC, ifirst : u32, ilast : u32, lpabc : *mut ABCFLOAT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharABCWidthsFloatW(hdc : super::windef::HDC, ifirst : u32, ilast : u32, lpabc : *mut ABCFLOAT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharABCWidthsI(hdc : super::windef::HDC, gifirst : u32, cgi : u32, pgi : *const u16, pabc : *mut ABC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharABCWidthsW(hdc : super::windef::HDC, wfirst : u32, wlast : u32, lpabc : *mut ABC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharWidth32A(hdc : super::windef::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharWidth32W(hdc : super::windef::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharWidthA(hdc : super::windef::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharWidthFloatA(hdc : super::windef::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut f32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharWidthFloatW(hdc : super::windef::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut f32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharWidthI(hdc : super::windef::HDC, gifirst : u32, cgi : u32, pgi : *const u16, piwidths : *mut i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharWidthW(hdc : super::windef::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharacterPlacementA(hdc : super::windef::HDC, lpstring : windows_sys::core::PCSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSA, dwflags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCharacterPlacementW(hdc : super::windef::HDC, lpstring : windows_sys::core::PCWSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSW, dwflags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetClipBox(hdc : super::windef::HDC, lprect : *mut super::windef::RECT) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn GetClipRgn(hdc : super::windef::HDC, hrgn : super::minwindef::HRGN) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetColorAdjustment(hdc : super::windef::HDC, lpca : *mut COLORADJUSTMENT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetColorSpace(hdc : super::windef::HDC) -> super::windef::HCOLORSPACE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCurrentObject(hdc : super::windef::HDC, r#type : u32) -> super::windef::HGDIOBJ);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetCurrentPositionEx(hdc : super::windef::HDC, lppt : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetDCBrushColor(hdc : super::windef::HDC) -> super::windef::COLORREF);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetDCOrgEx(hdc : super::windef::HDC, lppt : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetDCPenColor(hdc : super::windef::HDC) -> super::windef::COLORREF);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetDIBColorTable(hdc : super::windef::HDC, istart : u32, centries : u32, prgbq : *mut RGBQUAD) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetDIBits(hdc : super::windef::HDC, hbm : super::windef::HBITMAP, start : u32, clines : u32, lpvbits : *mut core::ffi::c_void, lpbmi : *mut BITMAPINFO, usage : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetDeviceCaps(hdc : super::windef::HDC, index : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetDeviceGammaRamp(hdc : super::windef::HDC, lpramp : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetEnhMetaFileA(lpname : windows_sys::core::PCSTR) -> super::windef::HENHMETAFILE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetEnhMetaFileBits(hemf : super::windef::HENHMETAFILE, nsize : u32, lpdata : *mut u8) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionA(hemf : super::windef::HENHMETAFILE, cchbuffer : u32, lpdescription : windows_sys::core::PSTR) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionW(hemf : super::windef::HENHMETAFILE, cchbuffer : u32, lpdescription : windows_sys::core::PWSTR) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetEnhMetaFileHeader(hemf : super::windef::HENHMETAFILE, nsize : u32, lpenhmetaheader : *mut ENHMETAHEADER) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetEnhMetaFilePaletteEntries(hemf : super::windef::HENHMETAFILE, nnumentries : u32, lppaletteentries : *mut PALETTEENTRY) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetEnhMetaFilePixelFormat(hemf : super::windef::HENHMETAFILE, cbbuffer : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetEnhMetaFileW(lpname : windows_sys::core::PCWSTR) -> super::windef::HENHMETAFILE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetFontData(hdc : super::windef::HDC, dwtable : u32, dwoffset : u32, pvbuffer : *mut core::ffi::c_void, cjbuffer : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetFontLanguageInfo(hdc : super::windef::HDC) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetFontUnicodeRanges(hdc : super::windef::HDC, lpgs : *mut GLYPHSET) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetGlyphIndicesA(hdc : super::windef::HDC, lpstr : windows_sys::core::PCSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetGlyphIndicesW(hdc : super::windef::HDC, lpstr : windows_sys::core::PCWSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetGlyphOutlineA(hdc : super::windef::HDC, uchar : u32, fuformat : u32, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetGlyphOutlineW(hdc : super::windef::HDC, uchar : u32, fuformat : u32, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetGraphicsMode(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetICMProfileA(hdc : super::windef::HDC, pbufsize : *mut u32, pszfilename : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetICMProfileW(hdc : super::windef::HDC, pbufsize : *mut u32, pszfilename : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetKerningPairsA(hdc : super::windef::HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetKerningPairsW(hdc : super::windef::HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetLayout(hdc : super::windef::HDC) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetLogColorSpaceA(hcolorspace : super::windef::HCOLORSPACE, lpbuffer : *mut LOGCOLORSPACEA, nsize : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetLogColorSpaceW(hcolorspace : super::windef::HCOLORSPACE, lpbuffer : *mut LOGCOLORSPACEW, nsize : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetMapMode(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn GetMetaFileA(lpname : windows_sys::core::PCSTR) -> super::minwindef::HMETAFILE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn GetMetaFileBitsEx(hmf : super::minwindef::HMETAFILE, cbbuffer : u32, lpdata : *mut core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn GetMetaFileW(lpname : windows_sys::core::PCWSTR) -> super::minwindef::HMETAFILE);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn GetMetaRgn(hdc : super::windef::HDC, hrgn : super::minwindef::HRGN) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetMiterLimit(hdc : super::windef::HDC, plimit : *mut f32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetNearestColor(hdc : super::windef::HDC, color : super::windef::COLORREF) -> super::windef::COLORREF);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetNearestPaletteIndex(h : super::windef::HPALETTE, color : super::windef::COLORREF) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("gdi32.dll" "system" fn GetObjectA(h : super::winnt::HANDLE, c : i32, pv : *mut core::ffi::c_void) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetObjectType(h : super::windef::HGDIOBJ) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("gdi32.dll" "system" fn GetObjectW(h : super::winnt::HANDLE, c : i32, pv : *mut core::ffi::c_void) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetOutlineTextMetricsA(hdc : super::windef::HDC, cjcopy : u32, potm : *mut OUTLINETEXTMETRICA) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetOutlineTextMetricsW(hdc : super::windef::HDC, cjcopy : u32, potm : *mut OUTLINETEXTMETRICW) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetPaletteEntries(hpal : super::windef::HPALETTE, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetPath(hdc : super::windef::HDC, apt : *mut super::windef::POINT, aj : *mut u8, cpt : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetPixel(hdc : super::windef::HDC, x : i32, y : i32) -> super::windef::COLORREF);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetPixelFormat(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetPolyFillMode(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetROP2(hdc : super::windef::HDC) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn GetRandomRgn(hdc : super::windef::HDC, hrgn : super::minwindef::HRGN, i : i32) -> i32);
 windows_link::link!("gdi32.dll" "system" fn GetRasterizerCaps(lpraststat : *mut RASTERIZER_STATUS, cjbytes : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn GetRegionData(hrgn : super::minwindef::HRGN, ncount : u32, lprgndata : *mut RGNDATA) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn GetRgnBox(hrgn : super::minwindef::HRGN, lprc : *mut super::windef::RECT) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetStockObject(i : i32) -> super::windef::HGDIOBJ);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetStretchBltMode(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetSystemPaletteEntries(hdc : super::windef::HDC, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetSystemPaletteUse(hdc : super::windef::HDC) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextAlign(hdc : super::windef::HDC) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextCharacterExtra(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextCharset(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextCharsetInfo(hdc : super::windef::HDC, lpsig : *mut FONTSIGNATURE, dwflags : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextColor(hdc : super::windef::HDC) -> super::windef::COLORREF);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextExtentExPointA(hdc : super::windef::HDC, lpszstring : windows_sys::core::PCSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextExtentExPointI(hdc : super::windef::HDC, lpwszstring : *const u16, cwchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextExtentExPointW(hdc : super::windef::HDC, lpszstring : windows_sys::core::PCWSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextExtentPoint32A(hdc : super::windef::HDC, lpstring : windows_sys::core::PCSTR, c : i32, psizl : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextExtentPoint32W(hdc : super::windef::HDC, lpstring : windows_sys::core::PCWSTR, c : i32, psizl : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextExtentPointA(hdc : super::windef::HDC, lpstring : windows_sys::core::PCSTR, c : i32, lpsz : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextExtentPointI(hdc : super::windef::HDC, pgiin : *const u16, cgi : i32, psize : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextExtentPointW(hdc : super::windef::HDC, lpstring : windows_sys::core::PCWSTR, c : i32, lpsz : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextFaceA(hdc : super::windef::HDC, c : i32, lpname : windows_sys::core::PSTR) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextFaceW(hdc : super::windef::HDC, c : i32, lpname : windows_sys::core::PWSTR) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextMetricsA(hdc : super::windef::HDC, lptm : *mut TEXTMETRICA) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetTextMetricsW(hdc : super::windef::HDC, lptm : *mut TEXTMETRICW) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetViewportExtEx(hdc : super::windef::HDC, lpsize : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetViewportOrgEx(hdc : super::windef::HDC, lppoint : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetWinMetaFileBits(hemf : super::windef::HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, hdcref : super::windef::HDC) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetWindowExtEx(hdc : super::windef::HDC, lpsize : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetWindowOrgEx(hdc : super::windef::HDC, lppoint : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn GetWorldTransform(hdc : super::windef::HDC, lpxf : *mut XFORM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("msimg32.dll" "system" fn GradientFill(hdc : super::windef::HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const core::ffi::c_void, nmesh : u32, ulmode : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn IntersectClipRect(hdc : super::windef::HDC, left : i32, top : i32, right : i32, bottom : i32) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn InvertRgn(hdc : super::windef::HDC, hrgn : super::minwindef::HRGN) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn LPtoDP(hdc : super::windef::HDC, lppt : *mut super::windef::POINT, c : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn LineDDA(xstart : i32, ystart : i32, xend : i32, yend : i32, lpproc : LINEDDAPROC, data : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn LineTo(hdc : super::windef::HDC, x : i32, y : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn MaskBlt(hdcdest : super::windef::HDC, xdest : i32, ydest : i32, width : i32, height : i32, hdcsrc : super::windef::HDC, xsrc : i32, ysrc : i32, hbmmask : super::windef::HBITMAP, xmask : i32, ymask : i32, rop : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ModifyWorldTransform(hdc : super::windef::HDC, lpxf : *const XFORM, mode : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn MoveToEx(hdc : super::windef::HDC, x : i32, y : i32, lppt : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn OffsetClipRgn(hdc : super::windef::HDC, x : i32, y : i32) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn OffsetRgn(hrgn : super::minwindef::HRGN, x : i32, y : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn OffsetViewportOrgEx(hdc : super::windef::HDC, x : i32, y : i32, lppt : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn OffsetWindowOrgEx(hdc : super::windef::HDC, x : i32, y : i32, lppt : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn PaintRgn(hdc : super::windef::HDC, hrgn : super::minwindef::HRGN) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PatBlt(hdc : super::windef::HDC, x : i32, y : i32, w : i32, h : i32, rop : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn PathToRegion(hdc : super::windef::HDC) -> super::minwindef::HRGN);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn Pie(hdc : super::windef::HDC, left : i32, top : i32, right : i32, bottom : i32, xr1 : i32, yr1 : i32, xr2 : i32, yr2 : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PlayEnhMetaFile(hdc : super::windef::HDC, hmf : super::windef::HENHMETAFILE, lprect : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PlayEnhMetaFileRecord(hdc : super::windef::HDC, pht : *const HANDLETABLE, pmr : *const ENHMETARECORD, cht : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn PlayMetaFile(hdc : super::windef::HDC, hmf : super::minwindef::HMETAFILE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PlayMetaFileRecord(hdc : super::windef::HDC, lphandletable : *const HANDLETABLE, lpmr : *const METARECORD, noobjs : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PlgBlt(hdcdest : super::windef::HDC, lppoint : *const super::windef::POINT, hdcsrc : super::windef::HDC, xsrc : i32, ysrc : i32, width : i32, height : i32, hbmmask : super::windef::HBITMAP, xmask : i32, ymask : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PolyBezier(hdc : super::windef::HDC, apt : *const super::windef::POINT, cpt : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PolyBezierTo(hdc : super::windef::HDC, apt : *const super::windef::POINT, cpt : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PolyDraw(hdc : super::windef::HDC, apt : *const super::windef::POINT, aj : *const u8, cpt : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PolyPolygon(hdc : super::windef::HDC, apt : *const super::windef::POINT, asz : *const i32, csz : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PolyPolyline(hdc : super::windef::HDC, apt : *const super::windef::POINT, asz : *const u32, csz : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PolyTextOutA(hdc : super::windef::HDC, ppt : *const POLYTEXTA, nstrings : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PolyTextOutW(hdc : super::windef::HDC, ppt : *const POLYTEXTW, nstrings : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn Polygon(hdc : super::windef::HDC, apt : *const super::windef::POINT, cpt : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn Polyline(hdc : super::windef::HDC, apt : *const super::windef::POINT, cpt : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PolylineTo(hdc : super::windef::HDC, apt : *const super::windef::POINT, cpt : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn PtInRegion(hrgn : super::minwindef::HRGN, x : i32, y : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn PtVisible(hdc : super::windef::HDC, x : i32, y : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn RealizePalette(hdc : super::windef::HDC) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn RectInRegion(hrgn : super::minwindef::HRGN, lprect : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn RectVisible(hdc : super::windef::HDC, lprect : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn Rectangle(hdc : super::windef::HDC, left : i32, top : i32, right : i32, bottom : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("gdi32.dll" "system" fn RemoveFontMemResourceEx(h : super::winnt::HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn RemoveFontResourceA(lpfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn RemoveFontResourceExA(name : windows_sys::core::PCSTR, fl : u32, pdv : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn RemoveFontResourceExW(name : windows_sys::core::PCWSTR, fl : u32, pdv : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn RemoveFontResourceW(lpfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ResetDCA(hdc : super::windef::HDC, lpdm : *const DEVMODEA) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ResetDCW(hdc : super::windef::HDC, lpdm : *const DEVMODEW) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ResizePalette(hpal : super::windef::HPALETTE, n : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn RestoreDC(hdc : super::windef::HDC, nsaveddc : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn RoundRect(hdc : super::windef::HDC, left : i32, top : i32, right : i32, bottom : i32, width : i32, height : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SaveDC(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ScaleViewportExtEx(hdc : super::windef::HDC, xn : i32, dx : i32, yn : i32, yd : i32, lpsz : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn ScaleWindowExtEx(hdc : super::windef::HDC, xn : i32, xd : i32, yn : i32, yd : i32, lpsz : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SelectClipPath(hdc : super::windef::HDC, mode : i32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn SelectClipRgn(hdc : super::windef::HDC, hrgn : super::minwindef::HRGN) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SelectObject(hdc : super::windef::HDC, h : super::windef::HGDIOBJ) -> super::windef::HGDIOBJ);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SelectPalette(hdc : super::windef::HDC, hpal : super::windef::HPALETTE, bforcebkgd : windows_sys::core::BOOL) -> super::windef::HPALETTE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetAbortProc(hdc : super::windef::HDC, proc : ABORTPROC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetArcDirection(hdc : super::windef::HDC, dir : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetBitmapBits(hbm : super::windef::HBITMAP, cb : u32, pvbits : *const core::ffi::c_void) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetBitmapDimensionEx(hbm : super::windef::HBITMAP, w : i32, h : i32, lpsz : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetBkColor(hdc : super::windef::HDC, color : super::windef::COLORREF) -> super::windef::COLORREF);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetBkMode(hdc : super::windef::HDC, mode : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetBoundsRect(hdc : super::windef::HDC, lprect : *const super::windef::RECT, flags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetBrushOrgEx(hdc : super::windef::HDC, x : i32, y : i32, lppt : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetColorAdjustment(hdc : super::windef::HDC, lpca : *const COLORADJUSTMENT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetColorSpace(hdc : super::windef::HDC, hcs : super::windef::HCOLORSPACE) -> super::windef::HCOLORSPACE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetDCBrushColor(hdc : super::windef::HDC, color : super::windef::COLORREF) -> super::windef::COLORREF);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetDCPenColor(hdc : super::windef::HDC, color : super::windef::COLORREF) -> super::windef::COLORREF);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetDIBColorTable(hdc : super::windef::HDC, istart : u32, centries : u32, prgbq : *const RGBQUAD) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetDIBits(hdc : super::windef::HDC, hbm : super::windef::HBITMAP, start : u32, clines : u32, lpbits : *const core::ffi::c_void, lpbmi : *const BITMAPINFO, coloruse : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetDIBitsToDevice(hdc : super::windef::HDC, xdest : i32, ydest : i32, w : u32, h : u32, xsrc : i32, ysrc : i32, startscan : u32, clines : u32, lpvbits : *const core::ffi::c_void, lpbmi : *const BITMAPINFO, coloruse : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetDeviceGammaRamp(hdc : super::windef::HDC, lpramp : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetEnhMetaFileBits(nsize : u32, pb : *const u8) -> super::windef::HENHMETAFILE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetGraphicsMode(hdc : super::windef::HDC, imode : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetICMMode(hdc : super::windef::HDC, mode : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetICMProfileA(hdc : super::windef::HDC, lpfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetICMProfileW(hdc : super::windef::HDC, lpfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetLayout(hdc : super::windef::HDC, l : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetMapMode(hdc : super::windef::HDC, imode : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetMapperFlags(hdc : super::windef::HDC, flags : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn SetMetaFileBitsEx(cbbuffer : u32, lpdata : *const u8) -> super::minwindef::HMETAFILE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetMetaRgn(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetMiterLimit(hdc : super::windef::HDC, limit : f32, old : *mut f32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetPaletteEntries(hpal : super::windef::HPALETTE, istart : u32, centries : u32, ppalentries : *const PALETTEENTRY) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetPixel(hdc : super::windef::HDC, x : i32, y : i32, color : super::windef::COLORREF) -> super::windef::COLORREF);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetPixelFormat(hdc : super::windef::HDC, format : i32, ppfd : *const PIXELFORMATDESCRIPTOR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetPixelV(hdc : super::windef::HDC, x : i32, y : i32, color : super::windef::COLORREF) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetPolyFillMode(hdc : super::windef::HDC, mode : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetROP2(hdc : super::windef::HDC, rop2 : i32) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("gdi32.dll" "system" fn SetRectRgn(hrgn : super::minwindef::HRGN, left : i32, top : i32, right : i32, bottom : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetStretchBltMode(hdc : super::windef::HDC, mode : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetSystemPaletteUse(hdc : super::windef::HDC, r#use : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetTextAlign(hdc : super::windef::HDC, align : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetTextCharacterExtra(hdc : super::windef::HDC, extra : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetTextColor(hdc : super::windef::HDC, color : super::windef::COLORREF) -> super::windef::COLORREF);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetTextJustification(hdc : super::windef::HDC, extra : i32, count : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetViewportExtEx(hdc : super::windef::HDC, x : i32, y : i32, lpsz : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetViewportOrgEx(hdc : super::windef::HDC, x : i32, y : i32, lppt : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn SetWinMetaFileBits(nsize : u32, lpmeta16data : *const u8, hdcref : super::windef::HDC, lpmfp : *const METAFILEPICT) -> super::windef::HENHMETAFILE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetWindowExtEx(hdc : super::windef::HDC, x : i32, y : i32, lpsz : *mut super::windef::SIZE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetWindowOrgEx(hdc : super::windef::HDC, x : i32, y : i32, lppt : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SetWorldTransform(hdc : super::windef::HDC, lpxf : *const XFORM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn StartDocA(hdc : super::windef::HDC, lpdi : *const DOCINFOA) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn StartDocW(hdc : super::windef::HDC, lpdi : *const DOCINFOW) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn StartPage(hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn StretchBlt(hdcdest : super::windef::HDC, xdest : i32, ydest : i32, wdest : i32, hdest : i32, hdcsrc : super::windef::HDC, xsrc : i32, ysrc : i32, wsrc : i32, hsrc : i32, rop : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn StretchDIBits(hdc : super::windef::HDC, xdest : i32, ydest : i32, destwidth : i32, destheight : i32, xsrc : i32, ysrc : i32, srcwidth : i32, srcheight : i32, lpbits : *const core::ffi::c_void, lpbmi : *const BITMAPINFO, iusage : u32, rop : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn StrokeAndFillPath(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn StrokePath(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn SwapBuffers(param0 : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn TextOutA(hdc : super::windef::HDC, x : i32, y : i32, lpstring : windows_sys::core::PCSTR, c : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn TextOutW(hdc : super::windef::HDC, x : i32, y : i32, lpstring : windows_sys::core::PCWSTR, c : i32) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn TranslateCharsetInfo(lpsrc : *mut u32, lpcs : *mut CHARSETINFO, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("msimg32.dll" "system" fn TransparentBlt(hdcdest : super::windef::HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : super::windef::HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, crtransparent : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn UnrealizeObject(h : super::windef::HGDIOBJ) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn UpdateColors(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn UpdateICMRegKeyA(reserved : u32, lpszcmid : windows_sys::core::PCSTR, lpszfilename : windows_sys::core::PCSTR, command : u32) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn UpdateICMRegKeyW(reserved : u32, lpszcmid : windows_sys::core::PCWSTR, lpszfilename : windows_sys::core::PCWSTR, command : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn WidenPath(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglCopyContext(param0 : super::windef::HGLRC, param1 : super::windef::HGLRC, param2 : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglCreateContext(param0 : super::windef::HDC) -> super::windef::HGLRC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglCreateLayerContext(param0 : super::windef::HDC, param1 : i32) -> super::windef::HGLRC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglDeleteContext(param0 : super::windef::HGLRC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglDescribeLayerPlane(param0 : super::windef::HDC, param1 : i32, param2 : i32, param3 : u32, param4 : *mut LAYERPLANEDESCRIPTOR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglGetCurrentContext() -> super::windef::HGLRC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglGetCurrentDC() -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglGetLayerPaletteEntries(param0 : super::windef::HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *mut super::windef::COLORREF) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("opengl32.dll" "system" fn wglGetProcAddress(param0 : windows_sys::core::PCSTR) -> super::minwindef::PROC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglMakeCurrent(param0 : super::windef::HDC, param1 : super::windef::HGLRC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglRealizeLayerPalette(param0 : super::windef::HDC, param1 : i32, param2 : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglSetLayerPaletteEntries(param0 : super::windef::HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *const super::windef::COLORREF) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglShareLists(param0 : super::windef::HGLRC, param1 : super::windef::HGLRC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglSwapLayerBuffers(param0 : super::windef::HDC, param1 : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglSwapMultipleBuffers(param0 : u32, param1 : *const WGLSWAP) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglUseFontBitmapsA(param0 : super::windef::HDC, param1 : u32, param2 : u32, param3 : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglUseFontBitmapsW(param0 : super::windef::HDC, param1 : u32, param2 : u32, param3 : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglUseFontOutlinesA(param0 : super::windef::HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("opengl32.dll" "system" fn wglUseFontOutlinesW(param0 : super::windef::HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -723,7 +723,7 @@ pub struct ABCFLOAT {
     pub abcfC: f32,
 }
 pub const ABORTDOC: u32 = 2;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type ABORTPROC = Option<unsafe extern "system" fn(param0: super::windef::HDC, param1: i32) -> windows_sys::core::BOOL>;
 pub const ABSOLUTE: u32 = 1;
 pub const AC_SRC_ALPHA: u32 = 1;
@@ -1100,10 +1100,10 @@ pub const DESKTOPVERTRES: u32 = 117;
 pub const DEVICEDATA: u32 = 19;
 pub const DEVICE_DEFAULT_FONT: u32 = 14;
 pub const DEVICE_FONTTYPE: u32 = 2;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type DEVMODE = DEVMODEA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DEVMODEA {
     pub dmDeviceName: [u8; 32],
@@ -1134,27 +1134,27 @@ pub struct DEVMODEA {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DEVMODEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union DEVMODEA_0 {
     pub Anonymous: DEVMODEA_0_0,
     pub Anonymous2: DEVMODEA_0_1,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DEVMODEA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVMODEA_0_0 {
     pub dmOrientation: i16,
@@ -1167,7 +1167,7 @@ pub struct DEVMODEA_0_0 {
     pub dmPrintQuality: i16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVMODEA_0_1 {
     pub dmPosition: super::windef::POINTL,
@@ -1175,20 +1175,20 @@ pub struct DEVMODEA_0_1 {
     pub dmDisplayFixedOutput: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union DEVMODEA_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DEVMODEA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DEVMODEW {
     pub dmDeviceName: [u16; 32],
@@ -1219,27 +1219,27 @@ pub struct DEVMODEW {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DEVMODEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union DEVMODEW_0 {
     pub Anonymous: DEVMODEW_0_0,
     pub Anonymous2: DEVMODEW_0_1,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DEVMODEW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
@@ -1252,7 +1252,7 @@ pub struct DEVMODEW_0_0 {
     pub dmPrintQuality: i16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVMODEW_0_1 {
     pub dmPosition: super::windef::POINTL,
@@ -1260,20 +1260,20 @@ pub struct DEVMODEW_0_1 {
     pub dmDisplayFixedOutput: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DEVMODEW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DIBSECTION {
     pub dsBm: BITMAP,
@@ -1282,7 +1282,7 @@ pub struct DIBSECTION {
     pub dshSection: super::winnt::HANDLE,
     pub dsOffset: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DIBSECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1297,13 +1297,13 @@ pub struct DISPLAYCONFIG_2DREGION {
     pub cy: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_ADAPTER_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub adapterDevicePath: [u16; 128],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_ADAPTER_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1321,7 +1321,7 @@ pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = 
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = 2;
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     pub PathSourceSize: super::windef::POINTL,
@@ -1340,7 +1340,7 @@ pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DISPLAYCONFIG_DEVICE_I
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 2;
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER {
     pub r#type: DISPLAYCONFIG_DEVICE_INFO_TYPE,
@@ -1357,7 +1357,7 @@ pub const DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DISPLAYCONFIG_DEVICE
 pub const DISPLAYCONFIG_DEVICE_INFO_SET_WCG_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 17;
 pub type DISPLAYCONFIG_DEVICE_INFO_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
@@ -1365,33 +1365,33 @@ pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     pub colorEncoding: DISPLAYCONFIG_COLOR_ENCODING,
     pub bitsPerColorChannel: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0,
     pub value: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2 {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
@@ -1400,66 +1400,66 @@ pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2 {
     pub bitsPerColorChannel: u32,
     pub activeColorMode: DISPLAYCONFIG_ADVANCED_COLOR_MODE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0 {
     pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0_0,
     pub value: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
     pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0,
     pub value: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
 }
 pub const DISPLAYCONFIG_MAXPATH: u32 = 1024;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_MODE_INFO {
     pub infoType: DISPLAYCONFIG_MODE_INFO_TYPE,
@@ -1467,21 +1467,21 @@ pub struct DISPLAYCONFIG_MODE_INFO {
     pub adapterId: super::winnt::LUID,
     pub Anonymous: DISPLAYCONFIG_MODE_INFO_0,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for DISPLAYCONFIG_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_MODE_INFO_0 {
     pub targetMode: DISPLAYCONFIG_TARGET_MODE,
     pub sourceMode: DISPLAYCONFIG_SOURCE_MODE,
     pub desktopImageInfo: DISPLAYCONFIG_DESKTOP_IMAGE_INFO,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for DISPLAYCONFIG_MODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1518,14 +1518,14 @@ pub const DISPLAYCONFIG_PATH_BOOST_REFRESH_RATE: u32 = 16;
 pub const DISPLAYCONFIG_PATH_CLONE_GROUP_INVALID: u32 = 65535;
 pub const DISPLAYCONFIG_PATH_DESKTOP_IMAGE_IDX_INVALID: u32 = 65535;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_PATH_INFO {
     pub sourceInfo: DISPLAYCONFIG_PATH_SOURCE_INFO,
     pub targetInfo: DISPLAYCONFIG_PATH_TARGET_INFO,
     pub flags: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_PATH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1534,7 +1534,7 @@ impl Default for DISPLAYCONFIG_PATH_INFO {
 pub const DISPLAYCONFIG_PATH_MODE_IDX_INVALID: u32 = 4294967295;
 pub const DISPLAYCONFIG_PATH_PREFERRED_UNSCALED: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO {
     pub adapterId: super::winnt::LUID,
@@ -1542,27 +1542,27 @@ pub struct DISPLAYCONFIG_PATH_SOURCE_INFO {
     pub Anonymous: DISPLAYCONFIG_PATH_SOURCE_INFO_0,
     pub statusFlags: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_PATH_SOURCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
     pub modeInfoIdx: u32,
     pub Anonymous: DISPLAYCONFIG_PATH_SOURCE_INFO_0_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     pub _bitfield: u32,
@@ -1570,7 +1570,7 @@ pub struct DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
 pub const DISPLAYCONFIG_PATH_SOURCE_MODE_IDX_INVALID: u32 = 65535;
 pub const DISPLAYCONFIG_PATH_SUPPORT_VIRTUAL_MODE: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO {
     pub adapterId: super::winnt::LUID,
@@ -1584,27 +1584,27 @@ pub struct DISPLAYCONFIG_PATH_TARGET_INFO {
     pub targetAvailable: windows_sys::core::BOOL,
     pub statusFlags: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_PATH_TARGET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_PATH_TARGET_INFO_0 {
     pub modeInfoIdx: u32,
     pub Anonymous: DISPLAYCONFIG_PATH_TARGET_INFO_0_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     pub _bitfield: u32,
@@ -1646,78 +1646,78 @@ pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DISPLAYCON
 pub const DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_ORDERING = 1;
 pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_SDR_WHITE_LEVEL {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub SDRWhiteLevel: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
     pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0,
     pub value: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_SET_HDR_STATE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_HDR_STATE_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SET_HDR_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_SET_HDR_STATE_0 {
     pub Anonymous: DISPLAYCONFIG_SET_HDR_STATE_0_0,
     pub value: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SET_HDR_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_SET_HDR_STATE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
@@ -1726,103 +1726,103 @@ pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     pub specializationSubType: windows_sys::core::GUID,
     pub specializationApplicationName: [u16; 128],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
     pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0,
     pub value: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
     pub Anonymous: DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0,
     pub value: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_SET_WCG_STATE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_WCG_STATE_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SET_WCG_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_SET_WCG_STATE_0 {
     pub Anonymous: DISPLAYCONFIG_SET_WCG_STATE_0_0,
     pub value: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SET_WCG_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_SET_WCG_STATE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub viewGdiDeviceName: [u16; 32],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1830,7 +1830,7 @@ impl Default for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
 }
 pub const DISPLAYCONFIG_SOURCE_IN_USE: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_SOURCE_MODE {
     pub width: u32,
@@ -1839,46 +1839,46 @@ pub struct DISPLAYCONFIG_SOURCE_MODE {
     pub position: super::windef::POINTL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
     pub Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0,
     pub value: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_TARGET_BASE_TYPE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub baseOutputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
@@ -1890,7 +1890,7 @@ pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME {
     pub monitorFriendlyDeviceName: [u16; 64],
     pub monitorDevicePath: [u16; 128],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_TARGET_DEVICE_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1939,7 +1939,7 @@ impl Default for DISPLAYCONFIG_TARGET_MODE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
@@ -1947,7 +1947,7 @@ pub struct DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     pub height: u32,
     pub targetMode: DISPLAYCONFIG_TARGET_MODE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2297,7 +2297,7 @@ pub const DOWNLOADHEADER: u32 = 4111;
 pub const DRAFTMODE: u32 = 7;
 pub const DRAFT_QUALITY: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DRAWPATRECT {
     pub ptPosition: super::windef::POINT,
@@ -2331,7 +2331,7 @@ pub struct EMRABORTPATH {
     pub emr: EMR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRALPHABLEND {
     pub emr: EMR,
@@ -2354,7 +2354,7 @@ pub struct EMRALPHABLEND {
     pub cySrc: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRANGLEARC {
     pub emr: EMR,
@@ -2364,7 +2364,7 @@ pub struct EMRANGLEARC {
     pub eSweepAngle: f32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRARC {
     pub emr: EMR,
@@ -2372,11 +2372,11 @@ pub struct EMRARC {
     pub ptlStart: super::windef::POINTL,
     pub ptlEnd: super::windef::POINTL,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRARCTO = EMRARC;
 pub type EMRBEGINPATH = EMRABORTPATH;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRBITBLT {
     pub emr: EMR,
@@ -2396,7 +2396,7 @@ pub struct EMRBITBLT {
     pub offBitsSrc: u32,
     pub cbBitsSrc: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRCHORD = EMRARC;
 pub type EMRCLOSEFIGURE = EMRABORTPATH;
 #[repr(C)]
@@ -2424,7 +2424,7 @@ impl Default for EMRCOLORMATCHTOTARGET {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRCREATEBRUSHINDIRECT {
     pub emr: EMR,
@@ -2483,7 +2483,7 @@ pub struct EMRCREATEPALETTE {
     pub lgpl: LOGPALETTE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRCREATEPEN {
     pub emr: EMR,
@@ -2494,7 +2494,7 @@ pub type EMRDELETECOLORSPACE = EMRSETCOLORSPACE;
 pub type EMRDELETEOBJECT = EMRSELECTOBJECT;
 pub type EMRDRAWESCAPE = EMREXTESCAPE;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRELLIPSE {
     pub emr: EMR,
@@ -2510,7 +2510,7 @@ pub struct EMREOF {
     pub nSizeLast: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMREXCLUDECLIPRECT {
     pub emr: EMR,
@@ -2524,7 +2524,7 @@ pub struct EMREXTCREATEFONTINDIRECTW {
     pub elfw: EXTLOGFONTW,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMREXTCREATEPEN {
     pub emr: EMR,
@@ -2549,7 +2549,7 @@ impl Default for EMREXTESCAPE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMREXTFLOODFILL {
     pub emr: EMR,
@@ -2571,7 +2571,7 @@ impl Default for EMREXTSELECTCLIPRGN {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMREXTTEXTOUTA {
     pub emr: EMR,
@@ -2581,17 +2581,17 @@ pub struct EMREXTTEXTOUTA {
     pub eyScale: f32,
     pub emrtext: EMRTEXT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMREXTTEXTOUTW = EMREXTTEXTOUTA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRFILLPATH {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRFILLRGN {
     pub emr: EMR,
@@ -2600,7 +2600,7 @@ pub struct EMRFILLRGN {
     pub ihBrush: u32,
     pub RgnData: [u8; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRFILLRGN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2616,7 +2616,7 @@ pub struct EMRFORMAT {
     pub offData: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRFRAMERGN {
     pub emr: EMR,
@@ -2626,7 +2626,7 @@ pub struct EMRFRAMERGN {
     pub szlStroke: super::windef::SIZEL,
     pub RgnData: [u8; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRFRAMERGN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2645,7 +2645,7 @@ impl Default for EMRGDICOMMENT {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRGLSBOUNDEDRECORD {
     pub emr: EMR,
@@ -2653,7 +2653,7 @@ pub struct EMRGLSBOUNDEDRECORD {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRGLSBOUNDEDRECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2672,7 +2672,7 @@ impl Default for EMRGLSRECORD {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRGRADIENTFILL {
     pub emr: EMR,
@@ -2682,16 +2682,16 @@ pub struct EMRGRADIENTFILL {
     pub ulMode: u32,
     pub Ver: [TRIVERTEX; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRGRADIENTFILL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRINTERSECTCLIPRECT = EMREXCLUDECLIPRECT;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRINVERTRGN {
     pub emr: EMR,
@@ -2699,21 +2699,21 @@ pub struct EMRINVERTRGN {
     pub cbRgnData: u32,
     pub RgnData: [u8; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRINVERTRGN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRLINETO {
     pub emr: EMR,
     pub ptl: super::windef::POINTL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRMASKBLT {
     pub emr: EMR,
@@ -2747,7 +2747,7 @@ pub struct EMRMODIFYWORLDTRANSFORM {
     pub xform: XFORM,
     pub iMode: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRMOVETOEX = EMRLINETO;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2764,15 +2764,15 @@ impl Default for EMRNAMEDESCAPE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMROFFSETCLIPRGN {
     pub emr: EMR,
     pub ptlOffset: super::windef::POINTL,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPAINTRGN = EMRINVERTRGN;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPIE = EMRARC;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2781,7 +2781,7 @@ pub struct EMRPIXELFORMAT {
     pub pfd: PIXELFORMATDESCRIPTOR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRPLGBLT {
     pub emr: EMR,
@@ -2806,22 +2806,22 @@ pub struct EMRPLGBLT {
     pub offBitsMask: u32,
     pub cbBitsMask: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRPLGBLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPOLYBEZIER = EMRPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPOLYBEZIER16 = EMRPOLYLINE16;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPOLYBEZIERTO = EMRPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPOLYBEZIERTO16 = EMRPOLYLINE16;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRPOLYDRAW {
     pub emr: EMR,
@@ -2830,14 +2830,14 @@ pub struct EMRPOLYDRAW {
     pub aptl: [super::windef::POINTL; 1],
     pub abTypes: [u8; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRPOLYDRAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRPOLYDRAW16 {
     pub emr: EMR,
@@ -2846,18 +2846,18 @@ pub struct EMRPOLYDRAW16 {
     pub apts: [super::windef::POINTS; 1],
     pub abTypes: [u8; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRPOLYDRAW16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPOLYGON = EMRPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPOLYGON16 = EMRPOLYLINE16;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRPOLYLINE {
     pub emr: EMR,
@@ -2865,14 +2865,14 @@ pub struct EMRPOLYLINE {
     pub cptl: u32,
     pub aptl: [super::windef::POINTL; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRPOLYLINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRPOLYLINE16 {
     pub emr: EMR,
@@ -2880,22 +2880,22 @@ pub struct EMRPOLYLINE16 {
     pub cpts: u32,
     pub apts: [super::windef::POINTS; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRPOLYLINE16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPOLYLINETO = EMRPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPOLYLINETO16 = EMRPOLYLINE16;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPOLYPOLYGON = EMRPOLYPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPOLYPOLYGON16 = EMRPOLYPOLYLINE16;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRPOLYPOLYLINE {
     pub emr: EMR,
@@ -2905,14 +2905,14 @@ pub struct EMRPOLYPOLYLINE {
     pub aPolyCounts: [u32; 1],
     pub aptl: [super::windef::POINTL; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRPOLYPOLYLINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRPOLYPOLYLINE16 {
     pub emr: EMR,
@@ -2922,14 +2922,14 @@ pub struct EMRPOLYPOLYLINE16 {
     pub aPolyCounts: [u32; 1],
     pub apts: [super::windef::POINTS; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRPOLYPOLYLINE16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EMRPOLYTEXTOUTA {
     pub emr: EMR,
@@ -2940,16 +2940,16 @@ pub struct EMRPOLYTEXTOUTA {
     pub cStrings: i32,
     pub aemrtext: [EMRTEXT; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EMRPOLYTEXTOUTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRPOLYTEXTOUTW = EMRPOLYTEXTOUTA;
 pub type EMRREALIZEPALETTE = EMRABORTPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRRECTANGLE = EMRELLIPSE;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2965,7 +2965,7 @@ pub struct EMRRESTOREDC {
     pub iRelative: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRROUNDRECT {
     pub emr: EMR,
@@ -3009,14 +3009,14 @@ pub struct EMRSETARCDIRECTION {
     pub iArcDirection: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRSETBKCOLOR {
     pub emr: EMR,
     pub crColor: super::windef::COLORREF,
 }
 pub type EMRSETBKMODE = EMRSELECTCLIPPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRSETBRUSHORGEX = EMRSETVIEWPORTORGEX;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3031,7 +3031,7 @@ pub struct EMRSETCOLORSPACE {
     pub ihCS: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRSETDIBITSTODEVICE {
     pub emr: EMR,
@@ -3097,7 +3097,7 @@ impl Default for EMRSETPALETTEENTRIES {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRSETPIXELV {
     pub emr: EMR,
@@ -3108,25 +3108,25 @@ pub type EMRSETPOLYFILLMODE = EMRSELECTCLIPPATH;
 pub type EMRSETROP2 = EMRSELECTCLIPPATH;
 pub type EMRSETSTRETCHBLTMODE = EMRSELECTCLIPPATH;
 pub type EMRSETTEXTALIGN = EMRSELECTCLIPPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRSETTEXTCOLOR = EMRSETBKCOLOR;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRSETVIEWPORTEXTEX {
     pub emr: EMR,
     pub szlExtent: super::windef::SIZEL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRSETVIEWPORTORGEX {
     pub emr: EMR,
     pub ptlOrigin: super::windef::POINTL,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRSETWINDOWEXTEX = EMRSETVIEWPORTEXTEX;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRSETWINDOWORGEX = EMRSETVIEWPORTORGEX;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3135,7 +3135,7 @@ pub struct EMRSETWORLDTRANSFORM {
     pub xform: XFORM,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRSTRETCHBLT {
     pub emr: EMR,
@@ -3158,7 +3158,7 @@ pub struct EMRSTRETCHBLT {
     pub cySrc: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRSTRETCHDIBITS {
     pub emr: EMR,
@@ -3178,12 +3178,12 @@ pub struct EMRSTRETCHDIBITS {
     pub cxDest: i32,
     pub cyDest: i32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRSTROKEANDFILLPATH = EMRFILLPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type EMRSTROKEPATH = EMRFILLPATH;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRTEXT {
     pub ptlReference: super::windef::POINTL,
@@ -3194,7 +3194,7 @@ pub struct EMRTEXT {
     pub offDx: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct EMRTRANSPARENTBLT {
     pub emr: EMR,
@@ -3347,7 +3347,7 @@ pub const ENCAPSULATED_POSTSCRIPT: u32 = 4116;
 pub const ENDDOC: u32 = 11;
 pub const END_PATH: u32 = 4098;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct ENHMETAHEADER {
     pub iType: u32,
@@ -3384,7 +3384,7 @@ impl Default for ENHMETARECORD {
 }
 pub const ENHMETA_SIGNATURE: u32 = 1179469088;
 pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type ENHMFENUMPROC = Option<unsafe extern "system" fn(hdc: super::windef::HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::minwindef::LPARAM) -> i32>;
 pub type ENUMLOGFONT = ENUMLOGFONTA;
 #[repr(C)]
@@ -3518,7 +3518,7 @@ impl Default for EXTLOGFONTW {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EXTLOGPEN {
     pub elpPenStyle: u32,
@@ -3529,14 +3529,14 @@ pub struct EXTLOGPEN {
     pub elpNumEntries: u32,
     pub elpStyleEntry: [u32; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EXTLOGPEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EXTLOGPEN32 {
     pub elpPenStyle: u32,
@@ -3547,7 +3547,7 @@ pub struct EXTLOGPEN32 {
     pub elpNumEntries: u32,
     pub elpStyleEntry: [u32; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EXTLOGPEN32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3582,11 +3582,11 @@ pub const FLI_MASK: u32 = 4155;
 pub const FLOODFILLBORDER: u32 = 0;
 pub const FLOODFILLSURFACE: u32 = 1;
 pub const FLUSHOUTPUT: u32 = 6;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type FONTENUMPROC = FONTENUMPROCA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type FONTENUMPROCA = OLDFONTENUMPROCA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type FONTENUMPROCW = OLDFONTENUMPROCW;
 pub const FONTMAPPER_MAX: u32 = 10;
 #[repr(C)]
@@ -3750,7 +3750,7 @@ pub const GGO_METRICS: u32 = 0;
 pub const GGO_NATIVE: u32 = 2;
 pub const GGO_UNHINTED: u32 = 256;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct GLYPHMETRICS {
     pub gmBlackBoxX: u32,
@@ -3785,7 +3785,7 @@ impl Default for GLYPHSET {
 pub const GM_ADVANCED: u32 = 2;
 pub const GM_COMPATIBLE: u32 = 1;
 pub const GM_LAST: u32 = 2;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type GOBJENUMPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::minwindef::LPARAM) -> i32>;
 pub const GRADIENT_FILL_OP_FLAG: u32 = 255;
 pub const GRADIENT_FILL_RECT_H: u32 = 0;
@@ -3809,12 +3809,12 @@ pub const GREEK_CHARSET: u32 = 161;
 pub const GS_8BIT_INDICES: u32 = 1;
 pub const HALFTONE: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct HANDLETABLE {
     pub objectHandle: [super::windef::HGDIOBJ; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for HANDLETABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3833,9 +3833,9 @@ pub const HS_DIAGCROSS: u32 = 5;
 pub const HS_FDIAGONAL: u32 = 2;
 pub const HS_HORIZONTAL: u32 = 0;
 pub const HS_VERTICAL: u32 = 1;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type ICMENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::minwindef::LPARAM) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type ICMENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::minwindef::LPARAM) -> i32>;
 pub const ICM_ADDPROFILE: u32 = 1;
 pub const ICM_DELETEPROFILE: u32 = 2;
@@ -3871,7 +3871,7 @@ pub struct KERNINGPAIR {
     pub iKernAmount: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct LAYERPLANEDESCRIPTOR {
     pub nSize: u16,
@@ -3925,7 +3925,7 @@ pub const LC_WIDESTYLED: u32 = 64;
 pub const LF_FACESIZE: u32 = 32;
 pub const LF_FULLFACESIZE: u32 = 64;
 pub const LINECAPS: u32 = 30;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LINEDDAPROC = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::minwindef::LPARAM)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3940,7 +3940,7 @@ impl Default for LOCALESIGNATURE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct LOGBRUSH {
     pub lbStyle: u32,
@@ -3948,7 +3948,7 @@ pub struct LOGBRUSH {
     pub lbHatch: usize,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct LOGBRUSH32 {
     pub lbStyle: u32,
@@ -4054,7 +4054,7 @@ impl Default for LOGPALETTE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct LOGPEN {
     pub lopnStyle: u32,
@@ -4084,13 +4084,13 @@ pub type LPCIEXYZ = *mut CIEXYZ;
 pub type LPCIEXYZTRIPLE = *mut CIEXYZTRIPLE;
 pub type LPCOLORADJUSTMENT = *mut COLORADJUSTMENT;
 pub type LPDESIGNVECTOR = *mut DESIGNVECTOR;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDEVMODE = LPDEVMODEA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDEVMODEA = *mut DEVMODEA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDEVMODEW = *mut DEVMODEW;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPDIBSECTION = *mut DIBSECTION;
 pub type LPDISPLAY_DEVICE = LPDISPLAY_DEVICEA;
 pub type LPDISPLAY_DEVICEA = *mut DISPLAY_DEVICEA;
@@ -4110,7 +4110,7 @@ pub const LPD_SWAP_EXCHANGE: u32 = 512;
 pub const LPD_TRANSPARENT: u32 = 4096;
 pub const LPD_TYPE_COLORINDEX: u32 = 1;
 pub const LPD_TYPE_RGBA: u32 = 0;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPENHMETAHEADER = *mut ENHMETAHEADER;
 pub type LPENHMETARECORD = *mut ENHMETARECORD;
 pub type LPENUMLOGFONT = LPENUMLOGFONTA;
@@ -4128,13 +4128,13 @@ pub type LPENUMTEXTMETRICW = *mut ENUMTEXTMETRICW;
 pub type LPEXTLOGFONT = LPEXTLOGFONTA;
 pub type LPEXTLOGFONTA = *mut EXTLOGFONTA;
 pub type LPEXTLOGFONTW = *mut EXTLOGFONTW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPEXTLOGPEN = *mut EXTLOGPEN;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPEXTLOGPEN32 = *mut EXTLOGPEN32;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPFNDEVCAPS = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: u32, param3: windows_sys::core::PCSTR, param4: LPDEVMODE) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPFNDEVMODE = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: super::minwindef::HMODULE, param2: LPDEVMODE, param3: windows_sys::core::PCSTR, param4: windows_sys::core::PCSTR, param5: LPDEVMODE, param6: windows_sys::core::PCSTR, param7: u32) -> u32>;
 pub type LPFONTSIGNATURE = *mut FONTSIGNATURE;
 pub type LPFXPT16DOT16 = *mut i32;
@@ -4142,21 +4142,21 @@ pub type LPFXPT2DOT30 = *mut i32;
 pub type LPGCP_RESULTS = LPGCP_RESULTSA;
 pub type LPGCP_RESULTSA = *mut GCP_RESULTSA;
 pub type LPGCP_RESULTSW = *mut GCP_RESULTSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPGLYPHMETRICS = *mut GLYPHMETRICS;
 pub type LPGLYPHMETRICSFLOAT = *mut GLYPHMETRICSFLOAT;
 pub type LPGLYPHSET = *mut GLYPHSET;
 pub type LPGRADIENT_RECT = *mut GRADIENT_RECT;
 pub type LPGRADIENT_TRIANGLE = *mut GRADIENT_TRIANGLE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPHANDLETABLE = *mut HANDLETABLE;
 pub type LPKERNINGPAIR = *mut KERNINGPAIR;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPLAYERPLANEDESCRIPTOR = *mut LAYERPLANEDESCRIPTOR;
 pub type LPLOCALESIGNATURE = *mut LOCALESIGNATURE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPLOGBRUSH = *mut LOGBRUSH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPLOGBRUSH32 = *mut LOGBRUSH32;
 pub type LPLOGCOLORSPACE = LPLOGCOLORSPACEA;
 pub type LPLOGCOLORSPACEA = *mut LOGCOLORSPACEA;
@@ -4165,39 +4165,39 @@ pub type LPLOGFONT = LPLOGFONTA;
 pub type LPLOGFONTA = *mut LOGFONTA;
 pub type LPLOGFONTW = *mut LOGFONTW;
 pub type LPLOGPALETTE = *mut LOGPALETTE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPLOGPEN = *mut LOGPEN;
 pub type LPMAT2 = *mut MAT2;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPMETAFILEPICT = *mut METAFILEPICT;
 pub type LPMETAHEADER = *mut METAHEADER;
 pub type LPMETARECORD = *mut METARECORD;
 pub type LPNEWTEXTMETRIC = LPNEWTEXTMETRICA;
 pub type LPNEWTEXTMETRICA = *mut NEWTEXTMETRICA;
 pub type LPNEWTEXTMETRICW = *mut NEWTEXTMETRICW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPOUTLINETEXTMETRIC = LPOUTLINETEXTMETRICA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPOUTLINETEXTMETRICA = *mut OUTLINETEXTMETRICA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPOUTLINETEXTMETRICW = *mut OUTLINETEXTMETRICW;
 pub type LPPALETTEENTRY = *mut PALETTEENTRY;
 pub type LPPANOSE = *mut PANOSE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPPATTERN = *mut PATTERN;
 pub type LPPELARRAY = *mut PELARRAY;
 pub type LPPIXELFORMATDESCRIPTOR = *mut PIXELFORMATDESCRIPTOR;
 pub type LPPOINTFX = *mut POINTFX;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPPOLYTEXT = LPPOLYTEXTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPPOLYTEXTA = *mut POLYTEXTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPPOLYTEXTW = *mut POLYTEXTW;
 pub type LPRASTERIZER_STATUS = *mut RASTERIZER_STATUS;
 pub type LPRGBQUAD = *mut RGBQUAD;
 pub type LPRGBTRIPLE = *mut RGBTRIPLE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPRGNDATA = *mut RGNDATA;
 pub type LPTEXTMETRIC = LPTEXTMETRICA;
 pub type LPTEXTMETRICA = *mut TEXTMETRICA;
@@ -4206,7 +4206,7 @@ pub type LPTRIVERTEX = *mut TRIVERTEX;
 pub type LPTTPOLYCURVE = *mut TTPOLYCURVE;
 pub type LPTTPOLYGONHEADER = *mut TTPOLYGONHEADER;
 pub type LPWCRANGE = *mut WCRANGE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPWGLSWAP = *mut WGLSWAP;
 pub type LPXFORM = *mut XFORM;
 pub const LTGRAY_BRUSH: u32 = 1;
@@ -4223,7 +4223,7 @@ pub const MAXSTRETCHBLTMODE: u32 = 4;
 pub const MERGECOPY: u32 = 12583114;
 pub const MERGEPAINT: u32 = 12255782;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct METAFILEPICT {
     pub mm: i32,
@@ -4231,7 +4231,7 @@ pub struct METAFILEPICT {
     pub yExt: i32,
     pub hMF: super::minwindef::HMETAFILE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for METAFILEPICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4331,7 +4331,7 @@ pub const META_STRETCHBLT: u32 = 2851;
 pub const META_STRETCHDIB: u32 = 3907;
 pub const META_TEXTOUT: u32 = 1313;
 pub const MFCOMMENT: u32 = 15;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type MFENUMPROC = Option<unsafe extern "system" fn(hdc: super::windef::HDC, lpht: *const HANDLETABLE, lpmr: *const METARECORD, nobj: i32, param: super::minwindef::LPARAM) -> i32>;
 pub const MILCORE_TS_QUERYVER_RESULT_FALSE: u32 = 0;
 pub const MILCORE_TS_QUERYVER_RESULT_TRUE: u32 = 2147483647;
@@ -4435,49 +4435,49 @@ pub type NPABC = *mut ABC;
 pub type NPABCFLOAT = *mut ABCFLOAT;
 pub type NPBITMAP = *mut BITMAP;
 pub type NPCHARSETINFO = *mut CHARSETINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPDEVMODE = NPDEVMODEA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPDEVMODEA = *mut DEVMODEA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPDEVMODEW = *mut DEVMODEW;
 pub type NPEXTLOGFONT = NPEXTLOGFONTA;
 pub type NPEXTLOGFONTA = *mut EXTLOGFONTA;
 pub type NPEXTLOGFONTW = *mut EXTLOGFONTW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPEXTLOGPEN = *mut EXTLOGPEN;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPEXTLOGPEN32 = *mut EXTLOGPEN32;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPLOGBRUSH = *mut LOGBRUSH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPLOGBRUSH32 = *mut LOGBRUSH32;
 pub type NPLOGFONT = NPLOGFONTA;
 pub type NPLOGFONTA = *mut LOGFONTA;
 pub type NPLOGFONTW = *mut LOGFONTW;
 pub type NPLOGPALETTE = *mut LOGPALETTE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPLOGPEN = *mut LOGPEN;
 pub type NPNEWTEXTMETRIC = NPNEWTEXTMETRICA;
 pub type NPNEWTEXTMETRICA = *mut NEWTEXTMETRICA;
 pub type NPNEWTEXTMETRICW = *mut NEWTEXTMETRICW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPOUTLINETEXTMETRIC = NPOUTLINETEXTMETRICA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPOUTLINETEXTMETRICA = *mut OUTLINETEXTMETRICA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPOUTLINETEXTMETRICW = *mut OUTLINETEXTMETRICW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPPATTERN = *mut PATTERN;
 pub type NPPELARRAY = *mut PELARRAY;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPPOLYTEXT = NPPOLYTEXTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPPOLYTEXTA = *mut POLYTEXTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPPOLYTEXTW = *mut POLYTEXTW;
 pub type NPRGBTRIPLE = *mut RGBTRIPLE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPRGNDATA = *mut RGNDATA;
 pub type NPTEXTMETRIC = NPTEXTMETRICA;
 pub type NPTEXTMETRICA = *mut TEXTMETRICA;
@@ -4516,16 +4516,16 @@ pub const OBJ_PEN: u32 = 1;
 pub const OBJ_REGION: u32 = 8;
 pub const OEM_CHARSET: u32 = 255;
 pub const OEM_FIXED_FONT: u32 = 10;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type OLDFONTENUMPROCA = Option<unsafe extern "system" fn(param0: *const LOGFONTA, param1: *const TEXTMETRICA, param2: u32, param3: super::minwindef::LPARAM) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type OLDFONTENUMPROCW = Option<unsafe extern "system" fn(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: super::minwindef::LPARAM) -> i32>;
 pub const OPAQUE: u32 = 2;
 pub const OPENCHANNEL: u32 = 4110;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type OUTLINETEXTMETRIC = OUTLINETEXTMETRICA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct OUTLINETEXTMETRICA {
     pub otmSize: u32,
@@ -4561,14 +4561,14 @@ pub struct OUTLINETEXTMETRICA {
     pub otmpStyleName: windows_sys::core::PSTR,
     pub otmpFullName: windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for OUTLINETEXTMETRICA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct OUTLINETEXTMETRICW {
     pub otmSize: u32,
@@ -4604,7 +4604,7 @@ pub struct OUTLINETEXTMETRICW {
     pub otmpStyleName: windows_sys::core::PSTR,
     pub otmpFullName: windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for OUTLINETEXTMETRICW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4756,7 +4756,7 @@ pub const PASSTHROUGH: u32 = 19;
 pub const PATCOPY: u32 = 15728673;
 pub const PATINVERT: u32 = 5898313;
 pub const PATPAINT: u32 = 16452105;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PATTERN = LOGBRUSH;
 pub type PAXESLIST = PAXESLISTA;
 pub type PAXESLISTA = *mut AXESLISTA;
@@ -4792,18 +4792,18 @@ pub const PC_WIDESTYLED: u32 = 64;
 pub const PC_WINDPOLYGON: u32 = 4;
 pub type PDESIGNVECTOR = *mut DESIGNVECTOR;
 pub const PDEVICESIZE: u32 = 26;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PDEVMODE = PDEVMODEA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PDEVMODEA = *mut DEVMODEA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PDEVMODEW = *mut DEVMODEW;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDIBSECTION = *mut DIBSECTION;
 pub type PDISPLAY_DEVICE = PDISPLAY_DEVICEA;
 pub type PDISPLAY_DEVICEA = *mut DISPLAY_DEVICEA;
 pub type PDISPLAY_DEVICEW = *mut DISPLAY_DEVICEW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PDRAWPATRECT = *mut DRAWPATRECT;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -4816,128 +4816,128 @@ pub struct PELARRAY {
 }
 pub type PEMR = *mut EMR;
 pub type PEMRABORTPATH = *mut EMRABORTPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRALPHABLEND = *mut EMRALPHABLEND;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRANGLEARC = *mut EMRANGLEARC;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRARC = *mut EMRARC;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRARCTO = *mut EMRARC;
 pub type PEMRBEGINPATH = *mut EMRABORTPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRBITBLT = *mut EMRBITBLT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRCHORD = *mut EMRARC;
 pub type PEMRCLOSEFIGURE = *mut EMRABORTPATH;
 pub type PEMRCOLORCORRECTPALETTE = *mut EMRCOLORCORRECTPALETTE;
 pub type PEMRCOLORMATCHTOTARGET = *mut EMRCOLORMATCHTOTARGET;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRCREATEBRUSHINDIRECT = *mut EMRCREATEBRUSHINDIRECT;
 pub type PEMRCREATECOLORSPACE = *mut EMRCREATECOLORSPACE;
 pub type PEMRCREATECOLORSPACEW = *mut EMRCREATECOLORSPACEW;
 pub type PEMRCREATEDIBPATTERNBRUSHPT = *mut EMRCREATEDIBPATTERNBRUSHPT;
 pub type PEMRCREATEMONOBRUSH = *mut EMRCREATEMONOBRUSH;
 pub type PEMRCREATEPALETTE = *mut EMRCREATEPALETTE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRCREATEPEN = *mut EMRCREATEPEN;
 pub type PEMRDELETECOLORSPACE = *mut EMRSETCOLORSPACE;
 pub type PEMRDELETEOBJECT = *mut EMRSELECTOBJECT;
 pub type PEMRDRAWESCAPE = *mut EMREXTESCAPE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRELLIPSE = *mut EMRELLIPSE;
 pub type PEMRENDPATH = *mut EMRABORTPATH;
 pub type PEMREOF = *mut EMREOF;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMREXCLUDECLIPRECT = *mut EMREXCLUDECLIPRECT;
 pub type PEMREXTCREATEFONTINDIRECTW = *mut EMREXTCREATEFONTINDIRECTW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMREXTCREATEPEN = *mut EMREXTCREATEPEN;
 pub type PEMREXTESCAPE = *mut EMREXTESCAPE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMREXTFLOODFILL = *mut EMREXTFLOODFILL;
 pub type PEMREXTSELECTCLIPRGN = *mut EMREXTSELECTCLIPRGN;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMREXTTEXTOUTA = *mut EMREXTTEXTOUTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMREXTTEXTOUTW = *mut EMREXTTEXTOUTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRFILLPATH = *mut EMRFILLPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRFILLRGN = *mut EMRFILLRGN;
 pub type PEMRFLATTENPATH = *mut EMRABORTPATH;
 pub type PEMRFORMAT = *mut EMRFORMAT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRFRAMERGN = *mut EMRFRAMERGN;
 pub type PEMRGDICOMMENT = *mut EMRGDICOMMENT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRGLSBOUNDEDRECORD = *mut EMRGLSBOUNDEDRECORD;
 pub type PEMRGLSRECORD = *mut EMRGLSRECORD;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRGRADIENTFILL = *mut EMRGRADIENTFILL;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRINTERSECTCLIPRECT = *mut EMREXCLUDECLIPRECT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRINVERTRGN = *mut EMRINVERTRGN;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRLINETO = *mut EMRLINETO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRMASKBLT = *mut EMRMASKBLT;
 pub type PEMRMODIFYWORLDTRANSFORM = *mut EMRMODIFYWORLDTRANSFORM;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRMOVETOEX = *mut EMRLINETO;
 pub type PEMRNAMEDESCAPE = *mut EMRNAMEDESCAPE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMROFFSETCLIPRGN = *mut EMROFFSETCLIPRGN;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPAINTRGN = *mut EMRINVERTRGN;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPIE = *mut EMRARC;
 pub type PEMRPIXELFORMAT = *mut EMRPIXELFORMAT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPLGBLT = *mut EMRPLGBLT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYBEZIER = *mut EMRPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYBEZIER16 = *mut EMRPOLYLINE16;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYBEZIERTO = *mut EMRPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYBEZIERTO16 = *mut EMRPOLYLINE16;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYDRAW = *mut EMRPOLYDRAW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYDRAW16 = *mut EMRPOLYDRAW16;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYGON = *mut EMRPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYGON16 = *mut EMRPOLYLINE16;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYLINE = *mut EMRPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYLINE16 = *mut EMRPOLYLINE16;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYLINETO = *mut EMRPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYLINETO16 = *mut EMRPOLYLINE16;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYPOLYGON = *mut EMRPOLYPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYPOLYGON16 = *mut EMRPOLYPOLYLINE16;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYPOLYLINE = *mut EMRPOLYPOLYLINE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYPOLYLINE16 = *mut EMRPOLYPOLYLINE16;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYTEXTOUTA = *mut EMRPOLYTEXTOUTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRPOLYTEXTOUTW = *mut EMRPOLYTEXTOUTA;
 pub type PEMRREALIZEPALETTE = *mut EMRABORTPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRRECTANGLE = *mut EMRELLIPSE;
 pub type PEMRRESIZEPALETTE = *mut EMRRESIZEPALETTE;
 pub type PEMRRESTOREDC = *mut EMRRESTOREDC;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRROUNDRECT = *mut EMRROUNDRECT;
 pub type PEMRSAVEDC = *mut EMRABORTPATH;
 pub type PEMRSCALEVIEWPORTEXTEX = *mut EMRSCALEVIEWPORTEXTEX;
@@ -4947,14 +4947,14 @@ pub type PEMRSELECTCOLORSPACE = *mut EMRSETCOLORSPACE;
 pub type PEMRSELECTOBJECT = *mut EMRSELECTOBJECT;
 pub type PEMRSELECTPALETTE = *mut EMRSELECTPALETTE;
 pub type PEMRSETARCDIRECTION = *mut EMRSETARCDIRECTION;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSETBKCOLOR = *mut EMRSETBKCOLOR;
 pub type PEMRSETBKMODE = *mut EMRSELECTCLIPPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSETBRUSHORGEX = *mut EMRSETVIEWPORTORGEX;
 pub type PEMRSETCOLORADJUSTMENT = *mut EMRSETCOLORADJUSTMENT;
 pub type PEMRSETCOLORSPACE = *mut EMRSETCOLORSPACE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSETDIBITSTODEVICE = *mut EMRSETDIBITSTODEVICE;
 pub type PEMRSETICMMODE = *mut EMRSELECTCLIPPATH;
 pub type PEMRSETICMPROFILE = *mut EMRSETICMPROFILE;
@@ -4966,37 +4966,37 @@ pub type PEMRSETMAPPERFLAGS = *mut EMRSETMAPPERFLAGS;
 pub type PEMRSETMETARGN = *mut EMRABORTPATH;
 pub type PEMRSETMITERLIMIT = *mut EMRSETMITERLIMIT;
 pub type PEMRSETPALETTEENTRIES = *mut EMRSETPALETTEENTRIES;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSETPIXELV = *mut EMRSETPIXELV;
 pub type PEMRSETPOLYFILLMODE = *mut EMRSELECTCLIPPATH;
 pub type PEMRSETROP2 = *mut EMRSELECTCLIPPATH;
 pub type PEMRSETSTRETCHBLTMODE = *mut EMRSELECTCLIPPATH;
 pub type PEMRSETTEXTALIGN = *mut EMRSELECTCLIPPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSETTEXTCOLOR = *mut EMRSETBKCOLOR;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSETVIEWPORTEXTEX = *mut EMRSETVIEWPORTEXTEX;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSETVIEWPORTORGEX = *mut EMRSETVIEWPORTORGEX;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSETWINDOWEXTEX = *mut EMRSETVIEWPORTEXTEX;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSETWINDOWORGEX = *mut EMRSETVIEWPORTORGEX;
 pub type PEMRSETWORLDTRANSFORM = *mut EMRSETWORLDTRANSFORM;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSTRETCHBLT = *mut EMRSTRETCHBLT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSTRETCHDIBITS = *mut EMRSTRETCHDIBITS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSTROKEANDFILLPATH = *mut EMRFILLPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRSTROKEPATH = *mut EMRFILLPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRTEXT = *mut EMRTEXT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEMRTRANSPARENTBLT = *mut EMRTRANSPARENTBLT;
 pub type PEMRWIDENPATH = *mut EMRABORTPATH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PENHMETAHEADER = *mut ENHMETAHEADER;
 pub type PENHMETARECORD = *mut ENHMETARECORD;
 pub type PENUMLOGFONTEXDV = PENUMLOGFONTEXDVA;
@@ -5008,9 +5008,9 @@ pub type PENUMTEXTMETRICW = *mut ENUMTEXTMETRICW;
 pub type PEXTLOGFONT = PEXTLOGFONTA;
 pub type PEXTLOGFONTA = *mut EXTLOGFONTA;
 pub type PEXTLOGFONTW = *mut EXTLOGFONTW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEXTLOGPEN = *mut EXTLOGPEN;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEXTLOGPEN32 = *mut EXTLOGPEN32;
 pub const PFD_DEPTH_DONTCARE: u32 = 536870912;
 pub const PFD_DIRECT3D_ACCELERATED: u32 = 16384;
@@ -5041,7 +5041,7 @@ pub type PGLYPHMETRICSFLOAT = *mut GLYPHMETRICSFLOAT;
 pub type PGLYPHSET = *mut GLYPHSET;
 pub type PGRADIENT_RECT = *mut GRADIENT_RECT;
 pub type PGRADIENT_TRIANGLE = *mut GRADIENT_TRIANGLE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PHANDLETABLE = *mut HANDLETABLE;
 pub const PHYSICALHEIGHT: u32 = 111;
 pub const PHYSICALOFFSETX: u32 = 112;
@@ -5078,18 +5078,18 @@ pub struct PIXELFORMATDESCRIPTOR {
     pub dwDamageMask: u32,
 }
 pub const PLANES: u32 = 14;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PLAYERPLANEDESCRIPTOR = *mut LAYERPLANEDESCRIPTOR;
 pub type PLOCALESIGNATURE = *mut LOCALESIGNATURE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PLOGBRUSH = *mut LOGBRUSH;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PLOGBRUSH32 = *mut LOGBRUSH32;
 pub type PLOGFONT = PLOGFONTA;
 pub type PLOGFONTA = *mut LOGFONTA;
 pub type PLOGFONTW = *mut LOGFONTW;
 pub type PLOGPALETTE = *mut LOGPALETTE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PLOGPEN = *mut LOGPEN;
 pub type PMETAHEADER = *mut METAHEADER;
 pub type PMETARECORD = *mut METARECORD;
@@ -5110,10 +5110,10 @@ pub struct POINTFX {
 }
 pub const POLYFILL_LAST: u32 = 2;
 pub const POLYGONALCAPS: u32 = 32;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type POLYTEXT = POLYTEXTA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct POLYTEXTA {
     pub x: i32,
@@ -5124,14 +5124,14 @@ pub struct POLYTEXTA {
     pub rcl: super::windef::RECT,
     pub pdx: *mut i32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for POLYTEXTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct POLYTEXTW {
     pub x: i32,
@@ -5142,7 +5142,7 @@ pub struct POLYTEXTW {
     pub rcl: super::windef::RECT,
     pub pdx: *mut i32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for POLYTEXTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5153,31 +5153,31 @@ pub const POSTSCRIPT_IDENTIFY: u32 = 4117;
 pub const POSTSCRIPT_IGNORE: u32 = 38;
 pub const POSTSCRIPT_INJECTION: u32 = 4118;
 pub const POSTSCRIPT_PASSTHROUGH: u32 = 4115;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type POUTLINETEXTMETRIC = POUTLINETEXTMETRICA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type POUTLINETEXTMETRICA = *mut OUTLINETEXTMETRICA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type POUTLINETEXTMETRICW = *mut OUTLINETEXTMETRICW;
 pub type PPALETTEENTRY = *mut PALETTEENTRY;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PPATTERN = *mut PATTERN;
 pub type PPELARRAY = *mut PELARRAY;
 pub type PPIXELFORMATDESCRIPTOR = *mut PIXELFORMATDESCRIPTOR;
 pub type PPOINTFLOAT = *mut POINTFLOAT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PPOLYTEXT = PPOLYTEXTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PPOLYTEXTA = *mut POLYTEXTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PPOLYTEXTW = *mut POLYTEXTW;
 pub type PPSFEATURE_CUSTPAPER = *mut PSFEATURE_CUSTPAPER;
 pub type PPSFEATURE_OUTPUT = *mut PSFEATURE_OUTPUT;
 pub type PPSINJECTDATA = *mut PSINJECTDATA;
 pub type PRGBTRIPLE = *mut RGBTRIPLE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PRGNDATA = *mut RGNDATA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PRGNDATAHEADER = *mut RGNDATAHEADER;
 pub const PRINTRATEUNIT_CPS: u32 = 2;
 pub const PRINTRATEUNIT_IPM: u32 = 4;
@@ -5277,7 +5277,7 @@ pub const PT_CLOSEFIGURE: u32 = 1;
 pub const PT_LINETO: u32 = 2;
 pub const PT_MOVETO: u32 = 6;
 pub type PWCRANGE = *mut WCRANGE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PWGLSWAP = *mut WGLSWAP;
 pub type PXFORM = *mut XFORM;
 pub const QDC_ALL_PATHS: u32 = 1;
@@ -5359,20 +5359,20 @@ pub struct RGBTRIPLE {
 pub const RGB_GAMMA_MAX: u16 = 65000;
 pub const RGB_GAMMA_MIN: u16 = 1344;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct RGNDATA {
     pub rdh: RGNDATAHEADER,
     pub Buffer: [i8; 1],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for RGNDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct RGNDATAHEADER {
     pub dwSize: u32,
@@ -5615,13 +5615,13 @@ pub struct WCRANGE {
     pub cGlyphs: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct WGLSWAP {
     pub hdc: super::windef::HDC,
     pub uiFlags: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for WGLSWAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

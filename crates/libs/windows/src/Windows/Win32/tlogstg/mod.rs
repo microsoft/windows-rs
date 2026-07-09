@@ -86,7 +86,7 @@ impl ITravelLogClient {
             (windows_core::Interface::vtable(self).FindWindowByIndex)(windows_core::Interface::as_raw(self), dwid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_shtypes"))]
+    #[cfg(all(feature = "objidlbase", feature = "shtypes"))]
     pub unsafe fn GetWindowData<P0>(&self, pstream: P0, pwindata: *mut WINDOWDATA) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -105,19 +105,19 @@ impl ITravelLogClient {
 pub struct ITravelLogClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindWindowByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_shtypes"))]
+    #[cfg(all(feature = "objidlbase", feature = "shtypes"))]
     pub GetWindowData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut WINDOWDATA) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_shtypes")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shtypes")))]
     GetWindowData: usize,
     pub LoadHistoryPosition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "shtypes"))]
 pub trait ITravelLogClient_Impl: windows_core::IUnknownImpl {
     fn FindWindowByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown>;
     fn GetWindowData(&self, pstream: windows_core::Ref<super::objidlbase::IStream>, pwindata: *mut WINDOWDATA) -> windows_core::Result<()>;
     fn LoadHistoryPosition(&self, pszurllocation: &windows_core::PCWSTR, dwposition: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "shtypes"))]
 impl ITravelLogClient_Vtbl {
     pub const fn new<Identity: ITravelLogClient_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FindWindowByIndex<Identity: ITravelLogClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwid: u32, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -155,7 +155,7 @@ impl ITravelLogClient_Vtbl {
         iid == &<ITravelLogClient as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "shtypes"))]
 impl windows_core::RuntimeName for ITravelLogClient {}
 windows_core::imp::define_interface!(ITravelLogEntry, ITravelLogEntry_Vtbl, 0x7ebfdd87_ad18_11d3_a4c5_00c04f72d6b8);
 windows_core::imp::interface_hierarchy!(ITravelLogEntry, windows_core::IUnknown);
@@ -382,33 +382,33 @@ impl ITravelLogStg_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ITravelLogStg {}
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCWINDOWDATA(pub *const WINDOWDATA);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl LPCWINDOWDATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl Default for LPCWINDOWDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWINDOWDATA(pub *mut WINDOWDATA);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl LPWINDOWDATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl Default for LPWINDOWDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -425,7 +425,7 @@ pub const TLEF_RELATIVE_INCLUDE_CURRENT: tagTLENUMF = 1;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct TLENUMF(pub u32);
 #[repr(C)]
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINDOWDATA {
     pub dwWindowID: u32,

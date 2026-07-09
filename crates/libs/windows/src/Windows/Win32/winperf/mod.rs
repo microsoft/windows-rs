@@ -70,7 +70,7 @@ pub const PERF_COUNTER_TIMER: u32 = 541132032;
 pub const PERF_COUNTER_TIMER_INV: u32 = 557909248;
 pub const PERF_COUNTER_VALUE: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_DATA_BLOCK {
     pub Signature: [u16; 4],
@@ -88,7 +88,7 @@ pub struct PERF_DATA_BLOCK {
     pub SystemNameLength: u32,
     pub SystemNameOffset: u32,
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 impl Default for PERF_DATA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -219,17 +219,17 @@ impl Default for PPERF_COUNTER_DEFINITION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPERF_DATA_BLOCK(pub *mut PERF_DATA_BLOCK);
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 impl PPERF_DATA_BLOCK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 impl Default for PPERF_DATA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

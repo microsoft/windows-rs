@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EventAccessControl(guid: *const windows_core::GUID, operation: u32, sid: super::winnt::PSID, rights: u32, allowordeny: bool) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_core::GUID, operation : u32, sid : super::winnt::PSID, rights : u32, allowordeny : bool) -> u32);
     unsafe { EventAccessControl(guid, operation, sid, rights, allowordeny) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EventAccessQuery(guid: *const windows_core::GUID, buffer: Option<super::winnt::PSECURITY_DESCRIPTOR>, buffersize: *mut u32) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn EventAccessQuery(guid : *const windows_core::GUID, buffer : super::winnt::PSECURITY_DESCRIPTOR, buffersize : *mut u32) -> u32);
@@ -107,7 +107,7 @@ pub struct EVENT_EXTENDED_ITEM_TS_ID {
     pub SessionId: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 #[derive(Clone, Copy)]
 pub struct EVENT_HEADER {
     pub Size: u16,
@@ -122,27 +122,27 @@ pub struct EVENT_HEADER {
     pub Anonymous: EVENT_HEADER_0,
     pub ActivityId: windows_core::GUID,
 }
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 impl Default for EVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 #[derive(Clone, Copy)]
 pub union EVENT_HEADER_0 {
     pub Anonymous: EVENT_HEADER_0_0,
     pub ProcessorTime: u64,
 }
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 impl Default for EVENT_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EVENT_HEADER_0_0 {
     pub KernelTime: u32,
@@ -197,7 +197,7 @@ pub const EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG: u32 = 4;
 pub const EVENT_HEADER_PROPERTY_RELOGGABLE: u32 = 8;
 pub const EVENT_HEADER_PROPERTY_XML: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_evntrace"))]
+#[cfg(all(feature = "evntprov", feature = "evntrace"))]
 #[derive(Clone, Copy)]
 pub struct EVENT_RECORD {
     pub EventHeader: EVENT_HEADER,
@@ -208,7 +208,7 @@ pub struct EVENT_RECORD {
     pub UserData: *mut core::ffi::c_void,
     pub UserContext: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_evntrace"))]
+#[cfg(all(feature = "evntprov", feature = "evntrace"))]
 impl Default for EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -222,17 +222,17 @@ pub const EventSecurityAddSACL: EVENTSECURITYOPERATION = 3;
 pub const EventSecurityMax: EVENTSECURITYOPERATION = 4;
 pub const EventSecuritySetDACL: EVENTSECURITYOPERATION = 0;
 pub const EventSecuritySetSACL: EVENTSECURITYOPERATION = 1;
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_evntrace"))]
+#[cfg(all(feature = "evntprov", feature = "evntrace"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCEVENT_RECORD(pub *const EVENT_RECORD);
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_evntrace"))]
+#[cfg(all(feature = "evntprov", feature = "evntrace"))]
 impl PCEVENT_RECORD {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_evntrace"))]
+#[cfg(all(feature = "evntprov", feature = "evntrace"))]
 impl Default for PCEVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -381,17 +381,17 @@ impl Default for PEVENT_EXTENDED_ITEM_TS_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEVENT_HEADER(pub *mut EVENT_HEADER);
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 impl PEVENT_HEADER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 impl Default for PEVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

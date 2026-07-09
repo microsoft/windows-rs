@@ -1,15 +1,15 @@
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPCdrom, IWMPCdrom_Vtbl, 0xcfab6e98_8730_11d3_b388_00c04f68574b);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPCdrom {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPCdrom, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPCdrom {
     pub unsafe fn driveSpecifier(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -27,7 +27,7 @@ impl IWMPCdrom {
         unsafe { (windows_core::Interface::vtable(self).eject)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCdrom_Vtbl {
@@ -36,13 +36,13 @@ pub struct IWMPCdrom_Vtbl {
     pub playlist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub eject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPCdrom_Impl: super::oaidl::IDispatch_Impl {
     fn driveSpecifier(&self) -> windows_core::Result<windows_core::BSTR>;
     fn playlist(&self) -> windows_core::Result<IWMPPlaylist>;
     fn eject(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPCdrom_Vtbl {
     pub const fn new<Identity: IWMPCdrom_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn driveSpecifier<Identity: IWMPCdrom_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdrive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -86,12 +86,12 @@ impl IWMPCdrom_Vtbl {
         iid == &<IWMPCdrom as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPCdrom {}
 windows_core::imp::define_interface!(IWMPCdromBurn, IWMPCdromBurn_Vtbl, 0xbd94dbeb_417f_4928_aa06_087d56ed9b59);
 windows_core::imp::interface_hierarchy!(IWMPCdromBurn, windows_core::IUnknown);
 impl IWMPCdromBurn {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isAvailable(&self, bstritem: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -122,14 +122,14 @@ impl IWMPCdromBurn {
     pub unsafe fn SetburnFormat(&self, wmpbf: WMPBurnFormat) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetburnFormat)(windows_core::Interface::as_raw(self), wmpbf) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn burnPlaylist(&self) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).burnPlaylist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn SetburnPlaylist<P0>(&self, pplaylist: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IWMPPlaylist>,
@@ -165,22 +165,22 @@ impl IWMPCdromBurn {
 #[doc(hidden)]
 pub struct IWMPCdromBurn_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isAvailable: usize,
     pub getItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Setlabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub burnFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WMPBurnFormat) -> windows_core::HRESULT,
     pub SetburnFormat: unsafe extern "system" fn(*mut core::ffi::c_void, WMPBurnFormat) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub burnPlaylist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     burnPlaylist: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub SetburnPlaylist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     SetburnPlaylist: usize,
     pub refreshStatus: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub burnState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WMPBurnState) -> windows_core::HRESULT,
@@ -189,7 +189,7 @@ pub struct IWMPCdromBurn_Vtbl {
     pub stopBurn: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub erase: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 pub trait IWMPCdromBurn_Impl: windows_core::IUnknownImpl {
     fn isAvailable(&self, bstritem: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn getItemInfo(&self, bstritem: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
@@ -206,7 +206,7 @@ pub trait IWMPCdromBurn_Impl: windows_core::IUnknownImpl {
     fn stopBurn(&self) -> windows_core::Result<()>;
     fn erase(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl IWMPCdromBurn_Vtbl {
     pub const fn new<Identity: IWMPCdromBurn_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn isAvailable<Identity: IWMPCdromBurn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstritem: *mut core::ffi::c_void, pisavailable: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -357,20 +357,20 @@ impl IWMPCdromBurn_Vtbl {
         iid == &<IWMPCdromBurn as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl windows_core::RuntimeName for IWMPCdromBurn {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPCdromCollection, IWMPCdromCollection_Vtbl, 0xee4c8fe2_34b2_11d3_a3bf_006097c9b344);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPCdromCollection {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPCdromCollection, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPCdromCollection {
     pub unsafe fn count(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -391,7 +391,7 @@ impl IWMPCdromCollection {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCdromCollection_Vtbl {
@@ -400,13 +400,13 @@ pub struct IWMPCdromCollection_Vtbl {
     pub item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub getByDriveSpecifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPCdromCollection_Impl: super::oaidl::IDispatch_Impl {
     fn count(&self) -> windows_core::Result<i32>;
     fn item(&self, lindex: i32) -> windows_core::Result<IWMPCdrom>;
     fn getByDriveSpecifier(&self, bstrdrivespecifier: &windows_core::BSTR) -> windows_core::Result<IWMPCdrom>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPCdromCollection_Vtbl {
     pub const fn new<Identity: IWMPCdromCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn count<Identity: IWMPCdromCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
@@ -456,7 +456,7 @@ impl IWMPCdromCollection_Vtbl {
         iid == &<IWMPCdromCollection as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPCdromCollection {}
 windows_core::imp::define_interface!(IWMPCdromRip, IWMPCdromRip_Vtbl, 0x56e2294f_69ed_4629_a869_aea72c0dcc2c);
 windows_core::imp::interface_hierarchy!(IWMPCdromRip, windows_core::IUnknown);
@@ -546,18 +546,18 @@ impl IWMPCdromRip_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPCdromRip {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPClosedCaption, IWMPClosedCaption_Vtbl, 0x4f2df574_c588_11d3_9ed0_00c04fb6e937);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPClosedCaption {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPClosedCaption, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPClosedCaption {
     pub unsafe fn SAMIStyle(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -596,7 +596,7 @@ impl IWMPClosedCaption {
         unsafe { (windows_core::Interface::vtable(self).SetcaptioningId)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcaptioningid)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPClosedCaption_Vtbl {
@@ -610,7 +610,7 @@ pub struct IWMPClosedCaption_Vtbl {
     pub captioningId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetcaptioningId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPClosedCaption_Impl: super::oaidl::IDispatch_Impl {
     fn SAMIStyle(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetSAMIStyle(&self, bstrsamistyle: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -621,7 +621,7 @@ pub trait IWMPClosedCaption_Impl: super::oaidl::IDispatch_Impl {
     fn captioningId(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetcaptioningId(&self, bstrcaptioningid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPClosedCaption_Vtbl {
     pub const fn new<Identity: IWMPClosedCaption_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SAMIStyle<Identity: IWMPClosedCaption_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsamistyle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -712,20 +712,20 @@ impl IWMPClosedCaption_Vtbl {
         iid == &<IWMPClosedCaption as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPClosedCaption {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPClosedCaption2, IWMPClosedCaption2_Vtbl, 0x350ba78b_6bc8_4113_a5f5_312056934eb6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPClosedCaption2 {
     type Target = IWMPClosedCaption;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPClosedCaption2, windows_core::IUnknown, super::oaidl::IDispatch, IWMPClosedCaption);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPClosedCaption2 {
     pub unsafe fn SAMILangCount(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -758,7 +758,7 @@ impl IWMPClosedCaption2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPClosedCaption2_Vtbl {
@@ -769,7 +769,7 @@ pub struct IWMPClosedCaption2_Vtbl {
     pub SAMIStyleCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub getSAMIStyleName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPClosedCaption2_Impl: IWMPClosedCaption_Impl {
     fn SAMILangCount(&self) -> windows_core::Result<i32>;
     fn getSAMILangName(&self, nindex: i32) -> windows_core::Result<windows_core::BSTR>;
@@ -777,7 +777,7 @@ pub trait IWMPClosedCaption2_Impl: IWMPClosedCaption_Impl {
     fn SAMIStyleCount(&self) -> windows_core::Result<i32>;
     fn getSAMIStyleName(&self, nindex: i32) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPClosedCaption2_Vtbl {
     pub const fn new<Identity: IWMPClosedCaption2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SAMILangCount<Identity: IWMPClosedCaption2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
@@ -853,22 +853,22 @@ impl IWMPClosedCaption2_Vtbl {
         iid == &<IWMPClosedCaption2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPClosedCaption as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPClosedCaption2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPControls, IWMPControls_Vtbl, 0x74c09e02_f828_11d2_a74b_00a0c905f36e);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPControls {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPControls, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPControls {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isAvailable(&self, bstritem: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -939,14 +939,14 @@ impl IWMPControls {
         unsafe { (windows_core::Interface::vtable(self).playItem)(windows_core::Interface::as_raw(self), piwmpmedia.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPControls_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isAvailable: usize,
     pub play: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -964,7 +964,7 @@ pub struct IWMPControls_Vtbl {
     pub SetcurrentMarker: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub playItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPControls_Impl: super::oaidl::IDispatch_Impl {
     fn isAvailable(&self, bstritem: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn play(&self) -> windows_core::Result<()>;
@@ -983,7 +983,7 @@ pub trait IWMPControls_Impl: super::oaidl::IDispatch_Impl {
     fn SetcurrentMarker(&self, lmarker: i32) -> windows_core::Result<()>;
     fn playItem(&self, piwmpmedia: windows_core::Ref<IWMPMedia>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPControls_Vtbl {
     pub const fn new<Identity: IWMPControls_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn isAvailable<Identity: IWMPControls_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstritem: *mut core::ffi::c_void, pisavailable: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1136,37 +1136,37 @@ impl IWMPControls_Vtbl {
         iid == &<IWMPControls as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPControls {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPControls2, IWMPControls2_Vtbl, 0x6f030d25_0890_480f_9775_1f7e40ab5b8e);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPControls2 {
     type Target = IWMPControls;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPControls2, windows_core::IUnknown, super::oaidl::IDispatch, IWMPControls);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPControls2 {
     pub unsafe fn step(&self, lstep: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).step)(windows_core::Interface::as_raw(self), lstep) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPControls2_Vtbl {
     pub base__: IWMPControls_Vtbl,
     pub step: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPControls2_Impl: IWMPControls_Impl {
     fn step(&self, lstep: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPControls2_Vtbl {
     pub const fn new<Identity: IWMPControls2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn step<Identity: IWMPControls2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lstep: i32) -> windows_core::HRESULT {
@@ -1181,20 +1181,20 @@ impl IWMPControls2_Vtbl {
         iid == &<IWMPControls2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPControls as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPControls2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPControls3, IWMPControls3_Vtbl, 0xa1d1110e_d545_476a_9a78_ac3e4cb1e6bd);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPControls3 {
     type Target = IWMPControls2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPControls3, windows_core::IUnknown, super::oaidl::IDispatch, IWMPControls, IWMPControls2);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPControls3 {
     pub unsafe fn audioLanguageCount(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -1248,7 +1248,7 @@ impl IWMPControls3 {
         unsafe { (windows_core::Interface::vtable(self).SetcurrentPositionTimecode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtimecode)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPControls3_Vtbl {
@@ -1264,7 +1264,7 @@ pub struct IWMPControls3_Vtbl {
     pub currentPositionTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetcurrentPositionTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPControls3_Impl: IWMPControls2_Impl {
     fn audioLanguageCount(&self) -> windows_core::Result<i32>;
     fn getAudioLanguageID(&self, lindex: i32) -> windows_core::Result<i32>;
@@ -1277,7 +1277,7 @@ pub trait IWMPControls3_Impl: IWMPControls2_Impl {
     fn currentPositionTimecode(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetcurrentPositionTimecode(&self, bstrtimecode: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPControls3_Vtbl {
     pub const fn new<Identity: IWMPControls3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn audioLanguageCount<Identity: IWMPControls3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
@@ -1400,20 +1400,20 @@ impl IWMPControls3_Vtbl {
         iid == &<IWMPControls3 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPControls as windows_core::Interface>::IID || iid == &<IWMPControls2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPControls3 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPCore, IWMPCore_Vtbl, 0xd84cca99_cce2_11d2_9ecc_0000f8085981);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPCore {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPCore, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPCore {
     pub unsafe fn close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).close)(windows_core::Interface::as_raw(self)) }
@@ -1514,7 +1514,7 @@ impl IWMPCore {
             (windows_core::Interface::vtable(self).closedCaption)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isOnline(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1534,7 +1534,7 @@ impl IWMPCore {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCore_Vtbl {
@@ -1557,14 +1557,14 @@ pub struct IWMPCore_Vtbl {
     pub SetcurrentPlaylist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub cdromCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub closedCaption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isOnline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isOnline: usize,
     pub error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPCore_Impl: super::oaidl::IDispatch_Impl {
     fn close(&self) -> windows_core::Result<()>;
     fn URL(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1588,7 +1588,7 @@ pub trait IWMPCore_Impl: super::oaidl::IDispatch_Impl {
     fn error(&self) -> windows_core::Result<IWMPError>;
     fn status(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPCore_Vtbl {
     pub const fn new<Identity: IWMPCore_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn close<Identity: IWMPCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1842,20 +1842,20 @@ impl IWMPCore_Vtbl {
         iid == &<IWMPCore as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPCore {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPCore2, IWMPCore2_Vtbl, 0xbc17e5b7_7561_4c18_bb90_17d485775659);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPCore2 {
     type Target = IWMPCore;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPCore2, windows_core::IUnknown, super::oaidl::IDispatch, IWMPCore);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPCore2 {
     pub unsafe fn dvd(&self) -> windows_core::Result<IWMPDVD> {
         unsafe {
@@ -1864,18 +1864,18 @@ impl IWMPCore2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCore2_Vtbl {
     pub base__: IWMPCore_Vtbl,
     pub dvd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPCore2_Impl: IWMPCore_Impl {
     fn dvd(&self) -> windows_core::Result<IWMPDVD>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPCore2_Vtbl {
     pub const fn new<Identity: IWMPCore2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn dvd<Identity: IWMPCore2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdvd: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1896,20 +1896,20 @@ impl IWMPCore2_Vtbl {
         iid == &<IWMPCore2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPCore as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPCore2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPCore3, IWMPCore3_Vtbl, 0x7587c667_628f_499f_88e7_6a6f4e888464);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPCore3 {
     type Target = IWMPCore2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPCore3, windows_core::IUnknown, super::oaidl::IDispatch, IWMPCore, IWMPCore2);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPCore3 {
     pub unsafe fn newPlaylist(&self, bstrname: &windows_core::BSTR, bstrurl: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
@@ -1924,7 +1924,7 @@ impl IWMPCore3 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCore3_Vtbl {
@@ -1932,12 +1932,12 @@ pub struct IWMPCore3_Vtbl {
     pub newPlaylist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub newMedia: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPCore3_Impl: IWMPCore2_Impl {
     fn newPlaylist(&self, bstrname: &windows_core::BSTR, bstrurl: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
     fn newMedia(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<IWMPMedia>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPCore3_Vtbl {
     pub const fn new<Identity: IWMPCore3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn newPlaylist<Identity: IWMPCore3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void, ppplaylist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1970,22 +1970,22 @@ impl IWMPCore3_Vtbl {
         iid == &<IWMPCore3 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPCore as windows_core::Interface>::IID || iid == &<IWMPCore2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPCore3 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPDVD, IWMPDVD_Vtbl, 0x8da61686_4668_4a5c_ae5d_803193293dbe);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPDVD {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPDVD, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPDVD {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isAvailable(&self, bstritem: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2011,14 +2011,14 @@ impl IWMPDVD {
         unsafe { (windows_core::Interface::vtable(self).resume)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDVD_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isAvailable: usize,
     pub domain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub topMenu: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2026,7 +2026,7 @@ pub struct IWMPDVD_Vtbl {
     pub back: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPDVD_Impl: super::oaidl::IDispatch_Impl {
     fn isAvailable(&self, bstritem: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn domain(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2035,7 +2035,7 @@ pub trait IWMPDVD_Impl: super::oaidl::IDispatch_Impl {
     fn back(&self) -> windows_core::Result<()>;
     fn resume(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPDVD_Vtbl {
     pub const fn new<Identity: IWMPDVD_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn isAvailable<Identity: IWMPDVD_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstritem: *mut core::ffi::c_void, pisavailable: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2100,20 +2100,20 @@ impl IWMPDVD_Vtbl {
         iid == &<IWMPDVD as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPDVD {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPError, IWMPError_Vtbl, 0xa12dcf7d_14ab_4c1b_a8cd_63909f06025b);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPError {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPError, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPError {
     pub unsafe fn clearErrorQueue(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).clearErrorQueue)(windows_core::Interface::as_raw(self)) }
@@ -2134,7 +2134,7 @@ impl IWMPError {
         unsafe { (windows_core::Interface::vtable(self).webHelp)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPError_Vtbl {
@@ -2144,14 +2144,14 @@ pub struct IWMPError_Vtbl {
     pub item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub webHelp: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPError_Impl: super::oaidl::IDispatch_Impl {
     fn clearErrorQueue(&self) -> windows_core::Result<()>;
     fn errorCount(&self) -> windows_core::Result<i32>;
     fn item(&self, dwindex: i32) -> windows_core::Result<IWMPErrorItem>;
     fn webHelp(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPError_Vtbl {
     pub const fn new<Identity: IWMPError_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn clearErrorQueue<Identity: IWMPError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2202,20 +2202,20 @@ impl IWMPError_Vtbl {
         iid == &<IWMPError as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPError {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPErrorItem, IWMPErrorItem_Vtbl, 0x3614c646_3b3b_4de7_a81e_930e3f2127b3);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPErrorItem {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPErrorItem, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPErrorItem {
     pub unsafe fn errorCode(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -2229,7 +2229,7 @@ impl IWMPErrorItem {
             (windows_core::Interface::vtable(self).errorDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn errorContext(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2249,21 +2249,21 @@ impl IWMPErrorItem {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPErrorItem_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub errorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub errorDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub errorContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     errorContext: usize,
     pub remedy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub customUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPErrorItem_Impl: super::oaidl::IDispatch_Impl {
     fn errorCode(&self) -> windows_core::Result<i32>;
     fn errorDescription(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2271,7 +2271,7 @@ pub trait IWMPErrorItem_Impl: super::oaidl::IDispatch_Impl {
     fn remedy(&self) -> windows_core::Result<i32>;
     fn customUrl(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPErrorItem_Vtbl {
     pub const fn new<Identity: IWMPErrorItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn errorCode<Identity: IWMPErrorItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phr: *mut i32) -> windows_core::HRESULT {
@@ -2347,20 +2347,20 @@ impl IWMPErrorItem_Vtbl {
         iid == &<IWMPErrorItem as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPErrorItem {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPErrorItem2, IWMPErrorItem2_Vtbl, 0xf75ccec0_c67c_475c_931e_8719870bee7d);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPErrorItem2 {
     type Target = IWMPErrorItem;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPErrorItem2, windows_core::IUnknown, super::oaidl::IDispatch, IWMPErrorItem);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPErrorItem2 {
     pub unsafe fn condition(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -2369,18 +2369,18 @@ impl IWMPErrorItem2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPErrorItem2_Vtbl {
     pub base__: IWMPErrorItem_Vtbl,
     pub condition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPErrorItem2_Impl: IWMPErrorItem_Impl {
     fn condition(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPErrorItem2_Vtbl {
     pub const fn new<Identity: IWMPErrorItem2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn condition<Identity: IWMPErrorItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcondition: *mut i32) -> windows_core::HRESULT {
@@ -2401,7 +2401,7 @@ impl IWMPErrorItem2_Vtbl {
         iid == &<IWMPErrorItem2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPErrorItem as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPErrorItem2 {}
 windows_core::imp::define_interface!(IWMPEvents, IWMPEvents_Vtbl, 0x19a6627b_da9e_47c1_bb23_00b5e668236a);
 windows_core::imp::interface_hierarchy!(IWMPEvents, windows_core::IUnknown);
@@ -2441,7 +2441,7 @@ impl IWMPEvents {
             (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self), result);
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Buffering(&self, start: super::wtypes::VARIANT_BOOL) {
         unsafe {
             (windows_core::Interface::vtable(self).Buffering)(windows_core::Interface::as_raw(self), start);
@@ -2482,7 +2482,7 @@ impl IWMPEvents {
             (windows_core::Interface::vtable(self).CdromMediaChange)(windows_core::Interface::as_raw(self), cdromnum);
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn PlaylistChange<P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -2501,7 +2501,7 @@ impl IWMPEvents {
             (windows_core::Interface::vtable(self).CurrentPlaylistItemAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstritemname));
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn MediaChange<P0>(&self, item: P0)
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -2515,7 +2515,7 @@ impl IWMPEvents {
             (windows_core::Interface::vtable(self).CurrentMediaItemAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstritemname));
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CurrentItemChange<P0>(&self, pdispmedia: P0)
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -2559,19 +2559,19 @@ impl IWMPEvents {
             (windows_core::Interface::vtable(self).PlaylistCollectionPlaylistRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrplaylistname));
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted(&self, bstrplaylistname: &windows_core::BSTR, varfisdeleted: super::wtypes::VARIANT_BOOL) {
         unsafe {
             (windows_core::Interface::vtable(self).PlaylistCollectionPlaylistSetAsDeleted)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrplaylistname), varfisdeleted);
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ModeChange(&self, modename: &windows_core::BSTR, newvalue: super::wtypes::VARIANT_BOOL) {
         unsafe {
             (windows_core::Interface::vtable(self).ModeChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(modename), newvalue);
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn MediaError<P0>(&self, pmediaobject: P0)
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -2580,7 +2580,7 @@ impl IWMPEvents {
             (windows_core::Interface::vtable(self).MediaError)(windows_core::Interface::as_raw(self), pmediaobject.param().abi());
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn OpenPlaylistSwitch<P0>(&self, pitem: P0)
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -2666,9 +2666,9 @@ pub struct IWMPEvents_Vtbl {
     pub ScriptCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void),
     pub NewStream: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void, i32),
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Buffering: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL),
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Buffering: usize,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub Warning: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void),
@@ -2677,20 +2677,20 @@ pub struct IWMPEvents_Vtbl {
     pub MarkerHit: unsafe extern "system" fn(*mut core::ffi::c_void, i32),
     pub DurationUnitChange: unsafe extern "system" fn(*mut core::ffi::c_void, i32),
     pub CdromMediaChange: unsafe extern "system" fn(*mut core::ffi::c_void, i32),
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub PlaylistChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WMPPlaylistChangeEventType),
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     PlaylistChange: usize,
     pub CurrentPlaylistChange: unsafe extern "system" fn(*mut core::ffi::c_void, WMPPlaylistChangeEventType),
     pub CurrentPlaylistItemAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub MediaChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     MediaChange: usize,
     pub CurrentMediaItemAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CurrentItemChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CurrentItemChange: usize,
     pub MediaCollectionChange: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub MediaCollectionAttributeStringAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -2699,21 +2699,21 @@ pub struct IWMPEvents_Vtbl {
     pub PlaylistCollectionChange: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub PlaylistCollectionPlaylistAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
     pub PlaylistCollectionPlaylistRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub PlaylistCollectionPlaylistSetAsDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL),
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     PlaylistCollectionPlaylistSetAsDeleted: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ModeChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL),
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ModeChange: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub MediaError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     MediaError: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub OpenPlaylistSwitch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     OpenPlaylistSwitch: usize,
     pub DomainChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
     pub SwitchedToPlayerApplication: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -2729,7 +2729,7 @@ pub struct IWMPEvents_Vtbl {
     pub MouseMove: unsafe extern "system" fn(*mut core::ffi::c_void, i16, i16, i32, i32),
     pub MouseUp: unsafe extern "system" fn(*mut core::ffi::c_void, i16, i16, i32, i32),
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 pub trait IWMPEvents_Impl: windows_core::IUnknownImpl {
     fn OpenStateChange(&self, newstate: i32);
     fn PlayStateChange(&self, newstate: i32);
@@ -2777,7 +2777,7 @@ pub trait IWMPEvents_Impl: windows_core::IUnknownImpl {
     fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32);
     fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32);
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl IWMPEvents_Vtbl {
     pub const fn new<Identity: IWMPEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OpenStateChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstate: i32) {
@@ -3103,7 +3103,7 @@ impl IWMPEvents_Vtbl {
         iid == &<IWMPEvents as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl windows_core::RuntimeName for IWMPEvents {}
 windows_core::imp::define_interface!(IWMPEvents2, IWMPEvents2_Vtbl, 0x1e7601fa_47ea_4107_9ea9_9004ed9684ff);
 impl core::ops::Deref for IWMPEvents2 {
@@ -3146,7 +3146,7 @@ impl IWMPEvents2 {
             (windows_core::Interface::vtable(self).DeviceSyncStateChange)(windows_core::Interface::as_raw(self), pdevice.param().abi(), newstate);
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn DeviceSyncError<P0, P1>(&self, pdevice: P0, pmedia: P1)
     where
         P0: windows_core::Param<IWMPSyncDevice>,
@@ -3173,13 +3173,13 @@ pub struct IWMPEvents2_Vtbl {
     pub DeviceDisconnect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
     pub DeviceStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WMPDeviceStatus),
     pub DeviceSyncStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WMPSyncState),
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub DeviceSyncError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     DeviceSyncError: usize,
     pub CreatePartnershipComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT),
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 pub trait IWMPEvents2_Impl: IWMPEvents_Impl {
     fn DeviceConnect(&self, pdevice: windows_core::Ref<IWMPSyncDevice>);
     fn DeviceDisconnect(&self, pdevice: windows_core::Ref<IWMPSyncDevice>);
@@ -3188,7 +3188,7 @@ pub trait IWMPEvents2_Impl: IWMPEvents_Impl {
     fn DeviceSyncError(&self, pdevice: windows_core::Ref<IWMPSyncDevice>, pmedia: windows_core::Ref<super::oaidl::IDispatch>);
     fn CreatePartnershipComplete(&self, pdevice: windows_core::Ref<IWMPSyncDevice>, hrresult: windows_core::HRESULT);
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl IWMPEvents2_Vtbl {
     pub const fn new<Identity: IWMPEvents2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DeviceConnect<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void) {
@@ -3241,7 +3241,7 @@ impl IWMPEvents2_Vtbl {
         iid == &<IWMPEvents2 as windows_core::Interface>::IID || iid == &<IWMPEvents as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl windows_core::RuntimeName for IWMPEvents2 {}
 windows_core::imp::define_interface!(IWMPEvents3, IWMPEvents3_Vtbl, 0x1f504270_a66b_4223_8e96_26a06c63d69f);
 impl core::ops::Deref for IWMPEvents3 {
@@ -3260,7 +3260,7 @@ impl IWMPEvents3 {
             (windows_core::Interface::vtable(self).CdromRipStateChange)(windows_core::Interface::as_raw(self), pcdromrip.param().abi(), wmprs);
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CdromRipMediaError<P0, P1>(&self, pcdromrip: P0, pmedia: P1)
     where
         P0: windows_core::Param<IWMPCdromRip>,
@@ -3278,7 +3278,7 @@ impl IWMPEvents3 {
             (windows_core::Interface::vtable(self).CdromBurnStateChange)(windows_core::Interface::as_raw(self), pcdromburn.param().abi(), wmpbs);
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CdromBurnMediaError<P0, P1>(&self, pcdromburn: P0, pmedia: P1)
     where
         P0: windows_core::Param<IWMPCdromBurn>,
@@ -3317,7 +3317,7 @@ impl IWMPEvents3 {
             (windows_core::Interface::vtable(self).FolderScanStateChange)(windows_core::Interface::as_raw(self), wmpfss);
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn StringCollectionChange<P0>(&self, pdispstringcollection: P0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32)
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -3326,7 +3326,7 @@ impl IWMPEvents3 {
             (windows_core::Interface::vtable(self).StringCollectionChange)(windows_core::Interface::as_raw(self), pdispstringcollection.param().abi(), change, lcollectionindex);
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn MediaCollectionMediaAdded<P0>(&self, pdispmedia: P0)
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -3335,7 +3335,7 @@ impl IWMPEvents3 {
             (windows_core::Interface::vtable(self).MediaCollectionMediaAdded)(windows_core::Interface::as_raw(self), pdispmedia.param().abi());
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn MediaCollectionMediaRemoved<P0>(&self, pdispmedia: P0)
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -3350,33 +3350,33 @@ impl IWMPEvents3 {
 pub struct IWMPEvents3_Vtbl {
     pub base__: IWMPEvents2_Vtbl,
     pub CdromRipStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WMPRipState),
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CdromRipMediaError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CdromRipMediaError: usize,
     pub CdromBurnStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WMPBurnState),
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CdromBurnMediaError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CdromBurnMediaError: usize,
     pub CdromBurnError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT),
     pub LibraryConnect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
     pub LibraryDisconnect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
     pub FolderScanStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, WMPFolderScanState),
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub StringCollectionChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WMPStringCollectionChangeEventType, i32),
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     StringCollectionChange: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub MediaCollectionMediaAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     MediaCollectionMediaAdded: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub MediaCollectionMediaRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     MediaCollectionMediaRemoved: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 pub trait IWMPEvents3_Impl: IWMPEvents2_Impl {
     fn CdromRipStateChange(&self, pcdromrip: windows_core::Ref<IWMPCdromRip>, wmprs: WMPRipState);
     fn CdromRipMediaError(&self, pcdromrip: windows_core::Ref<IWMPCdromRip>, pmedia: windows_core::Ref<super::oaidl::IDispatch>);
@@ -3390,7 +3390,7 @@ pub trait IWMPEvents3_Impl: IWMPEvents2_Impl {
     fn MediaCollectionMediaAdded(&self, pdispmedia: windows_core::Ref<super::oaidl::IDispatch>);
     fn MediaCollectionMediaRemoved(&self, pdispmedia: windows_core::Ref<super::oaidl::IDispatch>);
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl IWMPEvents3_Vtbl {
     pub const fn new<Identity: IWMPEvents3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CdromRipStateChange<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdromrip: *mut core::ffi::c_void, wmprs: WMPRipState) {
@@ -3478,7 +3478,7 @@ impl IWMPEvents3_Vtbl {
         iid == &<IWMPEvents3 as windows_core::Interface>::IID || iid == &<IWMPEvents as windows_core::Interface>::IID || iid == &<IWMPEvents2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl windows_core::RuntimeName for IWMPEvents3 {}
 windows_core::imp::define_interface!(IWMPEvents4, IWMPEvents4_Vtbl, 0x26dabcfa_306b_404d_9a6f_630a8405048d);
 impl core::ops::Deref for IWMPEvents4 {
@@ -3504,11 +3504,11 @@ pub struct IWMPEvents4_Vtbl {
     pub base__: IWMPEvents3_Vtbl,
     pub DeviceEstimation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT, i64, i64),
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 pub trait IWMPEvents4_Impl: IWMPEvents3_Impl {
     fn DeviceEstimation(&self, pdevice: windows_core::Ref<IWMPSyncDevice>, hrresult: windows_core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64);
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl IWMPEvents4_Vtbl {
     pub const fn new<Identity: IWMPEvents4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DeviceEstimation<Identity: IWMPEvents4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, hrresult: windows_core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64) {
@@ -3523,7 +3523,7 @@ impl IWMPEvents4_Vtbl {
         iid == &<IWMPEvents4 as windows_core::Interface>::IID || iid == &<IWMPEvents as windows_core::Interface>::IID || iid == &<IWMPEvents2 as windows_core::Interface>::IID || iid == &<IWMPEvents3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl windows_core::RuntimeName for IWMPEvents4 {}
 windows_core::imp::define_interface!(IWMPFolderMonitorServices, IWMPFolderMonitorServices_Vtbl, 0x788c8743_e57f_439d_a468_5bc77f2e59c6);
 windows_core::imp::interface_hierarchy!(IWMPFolderMonitorServices, windows_core::IUnknown);
@@ -3757,14 +3757,14 @@ impl IWMPLibrary {
             (windows_core::Interface::vtable(self).r#type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isIdentical<P0>(&self, piwmplibrary: P0) -> windows_core::Result<super::wtypes::VARIANT_BOOL>
     where
         P0: windows_core::Param<Self>,
@@ -3781,23 +3781,23 @@ pub struct IWMPLibrary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub r#type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WMPLibraryType) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub mediaCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     mediaCollection: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isIdentical: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isIdentical: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 pub trait IWMPLibrary_Impl: windows_core::IUnknownImpl {
     fn name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn r#type(&self) -> windows_core::Result<WMPLibraryType>;
     fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection>;
     fn isIdentical(&self, piwmplibrary: windows_core::Ref<IWMPLibrary>) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl IWMPLibrary_Vtbl {
     pub const fn new<Identity: IWMPLibrary_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn name<Identity: IWMPLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3860,7 +3860,7 @@ impl IWMPLibrary_Vtbl {
         iid == &<IWMPLibrary as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl windows_core::RuntimeName for IWMPLibrary {}
 windows_core::imp::define_interface!(IWMPLibrary2, IWMPLibrary2_Vtbl, 0xdd578a4e_79b1_426c_bf8f_3add9072500b);
 impl core::ops::Deref for IWMPLibrary2 {
@@ -3884,11 +3884,11 @@ pub struct IWMPLibrary2_Vtbl {
     pub base__: IWMPLibrary_Vtbl,
     pub getItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 pub trait IWMPLibrary2_Impl: IWMPLibrary_Impl {
     fn getItemInfo(&self, bstritemname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl IWMPLibrary2_Vtbl {
     pub const fn new<Identity: IWMPLibrary2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn getItemInfo<Identity: IWMPLibrary2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstritemname: *mut core::ffi::c_void, pbstrval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3909,7 +3909,7 @@ impl IWMPLibrary2_Vtbl {
         iid == &<IWMPLibrary2 as windows_core::Interface>::IID || iid == &<IWMPLibrary as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl windows_core::RuntimeName for IWMPLibrary2 {}
 windows_core::imp::define_interface!(IWMPLibraryServices, IWMPLibraryServices_Vtbl, 0x39c2f8d5_1cf2_4d5e_ae09_d73492cf9eaa);
 windows_core::imp::interface_hierarchy!(IWMPLibraryServices, windows_core::IUnknown);
@@ -3978,14 +3978,14 @@ impl windows_core::RuntimeName for IWMPLibraryServices {}
 windows_core::imp::define_interface!(IWMPLibrarySharingServices, IWMPLibrarySharingServices_Vtbl, 0x82cba86b_9f04_474b_a365_d6dd1466e541);
 windows_core::imp::interface_hierarchy!(IWMPLibrarySharingServices, windows_core::IUnknown);
 impl IWMPLibrarySharingServices {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isLibraryShared(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).isLibraryShared)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isLibrarySharingEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4000,23 +4000,23 @@ impl IWMPLibrarySharingServices {
 #[doc(hidden)]
 pub struct IWMPLibrarySharingServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isLibraryShared: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isLibraryShared: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isLibrarySharingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isLibrarySharingEnabled: usize,
     pub showLibrarySharing: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub trait IWMPLibrarySharingServices_Impl: windows_core::IUnknownImpl {
     fn isLibraryShared(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn isLibrarySharingEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn showLibrarySharing(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl IWMPLibrarySharingServices_Vtbl {
     pub const fn new<Identity: IWMPLibrarySharingServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn isLibraryShared<Identity: IWMPLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbshared: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4060,22 +4060,22 @@ impl IWMPLibrarySharingServices_Vtbl {
         iid == &<IWMPLibrarySharingServices as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl windows_core::RuntimeName for IWMPLibrarySharingServices {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPMedia, IWMPMedia_Vtbl, 0x94d55e95_3fac_11d3_b155_00c04f79faa6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPMedia {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPMedia, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPMedia {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isIdentical<P0>(&self, piwmpmedia: P0) -> windows_core::Result<super::wtypes::VARIANT_BOOL>
     where
         P0: windows_core::Param<Self>,
@@ -4169,7 +4169,7 @@ impl IWMPMedia {
             (windows_core::Interface::vtable(self).getItemInfoByAtom)(windows_core::Interface::as_raw(self), latom, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isMemberOf<P0>(&self, pplaylist: P0) -> windows_core::Result<super::wtypes::VARIANT_BOOL>
     where
         P0: windows_core::Param<IWMPPlaylist>,
@@ -4179,7 +4179,7 @@ impl IWMPMedia {
             (windows_core::Interface::vtable(self).isMemberOf)(windows_core::Interface::as_raw(self), pplaylist.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isReadOnlyItem(&self, bstritemname: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4187,14 +4187,14 @@ impl IWMPMedia {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMedia_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isIdentical: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isIdentical: usize,
     pub sourceURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4211,16 +4211,16 @@ pub struct IWMPMedia_Vtbl {
     pub getItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub setItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub getItemInfoByAtom: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isMemberOf: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isMemberOf: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isReadOnlyItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isReadOnlyItem: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPMedia_Impl: super::oaidl::IDispatch_Impl {
     fn isIdentical(&self, piwmpmedia: windows_core::Ref<IWMPMedia>) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn sourceURL(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -4241,7 +4241,7 @@ pub trait IWMPMedia_Impl: super::oaidl::IDispatch_Impl {
     fn isMemberOf(&self, pplaylist: windows_core::Ref<IWMPPlaylist>) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn isReadOnlyItem(&self, bstritemname: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPMedia_Vtbl {
     pub const fn new<Identity: IWMPMedia_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn isIdentical<Identity: IWMPMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwmpmedia: *mut core::ffi::c_void, pvbool: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4474,20 +4474,20 @@ impl IWMPMedia_Vtbl {
         iid == &<IWMPMedia as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPMedia {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPMedia2, IWMPMedia2_Vtbl, 0xab7c88bb_143e_4ea4_acc3_e4350b2106c3);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPMedia2 {
     type Target = IWMPMedia;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPMedia2, windows_core::IUnknown, super::oaidl::IDispatch, IWMPMedia);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPMedia2 {
     pub unsafe fn error(&self) -> windows_core::Result<IWMPErrorItem> {
         unsafe {
@@ -4496,18 +4496,18 @@ impl IWMPMedia2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMedia2_Vtbl {
     pub base__: IWMPMedia_Vtbl,
     pub error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPMedia2_Impl: IWMPMedia_Impl {
     fn error(&self) -> windows_core::Result<IWMPErrorItem>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPMedia2_Vtbl {
     pub const fn new<Identity: IWMPMedia2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn error<Identity: IWMPMedia2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppiwmperroritem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4528,20 +4528,20 @@ impl IWMPMedia2_Vtbl {
         iid == &<IWMPMedia2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPMedia as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPMedia2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPMedia3, IWMPMedia3_Vtbl, 0xf118efc7_f03a_4fb4_99c9_1c02a5c1065b);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPMedia3 {
     type Target = IWMPMedia2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPMedia3, windows_core::IUnknown, super::oaidl::IDispatch, IWMPMedia, IWMPMedia2);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPMedia3 {
     pub unsafe fn getAttributeCountByType(&self, bstrtype: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR) -> windows_core::Result<i32> {
         unsafe {
@@ -4549,7 +4549,7 @@ impl IWMPMedia3 {
             (windows_core::Interface::vtable(self).getAttributeCountByType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtype), core::mem::transmute_copy(bstrlanguage), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn getItemInfoByType(&self, bstrtype: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR, lindex: i32) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4557,23 +4557,23 @@ impl IWMPMedia3 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMedia3_Vtbl {
     pub base__: IWMPMedia2_Vtbl,
     pub getAttributeCountByType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub getItemInfoByType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     getItemInfoByType: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPMedia3_Impl: IWMPMedia2_Impl {
     fn getAttributeCountByType(&self, bstrtype: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn getItemInfoByType(&self, bstrtype: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR, lindex: i32) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPMedia3_Vtbl {
     pub const fn new<Identity: IWMPMedia3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn getAttributeCountByType<Identity: IWMPMedia3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtype: *mut core::ffi::c_void, bstrlanguage: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
@@ -4610,20 +4610,20 @@ impl IWMPMedia3_Vtbl {
         iid == &<IWMPMedia3 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPMedia as windows_core::Interface>::IID || iid == &<IWMPMedia2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPMedia3 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPMediaCollection, IWMPMediaCollection_Vtbl, 0x8363bc22_b4b4_4b19_989d_1cd765749dd1);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPMediaCollection {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPMediaCollection, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPMediaCollection {
     pub unsafe fn add(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<IWMPMedia> {
         unsafe {
@@ -4667,7 +4667,7 @@ impl IWMPMediaCollection {
             (windows_core::Interface::vtable(self).getByAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribute), core::mem::transmute_copy(bstrvalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn remove<P0>(&self, pitem: P0, varfdeletefile: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IWMPMedia>,
@@ -4686,14 +4686,14 @@ impl IWMPMediaCollection {
             (windows_core::Interface::vtable(self).getMediaAtom)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstritemname), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn setDeleted<P0>(&self, pitem: P0, varfisdeleted: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IWMPMedia>,
     {
         unsafe { (windows_core::Interface::vtable(self).setDeleted)(windows_core::Interface::as_raw(self), pitem.param().abi(), varfisdeleted) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isDeleted<P0>(&self, pitem: P0) -> windows_core::Result<super::wtypes::VARIANT_BOOL>
     where
         P0: windows_core::Param<IWMPMedia>,
@@ -4704,7 +4704,7 @@ impl IWMPMediaCollection {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMediaCollection_Vtbl {
@@ -4716,22 +4716,22 @@ pub struct IWMPMediaCollection_Vtbl {
     pub getByAuthor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub getByAlbum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub getByAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     remove: usize,
     pub getAttributeStringCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub getMediaAtom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub setDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     setDeleted: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isDeleted: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPMediaCollection_Impl: super::oaidl::IDispatch_Impl {
     fn add(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<IWMPMedia>;
     fn getAll(&self) -> windows_core::Result<IWMPPlaylist>;
@@ -4746,7 +4746,7 @@ pub trait IWMPMediaCollection_Impl: super::oaidl::IDispatch_Impl {
     fn setDeleted(&self, pitem: windows_core::Ref<IWMPMedia>, varfisdeleted: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
     fn isDeleted(&self, pitem: windows_core::Ref<IWMPMedia>) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPMediaCollection_Vtbl {
     pub const fn new<Identity: IWMPMediaCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn add<Identity: IWMPMediaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4901,20 +4901,20 @@ impl IWMPMediaCollection_Vtbl {
         iid == &<IWMPMediaCollection as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPMediaCollection {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPMediaCollection2, IWMPMediaCollection2_Vtbl, 0x8ba957f5_fd8c_4791_b82d_f840401ee474);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPMediaCollection2 {
     type Target = IWMPMediaCollection;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPMediaCollection2, windows_core::IUnknown, super::oaidl::IDispatch, IWMPMediaCollection);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPMediaCollection2 {
     pub unsafe fn createQuery(&self) -> windows_core::Result<IWMPQuery> {
         unsafe {
@@ -4922,7 +4922,7 @@ impl IWMPMediaCollection2 {
             (windows_core::Interface::vtable(self).createQuery)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn getPlaylistByQuery<P0>(&self, pquery: P0, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::wtypes::VARIANT_BOOL) -> windows_core::Result<IWMPPlaylist>
     where
         P0: windows_core::Param<IWMPQuery>,
@@ -4932,7 +4932,7 @@ impl IWMPMediaCollection2 {
             (windows_core::Interface::vtable(self).getPlaylistByQuery)(windows_core::Interface::as_raw(self), pquery.param().abi(), core::mem::transmute_copy(bstrmediatype), core::mem::transmute_copy(bstrsortattribute), fsortascending, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn getStringCollectionByQuery<P1>(&self, bstrattribute: &windows_core::BSTR, pquery: P1, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::wtypes::VARIANT_BOOL) -> windows_core::Result<IWMPStringCollection>
     where
         P1: windows_core::Param<IWMPQuery>,
@@ -4949,30 +4949,30 @@ impl IWMPMediaCollection2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMediaCollection2_Vtbl {
     pub base__: IWMPMediaCollection_Vtbl,
     pub createQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub getPlaylistByQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     getPlaylistByQuery: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub getStringCollectionByQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     getStringCollectionByQuery: usize,
     pub getByAttributeAndMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPMediaCollection2_Impl: IWMPMediaCollection_Impl {
     fn createQuery(&self) -> windows_core::Result<IWMPQuery>;
     fn getPlaylistByQuery(&self, pquery: windows_core::Ref<IWMPQuery>, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::wtypes::VARIANT_BOOL) -> windows_core::Result<IWMPPlaylist>;
     fn getStringCollectionByQuery(&self, bstrattribute: &windows_core::BSTR, pquery: windows_core::Ref<IWMPQuery>, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::wtypes::VARIANT_BOOL) -> windows_core::Result<IWMPStringCollection>;
     fn getByAttributeAndMediaType(&self, bstrattribute: &windows_core::BSTR, bstrvalue: &windows_core::BSTR, bstrmediatype: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPMediaCollection2_Vtbl {
     pub const fn new<Identity: IWMPMediaCollection2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn createQuery<Identity: IWMPMediaCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5035,20 +5035,20 @@ impl IWMPMediaCollection2_Vtbl {
         iid == &<IWMPMediaCollection2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPMediaCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPMediaCollection2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPMetadataPicture, IWMPMetadataPicture_Vtbl, 0x5c29bbe0_f87d_4c45_aa28_a70f0230ffa9);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPMetadataPicture {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPMetadataPicture, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPMetadataPicture {
     pub unsafe fn mimeType(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -5075,7 +5075,7 @@ impl IWMPMetadataPicture {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMetadataPicture_Vtbl {
@@ -5085,14 +5085,14 @@ pub struct IWMPMetadataPicture_Vtbl {
     pub description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub URL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPMetadataPicture_Impl: super::oaidl::IDispatch_Impl {
     fn mimeType(&self) -> windows_core::Result<windows_core::BSTR>;
     fn pictureType(&self) -> windows_core::Result<windows_core::BSTR>;
     fn description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn URL(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPMetadataPicture_Vtbl {
     pub const fn new<Identity: IWMPMetadataPicture_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn mimeType<Identity: IWMPMetadataPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmimetype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5155,20 +5155,20 @@ impl IWMPMetadataPicture_Vtbl {
         iid == &<IWMPMetadataPicture as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPMetadataPicture {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPMetadataText, IWMPMetadataText_Vtbl, 0x769a72db_13d2_45e2_9c48_53ca9d5b7450);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPMetadataText {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPMetadataText, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPMetadataText {
     pub unsafe fn description(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -5183,7 +5183,7 @@ impl IWMPMetadataText {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMetadataText_Vtbl {
@@ -5191,12 +5191,12 @@ pub struct IWMPMetadataText_Vtbl {
     pub description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPMetadataText_Impl: super::oaidl::IDispatch_Impl {
     fn description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn text(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPMetadataText_Vtbl {
     pub const fn new<Identity: IWMPMetadataText_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn description<Identity: IWMPMetadataText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5229,20 +5229,20 @@ impl IWMPMetadataText_Vtbl {
         iid == &<IWMPMetadataText as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPMetadataText {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPNetwork, IWMPNetwork_Vtbl, 0xec21b779_edef_462d_bba4_ad9dde2b29a7);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPNetwork {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPNetwork, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPNetwork {
     pub unsafe fn bandWidth(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -5355,14 +5355,14 @@ impl IWMPNetwork {
     pub unsafe fn setProxyExceptionList(&self, bstrprotocol: &windows_core::BSTR, pbstrexceptionlist: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).setProxyExceptionList)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprotocol), core::mem::transmute_copy(pbstrexceptionlist)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn getProxyBypassForLocal(&self, bstrprotocol: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).getProxyBypassForLocal)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprotocol), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn setProxyBypassForLocal(&self, bstrprotocol: &windows_core::BSTR, fbypassforlocal: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).setProxyBypassForLocal)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprotocol), fbypassforlocal) }
     }
@@ -5394,7 +5394,7 @@ impl IWMPNetwork {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNetwork_Vtbl {
@@ -5420,13 +5420,13 @@ pub struct IWMPNetwork_Vtbl {
     pub setProxyPort: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub getProxyExceptionList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub setProxyExceptionList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub getProxyBypassForLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     getProxyBypassForLocal: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub setProxyBypassForLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     setProxyBypassForLocal: usize,
     pub maxBandwidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetmaxBandwidth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -5434,7 +5434,7 @@ pub struct IWMPNetwork_Vtbl {
     pub encodedFrameRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub framesSkipped: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPNetwork_Impl: super::oaidl::IDispatch_Impl {
     fn bandWidth(&self) -> windows_core::Result<i32>;
     fn recoveredPackets(&self) -> windows_core::Result<i32>;
@@ -5465,7 +5465,7 @@ pub trait IWMPNetwork_Impl: super::oaidl::IDispatch_Impl {
     fn encodedFrameRate(&self) -> windows_core::Result<i32>;
     fn framesSkipped(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPNetwork_Vtbl {
     pub const fn new<Identity: IWMPNetwork_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn bandWidth<Identity: IWMPNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plbandwidth: *mut i32) -> windows_core::HRESULT {
@@ -5798,51 +5798,51 @@ impl IWMPNetwork_Vtbl {
         iid == &<IWMPNetwork as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPNetwork {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPPlayer, IWMPPlayer_Vtbl, 0x6bf52a4f_394a_11d3_b153_00c04f79faa6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPPlayer {
     type Target = IWMPCore;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPPlayer, windows_core::IUnknown, super::oaidl::IDispatch, IWMPCore);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPPlayer {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn enabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Setenabled(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Setenabled)(windows_core::Interface::as_raw(self), benabled) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn fullScreen(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).fullScreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetfullScreen(&self, bfullscreen: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetfullScreen)(windows_core::Interface::as_raw(self), bfullscreen) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn enableContextMenu(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).enableContextMenu)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetenableContextMenu(&self, benablecontextmenu: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetenableContextMenu)(windows_core::Interface::as_raw(self), benablecontextmenu) }
     }
@@ -5856,39 +5856,39 @@ impl IWMPPlayer {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer_Vtbl {
     pub base__: IWMPCore_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     enabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Setenabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Setenabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub fullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     fullScreen: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetfullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetfullScreen: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub enableContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     enableContextMenu: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetenableContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetenableContextMenu: usize,
     pub SetuiMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub uiMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPPlayer_Impl: IWMPCore_Impl {
     fn enabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn Setenabled(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -5899,7 +5899,7 @@ pub trait IWMPPlayer_Impl: IWMPCore_Impl {
     fn SetuiMode(&self, bstrmode: &windows_core::BSTR) -> windows_core::Result<()>;
     fn uiMode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPPlayer_Vtbl {
     pub const fn new<Identity: IWMPPlayer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn enabled<Identity: IWMPPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -5990,51 +5990,51 @@ impl IWMPPlayer_Vtbl {
         iid == &<IWMPPlayer as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPCore as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPPlayer {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPPlayer2, IWMPPlayer2_Vtbl, 0x0e6b01d1_d407_4c85_bf5f_1c01f6150280);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPPlayer2 {
     type Target = IWMPCore;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPPlayer2, windows_core::IUnknown, super::oaidl::IDispatch, IWMPCore);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPPlayer2 {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn enabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Setenabled(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Setenabled)(windows_core::Interface::as_raw(self), benabled) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn fullScreen(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).fullScreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetfullScreen(&self, bfullscreen: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetfullScreen)(windows_core::Interface::as_raw(self), bfullscreen) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn enableContextMenu(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).enableContextMenu)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetenableContextMenu(&self, benablecontextmenu: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetenableContextMenu)(windows_core::Interface::as_raw(self), benablecontextmenu) }
     }
@@ -6047,78 +6047,78 @@ impl IWMPPlayer2 {
             (windows_core::Interface::vtable(self).uiMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn stretchToFit(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).stretchToFit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetstretchToFit(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetstretchToFit)(windows_core::Interface::as_raw(self), benabled) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn windowlessVideo(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).windowlessVideo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetwindowlessVideo(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetwindowlessVideo)(windows_core::Interface::as_raw(self), benabled) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer2_Vtbl {
     pub base__: IWMPCore_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     enabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Setenabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Setenabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub fullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     fullScreen: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetfullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetfullScreen: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub enableContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     enableContextMenu: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetenableContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetenableContextMenu: usize,
     pub SetuiMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub uiMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub stretchToFit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     stretchToFit: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetstretchToFit: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetstretchToFit: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub windowlessVideo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     windowlessVideo: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetwindowlessVideo: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetwindowlessVideo: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPPlayer2_Impl: IWMPCore_Impl {
     fn enabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn Setenabled(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -6133,7 +6133,7 @@ pub trait IWMPPlayer2_Impl: IWMPCore_Impl {
     fn windowlessVideo(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetwindowlessVideo(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPPlayer2_Vtbl {
     pub const fn new<Identity: IWMPPlayer2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn enabled<Identity: IWMPPlayer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -6264,51 +6264,51 @@ impl IWMPPlayer2_Vtbl {
         iid == &<IWMPPlayer2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPCore as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPPlayer2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPPlayer3, IWMPPlayer3_Vtbl, 0x54062b68_052a_4c25_a39f_8b63346511d4);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPPlayer3 {
     type Target = IWMPCore2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPPlayer3, windows_core::IUnknown, super::oaidl::IDispatch, IWMPCore, IWMPCore2);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPPlayer3 {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn enabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Setenabled(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Setenabled)(windows_core::Interface::as_raw(self), benabled) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn fullScreen(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).fullScreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetfullScreen(&self, bfullscreen: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetfullScreen)(windows_core::Interface::as_raw(self), bfullscreen) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn enableContextMenu(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).enableContextMenu)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetenableContextMenu(&self, benablecontextmenu: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetenableContextMenu)(windows_core::Interface::as_raw(self), benablecontextmenu) }
     }
@@ -6321,78 +6321,78 @@ impl IWMPPlayer3 {
             (windows_core::Interface::vtable(self).uiMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn stretchToFit(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).stretchToFit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetstretchToFit(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetstretchToFit)(windows_core::Interface::as_raw(self), benabled) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn windowlessVideo(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).windowlessVideo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetwindowlessVideo(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetwindowlessVideo)(windows_core::Interface::as_raw(self), benabled) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer3_Vtbl {
     pub base__: IWMPCore2_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     enabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Setenabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Setenabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub fullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     fullScreen: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetfullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetfullScreen: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub enableContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     enableContextMenu: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetenableContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetenableContextMenu: usize,
     pub SetuiMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub uiMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub stretchToFit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     stretchToFit: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetstretchToFit: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetstretchToFit: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub windowlessVideo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     windowlessVideo: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetwindowlessVideo: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetwindowlessVideo: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPPlayer3_Impl: IWMPCore2_Impl {
     fn enabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn Setenabled(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -6407,7 +6407,7 @@ pub trait IWMPPlayer3_Impl: IWMPCore2_Impl {
     fn windowlessVideo(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetwindowlessVideo(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPPlayer3_Vtbl {
     pub const fn new<Identity: IWMPPlayer3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn enabled<Identity: IWMPPlayer3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -6538,51 +6538,51 @@ impl IWMPPlayer3_Vtbl {
         iid == &<IWMPPlayer3 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPCore as windows_core::Interface>::IID || iid == &<IWMPCore2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPPlayer3 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPPlayer4, IWMPPlayer4_Vtbl, 0x6c497d62_8919_413c_82db_e935fb3ec584);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPPlayer4 {
     type Target = IWMPCore3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPPlayer4, windows_core::IUnknown, super::oaidl::IDispatch, IWMPCore, IWMPCore2, IWMPCore3);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPPlayer4 {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn enabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Setenabled(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Setenabled)(windows_core::Interface::as_raw(self), benabled) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn fullScreen(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).fullScreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetfullScreen(&self, bfullscreen: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetfullScreen)(windows_core::Interface::as_raw(self), bfullscreen) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn enableContextMenu(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).enableContextMenu)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetenableContextMenu(&self, benablecontextmenu: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetenableContextMenu)(windows_core::Interface::as_raw(self), benablecontextmenu) }
     }
@@ -6595,29 +6595,29 @@ impl IWMPPlayer4 {
             (windows_core::Interface::vtable(self).uiMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn stretchToFit(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).stretchToFit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetstretchToFit(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetstretchToFit)(windows_core::Interface::as_raw(self), benabled) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn windowlessVideo(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).windowlessVideo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetwindowlessVideo(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetwindowlessVideo)(windows_core::Interface::as_raw(self), benabled) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isRemote(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6634,61 +6634,61 @@ impl IWMPPlayer4 {
         unsafe { (windows_core::Interface::vtable(self).openPlayer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer4_Vtbl {
     pub base__: IWMPCore3_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     enabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Setenabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Setenabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub fullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     fullScreen: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetfullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetfullScreen: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub enableContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     enableContextMenu: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetenableContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetenableContextMenu: usize,
     pub SetuiMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub uiMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub stretchToFit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     stretchToFit: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetstretchToFit: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetstretchToFit: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub windowlessVideo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     windowlessVideo: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetwindowlessVideo: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetwindowlessVideo: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isRemote: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isRemote: usize,
     pub playerApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub openPlayer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPPlayer4_Impl: IWMPCore3_Impl {
     fn enabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn Setenabled(&self, benabled: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -6706,7 +6706,7 @@ pub trait IWMPPlayer4_Impl: IWMPCore3_Impl {
     fn playerApplication(&self) -> windows_core::Result<IWMPPlayerApplication>;
     fn openPlayer(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPPlayer4_Vtbl {
     pub const fn new<Identity: IWMPPlayer4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn enabled<Identity: IWMPPlayer4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -6870,20 +6870,20 @@ impl IWMPPlayer4_Vtbl {
         iid == &<IWMPPlayer4 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPCore as windows_core::Interface>::IID || iid == &<IWMPCore2 as windows_core::Interface>::IID || iid == &<IWMPCore3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPPlayer4 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPPlayerApplication, IWMPPlayerApplication_Vtbl, 0x40897764_ceab_47be_ad4a_8e28537f9bbf);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPPlayerApplication {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPPlayerApplication, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPPlayerApplication {
     pub unsafe fn switchToPlayerApplication(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).switchToPlayerApplication)(windows_core::Interface::as_raw(self)) }
@@ -6891,14 +6891,14 @@ impl IWMPPlayerApplication {
     pub unsafe fn switchToControl(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).switchToControl)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn playerDocked(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).playerDocked)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn hasDisplay(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6906,30 +6906,30 @@ impl IWMPPlayerApplication {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayerApplication_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub switchToPlayerApplication: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub switchToControl: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub playerDocked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     playerDocked: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub hasDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     hasDisplay: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPPlayerApplication_Impl: super::oaidl::IDispatch_Impl {
     fn switchToPlayerApplication(&self) -> windows_core::Result<()>;
     fn switchToControl(&self) -> windows_core::Result<()>;
     fn playerDocked(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn hasDisplay(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPPlayerApplication_Vtbl {
     pub const fn new<Identity: IWMPPlayerApplication_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn switchToPlayerApplication<Identity: IWMPPlayerApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6980,7 +6980,7 @@ impl IWMPPlayerApplication_Vtbl {
         iid == &<IWMPPlayerApplication as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPPlayerApplication {}
 windows_core::imp::define_interface!(IWMPPlayerServices, IWMPPlayerServices_Vtbl, 0x1d01fbdb_ade2_4c8d_9842_c190b95c3306);
 windows_core::imp::interface_hierarchy!(IWMPPlayerServices, windows_core::IUnknown);
@@ -7077,18 +7077,18 @@ impl IWMPPlayerServices2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPPlayerServices2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPPlaylist, IWMPPlaylist_Vtbl, 0xd5f0f4f1_130c_11d3_b14e_00c04f79faa6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPPlaylist {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPPlaylist, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPPlaylist {
     pub unsafe fn count(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -7132,7 +7132,7 @@ impl IWMPPlaylist {
     pub unsafe fn setItemInfo(&self, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).setItemInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrvalue)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isIdentical<P0>(&self, piwmpplaylist: P0) -> windows_core::Result<super::wtypes::VARIANT_BOOL>
     where
         P0: windows_core::Param<Self>,
@@ -7167,7 +7167,7 @@ impl IWMPPlaylist {
         unsafe { (windows_core::Interface::vtable(self).moveItem)(windows_core::Interface::as_raw(self), lindexold, lindexnew) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlaylist_Vtbl {
@@ -7180,9 +7180,9 @@ pub struct IWMPPlaylist_Vtbl {
     pub item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub getItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub setItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isIdentical: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isIdentical: usize,
     pub clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub insertItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7190,7 +7190,7 @@ pub struct IWMPPlaylist_Vtbl {
     pub removeItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub moveItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPPlaylist_Impl: super::oaidl::IDispatch_Impl {
     fn count(&self) -> windows_core::Result<i32>;
     fn name(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -7207,7 +7207,7 @@ pub trait IWMPPlaylist_Impl: super::oaidl::IDispatch_Impl {
     fn removeItem(&self, piwmpmedia: windows_core::Ref<IWMPMedia>) -> windows_core::Result<()>;
     fn moveItem(&self, lindexold: i32, lindexnew: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPPlaylist_Vtbl {
     pub const fn new<Identity: IWMPPlaylist_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn count<Identity: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
@@ -7358,20 +7358,20 @@ impl IWMPPlaylist_Vtbl {
         iid == &<IWMPPlaylist as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPPlaylist {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPPlaylistArray, IWMPPlaylistArray_Vtbl, 0x679409c0_99f7_11d3_9fb7_00105aa620bb);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPPlaylistArray {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPPlaylistArray, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPPlaylistArray {
     pub unsafe fn count(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -7386,7 +7386,7 @@ impl IWMPPlaylistArray {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlaylistArray_Vtbl {
@@ -7394,12 +7394,12 @@ pub struct IWMPPlaylistArray_Vtbl {
     pub count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPPlaylistArray_Impl: super::oaidl::IDispatch_Impl {
     fn count(&self) -> windows_core::Result<i32>;
     fn item(&self, lindex: i32) -> windows_core::Result<IWMPPlaylist>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPPlaylistArray_Vtbl {
     pub const fn new<Identity: IWMPPlaylistArray_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn count<Identity: IWMPPlaylistArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
@@ -7432,20 +7432,20 @@ impl IWMPPlaylistArray_Vtbl {
         iid == &<IWMPPlaylistArray as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPPlaylistArray {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPPlaylistCollection, IWMPPlaylistCollection_Vtbl, 0x10a13217_23a7_439b_b1c0_d847c79b7774);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPPlaylistCollection {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPPlaylistCollection, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPPlaylistCollection {
     pub unsafe fn newPlaylist(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
@@ -7471,14 +7471,14 @@ impl IWMPPlaylistCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).remove)(windows_core::Interface::as_raw(self), pitem.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn setDeleted<P0>(&self, pitem: P0, varfisdeleted: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IWMPPlaylist>,
     {
         unsafe { (windows_core::Interface::vtable(self).setDeleted)(windows_core::Interface::as_raw(self), pitem.param().abi(), varfisdeleted) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isDeleted<P0>(&self, pitem: P0) -> windows_core::Result<super::wtypes::VARIANT_BOOL>
     where
         P0: windows_core::Param<IWMPPlaylist>,
@@ -7498,7 +7498,7 @@ impl IWMPPlaylistCollection {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlaylistCollection_Vtbl {
@@ -7507,17 +7507,17 @@ pub struct IWMPPlaylistCollection_Vtbl {
     pub getAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub getByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub setDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     setDeleted: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isDeleted: usize,
     pub importPlaylist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPPlaylistCollection_Impl: super::oaidl::IDispatch_Impl {
     fn newPlaylist(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
     fn getAll(&self) -> windows_core::Result<IWMPPlaylistArray>;
@@ -7527,7 +7527,7 @@ pub trait IWMPPlaylistCollection_Impl: super::oaidl::IDispatch_Impl {
     fn isDeleted(&self, pitem: windows_core::Ref<IWMPPlaylist>) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn importPlaylist(&self, pitem: windows_core::Ref<IWMPPlaylist>) -> windows_core::Result<IWMPPlaylist>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPPlaylistCollection_Vtbl {
     pub const fn new<Identity: IWMPPlaylistCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn newPlaylist<Identity: IWMPPlaylistCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7617,20 +7617,20 @@ impl IWMPPlaylistCollection_Vtbl {
         iid == &<IWMPPlaylistCollection as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPPlaylistCollection {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPQuery, IWMPQuery_Vtbl, 0xa00918f3_a6b0_4bfb_9189_fd834c7bc5a5);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPQuery {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPQuery, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPQuery {
     pub unsafe fn addCondition(&self, bstrattribute: &windows_core::BSTR, bstroperator: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).addCondition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribute), core::mem::transmute_copy(bstroperator), core::mem::transmute_copy(bstrvalue)) }
@@ -7639,7 +7639,7 @@ impl IWMPQuery {
         unsafe { (windows_core::Interface::vtable(self).beginNextGroup)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPQuery_Vtbl {
@@ -7647,12 +7647,12 @@ pub struct IWMPQuery_Vtbl {
     pub addCondition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub beginNextGroup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPQuery_Impl: super::oaidl::IDispatch_Impl {
     fn addCondition(&self, bstrattribute: &windows_core::BSTR, bstroperator: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn beginNextGroup(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPQuery_Vtbl {
     pub const fn new<Identity: IWMPQuery_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn addCondition<Identity: IWMPQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrattribute: *mut core::ffi::c_void, bstroperator: *mut core::ffi::c_void, bstrvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7677,7 +7677,7 @@ impl IWMPQuery_Vtbl {
         iid == &<IWMPQuery as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPQuery {}
 windows_core::imp::define_interface!(IWMPRemoteMediaServices, IWMPRemoteMediaServices_Vtbl, 0xcbb92747_741f_44fe_ab5b_f1a48f3b2a59);
 windows_core::imp::interface_hierarchy!(IWMPRemoteMediaServices, windows_core::IUnknown);
@@ -7694,7 +7694,7 @@ impl IWMPRemoteMediaServices {
             (windows_core::Interface::vtable(self).GetApplicationName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetScriptableObject(&self, pbstrname: *mut windows_core::BSTR, ppdispatch: *mut Option<super::oaidl::IDispatch>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetScriptableObject)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrname), core::mem::transmute(ppdispatch)) }
     }
@@ -7711,20 +7711,20 @@ pub struct IWMPRemoteMediaServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetServiceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetApplicationName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetScriptableObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetScriptableObject: usize,
     pub GetCustomUIMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 pub trait IWMPRemoteMediaServices_Impl: windows_core::IUnknownImpl {
     fn GetServiceType(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetApplicationName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetScriptableObject(&self, pbstrname: *mut windows_core::BSTR, ppdispatch: windows_core::OutRef<super::oaidl::IDispatch>) -> windows_core::Result<()>;
     fn GetCustomUIMode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPRemoteMediaServices_Vtbl {
     pub const fn new<Identity: IWMPRemoteMediaServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetServiceType<Identity: IWMPRemoteMediaServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7781,36 +7781,36 @@ impl IWMPRemoteMediaServices_Vtbl {
         iid == &<IWMPRemoteMediaServices as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl windows_core::RuntimeName for IWMPRemoteMediaServices {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPSettings, IWMPSettings_Vtbl, 0x9104d1ab_80c9_4fed_abf0_2e6417a6df14);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPSettings {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPSettings, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPSettings {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isAvailable(&self, bstritem: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).isAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstritem), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn autoStart(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).autoStart)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetautoStart(&self, fautostart: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetautoStart)(windows_core::Interface::as_raw(self), fautostart) }
     }
@@ -7832,25 +7832,25 @@ impl IWMPSettings {
     pub unsafe fn SetdefaultFrame(&self, bstrdefaultframe: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetdefaultFrame)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdefaultframe)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn invokeURLs(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).invokeURLs)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetinvokeURLs(&self, finvokeurls: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetinvokeURLs)(windows_core::Interface::as_raw(self), finvokeurls) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn mute(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).mute)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Setmute(&self, fmute: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Setmute)(windows_core::Interface::as_raw(self), fmute) }
     }
@@ -7890,65 +7890,65 @@ impl IWMPSettings {
     pub unsafe fn Setvolume(&self, lvolume: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Setvolume)(windows_core::Interface::as_raw(self), lvolume) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn getMode(&self, bstrmode: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).getMode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrmode), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn setMode(&self, bstrmode: &windows_core::BSTR, varfmode: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).setMode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrmode), varfmode) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn enableErrorDialogs(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).enableErrorDialogs)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetenableErrorDialogs(&self, fenableerrordialogs: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetenableErrorDialogs)(windows_core::Interface::as_raw(self), fenableerrordialogs) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSettings_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isAvailable: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub autoStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     autoStart: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetautoStart: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetautoStart: usize,
     pub baseURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetbaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub defaultFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetdefaultFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub invokeURLs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     invokeURLs: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetinvokeURLs: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetinvokeURLs: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub mute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     mute: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Setmute: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Setmute: usize,
     pub playCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetplayCount: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -7958,24 +7958,24 @@ pub struct IWMPSettings_Vtbl {
     pub Setbalance: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub volume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Setvolume: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub getMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     getMode: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub setMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     setMode: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub enableErrorDialogs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     enableErrorDialogs: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetenableErrorDialogs: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetenableErrorDialogs: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPSettings_Impl: super::oaidl::IDispatch_Impl {
     fn isAvailable(&self, bstritem: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn autoStart(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
@@ -8001,7 +8001,7 @@ pub trait IWMPSettings_Impl: super::oaidl::IDispatch_Impl {
     fn enableErrorDialogs(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetenableErrorDialogs(&self, fenableerrordialogs: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPSettings_Vtbl {
     pub const fn new<Identity: IWMPSettings_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn isAvailable<Identity: IWMPSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstritem: *mut core::ffi::c_void, pisavailable: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -8245,20 +8245,20 @@ impl IWMPSettings_Vtbl {
         iid == &<IWMPSettings as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPSettings {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPSettings2, IWMPSettings2_Vtbl, 0xfda937a4_eece_4da5_a0b6_39bf89ade2c2);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPSettings2 {
     type Target = IWMPSettings;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPSettings2, windows_core::IUnknown, super::oaidl::IDispatch, IWMPSettings);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPSettings2 {
     pub unsafe fn defaultAudioLanguage(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -8272,7 +8272,7 @@ impl IWMPSettings2 {
             (windows_core::Interface::vtable(self).mediaAccessRights)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn requestMediaAccessRights(&self, bstrdesiredaccess: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8280,25 +8280,25 @@ impl IWMPSettings2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSettings2_Vtbl {
     pub base__: IWMPSettings_Vtbl,
     pub defaultAudioLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub mediaAccessRights: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub requestMediaAccessRights: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     requestMediaAccessRights: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPSettings2_Impl: IWMPSettings_Impl {
     fn defaultAudioLanguage(&self) -> windows_core::Result<i32>;
     fn mediaAccessRights(&self) -> windows_core::Result<windows_core::BSTR>;
     fn requestMediaAccessRights(&self, bstrdesiredaccess: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPSettings2_Vtbl {
     pub const fn new<Identity: IWMPSettings2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn defaultAudioLanguage<Identity: IWMPSettings2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pllangid: *mut i32) -> windows_core::HRESULT {
@@ -8348,7 +8348,7 @@ impl IWMPSettings2_Vtbl {
         iid == &<IWMPSettings2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPSettings as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPSettings2 {}
 windows_core::imp::define_interface!(IWMPSkinManager, IWMPSkinManager_Vtbl, 0x076f2fa6_ed30_448b_8cc5_3f3ef3529c7a);
 windows_core::imp::interface_hierarchy!(IWMPSkinManager, windows_core::IUnknown);
@@ -8381,18 +8381,18 @@ impl IWMPSkinManager_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPSkinManager {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPStringCollection, IWMPStringCollection_Vtbl, 0x4a976298_8c0d_11d3_b389_00c04f68574b);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPStringCollection {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPStringCollection, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPStringCollection {
     pub unsafe fn count(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -8407,7 +8407,7 @@ impl IWMPStringCollection {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPStringCollection_Vtbl {
@@ -8415,12 +8415,12 @@ pub struct IWMPStringCollection_Vtbl {
     pub count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPStringCollection_Impl: super::oaidl::IDispatch_Impl {
     fn count(&self) -> windows_core::Result<i32>;
     fn item(&self, lindex: i32) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPStringCollection_Vtbl {
     pub const fn new<Identity: IWMPStringCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn count<Identity: IWMPStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
@@ -8453,22 +8453,22 @@ impl IWMPStringCollection_Vtbl {
         iid == &<IWMPStringCollection as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPStringCollection {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWMPStringCollection2, IWMPStringCollection2_Vtbl, 0x46ad648d_53f1_4a74_92e2_2a1b68d63fd4);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWMPStringCollection2 {
     type Target = IWMPStringCollection;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWMPStringCollection2, windows_core::IUnknown, super::oaidl::IDispatch, IWMPStringCollection);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWMPStringCollection2 {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isIdentical<P0>(&self, piwmpstringcollection2: P0) -> windows_core::Result<super::wtypes::VARIANT_BOOL>
     where
         P0: windows_core::Param<Self>,
@@ -8490,7 +8490,7 @@ impl IWMPStringCollection2 {
             (windows_core::Interface::vtable(self).getAttributeCountByType)(windows_core::Interface::as_raw(self), lcollectionindex, core::mem::transmute_copy(bstrtype), core::mem::transmute_copy(bstrlanguage), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn getItemInfoByType(&self, lcollectionindex: i32, bstrtype: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR, lattributeindex: i32) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8498,30 +8498,30 @@ impl IWMPStringCollection2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPStringCollection2_Vtbl {
     pub base__: IWMPStringCollection_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isIdentical: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isIdentical: usize,
     pub getItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub getAttributeCountByType: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub getItemInfoByType: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     getItemInfoByType: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWMPStringCollection2_Impl: IWMPStringCollection_Impl {
     fn isIdentical(&self, piwmpstringcollection2: windows_core::Ref<IWMPStringCollection2>) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn getItemInfo(&self, lcollectionindex: i32, bstritemname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn getAttributeCountByType(&self, lcollectionindex: i32, bstrtype: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn getItemInfoByType(&self, lcollectionindex: i32, bstrtype: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR, lattributeindex: i32) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWMPStringCollection2_Vtbl {
     pub const fn new<Identity: IWMPStringCollection2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn isIdentical<Identity: IWMPStringCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwmpstringcollection2: *mut core::ffi::c_void, pvbool: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -8584,7 +8584,7 @@ impl IWMPStringCollection2_Vtbl {
         iid == &<IWMPStringCollection2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWMPStringCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWMPStringCollection2 {}
 windows_core::imp::define_interface!(IWMPSyncDevice, IWMPSyncDevice_Vtbl, 0x82a2986c_0293_4fd0_b279_b21b86c058be);
 windows_core::imp::interface_hierarchy!(IWMPSyncDevice, windows_core::IUnknown);
@@ -8616,7 +8616,7 @@ impl IWMPSyncDevice {
             (windows_core::Interface::vtable(self).partnershipIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn connected(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8647,7 +8647,7 @@ impl IWMPSyncDevice {
             (windows_core::Interface::vtable(self).getItemInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstritemname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn createPartnership(&self, vbshowui: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).createPartnership)(windows_core::Interface::as_raw(self), vbshowui) }
     }
@@ -8663,7 +8663,7 @@ impl IWMPSyncDevice {
     pub unsafe fn showSettings(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).showSettings)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn isIdentical<P0>(&self, pdevice: P0) -> windows_core::Result<super::wtypes::VARIANT_BOOL>
     where
         P0: windows_core::Param<Self>,
@@ -8683,28 +8683,28 @@ pub struct IWMPSyncDevice_Vtbl {
     pub deviceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub deviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub partnershipIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub connected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     connected: usize,
     pub status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WMPDeviceStatus) -> windows_core::HRESULT,
     pub syncState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WMPSyncState) -> windows_core::HRESULT,
     pub progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub getItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub createPartnership: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     createPartnership: usize,
     pub deletePartnership: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub showSettings: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub isIdentical: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     isIdentical: usize,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub trait IWMPSyncDevice_Impl: windows_core::IUnknownImpl {
     fn friendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetfriendlyName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -8723,7 +8723,7 @@ pub trait IWMPSyncDevice_Impl: windows_core::IUnknownImpl {
     fn showSettings(&self) -> windows_core::Result<()>;
     fn isIdentical(&self, pdevice: windows_core::Ref<IWMPSyncDevice>) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl IWMPSyncDevice_Vtbl {
     pub const fn new<Identity: IWMPSyncDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn friendlyName<Identity: IWMPSyncDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8906,7 +8906,7 @@ impl IWMPSyncDevice_Vtbl {
         iid == &<IWMPSyncDevice as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl windows_core::RuntimeName for IWMPSyncDevice {}
 windows_core::imp::define_interface!(IWMPSyncDevice2, IWMPSyncDevice2_Vtbl, 0x88afb4b2_140a_44d2_91e6_4543da467cd1);
 impl core::ops::Deref for IWMPSyncDevice2 {
@@ -8927,11 +8927,11 @@ pub struct IWMPSyncDevice2_Vtbl {
     pub base__: IWMPSyncDevice_Vtbl,
     pub setItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub trait IWMPSyncDevice2_Impl: IWMPSyncDevice_Impl {
     fn setItemInfo(&self, bstritemname: &windows_core::BSTR, bstrval: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl IWMPSyncDevice2_Vtbl {
     pub const fn new<Identity: IWMPSyncDevice2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn setItemInfo<Identity: IWMPSyncDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstritemname: *mut core::ffi::c_void, bstrval: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8946,7 +8946,7 @@ impl IWMPSyncDevice2_Vtbl {
         iid == &<IWMPSyncDevice2 as windows_core::Interface>::IID || iid == &<IWMPSyncDevice as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl windows_core::RuntimeName for IWMPSyncDevice2 {}
 windows_core::imp::define_interface!(IWMPSyncDevice3, IWMPSyncDevice3_Vtbl, 0xb22c85f9_263c_4372_a0da_b518db9b4098);
 impl core::ops::Deref for IWMPSyncDevice3 {
@@ -8957,7 +8957,7 @@ impl core::ops::Deref for IWMPSyncDevice3 {
 }
 windows_core::imp::interface_hierarchy!(IWMPSyncDevice3, windows_core::IUnknown, IWMPSyncDevice, IWMPSyncDevice2);
 impl IWMPSyncDevice3 {
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn estimateSyncSize<P0, P1>(&self, pnonruleplaylist: P0, prulesplaylist: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IWMPPlaylist>,
@@ -8973,18 +8973,18 @@ impl IWMPSyncDevice3 {
 #[doc(hidden)]
 pub struct IWMPSyncDevice3_Vtbl {
     pub base__: IWMPSyncDevice2_Vtbl,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub estimateSyncSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     estimateSyncSize: usize,
     pub cancelEstimation: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 pub trait IWMPSyncDevice3_Impl: IWMPSyncDevice2_Impl {
     fn estimateSyncSize(&self, pnonruleplaylist: windows_core::Ref<IWMPPlaylist>, prulesplaylist: windows_core::Ref<IWMPPlaylist>) -> windows_core::Result<()>;
     fn cancelEstimation(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl IWMPSyncDevice3_Vtbl {
     pub const fn new<Identity: IWMPSyncDevice3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn estimateSyncSize<Identity: IWMPSyncDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnonruleplaylist: *mut core::ffi::c_void, prulesplaylist: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9009,7 +9009,7 @@ impl IWMPSyncDevice3_Vtbl {
         iid == &<IWMPSyncDevice3 as windows_core::Interface>::IID || iid == &<IWMPSyncDevice as windows_core::Interface>::IID || iid == &<IWMPSyncDevice2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 impl windows_core::RuntimeName for IWMPSyncDevice3 {}
 windows_core::imp::define_interface!(IWMPSyncServices, IWMPSyncServices_Vtbl, 0x8b5050ff_e0a4_4808_b3a8_893a9e1ed894);
 windows_core::imp::interface_hierarchy!(IWMPSyncServices, windows_core::IUnknown);
@@ -9093,26 +9093,26 @@ pub type WMPRipState = i32;
 pub type WMPStringCollectionChangeEventType = i32;
 pub type WMPSyncState = i32;
 pub const WindowsMediaPlayer: windows_core::GUID = windows_core::GUID::from_u128(0x6bf52a52_394a_11d3_b153_00c04f79faa6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(_WMPOCXEvents, _WMPOCXEvents_Vtbl, 0x6bf52a51_394a_11d3_b153_00c04f79faa6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for _WMPOCXEvents {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(_WMPOCXEvents, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct _WMPOCXEvents_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _WMPOCXEvents_Impl: super::oaidl::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _WMPOCXEvents_Vtbl {
     pub const fn new<Identity: _WMPOCXEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::oaidl::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -9121,7 +9121,7 @@ impl _WMPOCXEvents_Vtbl {
         iid == &<_WMPOCXEvents as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _WMPOCXEvents {}
 pub const wmpbfAudioCD: WMPBurnFormat = 0;
 pub const wmpbfDataCD: WMPBurnFormat = 1;

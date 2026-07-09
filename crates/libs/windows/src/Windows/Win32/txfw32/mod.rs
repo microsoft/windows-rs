@@ -7,7 +7,7 @@ pub unsafe fn TxfGetThreadMiniVersionForCreate() -> u16 {
         result__
     }
 }
-#[cfg(feature = "Win32_clfs")]
+#[cfg(feature = "clfs")]
 #[inline]
 pub unsafe fn TxfLogCreateFileReadContext<P0>(logpath: P0, beginninglsn: super::clfs::CLFS_LSN, endinglsn: super::clfs::CLFS_LSN, txffileid: *const TXF_ID, txflogcontext: *mut *mut core::ffi::c_void) -> windows_core::BOOL
 where
@@ -16,7 +16,7 @@ where
     windows_core::link!("txfw32.dll" "system" fn TxfLogCreateFileReadContext(logpath : windows_core::PCWSTR, beginninglsn : super::clfs::CLFS_LSN, endinglsn : super::clfs::CLFS_LSN, txffileid : *const TXF_ID, txflogcontext : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { TxfLogCreateFileReadContext(logpath.param().abi(), core::mem::transmute(beginninglsn), core::mem::transmute(endinglsn), txffileid, txflogcontext as _) }
 }
-#[cfg(feature = "Win32_clfs")]
+#[cfg(feature = "clfs")]
 #[inline]
 pub unsafe fn TxfLogCreateRangeReadContext<P0>(logpath: P0, beginninglsn: super::clfs::CLFS_LSN, endinglsn: super::clfs::CLFS_LSN, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut core::ffi::c_void) -> windows_core::BOOL
 where
@@ -45,7 +45,7 @@ pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const core::ffi::c_void,
     windows_core::link!("txfw32.dll" "system" fn TxfLogRecordGetGenericType(recordbuffer : *const core::ffi::c_void, recordbufferlengthinbytes : u32, generictype : *mut u32, virtualclock : *mut i64) -> windows_core::BOOL);
     unsafe { TxfLogRecordGetGenericType(recordbuffer, recordbufferlengthinbytes, generictype as _, virtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_clfs", feature = "Win32_winnt"))]
+#[cfg(all(feature = "clfs", feature = "winnt"))]
 #[inline]
 pub unsafe fn TxfReadMetadataInfo(filehandle: super::winnt::HANDLE, txffileid: *mut TXF_ID, lastlsn: *mut super::clfs::CLFS_LSN, transactionstate: *mut u32, lockingtransaction: *mut windows_core::GUID) -> windows_core::BOOL {
     windows_core::link!("txfw32.dll" "system" fn TxfReadMetadataInfo(filehandle : super::winnt::HANDLE, txffileid : *mut TXF_ID, lastlsn : *mut super::clfs::CLFS_LSN, transactionstate : *mut u32, lockingtransaction : *mut windows_core::GUID) -> windows_core::BOOL);

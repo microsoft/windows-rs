@@ -1,77 +1,77 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("shell32.dll" "system" fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn CommandLineToArgvW(lpcmdline : windows_sys::core::PCWSTR, pnumargs : *mut i32) -> *mut windows_sys::core::PWSTR);
 windows_link::link!("shell32.dll" "system" fn DoEnvironmentSubstA(pszsrc : windows_sys::core::PSTR, cchsrc : u32) -> u32);
 windows_link::link!("shell32.dll" "system" fn DoEnvironmentSubstW(pszsrc : windows_sys::core::PWSTR, cchsrc : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn DragAcceptFiles(hwnd : super::windef::HWND, faccept : windows_sys::core::BOOL));
 windows_link::link!("shell32.dll" "system" fn DragFinish(hdrop : HDROP));
 windows_link::link!("shell32.dll" "system" fn DragQueryFileA(hdrop : HDROP, ifile : u32, lpszfile : windows_sys::core::PSTR, cch : u32) -> u32);
 windows_link::link!("shell32.dll" "system" fn DragQueryFileW(hdrop : HDROP, ifile : u32, lpszfile : windows_sys::core::PWSTR, cch : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn DragQueryPoint(hdrop : HDROP, ppt : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn DuplicateIcon(hinst : super::minwindef::HINSTANCE, hicon : super::windef::HICON) -> super::windef::HICON);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn ExtractAssociatedIconA(hinst : super::minwindef::HINSTANCE, psziconpath : windows_sys::core::PSTR, piicon : *mut u16) -> super::windef::HICON);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn ExtractAssociatedIconExA(hinst : super::minwindef::HINSTANCE, psziconpath : windows_sys::core::PSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::windef::HICON);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn ExtractAssociatedIconExW(hinst : super::minwindef::HINSTANCE, psziconpath : windows_sys::core::PWSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::windef::HICON);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn ExtractAssociatedIconW(hinst : super::minwindef::HINSTANCE, psziconpath : windows_sys::core::PWSTR, piicon : *mut u16) -> super::windef::HICON);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn ExtractIconA(hinst : super::minwindef::HINSTANCE, pszexefilename : windows_sys::core::PCSTR, niconindex : u32) -> super::windef::HICON);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn ExtractIconExA(lpszfile : windows_sys::core::PCSTR, niconindex : i32, phiconlarge : *mut super::windef::HICON, phiconsmall : *mut super::windef::HICON, nicons : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn ExtractIconExW(lpszfile : windows_sys::core::PCWSTR, niconindex : i32, phiconlarge : *mut super::windef::HICON, phiconsmall : *mut super::windef::HICON, nicons : u32) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn ExtractIconW(hinst : super::minwindef::HINSTANCE, pszexefilename : windows_sys::core::PCWSTR, niconindex : u32) -> super::windef::HICON);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("shell32.dll" "system" fn FindExecutableA(lpfile : windows_sys::core::PCSTR, lpdirectory : windows_sys::core::PCSTR, lpresult : windows_sys::core::PSTR) -> super::minwindef::HINSTANCE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("shell32.dll" "system" fn FindExecutableW(lpfile : windows_sys::core::PCWSTR, lpdirectory : windows_sys::core::PCWSTR, lpresult : windows_sys::core::PWSTR) -> super::minwindef::HINSTANCE);
 windows_link::link!("shell32.dll" "system" fn InitNetworkAddressControl() -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn IsLFNDriveA(pszpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn IsLFNDriveW(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHAppBarMessage(dwmessage : u32, pdata : *mut APPBARDATA) -> usize);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_processthreadsapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateProcessAsUserW(pscpi : *mut SHCREATEPROCESSINFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHEmptyRecycleBinA(hwnd : super::windef::HWND, pszrootpath : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHEmptyRecycleBinW(hwnd : super::windef::HWND, pszrootpath : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("shell32.dll" "system" fn SHEnumerateUnreadMailAccountsW(hkeyuser : super::minwindef::HKEY, dwindex : u32, pszmailaddress : windows_sys::core::PWSTR, cchmailaddress : i32) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHEvaluateSystemCommandTemplate(pszcmdtemplate : windows_sys::core::PCWSTR, ppszapplication : *mut windows_sys::core::PWSTR, ppszcommandline : *mut windows_sys::core::PWSTR, ppszparameters : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHFileOperationA(lpfileop : *mut SHFILEOPSTRUCTA) -> i32);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHFileOperationW(lpfileop : *mut SHFILEOPSTRUCTW) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn SHFreeNameMappings(hnamemappings : super::winnt::HANDLE));
 windows_link::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExA(pszdirectoryname : windows_sys::core::PCSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExW(pszdirectoryname : windows_sys::core::PCWSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn SHGetDriveMedia(pszdrive : windows_sys::core::PCWSTR, pdwmediacontent : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHGetFileInfoA(pszpath : windows_sys::core::PCSTR, dwfileattributes : u32, psfi : *mut SHFILEINFOA, cbfileinfo : u32, uflags : u32) -> usize);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHGetFileInfoW(pszpath : windows_sys::core::PCWSTR, dwfileattributes : u32, psfi : *mut SHFILEINFOW, cbfileinfo : u32, uflags : u32) -> usize);
 windows_link::link!("shell32.dll" "system" fn SHGetImageList(iimagelist : i32, riid : *const windows_sys::core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHGetLocalizedName(pszpath : windows_sys::core::PCWSTR, pszresmodule : windows_sys::core::PWSTR, cch : u32, pidsres : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHGetNewLinkInfoA(pszlinkto : windows_sys::core::PCSTR, pszdir : windows_sys::core::PCSTR, pszname : windows_sys::core::PSTR, pfmustcopy : *mut windows_sys::core::BOOL, uflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn SHGetNewLinkInfoW(pszlinkto : windows_sys::core::PCWSTR, pszdir : windows_sys::core::PCWSTR, pszname : windows_sys::core::PWSTR, pfmustcopy : *mut windows_sys::core::BOOL, uflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHGetPropertyStoreForWindow(hwnd : super::windef::HWND, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHGetStockIconInfo(siid : SHSTOCKICONID, uflags : u32, psii : *mut SHSTOCKICONINFO) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("shell32.dll" "system" fn SHGetUnreadMailCountW(hkeyuser : super::minwindef::HKEY, pszmailaddress : windows_sys::core::PCWSTR, pdwcount : *mut u32, pfiletime : *mut super::minwindef::FILETIME, pszshellexecutecommand : windows_sys::core::PWSTR, cchshellexecutecommand : i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHInvokePrinterCommandA(hwnd : super::windef::HWND, uaction : u32, lpbuf1 : windows_sys::core::PCSTR, lpbuf2 : windows_sys::core::PCSTR, fmodal : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHInvokePrinterCommandW(hwnd : super::windef::HWND, uaction : u32, lpbuf1 : windows_sys::core::PCWSTR, lpbuf2 : windows_sys::core::PCWSTR, fmodal : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn SHIsFileAvailableOffline(pwszpath : windows_sys::core::PCWSTR, pdwstatus : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHLoadNonloadedIconOverlayIdentifiers() -> windows_sys::core::HRESULT);
@@ -81,29 +81,29 @@ windows_link::link!("shell32.dll" "system" fn SHQueryUserNotificationState(pquns
 windows_link::link!("shell32.dll" "system" fn SHRemoveLocalizedName(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHSetLocalizedName(pszpath : windows_sys::core::PCWSTR, pszresmodule : windows_sys::core::PCWSTR, idsres : i32) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHSetUnreadMailCountW(pszmailaddress : windows_sys::core::PCWSTR, dwcount : u32, pszshellexecutecommand : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn SHTestTokenMembership(htoken : super::winnt::HANDLE, ulrid : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn ShellAboutA(hwnd : super::windef::HWND, szapp : windows_sys::core::PCSTR, szotherstuff : windows_sys::core::PCSTR, hicon : super::windef::HICON) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn ShellAboutW(hwnd : super::windef::HWND, szapp : windows_sys::core::PCWSTR, szotherstuff : windows_sys::core::PCWSTR, hicon : super::windef::HICON) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn ShellExecuteA(hwnd : super::windef::HWND, lpoperation : windows_sys::core::PCSTR, lpfile : windows_sys::core::PCSTR, lpparameters : windows_sys::core::PCSTR, lpdirectory : windows_sys::core::PCSTR, nshowcmd : i32) -> super::minwindef::HINSTANCE);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn ShellExecuteExA(pexecinfo : *mut SHELLEXECUTEINFOA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn ShellExecuteExW(pexecinfo : *mut SHELLEXECUTEINFOW) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : super::windef::HWND, lpoperation : windows_sys::core::PCWSTR, lpfile : windows_sys::core::PCWSTR, lpparameters : windows_sys::core::PCWSTR, lpdirectory : windows_sys::core::PCWSTR, nshowcmd : i32) -> super::minwindef::HINSTANCE);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shlwapi.dll" "C" fn ShellMessageBoxA(happinst : super::minwindef::HINSTANCE, hwnd : super::windef::HWND, lpctext : windows_sys::core::PCSTR, lpctitle : windows_sys::core::PCSTR, fustyle : u32, ...) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shlwapi.dll" "C" fn ShellMessageBoxW(happinst : super::minwindef::HINSTANCE, hwnd : super::windef::HWND, lpctext : windows_sys::core::PCWSTR, lpctitle : windows_sys::core::PCWSTR, fustyle : u32, ...) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn Shell_NotifyIconA(dwmessage : u32, lpdata : *const NOTIFYICONDATAA) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn Shell_NotifyIconGetRect(identifier : *const NOTIFYICONIDENTIFIER, iconlocation : *mut super::windef::RECT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : *const NOTIFYICONDATAW) -> windows_sys::core::BOOL);
 pub const ABC_OVERLAYDESKTOPICONS: u32 = 1;
 pub const ABE_BOTTOM: u32 = 3;
@@ -131,7 +131,7 @@ pub const ABS_ALWAYSONTOP: u32 = 2;
 pub const ABS_AUTOHIDE: u32 = 1;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct APPBARDATA {
     pub cbSize: u32,
@@ -142,7 +142,7 @@ pub struct APPBARDATA {
     pub lParam: super::minwindef::LPARAM,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for APPBARDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -150,7 +150,7 @@ impl Default for APPBARDATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct APPBARDATA {
     pub cbSize: u32,
@@ -161,7 +161,7 @@ pub struct APPBARDATA {
     pub lParam: super::minwindef::LPARAM,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for APPBARDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -182,7 +182,7 @@ pub const ASSOCCLASS_STAR: ASSOCCLASS = 9;
 pub const ASSOCCLASS_SYSTEM_STR: ASSOCCLASS = 7;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
@@ -190,7 +190,7 @@ pub struct ASSOCIATIONELEMENT {
     pub pszClass: windows_sys::core::PCWSTR,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for ASSOCIATIONELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -198,7 +198,7 @@ impl Default for ASSOCIATIONELEMENT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
@@ -206,17 +206,17 @@ pub struct ASSOCIATIONELEMENT {
     pub pszClass: windows_sys::core::PCWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for ASSOCIATIONELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type DRAGINFO = DRAGINFOA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DRAGINFOA {
     pub uSize: u32,
@@ -226,7 +226,7 @@ pub struct DRAGINFOA {
     pub grfKeyState: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for DRAGINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -234,7 +234,7 @@ impl Default for DRAGINFOA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DRAGINFOA {
     pub uSize: u32,
@@ -244,7 +244,7 @@ pub struct DRAGINFOA {
     pub grfKeyState: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for DRAGINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -252,7 +252,7 @@ impl Default for DRAGINFOA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DRAGINFOW {
     pub uSize: u32,
@@ -262,7 +262,7 @@ pub struct DRAGINFOW {
     pub grfKeyState: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for DRAGINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -270,7 +270,7 @@ impl Default for DRAGINFOW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DRAGINFOW {
     pub uSize: u32,
@@ -280,7 +280,7 @@ pub struct DRAGINFOW {
     pub grfKeyState: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for DRAGINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -309,23 +309,23 @@ pub const FO_DELETE: u32 = 3;
 pub const FO_MOVE: u32 = 1;
 pub const FO_RENAME: u32 = 4;
 pub type HDROP = *mut core::ffi::c_void;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPDRAGINFO = LPDRAGINFOA;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPDRAGINFOA = *mut DRAGINFOA;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPDRAGINFOW = *mut DRAGINFOW;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type LPSHELLEXECUTEINFO = LPSHELLEXECUTEINFOA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type LPSHELLEXECUTEINFOA = *mut SHELLEXECUTEINFOA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type LPSHELLEXECUTEINFOW = *mut SHELLEXECUTEINFOW;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPSHFILEOPSTRUCT = LPSHFILEOPSTRUCTA;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPSHFILEOPSTRUCTA = *mut SHFILEOPSTRUCTA;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPSHFILEOPSTRUCTW = *mut SHFILEOPSTRUCTW;
 pub type LPSHNAMEMAPPING = LPSHNAMEMAPPINGA;
 pub type LPSHNAMEMAPPINGA = *mut SHNAMEMAPPINGA;
@@ -383,11 +383,11 @@ pub const NIN_POPUPOPEN: u32 = 1030;
 pub const NIN_SELECT: u32 = 1024;
 pub const NIS_HIDDEN: u32 = 1;
 pub const NIS_SHAREDICON: u32 = 2;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NOTIFYICONDATA = NOTIFYICONDATAA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct NOTIFYICONDATAA {
     pub cbSize: u32,
@@ -407,7 +407,7 @@ pub struct NOTIFYICONDATAA {
     pub hBalloonIcon: super::windef::HICON,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NOTIFYICONDATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -415,14 +415,14 @@ impl Default for NOTIFYICONDATAA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union NOTIFYICONDATAA_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NOTIFYICONDATAA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -430,7 +430,7 @@ impl Default for NOTIFYICONDATAA_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct NOTIFYICONDATAA {
     pub cbSize: u32,
@@ -450,7 +450,7 @@ pub struct NOTIFYICONDATAA {
     pub hBalloonIcon: super::windef::HICON,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NOTIFYICONDATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -458,14 +458,14 @@ impl Default for NOTIFYICONDATAA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union NOTIFYICONDATAA_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NOTIFYICONDATAA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -485,7 +485,7 @@ pub const NOTIFYICONDATAA_V3_SIZE: u32 = 504;
 pub const NOTIFYICONDATAA_V3_SIZE: u32 = 520;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct NOTIFYICONDATAW {
     pub cbSize: u32,
@@ -505,7 +505,7 @@ pub struct NOTIFYICONDATAW {
     pub hBalloonIcon: super::windef::HICON,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NOTIFYICONDATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -513,14 +513,14 @@ impl Default for NOTIFYICONDATAW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union NOTIFYICONDATAW_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NOTIFYICONDATAW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -528,7 +528,7 @@ impl Default for NOTIFYICONDATAW_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct NOTIFYICONDATAW {
     pub cbSize: u32,
@@ -548,7 +548,7 @@ pub struct NOTIFYICONDATAW {
     pub hBalloonIcon: super::windef::HICON,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NOTIFYICONDATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -556,14 +556,14 @@ impl Default for NOTIFYICONDATAW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union NOTIFYICONDATAW_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NOTIFYICONDATAW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -595,7 +595,7 @@ pub const NOTIFYICONDATA_V3_SIZE: u32 = 504;
 pub const NOTIFYICONDATA_V3_SIZE: u32 = 520;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
@@ -604,7 +604,7 @@ pub struct NOTIFYICONIDENTIFIER {
     pub guidItem: windows_sys::core::GUID,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NOTIFYICONIDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -612,7 +612,7 @@ impl Default for NOTIFYICONIDENTIFIER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
@@ -621,7 +621,7 @@ pub struct NOTIFYICONIDENTIFIER {
     pub guidItem: windows_sys::core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NOTIFYICONIDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -697,19 +697,19 @@ impl Default for OPEN_PRINTER_PROPS_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PAPPBARDATA = *mut APPBARDATA;
 pub type PFNCANSHAREFOLDERW = Option<unsafe extern "system" fn(pszpath: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PFNSHOWSHAREFOLDERUIW = Option<unsafe extern "system" fn(hwndparent: super::windef::HWND, pszpath: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT>;
 pub type PNC_ADDRESS = *mut NC_ADDRESS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PNOTIFYICONDATA = PNOTIFYICONDATAA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PNOTIFYICONDATAA = *mut NOTIFYICONDATAA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PNOTIFYICONDATAW = *mut NOTIFYICONDATAW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PNOTIFYICONIDENTIFIER = *mut NOTIFYICONIDENTIFIER;
 pub type POPEN_PRINTER_PROPS_INFO = POPEN_PRINTER_PROPS_INFOA;
 pub type POPEN_PRINTER_PROPS_INFOA = *mut OPEN_PRINTER_PROPS_INFOA;
@@ -728,7 +728,7 @@ pub const PRINTACTION_SERVERPROPERTIES: u32 = 7;
 pub const PRINTACTION_TESTPAGE: u32 = 4;
 pub type PRINTEROP_FLAGS = u16;
 pub const PRINT_PROP_FORCE_NAME: u32 = 1;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_processthreadsapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
 pub type PSHCREATEPROCESSINFOW = *mut SHCREATEPROCESSINFOW;
 pub type QUERY_USER_NOTIFICATION_STATE = i32;
 pub const QUNS_ACCEPTS_NOTIFICATIONS: QUERY_USER_NOTIFICATION_STATE = 5;
@@ -772,7 +772,7 @@ pub const SE_ERR_PNF: u32 = 3;
 pub const SE_ERR_SHARE: u32 = 26;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_processthreadsapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHCREATEPROCESSINFOW {
     pub cbSize: u32,
@@ -790,7 +790,7 @@ pub struct SHCREATEPROCESSINFOW {
     pub lpProcessInformation: super::processthreadsapi::LPPROCESS_INFORMATION,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_processthreadsapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
 impl Default for SHCREATEPROCESSINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -798,7 +798,7 @@ impl Default for SHCREATEPROCESSINFOW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_processthreadsapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHCREATEPROCESSINFOW {
     pub cbSize: u32,
@@ -816,17 +816,17 @@ pub struct SHCREATEPROCESSINFOW {
     pub lpProcessInformation: super::processthreadsapi::LPPROCESS_INFORMATION,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_processthreadsapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
 impl Default for SHCREATEPROCESSINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type SHELLEXECUTEINFO = SHELLEXECUTEINFOA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHELLEXECUTEINFOA {
     pub cbSize: u32,
@@ -846,7 +846,7 @@ pub struct SHELLEXECUTEINFOA {
     pub hProcess: super::winnt::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for SHELLEXECUTEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -854,14 +854,14 @@ impl Default for SHELLEXECUTEINFOA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union SHELLEXECUTEINFOA_0 {
     pub hIcon: super::winnt::HANDLE,
     pub hMonitor: super::winnt::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for SHELLEXECUTEINFOA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -869,7 +869,7 @@ impl Default for SHELLEXECUTEINFOA_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHELLEXECUTEINFOA {
     pub cbSize: u32,
@@ -889,7 +889,7 @@ pub struct SHELLEXECUTEINFOA {
     pub hProcess: super::winnt::HANDLE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for SHELLEXECUTEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -897,14 +897,14 @@ impl Default for SHELLEXECUTEINFOA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union SHELLEXECUTEINFOA_0 {
     pub hIcon: super::winnt::HANDLE,
     pub hMonitor: super::winnt::HANDLE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for SHELLEXECUTEINFOA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -912,7 +912,7 @@ impl Default for SHELLEXECUTEINFOA_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHELLEXECUTEINFOW {
     pub cbSize: u32,
@@ -932,7 +932,7 @@ pub struct SHELLEXECUTEINFOW {
     pub hProcess: super::winnt::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for SHELLEXECUTEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -940,14 +940,14 @@ impl Default for SHELLEXECUTEINFOW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union SHELLEXECUTEINFOW_0 {
     pub hIcon: super::winnt::HANDLE,
     pub hMonitor: super::winnt::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for SHELLEXECUTEINFOW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -955,7 +955,7 @@ impl Default for SHELLEXECUTEINFOW_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHELLEXECUTEINFOW {
     pub cbSize: u32,
@@ -975,7 +975,7 @@ pub struct SHELLEXECUTEINFOW {
     pub hProcess: super::winnt::HANDLE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for SHELLEXECUTEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -983,14 +983,14 @@ impl Default for SHELLEXECUTEINFOW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union SHELLEXECUTEINFOW_0 {
     pub hIcon: super::winnt::HANDLE,
     pub hMonitor: super::winnt::HANDLE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for SHELLEXECUTEINFOW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -999,11 +999,11 @@ impl Default for SHELLEXECUTEINFOW_0 {
 pub const SHERB_NOCONFIRMATION: u32 = 1;
 pub const SHERB_NOPROGRESSUI: u32 = 2;
 pub const SHERB_NOSOUND: u32 = 4;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type SHFILEINFO = SHFILEINFOA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct SHFILEINFOA {
     pub hIcon: super::windef::HICON,
@@ -1013,7 +1013,7 @@ pub struct SHFILEINFOA {
     pub szTypeName: [i8; 80],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for SHFILEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1021,7 +1021,7 @@ impl Default for SHFILEINFOA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct SHFILEINFOA {
     pub hIcon: super::windef::HICON,
@@ -1031,7 +1031,7 @@ pub struct SHFILEINFOA {
     pub szTypeName: [i8; 80],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for SHFILEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1039,7 +1039,7 @@ impl Default for SHFILEINFOA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct SHFILEINFOW {
     pub hIcon: super::windef::HICON,
@@ -1049,7 +1049,7 @@ pub struct SHFILEINFOW {
     pub szTypeName: [u16; 80],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for SHFILEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1057,7 +1057,7 @@ impl Default for SHFILEINFOW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct SHFILEINFOW {
     pub hIcon: super::windef::HICON,
@@ -1067,17 +1067,17 @@ pub struct SHFILEINFOW {
     pub szTypeName: [u16; 80],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for SHFILEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type SHFILEOPSTRUCT = SHFILEOPSTRUCTA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::windef::HWND,
@@ -1090,7 +1090,7 @@ pub struct SHFILEOPSTRUCTA {
     pub lpszProgressTitle: windows_sys::core::PCSTR,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for SHFILEOPSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1098,7 +1098,7 @@ impl Default for SHFILEOPSTRUCTA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::windef::HWND,
@@ -1111,7 +1111,7 @@ pub struct SHFILEOPSTRUCTA {
     pub lpszProgressTitle: windows_sys::core::PCSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for SHFILEOPSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1119,7 +1119,7 @@ impl Default for SHFILEOPSTRUCTA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::windef::HWND,
@@ -1132,7 +1132,7 @@ pub struct SHFILEOPSTRUCTW {
     pub lpszProgressTitle: windows_sys::core::PCWSTR,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for SHFILEOPSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1140,7 +1140,7 @@ impl Default for SHFILEOPSTRUCTW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::windef::HWND,
@@ -1153,7 +1153,7 @@ pub struct SHFILEOPSTRUCTW {
     pub lpszProgressTitle: windows_sys::core::PCWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for SHFILEOPSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1277,7 +1277,7 @@ pub struct SHQUERYRBINFO {
 pub type SHSTOCKICONID = i32;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct SHSTOCKICONINFO {
     pub cbSize: u32,
@@ -1287,7 +1287,7 @@ pub struct SHSTOCKICONINFO {
     pub szPath: [u16; 260],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for SHSTOCKICONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1295,7 +1295,7 @@ impl Default for SHSTOCKICONINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct SHSTOCKICONINFO {
     pub cbSize: u32,
@@ -1305,7 +1305,7 @@ pub struct SHSTOCKICONINFO {
     pub szPath: [u16; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for SHSTOCKICONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

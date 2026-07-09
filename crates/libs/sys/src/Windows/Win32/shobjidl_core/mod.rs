@@ -3,42 +3,42 @@ windows_link::link!("shell32.dll" "system" fn SHAssocEnumHandlers(pszextra : win
 windows_link::link!("shell32.dll" "system" fn SHAssocEnumHandlersForProtocolByApplication(protocol : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, enumhandlers : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHCreateAssociationRegistration(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHCreateDefaultExtractIcon(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHCreateItemFromIDList(pidl : *const super::shtypes::ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn SHCreateItemFromRelativeName(psiparent : *mut core::ffi::c_void, pszname : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const super::shtypes::KNOWNFOLDERID, dwkfflags : u32, pszitem : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : *const super::shtypes::ITEMIDLIST, psfparent : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, riid : *const windows_sys::core::GUID, ppvitem : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : *const super::shtypes::ITEMIDLIST, psf : *mut core::ffi::c_void, cidl : u32, ppidl : *const super::shtypes::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromDataObject(pdo : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromIDLists(cidl : u32, rgpidl : *const super::shtypes::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromShellItem(psi : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHGetIDListFromObject(punk : *mut core::ffi::c_void, ppidl : *mut super::shtypes::LPITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn SHGetItemFromDataObject(pdtobj : *mut core::ffi::c_void, dwflags : DATAOBJ_GET_ITEM_FLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHGetItemFromObject(punk : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHGetNameFromIDList(pidl : *const super::shtypes::ITEMIDLIST, sigdnname : SIGDN, ppszname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_propsys", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "propsys", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHGetPropertyStoreFromIDList(pidl : *const super::shtypes::ITEMIDLIST, flags : super::propsys::GETPROPERTYSTOREFLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_propsys"))]
+#[cfg(all(feature = "objidl", feature = "propsys"))]
 windows_link::link!("shell32.dll" "system" fn SHGetPropertyStoreFromParsingName(pszpath : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, flags : super::propsys::GETPROPERTYSTOREFLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn SHGetTemporaryPropertyForItem(psi : *mut core::ffi::c_void, propkey : *const super::wtypes::PROPERTYKEY, ppropvar : *mut super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHResolveLibrary(psilibrary : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn SHSetTemporaryPropertyForItem(psi : *mut core::ffi::c_void, propkey : *const super::wtypes::PROPERTYKEY, propvar : *const super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHShowManageLibraryUI(psilibrary : *mut core::ffi::c_void, hwndowner : super::windef::HWND, psztitle : windows_sys::core::PCWSTR, pszinstruction : windows_sys::core::PCWSTR, lmdoptions : LIBRARYMANAGEDIALOGOPTIONS) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHSimpleIDListFromPath(pszpath : windows_sys::core::PCWSTR) -> super::shtypes::LPITEMIDLIST);
 windows_link::link!("shell32.dll" "system" fn SetCurrentProcessExplicitAppUserModelID(appid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 pub type ACTIVATEOPTIONS = u32;
@@ -283,7 +283,7 @@ pub const CMIC_MASK_PTINVOKE: u32 = 536870912;
 pub const CMIC_MASK_SHIFT_DOWN: u32 = 268435456;
 pub const CMIC_MASK_UNICODE: u32 = 16384;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CMINVOKECOMMANDINFO {
     pub cbSize: u32,
@@ -296,14 +296,14 @@ pub struct CMINVOKECOMMANDINFO {
     pub dwHotKey: u32,
     pub hIcon: super::winnt::HANDLE,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for CMINVOKECOMMANDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CMINVOKECOMMANDINFOEX {
     pub cbSize: u32,
@@ -322,14 +322,14 @@ pub struct CMINVOKECOMMANDINFOEX {
     pub lpTitleW: windows_sys::core::PCWSTR,
     pub ptInvoke: super::windef::POINT,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for CMINVOKECOMMANDINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub cbSize: u32,
@@ -349,7 +349,7 @@ pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub lpVerbInt: u32,
     pub lpVerbWInt: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for CMINVOKECOMMANDINFOEX_REMOTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -452,7 +452,7 @@ impl Default for DELEGATEITEMID {
 }
 pub type DEPRECATED_HRESULT = windows_sys::core::HRESULT;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DESKBANDINFO {
     pub dwMask: u32,
@@ -464,7 +464,7 @@ pub struct DESKBANDINFO {
     pub dwModeFlags: u32,
     pub crBkgnd: super::windef::COLORREF,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DESKBANDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -746,7 +746,7 @@ pub const HGSC_VIDEOSLIBRARY: HOMEGROUPSHARINGCHOICES = 4;
 pub type HOMEGROUPSHARINGCHOICES = u32;
 pub const HOMEGROUP_SECURITY_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("HomeUsers");
 pub const HOMEGROUP_SECURITY_GROUP_MULTI: windows_sys::core::PCWSTR = windows_sys::core::w!("HUG");
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HTHEME = super::winnt::HANDLE;
 pub const HomeGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde77ba04_3c92_4d11_a1a5_42352a53e0e3);
 pub const IEIFLAG_ASPECT: u32 = 4;
@@ -814,7 +814,7 @@ pub const KF_REDIRECT_USER_EXCLUSIVE: _KF_REDIRECT_FLAGS = 1;
 pub const KF_REDIRECT_WITH_UI: _KF_REDIRECT_FLAGS = 32;
 pub type KNOWNDESTCATEGORY = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[derive(Clone, Copy)]
 pub struct KNOWNFOLDER_DEFINITION {
     pub category: KF_CATEGORY,
@@ -831,7 +831,7 @@ pub struct KNOWNFOLDER_DEFINITION {
     pub kfdFlags: KF_DEFINITION_FLAGS,
     pub ftidType: super::shtypes::FOLDERTYPEID,
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl Default for KNOWNFOLDER_DEFINITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -851,24 +851,24 @@ pub const LOF_DEFAULT: LIBRARYOPTIONFLAGS = 0;
 pub const LOF_MASK_ALL: LIBRARYOPTIONFLAGS = 1;
 pub const LOF_PINNEDTONAVPANE: LIBRARYOPTIONFLAGS = 1;
 pub type LPCFOLDERSETTINGS = *const FOLDERSETTINGS;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPCMINVOKECOMMANDINFO = *mut CMINVOKECOMMANDINFO;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPCMINVOKECOMMANDINFOEX = *mut CMINVOKECOMMANDINFOEX;
 pub type LPEXTRASEARCH = *mut EXTRASEARCH;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_prsht"))]
+#[cfg(all(feature = "minwindef", feature = "prsht"))]
 pub type LPFNSVADDPROPSHEETPAGE = super::prsht::LPFNADDPROPSHEETPAGE;
 pub type LPFOLDERSETTINGS = *mut FOLDERSETTINGS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPSHDRAGIMAGE = *mut SHDRAGIMAGE;
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 pub type LPSMDATA = *mut SMDATA;
 pub type LPSTGTRANSCONFIRMATION = *mut windows_sys::core::GUID;
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oleidl", feature = "windef"))]
 pub type LPSV2CVW2_PARAMS = *mut SV2CVW2_PARAMS;
-#[cfg(feature = "Win32_commctrl")]
+#[cfg(feature = "commctrl")]
 pub type LPTBBUTTONSB = super::commctrl::LPTBBUTTON;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPTHUMBBUTTON = *mut THUMBBUTTON;
 pub const LSF_FAILIFTHERE: LIBRARYSAVEFLAGS = 0;
 pub const LSF_MAKEUNIQUENAME: LIBRARYSAVEFLAGS = 2;
@@ -1018,9 +1018,9 @@ pub const OPPROGDLG_ENABLEPAUSE: _OPPROGDLGF = 128;
 pub const OPPROGDLG_NOMULTIDAYESTIMATES: _OPPROGDLGF = 2048;
 pub const OpenControlPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06622d85_6856_4460_8de1_a81921b41c4b);
 pub type PACKAGE_EXECUTION_STATE = i32;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PCCMINVOKECOMMANDINFO = *const CMINVOKECOMMANDINFO;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PCCMINVOKECOMMANDINFOEX = *const CMINVOKECOMMANDINFOEX;
 pub type PCDELEGATEITEMID = *const DELEGATEITEMID;
 pub type PDELEGATEITEMID = *mut DELEGATEITEMID;
@@ -1038,7 +1038,7 @@ pub const PDOPS_PAUSED: PDOPSTATUS = 2;
 pub const PDOPS_RUNNING: PDOPSTATUS = 1;
 pub const PDOPS_STOPPED: PDOPSTATUS = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[derive(Clone, Copy)]
 pub struct PERSIST_FOLDER_TARGET_INFO {
     pub pidlTargetFolder: super::shtypes::LPITEMIDLIST,
@@ -1047,7 +1047,7 @@ pub struct PERSIST_FOLDER_TARGET_INFO {
     pub dwAttributes: u32,
     pub csidl: i32,
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl Default for PERSIST_FOLDER_TARGET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1061,13 +1061,13 @@ pub const PES_UNKNOWN: PACKAGE_EXECUTION_STATE = 0;
 pub type PFOLDERSETTINGS = *mut FOLDERSETTINGS;
 pub type PLACEHOLDER_STATES = u32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct PREVIEWHANDLERFRAMEINFO {
     pub haccel: super::windef::HACCEL,
     pub cAccelEntries: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PREVIEWHANDLERFRAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1077,7 +1077,7 @@ pub type PROPERTYUI_FLAGS = u32;
 pub type PROPERTYUI_FORMAT_FLAGS = u32;
 pub type PROPERTYUI_NAME_FLAGS = u32;
 pub const PROP_CONTRACT_DELEGATE: windows_sys::core::PCWSTR = windows_sys::core::w!("ContractDelegate");
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 pub type PSMCSHCHANGENOTIFYSTRUCT = *mut SMCSHCHANGENOTIFYSTRUCT;
 pub type PSMINFO = *mut SMINFO;
 pub const PS_ALL: PLACEHOLDER_STATES = 15;
@@ -1191,7 +1191,7 @@ pub const SHCONTF_NONFOLDERS: _SHCONTF = 64;
 pub const SHCONTF_SHAREABLE: _SHCONTF = 1024;
 pub const SHCONTF_STORAGE: _SHCONTF = 2048;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::windef::SIZE,
@@ -1199,7 +1199,7 @@ pub struct SHDRAGIMAGE {
     pub hbmpDragImage: super::windef::HBITMAP,
     pub crColorKey: super::windef::COLORREF,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for SHDRAGIMAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1287,14 +1287,14 @@ pub const SMAE_EXPANDED: u32 = 1;
 pub const SMAE_USER: u32 = 4;
 pub const SMAE_VALID: u32 = 7;
 #[repr(C)]
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[derive(Clone, Copy)]
 pub struct SMCSHCHANGENOTIFYSTRUCT {
     pub lEvent: i32,
     pub pidl1: super::shtypes::LPCITEMIDLIST,
     pub pidl2: super::shtypes::LPCITEMIDLIST,
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl Default for SMCSHCHANGENOTIFYSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1327,7 +1327,7 @@ pub const SMC_SFEXEC_MIDDLE: u32 = 49;
 pub const SMC_SFSELECTITEM: u32 = 10;
 pub const SMC_SHCHANGENOTIFY: u32 = 46;
 #[repr(C)]
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct SMDATA {
     pub dwMask: u32,
@@ -1343,7 +1343,7 @@ pub struct SMDATA {
     pub psf: *mut core::ffi::c_void,
     pub pvUserData: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 impl Default for SMDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1393,7 +1393,7 @@ pub const SMSET_BOTTOM: u32 = 536870912;
 pub const SMSET_DONTOWN: u32 = 1;
 pub const SMSET_TOP: u32 = 268435456;
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy, Default)]
 pub struct SORTCOLUMN {
     pub propkey: super::wtypes::PROPERTYKEY,
@@ -1505,7 +1505,7 @@ pub const STS_PLACEHOLDER_IFEMPTY: SYNC_TRANSFER_STATUS = 1024;
 pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = 4;
 pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = 64;
 #[repr(C)]
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oleidl", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
@@ -1516,7 +1516,7 @@ pub struct SV2CVW2_PARAMS {
     pub pvid: *const SHELLVIEWID,
     pub hwndView: super::windef::HWND,
 }
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oleidl", feature = "windef"))]
 impl Default for SV2CVW2_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1580,7 +1580,7 @@ pub const THB_FLAGS: THUMBBUTTONMASK = 8;
 pub const THB_ICON: THUMBBUTTONMASK = 2;
 pub const THB_TOOLTIP: THUMBBUTTONMASK = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct THUMBBUTTON {
     pub dwMask: THUMBBUTTONMASK,
@@ -1590,7 +1590,7 @@ pub struct THUMBBUTTON {
     pub szTip: [u16; 260],
     pub dwFlags: THUMBBUTTONFLAGS,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for THUMBBUTTON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

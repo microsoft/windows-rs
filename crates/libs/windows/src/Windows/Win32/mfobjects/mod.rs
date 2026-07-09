@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn MFDeserializeAttributesFromStream<P0, P2>(pattr: P0, dwoptions: u32, pstm: P2) -> windows_core::HRESULT
 where
@@ -8,7 +8,7 @@ where
     windows_core::link!("mfplat.dll" "system" fn MFDeserializeAttributesFromStream(pattr : *mut core::ffi::c_void, dwoptions : u32, pstm : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFDeserializeAttributesFromStream(pattr.param().abi(), dwoptions, pstm.param().abi()) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn MFSerializeAttributesToStream<P0, P2>(pattr: P0, dwoptions: u32, pstm: P2) -> windows_core::HRESULT
 where
@@ -224,13 +224,13 @@ pub struct IMFActivate_Vtbl {
     pub ShutdownObject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DetachObject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFActivate_Impl: IMFAttributes_Impl {
     fn ActivateObject(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn ShutdownObject(&self) -> windows_core::Result<()>;
     fn DetachObject(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFActivate_Vtbl {
     pub const fn new<Identity: IMFActivate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivateObject<Identity: IMFActivate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -262,7 +262,7 @@ impl IMFActivate_Vtbl {
         iid == &<IMFActivate as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFActivate {}
 windows_core::imp::define_interface!(IMFAsyncCallback, IMFAsyncCallback_Vtbl, 0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
 windows_core::imp::interface_hierarchy!(IMFAsyncCallback, windows_core::IUnknown);
@@ -468,7 +468,7 @@ impl windows_core::RuntimeName for IMFAsyncResult {}
 windows_core::imp::define_interface!(IMFAttributes, IMFAttributes_Vtbl, 0x2cd2d921_c447_44a7_a13c_4adabfc247e3);
 windows_core::imp::interface_hierarchy!(IMFAttributes, windows_core::IUnknown);
 impl IMFAttributes {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetItem(&self, guidkey: *const windows_core::GUID, pvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), guidkey, core::mem::transmute(pvalue)) }
     }
@@ -478,7 +478,7 @@ impl IMFAttributes {
             (windows_core::Interface::vtable(self).GetItemType)(windows_core::Interface::as_raw(self), guidkey, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CompareItem(&self, guidkey: *const windows_core::GUID, value: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -549,7 +549,7 @@ impl IMFAttributes {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetUnknown)(windows_core::Interface::as_raw(self), guidkey, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetItem(&self, guidkey: *const windows_core::GUID, value: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), guidkey, core::mem::transmute(value)) }
     }
@@ -598,7 +598,7 @@ impl IMFAttributes {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut windows_core::GUID, pvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetItemByIndex)(windows_core::Interface::as_raw(self), unindex, pguidkey as _, core::mem::transmute(pvalue)) }
     }
@@ -613,14 +613,14 @@ impl IMFAttributes {
 #[doc(hidden)]
 pub struct IMFAttributes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetItem: usize,
     pub GetItemType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut MF_ATTRIBUTE_TYPE) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub CompareItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::propidlbase::PROPVARIANT, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     CompareItem: usize,
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, MF_ATTRIBUTES_MATCH_TYPE, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetUINT32: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
@@ -634,9 +634,9 @@ pub struct IMFAttributes_Vtbl {
     pub GetBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
     pub GetAllocatedBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetUnknown: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub SetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     SetItem: usize,
     pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub DeleteAllItems: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -650,13 +650,13 @@ pub struct IMFAttributes_Vtbl {
     pub LockStore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnlockStore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetItemByIndex: usize,
     pub CopyAllItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFAttributes_Impl: windows_core::IUnknownImpl {
     fn GetItem(&self, guidkey: *const windows_core::GUID, pvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
     fn GetItemType(&self, guidkey: *const windows_core::GUID) -> windows_core::Result<MF_ATTRIBUTE_TYPE>;
@@ -689,7 +689,7 @@ pub trait IMFAttributes_Impl: windows_core::IUnknownImpl {
     fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut windows_core::GUID, pvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
     fn CopyAllItems(&self, pdest: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFAttributes_Vtbl {
     pub const fn new<Identity: IMFAttributes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetItem<Identity: IMFAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidkey: *const windows_core::GUID, pvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
@@ -970,7 +970,7 @@ impl IMFAttributes_Vtbl {
         iid == &<IMFAttributes as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFAttributes {}
 windows_core::imp::define_interface!(IMFAudioMediaType, IMFAudioMediaType_Vtbl, 0x26a0adc3_ce26_4672_9304_69552edd3faf);
 impl core::ops::Deref for IMFAudioMediaType {
@@ -981,7 +981,7 @@ impl core::ops::Deref for IMFAudioMediaType {
 }
 windows_core::imp::interface_hierarchy!(IMFAudioMediaType, windows_core::IUnknown, IMFAttributes, IMFMediaType);
 impl IMFAudioMediaType {
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub unsafe fn GetAudioFormat(&self) -> *const super::mmeapi::WAVEFORMATEX {
         unsafe { (windows_core::Interface::vtable(self).GetAudioFormat)(windows_core::Interface::as_raw(self)) }
     }
@@ -990,16 +990,16 @@ impl IMFAudioMediaType {
 #[doc(hidden)]
 pub struct IMFAudioMediaType_Vtbl {
     pub base__: IMFMediaType_Vtbl,
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub GetAudioFormat: unsafe extern "system" fn(*mut core::ffi::c_void) -> *const super::mmeapi::WAVEFORMATEX,
-    #[cfg(not(feature = "Win32_mmeapi"))]
+    #[cfg(not(feature = "mmeapi"))]
     GetAudioFormat: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFAudioMediaType_Impl: IMFMediaType_Impl {
     fn GetAudioFormat(&self) -> *const super::mmeapi::WAVEFORMATEX;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFAudioMediaType_Vtbl {
     pub const fn new<Identity: IMFAudioMediaType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAudioFormat<Identity: IMFAudioMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *const super::mmeapi::WAVEFORMATEX {
@@ -1014,7 +1014,7 @@ impl IMFAudioMediaType_Vtbl {
         iid == &<IMFAudioMediaType as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID || iid == &<IMFMediaType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFAudioMediaType {}
 windows_core::imp::define_interface!(IMFByteStream, IMFByteStream_Vtbl, 0xad4c1b00_4bf7_422f_9175_756693d9130d);
 windows_core::imp::interface_hierarchy!(IMFByteStream, windows_core::IUnknown);
@@ -1649,19 +1649,19 @@ impl windows_core::RuntimeName for IMFDXGICrossAdapterBuffer {}
 windows_core::imp::define_interface!(IMFDXGIDeviceManager, IMFDXGIDeviceManager_Vtbl, 0xeb533d5d_2db6_40f8_97a9_494692014f07);
 windows_core::imp::interface_hierarchy!(IMFDXGIDeviceManager, windows_core::IUnknown);
 impl IMFDXGIDeviceManager {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn CloseDeviceHandle(&self, hdevice: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CloseDeviceHandle)(windows_core::Interface::as_raw(self), hdevice) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetVideoService(&self, hdevice: super::winnt::HANDLE, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), hdevice, riid, ppservice as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn LockDevice(&self, hdevice: super::winnt::HANDLE, riid: *const windows_core::GUID, ppunkdevice: *mut *mut core::ffi::c_void, fblock: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockDevice)(windows_core::Interface::as_raw(self), hdevice, riid, ppunkdevice as _, fblock.into()) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn OpenDeviceHandle(&self) -> windows_core::Result<super::winnt::HANDLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1674,11 +1674,11 @@ impl IMFDXGIDeviceManager {
     {
         unsafe { (windows_core::Interface::vtable(self).ResetDevice)(windows_core::Interface::as_raw(self), punkdevice.param().abi(), resettoken) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn TestDevice(&self, hdevice: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TestDevice)(windows_core::Interface::as_raw(self), hdevice) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn UnlockDevice(&self, hdevice: super::winnt::HANDLE, fsavestate: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnlockDevice)(windows_core::Interface::as_raw(self), hdevice, fsavestate.into()) }
     }
@@ -1687,33 +1687,33 @@ impl IMFDXGIDeviceManager {
 #[doc(hidden)]
 pub struct IMFDXGIDeviceManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub CloseDeviceHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     CloseDeviceHandle: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetVideoService: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetVideoService: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub LockDevice: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE, *const windows_core::GUID, *mut *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     LockDevice: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub OpenDeviceHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     OpenDeviceHandle: usize,
     pub ResetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub TestDevice: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     TestDevice: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub UnlockDevice: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     UnlockDevice: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IMFDXGIDeviceManager_Impl: windows_core::IUnknownImpl {
     fn CloseDeviceHandle(&self, hdevice: super::winnt::HANDLE) -> windows_core::Result<()>;
     fn GetVideoService(&self, hdevice: super::winnt::HANDLE, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -1723,7 +1723,7 @@ pub trait IMFDXGIDeviceManager_Impl: windows_core::IUnknownImpl {
     fn TestDevice(&self, hdevice: super::winnt::HANDLE) -> windows_core::Result<()>;
     fn UnlockDevice(&self, hdevice: super::winnt::HANDLE, fsavestate: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IMFDXGIDeviceManager_Vtbl {
     pub const fn new<Identity: IMFDXGIDeviceManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CloseDeviceHandle<Identity: IMFDXGIDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdevice: super::winnt::HANDLE) -> windows_core::HRESULT {
@@ -1789,7 +1789,7 @@ impl IMFDXGIDeviceManager_Vtbl {
         iid == &<IMFDXGIDeviceManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IMFDXGIDeviceManager {}
 windows_core::imp::define_interface!(IMFMediaBuffer, IMFMediaBuffer_Vtbl, 0x045fa593_8799_42b8_bc8d_8968c6453507);
 windows_core::imp::interface_hierarchy!(IMFMediaBuffer, windows_core::IUnknown);
@@ -1918,7 +1918,7 @@ impl IMFMediaEvent {
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1933,19 +1933,19 @@ pub struct IMFMediaEvent_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaEventType) -> windows_core::HRESULT,
     pub GetExtendedType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaEvent_Impl: IMFAttributes_Impl {
     fn GetType(&self) -> windows_core::Result<MediaEventType>;
     fn GetExtendedType(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetStatus(&self) -> windows_core::Result<windows_core::HRESULT>;
     fn GetValue(&self) -> windows_core::Result<super::propidlbase::PROPVARIANT>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFMediaEvent_Vtbl {
     pub const fn new<Identity: IMFMediaEvent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetType<Identity: IMFMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmet: *mut MediaEventType) -> windows_core::HRESULT {
@@ -2008,7 +2008,7 @@ impl IMFMediaEvent_Vtbl {
         iid == &<IMFMediaEvent as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFMediaEvent {}
 windows_core::imp::define_interface!(IMFMediaEventGenerator, IMFMediaEventGenerator_Vtbl, 0x2cd0bd52_bcd5_4b89_b62c_eadc0c031e7d);
 windows_core::imp::interface_hierarchy!(IMFMediaEventGenerator, windows_core::IUnknown);
@@ -2035,7 +2035,7 @@ impl IMFMediaEventGenerator {
             (windows_core::Interface::vtable(self).EndGetEvent)(windows_core::Interface::as_raw(self), presult.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn QueueEvent(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueueEvent)(windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, core::mem::transmute(pvvalue)) }
     }
@@ -2047,19 +2047,19 @@ pub struct IMFMediaEventGenerator_Vtbl {
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BeginGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub QueueEvent: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEventType, *const windows_core::GUID, windows_core::HRESULT, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     QueueEvent: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaEventGenerator_Impl: windows_core::IUnknownImpl {
     fn GetEvent(&self, dwflags: u32) -> windows_core::Result<IMFMediaEvent>;
     fn BeginGetEvent(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EndGetEvent(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<IMFMediaEvent>;
     fn QueueEvent(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFMediaEventGenerator_Vtbl {
     pub const fn new<Identity: IMFMediaEventGenerator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEvent<Identity: IMFMediaEventGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, ppevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2110,7 +2110,7 @@ impl IMFMediaEventGenerator_Vtbl {
         iid == &<IMFMediaEventGenerator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFMediaEventGenerator {}
 windows_core::imp::define_interface!(IMFMediaEventQueue, IMFMediaEventQueue_Vtbl, 0x36f846fc_2256_48b6_b58e_e2b638316581);
 windows_core::imp::interface_hierarchy!(IMFMediaEventQueue, windows_core::IUnknown);
@@ -2143,7 +2143,7 @@ impl IMFMediaEventQueue {
     {
         unsafe { (windows_core::Interface::vtable(self).QueueEvent)(windows_core::Interface::as_raw(self), pevent.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn QueueEventParamVar(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueueEventParamVar)(windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, core::mem::transmute(pvvalue)) }
     }
@@ -2165,14 +2165,14 @@ pub struct IMFMediaEventQueue_Vtbl {
     pub BeginGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub QueueEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub QueueEventParamVar: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEventType, *const windows_core::GUID, windows_core::HRESULT, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     QueueEventParamVar: usize,
     pub QueueEventParamUnk: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEventType, *const windows_core::GUID, windows_core::HRESULT, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaEventQueue_Impl: windows_core::IUnknownImpl {
     fn GetEvent(&self, dwflags: u32) -> windows_core::Result<IMFMediaEvent>;
     fn BeginGetEvent(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -2182,7 +2182,7 @@ pub trait IMFMediaEventQueue_Impl: windows_core::IUnknownImpl {
     fn QueueEventParamUnk(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFMediaEventQueue_Vtbl {
     pub const fn new<Identity: IMFMediaEventQueue_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEvent<Identity: IMFMediaEventQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, ppevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2254,7 +2254,7 @@ impl IMFMediaEventQueue_Vtbl {
         iid == &<IMFMediaEventQueue as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFMediaEventQueue {}
 windows_core::imp::define_interface!(IMFMediaType, IMFMediaType_Vtbl, 0x44ae0fa8_ea31_4109_8d2e_4cae4997c555);
 impl core::ops::Deref for IMFMediaType {
@@ -2303,7 +2303,7 @@ pub struct IMFMediaType_Vtbl {
     pub GetRepresentation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FreeRepresentation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaType_Impl: IMFAttributes_Impl {
     fn GetMajorType(&self) -> windows_core::Result<windows_core::GUID>;
     fn IsCompressedFormat(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -2311,7 +2311,7 @@ pub trait IMFMediaType_Impl: IMFAttributes_Impl {
     fn GetRepresentation(&self, guidrepresentation: &windows_core::GUID, ppvrepresentation: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn FreeRepresentation(&self, guidrepresentation: &windows_core::GUID, pvrepresentation: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFMediaType_Vtbl {
     pub const fn new<Identity: IMFMediaType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMajorType<Identity: IMFMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidmajortype: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2375,7 +2375,7 @@ impl IMFMediaType_Vtbl {
         iid == &<IMFMediaType as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFMediaType {}
 windows_core::imp::define_interface!(IMFMuxStreamAttributesManager, IMFMuxStreamAttributesManager_Vtbl, 0xce8bd576_e440_43b3_be34_1e53f565f7e8);
 windows_core::imp::interface_hierarchy!(IMFMuxStreamAttributesManager, windows_core::IUnknown);
@@ -2934,7 +2934,7 @@ pub struct IMFSample_Vtbl {
     pub GetTotalLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub CopyToBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFSample_Impl: IMFAttributes_Impl {
     fn GetSampleFlags(&self) -> windows_core::Result<u32>;
     fn SetSampleFlags(&self, dwsampleflags: u32) -> windows_core::Result<()>;
@@ -2951,7 +2951,7 @@ pub trait IMFSample_Impl: IMFAttributes_Impl {
     fn GetTotalLength(&self) -> windows_core::Result<u32>;
     fn CopyToBuffer(&self, pbuffer: windows_core::Ref<IMFMediaBuffer>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFSample_Vtbl {
     pub const fn new<Identity: IMFSample_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSampleFlags<Identity: IMFSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwsampleflags: *mut u32) -> windows_core::HRESULT {
@@ -3102,7 +3102,7 @@ impl IMFSample_Vtbl {
         iid == &<IMFSample as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFSample {}
 windows_core::imp::define_interface!(IMFSampleOutputStream, IMFSampleOutputStream_Vtbl, 0x8feed468_6f7e_440d_869a_49bdd283ad0d);
 windows_core::imp::interface_hierarchy!(IMFSampleOutputStream, windows_core::IUnknown);
@@ -3219,7 +3219,7 @@ impl core::ops::Deref for IMFVideoMediaType {
 }
 windows_core::imp::interface_hierarchy!(IMFVideoMediaType, windows_core::IUnknown, IMFAttributes, IMFMediaType);
 impl IMFVideoMediaType {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetVideoFormat(&self) -> *const MFVIDEOFORMAT {
         unsafe { (windows_core::Interface::vtable(self).GetVideoFormat)(windows_core::Interface::as_raw(self)) }
     }
@@ -3231,18 +3231,18 @@ impl IMFVideoMediaType {
 #[doc(hidden)]
 pub struct IMFVideoMediaType_Vtbl {
     pub base__: IMFMediaType_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetVideoFormat: unsafe extern "system" fn(*mut core::ffi::c_void) -> *const MFVIDEOFORMAT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetVideoFormat: usize,
     pub GetVideoRepresentation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFVideoMediaType_Impl: IMFMediaType_Impl {
     fn GetVideoFormat(&self) -> *const MFVIDEOFORMAT;
     fn GetVideoRepresentation(&self, guidrepresentation: &windows_core::GUID, ppvrepresentation: *mut *mut core::ffi::c_void, lstride: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFVideoMediaType_Vtbl {
     pub const fn new<Identity: IMFVideoMediaType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetVideoFormat<Identity: IMFVideoMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *const MFVIDEOFORMAT {
@@ -3267,7 +3267,7 @@ impl IMFVideoMediaType_Vtbl {
         iid == &<IMFVideoMediaType as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID || iid == &<IMFMediaType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFVideoMediaType {}
 pub const MEAudioSessionDeviceRemoved: i32 = 315;
 pub const MEAudioSessionDisconnected: i32 = 320;
@@ -3487,7 +3487,7 @@ pub struct MFT_REGISTER_TYPE_INFO {
     pub guidSubtype: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MFVIDEOFORMAT {
     pub dwSize: u32,
@@ -3496,14 +3496,14 @@ pub struct MFVIDEOFORMAT {
     pub compressedInfo: MFVideoCompressedInfo,
     pub surfaceInfo: MFVideoSurfaceInfo,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MFVIDEOFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFVideoArea {
     pub OffsetX: MFOffset,
@@ -3551,7 +3551,7 @@ pub const MFVideoFlags_DXVASurface: MFVideoFlags = 1048576;
 pub const MFVideoFlags_ForceQWORD: MFVideoFlags = 2147483647;
 pub const MFVideoFlags_RenderTargetSurface: MFVideoFlags = 4194304;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFVideoInfo {
     pub dwWidth: u32,

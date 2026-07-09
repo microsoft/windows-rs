@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn ActivateAudioInterfaceAsync<P0, P3>(deviceinterfacepath: P0, riid: *const windows_core::GUID, activationparams: Option<*const super::propidlbase::PROPVARIANT>, completionhandler: P3) -> windows_core::Result<IActivateAudioInterfaceAsyncOperation>
 where
@@ -17,7 +17,7 @@ pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: AUDIO_SYSTEMEFFECTS
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 1;
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::minwindef::LPARAM,
@@ -124,7 +124,7 @@ impl windows_core::RuntimeName for IActivateAudioInterfaceCompletionHandler {}
 windows_core::imp::define_interface!(IAudioSystemEffectsPropertyChangeNotificationClient, IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl, 0x20049d40_56d5_400e_a2ef_385599feed49);
 windows_core::imp::interface_hierarchy!(IAudioSystemEffectsPropertyChangeNotificationClient, windows_core::IUnknown);
 impl IAudioSystemEffectsPropertyChangeNotificationClient {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: super::wtypes::PROPERTYKEY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnPropertyChanged)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(key)) }
     }
@@ -133,16 +133,16 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient {
 #[doc(hidden)]
 pub struct IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub OnPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, super::wtypes::PROPERTYKEY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     OnPropertyChanged: usize,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub trait IAudioSystemEffectsPropertyChangeNotificationClient_Impl: windows_core::IUnknownImpl {
     fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: &super::wtypes::PROPERTYKEY) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
     pub const fn new<Identity: IAudioSystemEffectsPropertyChangeNotificationClient_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnPropertyChanged<Identity: IAudioSystemEffectsPropertyChangeNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: super::wtypes::PROPERTYKEY) -> windows_core::HRESULT {
@@ -157,26 +157,26 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
         iid == &<IAudioSystemEffectsPropertyChangeNotificationClient as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl windows_core::RuntimeName for IAudioSystemEffectsPropertyChangeNotificationClient {}
 windows_core::imp::define_interface!(IAudioSystemEffectsPropertyStore, IAudioSystemEffectsPropertyStore_Vtbl, 0x302ae7f9_d7e0_43e4_971b_1f8293613d2a);
 windows_core::imp::interface_hierarchy!(IAudioSystemEffectsPropertyStore, windows_core::IUnknown);
 impl IAudioSystemEffectsPropertyStore {
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn OpenDefaultPropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::propsys::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OpenDefaultPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn OpenUserPropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::propsys::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OpenUserPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn OpenVolatilePropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::propsys::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -206,24 +206,24 @@ impl IAudioSystemEffectsPropertyStore {
 #[doc(hidden)]
 pub struct IAudioSystemEffectsPropertyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub OpenDefaultPropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     OpenDefaultPropertyStore: usize,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub OpenUserPropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     OpenUserPropertyStore: usize,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub OpenVolatilePropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     OpenVolatilePropertyStore: usize,
     pub ResetUserPropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResetVolatilePropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RegisterPropertyChangeNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnregisterPropertyChangeNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 pub trait IAudioSystemEffectsPropertyStore_Impl: windows_core::IUnknownImpl {
     fn OpenDefaultPropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::propsys::IPropertyStore>;
     fn OpenUserPropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::propsys::IPropertyStore>;
@@ -233,7 +233,7 @@ pub trait IAudioSystemEffectsPropertyStore_Impl: windows_core::IUnknownImpl {
     fn RegisterPropertyChangeNotification(&self, callback: windows_core::Ref<IAudioSystemEffectsPropertyChangeNotificationClient>) -> windows_core::Result<()>;
     fn UnregisterPropertyChangeNotification(&self, callback: windows_core::Ref<IAudioSystemEffectsPropertyChangeNotificationClient>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 impl IAudioSystemEffectsPropertyStore_Vtbl {
     pub const fn new<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OpenDefaultPropertyStore<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stgmaccess: u32, propstore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -311,16 +311,16 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
         iid == &<IAudioSystemEffectsPropertyStore as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 impl windows_core::RuntimeName for IAudioSystemEffectsPropertyStore {}
 windows_core::imp::define_interface!(IMMDevice, IMMDevice_Vtbl, 0xd666063f_1587_4e43_81f1_b948e807363f);
 windows_core::imp::interface_hierarchy!(IMMDevice, windows_core::IUnknown);
 impl IMMDevice {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Activate(&self, iid: *const windows_core::GUID, dwclsctx: u32, pactivationparams: Option<*const super::propidlbase::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), iid, dwclsctx, pactivationparams.unwrap_or(core::mem::zeroed()) as _, ppinterface as _) }
     }
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn OpenPropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::propsys::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -344,25 +344,25 @@ impl IMMDevice {
 #[doc(hidden)]
 pub struct IMMDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const super::propidlbase::PROPVARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     Activate: usize,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub OpenPropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     OpenPropertyStore: usize,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_propsys", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMMDevice_Impl: windows_core::IUnknownImpl {
     fn Activate(&self, iid: *const windows_core::GUID, dwclsctx: u32, pactivationparams: *const super::propidlbase::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn OpenPropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::propsys::IPropertyStore>;
     fn GetId(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetState(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_propsys", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
 impl IMMDevice_Vtbl {
     pub const fn new<Identity: IMMDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Activate<Identity: IMMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, dwclsctx: u32, pactivationparams: *const super::propidlbase::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -419,12 +419,12 @@ impl IMMDevice_Vtbl {
         iid == &<IMMDevice as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_propsys", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMMDevice {}
 windows_core::imp::define_interface!(IMMDeviceActivator, IMMDeviceActivator_Vtbl, 0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0);
 windows_core::imp::interface_hierarchy!(IMMDeviceActivator, windows_core::IUnknown);
 impl IMMDeviceActivator {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Activate<P1>(&self, iid: *const windows_core::GUID, pdevice: P1, pactivationparams: Option<*const super::propidlbase::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IMMDevice>,
@@ -436,16 +436,16 @@ impl IMMDeviceActivator {
 #[doc(hidden)]
 pub struct IMMDeviceActivator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *const super::propidlbase::PROPVARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     Activate: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMMDeviceActivator_Impl: windows_core::IUnknownImpl {
     fn Activate(&self, iid: *const windows_core::GUID, pdevice: windows_core::Ref<IMMDevice>, pactivationparams: *const super::propidlbase::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IMMDeviceActivator_Vtbl {
     pub const fn new<Identity: IMMDeviceActivator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Activate<Identity: IMMDeviceActivator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, pdevice: *mut core::ffi::c_void, pactivationparams: *const super::propidlbase::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -460,7 +460,7 @@ impl IMMDeviceActivator_Vtbl {
         iid == &<IMMDeviceActivator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMMDeviceActivator {}
 windows_core::imp::define_interface!(IMMDeviceCollection, IMMDeviceCollection_Vtbl, 0x0bd7a1be_7a1a_44db_8397_cc5392387b5e);
 windows_core::imp::interface_hierarchy!(IMMDeviceCollection, windows_core::IUnknown);
@@ -707,7 +707,7 @@ impl IMMNotificationClient {
     {
         unsafe { (windows_core::Interface::vtable(self).OnDefaultDeviceChanged)(windows_core::Interface::as_raw(self), flow, role, pwstrdefaultdeviceid.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn OnPropertyValueChanged<P0>(&self, pwstrdeviceid: P0, key: super::wtypes::PROPERTYKEY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -723,12 +723,12 @@ pub struct IMMNotificationClient_Vtbl {
     pub OnDeviceAdded: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OnDeviceRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OnDefaultDeviceChanged: unsafe extern "system" fn(*mut core::ffi::c_void, EDataFlow, ERole, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub OnPropertyValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::wtypes::PROPERTYKEY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     OnPropertyValueChanged: usize,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub trait IMMNotificationClient_Impl: windows_core::IUnknownImpl {
     fn OnDeviceStateChanged(&self, pwstrdeviceid: &windows_core::PCWSTR, dwnewstate: u32) -> windows_core::Result<()>;
     fn OnDeviceAdded(&self, pwstrdeviceid: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -736,7 +736,7 @@ pub trait IMMNotificationClient_Impl: windows_core::IUnknownImpl {
     fn OnDefaultDeviceChanged(&self, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnPropertyValueChanged(&self, pwstrdeviceid: &windows_core::PCWSTR, key: &super::wtypes::PROPERTYKEY) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl IMMNotificationClient_Vtbl {
     pub const fn new<Identity: IMMNotificationClient_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnDeviceStateChanged<Identity: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrdeviceid: windows_core::PCWSTR, dwnewstate: u32) -> windows_core::HRESULT {
@@ -782,7 +782,7 @@ impl IMMNotificationClient_Vtbl {
         iid == &<IMMNotificationClient as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl windows_core::RuntimeName for IMMNotificationClient {}
 pub const LineLevel: EndpointFormFactor = 2;
 pub const MMDeviceEnumerator: windows_core::GUID = windows_core::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);

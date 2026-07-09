@@ -6,7 +6,7 @@ pub struct MIB_IFNUMBER {
     pub dwValue: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIB_IFROW {
     pub wszName: [u16; 256],
@@ -34,20 +34,20 @@ pub struct MIB_IFROW {
     pub dwDescrLen: u32,
     pub bDescr: [u8; 256],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 impl Default for MIB_IFROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIB_IFTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IFROW; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 impl Default for MIB_IFTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -66,33 +66,33 @@ impl Default for PMIB_IFNUMBER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IFROW(pub *mut MIB_IFROW);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 impl PMIB_IFROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 impl Default for PMIB_IFROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IFTABLE(pub *mut MIB_IFTABLE);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 impl PMIB_IFTABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 impl Default for PMIB_IFTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

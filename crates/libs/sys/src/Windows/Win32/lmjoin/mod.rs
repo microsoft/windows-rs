@@ -1,15 +1,15 @@
 windows_link::link!("netapi32.dll" "system" fn NetAddAlternateComputerName(server : windows_sys::core::PCWSTR, alternatename : windows_sys::core::PCWSTR, domainaccount : windows_sys::core::PCWSTR, domainaccountpassword : windows_sys::core::PCWSTR, reserved : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetCreateProvisioningPackage(pprovisioningparams : *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata : *mut super::minwindef::PBYTE, pdwpackagebindatasize : *mut u32, pppackagetextdata : *mut windows_sys::core::PWSTR) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetEnumerateComputerNames(server : windows_sys::core::PCWSTR, nametype : NET_COMPUTER_NAME_TYPE, reserved : u32, entrycount : *mut u32, computernames : *mut *mut windows_sys::core::PWSTR) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 windows_link::link!("netapi32.dll" "system" fn NetFreeAadJoinInformation(pjoininfo : *const DSREG_JOIN_INFO));
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 windows_link::link!("netapi32.dll" "system" fn NetGetAadJoinInformation(pcsztenantid : windows_sys::core::PCWSTR, ppjoininfo : *mut PDSREG_JOIN_INFO) -> windows_sys::core::HRESULT);
 windows_link::link!("netapi32.dll" "system" fn NetGetJoinInformation(lpserver : windows_sys::core::PCWSTR, lpnamebuffer : *mut windows_sys::core::PWSTR, buffertype : *mut NETSETUP_JOIN_STATUS) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetGetJoinableOUs(lpserver : windows_sys::core::PCWSTR, lpdomain : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, oucount : *mut u32, ous : *mut *mut windows_sys::core::PWSTR) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetJoinDomain(lpserver : windows_sys::core::PCWSTR, lpdomain : windows_sys::core::PCWSTR, lpmachineaccountou : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, fjoinoptions : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetProvisionComputerAccount(lpdomain : windows_sys::core::PCWSTR, lpmachinename : windows_sys::core::PCWSTR, lpmachineaccountou : windows_sys::core::PCWSTR, lpdcname : windows_sys::core::PCWSTR, dwoptions : u32, pprovisionbindata : *mut super::minwindef::PBYTE, pdwprovisionbindatasize : *mut u32, pprovisiontextdata : *mut windows_sys::core::PWSTR) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetRemoveAlternateComputerName(server : windows_sys::core::PCWSTR, alternatename : windows_sys::core::PCWSTR, domainaccount : windows_sys::core::PCWSTR, domainaccountpassword : windows_sys::core::PCWSTR, reserved : u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetRenameMachineInDomain(lpserver : windows_sys::core::PCWSTR, lpnewmachinename : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, frenameoptions : u32) -> u32);
@@ -20,7 +20,7 @@ windows_link::link!("netapi32.dll" "system" fn NetUnjoinDomain(lpserver : window
 windows_link::link!("netapi32.dll" "system" fn NetValidateName(lpserver : windows_sys::core::PCWSTR, lpname : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, nametype : NETSETUP_NAME_TYPE) -> u32);
 pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy)]
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
@@ -36,7 +36,7 @@ pub struct DSREG_JOIN_INFO {
     pub pszUserSettingSyncUrl: windows_sys::core::PWSTR,
     pub pUserInfo: *mut DSREG_USER_INFO,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for DSREG_JOIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -132,7 +132,7 @@ pub const NetSetupUnknown: NETSETUP_NAME_TYPE = 0;
 pub const NetSetupUnknownStatus: NETSETUP_JOIN_STATUS = 0;
 pub const NetSetupWorkgroup: NETSETUP_NAME_TYPE = 2;
 pub const NetSetupWorkgroupName: NETSETUP_JOIN_STATUS = 2;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type PDSREG_JOIN_INFO = *mut DSREG_JOIN_INFO;
 pub type PDSREG_JOIN_TYPE = *mut DSREG_JOIN_TYPE;
 pub type PDSREG_USER_INFO = *mut DSREG_USER_INFO;

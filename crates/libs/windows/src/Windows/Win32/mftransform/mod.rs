@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[inline]
 pub unsafe fn MFCreateTransformActivate() -> windows_core::Result<super::mfobjects::IMFActivate> {
     windows_core::link!("mfplat.dll" "system" fn MFCreateTransformActivate(ppactivate : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -15,49 +15,49 @@ pub const DeviceStreamState_Stop: DeviceStreamState = 0;
 windows_core::imp::define_interface!(IMFDeviceTransform, IMFDeviceTransform_Vtbl, 0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32);
 windows_core::imp::interface_hierarchy!(IMFDeviceTransform, windows_core::IUnknown);
 impl IMFDeviceTransform {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn InitializeTransform<P0>(&self, pattributes: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::mfobjects::IMFAttributes>,
     {
         unsafe { (windows_core::Interface::vtable(self).InitializeTransform)(windows_core::Interface::as_raw(self), pattributes.param().abi()) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetInputAvailableType(&self, dwinputstreamid: u32, dwtypeindex: u32) -> windows_core::Result<super::mfobjects::IMFMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInputAvailableType)(windows_core::Interface::as_raw(self), dwinputstreamid, dwtypeindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetInputCurrentType(&self, dwinputstreamid: u32) -> windows_core::Result<super::mfobjects::IMFMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInputCurrentType)(windows_core::Interface::as_raw(self), dwinputstreamid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetInputStreamAttributes(&self, dwinputstreamid: u32) -> windows_core::Result<super::mfobjects::IMFAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInputStreamAttributes)(windows_core::Interface::as_raw(self), dwinputstreamid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetOutputAvailableType(&self, dwoutputstreamid: u32, dwtypeindex: u32) -> windows_core::Result<super::mfobjects::IMFMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOutputAvailableType)(windows_core::Interface::as_raw(self), dwoutputstreamid, dwtypeindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetOutputCurrentType(&self, dwoutputstreamid: u32) -> windows_core::Result<super::mfobjects::IMFMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOutputCurrentType)(windows_core::Interface::as_raw(self), dwoutputstreamid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetOutputStreamAttributes(&self, dwoutputstreamid: u32) -> windows_core::Result<super::mfobjects::IMFAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -70,14 +70,14 @@ impl IMFDeviceTransform {
     pub unsafe fn GetStreamIDs(&self, dwinputidarraysize: u32, pdwinputstreamids: *mut u32, dwoutputidarraysize: u32, pdwoutputstreamids: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStreamIDs)(windows_core::Interface::as_raw(self), dwinputidarraysize, pdwinputstreamids as _, dwoutputidarraysize, pdwoutputstreamids as _) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn ProcessEvent<P1>(&self, dwinputstreamid: u32, pevent: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaEvent>,
     {
         unsafe { (windows_core::Interface::vtable(self).ProcessEvent)(windows_core::Interface::as_raw(self), dwinputstreamid, pevent.param().abi()) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn ProcessInput<P1>(&self, dwinputstreamid: u32, psample: P1, dwflags: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFSample>,
@@ -87,11 +87,11 @@ impl IMFDeviceTransform {
     pub unsafe fn ProcessMessage(&self, emessage: MFT_MESSAGE_TYPE, ulparam: usize) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ProcessMessage)(windows_core::Interface::as_raw(self), emessage, ulparam) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsample: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, coutputbuffercount, core::mem::transmute(poutputsample), pdwstatus as _) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetInputStreamState<P1>(&self, dwstreamid: u32, pmediatype: P1, value: DeviceStreamState, dwflags: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaType>,
@@ -104,7 +104,7 @@ impl IMFDeviceTransform {
             (windows_core::Interface::vtable(self).GetInputStreamState)(windows_core::Interface::as_raw(self), dwstreamid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetOutputStreamState<P1>(&self, dwstreamid: u32, pmediatype: P1, value: DeviceStreamState, dwflags: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaType>,
@@ -117,7 +117,7 @@ impl IMFDeviceTransform {
             (windows_core::Interface::vtable(self).GetOutputStreamState)(windows_core::Interface::as_raw(self), dwstreamid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetInputStreamPreferredState(&self, dwstreamid: u32, value: *mut DeviceStreamState, ppmediatype: *mut Option<super::mfobjects::IMFMediaType>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInputStreamPreferredState)(windows_core::Interface::as_raw(self), dwstreamid, value as _, core::mem::transmute(ppmediatype)) }
     }
@@ -132,67 +132,67 @@ impl IMFDeviceTransform {
 #[doc(hidden)]
 pub struct IMFDeviceTransform_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub InitializeTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     InitializeTransform: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetInputAvailableType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetInputAvailableType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetInputCurrentType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetInputCurrentType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetInputStreamAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetInputStreamAttributes: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetOutputAvailableType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetOutputAvailableType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetOutputCurrentType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetOutputCurrentType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetOutputStreamAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetOutputStreamAttributes: usize,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetStreamIDs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub ProcessEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     ProcessEvent: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub ProcessInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     ProcessInput: usize,
     pub ProcessMessage: unsafe extern "system" fn(*mut core::ffi::c_void, MFT_MESSAGE_TYPE, usize) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub ProcessOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut MFT_OUTPUT_DATA_BUFFER, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     ProcessOutput: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetInputStreamState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, DeviceStreamState, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetInputStreamState: usize,
     pub GetInputStreamState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DeviceStreamState) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetOutputStreamState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, DeviceStreamState, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetOutputStreamState: usize,
     pub GetOutputStreamState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DeviceStreamState) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetInputStreamPreferredState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DeviceStreamState, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetInputStreamPreferredState: usize,
     pub FlushInputStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub FlushOutputStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFDeviceTransform_Impl: windows_core::IUnknownImpl {
     fn InitializeTransform(&self, pattributes: windows_core::Ref<super::mfobjects::IMFAttributes>) -> windows_core::Result<()>;
     fn GetInputAvailableType(&self, dwinputstreamid: u32, dwtypeindex: u32) -> windows_core::Result<super::mfobjects::IMFMediaType>;
@@ -215,7 +215,7 @@ pub trait IMFDeviceTransform_Impl: windows_core::IUnknownImpl {
     fn FlushInputStream(&self, dwstreamindex: u32, dwflags: u32) -> windows_core::Result<()>;
     fn FlushOutputStream(&self, dwstreamindex: u32, dwflags: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFDeviceTransform_Vtbl {
     pub const fn new<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeTransform<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -414,7 +414,7 @@ impl IMFDeviceTransform_Vtbl {
         iid == &<IMFDeviceTransform as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFDeviceTransform {}
 windows_core::imp::define_interface!(IMFDeviceTransform2, IMFDeviceTransform2_Vtbl, 0xf5980fed_b521_488f_909f_1a5fcecedb14);
 impl core::ops::Deref for IMFDeviceTransform2 {
@@ -425,7 +425,7 @@ impl core::ops::Deref for IMFDeviceTransform2 {
 }
 windows_core::imp::interface_hierarchy!(IMFDeviceTransform2, windows_core::IUnknown, IMFDeviceTransform);
 impl IMFDeviceTransform2 {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetTransformAttributes(&self) -> windows_core::Result<super::mfobjects::IMFAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -437,16 +437,16 @@ impl IMFDeviceTransform2 {
 #[doc(hidden)]
 pub struct IMFDeviceTransform2_Vtbl {
     pub base__: IMFDeviceTransform_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetTransformAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetTransformAttributes: usize,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFDeviceTransform2_Impl: IMFDeviceTransform_Impl {
     fn GetTransformAttributes(&self) -> windows_core::Result<super::mfobjects::IMFAttributes>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFDeviceTransform2_Vtbl {
     pub const fn new<Identity: IMFDeviceTransform2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTransformAttributes<Identity: IMFDeviceTransform2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -467,12 +467,12 @@ impl IMFDeviceTransform2_Vtbl {
         iid == &<IMFDeviceTransform2 as windows_core::Interface>::IID || iid == &<IMFDeviceTransform as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFDeviceTransform2 {}
 windows_core::imp::define_interface!(IMFDeviceTransformCallback, IMFDeviceTransformCallback_Vtbl, 0x6d5cb646_29ec_41fb_8179_8c4c6d750811);
 windows_core::imp::interface_hierarchy!(IMFDeviceTransformCallback, windows_core::IUnknown);
 impl IMFDeviceTransformCallback {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn OnBufferSent<P0>(&self, pcallbackattributes: P0, pinid: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::mfobjects::IMFAttributes>,
@@ -484,16 +484,16 @@ impl IMFDeviceTransformCallback {
 #[doc(hidden)]
 pub struct IMFDeviceTransformCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub OnBufferSent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     OnBufferSent: usize,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFDeviceTransformCallback_Impl: windows_core::IUnknownImpl {
     fn OnBufferSent(&self, pcallbackattributes: windows_core::Ref<super::mfobjects::IMFAttributes>, pinid: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFDeviceTransformCallback_Vtbl {
     pub const fn new<Identity: IMFDeviceTransformCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnBufferSent<Identity: IMFDeviceTransformCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallbackattributes: *mut core::ffi::c_void, pinid: u32) -> windows_core::HRESULT {
@@ -508,7 +508,7 @@ impl IMFDeviceTransformCallback_Vtbl {
         iid == &<IMFDeviceTransformCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFDeviceTransformCallback {}
 windows_core::imp::define_interface!(IMFTransform, IMFTransform_Vtbl, 0xbf94c121_5b05_4e6f_8000_ba598961414d);
 windows_core::imp::interface_hierarchy!(IMFTransform, windows_core::IUnknown);
@@ -531,21 +531,21 @@ impl IMFTransform {
             (windows_core::Interface::vtable(self).GetOutputStreamInfo)(windows_core::Interface::as_raw(self), dwoutputstreamid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetAttributes(&self) -> windows_core::Result<super::mfobjects::IMFAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetInputStreamAttributes(&self, dwinputstreamid: u32) -> windows_core::Result<super::mfobjects::IMFAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInputStreamAttributes)(windows_core::Interface::as_raw(self), dwinputstreamid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetOutputStreamAttributes(&self, dwoutputstreamid: u32) -> windows_core::Result<super::mfobjects::IMFAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -558,42 +558,42 @@ impl IMFTransform {
     pub unsafe fn AddInputStreams(&self, cstreams: u32, adwstreamids: *const u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddInputStreams)(windows_core::Interface::as_raw(self), cstreams, adwstreamids) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetInputAvailableType(&self, dwinputstreamid: u32, dwtypeindex: u32) -> windows_core::Result<super::mfobjects::IMFMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInputAvailableType)(windows_core::Interface::as_raw(self), dwinputstreamid, dwtypeindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetOutputAvailableType(&self, dwoutputstreamid: u32, dwtypeindex: u32) -> windows_core::Result<super::mfobjects::IMFMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOutputAvailableType)(windows_core::Interface::as_raw(self), dwoutputstreamid, dwtypeindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetInputType<P1>(&self, dwinputstreamid: u32, ptype: P1, dwflags: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaType>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetInputType)(windows_core::Interface::as_raw(self), dwinputstreamid, ptype.param().abi(), dwflags) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetOutputType<P1>(&self, dwoutputstreamid: u32, ptype: P1, dwflags: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaType>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetOutputType)(windows_core::Interface::as_raw(self), dwoutputstreamid, ptype.param().abi(), dwflags) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetInputCurrentType(&self, dwinputstreamid: u32) -> windows_core::Result<super::mfobjects::IMFMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInputCurrentType)(windows_core::Interface::as_raw(self), dwinputstreamid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetOutputCurrentType(&self, dwoutputstreamid: u32) -> windows_core::Result<super::mfobjects::IMFMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -615,7 +615,7 @@ impl IMFTransform {
     pub unsafe fn SetOutputBounds(&self, hnslowerbound: i64, hnsupperbound: i64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetOutputBounds)(windows_core::Interface::as_raw(self), hnslowerbound, hnsupperbound) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn ProcessEvent<P1>(&self, dwinputstreamid: u32, pevent: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaEvent>,
@@ -625,14 +625,14 @@ impl IMFTransform {
     pub unsafe fn ProcessMessage(&self, emessage: MFT_MESSAGE_TYPE, ulparam: usize) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ProcessMessage)(windows_core::Interface::as_raw(self), emessage, ulparam) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn ProcessInput<P1>(&self, dwinputstreamid: u32, psample: P1, dwflags: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFSample>,
     {
         unsafe { (windows_core::Interface::vtable(self).ProcessInput)(windows_core::Interface::as_raw(self), dwinputstreamid, psample.param().abi(), dwflags) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, coutputbuffercount, core::mem::transmute(poutputsamples), pdwstatus as _) }
     }
@@ -646,62 +646,62 @@ pub struct IMFTransform_Vtbl {
     pub GetStreamIDs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
     pub GetInputStreamInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MFT_INPUT_STREAM_INFO) -> windows_core::HRESULT,
     pub GetOutputStreamInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MFT_OUTPUT_STREAM_INFO) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetAttributes: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetInputStreamAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetInputStreamAttributes: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetOutputStreamAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetOutputStreamAttributes: usize,
     pub DeleteInputStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub AddInputStreams: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetInputAvailableType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetInputAvailableType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetOutputAvailableType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetOutputAvailableType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetInputType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetInputType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetOutputType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetOutputType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetInputCurrentType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetInputCurrentType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetOutputCurrentType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetOutputCurrentType: usize,
     pub GetInputStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetOutputStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetOutputBounds: unsafe extern "system" fn(*mut core::ffi::c_void, i64, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub ProcessEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     ProcessEvent: usize,
     pub ProcessMessage: unsafe extern "system" fn(*mut core::ffi::c_void, MFT_MESSAGE_TYPE, usize) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub ProcessInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     ProcessInput: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub ProcessOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut MFT_OUTPUT_DATA_BUFFER, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     ProcessOutput: usize,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFTransform_Impl: windows_core::IUnknownImpl {
     fn GetStreamLimits(&self, pdwinputminimum: *mut u32, pdwinputmaximum: *mut u32, pdwoutputminimum: *mut u32, pdwoutputmaximum: *mut u32) -> windows_core::Result<()>;
     fn GetStreamCount(&self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> windows_core::Result<()>;
@@ -727,7 +727,7 @@ pub trait IMFTransform_Impl: windows_core::IUnknownImpl {
     fn ProcessInput(&self, dwinputstreamid: u32, psample: windows_core::Ref<super::mfobjects::IMFSample>, dwflags: u32) -> windows_core::Result<()>;
     fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFTransform_Vtbl {
     pub const fn new<Identity: IMFTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStreamLimits<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwinputminimum: *mut u32, pdwinputmaximum: *mut u32, pdwoutputminimum: *mut u32, pdwoutputmaximum: *mut u32) -> windows_core::HRESULT {
@@ -959,7 +959,7 @@ impl IMFTransform_Vtbl {
         iid == &<IMFTransform as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFTransform {}
 pub type MF3DVideoOutputType = i32;
 pub const MF3DVideoOutputType_BaseView: MF3DVideoOutputType = 0;
@@ -1018,7 +1018,7 @@ pub type MFT_MESSAGE_TYPE = i32;
 pub const MFT_OUTPUT_BOUND_LOWER_UNBOUNDED: u32 = 0;
 pub const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: i32 = -1;
 #[repr(C)]
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFT_OUTPUT_DATA_BUFFER {
     pub dwStreamID: u32,
@@ -1053,7 +1053,7 @@ pub const MFT_PROCESS_OUTPUT_STATUS_NEW_STREAMS: _MFT_PROCESS_OUTPUT_STATUS = 25
 pub const MFT_SET_TYPE_TEST_ONLY: _MFT_SET_TYPE_FLAGS = 1;
 pub const MFT_STREAMS_UNLIMITED: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFT_STREAM_STATE_PARAM {
     pub StreamId: u32,
@@ -1072,33 +1072,33 @@ impl Default for PDeviceStreamState {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMFT_OUTPUT_DATA_BUFFER(pub *mut MFT_OUTPUT_DATA_BUFFER);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl PMFT_OUTPUT_DATA_BUFFER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl Default for PMFT_OUTPUT_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMFT_STREAM_STATE_PARAM(pub *mut MFT_STREAM_STATE_PARAM);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl PMFT_STREAM_STATE_PARAM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl Default for PMFT_STREAM_STATE_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

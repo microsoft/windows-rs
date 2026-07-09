@@ -1,13 +1,13 @@
 pub const CARET_CUSTOM: CARET_FLAGS = 1;
 pub type CARET_FLAGS = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union CARET_INFO {
     pub hbitmap: super::windef::HBITMAP,
     pub caretFlags: CARET_FLAGS,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for CARET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -50,7 +50,7 @@ pub unsafe fn DsCrackUnquotedMangledRdnW(pszrdn: &[u16], pguid: Option<*mut wind
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackUnquotedMangledRdnW(pszrdn : windows_core::PCWSTR, cchrdn : u32, pguid : *mut windows_core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_core::BOOL);
     unsafe { DsCrackUnquotedMangledRdnW(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), pguid.unwrap_or(core::mem::zeroed()) as _, pedsmanglefor.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DsGetRdnW(ppdn: *mut super::winnt::LPCWCH, pcdn: *mut u32, ppkey: *mut super::winnt::LPCWCH, pckey: *mut u32, ppval: *mut super::winnt::LPCWCH, pcval: *mut u32) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsGetRdnW(ppdn : *mut super::winnt::LPCWCH, pcdn : *mut u32, ppkey : *mut super::winnt::LPCWCH, pckey : *mut u32, ppval : *mut super::winnt::LPCWCH, pcval : *mut u32) -> u32);

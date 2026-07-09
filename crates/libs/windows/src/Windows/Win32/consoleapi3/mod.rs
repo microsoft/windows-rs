@@ -141,7 +141,7 @@ pub unsafe fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> windows_core::BOOL
     windows_core::link!("kernel32.dll" "system" fn GetConsoleDisplayMode(lpmodeflags : *mut u32) -> windows_core::BOOL);
     unsafe { GetConsoleDisplayMode(lpmodeflags as _) }
 }
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetConsoleFontSize(hconsoleoutput: super::winnt::HANDLE, nfont: u32) -> super::wincontypes::COORD {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleFontSize(hconsoleoutput : super::winnt::HANDLE, nfont : u32) -> super::wincontypes::COORD);
@@ -157,25 +157,25 @@ pub unsafe fn GetConsoleProcessList(lpdwprocesslist: &mut [u32]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleProcessList(lpdwprocesslist : *mut u32, dwprocesscount : u32) -> u32);
     unsafe { GetConsoleProcessList(core::mem::transmute(lpdwprocesslist.as_ptr()), lpdwprocesslist.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_wincontypes")]
+#[cfg(feature = "wincontypes")]
 #[inline]
 pub unsafe fn GetConsoleSelectionInfo(lpconsoleselectioninfo: *mut CONSOLE_SELECTION_INFO) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleSelectionInfo(lpconsoleselectioninfo : *mut CONSOLE_SELECTION_INFO) -> windows_core::BOOL);
     unsafe { GetConsoleSelectionInfo(lpconsoleselectioninfo as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn GetConsoleWindow() -> super::windef::HWND {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleWindow() -> super::windef::HWND);
     unsafe { GetConsoleWindow() }
 }
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetCurrentConsoleFont(hconsoleoutput: super::winnt::HANDLE, bmaximumwindow: bool, lpconsolecurrentfont: *mut super::wincontypes::CONSOLE_FONT_INFO) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetCurrentConsoleFont(hconsoleoutput : super::winnt::HANDLE, bmaximumwindow : windows_core::BOOL, lpconsolecurrentfont : *mut super::wincontypes::CONSOLE_FONT_INFO) -> windows_core::BOOL);
     unsafe { GetCurrentConsoleFont(hconsoleoutput, bmaximumwindow.into(), lpconsolecurrentfont as _) }
 }
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetCurrentConsoleFontEx(hconsoleoutput: super::winnt::HANDLE, bmaximumwindow: bool, lpconsolecurrentfontex: *mut CONSOLE_FONT_INFOEX) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetCurrentConsoleFontEx(hconsoleoutput : super::winnt::HANDLE, bmaximumwindow : windows_core::BOOL, lpconsolecurrentfontex : *mut CONSOLE_FONT_INFOEX) -> windows_core::BOOL);
@@ -186,7 +186,7 @@ pub unsafe fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: *mut u32) -
     windows_core::link!("kernel32.dll" "system" fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons : *mut u32) -> windows_core::BOOL);
     unsafe { GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons as _) }
 }
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetConsoleDisplayMode(hconsoleoutput: super::winnt::HANDLE, dwflags: u32, lpnewscreenbufferdimensions: Option<*mut super::wincontypes::COORD>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetConsoleDisplayMode(hconsoleoutput : super::winnt::HANDLE, dwflags : u32, lpnewscreenbufferdimensions : *mut super::wincontypes::COORD) -> windows_core::BOOL);
@@ -213,14 +213,14 @@ where
     windows_core::link!("kernel32.dll" "system" fn SetConsoleNumberOfCommandsW(number : u32, exename : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetConsoleNumberOfCommandsW(number, exename.param().abi()) }
 }
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetCurrentConsoleFontEx(hconsoleoutput: super::winnt::HANDLE, bmaximumwindow: bool, lpconsolecurrentfontex: *const CONSOLE_FONT_INFOEX) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetCurrentConsoleFontEx(hconsoleoutput : super::winnt::HANDLE, bmaximumwindow : windows_core::BOOL, lpconsolecurrentfontex : *const CONSOLE_FONT_INFOEX) -> windows_core::BOOL);
     unsafe { SetCurrentConsoleFontEx(hconsoleoutput, bmaximumwindow.into(), lpconsolecurrentfontex) }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincontypes")]
+#[cfg(feature = "wincontypes")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONSOLE_FONT_INFOEX {
     pub cbSize: u32,
@@ -230,7 +230,7 @@ pub struct CONSOLE_FONT_INFOEX {
     pub FontWeight: u32,
     pub FaceName: [u16; 32],
 }
-#[cfg(feature = "Win32_wincontypes")]
+#[cfg(feature = "wincontypes")]
 impl Default for CONSOLE_FONT_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -251,7 +251,7 @@ pub const CONSOLE_MOUSE_DOWN: u32 = 8;
 pub const CONSOLE_MOUSE_SELECTION: u32 = 4;
 pub const CONSOLE_NO_SELECTION: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_wincontypes")]
+#[cfg(feature = "wincontypes")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLE_SELECTION_INFO {
     pub dwFlags: u32,
@@ -262,17 +262,17 @@ pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1;
 pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2;
 pub const CONSOLE_WINDOWED_MODE: u32 = 2;
 pub const HISTORY_NO_DUP_FLAG: u32 = 1;
-#[cfg(feature = "Win32_wincontypes")]
+#[cfg(feature = "wincontypes")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCONSOLE_FONT_INFOEX(pub *mut CONSOLE_FONT_INFOEX);
-#[cfg(feature = "Win32_wincontypes")]
+#[cfg(feature = "wincontypes")]
 impl PCONSOLE_FONT_INFOEX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincontypes")]
+#[cfg(feature = "wincontypes")]
 impl Default for PCONSOLE_FONT_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -291,17 +291,17 @@ impl Default for PCONSOLE_HISTORY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincontypes")]
+#[cfg(feature = "wincontypes")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCONSOLE_SELECTION_INFO(pub *mut CONSOLE_SELECTION_INFO);
-#[cfg(feature = "Win32_wincontypes")]
+#[cfg(feature = "wincontypes")]
 impl PCONSOLE_SELECTION_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincontypes")]
+#[cfg(feature = "wincontypes")]
 impl Default for PCONSOLE_SELECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

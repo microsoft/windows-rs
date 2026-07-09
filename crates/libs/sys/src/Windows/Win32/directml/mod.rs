@@ -1,6 +1,6 @@
-#[cfg(feature = "Win32_d3d12")]
+#[cfg(feature = "d3d12")]
 windows_link::link!("directml.dll" "system" fn DMLCreateDevice(d3d12device : *mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_d3d12")]
+#[cfg(feature = "d3d12")]
 windows_link::link!("directml.dll" "system" fn DMLCreateDevice1(d3d12device : *mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel : DML_FEATURE_LEVEL, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -429,7 +429,7 @@ pub struct DML_BINDING_PROPERTIES {
     pub PersistentResourceSize: u64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3d12")]
+#[cfg(feature = "d3d12")]
 #[derive(Clone, Copy)]
 pub struct DML_BINDING_TABLE_DESC {
     pub Dispatchable: *mut core::ffi::c_void,
@@ -437,7 +437,7 @@ pub struct DML_BINDING_TABLE_DESC {
     pub GPUDescriptorHandle: super::d3d12::D3D12_GPU_DESCRIPTOR_HANDLE,
     pub SizeInDescriptors: u32,
 }
-#[cfg(feature = "Win32_d3d12")]
+#[cfg(feature = "d3d12")]
 impl Default for DML_BINDING_TABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -448,27 +448,27 @@ pub const DML_BINDING_TYPE_BUFFER: DML_BINDING_TYPE = 1;
 pub const DML_BINDING_TYPE_BUFFER_ARRAY: DML_BINDING_TYPE = 2;
 pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_d3d12")]
+#[cfg(feature = "d3d12")]
 #[derive(Clone, Copy)]
 pub struct DML_BUFFER_ARRAY_BINDING {
     pub BindingCount: u32,
     pub Bindings: *const DML_BUFFER_BINDING,
 }
-#[cfg(feature = "Win32_d3d12")]
+#[cfg(feature = "d3d12")]
 impl Default for DML_BUFFER_ARRAY_BINDING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3d12")]
+#[cfg(feature = "d3d12")]
 #[derive(Clone, Copy)]
 pub struct DML_BUFFER_BINDING {
     pub Buffer: *mut core::ffi::c_void,
     pub Offset: u64,
     pub SizeInBytes: u64,
 }
-#[cfg(feature = "Win32_d3d12")]
+#[cfg(feature = "d3d12")]
 impl Default for DML_BUFFER_BINDING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

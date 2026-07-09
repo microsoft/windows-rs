@@ -103,26 +103,26 @@ pub const DVASPECT_DOCPRINT: DVASPECT = 8;
 pub const DVASPECT_ICON: DVASPECT = 4;
 pub const DVASPECT_THUMBNAIL: DVASPECT = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy)]
 pub struct GDI_NONREMOTE {
     pub fContext: i32,
     pub u: GDI_NONREMOTE_0,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for GDI_NONREMOTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy)]
 pub union GDI_NONREMOTE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::wtypesbase::DWORD_BLOB,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for GDI_NONREMOTE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -216,7 +216,7 @@ pub struct PROPERTYKEY {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PROPID(pub u32);
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERYCONTEXT {
     pub dwContext: u32,
@@ -229,60 +229,60 @@ pub const ROTFLAGS_ALLOWANYCLIENT: u32 = 2;
 pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: u32 = 1;
 pub const ROT_COMPARE_MAX: u32 = 2048;
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemHBITMAP {
     pub cbData: u32,
     pub data: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for RemHBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemHBRUSH {
     pub cbData: u32,
     pub data: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for RemHBRUSH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemHENHMETAFILE {
     pub cbData: u32,
     pub data: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for RemHENHMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemHGLOBAL {
     pub fNullHGlobal: i32,
     pub cbData: u32,
     pub data: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for RemHGLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemHMETAFILEPICT {
     pub mm: i32,
@@ -291,20 +291,20 @@ pub struct RemHMETAFILEPICT {
     pub cbData: u32,
     pub data: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for RemHMETAFILEPICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemHPALETTE {
     pub cbData: u32,
     pub data: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for RemHPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -419,7 +419,7 @@ pub const WDT_INPROC64_CALL: u32 = 1349805143;
 pub const WDT_INPROC_CALL: u32 = 1215587415;
 pub const WDT_REMOTE_CALL: u32 = 1383359575;
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct remoteMETAFILEPICT {
     pub mm: i32,
@@ -427,7 +427,7 @@ pub struct remoteMETAFILEPICT {
     pub yExt: i32,
     pub hMF: *mut userHMETAFILE,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for remoteMETAFILEPICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -473,7 +473,7 @@ pub struct uCLSSPEC_0_1 {
     pub PolicyId: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct userBITMAP {
     pub bmType: i32,
@@ -485,7 +485,7 @@ pub struct userBITMAP {
     pub cbSize: u32,
     pub pBuffer: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for userBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -514,178 +514,178 @@ impl Default for userCLIPFORMAT_0 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy)]
 pub struct userHBITMAP {
     pub fContext: i32,
     pub u: userHBITMAP_0,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for userHBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy)]
 pub union userHBITMAP_0 {
     pub hInproc: i32,
     pub hRemote: *mut userBITMAP,
     pub hInproc64: i64,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for userHBITMAP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct userHENHMETAFILE {
     pub fContext: i32,
     pub u: userHENHMETAFILE_0,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for userHENHMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union userHENHMETAFILE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::wtypesbase::BYTE_BLOB,
     pub hInproc64: i64,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for userHENHMETAFILE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct userHGLOBAL {
     pub fContext: i32,
     pub u: userHGLOBAL_0,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for userHGLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union userHGLOBAL_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::wtypesbase::FLAGGED_BYTE_BLOB,
     pub hInproc64: i64,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for userHGLOBAL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct userHMETAFILE {
     pub fContext: i32,
     pub u: userHMETAFILE_0,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for userHMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct userHMETAFILEPICT {
     pub fContext: i32,
     pub u: userHMETAFILEPICT_0,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for userHMETAFILEPICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union userHMETAFILEPICT_0 {
     pub hInproc: i32,
     pub hRemote: *mut remoteMETAFILEPICT,
     pub hInproc64: i64,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for userHMETAFILEPICT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union userHMETAFILE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::wtypesbase::BYTE_BLOB,
     pub hInproc64: i64,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for userHMETAFILE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[derive(Clone, Copy)]
 pub struct userHPALETTE {
     pub fContext: i32,
     pub u: userHPALETTE_0,
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 impl Default for userHPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[derive(Clone, Copy)]
 pub union userHPALETTE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::wingdi::LOGPALETTE,
     pub hInproc64: i64,
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 impl Default for userHPALETTE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct wireBSTR(pub *mut super::wtypesbase::FLAGGED_WORD_BLOB);
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl wireBSTR {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for wireBSTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -717,17 +717,17 @@ impl Default for wireHACCEL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct wireHBITMAP(pub *mut userHBITMAP);
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl wireHBITMAP {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for wireHBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -759,17 +759,17 @@ impl Default for wireHDC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct wireHENHMETAFILE(pub *mut userHENHMETAFILE);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl wireHENHMETAFILE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for wireHENHMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -788,17 +788,17 @@ impl Default for wireHFONT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct wireHGLOBAL(pub *mut userHGLOBAL);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl wireHGLOBAL {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for wireHGLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -830,33 +830,33 @@ impl Default for wireHMENU {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct wireHMETAFILE(pub *mut userHMETAFILE);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl wireHMETAFILE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for wireHMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct wireHMETAFILEPICT(pub *mut userHMETAFILEPICT);
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl wireHMETAFILEPICT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 impl Default for wireHMETAFILEPICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -875,17 +875,17 @@ impl Default for wireHMONITOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct wireHPALETTE(pub *mut userHPALETTE);
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 impl wireHPALETTE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 impl Default for wireHPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

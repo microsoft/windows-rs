@@ -1,18 +1,18 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ksuser.dll" "system" fn KsCreateAllocator(connectionhandle : super::winnt::HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ksuser.dll" "system" fn KsCreateAllocator2(connectionhandle : super::winnt::HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::winnt::HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ksuser.dll" "system" fn KsCreateClock(connectionhandle : super::winnt::HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ksuser.dll" "system" fn KsCreateClock2(connectionhandle : super::winnt::HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::winnt::HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ksuser.dll" "system" fn KsCreatePin(filterhandle : super::winnt::HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : super::winnt::ACCESS_MASK, connectionhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ksuser.dll" "system" fn KsCreatePin2(filterhandle : super::winnt::HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : super::winnt::ACCESS_MASK, connectionhandle : *mut super::winnt::HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ksuser.dll" "system" fn KsCreateTopologyNode(parenthandle : super::winnt::HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : super::winnt::ACCESS_MASK, nodehandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ksuser.dll" "system" fn KsCreateTopologyNode2(parenthandle : super::winnt::HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : super::winnt::ACCESS_MASK, nodehandle : *mut super::winnt::HANDLE) -> windows_sys::core::HRESULT);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -254,67 +254,67 @@ impl Default for KSERROR {
 }
 pub type KSEVENT = KSIDENTIFIER;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSEVENTDATA {
     pub NotificationType: u32,
     pub Anonymous: KSEVENTDATA_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSEVENTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union KSEVENTDATA_0 {
     pub EventHandle: KSEVENTDATA_0_0,
     pub SemaphoreHandle: KSEVENTDATA_0_1,
     pub Alignment: KSEVENTDATA_0_2,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSEVENTDATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSEVENTDATA_0_0 {
     pub Event: super::winnt::HANDLE,
     pub Reserved: [usize; 2],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSEVENTDATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSEVENTDATA_0_1 {
     pub Semaphore: super::winnt::HANDLE,
     pub Reserved: u32,
     pub Adjustment: i32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSEVENTDATA_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSEVENTDATA_0_2 {
     pub Unused: *mut core::ffi::c_void,
     pub Alignment: [isize; 2],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSEVENTDATA_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -362,27 +362,27 @@ pub type KSEVENT_STREAMALLOCATOR = i32;
 pub const KSEVENT_STREAMALLOCATOR_FREEFRAME: KSEVENT_STREAMALLOCATOR = 1;
 pub const KSEVENT_STREAMALLOCATOR_INTERNAL_FREEFRAME: KSEVENT_STREAMALLOCATOR = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSEVENT_TIME_INTERVAL {
     pub EventData: KSEVENTDATA,
     pub TimeBase: i64,
     pub Interval: i64,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSEVENT_TIME_INTERVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSEVENT_TIME_MARK {
     pub EventData: KSEVENTDATA,
     pub MarkTime: i64,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSEVENT_TIME_MARK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -601,7 +601,7 @@ pub const KSPIN_COMMUNICATION_NONE: KSPIN_COMMUNICATION = 0;
 pub const KSPIN_COMMUNICATION_SINK: KSPIN_COMMUNICATION = 1;
 pub const KSPIN_COMMUNICATION_SOURCE: KSPIN_COMMUNICATION = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSPIN_CONNECT {
     pub Interface: KSPIN_INTERFACE,
@@ -610,7 +610,7 @@ pub struct KSPIN_CONNECT {
     pub PinToHandle: super::winnt::HANDLE,
     pub Priority: KSPRIORITY,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSPIN_CONNECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -692,27 +692,27 @@ pub struct KSPROPERTY_BOUNDS_LONG_1 {
     pub UnsignedMaximum: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_BOUNDS_LONGLONG {
     pub Anonymous: KSPROPERTY_BOUNDS_LONGLONG_0,
     pub Anonymous2: KSPROPERTY_BOUNDS_LONGLONG_1,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSPROPERTY_BOUNDS_LONGLONG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_BOUNDS_LONGLONG_0 {
     pub SignedMinimum: i64,
     pub SignedMaximum: i64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_BOUNDS_LONGLONG_1 {
     pub UnsignedMinimum: super::winnt::DWORDLONG,
@@ -844,13 +844,13 @@ impl Default for KSPROPERTY_STEPPING_LONG {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_STEPPING_LONGLONG {
     pub SteppingDelta: super::winnt::DWORDLONG,
     pub Bounds: KSPROPERTY_BOUNDS_LONGLONG,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSPROPERTY_STEPPING_LONGLONG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -991,27 +991,27 @@ impl Default for KSQUALITY {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSQUALITY_MANAGER {
     pub QualityManager: super::winnt::HANDLE,
     pub Context: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSQUALITY_MANAGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSQUERYBUFFER {
     pub Event: KSEVENT,
     pub EventData: PKSEVENTDATA,
     pub Reserved: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSQUERYBUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1045,7 +1045,7 @@ impl Default for KSRATE_CAPABILITY {
 pub const KSRATE_NOPRESENTATIONDURATION: u32 = 2;
 pub const KSRATE_NOPRESENTATIONSTART: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSRELATIVEEVENT {
     pub Size: u32,
@@ -1055,20 +1055,20 @@ pub struct KSRELATIVEEVENT {
     pub Event: KSEVENT,
     pub EventData: KSEVENTDATA,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSRELATIVEEVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union KSRELATIVEEVENT_0 {
     pub ObjectHandle: super::winnt::HANDLE,
     pub ObjectPointer: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KSRELATIVEEVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1379,11 +1379,11 @@ pub type PKSDATARANGE = *mut KSDATARANGE;
 pub type PKSDEGRADE = *mut KSIDENTIFIER;
 pub type PKSERROR = *mut KSERROR;
 pub type PKSEVENT = *mut KSIDENTIFIER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PKSEVENTDATA = *mut KSEVENTDATA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PKSEVENT_TIME_INTERVAL = *mut KSEVENT_TIME_INTERVAL;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PKSEVENT_TIME_MARK = *mut KSEVENT_TIME_MARK;
 pub type PKSE_NODE = *mut KSE_NODE;
 pub type PKSE_PIN = *mut KSE_PIN;
@@ -1396,7 +1396,7 @@ pub type PKSM_NODE = *mut KSM_NODE;
 pub type PKSNODE_CREATE = *mut KSNODE_CREATE;
 pub type PKSPIN_CINSTANCES = *mut KSPIN_CINSTANCES;
 pub type PKSPIN_COMMUNICATION = *mut KSPIN_COMMUNICATION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PKSPIN_CONNECT = *mut KSPIN_CONNECT;
 pub type PKSPIN_DATAFLOW = *mut KSPIN_DATAFLOW;
 pub type PKSPIN_INTERFACE = *mut KSIDENTIFIER;
@@ -1407,7 +1407,7 @@ pub type PKSPIN_PHYSICALCONNECTION = *mut KSPIN_PHYSICALCONNECTION;
 pub type PKSPRIORITY = *mut KSPRIORITY;
 pub type PKSPROPERTY = *mut KSIDENTIFIER;
 pub type PKSPROPERTY_BOUNDS_LONG = *mut KSPROPERTY_BOUNDS_LONG;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PKSPROPERTY_BOUNDS_LONGLONG = *mut KSPROPERTY_BOUNDS_LONGLONG;
 pub type PKSPROPERTY_DESCRIPTION = *mut KSPROPERTY_DESCRIPTION;
 pub type PKSPROPERTY_MEDIAAVAILABLE = *mut KSPROPERTY_MEDIAAVAILABLE;
@@ -1416,15 +1416,15 @@ pub type PKSPROPERTY_POSITIONS = *mut KSPROPERTY_POSITIONS;
 pub type PKSPROPERTY_SERIAL = *mut KSPROPERTY_SERIAL;
 pub type PKSPROPERTY_SERIALHDR = *mut KSPROPERTY_SERIALHDR;
 pub type PKSPROPERTY_STEPPING_LONG = *mut KSPROPERTY_STEPPING_LONG;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PKSPROPERTY_STEPPING_LONGLONG = *mut KSPROPERTY_STEPPING_LONGLONG;
 pub type PKSP_NODE = *mut KSP_NODE;
 pub type PKSP_PIN = *mut KSP_PIN;
 pub type PKSP_TIMEFORMAT = *mut KSP_TIMEFORMAT;
 pub type PKSQUALITY = *mut KSQUALITY;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PKSQUALITY_MANAGER = *mut KSQUALITY_MANAGER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PKSQUERYBUFFER = *mut KSQUERYBUFFER;
 pub type PKSRATE = *mut KSRATE;
 pub type PKSRATE_CAPABILITY = *mut KSRATE_CAPABILITY;

@@ -2,13 +2,13 @@ windows_link::link!("mpr.dll" "system" fn MultinetGetConnectionPerformanceA(lpne
 windows_link::link!("mpr.dll" "system" fn MultinetGetConnectionPerformanceW(lpnetresource : *const NETRESOURCEW, lpnetconnectinfostruct : *mut NETCONNECTINFOSTRUCT) -> u32);
 windows_link::link!("mpr.dll" "system" fn WNetAddConnection2A(lpnetresource : *const NETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpusername : windows_sys::core::PCSTR, dwflags : u32) -> u32);
 windows_link::link!("mpr.dll" "system" fn WNetAddConnection2W(lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetAddConnection3A(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpusername : windows_sys::core::PCSTR, dwflags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetAddConnection3W(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetAddConnection4A(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetAddConnection4W(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32) -> u32);
 windows_link::link!("mpr.dll" "system" fn WNetAddConnectionA(lpremotename : windows_sys::core::PCSTR, lppassword : windows_sys::core::PCSTR, lplocalname : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("mpr.dll" "system" fn WNetAddConnectionW(lpremotename : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, lplocalname : windows_sys::core::PCWSTR) -> u32);
@@ -16,23 +16,23 @@ windows_link::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : window
 windows_link::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : windows_sys::core::PCWSTR, dwflags : u32, fforce : windows_sys::core::BOOL) -> u32);
 windows_link::link!("mpr.dll" "system" fn WNetCancelConnectionA(lpname : windows_sys::core::PCSTR, fforce : windows_sys::core::BOOL) -> u32);
 windows_link::link!("mpr.dll" "system" fn WNetCancelConnectionW(lpname : windows_sys::core::PCWSTR, fforce : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mpr.dll" "system" fn WNetCloseEnum(henum : super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetConnectionDialog(hwnd : super::windef::HWND, dwtype : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetConnectionDialog1A(lpconndlgstruct : *mut CONNECTDLGSTRUCTA) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetConnectionDialog1W(lpconndlgstruct : *mut CONNECTDLGSTRUCTW) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetDisconnectDialog(hwnd : super::windef::HWND, dwtype : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetDisconnectDialog1A(lpconndlgstruct : *const DISCDLGSTRUCTA) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetDisconnectDialog1W(lpconndlgstruct : *const DISCDLGSTRUCTW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mpr.dll" "system" fn WNetEnumResourceA(henum : super::winnt::HANDLE, lpccount : *mut u32, lpbuffer : *mut core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mpr.dll" "system" fn WNetEnumResourceW(henum : super::winnt::HANDLE, lpccount : *mut u32, lpbuffer : *mut core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
 windows_link::link!("mpr.dll" "system" fn WNetGetConnectionA(lplocalname : windows_sys::core::PCSTR, lpremotename : windows_sys::core::PSTR, lpnlength : *mut u32) -> u32);
 windows_link::link!("mpr.dll" "system" fn WNetGetConnectionW(lplocalname : windows_sys::core::PCWSTR, lpremotename : windows_sys::core::PWSTR, lpnlength : *mut u32) -> u32);
@@ -50,17 +50,17 @@ windows_link::link!("mpr.dll" "system" fn WNetGetUniversalNameA(lplocalpath : wi
 windows_link::link!("mpr.dll" "system" fn WNetGetUniversalNameW(lplocalpath : windows_sys::core::PCWSTR, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
 windows_link::link!("mpr.dll" "system" fn WNetGetUserA(lpname : windows_sys::core::PCSTR, lpusername : windows_sys::core::PSTR, lpnlength : *mut u32) -> u32);
 windows_link::link!("mpr.dll" "system" fn WNetGetUserW(lpname : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PWSTR, lpnlength : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mpr.dll" "system" fn WNetOpenEnumA(dwscope : u32, dwtype : u32, dwusage : u32, lpnetresource : *const NETRESOURCEA, lphenum : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mpr.dll" "system" fn WNetOpenEnumW(dwscope : u32, dwtype : u32, dwusage : u32, lpnetresource : *const NETRESOURCEW, lphenum : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetUseConnection4A(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : windows_sys::core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetUseConnection4W(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : windows_sys::core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetUseConnectionA(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpuserid : windows_sys::core::PCSTR, dwflags : u32, lpaccessname : windows_sys::core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("mpr.dll" "system" fn WNetUseConnectionW(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpuserid : windows_sys::core::PCWSTR, dwflags : u32, lpaccessname : windows_sys::core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
 pub const CONNDLG_CONN_POINT: u32 = 2;
 pub const CONNDLG_HIDE_BOX: u32 = 8;
@@ -68,10 +68,10 @@ pub const CONNDLG_NOT_PERSIST: u32 = 32;
 pub const CONNDLG_PERSIST: u32 = 16;
 pub const CONNDLG_RO_PATH: u32 = 1;
 pub const CONNDLG_USE_MRU: u32 = 4;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type CONNECTDLGSTRUCT = CONNECTDLGSTRUCTA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct CONNECTDLGSTRUCTA {
     pub cbStructure: u32,
@@ -80,14 +80,14 @@ pub struct CONNECTDLGSTRUCTA {
     pub dwFlags: u32,
     pub dwDevNum: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for CONNECTDLGSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct CONNECTDLGSTRUCTW {
     pub cbStructure: u32,
@@ -96,7 +96,7 @@ pub struct CONNECTDLGSTRUCTW {
     pub dwFlags: u32,
     pub dwDevNum: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for CONNECTDLGSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -121,10 +121,10 @@ pub const CONNECT_TEMPORARY: u32 = 4;
 pub const CONNECT_UPDATE_PROFILE: u32 = 1;
 pub const CONNECT_UPDATE_RECENT: u32 = 2;
 pub const CONNECT_WRITE_THROUGH_SEMANTICS: u32 = 65536;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type DISCDLGSTRUCT = DISCDLGSTRUCTA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
@@ -133,14 +133,14 @@ pub struct DISCDLGSTRUCTA {
     pub lpRemoteName: windows_sys::core::PSTR,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DISCDLGSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
@@ -149,7 +149,7 @@ pub struct DISCDLGSTRUCTW {
     pub lpRemoteName: windows_sys::core::PWSTR,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DISCDLGSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -157,17 +157,17 @@ impl Default for DISCDLGSTRUCTW {
 }
 pub const DISC_NO_FORCE: u32 = 64;
 pub const DISC_UPDATE_PROFILE: u32 = 1;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCONNECTDLGSTRUCT = LPCONNECTDLGSTRUCTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCONNECTDLGSTRUCTA = *mut CONNECTDLGSTRUCTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCONNECTDLGSTRUCTW = *mut CONNECTDLGSTRUCTW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDISCDLGSTRUCT = LPDISCDLGSTRUCTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDISCDLGSTRUCTA = *mut DISCDLGSTRUCTA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDISCDLGSTRUCTW = *mut DISCDLGSTRUCTW;
 pub type LPNETCONNECTINFOSTRUCT = *mut NETCONNECTINFOSTRUCT;
 pub type LPNETINFOSTRUCT = *mut NETINFOSTRUCT;

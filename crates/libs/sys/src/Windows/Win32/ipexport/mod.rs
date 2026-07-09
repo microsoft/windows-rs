@@ -1,5 +1,5 @@
 #[repr(C)]
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 #[derive(Clone, Copy, Default)]
 pub struct ARP_SEND_REPLY {
     pub DestAddress: super::ntddndis::IPAddr,
@@ -14,7 +14,7 @@ pub struct ICMPV6_ECHO_REPLY_LH {
     pub RoundTripTime: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ntddndis"))]
+#[cfg(all(feature = "minwindef", feature = "ntddndis"))]
 #[derive(Clone, Copy)]
 pub struct ICMP_ECHO_REPLY {
     pub Address: super::ntddndis::IPAddr,
@@ -25,7 +25,7 @@ pub struct ICMP_ECHO_REPLY {
     pub Data: *mut core::ffi::c_void,
     pub Options: IP_OPTION_INFORMATION,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ntddndis"))]
+#[cfg(all(feature = "minwindef", feature = "ntddndis"))]
 impl Default for ICMP_ECHO_REPLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -33,7 +33,7 @@ impl Default for ICMP_ECHO_REPLY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 #[derive(Clone, Copy)]
 pub struct ICMP_ECHO_REPLY32 {
     pub Address: super::ntddndis::IPAddr,
@@ -45,7 +45,7 @@ pub struct ICMP_ECHO_REPLY32 {
     pub Options: IP_OPTION_INFORMATION32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 impl Default for ICMP_ECHO_REPLY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -141,7 +141,7 @@ pub const IP_MTU_CHANGE: u32 = 11021;
 pub const IP_NEGOTIATING_IPSEC: u32 = 11032;
 pub const IP_NO_RESOURCES: u32 = 11006;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct IP_OPTION_INFORMATION {
     pub Ttl: u8,
@@ -150,7 +150,7 @@ pub struct IP_OPTION_INFORMATION {
     pub OptionsSize: u8,
     pub OptionsData: super::minwindef::PUCHAR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for IP_OPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -199,13 +199,13 @@ pub const IP_TTL_EXPIRED_REASSEM: u32 = 11014;
 pub const IP_TTL_EXPIRED_TRANSIT: u32 = 11013;
 pub const IP_UNBIND_ADAPTER: u32 = 11027;
 #[repr(C)]
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 #[derive(Clone, Copy)]
 pub struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     pub NumAdapters: u32,
     pub Address: [super::ntddndis::IPAddr; 1],
 }
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 impl Default for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -213,30 +213,30 @@ impl Default for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
 }
 pub const IP_UNLOAD: u32 = 11022;
 pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type IPv6Addr = super::in6addr::IN6_ADDR;
 pub const MAX_ADAPTER_NAME: u32 = 128;
 pub const MAX_IP_STATUS: u32 = 11050;
 pub const MAX_OPT_SIZE: u32 = 40;
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 pub type PARP_SEND_REPLY = *mut ARP_SEND_REPLY;
 pub type PICMPV6_ECHO_REPLY = *mut ICMPV6_ECHO_REPLY_LH;
 pub type PICMPV6_ECHO_REPLY_LH = *mut ICMPV6_ECHO_REPLY_LH;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ntddndis"))]
+#[cfg(all(feature = "minwindef", feature = "ntddndis"))]
 pub type PICMP_ECHO_REPLY = *mut ICMP_ECHO_REPLY;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 pub type PICMP_ECHO_REPLY32 = *mut ICMP_ECHO_REPLY32;
 pub type PIPV6_ADDRESS_EX = *mut IPV6_ADDRESS_EX;
 pub type PIP_ADAPTER_INDEX_MAP = *mut IP_ADAPTER_INDEX_MAP;
 pub type PIP_ADAPTER_ORDER_MAP = *mut IP_ADAPTER_ORDER_MAP;
 pub type PIP_INTERFACE_INFO = *mut IP_INTERFACE_INFO;
 pub type PIP_MCAST_COUNTER_INFO = *mut IP_MCAST_COUNTER_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PIP_OPTION_INFORMATION = *mut IP_OPTION_INFORMATION;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PIP_OPTION_INFORMATION32 = *mut IP_OPTION_INFORMATION32;
-#[cfg(feature = "Win32_ntddndis")]
+#[cfg(feature = "ntddndis")]
 pub type PIP_UNIDIRECTIONAL_ADAPTER_ADDRESS = *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS;
 pub type PTCP_RESERVE_PORT_RANGE = *mut TCP_RESERVE_PORT_RANGE;
 #[repr(C)]

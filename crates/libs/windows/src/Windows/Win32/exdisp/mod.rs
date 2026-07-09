@@ -4,26 +4,26 @@ pub const CSC_NAVIGATEFORWARD: CommandStateChangeConstants = 1;
 pub const CSC_UPDATECOMMANDS: CommandStateChangeConstants = -1;
 pub const CScriptErrorList: windows_core::GUID = windows_core::GUID::from_u128(0xefd01300_160f_11d2_bb2e_00805ff7efca);
 pub type CommandStateChangeConstants = i32;
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(DShellNameSpaceEvents, DShellNameSpaceEvents_Vtbl, 0x55136806_b2de_11d1_b9f2_00a0c98bc547);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for DShellNameSpaceEvents {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(DShellNameSpaceEvents, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct DShellNameSpaceEvents_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DShellNameSpaceEvents_Impl: super::oaidl::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DShellNameSpaceEvents_Vtbl {
     pub const fn new<Identity: DShellNameSpaceEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::oaidl::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -32,28 +32,28 @@ impl DShellNameSpaceEvents_Vtbl {
         iid == &<DShellNameSpaceEvents as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DShellNameSpaceEvents {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(DShellWindowsEvents, DShellWindowsEvents_Vtbl, 0xfe4106e0_399a_11d0_a48c_00a0c90a8f39);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for DShellWindowsEvents {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(DShellWindowsEvents, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct DShellWindowsEvents_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DShellWindowsEvents_Impl: super::oaidl::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DShellWindowsEvents_Vtbl {
     pub const fn new<Identity: DShellWindowsEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::oaidl::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -62,28 +62,28 @@ impl DShellWindowsEvents_Vtbl {
         iid == &<DShellWindowsEvents as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DShellWindowsEvents {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(DWebBrowserEvents, DWebBrowserEvents_Vtbl, 0xeab22ac2_30c1_11cf_a7eb_0000c05bae0b);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for DWebBrowserEvents {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(DWebBrowserEvents, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct DWebBrowserEvents_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DWebBrowserEvents_Impl: super::oaidl::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DWebBrowserEvents_Vtbl {
     pub const fn new<Identity: DWebBrowserEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::oaidl::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -92,28 +92,28 @@ impl DWebBrowserEvents_Vtbl {
         iid == &<DWebBrowserEvents as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DWebBrowserEvents {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(DWebBrowserEvents2, DWebBrowserEvents2_Vtbl, 0x34a715a0_6587_11d0_924a_0020afc7ac4d);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for DWebBrowserEvents2 {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(DWebBrowserEvents2, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct DWebBrowserEvents2_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DWebBrowserEvents2_Impl: super::oaidl::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DWebBrowserEvents2_Vtbl {
     pub const fn new<Identity: DWebBrowserEvents2_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::oaidl::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -122,20 +122,20 @@ impl DWebBrowserEvents2_Vtbl {
         iid == &<DWebBrowserEvents2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DWebBrowserEvents2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IScriptErrorList, IScriptErrorList_Vtbl, 0xf3470f24_15fd_11d2_bb2e_00805ff7efca);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IScriptErrorList {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IScriptErrorList, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IScriptErrorList {
     pub unsafe fn advanceError(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).advanceError)(windows_core::Interface::as_raw(self)) }
@@ -210,7 +210,7 @@ impl IScriptErrorList {
         unsafe { (windows_core::Interface::vtable(self).setPerErrorDisplay)(windows_core::Interface::as_raw(self), fpererrordisplay.into()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScriptErrorList_Vtbl {
@@ -230,7 +230,7 @@ pub struct IScriptErrorList_Vtbl {
     pub getPerErrorDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub setPerErrorDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IScriptErrorList_Impl: super::oaidl::IDispatch_Impl {
     fn advanceError(&self) -> windows_core::Result<()>;
     fn retreatError(&self) -> windows_core::Result<()>;
@@ -247,7 +247,7 @@ pub trait IScriptErrorList_Impl: super::oaidl::IDispatch_Impl {
     fn getPerErrorDisplay(&self) -> windows_core::Result<windows_core::BOOL>;
     fn setPerErrorDisplay(&self, fpererrordisplay: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IScriptErrorList_Vtbl {
     pub const fn new<Identity: IScriptErrorList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn advanceError<Identity: IScriptErrorList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -416,20 +416,20 @@ impl IScriptErrorList_Vtbl {
         iid == &<IScriptErrorList as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IScriptErrorList {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellFavoritesNameSpace, IShellFavoritesNameSpace_Vtbl, 0x55136804_b2de_11d1_b9f2_00a0c98bc547);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellFavoritesNameSpace {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellFavoritesNameSpace, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellFavoritesNameSpace {
     pub unsafe fn MoveSelectionUp(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MoveSelectionUp)(windows_core::Interface::as_raw(self)) }
@@ -458,21 +458,21 @@ impl IShellFavoritesNameSpace {
     pub unsafe fn MoveSelectionTo(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MoveSelectionTo)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SubscriptionsEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SubscriptionsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn CreateSubscriptionForSelection(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateSubscriptionForSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn DeleteSubscriptionForSelection(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -483,7 +483,7 @@ impl IShellFavoritesNameSpace {
         unsafe { (windows_core::Interface::vtable(self).SetRoot)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfullpath)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellFavoritesNameSpace_Vtbl {
@@ -497,21 +497,21 @@ pub struct IShellFavoritesNameSpace_Vtbl {
     pub Export: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InvokeContextMenuCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MoveSelectionTo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SubscriptionsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SubscriptionsEnabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub CreateSubscriptionForSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     CreateSubscriptionForSelection: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub DeleteSubscriptionForSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     DeleteSubscriptionForSelection: usize,
     pub SetRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellFavoritesNameSpace_Impl: super::oaidl::IDispatch_Impl {
     fn MoveSelectionUp(&self) -> windows_core::Result<()>;
     fn MoveSelectionDown(&self) -> windows_core::Result<()>;
@@ -527,7 +527,7 @@ pub trait IShellFavoritesNameSpace_Impl: super::oaidl::IDispatch_Impl {
     fn DeleteSubscriptionForSelection(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetRoot(&self, bstrfullpath: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellFavoritesNameSpace_Vtbl {
     pub const fn new<Identity: IShellFavoritesNameSpace_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MoveSelectionUp<Identity: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -647,20 +647,20 @@ impl IShellFavoritesNameSpace_Vtbl {
         iid == &<IShellFavoritesNameSpace as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellFavoritesNameSpace {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellNameSpace, IShellNameSpace_Vtbl, 0xe572d3c9_37be_4ae2_825d_d521763e3108);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellNameSpace {
     type Target = IShellFavoritesNameSpace;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellNameSpace, windows_core::IUnknown, super::oaidl::IDispatch, IShellFavoritesNameSpace);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellNameSpace {
     pub unsafe fn EnumOptions(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -683,14 +683,14 @@ impl IShellNameSpace {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSelectedItem)(windows_core::Interface::as_raw(self), pitem.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Root(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Root)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetRoot(&self, var: &super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRoot)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(var)) }
     }
@@ -754,7 +754,7 @@ impl IShellNameSpace {
             (windows_core::Interface::vtable(self).SelectedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Expand(&self, var: &super::oaidl::VARIANT, idepth: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(var), idepth) }
     }
@@ -762,7 +762,7 @@ impl IShellNameSpace {
         unsafe { (windows_core::Interface::vtable(self).UnselectAll)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellNameSpace_Vtbl {
@@ -771,13 +771,13 @@ pub struct IShellNameSpace_Vtbl {
     pub SetEnumOptions: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SelectedItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSelectedItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Root: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Root: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub SetRoot: unsafe extern "system" fn(*mut core::ffi::c_void, super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     SetRoot: usize,
     pub Depth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetDepth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -792,13 +792,13 @@ pub struct IShellNameSpace_Vtbl {
     pub CountViewTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetViewType: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SelectedItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Expand: unsafe extern "system" fn(*mut core::ffi::c_void, super::oaidl::VARIANT, i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Expand: usize,
     pub UnselectAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellNameSpace_Impl: IShellFavoritesNameSpace_Impl {
     fn EnumOptions(&self) -> windows_core::Result<i32>;
     fn SetEnumOptions(&self, lval: i32) -> windows_core::Result<()>;
@@ -822,7 +822,7 @@ pub trait IShellNameSpace_Impl: IShellFavoritesNameSpace_Impl {
     fn Expand(&self, var: &super::oaidl::VARIANT, idepth: i32) -> windows_core::Result<()>;
     fn UnselectAll(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellNameSpace_Vtbl {
     pub const fn new<Identity: IShellNameSpace_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumOptions<Identity: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgrfenumflags: *mut i32) -> windows_core::HRESULT {
@@ -1040,20 +1040,20 @@ impl IShellNameSpace_Vtbl {
         iid == &<IShellNameSpace as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IShellFavoritesNameSpace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellNameSpace {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellUIHelper, IShellUIHelper_Vtbl, 0x729fe2f8_1ea8_11d1_8f85_00c04fc2fbe1);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellUIHelper {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellUIHelper {
     pub unsafe fn ResetFirstBootMode(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetFirstBootMode)(windows_core::Interface::as_raw(self)) }
@@ -1064,45 +1064,45 @@ impl IShellUIHelper {
     pub unsafe fn RefreshOfflineDesktop(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RefreshOfflineDesktop)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddFavorite(&self, url: &windows_core::BSTR, title: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddFavorite)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url), title.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn AddChannel(&self, url: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddChannel)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddDesktopComponent(&self, url: &windows_core::BSTR, r#type: &windows_core::BSTR, left: Option<*const super::oaidl::VARIANT>, top: Option<*const super::oaidl::VARIANT>, width: Option<*const super::oaidl::VARIANT>, height: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddDesktopComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url), core::mem::transmute_copy(r#type), left.unwrap_or(core::mem::zeroed()) as _, top.unwrap_or(core::mem::zeroed()) as _, width.unwrap_or(core::mem::zeroed()) as _, height.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsSubscribed(&self, url: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSubscribed)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn NavigateAndFind(&self, url: &windows_core::BSTR, strquery: &windows_core::BSTR, vartargetframe: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).NavigateAndFind)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url), core::mem::transmute_copy(strquery), core::mem::transmute(vartargetframe)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ImportExportFavorites(&self, fimport: super::wtypes::VARIANT_BOOL, strimpexppath: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ImportExportFavorites)(windows_core::Interface::as_raw(self), fimport, core::mem::transmute_copy(strimpexppath)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AutoCompleteSaveForm(&self, form: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AutoCompleteSaveForm)(windows_core::Interface::as_raw(self), form.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AutoScan(&self, strsearch: &windows_core::BSTR, strfailureurl: &windows_core::BSTR, pvartargetframe: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AutoScan)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strsearch), core::mem::transmute_copy(strfailureurl), pvartargetframe.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AutoCompleteAttach(&self, reserved: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AutoCompleteAttach)(windows_core::Interface::as_raw(self), reserved.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ShowBrowserUI(&self, bstrname: &windows_core::BSTR, pvarin: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1110,7 +1110,7 @@ impl IShellUIHelper {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellUIHelper_Vtbl {
@@ -1118,45 +1118,45 @@ pub struct IShellUIHelper_Vtbl {
     pub ResetFirstBootMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResetSafeMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RefreshOfflineDesktop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub AddFavorite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     AddFavorite: usize,
     pub AddChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub AddDesktopComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     AddDesktopComponent: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsSubscribed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsSubscribed: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub NavigateAndFind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     NavigateAndFind: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ImportExportFavorites: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ImportExportFavorites: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub AutoCompleteSaveForm: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     AutoCompleteSaveForm: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub AutoScan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     AutoScan: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub AutoCompleteAttach: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     AutoCompleteAttach: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub ShowBrowserUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::VARIANT, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     ShowBrowserUI: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellUIHelper_Impl: super::oaidl::IDispatch_Impl {
     fn ResetFirstBootMode(&self) -> windows_core::Result<()>;
     fn ResetSafeMode(&self) -> windows_core::Result<()>;
@@ -1172,7 +1172,7 @@ pub trait IShellUIHelper_Impl: super::oaidl::IDispatch_Impl {
     fn AutoCompleteAttach(&self, reserved: *const super::oaidl::VARIANT) -> windows_core::Result<()>;
     fn ShowBrowserUI(&self, bstrname: &windows_core::BSTR, pvarin: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellUIHelper_Vtbl {
     pub const fn new<Identity: IShellUIHelper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ResetFirstBootMode<Identity: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1286,20 +1286,20 @@ impl IShellUIHelper_Vtbl {
         iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellUIHelper {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellUIHelper2, IShellUIHelper2_Vtbl, 0xa7fe6eda_1932_4281_b881_87b31b8bc52c);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellUIHelper2 {
     type Target = IShellUIHelper;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper2, windows_core::IUnknown, super::oaidl::IDispatch, IShellUIHelper);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellUIHelper2 {
     pub unsafe fn AddSearchProvider(&self, url: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddSearchProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url)) }
@@ -1310,18 +1310,18 @@ impl IShellUIHelper2 {
     pub unsafe fn SkipRunOnce(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SkipRunOnce)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn CustomizeSettings(&self, fsqm: super::wtypes::VARIANT_BOOL, fphishing: super::wtypes::VARIANT_BOOL, bstrlocale: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CustomizeSettings)(windows_core::Interface::as_raw(self), fsqm, fphishing, core::mem::transmute_copy(bstrlocale)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SqmEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SqmEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn PhishingEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1340,7 +1340,7 @@ impl IShellUIHelper2 {
     pub unsafe fn DiagnoseConnection(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DiagnoseConnection)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn CustomizeClearType(&self, fset: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CustomizeClearType)(windows_core::Interface::as_raw(self), fset) }
     }
@@ -1350,7 +1350,7 @@ impl IShellUIHelper2 {
             (windows_core::Interface::vtable(self).IsSearchProviderInstalled)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsSearchMigrated(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1363,11 +1363,11 @@ impl IShellUIHelper2 {
             (windows_core::Interface::vtable(self).DefaultSearchProvider)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn RunOnceRequiredSettingsComplete(&self, fcomplete: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunOnceRequiredSettingsComplete)(windows_core::Interface::as_raw(self), fcomplete) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn RunOnceHasShown(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1381,7 +1381,7 @@ impl IShellUIHelper2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellUIHelper2_Vtbl {
@@ -1389,42 +1389,42 @@ pub struct IShellUIHelper2_Vtbl {
     pub AddSearchProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RunOnceShown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SkipRunOnce: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub CustomizeSettings: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     CustomizeSettings: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SqmEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SqmEnabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub PhishingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     PhishingEnabled: usize,
     pub BrandImageUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SkipTabsWelcome: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DiagnoseConnection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub CustomizeClearType: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     CustomizeClearType: usize,
     pub IsSearchProviderInstalled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsSearchMigrated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsSearchMigrated: usize,
     pub DefaultSearchProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub RunOnceRequiredSettingsComplete: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     RunOnceRequiredSettingsComplete: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub RunOnceHasShown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     RunOnceHasShown: usize,
     pub SearchGuideUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellUIHelper2_Impl: IShellUIHelper_Impl {
     fn AddSearchProvider(&self, url: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RunOnceShown(&self) -> windows_core::Result<()>;
@@ -1443,7 +1443,7 @@ pub trait IShellUIHelper2_Impl: IShellUIHelper_Impl {
     fn RunOnceHasShown(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SearchGuideUrl(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellUIHelper2_Vtbl {
     pub const fn new<Identity: IShellUIHelper2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddSearchProvider<Identity: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1614,20 +1614,20 @@ impl IShellUIHelper2_Vtbl {
         iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellUIHelper2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellUIHelper3, IShellUIHelper3_Vtbl, 0x528df2ec_d419_40bc_9b6d_dcdbf9c1b25d);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellUIHelper3 {
     type Target = IShellUIHelper2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper3, windows_core::IUnknown, super::oaidl::IDispatch, IShellUIHelper, IShellUIHelper2);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellUIHelper3 {
     pub unsafe fn AddService(&self, url: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddService)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url)) }
@@ -1638,39 +1638,39 @@ impl IShellUIHelper3 {
             (windows_core::Interface::vtable(self).IsServiceInstalled)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url), core::mem::transmute_copy(verb), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn InPrivateFilteringEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InPrivateFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddToFavoritesBar(&self, url: &windows_core::BSTR, title: &windows_core::BSTR, r#type: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddToFavoritesBar)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url), core::mem::transmute_copy(title), r#type.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn BuildNewTabPage(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BuildNewTabPage)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetRecentlyClosedVisible(&self, fvisible: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRecentlyClosedVisible)(windows_core::Interface::as_raw(self), fvisible) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetActivitiesVisible(&self, fvisible: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetActivitiesVisible)(windows_core::Interface::as_raw(self), fvisible) }
     }
     pub unsafe fn ContentDiscoveryReset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ContentDiscoveryReset)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsSuggestedSitesEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSuggestedSitesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn EnableSuggestedSites(&self, fenable: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnableSuggestedSites)(windows_core::Interface::as_raw(self), fenable) }
     }
@@ -1684,44 +1684,44 @@ impl IShellUIHelper3 {
         unsafe { (windows_core::Interface::vtable(self).ShowInPrivateHelp)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellUIHelper3_Vtbl {
     pub base__: IShellUIHelper2_Vtbl,
     pub AddService: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsServiceInstalled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub InPrivateFilteringEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     InPrivateFilteringEnabled: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub AddToFavoritesBar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     AddToFavoritesBar: usize,
     pub BuildNewTabPage: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetRecentlyClosedVisible: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetRecentlyClosedVisible: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetActivitiesVisible: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetActivitiesVisible: usize,
     pub ContentDiscoveryReset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsSuggestedSitesEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsSuggestedSitesEnabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub EnableSuggestedSites: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     EnableSuggestedSites: usize,
     pub NavigateToSuggestedSites: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShowTabsHelp: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShowInPrivateHelp: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellUIHelper3_Impl: IShellUIHelper2_Impl {
     fn AddService(&self, url: &windows_core::BSTR) -> windows_core::Result<()>;
     fn IsServiceInstalled(&self, url: &windows_core::BSTR, verb: &windows_core::BSTR) -> windows_core::Result<u32>;
@@ -1737,7 +1737,7 @@ pub trait IShellUIHelper3_Impl: IShellUIHelper2_Impl {
     fn ShowTabsHelp(&self) -> windows_core::Result<()>;
     fn ShowInPrivateHelp(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellUIHelper3_Vtbl {
     pub const fn new<Identity: IShellUIHelper3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddService<Identity: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1857,22 +1857,22 @@ impl IShellUIHelper3_Vtbl {
         iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellUIHelper3 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellUIHelper4, IShellUIHelper4_Vtbl, 0xb36e6a53_8073_499e_824c_d776330a333e);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellUIHelper4 {
     type Target = IShellUIHelper3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper4, windows_core::IUnknown, super::oaidl::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellUIHelper4 {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn msIsSiteMode(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1882,18 +1882,18 @@ impl IShellUIHelper4 {
     pub unsafe fn msSiteModeShowThumbBar(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msSiteModeShowThumbBar)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msSiteModeAddThumbBarButton(&self, bstriconurl: &windows_core::BSTR, bstrtooltip: &windows_core::BSTR) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).msSiteModeAddThumbBarButton)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstriconurl), core::mem::transmute_copy(bstrtooltip), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msSiteModeUpdateThumbBarButton(&self, buttonid: &super::oaidl::VARIANT, fenabled: super::wtypes::VARIANT_BOOL, fvisible: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msSiteModeUpdateThumbBarButton)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(buttonid), fenabled, fvisible) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msSiteModeSetIconOverlay(&self, iconurl: &windows_core::BSTR, pvardescription: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msSiteModeSetIconOverlay)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(iconurl), pvardescription.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -1906,7 +1906,7 @@ impl IShellUIHelper4 {
     pub unsafe fn msSiteModeCreateJumpList(&self, bstrheader: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msSiteModeCreateJumpList)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrheader)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msSiteModeAddJumpListItem(&self, bstrname: &windows_core::BSTR, bstractionuri: &windows_core::BSTR, bstriconuri: &windows_core::BSTR, pvarwindowtype: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msSiteModeAddJumpListItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstractionuri), core::mem::transmute_copy(bstriconuri), pvarwindowtype.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -1916,21 +1916,21 @@ impl IShellUIHelper4 {
     pub unsafe fn msSiteModeShowJumpList(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msSiteModeShowJumpList)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msSiteModeAddButtonStyle(&self, uibuttonid: &super::oaidl::VARIANT, bstriconurl: &windows_core::BSTR, bstrtooltip: &windows_core::BSTR) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).msSiteModeAddButtonStyle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(uibuttonid), core::mem::transmute_copy(bstriconurl), core::mem::transmute_copy(bstrtooltip), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msSiteModeShowButtonStyle(&self, uibuttonid: &super::oaidl::VARIANT, uistyleid: &super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msSiteModeShowButtonStyle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(uibuttonid), core::mem::transmute_copy(uistyleid)) }
     }
     pub unsafe fn msSiteModeActivate(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msSiteModeActivate)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msIsSiteModeFirstRun(&self, fpreservestate: super::wtypes::VARIANT_BOOL) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1940,14 +1940,14 @@ impl IShellUIHelper4 {
     pub unsafe fn msAddTrackingProtectionList(&self, url: &windows_core::BSTR, bstrfiltername: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msAddTrackingProtectionList)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url), core::mem::transmute_copy(bstrfiltername)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn msTrackingProtectionEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).msTrackingProtectionEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn msActiveXFilteringEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1955,61 +1955,61 @@ impl IShellUIHelper4 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellUIHelper4_Vtbl {
     pub base__: IShellUIHelper3_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub msIsSiteMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     msIsSiteMode: usize,
     pub msSiteModeShowThumbBar: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msSiteModeAddThumbBarButton: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msSiteModeAddThumbBarButton: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msSiteModeUpdateThumbBarButton: unsafe extern "system" fn(*mut core::ffi::c_void, super::oaidl::VARIANT, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msSiteModeUpdateThumbBarButton: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msSiteModeSetIconOverlay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msSiteModeSetIconOverlay: usize,
     pub msSiteModeClearIconOverlay: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub msAddSiteMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub msSiteModeCreateJumpList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msSiteModeAddJumpListItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msSiteModeAddJumpListItem: usize,
     pub msSiteModeClearJumpList: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub msSiteModeShowJumpList: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msSiteModeAddButtonStyle: unsafe extern "system" fn(*mut core::ffi::c_void, super::oaidl::VARIANT, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msSiteModeAddButtonStyle: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msSiteModeShowButtonStyle: unsafe extern "system" fn(*mut core::ffi::c_void, super::oaidl::VARIANT, super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msSiteModeShowButtonStyle: usize,
     pub msSiteModeActivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msIsSiteModeFirstRun: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msIsSiteModeFirstRun: usize,
     pub msAddTrackingProtectionList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub msTrackingProtectionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     msTrackingProtectionEnabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub msActiveXFilteringEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     msActiveXFilteringEnabled: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellUIHelper4_Impl: IShellUIHelper3_Impl {
     fn msIsSiteMode(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn msSiteModeShowThumbBar(&self) -> windows_core::Result<()>;
@@ -2030,7 +2030,7 @@ pub trait IShellUIHelper4_Impl: IShellUIHelper3_Impl {
     fn msTrackingProtectionEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn msActiveXFilteringEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellUIHelper4_Vtbl {
     pub const fn new<Identity: IShellUIHelper4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn msIsSiteMode<Identity: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfsitemode: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2203,22 +2203,22 @@ impl IShellUIHelper4_Vtbl {
         iid == &<IShellUIHelper4 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellUIHelper4 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellUIHelper5, IShellUIHelper5_Vtbl, 0xa2a08b09_103d_4d3f_b91c_ea455ca82efa);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellUIHelper5 {
     type Target = IShellUIHelper4;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper5, windows_core::IUnknown, super::oaidl::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellUIHelper5 {
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msProvisionNetworks(&self, bstrprovisioningxml: &windows_core::BSTR) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2240,31 +2240,31 @@ impl IShellUIHelper5 {
     pub unsafe fn msLaunchNetworkClientHelp(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msLaunchNetworkClientHelp)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn msChangeDefaultBrowser(&self, fchange: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msChangeDefaultBrowser)(windows_core::Interface::as_raw(self), fchange) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellUIHelper5_Vtbl {
     pub base__: IShellUIHelper4_Vtbl,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msProvisionNetworks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msProvisionNetworks: usize,
     pub msReportSafeUrl: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub msSiteModeRefreshBadge: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub msSiteModeClearBadge: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub msDiagnoseConnectionUILess: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub msLaunchNetworkClientHelp: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub msChangeDefaultBrowser: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     msChangeDefaultBrowser: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellUIHelper5_Impl: IShellUIHelper4_Impl {
     fn msProvisionNetworks(&self, bstrprovisioningxml: &windows_core::BSTR) -> windows_core::Result<super::oaidl::VARIANT>;
     fn msReportSafeUrl(&self) -> windows_core::Result<()>;
@@ -2274,7 +2274,7 @@ pub trait IShellUIHelper5_Impl: IShellUIHelper4_Impl {
     fn msLaunchNetworkClientHelp(&self) -> windows_core::Result<()>;
     fn msChangeDefaultBrowser(&self, fchange: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellUIHelper5_Vtbl {
     pub const fn new<Identity: IShellUIHelper5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn msProvisionNetworks<Identity: IShellUIHelper5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovisioningxml: *mut core::ffi::c_void, puiresult: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -2340,66 +2340,66 @@ impl IShellUIHelper5_Vtbl {
         iid == &<IShellUIHelper5 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<IShellUIHelper4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellUIHelper5 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellUIHelper6, IShellUIHelper6_Vtbl, 0x987a573e_46ee_4e89_96ab_ddf7f8fdc98c);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellUIHelper6 {
     type Target = IShellUIHelper5;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper6, windows_core::IUnknown, super::oaidl::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellUIHelper6 {
     pub unsafe fn msStopPeriodicTileUpdate(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msStopPeriodicTileUpdate)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msStartPeriodicTileUpdate(&self, pollinguris: &super::oaidl::VARIANT, starttime: &super::oaidl::VARIANT, uiupdaterecurrence: &super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msStartPeriodicTileUpdate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pollinguris), core::mem::transmute_copy(starttime), core::mem::transmute_copy(uiupdaterecurrence)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msStartPeriodicTileUpdateBatch(&self, pollinguris: &super::oaidl::VARIANT, starttime: &super::oaidl::VARIANT, uiupdaterecurrence: &super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msStartPeriodicTileUpdateBatch)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pollinguris), core::mem::transmute_copy(starttime), core::mem::transmute_copy(uiupdaterecurrence)) }
     }
     pub unsafe fn msClearTile(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msClearTile)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn msEnableTileNotificationQueue(&self, fchange: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msEnableTileNotificationQueue)(windows_core::Interface::as_raw(self), fchange) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msPinnedSiteState(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).msPinnedSiteState)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn msEnableTileNotificationQueueForSquare150x150(&self, fchange: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msEnableTileNotificationQueueForSquare150x150)(windows_core::Interface::as_raw(self), fchange) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn msEnableTileNotificationQueueForWide310x150(&self, fchange: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msEnableTileNotificationQueueForWide310x150)(windows_core::Interface::as_raw(self), fchange) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn msEnableTileNotificationQueueForSquare310x310(&self, fchange: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msEnableTileNotificationQueueForSquare310x310)(windows_core::Interface::as_raw(self), fchange) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msScheduledTileNotification(&self, bstrnotificationxml: &windows_core::BSTR, bstrnotificationid: &windows_core::BSTR, bstrnotificationtag: &windows_core::BSTR, starttime: &super::oaidl::VARIANT, expirationtime: &super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msScheduledTileNotification)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrnotificationxml), core::mem::transmute_copy(bstrnotificationid), core::mem::transmute_copy(bstrnotificationtag), core::mem::transmute_copy(starttime), core::mem::transmute_copy(expirationtime)) }
     }
     pub unsafe fn msRemoveScheduledTileNotification(&self, bstrnotificationid: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msRemoveScheduledTileNotification)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrnotificationid)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn msStartPeriodicBadgeUpdate(&self, pollinguri: &windows_core::BSTR, starttime: &super::oaidl::VARIANT, uiupdaterecurrence: &super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).msStartPeriodicBadgeUpdate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pollinguri), core::mem::transmute_copy(starttime), core::mem::transmute_copy(uiupdaterecurrence)) }
     }
@@ -2410,54 +2410,54 @@ impl IShellUIHelper6 {
         unsafe { (windows_core::Interface::vtable(self).msLaunchInternetOptions)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellUIHelper6_Vtbl {
     pub base__: IShellUIHelper5_Vtbl,
     pub msStopPeriodicTileUpdate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msStartPeriodicTileUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, super::oaidl::VARIANT, super::oaidl::VARIANT, super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msStartPeriodicTileUpdate: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msStartPeriodicTileUpdateBatch: unsafe extern "system" fn(*mut core::ffi::c_void, super::oaidl::VARIANT, super::oaidl::VARIANT, super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msStartPeriodicTileUpdateBatch: usize,
     pub msClearTile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub msEnableTileNotificationQueue: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     msEnableTileNotificationQueue: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msPinnedSiteState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msPinnedSiteState: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub msEnableTileNotificationQueueForSquare150x150: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     msEnableTileNotificationQueueForSquare150x150: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub msEnableTileNotificationQueueForWide310x150: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     msEnableTileNotificationQueueForWide310x150: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub msEnableTileNotificationQueueForSquare310x310: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     msEnableTileNotificationQueueForSquare310x310: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msScheduledTileNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::oaidl::VARIANT, super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msScheduledTileNotification: usize,
     pub msRemoveScheduledTileNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub msStartPeriodicBadgeUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::oaidl::VARIANT, super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     msStartPeriodicBadgeUpdate: usize,
     pub msStopPeriodicBadgeUpdate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub msLaunchInternetOptions: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellUIHelper6_Impl: IShellUIHelper5_Impl {
     fn msStopPeriodicTileUpdate(&self) -> windows_core::Result<()>;
     fn msStartPeriodicTileUpdate(&self, pollinguris: &super::oaidl::VARIANT, starttime: &super::oaidl::VARIANT, uiupdaterecurrence: &super::oaidl::VARIANT) -> windows_core::Result<()>;
@@ -2474,7 +2474,7 @@ pub trait IShellUIHelper6_Impl: IShellUIHelper5_Impl {
     fn msStopPeriodicBadgeUpdate(&self) -> windows_core::Result<()>;
     fn msLaunchInternetOptions(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellUIHelper6_Vtbl {
     pub const fn new<Identity: IShellUIHelper6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn msStopPeriodicTileUpdate<Identity: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2589,26 +2589,26 @@ impl IShellUIHelper6_Vtbl {
         iid == &<IShellUIHelper6 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<IShellUIHelper4 as windows_core::Interface>::IID || iid == &<IShellUIHelper5 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellUIHelper6 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellUIHelper7, IShellUIHelper7_Vtbl, 0x60e567c8_9573_4ab2_a264_637c6c161cb1);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellUIHelper7 {
     type Target = IShellUIHelper6;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper7, windows_core::IUnknown, super::oaidl::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellUIHelper7 {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetExperimentalFlag(&self, bstrflagstring: &windows_core::BSTR, vfflag: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetExperimentalFlag)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrflagstring), vfflag) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetExperimentalFlag(&self, bstrflagstring: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2627,63 +2627,63 @@ impl IShellUIHelper7 {
     pub unsafe fn ResetAllExperimentalFlagsAndValues(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetAllExperimentalFlagsAndValues)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetNeedIEAutoLaunchFlag(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNeedIEAutoLaunchFlag)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetNeedIEAutoLaunchFlag(&self, bstrurl: &windows_core::BSTR, flag: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNeedIEAutoLaunchFlag)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), flag) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn HasNeedIEAutoLaunchFlag(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HasNeedIEAutoLaunchFlag)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn LaunchIE(&self, bstrurl: &windows_core::BSTR, automated: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LaunchIE)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), automated) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellUIHelper7_Vtbl {
     pub base__: IShellUIHelper6_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetExperimentalFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetExperimentalFlag: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetExperimentalFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetExperimentalFlag: usize,
     pub SetExperimentalValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetExperimentalValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ResetAllExperimentalFlagsAndValues: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetNeedIEAutoLaunchFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetNeedIEAutoLaunchFlag: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetNeedIEAutoLaunchFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetNeedIEAutoLaunchFlag: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub HasNeedIEAutoLaunchFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     HasNeedIEAutoLaunchFlag: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub LaunchIE: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     LaunchIE: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellUIHelper7_Impl: IShellUIHelper6_Impl {
     fn SetExperimentalFlag(&self, bstrflagstring: &windows_core::BSTR, vfflag: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
     fn GetExperimentalFlag(&self, bstrflagstring: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
@@ -2695,7 +2695,7 @@ pub trait IShellUIHelper7_Impl: IShellUIHelper6_Impl {
     fn HasNeedIEAutoLaunchFlag(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn LaunchIE(&self, bstrurl: &windows_core::BSTR, automated: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellUIHelper7_Vtbl {
     pub const fn new<Identity: IShellUIHelper7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetExperimentalFlag<Identity: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrflagstring: *mut core::ffi::c_void, vfflag: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2793,20 +2793,20 @@ impl IShellUIHelper7_Vtbl {
         iid == &<IShellUIHelper7 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<IShellUIHelper4 as windows_core::Interface>::IID || iid == &<IShellUIHelper5 as windows_core::Interface>::IID || iid == &<IShellUIHelper6 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellUIHelper7 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellUIHelper8, IShellUIHelper8_Vtbl, 0x66debcf2_05b0_4f07_b49b_b96241a65db2);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellUIHelper8 {
     type Target = IShellUIHelper7;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper8, windows_core::IUnknown, super::oaidl::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6, IShellUIHelper7);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellUIHelper8 {
     pub unsafe fn GetCVListData(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -2842,7 +2842,7 @@ impl IShellUIHelper8 {
         unsafe { (windows_core::Interface::vtable(self).LaunchInHVSI)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellUIHelper8_Vtbl {
@@ -2855,7 +2855,7 @@ pub struct IShellUIHelper8_Vtbl {
     pub OpenFavoritesSettings: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LaunchInHVSI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellUIHelper8_Impl: IShellUIHelper7_Impl {
     fn GetCVListData(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetCVListLocalData(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2865,7 +2865,7 @@ pub trait IShellUIHelper8_Impl: IShellUIHelper7_Impl {
     fn OpenFavoritesSettings(&self) -> windows_core::Result<()>;
     fn LaunchInHVSI(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellUIHelper8_Vtbl {
     pub const fn new<Identity: IShellUIHelper8_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCVListData<Identity: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2949,20 +2949,20 @@ impl IShellUIHelper8_Vtbl {
         iid == &<IShellUIHelper8 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<IShellUIHelper4 as windows_core::Interface>::IID || iid == &<IShellUIHelper5 as windows_core::Interface>::IID || iid == &<IShellUIHelper6 as windows_core::Interface>::IID || iid == &<IShellUIHelper7 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellUIHelper8 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellUIHelper9, IShellUIHelper9_Vtbl, 0x6cdf73b0_7f2f_451f_bc0f_63e0f3284e54);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellUIHelper9 {
     type Target = IShellUIHelper8;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper9, windows_core::IUnknown, super::oaidl::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6, IShellUIHelper7, IShellUIHelper8);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellUIHelper9 {
     pub unsafe fn GetOSSku(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -2971,18 +2971,18 @@ impl IShellUIHelper9 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellUIHelper9_Vtbl {
     pub base__: IShellUIHelper8_Vtbl,
     pub GetOSSku: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellUIHelper9_Impl: IShellUIHelper8_Impl {
     fn GetOSSku(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellUIHelper9_Vtbl {
     pub const fn new<Identity: IShellUIHelper9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOSSku<Identity: IShellUIHelper9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwresult: *mut u32) -> windows_core::HRESULT {
@@ -3003,20 +3003,20 @@ impl IShellUIHelper9_Vtbl {
         iid == &<IShellUIHelper9 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<IShellUIHelper4 as windows_core::Interface>::IID || iid == &<IShellUIHelper5 as windows_core::Interface>::IID || iid == &<IShellUIHelper6 as windows_core::Interface>::IID || iid == &<IShellUIHelper7 as windows_core::Interface>::IID || iid == &<IShellUIHelper8 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellUIHelper9 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IShellWindows, IShellWindows_Vtbl, 0x85cb6900_4d95_11cf_960c_0080c7f4ee85);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IShellWindows {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IShellWindows, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IShellWindows {
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -3024,7 +3024,7 @@ impl IShellWindows {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, index: &super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3046,7 +3046,7 @@ impl IShellWindows {
             (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self), pid.param().abi(), hwnd, swclass, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::oaidl::VARIANT, pvarlocroot: *const super::oaidl::VARIANT, swclass: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3056,15 +3056,15 @@ impl IShellWindows {
     pub unsafe fn Revoke(&self, lcookie: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Revoke)(windows_core::Interface::as_raw(self), lcookie) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnNavigate(&self, lcookie: i32, pvarloc: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnNavigate)(windows_core::Interface::as_raw(self), lcookie, core::mem::transmute(pvarloc)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn OnActivated(&self, lcookie: i32, factive: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnActivated)(windows_core::Interface::as_raw(self), lcookie, factive) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FindWindowSW(&self, pvarloc: *const super::oaidl::VARIANT, pvarlocroot: *const super::oaidl::VARIANT, swclass: i32, phwnd: *mut i32, swfwoptions: i32) -> windows_core::Result<super::oaidl::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3077,47 +3077,47 @@ impl IShellWindows {
     {
         unsafe { (windows_core::Interface::vtable(self).OnCreated)(windows_core::Interface::as_raw(self), lcookie, punk.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ProcessAttachDetach(&self, fattach: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ProcessAttachDetach)(windows_core::Interface::as_raw(self), fattach) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShellWindows_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::oaidl::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub RegisterPending: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     RegisterPending: usize,
     pub Revoke: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub OnNavigate: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     OnNavigate: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub OnActivated: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     OnActivated: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub FindWindowSW: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT, i32, *mut i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     FindWindowSW: usize,
     pub OnCreated: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ProcessAttachDetach: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ProcessAttachDetach: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellWindows_Impl: super::oaidl::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::IDispatch>;
@@ -3131,7 +3131,7 @@ pub trait IShellWindows_Impl: super::oaidl::IDispatch_Impl {
     fn OnCreated(&self, lcookie: i32, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn ProcessAttachDetach(&self, fattach: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellWindows_Vtbl {
     pub const fn new<Identity: IShellWindows_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: IShellWindows_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -3255,20 +3255,20 @@ impl IShellWindows_Vtbl {
         iid == &<IShellWindows as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IShellWindows {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWebBrowser, IWebBrowser_Vtbl, 0xeab22ac1_30c1_11cf_a7eb_0000c05bae0b);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWebBrowser {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWebBrowser, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWebBrowser {
     pub unsafe fn GoBack(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GoBack)(windows_core::Interface::as_raw(self)) }
@@ -3282,14 +3282,14 @@ impl IWebBrowser {
     pub unsafe fn GoSearch(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GoSearch)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Navigate(&self, url: &windows_core::BSTR, flags: Option<*const super::oaidl::VARIANT>, targetframename: Option<*const super::oaidl::VARIANT>, postdata: Option<*const super::oaidl::VARIANT>, headers: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url), flags.unwrap_or(core::mem::zeroed()) as _, targetframename.unwrap_or(core::mem::zeroed()) as _, postdata.unwrap_or(core::mem::zeroed()) as _, headers.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Refresh2(&self, level: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Refresh2)(windows_core::Interface::as_raw(self), level.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -3320,7 +3320,7 @@ impl IWebBrowser {
             (windows_core::Interface::vtable(self).Document)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn TopLevelContainer(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3381,7 +3381,7 @@ impl IWebBrowser {
             (windows_core::Interface::vtable(self).LocationURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Busy(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3389,7 +3389,7 @@ impl IWebBrowser {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebBrowser_Vtbl {
@@ -3398,23 +3398,23 @@ pub struct IWebBrowser_Vtbl {
     pub GoForward: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GoHome: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GoSearch: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Navigate: usize,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Refresh2: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Refresh2: usize,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Application: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Container: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Document: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub TopLevelContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     TopLevelContainer: usize,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Left: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3427,12 +3427,12 @@ pub struct IWebBrowser_Vtbl {
     pub SetHeight: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub LocationName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LocationURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Busy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Busy: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWebBrowser_Impl: super::oaidl::IDispatch_Impl {
     fn GoBack(&self) -> windows_core::Result<()>;
     fn GoForward(&self) -> windows_core::Result<()>;
@@ -3460,7 +3460,7 @@ pub trait IWebBrowser_Impl: super::oaidl::IDispatch_Impl {
     fn LocationURL(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Busy(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWebBrowser_Vtbl {
     pub const fn new<Identity: IWebBrowser_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GoBack<Identity: IWebBrowser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3724,208 +3724,208 @@ impl IWebBrowser_Vtbl {
         iid == &<IWebBrowser as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWebBrowser {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWebBrowser2, IWebBrowser2_Vtbl, 0xd30c1661_cdaf_11d0_8a3e_00c04fc9e26e);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWebBrowser2 {
     type Target = IWebBrowserApp;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWebBrowser2, windows_core::IUnknown, super::oaidl::IDispatch, IWebBrowser, IWebBrowserApp);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWebBrowser2 {
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Navigate2(&self, url: *const super::oaidl::VARIANT, flags: Option<*const super::oaidl::VARIANT>, targetframename: Option<*const super::oaidl::VARIANT>, postdata: Option<*const super::oaidl::VARIANT>, headers: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Navigate2)(windows_core::Interface::as_raw(self), core::mem::transmute(url), flags.unwrap_or(core::mem::zeroed()) as _, targetframename.unwrap_or(core::mem::zeroed()) as _, postdata.unwrap_or(core::mem::zeroed()) as _, headers.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_docobj")]
+    #[cfg(feature = "docobj")]
     pub unsafe fn QueryStatusWB(&self, cmdid: super::docobj::OLECMDID) -> windows_core::Result<super::docobj::OLECMDF> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryStatusWB)(windows_core::Interface::as_raw(self), cmdid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_docobj", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "docobj", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ExecWB(&self, cmdid: super::docobj::OLECMDID, cmdexecopt: super::docobj::OLECMDEXECOPT, pvain: Option<*const super::oaidl::VARIANT>, pvaout: Option<*mut super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ExecWB)(windows_core::Interface::as_raw(self), cmdid, cmdexecopt, pvain.unwrap_or(core::mem::zeroed()) as _, pvaout.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ShowBrowserBar(&self, pvaclsid: *const super::oaidl::VARIANT, pvarshow: Option<*const super::oaidl::VARIANT>, pvarsize: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ShowBrowserBar)(windows_core::Interface::as_raw(self), core::mem::transmute(pvaclsid), pvarshow.unwrap_or(core::mem::zeroed()) as _, pvarsize.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub unsafe fn ReadyState(&self) -> windows_core::Result<super::ocidl::READYSTATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadyState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Offline(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Offline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetOffline(&self, boffline: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetOffline)(windows_core::Interface::as_raw(self), boffline) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Silent(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Silent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetSilent(&self, bsilent: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSilent)(windows_core::Interface::as_raw(self), bsilent) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn RegisterAsBrowser(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterAsBrowser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetRegisterAsBrowser(&self, bregister: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRegisterAsBrowser)(windows_core::Interface::as_raw(self), bregister) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn RegisterAsDropTarget(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterAsDropTarget)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetRegisterAsDropTarget(&self, bregister: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRegisterAsDropTarget)(windows_core::Interface::as_raw(self), bregister) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn TheaterMode(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TheaterMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetTheaterMode(&self, bregister: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTheaterMode)(windows_core::Interface::as_raw(self), bregister) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AddressBar(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddressBar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetAddressBar(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAddressBar)(windows_core::Interface::as_raw(self), value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Resizable(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Resizable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetResizable(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetResizable)(windows_core::Interface::as_raw(self), value) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebBrowser2_Vtbl {
     pub base__: IWebBrowserApp_Vtbl,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Navigate2: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Navigate2: usize,
-    #[cfg(feature = "Win32_docobj")]
+    #[cfg(feature = "docobj")]
     pub QueryStatusWB: unsafe extern "system" fn(*mut core::ffi::c_void, super::docobj::OLECMDID, *mut super::docobj::OLECMDF) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_docobj"))]
+    #[cfg(not(feature = "docobj"))]
     QueryStatusWB: usize,
-    #[cfg(all(feature = "Win32_docobj", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "docobj", feature = "wtypes", feature = "wtypesbase"))]
     pub ExecWB: unsafe extern "system" fn(*mut core::ffi::c_void, super::docobj::OLECMDID, super::docobj::OLECMDEXECOPT, *const super::oaidl::VARIANT, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_docobj", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "docobj", feature = "wtypes", feature = "wtypesbase")))]
     ExecWB: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub ShowBrowserBar: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     ShowBrowserBar: usize,
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub ReadyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ocidl::READYSTATE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ocidl"))]
+    #[cfg(not(feature = "ocidl"))]
     ReadyState: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Offline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Offline: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetOffline: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetOffline: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Silent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Silent: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetSilent: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetSilent: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub RegisterAsBrowser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     RegisterAsBrowser: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetRegisterAsBrowser: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetRegisterAsBrowser: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub RegisterAsDropTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     RegisterAsDropTarget: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetRegisterAsDropTarget: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetRegisterAsDropTarget: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub TheaterMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     TheaterMode: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetTheaterMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetTheaterMode: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AddressBar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AddressBar: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetAddressBar: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetAddressBar: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Resizable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Resizable: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetResizable: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetResizable: usize,
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_docobj", feature = "Win32_oaidl", feature = "Win32_ocidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "basetsd", feature = "docobj", feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWebBrowser2_Impl: IWebBrowserApp_Impl {
     fn Navigate2(&self, url: *const super::oaidl::VARIANT, flags: *const super::oaidl::VARIANT, targetframename: *const super::oaidl::VARIANT, postdata: *const super::oaidl::VARIANT, headers: *const super::oaidl::VARIANT) -> windows_core::Result<()>;
     fn QueryStatusWB(&self, cmdid: super::docobj::OLECMDID) -> windows_core::Result<super::docobj::OLECMDF>;
@@ -3947,7 +3947,7 @@ pub trait IWebBrowser2_Impl: IWebBrowserApp_Impl {
     fn Resizable(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetResizable(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_docobj", feature = "Win32_oaidl", feature = "Win32_ocidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "basetsd", feature = "docobj", feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWebBrowser2_Vtbl {
     pub const fn new<Identity: IWebBrowser2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Navigate2<Identity: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: *const super::oaidl::VARIANT, flags: *const super::oaidl::VARIANT, targetframename: *const super::oaidl::VARIANT, postdata: *const super::oaidl::VARIANT, headers: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -4145,20 +4145,20 @@ impl IWebBrowser2_Vtbl {
         iid == &<IWebBrowser2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWebBrowser as windows_core::Interface>::IID || iid == &<IWebBrowserApp as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_docobj", feature = "Win32_oaidl", feature = "Win32_ocidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "basetsd", feature = "docobj", feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWebBrowser2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWebBrowserApp, IWebBrowserApp_Vtbl, 0x0002df05_0000_0000_c000_000000000046);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IWebBrowserApp {
     type Target = IWebBrowser;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IWebBrowserApp, windows_core::IUnknown, super::oaidl::IDispatch, IWebBrowser);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IWebBrowserApp {
     pub unsafe fn Quit(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Quit)(windows_core::Interface::as_raw(self)) }
@@ -4166,11 +4166,11 @@ impl IWebBrowserApp {
     pub unsafe fn ClientToWindow(&self, pcx: *mut i32, pcy: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ClientToWindow)(windows_core::Interface::as_raw(self), pcx as _, pcy as _) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PutProperty(&self, property: &windows_core::BSTR, vtvalue: &super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PutProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property), core::mem::transmute_copy(vtvalue)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetProperty(&self, property: &windows_core::BSTR) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4183,7 +4183,7 @@ impl IWebBrowserApp {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_basetsd")]
+    #[cfg(feature = "basetsd")]
     pub unsafe fn HWND(&self) -> windows_core::Result<super::basetsd::SHANDLE_PTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4202,25 +4202,25 @@ impl IWebBrowserApp {
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Visible(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Visible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetVisible(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn StatusBar(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusBar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetStatusBar(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStatusBar)(windows_core::Interface::as_raw(self), value) }
     }
@@ -4242,89 +4242,89 @@ impl IWebBrowserApp {
     pub unsafe fn SetToolBar(&self, value: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetToolBar)(windows_core::Interface::as_raw(self), value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn MenuBar(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MenuBar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetMenuBar(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMenuBar)(windows_core::Interface::as_raw(self), value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn FullScreen(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FullScreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetFullScreen(&self, bfullscreen: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFullScreen)(windows_core::Interface::as_raw(self), bfullscreen) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebBrowserApp_Vtbl {
     pub base__: IWebBrowser_Vtbl,
     pub Quit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClientToWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub PutProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     PutProperty: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     GetProperty: usize,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_basetsd")]
+    #[cfg(feature = "basetsd")]
     pub HWND: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::basetsd::SHANDLE_PTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_basetsd"))]
+    #[cfg(not(feature = "basetsd"))]
     HWND: usize,
     pub FullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Visible: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetVisible: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetVisible: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub StatusBar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     StatusBar: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetStatusBar: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetStatusBar: usize,
     pub StatusText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetStatusText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ToolBar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetToolBar: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub MenuBar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     MenuBar: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetMenuBar: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetMenuBar: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub FullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     FullScreen: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetFullScreen: usize,
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "basetsd", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWebBrowserApp_Impl: IWebBrowser_Impl {
     fn Quit(&self) -> windows_core::Result<()>;
     fn ClientToWindow(&self, pcx: *mut i32, pcy: *mut i32) -> windows_core::Result<()>;
@@ -4347,7 +4347,7 @@ pub trait IWebBrowserApp_Impl: IWebBrowser_Impl {
     fn FullScreen(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetFullScreen(&self, bfullscreen: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "basetsd", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWebBrowserApp_Vtbl {
     pub const fn new<Identity: IWebBrowserApp_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Quit<Identity: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4564,7 +4564,7 @@ impl IWebBrowserApp_Vtbl {
         iid == &<IWebBrowserApp as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IWebBrowser as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "basetsd", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWebBrowserApp {}
 pub const InternetExplorer: windows_core::GUID = windows_core::GUID::from_u128(0x0002df01_0000_0000_c000_000000000046);
 pub const InternetExplorerMedium: windows_core::GUID = windows_core::GUID::from_u128(0xd5e8041d_920f_45e9_b8fb_b1deb82c6e5e);

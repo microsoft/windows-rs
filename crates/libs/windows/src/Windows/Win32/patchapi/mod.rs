@@ -8,19 +8,19 @@ where
     windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileA(patchfilename : windows_core::PCSTR, oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, applyoptionflags : u32) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileA(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: Option<&[u8]>, newfilebuffer: *mut super::minwindef::PBYTE, newfilebuffersize: u32, newfileactualsize: Option<*mut u32>, newfiletime: Option<*mut super::minwindef::FILETIME>, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : *const u8, patchfilesize : u32, oldfilemapped : *const u8, oldfilesize : u32, newfilebuffer : *mut super::minwindef::PBYTE, newfilebuffersize : u32, newfileactualsize : *mut u32, newfiletime : *mut super::minwindef::FILETIME, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileByBuffers(core::mem::transmute(patchfilemapped.as_ptr()), patchfilemapped.len().try_into().unwrap(), core::mem::transmute(oldfilemapped.map_or(core::ptr::null(), |slice| slice.as_ptr())), oldfilemapped.map_or(0, |slice| slice.len().try_into().unwrap()), newfilebuffer as _, newfilebuffersize, newfileactualsize.unwrap_or(core::mem::zeroed()) as _, newfiletime.unwrap_or(core::mem::zeroed()) as _, applyoptionflags, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ApplyPatchToFileByHandles(patchfilehandle: super::winnt::HANDLE, oldfilehandle: Option<super::winnt::HANDLE>, newfilehandle: super::winnt::HANDLE, applyoptionflags: u32) -> windows_core::BOOL {
     windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandles(patchfilehandle : super::winnt::HANDLE, oldfilehandle : super::winnt::HANDLE, newfilehandle : super::winnt::HANDLE, applyoptionflags : u32) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileByHandles(patchfilehandle, oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, applyoptionflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ApplyPatchToFileByHandlesEx(patchfilehandle: super::winnt::HANDLE, oldfilehandle: Option<super::winnt::HANDLE>, newfilehandle: super::winnt::HANDLE, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandlesEx(patchfilehandle : super::winnt::HANDLE, oldfilehandle : super::winnt::HANDLE, newfilehandle : super::winnt::HANDLE, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
@@ -66,13 +66,13 @@ where
     windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileA(oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_core::BOOL);
     unsafe { CreatePatchFileA(oldfilename.param().abi(), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CreatePatchFileByHandles(oldfilehandle: Option<super::winnt::HANDLE>, newfilehandle: super::winnt::HANDLE, patchfilehandle: super::winnt::HANDLE, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>) -> windows_core::BOOL {
     windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandles(oldfilehandle : super::winnt::HANDLE, newfilehandle : super::winnt::HANDLE, patchfilehandle : super::winnt::HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_core::BOOL);
     unsafe { CreatePatchFileByHandles(oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, patchfilehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CreatePatchFileByHandlesEx(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_H], newfilehandle: super::winnt::HANDLE, patchfilehandle: super::winnt::HANDLE, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_H, newfilehandle : super::winnt::HANDLE, patchfilehandle : super::winnt::HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
@@ -115,7 +115,7 @@ where
     windows_core::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileA(patchfilename : windows_core::PCSTR, patchheaderfilename : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { ExtractPatchHeaderToFileA(patchfilename.param().abi(), patchheaderfilename.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ExtractPatchHeaderToFileByHandles(patchfilehandle: super::winnt::HANDLE, patchheaderfilehandle: super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileByHandles(patchfilehandle : super::winnt::HANDLE, patchheaderfilehandle : super::winnt::HANDLE) -> windows_core::BOOL);
@@ -168,7 +168,7 @@ pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut [u8], optio
         )
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetFilePatchSignatureByHandle(filehandle: super::winnt::HANDLE, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: &mut [u8]) -> windows_core::BOOL {
     windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::winnt::HANDLE, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
@@ -201,7 +201,7 @@ pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: &[u8], oldfilebuffe
     windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(patchfilebuffer : *const u8, patchfilesize : u32, oldfilebuffer : *const u8, oldfilesize : u32, newfilesize : *mut u32, applyoptionflags : u32) -> windows_core::BOOL);
     unsafe { TestApplyPatchToFileByBuffers(core::mem::transmute(patchfilebuffer.as_ptr()), patchfilebuffer.len().try_into().unwrap(), core::mem::transmute(oldfilebuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), oldfilebuffer.map_or(0, |slice| slice.len().try_into().unwrap()), newfilesize.unwrap_or(core::mem::zeroed()) as _, applyoptionflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn TestApplyPatchToFileByHandles(patchfilehandle: super::winnt::HANDLE, oldfilehandle: super::winnt::HANDLE, applyoptionflags: u32) -> windows_core::BOOL {
     windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByHandles(patchfilehandle : super::winnt::HANDLE, oldfilehandle : super::winnt::HANDLE, applyoptionflags : u32) -> windows_core::BOOL);
@@ -257,7 +257,7 @@ pub struct PATCH_INTERLEAVE_MAP_0 {
     pub NewLength: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO {
     pub SizeOfThisStruct: u32,
@@ -267,21 +267,21 @@ pub struct PATCH_OLD_FILE_INFO {
     pub RetainRangeCount: u32,
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PATCH_OLD_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union PATCH_OLD_FILE_INFO_0 {
     pub OldFileNameA: windows_core::PCSTR,
     pub OldFileNameW: windows_core::PCWSTR,
     pub OldFileHandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PATCH_OLD_FILE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -298,7 +298,7 @@ pub struct PATCH_OLD_FILE_INFO_A {
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_H {
     pub SizeOfThisStruct: u32,
@@ -394,17 +394,17 @@ impl Default for PPATCH_INTERLEAVE_MAP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPATCH_OLD_FILE_INFO(pub *mut PATCH_OLD_FILE_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PPATCH_OLD_FILE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PPATCH_OLD_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -423,17 +423,17 @@ impl Default for PPATCH_OLD_FILE_INFO_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPATCH_OLD_FILE_INFO_H(pub *mut PATCH_OLD_FILE_INFO_H);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PPATCH_OLD_FILE_INFO_H {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PPATCH_OLD_FILE_INFO_H {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

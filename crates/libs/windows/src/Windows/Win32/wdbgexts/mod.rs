@@ -21,7 +21,7 @@ pub const CURRENT_KD_SECONDARY_VERSION: u32 = 2;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub const CURRENT_KD_SECONDARY_VERSION: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBGKD_DEBUG_DATA_HEADER32 {
     pub List: super::winnt::LIST_ENTRY32,
@@ -29,7 +29,7 @@ pub struct DBGKD_DEBUG_DATA_HEADER32 {
     pub Size: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBGKD_DEBUG_DATA_HEADER64 {
     pub List: super::winnt::LIST_ENTRY64,
@@ -215,7 +215,7 @@ pub const EXT_API_VERSION_NUMBER: u32 = 5;
 pub const EXT_API_VERSION_NUMBER32: u32 = 5;
 pub const EXT_API_VERSION_NUMBER64: u32 = 6;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXT_FIND_FILE {
     pub FileName: windows_core::PCWSTR,
@@ -231,7 +231,7 @@ pub struct EXT_FIND_FILE {
     pub FoundFileName: windows_core::PWSTR,
     pub FoundFileNameChars: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for EXT_FIND_FILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -299,7 +299,7 @@ impl Default for EXT_TYPED_DATA {
 }
 pub const FIELDS_DID_NOT_MATCH: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct FIELD_INFO {
     pub fName: super::minwindef::PUCHAR,
@@ -314,20 +314,20 @@ pub struct FIELD_INFO {
     pub BitField: FIELD_INFO_1,
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for FIELD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union FIELD_INFO_0 {
     pub fieldCallBack: *mut core::ffi::c_void,
     pub pBuffer: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for FIELD_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -502,7 +502,7 @@ pub struct IOSPACE_EX64 {
 }
 pub const KDBG_TAG: u32 = 1195525195;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDDEBUGGER_DATA32 {
     pub Header: DBGKD_DEBUG_DATA_HEADER32,
@@ -573,7 +573,7 @@ pub struct KDDEBUGGER_DATA32 {
     pub MmLoadedUserImageList: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDDEBUGGER_DATA64 {
     pub Header: DBGKD_DEBUG_DATA_HEADER64,
@@ -774,33 +774,33 @@ impl Default for PBUSDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDBGKD_DEBUG_DATA_HEADER32(pub *mut DBGKD_DEBUG_DATA_HEADER32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDBGKD_DEBUG_DATA_HEADER32 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDBGKD_DEBUG_DATA_HEADER32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDBGKD_DEBUG_DATA_HEADER64(pub *mut DBGKD_DEBUG_DATA_HEADER64);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDBGKD_DEBUG_DATA_HEADER64 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDBGKD_DEBUG_DATA_HEADER64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -884,17 +884,17 @@ impl Default for PEXTSTACKTRACE64 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEXT_FIND_FILE(pub *mut EXT_FIND_FILE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PEXT_FIND_FILE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PEXT_FIND_FILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -926,17 +926,17 @@ impl Default for PEXT_TYPED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PFIELD_INFO(pub *mut FIELD_INFO);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PFIELD_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PFIELD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1160,40 +1160,40 @@ impl Default for PIOSPACE_EX64 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKDDEBUGGER_DATA32(pub *mut KDDEBUGGER_DATA32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKDDEBUGGER_DATA32 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKDDEBUGGER_DATA32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKDDEBUGGER_DATA64(pub *mut KDDEBUGGER_DATA64);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKDDEBUGGER_DATA64 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKDDEBUGGER_DATA64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTER_SEARCH_PHYSICAL {
     pub Offset: u64,
@@ -1264,17 +1264,17 @@ impl Default for PPHYSICAL_WITH_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPOINTER_SEARCH_PHYSICAL(pub *mut POINTER_SEARCH_PHYSICAL);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PPOINTER_SEARCH_PHYSICAL {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PPOINTER_SEARCH_PHYSICAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1377,19 +1377,19 @@ impl Default for PSEARCHMEMORY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PSYM_DUMP_FIELD_CALLBACK = Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut core::ffi::c_void) -> u32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSYM_DUMP_PARAM(pub *mut SYM_DUMP_PARAM);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PSYM_DUMP_PARAM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PSYM_DUMP_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1497,34 +1497,34 @@ pub type PWINDBG_CHECK_VERSION = Option<unsafe extern "system" fn() -> u32>;
 pub type PWINDBG_DISASM = Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: windows_core::PSTR, fshoweffectiveaddress: u32) -> u32>;
 pub type PWINDBG_DISASM32 = Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: windows_core::PSTR, fshoweffectiveaddress: u32) -> u32>;
 pub type PWINDBG_DISASM64 = Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: windows_core::PSTR, fshoweffectiveaddress: u32) -> u32>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINDBG_EXTENSION_APIS(pub *mut WINDBG_EXTENSION_APIS);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWINDBG_EXTENSION_APIS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWINDBG_EXTENSION_APIS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type PWINDBG_EXTENSION_API_VERSION = Option<unsafe extern "system" fn() -> LPEXT_API_VERSION>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWINDBG_EXTENSION_DLL_INIT = Option<unsafe extern "system" fn(lpextensionapis: *const WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWINDBG_EXTENSION_DLL_INIT32 = Option<unsafe extern "system" fn(lpextensionapis: *const WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWINDBG_EXTENSION_DLL_INIT64 = Option<unsafe extern "system" fn(lpextensionapis: *const WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWINDBG_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(hcurrentprocess: super::winnt::HANDLE, hcurrentthread: super::winnt::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: windows_core::PCSTR)>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWINDBG_EXTENSION_ROUTINE32 = Option<unsafe extern "system" fn(hcurrentprocess: super::winnt::HANDLE, hcurrentthread: super::winnt::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: windows_core::PCSTR)>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWINDBG_EXTENSION_ROUTINE64 = Option<unsafe extern "system" fn(hcurrentprocess: super::winnt::HANDLE, hcurrentthread: super::winnt::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: windows_core::PCSTR)>;
 pub type PWINDBG_GET_EXPRESSION = Option<unsafe extern "system" fn(lpexpression: windows_core::PCSTR) -> usize>;
 pub type PWINDBG_GET_EXPRESSION32 = Option<unsafe extern "system" fn(lpexpression: windows_core::PCSTR) -> u32>;
@@ -1533,10 +1533,10 @@ pub type PWINDBG_GET_SYMBOL = Option<unsafe extern "system" fn(offset: *const co
 pub type PWINDBG_GET_SYMBOL32 = Option<unsafe extern "system" fn(offset: u32, pchbuffer: *mut i8, pdisplacement: *mut u32)>;
 pub type PWINDBG_GET_SYMBOL64 = Option<unsafe extern "system" fn(offset: u64, pchbuffer: *mut i8, pdisplacement: *mut u64)>;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::winnt::CONTEXT, cbsizeofcontext: u32) -> u32>;
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::winnt::ARM64_NT_CONTEXT, cbsizeofcontext: u32) -> u32>;
 pub type PWINDBG_IOCTL_ROUTINE = Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut core::ffi::c_void, cbsize: u32) -> u32>;
 #[repr(transparent)]
@@ -1568,7 +1568,7 @@ impl Default for PWINDBG_OLD_EXTENSION_APIS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWINDBG_OLD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *const WINDBG_EXTENSION_APIS, lpargumentstring: windows_core::PCSTR)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1587,10 +1587,10 @@ pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *const super::winnt::CONTEXT, cbsizeofcontext: u32) -> u32>;
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *const super::winnt::ARM64_NT_CONTEXT, cbsizeofcontext: u32) -> u32>;
 pub type PWINDBG_STACKTRACE_ROUTINE = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
 pub type PWINDBG_STACKTRACE_ROUTINE32 = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
@@ -1660,7 +1660,7 @@ impl Default for SEARCHMEMORY {
 pub const SYMBOL_TYPE_INDEX_NOT_FOUND: u32 = 2;
 pub const SYMBOL_TYPE_INFO_NOT_FOUND: u32 = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct SYM_DUMP_PARAM {
     pub size: u32,
@@ -1678,20 +1678,20 @@ pub struct SYM_DUMP_PARAM {
     pub BufferSize: u32,
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for SYM_DUMP_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union SYM_DUMP_PARAM_0 {
     pub Context: *mut core::ffi::c_void,
     pub pBuffer: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for SYM_DUMP_PARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1781,7 +1781,7 @@ pub struct WDBGEXTS_THREAD_OS_INFO {
     pub Affinity: u64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
@@ -1798,7 +1798,7 @@ pub struct WINDBG_EXTENSION_APIS {
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
@@ -1815,7 +1815,7 @@ pub struct WINDBG_EXTENSION_APIS32 {
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,

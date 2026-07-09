@@ -520,35 +520,35 @@ impl ISpatialAudioMetadataWriter_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISpatialAudioMetadataWriter {}
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 windows_core::imp::define_interface!(ISpatialAudioObjectForMetadataCommands, ISpatialAudioObjectForMetadataCommands_Vtbl, 0x0df2c94b_f5f9_472d_af6b_c46e0ac9cd05);
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl core::ops::Deref for ISpatialAudioObjectForMetadataCommands {
     type Target = super::spatialaudioclient::ISpatialAudioObjectBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectForMetadataCommands, windows_core::IUnknown, super::spatialaudioclient::ISpatialAudioObjectBase);
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl ISpatialAudioObjectForMetadataCommands {
     pub unsafe fn WriteNextMetadataCommand(&self, commandid: u8, valuebuffer: Option<*const core::ffi::c_void>, valuebufferlength: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WriteNextMetadataCommand)(windows_core::Interface::as_raw(self), commandid, valuebuffer.unwrap_or(core::mem::zeroed()) as _, valuebufferlength) }
     }
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectForMetadataCommands_Vtbl {
     pub base__: super::spatialaudioclient::ISpatialAudioObjectBase_Vtbl,
     pub WriteNextMetadataCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 pub trait ISpatialAudioObjectForMetadataCommands_Impl: super::spatialaudioclient::ISpatialAudioObjectBase_Impl {
     fn WriteNextMetadataCommand(&self, commandid: u8, valuebuffer: *const core::ffi::c_void, valuebufferlength: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl ISpatialAudioObjectForMetadataCommands_Vtbl {
     pub const fn new<Identity: ISpatialAudioObjectForMetadataCommands_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn WriteNextMetadataCommand<Identity: ISpatialAudioObjectForMetadataCommands_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u8, valuebuffer: *const core::ffi::c_void, valuebufferlength: u32) -> windows_core::HRESULT {
@@ -566,20 +566,20 @@ impl ISpatialAudioObjectForMetadataCommands_Vtbl {
         iid == &<ISpatialAudioObjectForMetadataCommands as windows_core::Interface>::IID || iid == &<super::spatialaudioclient::ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl windows_core::RuntimeName for ISpatialAudioObjectForMetadataCommands {}
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 windows_core::imp::define_interface!(ISpatialAudioObjectForMetadataItems, ISpatialAudioObjectForMetadataItems_Vtbl, 0xddea49ff_3bc0_4377_8aad_9fbcfd808566);
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl core::ops::Deref for ISpatialAudioObjectForMetadataItems {
     type Target = super::spatialaudioclient::ISpatialAudioObjectBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectForMetadataItems, windows_core::IUnknown, super::spatialaudioclient::ISpatialAudioObjectBase);
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl ISpatialAudioObjectForMetadataItems {
     pub unsafe fn GetSpatialAudioMetadataItems(&self) -> windows_core::Result<ISpatialAudioMetadataItems> {
         unsafe {
@@ -588,18 +588,18 @@ impl ISpatialAudioObjectForMetadataItems {
         }
     }
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectForMetadataItems_Vtbl {
     pub base__: super::spatialaudioclient::ISpatialAudioObjectBase_Vtbl,
     pub GetSpatialAudioMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 pub trait ISpatialAudioObjectForMetadataItems_Impl: super::spatialaudioclient::ISpatialAudioObjectBase_Impl {
     fn GetSpatialAudioMetadataItems(&self) -> windows_core::Result<ISpatialAudioMetadataItems>;
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl ISpatialAudioObjectForMetadataItems_Vtbl {
     pub const fn new<Identity: ISpatialAudioObjectForMetadataItems_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSpatialAudioMetadataItems<Identity: ISpatialAudioObjectForMetadataItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadataitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -623,20 +623,20 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
         iid == &<ISpatialAudioObjectForMetadataItems as windows_core::Interface>::IID || iid == &<super::spatialaudioclient::ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl windows_core::RuntimeName for ISpatialAudioObjectForMetadataItems {}
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamForMetadata, ISpatialAudioObjectRenderStreamForMetadata_Vtbl, 0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1);
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl core::ops::Deref for ISpatialAudioObjectRenderStreamForMetadata {
     type Target = super::spatialaudioclient::ISpatialAudioObjectRenderStreamBase;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectRenderStreamForMetadata, windows_core::IUnknown, super::spatialaudioclient::ISpatialAudioObjectRenderStreamBase);
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl ISpatialAudioObjectRenderStreamForMetadata {
     pub unsafe fn ActivateSpatialAudioObjectForMetadataCommands(&self, r#type: super::spatialaudioclient::AudioObjectType) -> windows_core::Result<ISpatialAudioObjectForMetadataCommands> {
         unsafe {
@@ -651,7 +651,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata {
         }
     }
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
@@ -659,12 +659,12 @@ pub struct ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
     pub ActivateSpatialAudioObjectForMetadataCommands: unsafe extern "system" fn(*mut core::ffi::c_void, super::spatialaudioclient::AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ActivateSpatialAudioObjectForMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, super::spatialaudioclient::AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 pub trait ISpatialAudioObjectRenderStreamForMetadata_Impl: super::spatialaudioclient::ISpatialAudioObjectRenderStreamBase_Impl {
     fn ActivateSpatialAudioObjectForMetadataCommands(&self, r#type: super::spatialaudioclient::AudioObjectType) -> windows_core::Result<ISpatialAudioObjectForMetadataCommands>;
     fn ActivateSpatialAudioObjectForMetadataItems(&self, r#type: super::spatialaudioclient::AudioObjectType) -> windows_core::Result<ISpatialAudioObjectForMetadataItems>;
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
     pub const fn new<Identity: ISpatialAudioObjectRenderStreamForMetadata_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivateSpatialAudioObjectForMetadataCommands<Identity: ISpatialAudioObjectRenderStreamForMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::spatialaudioclient::AudioObjectType, audioobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -701,7 +701,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
         iid == &<ISpatialAudioObjectRenderStreamForMetadata as windows_core::Interface>::IID || iid == &<super::spatialaudioclient::ISpatialAudioObjectRenderStreamBase as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_spatialaudioclient")]
+#[cfg(feature = "spatialaudioclient")]
 impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamForMetadata {}
 pub const SPATIAL_AUDIO_POSITION: u32 = 200;
 pub const SPATIAL_AUDIO_STANDARD_COMMANDS_START: u32 = 200;
@@ -749,7 +749,7 @@ pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOve
 pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = 2;
 pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = 1;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_spatialaudioclient", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub ObjectFormat: *const super::mmeapi::WAVEFORMATEX,
     pub StaticObjectTypeMask: super::spatialaudioclient::AudioObjectType,
@@ -762,14 +762,14 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MetadataActivationParams: *const super::propidlbase::PROPVARIANT,
     pub NotifyObject: core::mem::ManuallyDrop<Option<super::spatialaudioclient::ISpatialAudioObjectRenderStreamNotify>>,
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_spatialaudioclient", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SpatialAudioObjectRenderStreamForMetadataActivationParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_spatialaudioclient", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub ObjectFormat: *const super::mmeapi::WAVEFORMATEX,
     pub StaticObjectTypeMask: super::spatialaudioclient::AudioObjectType,
@@ -783,7 +783,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub NotifyObject: core::mem::ManuallyDrop<Option<super::spatialaudioclient::ISpatialAudioObjectRenderStreamNotify>>,
     pub Options: super::spatialaudioclient::SPATIAL_AUDIO_STREAM_OPTIONS,
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_spatialaudioclient", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -45,7 +45,7 @@ impl Default for CONNECTDATA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct CONTROLINFO {
     pub cb: u32,
@@ -53,7 +53,7 @@ pub struct CONTROLINFO {
     pub cAccel: u16,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for CONTROLINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -74,7 +74,7 @@ pub const DVASPECTINFOFLAG_CANOPTIMIZE: DVASPECTINFOFLAG = 1;
 pub const DVASPECT_OPAQUE: DVASPECT2 = 16;
 pub const DVASPECT_TRANSPARENT: DVASPECT2 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DVEXTENTINFO {
     pub cb: u32,
@@ -103,13 +103,13 @@ pub type LPCADWORD = *mut CADWORD;
 pub type LPCALPOLESTR = *mut CALPOLESTR;
 pub type LPCAUUID = *mut CAUUID;
 pub type LPCONNECTDATA = *mut CONNECTDATA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCONTROLINFO = *mut CONTROLINFO;
 pub type LPLICINFO = *mut LICINFO;
 pub type LPPOINTF = *mut POINTF;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPPROPPAGEINFO = *mut PROPPAGEINFO;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type LPTEXTMETRICOLE = *mut TEXTMETRICOLE;
 pub const MULTICLASSINFO_GETIIDPRIMARY: u32 = 4;
 pub const MULTICLASSINFO_GETIIDSOURCE: u32 = 8;
@@ -140,7 +140,7 @@ pub struct POINTF {
     pub y: f32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct PROPBAG2 {
     pub dwType: u32,
@@ -150,7 +150,7 @@ pub struct PROPBAG2 {
     pub pstrName: windows_sys::core::PWSTR,
     pub clsid: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for PROPBAG2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -165,7 +165,7 @@ pub const PROPBAG2_TYPE_STREAM: PROPBAG2_TYPE = 4;
 pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = 0;
 pub const PROPBAG2_TYPE_URL: PROPBAG2_TYPE = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct PROPPAGEINFO {
     pub cb: u32,
@@ -175,7 +175,7 @@ pub struct PROPPAGEINFO {
     pub pszHelpFile: windows_sys::core::PWSTR,
     pub dwHelpContext: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PROPPAGEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -186,7 +186,7 @@ pub const PROPPAGESTATUS_CLEAN: PROPPAGESTATUS = 4;
 pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = 1;
 pub const PROPPAGESTATUS_VALIDATE: PROPPAGESTATUS = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_servprov", feature = "Win32_urlmon", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "oleidl", feature = "servprov", feature = "urlmon", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct QACONTAINER {
     pub cbSize: u32,
@@ -206,7 +206,7 @@ pub struct QACONTAINER {
     pub pOleControlSite: *mut core::ffi::c_void,
     pub pServiceProvider: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_servprov", feature = "Win32_urlmon", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "oleidl", feature = "servprov", feature = "urlmon", feature = "windef"))]
 impl Default for QACONTAINER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -237,7 +237,7 @@ pub const READYSTATE_INTERACTIVE: READYSTATE = 3;
 pub const READYSTATE_LOADED: READYSTATE = 2;
 pub const READYSTATE_LOADING: READYSTATE = 1;
 pub const READYSTATE_UNINITIALIZED: READYSTATE = 0;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type TEXTMETRICOLE = super::wingdi::TEXTMETRICW;
 pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1;
 pub type UASFLAGS = i32;

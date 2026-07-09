@@ -111,29 +111,29 @@ pub const GPT_PARTITION_NAME_LENGTH: u32 = 36;
 pub const MAX_FS_ALLOWED_CLUSTER_SIZES_SIZE: u32 = 32;
 pub const MAX_FS_FORMAT_SUPPORT_NAME_SIZE: u32 = 32;
 pub const MAX_FS_NAME_SIZE: u32 = 8;
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 pub type PVDS_ADVANCEDDISK_PROP = *mut VDS_ADVANCEDDISK_PROP;
 pub type PVDS_CONTROLLER_PROP = *mut VDS_CONTROLLER_PROP;
 pub type PVDS_CONTROLLER_STATUS = *mut VDS_CONTROLLER_STATUS;
 pub type PVDS_CREATE_VDISK_PARAMETERS = *mut VDS_CREATE_VDISK_PARAMETERS;
 pub type PVDS_DISK_EXTENT = *mut VDS_DISK_EXTENT;
 pub type PVDS_DISK_FREE_EXTENT = *mut VDS_DISK_FREE_EXTENT;
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 pub type PVDS_DISK_PROP = *mut VDS_DISK_PROP;
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 pub type PVDS_DISK_PROP2 = *mut VDS_DISK_PROP2;
 pub type PVDS_DRIVE_EXTENT = *mut VDS_DRIVE_EXTENT;
 pub type PVDS_DRIVE_FLAG = *mut VDS_DRIVE_FLAG;
 pub type PVDS_DRIVE_LETTER_PROP = *mut VDS_DRIVE_LETTER_PROP;
 pub type PVDS_DRIVE_PROP = *mut VDS_DRIVE_PROP;
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 pub type PVDS_DRIVE_PROP2 = *mut VDS_DRIVE_PROP2;
 pub type PVDS_DRIVE_STATUS = *mut VDS_DRIVE_STATUS;
 pub type PVDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP = *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP;
 pub type PVDS_FILE_SYSTEM_PROP = *mut VDS_FILE_SYSTEM_PROP;
 pub type PVDS_FILE_SYSTEM_TYPE_PROP = *mut VDS_FILE_SYSTEM_TYPE_PROP;
 pub type PVDS_HINTS = *mut VDS_HINTS;
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 pub type PVDS_HINTS2 = *mut VDS_HINTS2;
 pub type PVDS_INTERCONNECT_FLAG = *mut VDS_INTERCONNECT_FLAG;
 pub type PVDS_ISCSI_PORTALGROUP_PROP = *mut VDS_ISCSI_PORTALGROUP_PROP;
@@ -145,7 +145,7 @@ pub type PVDS_LUN_PROP = *mut VDS_LUN_PROP;
 pub type PVDS_LUN_STATUS = *mut VDS_LUN_STATUS;
 pub type PVDS_LUN_TYPE = *mut VDS_LUN_TYPE;
 pub type PVDS_PACK_PROP = *mut VDS_PACK_PROP;
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 pub type PVDS_POOL_ATTRIBUTES = *mut VDS_POOL_ATTRIBUTES;
 pub type PVDS_POOL_CUSTOM_ATTRIBUTES = *mut VDS_POOL_CUSTOM_ATTRIBUTES;
 pub type PVDS_PORT_PROP = *mut VDS_PORT_PROP;
@@ -159,7 +159,7 @@ pub type PVDS_SUB_SYSTEM_PROP = *mut VDS_SUB_SYSTEM_PROP;
 pub type PVDS_SUB_SYSTEM_PROP2 = *mut VDS_SUB_SYSTEM_PROP2;
 pub type PVDS_SUB_SYSTEM_STATUS = *mut VDS_SUB_SYSTEM_STATUS;
 pub type PVDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG = *mut VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG;
-#[cfg(all(feature = "Win32_virtdisk", feature = "Win32_winioctl"))]
+#[cfg(all(feature = "virtdisk", feature = "winioctl"))]
 pub type PVDS_VDISK_PROPERTIES = *mut VDS_VDISK_PROPERTIES;
 pub type PVDS_VOLUME_PLEX_PROP = *mut VDS_VOLUME_PLEX_PROP;
 pub type PVDS_VOLUME_PROP = *mut VDS_VOLUME_PROP;
@@ -177,7 +177,7 @@ pub const VDSDiskOfflineReasonResourceExhaustion: VDS_DISK_OFFLINE_REASON = 5;
 pub const VDSDiskOfflineReasonSnapshot: VDS_DISK_OFFLINE_REASON = 3;
 pub const VDSDiskOfflineReasonWriteFailure: VDS_DISK_OFFLINE_REASON = 6;
 #[repr(C)]
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 #[derive(Clone, Copy)]
 pub struct VDS_ADVANCEDDISK_PROP {
     pub pwszId: windows_sys::core::PWSTR,
@@ -204,20 +204,20 @@ pub struct VDS_ADVANCEDDISK_PROP {
     pub ulFlags: u32,
     pub dwDeviceType: u32,
 }
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 impl Default for VDS_ADVANCEDDISK_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 #[derive(Clone, Copy)]
 pub union VDS_ADVANCEDDISK_PROP_0 {
     pub dwSignature: u32,
     pub DiskGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 impl Default for VDS_ADVANCEDDISK_PROP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -453,7 +453,7 @@ pub struct VDS_DISK_NOTIFICATION {
 }
 pub type VDS_DISK_OFFLINE_REASON = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 #[derive(Clone, Copy)]
 pub struct VDS_DISK_PROP {
     pub id: VDS_OBJECT_ID,
@@ -476,27 +476,27 @@ pub struct VDS_DISK_PROP {
     pub pwszAdaptorName: windows_sys::core::PWSTR,
     pub pwszDevicePath: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 impl Default for VDS_DISK_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 #[derive(Clone, Copy)]
 pub union VDS_DISK_PROP_0 {
     pub dwSignature: u32,
     pub DiskGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 impl Default for VDS_DISK_PROP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 #[derive(Clone, Copy)]
 pub struct VDS_DISK_PROP2 {
     pub id: VDS_OBJECT_ID,
@@ -521,20 +521,20 @@ pub struct VDS_DISK_PROP2 {
     pub pwszDevicePath: windows_sys::core::PWSTR,
     pub pwszLocationPath: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 impl Default for VDS_DISK_PROP2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 #[derive(Clone, Copy)]
 pub union VDS_DISK_PROP2_0 {
     pub dwSignature: u32,
     pub DiskGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 impl Default for VDS_DISK_PROP2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -597,7 +597,7 @@ impl Default for VDS_DRIVE_PROP {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 #[derive(Clone, Copy)]
 pub struct VDS_DRIVE_PROP2 {
     pub id: VDS_OBJECT_ID,
@@ -613,7 +613,7 @@ pub struct VDS_DRIVE_PROP2 {
     pub busType: super::vdslun::VDS_STORAGE_BUS_TYPE,
     pub ulSpindleSpeed: u32,
 }
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 impl Default for VDS_DRIVE_PROP2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -764,7 +764,7 @@ pub struct VDS_HINTS {
     pub sRebuildPriority: i16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 #[derive(Clone, Copy, Default)]
 pub struct VDS_HINTS2 {
     pub ullHintMask: u64,
@@ -1436,7 +1436,7 @@ pub const VDS_PKF_NOQUORUM: VDS_PACK_FLAG = 2;
 pub const VDS_PKF_ONLINE_ERROR: VDS_PACK_FLAG = 16;
 pub const VDS_PKF_POLICY: VDS_PACK_FLAG = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 #[derive(Clone, Copy)]
 pub struct VDS_POOL_ATTRIBUTES {
     pub ullAttributeMask: u64,
@@ -1478,7 +1478,7 @@ pub struct VDS_POOL_ATTRIBUTES {
     pub ullReserved1: u64,
     pub ullReserved2: u64,
 }
-#[cfg(feature = "Win32_vdslun")]
+#[cfg(feature = "vdslun")]
 impl Default for VDS_POOL_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1815,7 +1815,7 @@ pub const VDS_TS_SHRINKING: VDS_TRANSITION_STATE = 3;
 pub const VDS_TS_STABLE: VDS_TRANSITION_STATE = 1;
 pub const VDS_TS_UNKNOWN: VDS_TRANSITION_STATE = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_virtdisk", feature = "Win32_winioctl"))]
+#[cfg(all(feature = "virtdisk", feature = "winioctl"))]
 #[derive(Clone, Copy)]
 pub struct VDS_VDISK_PROPERTIES {
     pub Id: VDS_OBJECT_ID,
@@ -1829,7 +1829,7 @@ pub struct VDS_VDISK_PROPERTIES {
     pub bIsChild: windows_sys::core::BOOL,
     pub pParentPath: windows_sys::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_virtdisk", feature = "Win32_winioctl"))]
+#[cfg(all(feature = "virtdisk", feature = "winioctl"))]
 impl Default for VDS_VDISK_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

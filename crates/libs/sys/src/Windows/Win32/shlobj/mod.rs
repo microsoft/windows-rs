@@ -1,20 +1,20 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("shdocvw.dll" "system" fn DoPrivacyDlg(hwndowner : super::windef::HWND, pszurl : windows_sys::core::PCWSTR, pprivacyenum : *const IEnumPrivacyRecords, freportallsites : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("shdocvw.dll" "system" fn ImportPrivacySettings(pszfilename : windows_sys::core::PCWSTR, pfparseprivacypreferences : *mut windows_sys::core::BOOL, pfparsepersiterules : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn PathIsSlowA(pszfile : windows_sys::core::PCSTR, dwattr : u32) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn PathIsSlowW(pszfile : windows_sys::core::PCWSTR, dwattr : u32) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn PathQualify(psz : windows_sys::core::PWSTR));
-#[cfg(feature = "Win32_shlobj_core")]
+#[cfg(feature = "shlobj_core")]
 windows_link::link!("shell32.dll" "system" fn SHChangeNotifyRegisterThread(status : super::shlobj_core::SCNRT_STATUS));
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shlobj_core"))]
+#[cfg(all(feature = "minwindef", feature = "shlobj_core"))]
 windows_link::link!("shell32.dll" "system" fn SHCreatePropSheetExtArray(hkey : super::minwindef::HKEY, pszsubkey : windows_sys::core::PCWSTR, max_iface : u32) -> super::shlobj_core::HPSXA);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn SHMultiFileProperties(pdtobj : *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_shobjidl_core"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "shobjidl_core"))]
 windows_link::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : windows_sys::core::PCWSTR, ahkeys : *const super::minwindef::HKEY, ckeys : u32, pclsiddefault : *const windows_sys::core::GUID, pdtobj : *mut core::ffi::c_void, psb : *mut core::ffi::c_void, pstartpage : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_urlmon", feature = "Win32_windef"))]
+#[cfg(all(feature = "urlmon", feature = "windef"))]
 windows_link::link!("shdocvw.dll" "system" fn SoftwareUpdateMessageBox(hwnd : super::windef::HWND, pszdistunit : windows_sys::core::PCWSTR, dwflags : u32, psdi : *mut super::urlmon::SOFTDISTINFO) -> u32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -43,7 +43,7 @@ impl Default for AASHELLMENUITEM {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct BANDINFOSFB {
     pub dwMask: u32,
@@ -57,7 +57,7 @@ pub struct BANDINFOSFB {
     pub psf: *mut core::ffi::c_void,
     pub pidl: super::shtypes::LPITEMIDLIST,
 }
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 impl Default for BANDINFOSFB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -114,13 +114,13 @@ pub const ISFB_STATE_QLINKSMODE: u32 = 32;
 pub type LPAASHELLMENUFILENAME = *mut AASHELLMENUFILENAME;
 pub type LPAASHELLMENUITEM = *mut AASHELLMENUITEM;
 pub type LPCSHCOLUMNDATA = *const SHCOLUMNDATA;
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "shtypes", feature = "wtypes"))]
 pub type LPCSHCOLUMNINFO = *const SHCOLUMNINFO;
 pub type LPCSHCOLUMNINIT = *const SHCOLUMNINIT;
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 pub type LPSFV_SETITEMPOS = *mut SFV_SETITEMPOS;
 pub type LPSHCOLUMNDATA = *mut SHCOLUMNDATA;
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "shtypes", feature = "wtypes"))]
 pub type LPSHCOLUMNINFO = *mut SHCOLUMNINFO;
 pub type LPSHCOLUMNINIT = *mut SHCOLUMNINIT;
 pub type LPSHChangeProductKeyAsIDList = *mut SHChangeProductKeyAsIDList;
@@ -135,9 +135,9 @@ pub const PANE_PRIVACY: u32 = 7;
 pub const PANE_PROGRESS: u32 = 6;
 pub const PANE_SSL: u32 = 4;
 pub const PANE_ZONE: u32 = 1;
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type PBANDINFOSFB = *mut BANDINFOSFB;
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 pub type PCSFV_SETITEMPOS = *const SFV_SETITEMPOS;
 pub const SCHEME_CREATE: u32 = 128;
 pub const SCHEME_DISPLAY: u32 = 1;
@@ -158,13 +158,13 @@ pub const SFVM_SETITEMPOS: u32 = 14;
 pub const SFVM_SETPOINTS: u32 = 23;
 pub const SFVM_UPDATEOBJECT: u32 = 7;
 #[repr(C)]
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct SFV_SETITEMPOS {
     pub pidl: super::shtypes::LPCITEMIDLIST,
     pub pt: super::windef::POINT,
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 impl Default for SFV_SETITEMPOS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -186,7 +186,7 @@ impl Default for SHCOLUMNDATA {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "shtypes", feature = "wtypes"))]
 #[derive(Clone, Copy)]
 pub struct SHCOLUMNINFO {
     pub scid: super::shtypes::SHCOLUMNID,
@@ -197,7 +197,7 @@ pub struct SHCOLUMNINFO {
     pub wszTitle: [u16; 80],
     pub wszDescription: [u16; 128],
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "shtypes", feature = "wtypes"))]
 impl Default for SHCOLUMNINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

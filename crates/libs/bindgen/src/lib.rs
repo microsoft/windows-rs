@@ -674,6 +674,23 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
+/// Derives the cargo-feature name for a `--package` namespace.
+///
+/// Win32/WDK namespaces are flat (`Windows.Win32.<header>`) with globally unique
+/// header stems, so the feature is just the stem — the `Win32_`/`Wdk_` prefix
+/// would be redundant. The `Win32`/`Wdk` umbrella modules and the hierarchical
+/// WinRT namespaces keep their full path (after `Windows.`) joined with `_`.
+fn namespace_feature(namespace: &str) -> String {
+    if let Some(stem) = namespace
+        .strip_prefix("Windows.Win32.")
+        .or_else(|| namespace.strip_prefix("Windows.Wdk."))
+    {
+        stem.replace('.', "_")
+    } else {
+        namespace.split_once('.').unwrap().1.replace('.', "_")
+    }
+}
+
 /// Prepend reference entries so they take precedence.
 fn prepend_default_refs(refs: &mut Vec<ReferenceStage>, crate_name: &str, paths: &[&str]) {
     refs.splice(

@@ -1,64 +1,64 @@
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_ws2"))]
+#[cfg(all(feature = "winnt", feature = "winsock2", feature = "ws2"))]
 #[inline]
 pub unsafe fn QOSAddSocketToFlow(qoshandle: super::winnt::HANDLE, socket: super::winsock2::SOCKET, destaddr: Option<*const super::ws2::SOCKADDR>, traffictype: QOS_TRAFFIC_TYPE, flags: Option<u32>, flowid: *mut u32) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::winnt::HANDLE, socket : super::winsock2::SOCKET, destaddr : *const super::ws2::SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> windows_core::BOOL);
     unsafe { QOSAddSocketToFlow(qoshandle, socket, destaddr.unwrap_or(core::mem::zeroed()) as _, traffictype, flags.unwrap_or(core::mem::zeroed()) as _, flowid as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn QOSCancel(qoshandle: super::winnt::HANDLE, overlapped: *const super::minwinbase::OVERLAPPED) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSCancel(qoshandle : super::winnt::HANDLE, overlapped : *const super::minwinbase::OVERLAPPED) -> windows_core::BOOL);
     unsafe { QOSCancel(qoshandle, overlapped) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn QOSCloseHandle(qoshandle: super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSCloseHandle(qoshandle : super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { QOSCloseHandle(qoshandle) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSCreateHandle(version : *const QOS_VERSION, qoshandle : *mut super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { QOSCreateHandle(version, qoshandle as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn QOSEnumerateFlows(qoshandle: super::winnt::HANDLE, size: *mut u32, buffer: *mut core::ffi::c_void) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSEnumerateFlows(qoshandle : super::winnt::HANDLE, size : *mut u32, buffer : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { QOSEnumerateFlows(qoshandle, size as _, buffer as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn QOSNotifyFlow(qoshandle: super::winnt::HANDLE, flowid: QOS_FLOWID, operation: QOS_NOTIFY_FLOW, size: Option<*mut u32>, buffer: Option<*mut core::ffi::c_void>, flags: Option<u32>, overlapped: Option<*mut super::minwinbase::OVERLAPPED>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSNotifyFlow(qoshandle : super::winnt::HANDLE, flowid : QOS_FLOWID, operation : QOS_NOTIFY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_core::BOOL);
     unsafe { QOSNotifyFlow(qoshandle, flowid, operation, size.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn QOSQueryFlow(qoshandle: super::winnt::HANDLE, flowid: QOS_FLOWID, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut core::ffi::c_void, flags: Option<u32>, overlapped: Option<*mut super::minwinbase::OVERLAPPED>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::winnt::HANDLE, flowid : QOS_FLOWID, operation : QOS_QUERY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_core::BOOL);
     unsafe { QOSQueryFlow(qoshandle, flowid, operation, size as _, buffer as _, flags.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "winnt", feature = "winsock2"))]
 #[inline]
 pub unsafe fn QOSRemoveSocketFromFlow(qoshandle: super::winnt::HANDLE, socket: Option<super::winsock2::SOCKET>, flowid: QOS_FLOWID, flags: Option<u32>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSRemoveSocketFromFlow(qoshandle : super::winnt::HANDLE, socket : super::winsock2::SOCKET, flowid : QOS_FLOWID, flags : u32) -> windows_core::BOOL);
     unsafe { QOSRemoveSocketFromFlow(qoshandle, socket.unwrap_or(core::mem::zeroed()) as _, flowid, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn QOSSetFlow(qoshandle: super::winnt::HANDLE, flowid: QOS_FLOWID, operation: QOS_SET_FLOW, size: u32, buffer: *const core::ffi::c_void, flags: Option<u32>, overlapped: Option<*mut super::minwinbase::OVERLAPPED>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::winnt::HANDLE, flowid : QOS_FLOWID, operation : QOS_SET_FLOW, size : u32, buffer : *const core::ffi::c_void, flags : u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_core::BOOL);
     unsafe { QOSSetFlow(qoshandle, flowid, operation, size, buffer, flags.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "winnt", feature = "ws2"))]
 #[inline]
 pub unsafe fn QOSStartTrackingClient(qoshandle: super::winnt::HANDLE, destaddr: *const super::ws2::SOCKADDR, flags: Option<u32>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::winnt::HANDLE, destaddr : *const super::ws2::SOCKADDR, flags : u32) -> windows_core::BOOL);
     unsafe { QOSStartTrackingClient(qoshandle, destaddr, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "winnt", feature = "ws2"))]
 #[inline]
 pub unsafe fn QOSStopTrackingClient(qoshandle: super::winnt::HANDLE, destaddr: *const super::ws2::SOCKADDR, flags: Option<u32>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::winnt::HANDLE, destaddr : *const super::ws2::SOCKADDR, flags : u32) -> windows_core::BOOL);

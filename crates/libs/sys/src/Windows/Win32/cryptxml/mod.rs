@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlAddObject(hsignatureorobject : HCRYPTXML, dwflags : u32, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, ppobject : *mut *mut CRYPT_XML_OBJECT) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlClose(hcryptxml : HCRYPTXML) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlCreateReference(hcryptxml : HCRYPTXML, dwflags : u32, wszid : windows_sys::core::PCWSTR, wszuri : windows_sys::core::PCWSTR, wsztype : windows_sys::core::PCWSTR, pdigestmethod : *const CRYPT_XML_ALGORITHM, ctransform : u32, rgtransform : *const CRYPT_XML_ALGORITHM, phreference : *mut HCRYPTXML) -> windows_sys::core::HRESULT);
@@ -7,22 +7,22 @@ windows_link::link!("cryptxml.dll" "system" fn CryptXmlEncode(hcryptxml : HCRYPT
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlEnumAlgorithmInfo(dwgroupid : u32, dwflags : u32, pvarg : *mut core::ffi::c_void, pfnenumalginfo : PFN_CRYPT_XML_ENUM_ALG_INFO) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlFindAlgorithmInfo(dwfindbytype : u32, pvfindby : *const core::ffi::c_void, dwgroupid : u32, dwflags : u32) -> *const CRYPT_XML_ALGORITHM_INFO);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetAlgorithmInfo(pxmlalgorithm : *const CRYPT_XML_ALGORITHM, dwflags : u32, ppalginfo : *mut *mut CRYPT_XML_ALGORITHM_INFO) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetDocContext(hcryptxml : HCRYPTXML, ppstruct : *mut *mut CRYPT_XML_DOC_CTXT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetReference(hcryptxml : HCRYPTXML, ppstruct : *mut *mut CRYPT_XML_REFERENCE) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetSignature(hcryptxml : HCRYPTXML, ppstruct : *mut *mut CRYPT_XML_SIGNATURE) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetStatus(hcryptxml : HCRYPTXML, pstatus : *mut CRYPT_XML_STATUS) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetTransforms(ppconfig : *mut *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlImportPublicKey(dwflags : u32, pkeyvalue : *const CRYPT_XML_KEY_VALUE, phkey : *mut super::bcrypt::BCRYPT_KEY_HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlOpenToDecode(pconfig : *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags : u32, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, phcryptxml : *mut HCRYPTXML) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlOpenToEncode(pconfig : *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags : u32, wszid : windows_sys::core::PCWSTR, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, phsignature : *mut HCRYPTXML) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlSetHMACSecret(hsignature : HCRYPTXML, pbsecret : *const u8, cbsecret : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlSign(hsignature : HCRYPTXML, hkey : super::wincrypt::HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : u32, dwflags : u32, dwkeyinfospec : CRYPT_XML_KEYINFO_SPEC, pvkeyinfospec : *const core::ffi::c_void, psignaturemethod : *const CRYPT_XML_ALGORITHM, pcanonicalization : *const CRYPT_XML_ALGORITHM) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlVerifySignature(hsignature : HCRYPTXML, hkey : super::bcrypt::BCRYPT_KEY_HANDLE, dwflags : u32) -> windows_sys::core::HRESULT);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -78,7 +78,7 @@ pub const CRYPT_XML_CHARSET_UTF16BE: CRYPT_XML_CHARSET = 3;
 pub const CRYPT_XML_CHARSET_UTF16LE: CRYPT_XML_CHARSET = 2;
 pub const CRYPT_XML_CHARSET_UTF8: CRYPT_XML_CHARSET = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub cbSize: u32,
@@ -119,7 +119,7 @@ pub type CRYPT_XML_DIGEST = *mut core::ffi::c_void;
 pub const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: u32 = 1;
 pub const CRYPT_XML_DIGEST_VALUE_MAX: u32 = 128;
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 #[derive(Clone, Copy)]
 pub struct CRYPT_XML_DOC_CTXT {
     pub cbSize: u32,
@@ -128,7 +128,7 @@ pub struct CRYPT_XML_DOC_CTXT {
     pub cSignature: u32,
     pub rgpSignature: *mut PCRYPT_XML_SIGNATURE,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 impl Default for CRYPT_XML_DOC_CTXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -177,7 +177,7 @@ impl Default for CRYPT_XML_ISSUER_SERIAL {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEYINFO_PARAM {
     pub wszId: windows_sys::core::PCWSTR,
@@ -189,7 +189,7 @@ pub struct CRYPT_XML_KEYINFO_PARAM {
     pub cCRL: u32,
     pub rgCRL: *mut super::wincrypt::CERT_BLOB,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for CRYPT_XML_KEYINFO_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -229,7 +229,7 @@ impl Default for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEY_INFO {
     pub cbSize: u32,
@@ -238,7 +238,7 @@ pub struct CRYPT_XML_KEY_INFO {
     pub rgKeyInfo: *mut CRYPT_XML_KEY_INFO_ITEM,
     pub hVerifyKey: super::bcrypt::BCRYPT_KEY_HANDLE,
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 impl Default for CRYPT_XML_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -304,7 +304,7 @@ pub const CRYPT_XML_KEY_VALUE_TYPE_DSA: u32 = 1;
 pub const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: u32 = 3;
 pub const CRYPT_XML_KEY_VALUE_TYPE_RSA: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_XML_OBJECT {
     pub cbSize: u32,
@@ -315,7 +315,7 @@ pub struct CRYPT_XML_OBJECT {
     pub Manifest: CRYPT_XML_REFERENCES,
     pub Encoded: CRYPT_XML_BLOB,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for CRYPT_XML_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -341,7 +341,7 @@ pub const CRYPT_XML_PROPERTY_MAX_SIGNATURES: CRYPT_XML_PROPERTY_ID = 3;
 pub const CRYPT_XML_PROPERTY_SIGNATURE_LOCATION: CRYPT_XML_PROPERTY_ID = 2;
 pub const CRYPT_XML_PROPERTY_XML_OUTPUT_CHARSET: CRYPT_XML_PROPERTY_ID = 5;
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_XML_REFERENCE {
     pub cbSize: u32,
@@ -354,20 +354,20 @@ pub struct CRYPT_XML_REFERENCE {
     pub cTransform: u32,
     pub rgTransform: *mut CRYPT_XML_ALGORITHM,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for CRYPT_XML_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_XML_REFERENCES {
     pub cReference: u32,
     pub rgpReference: *mut PCRYPT_XML_REFERENCE,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for CRYPT_XML_REFERENCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -375,7 +375,7 @@ impl Default for CRYPT_XML_REFERENCES {
 }
 pub const CRYPT_XML_REFERENCES_MAX: u32 = 32760;
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 #[derive(Clone, Copy)]
 pub struct CRYPT_XML_SIGNATURE {
     pub cbSize: u32,
@@ -387,7 +387,7 @@ pub struct CRYPT_XML_SIGNATURE {
     pub cObject: u32,
     pub rgpObject: *mut PCRYPT_XML_OBJECT,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 impl Default for CRYPT_XML_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -396,7 +396,7 @@ impl Default for CRYPT_XML_SIGNATURE {
 pub const CRYPT_XML_SIGNATURES_MAX: u32 = 16;
 pub const CRYPT_XML_SIGNATURE_VALUE_MAX: u32 = 2048;
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_XML_SIGNED_INFO {
     pub cbSize: u32,
@@ -407,7 +407,7 @@ pub struct CRYPT_XML_SIGNED_INFO {
     pub rgpReference: *mut PCRYPT_XML_REFERENCE,
     pub Encoded: CRYPT_XML_BLOB,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for CRYPT_XML_SIGNED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -510,44 +510,44 @@ pub const CRYPT_XML_X509DATA_TYPE_SKI: u32 = 2;
 pub const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: u32 = 3;
 pub type CryptXmlDllCloseDigest = Option<unsafe extern "system" fn(hdigest: CRYPT_XML_DIGEST) -> windows_sys::core::HRESULT>;
 pub type CryptXmlDllCreateDigest = Option<unsafe extern "system" fn(pdigestmethod: *const CRYPT_XML_ALGORITHM, pcbsize: *mut u32, phdigest: *mut CRYPT_XML_DIGEST) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 pub type CryptXmlDllCreateKey = Option<unsafe extern "system" fn(pencoded: *const CRYPT_XML_BLOB, phkey: *mut super::bcrypt::BCRYPT_KEY_HANDLE) -> windows_sys::core::HRESULT>;
 pub type CryptXmlDllDigestData = Option<unsafe extern "system" fn(hdigest: CRYPT_XML_DIGEST, pbdata: *const u8, cbdata: u32) -> windows_sys::core::HRESULT>;
 pub type CryptXmlDllEncodeAlgorithm = Option<unsafe extern "system" fn(palginfo: *const CRYPT_XML_ALGORITHM_INFO, dwcharset: CRYPT_XML_CHARSET, pvcallbackstate: *mut core::ffi::c_void, pfnwrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type CryptXmlDllEncodeKeyValue = Option<unsafe extern "system" fn(hkey: super::ncrypt::NCRYPT_KEY_HANDLE, dwcharset: CRYPT_XML_CHARSET, pvcallbackstate: *mut core::ffi::c_void, pfnwrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> windows_sys::core::HRESULT>;
 pub type CryptXmlDllFinalizeDigest = Option<unsafe extern "system" fn(hdigest: CRYPT_XML_DIGEST, pbdigest: *mut u8, cbdigest: u32) -> windows_sys::core::HRESULT>;
 pub type CryptXmlDllGetAlgorithmInfo = Option<unsafe extern "system" fn(pxmlalgorithm: *const CRYPT_XML_ALGORITHM, ppalginfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 pub type CryptXmlDllGetInterface = Option<unsafe extern "system" fn(dwflags: u32, pmethod: *const CRYPT_XML_ALGORITHM_INFO, pinterface: *mut CRYPT_XML_CRYPTOGRAPHIC_INTERFACE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 pub type CryptXmlDllSignData = Option<unsafe extern "system" fn(psignaturemethod: *const CRYPT_XML_ALGORITHM, hcryptprovorncryptkey: super::wincrypt::HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: u32, pbinput: *const u8, cbinput: u32, pboutput: *mut u8, cboutput: u32, pcbresult: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 pub type CryptXmlDllVerifySignature = Option<unsafe extern "system" fn(psignaturemethod: *const CRYPT_XML_ALGORITHM, hkey: super::bcrypt::BCRYPT_KEY_HANDLE, pbinput: *const u8, cbinput: u32, pbsignature: *const u8, cbsignature: u32) -> windows_sys::core::HRESULT>;
 pub type HCRYPTXML = *mut core::ffi::c_void;
 pub type PCRYPT_XML_ALGORITHM = *mut CRYPT_XML_ALGORITHM;
 pub type PCRYPT_XML_ALGORITHM_INFO = *mut CRYPT_XML_ALGORITHM_INFO;
 pub type PCRYPT_XML_BLOB = *mut CRYPT_XML_BLOB;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 pub type PCRYPT_XML_CRYPTOGRAPHIC_INTERFACE = *mut CRYPT_XML_CRYPTOGRAPHIC_INTERFACE;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 pub type PCRYPT_XML_CRYPTO_PROVIDER = *mut CRYPT_XML_CRYPTOGRAPHIC_INTERFACE;
 pub type PCRYPT_XML_DATA_BLOB = *mut CRYPT_XML_DATA_BLOB;
 pub type PCRYPT_XML_DATA_PROVIDER = *mut CRYPT_XML_DATA_PROVIDER;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 pub type PCRYPT_XML_DOC_CTXT = *mut CRYPT_XML_DOC_CTXT;
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 pub type PCRYPT_XML_KEY_INFO = *mut CRYPT_XML_KEY_INFO;
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 pub type PCRYPT_XML_OBJECT = *mut CRYPT_XML_OBJECT;
 pub type PCRYPT_XML_PROPERTY = *mut CRYPT_XML_PROPERTY;
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 pub type PCRYPT_XML_REFERENCE = *mut CRYPT_XML_REFERENCE;
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 pub type PCRYPT_XML_REFERENCES = *mut CRYPT_XML_REFERENCES;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 pub type PCRYPT_XML_SIGNATURE = *mut CRYPT_XML_SIGNATURE;
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 pub type PCRYPT_XML_SIGNED_INFO = *mut CRYPT_XML_SIGNED_INFO;
 pub type PCRYPT_XML_STATUS = *mut CRYPT_XML_STATUS;
 pub type PCRYPT_XML_TRANSFORM_CHAIN_CONFIG = *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG;

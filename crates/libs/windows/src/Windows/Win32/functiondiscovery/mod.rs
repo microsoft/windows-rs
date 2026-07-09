@@ -11,9 +11,9 @@ windows_core::imp::interface_hierarchy!(CFunctionDiscoveryNotificationWrapper, w
 pub struct CFunctionDiscoveryNotificationWrapper_Vtbl {
     pub base__: IFunctionDiscoveryNotification_Vtbl,
 }
-#[cfg(all(feature = "Win32_servprov", feature = "Win32_winnt"))]
+#[cfg(all(feature = "servprov", feature = "winnt"))]
 pub trait CFunctionDiscoveryNotificationWrapper_Impl: IFunctionDiscoveryNotification_Impl {}
-#[cfg(all(feature = "Win32_servprov", feature = "Win32_winnt"))]
+#[cfg(all(feature = "servprov", feature = "winnt"))]
 impl CFunctionDiscoveryNotificationWrapper_Vtbl {
     pub const fn new<Identity: CFunctionDiscoveryNotificationWrapper_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IFunctionDiscoveryNotification_Vtbl::new::<Identity, OFFSET>() }
@@ -22,7 +22,7 @@ impl CFunctionDiscoveryNotificationWrapper_Vtbl {
         iid == &<CFunctionDiscoveryNotificationWrapper as windows_core::Interface>::IID || iid == &<IFunctionDiscoveryNotification as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_servprov", feature = "Win32_winnt"))]
+#[cfg(all(feature = "servprov", feature = "winnt"))]
 impl windows_core::RuntimeName for CFunctionDiscoveryNotificationWrapper {}
 pub const DEVICEDISPLAY_DISCOVERYMETHOD_AD_PRINTER: windows_core::PCWSTR = windows_core::w!("Published Printer");
 pub const DEVICEDISPLAY_DISCOVERYMETHOD_ASP_INFRA: windows_core::PCWSTR = windows_core::w!("AspInfra");
@@ -63,7 +63,7 @@ pub const FCTN_SUBCAT_NETWORKDEVICES_SSDP: windows_core::PCWSTR = windows_core::
 pub const FCTN_SUBCAT_NETWORKDEVICES_WSD: windows_core::PCWSTR = windows_core::w!("WSD");
 pub const FCTN_SUBCAT_REG_DIRECTED: windows_core::PCWSTR = windows_core::w!("Directed");
 pub const FCTN_SUBCAT_REG_PUBLICATION: windows_core::PCWSTR = windows_core::w!("Publication");
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FDQUERYCONTEXT(pub super::winnt::DWORDLONG);
@@ -113,14 +113,14 @@ impl IFunctionDiscovery {
             (windows_core::Interface::vtable(self).GetInstanceCollection)(windows_core::Interface::as_raw(self), pszcategory, pszsubcategory, fincludeallsubcategories.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub unsafe fn GetInstance(&self, pszfunctioninstanceidentity: *const u16) -> windows_core::Result<IFunctionInstance> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInstance)(windows_core::Interface::as_raw(self), pszfunctioninstanceidentity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn CreateInstanceCollectionQuery<P3>(&self, pszcategory: *const u16, pszsubcategory: *const u16, fincludeallsubcategories: bool, pifunctiondiscoverynotification: P3, pfdqcquerycontext: *mut FDQUERYCONTEXT) -> windows_core::Result<IFunctionInstanceCollectionQuery>
     where
         P3: windows_core::Param<IFunctionDiscoveryNotification>,
@@ -130,7 +130,7 @@ impl IFunctionDiscovery {
             (windows_core::Interface::vtable(self).CreateInstanceCollectionQuery)(windows_core::Interface::as_raw(self), pszcategory, pszsubcategory, fincludeallsubcategories.into(), pifunctiondiscoverynotification.param().abi(), pfdqcquerycontext as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn CreateInstanceQuery<P1>(&self, pszfunctioninstanceidentity: *const u16, pifunctiondiscoverynotification: P1, pfdqcquerycontext: *mut FDQUERYCONTEXT) -> windows_core::Result<IFunctionInstanceQuery>
     where
         P1: windows_core::Param<IFunctionDiscoveryNotification>,
@@ -140,7 +140,7 @@ impl IFunctionDiscovery {
             (windows_core::Interface::vtable(self).CreateInstanceQuery)(windows_core::Interface::as_raw(self), pszfunctioninstanceidentity, pifunctiondiscoverynotification.param().abi(), pfdqcquerycontext as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub unsafe fn AddInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: *const u16, pszsubcategory: *const u16, pszcategoryidentity: *const u16) -> windows_core::Result<IFunctionInstance> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -156,25 +156,25 @@ impl IFunctionDiscovery {
 pub struct IFunctionDiscovery_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInstanceCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *const u16, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub GetInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_servprov"))]
+    #[cfg(not(feature = "servprov"))]
     GetInstance: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub CreateInstanceCollectionQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *const u16, windows_core::BOOL, *mut core::ffi::c_void, *mut FDQUERYCONTEXT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     CreateInstanceCollectionQuery: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub CreateInstanceQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut core::ffi::c_void, *mut FDQUERYCONTEXT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     CreateInstanceQuery: usize,
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub AddInstance: unsafe extern "system" fn(*mut core::ffi::c_void, SystemVisibilityFlags, *const u16, *const u16, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_servprov"))]
+    #[cfg(not(feature = "servprov"))]
     AddInstance: usize,
     pub RemoveInstance: unsafe extern "system" fn(*mut core::ffi::c_void, SystemVisibilityFlags, *const u16, *const u16, *const u16) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_servprov", feature = "Win32_winnt"))]
+#[cfg(all(feature = "servprov", feature = "winnt"))]
 pub trait IFunctionDiscovery_Impl: windows_core::IUnknownImpl {
     fn GetInstanceCollection(&self, pszcategory: *const u16, pszsubcategory: *const u16, fincludeallsubcategories: windows_core::BOOL) -> windows_core::Result<IFunctionInstanceCollection>;
     fn GetInstance(&self, pszfunctioninstanceidentity: *const u16) -> windows_core::Result<IFunctionInstance>;
@@ -183,7 +183,7 @@ pub trait IFunctionDiscovery_Impl: windows_core::IUnknownImpl {
     fn AddInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: *const u16, pszsubcategory: *const u16, pszcategoryidentity: *const u16) -> windows_core::Result<IFunctionInstance>;
     fn RemoveInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: *const u16, pszsubcategory: *const u16, pszcategoryidentity: *const u16) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_servprov", feature = "Win32_winnt"))]
+#[cfg(all(feature = "servprov", feature = "winnt"))]
 impl IFunctionDiscovery_Vtbl {
     pub const fn new<Identity: IFunctionDiscovery_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInstanceCollection<Identity: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategory: *const u16, pszsubcategory: *const u16, fincludeallsubcategories: windows_core::BOOL, ppifunctioninstancecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -266,23 +266,23 @@ impl IFunctionDiscovery_Vtbl {
         iid == &<IFunctionDiscovery as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_servprov", feature = "Win32_winnt"))]
+#[cfg(all(feature = "servprov", feature = "winnt"))]
 impl windows_core::RuntimeName for IFunctionDiscovery {}
 windows_core::imp::define_interface!(IFunctionDiscoveryNotification, IFunctionDiscoveryNotification_Vtbl, 0x5f6c1ba8_5330_422e_a368_572b244d3f87);
 windows_core::imp::interface_hierarchy!(IFunctionDiscoveryNotification, windows_core::IUnknown);
 impl IFunctionDiscoveryNotification {
-    #[cfg(all(feature = "Win32_servprov", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "servprov", feature = "winnt"))]
     pub unsafe fn OnUpdate<P2>(&self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: FDQUERYCONTEXT, pifunctioninstance: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IFunctionInstance>,
     {
         unsafe { (windows_core::Interface::vtable(self).OnUpdate)(windows_core::Interface::as_raw(self), enumqueryupdateaction, fdqcquerycontext, pifunctioninstance.param().abi()) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn OnError(&self, hr: windows_core::HRESULT, fdqcquerycontext: FDQUERYCONTEXT, pszprovider: *const u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), hr, fdqcquerycontext, pszprovider) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn OnEvent(&self, dweventid: u32, fdqcquerycontext: FDQUERYCONTEXT, pszprovider: *const u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), dweventid, fdqcquerycontext, pszprovider) }
     }
@@ -291,26 +291,26 @@ impl IFunctionDiscoveryNotification {
 #[doc(hidden)]
 pub struct IFunctionDiscoveryNotification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_servprov", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "servprov", feature = "winnt"))]
     pub OnUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, QueryUpdateAction, FDQUERYCONTEXT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_servprov", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "servprov", feature = "winnt")))]
     OnUpdate: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, FDQUERYCONTEXT, *const u16) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     OnError: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, FDQUERYCONTEXT, *const u16) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     OnEvent: usize,
 }
-#[cfg(all(feature = "Win32_servprov", feature = "Win32_winnt"))]
+#[cfg(all(feature = "servprov", feature = "winnt"))]
 pub trait IFunctionDiscoveryNotification_Impl: windows_core::IUnknownImpl {
     fn OnUpdate(&self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: FDQUERYCONTEXT, pifunctioninstance: windows_core::Ref<IFunctionInstance>) -> windows_core::Result<()>;
     fn OnError(&self, hr: windows_core::HRESULT, fdqcquerycontext: FDQUERYCONTEXT, pszprovider: *const u16) -> windows_core::Result<()>;
     fn OnEvent(&self, dweventid: u32, fdqcquerycontext: FDQUERYCONTEXT, pszprovider: *const u16) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_servprov", feature = "Win32_winnt"))]
+#[cfg(all(feature = "servprov", feature = "winnt"))]
 impl IFunctionDiscoveryNotification_Vtbl {
     pub const fn new<Identity: IFunctionDiscoveryNotification_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnUpdate<Identity: IFunctionDiscoveryNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: FDQUERYCONTEXT, pifunctioninstance: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -342,23 +342,23 @@ impl IFunctionDiscoveryNotification_Vtbl {
         iid == &<IFunctionDiscoveryNotification as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_servprov", feature = "Win32_winnt"))]
+#[cfg(all(feature = "servprov", feature = "winnt"))]
 impl windows_core::RuntimeName for IFunctionDiscoveryNotification {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IFunctionDiscoveryProviderRefresh(pub u8);
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 windows_core::imp::define_interface!(IFunctionInstance, IFunctionInstance_Vtbl, 0x33591c10_0bed_4f02_b0ab_1530d5533ee9);
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 impl core::ops::Deref for IFunctionInstance {
     type Target = super::servprov::IServiceProvider;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 windows_core::imp::interface_hierarchy!(IFunctionInstance, windows_core::IUnknown, super::servprov::IServiceProvider);
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 impl IFunctionInstance {
     pub unsafe fn GetID(&self) -> windows_core::Result<*mut u16> {
         unsafe {
@@ -372,7 +372,7 @@ impl IFunctionInstance {
             (windows_core::Interface::vtable(self).GetProviderInstanceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn OpenPropertyStore(&self, dwstgaccess: u32) -> windows_core::Result<super::propsys::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -383,27 +383,27 @@ impl IFunctionInstance {
         unsafe { (windows_core::Interface::vtable(self).GetCategory)(windows_core::Interface::as_raw(self), ppszcomemcategory as _, ppszcomemsubcategory as _) }
     }
 }
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFunctionInstance_Vtbl {
     pub base__: super::servprov::IServiceProvider_Vtbl,
     pub GetID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
     pub GetProviderInstanceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub OpenPropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     OpenPropertyStore: usize,
     pub GetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16, *mut *mut u16) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_propsys", feature = "Win32_servprov"))]
+#[cfg(all(feature = "propsys", feature = "servprov"))]
 pub trait IFunctionInstance_Impl: super::servprov::IServiceProvider_Impl {
     fn GetID(&self) -> windows_core::Result<*mut u16>;
     fn GetProviderInstanceID(&self) -> windows_core::Result<*mut u16>;
     fn OpenPropertyStore(&self, dwstgaccess: u32) -> windows_core::Result<super::propsys::IPropertyStore>;
     fn GetCategory(&self, ppszcomemcategory: *mut *mut u16, ppszcomemsubcategory: *mut *mut u16) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_propsys", feature = "Win32_servprov"))]
+#[cfg(all(feature = "propsys", feature = "servprov"))]
 impl IFunctionInstance_Vtbl {
     pub const fn new<Identity: IFunctionInstance_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetID<Identity: IFunctionInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcomemidentity: *mut *mut u16) -> windows_core::HRESULT {
@@ -460,7 +460,7 @@ impl IFunctionInstance_Vtbl {
         iid == &<IFunctionInstance as windows_core::Interface>::IID || iid == &<super::servprov::IServiceProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_propsys", feature = "Win32_servprov"))]
+#[cfg(all(feature = "propsys", feature = "servprov"))]
 impl windows_core::RuntimeName for IFunctionInstance {}
 windows_core::imp::define_interface!(IFunctionInstanceCollection, IFunctionInstanceCollection_Vtbl, 0xf0a3d895_855c_42a2_948d_2f97d450ecb1);
 windows_core::imp::interface_hierarchy!(IFunctionInstanceCollection, windows_core::IUnknown);
@@ -471,28 +471,28 @@ impl IFunctionInstanceCollection {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub unsafe fn Get(&self, pszinstanceidentity: *const u16, pdwindex: *mut u32) -> windows_core::Result<IFunctionInstance> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), pszinstanceidentity, pdwindex as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub unsafe fn Item(&self, dwindex: u32) -> windows_core::Result<IFunctionInstance> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub unsafe fn Add<P0>(&self, pifunctioninstance: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IFunctionInstance>,
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pifunctioninstance.param().abi()) }
     }
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub unsafe fn Remove(&self, dwindex: u32) -> windows_core::Result<IFunctionInstance> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -511,26 +511,26 @@ impl IFunctionInstanceCollection {
 pub struct IFunctionInstanceCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_servprov"))]
+    #[cfg(not(feature = "servprov"))]
     Get: usize,
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_servprov"))]
+    #[cfg(not(feature = "servprov"))]
     Item: usize,
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_servprov"))]
+    #[cfg(not(feature = "servprov"))]
     Add: usize,
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_servprov"))]
+    #[cfg(not(feature = "servprov"))]
     Remove: usize,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub DeleteAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 pub trait IFunctionInstanceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn Get(&self, pszinstanceidentity: *const u16, pdwindex: *mut u32) -> windows_core::Result<IFunctionInstance>;
@@ -540,7 +540,7 @@ pub trait IFunctionInstanceCollection_Impl: windows_core::IUnknownImpl {
     fn Delete(&self, dwindex: u32) -> windows_core::Result<()>;
     fn DeleteAll(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 impl IFunctionInstanceCollection_Vtbl {
     pub const fn new<Identity: IFunctionInstanceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IFunctionInstanceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut u32) -> windows_core::HRESULT {
@@ -624,7 +624,7 @@ impl IFunctionInstanceCollection_Vtbl {
         iid == &<IFunctionInstanceCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 impl windows_core::RuntimeName for IFunctionInstanceCollection {}
 windows_core::imp::define_interface!(IFunctionInstanceCollectionQuery, IFunctionInstanceCollectionQuery_Vtbl, 0x57cc6fd2_c09a_4289_bb72_25f04142058e);
 windows_core::imp::interface_hierarchy!(IFunctionInstanceCollectionQuery, windows_core::IUnknown);
@@ -632,7 +632,7 @@ impl IFunctionInstanceCollectionQuery {
     pub unsafe fn AddQueryConstraint(&self, pszconstraintname: *const u16, pszconstraintvalue: *const u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddQueryConstraint)(windows_core::Interface::as_raw(self), pszconstraintname, pszconstraintvalue) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddPropertyConstraint(&self, key: *const super::wtypes::PROPERTYKEY, pv: *const super::propidlbase::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddPropertyConstraint)(windows_core::Interface::as_raw(self), key, core::mem::transmute(pv), enumpropertyconstraint) }
     }
@@ -648,19 +648,19 @@ impl IFunctionInstanceCollectionQuery {
 pub struct IFunctionInstanceCollectionQuery_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddQueryConstraint: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *const u16) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub AddPropertyConstraint: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *const super::propidlbase::PROPVARIANT, PropertyConstraint) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     AddPropertyConstraint: usize,
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFunctionInstanceCollectionQuery_Impl: windows_core::IUnknownImpl {
     fn AddQueryConstraint(&self, pszconstraintname: *const u16, pszconstraintvalue: *const u16) -> windows_core::Result<()>;
     fn AddPropertyConstraint(&self, key: *const super::wtypes::PROPERTYKEY, pv: *const super::propidlbase::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> windows_core::Result<()>;
     fn Execute(&self) -> windows_core::Result<IFunctionInstanceCollection>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IFunctionInstanceCollectionQuery_Vtbl {
     pub const fn new<Identity: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddQueryConstraint<Identity: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszconstraintname: *const u16, pszconstraintvalue: *const u16) -> windows_core::HRESULT {
@@ -698,7 +698,7 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
         iid == &<IFunctionInstanceCollectionQuery as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFunctionInstanceCollectionQuery {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -709,7 +709,7 @@ pub struct IFunctionInstanceCollectionQueryCollection(pub u8);
 windows_core::imp::define_interface!(IFunctionInstanceQuery, IFunctionInstanceQuery_Vtbl, 0x6242bc6b_90ec_4b37_bb46_e229fd84ed95);
 windows_core::imp::interface_hierarchy!(IFunctionInstanceQuery, windows_core::IUnknown);
 impl IFunctionInstanceQuery {
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub unsafe fn Execute(&self) -> windows_core::Result<IFunctionInstance> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -721,16 +721,16 @@ impl IFunctionInstanceQuery {
 #[doc(hidden)]
 pub struct IFunctionInstanceQuery_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_servprov")]
+    #[cfg(feature = "servprov")]
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_servprov"))]
+    #[cfg(not(feature = "servprov"))]
     Execute: usize,
 }
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 pub trait IFunctionInstanceQuery_Impl: windows_core::IUnknownImpl {
     fn Execute(&self) -> windows_core::Result<IFunctionInstance>;
 }
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 impl IFunctionInstanceQuery_Vtbl {
     pub const fn new<Identity: IFunctionInstanceQuery_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Execute<Identity: IFunctionInstanceQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppifunctioninstance: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -751,7 +751,7 @@ impl IFunctionInstanceQuery_Vtbl {
         iid == &<IFunctionInstanceQuery as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 impl windows_core::RuntimeName for IFunctionInstanceQuery {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -765,28 +765,28 @@ impl IPropertyStoreCollection {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn Get(&self, pszinstanceidentity: *const u16, pdwindex: *mut u32) -> windows_core::Result<super::propsys::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), pszinstanceidentity, pdwindex as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn Item(&self, dwindex: u32) -> windows_core::Result<super::propsys::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn Add<P0>(&self, pipropertystore: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::propsys::IPropertyStore>,
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pipropertystore.param().abi()) }
     }
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn Remove(&self, dwindex: u32) -> windows_core::Result<super::propsys::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -805,26 +805,26 @@ impl IPropertyStoreCollection {
 pub struct IPropertyStoreCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     Get: usize,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     Item: usize,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     Add: usize,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     Remove: usize,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub DeleteAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 pub trait IPropertyStoreCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn Get(&self, pszinstanceidentity: *const u16, pdwindex: *mut u32) -> windows_core::Result<super::propsys::IPropertyStore>;
@@ -834,7 +834,7 @@ pub trait IPropertyStoreCollection_Impl: windows_core::IUnknownImpl {
     fn Delete(&self, dwindex: u32) -> windows_core::Result<()>;
     fn DeleteAll(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 impl IPropertyStoreCollection_Vtbl {
     pub const fn new<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut u32) -> windows_core::HRESULT {
@@ -918,7 +918,7 @@ impl IPropertyStoreCollection_Vtbl {
         iid == &<IPropertyStoreCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 impl windows_core::RuntimeName for IPropertyStoreCollection {}
 pub const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100;
 pub const MAX_FDCONSTRAINTVALUE_LENGTH: u32 = 1000;

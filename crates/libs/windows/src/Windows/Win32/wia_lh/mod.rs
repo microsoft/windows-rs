@@ -501,7 +501,7 @@ impl windows_core::RuntimeName for IEnumWiaItem2 {}
 windows_core::imp::define_interface!(IWiaAppErrorHandler, IWiaAppErrorHandler_Vtbl, 0x6c16186c_d0a6_400c_80f4_d26986a0e734);
 windows_core::imp::interface_hierarchy!(IWiaAppErrorHandler, windows_core::IUnknown);
 impl IWiaAppErrorHandler {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetWindow(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -519,18 +519,18 @@ impl IWiaAppErrorHandler {
 #[doc(hidden)]
 pub struct IWiaAppErrorHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetWindow: usize,
     pub ReportStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, windows_core::HRESULT, i32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IWiaAppErrorHandler_Impl: windows_core::IUnknownImpl {
     fn GetWindow(&self) -> windows_core::Result<super::windef::HWND>;
     fn ReportStatus(&self, lflags: i32, pwiaitem2: windows_core::Ref<IWiaItem2>, hrstatus: windows_core::HRESULT, lpercentcomplete: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IWiaAppErrorHandler_Vtbl {
     pub const fn new<Identity: IWiaAppErrorHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetWindow<Identity: IWiaAppErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phwnd: *mut super::windef::HWND) -> windows_core::HRESULT {
@@ -561,7 +561,7 @@ impl IWiaAppErrorHandler_Vtbl {
         iid == &<IWiaAppErrorHandler as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IWiaAppErrorHandler {}
 windows_core::imp::define_interface!(IWiaDataCallback, IWiaDataCallback_Vtbl, 0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
 windows_core::imp::interface_hierarchy!(IWiaDataCallback, windows_core::IUnknown);
@@ -597,7 +597,7 @@ impl windows_core::RuntimeName for IWiaDataCallback {}
 windows_core::imp::define_interface!(IWiaDataTransfer, IWiaDataTransfer_Vtbl, 0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
 windows_core::imp::interface_hierarchy!(IWiaDataTransfer, windows_core::IUnknown);
 impl IWiaDataTransfer {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn idtGetData<P1>(&self, pmedium: *mut super::objidl::STGMEDIUM, piwiadatacallback: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IWiaDataCallback>,
@@ -627,16 +627,16 @@ impl IWiaDataTransfer {
 #[doc(hidden)]
 pub struct IWiaDataTransfer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub idtGetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::objidl::STGMEDIUM, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes")))]
     idtGetData: usize,
     pub idtGetBandedData: unsafe extern "system" fn(*mut core::ffi::c_void, *const WIA_DATA_TRANSFER_INFO, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub idtQueryGetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const WIA_FORMAT_INFO) -> windows_core::HRESULT,
     pub idtEnumWIA_FORMAT_INFO: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub idtGetExtendedTransferInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WIA_EXTENDED_TRANSFER_INFO) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub trait IWiaDataTransfer_Impl: windows_core::IUnknownImpl {
     fn idtGetData(&self, pmedium: *mut super::objidl::STGMEDIUM, piwiadatacallback: windows_core::Ref<IWiaDataCallback>) -> windows_core::Result<()>;
     fn idtGetBandedData(&self, pwiadatatransinfo: *const WIA_DATA_TRANSFER_INFO, piwiadatacallback: windows_core::Ref<IWiaDataCallback>) -> windows_core::Result<()>;
@@ -644,7 +644,7 @@ pub trait IWiaDataTransfer_Impl: windows_core::IUnknownImpl {
     fn idtEnumWIA_FORMAT_INFO(&self) -> windows_core::Result<IEnumWIA_FORMAT_INFO>;
     fn idtGetExtendedTransferInfo(&self, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl IWiaDataTransfer_Vtbl {
     pub const fn new<Identity: IWiaDataTransfer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn idtGetData<Identity: IWiaDataTransfer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmedium: *mut super::objidl::STGMEDIUM, piwiadatacallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -696,7 +696,7 @@ impl IWiaDataTransfer_Vtbl {
         iid == &<IWiaDataTransfer as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl windows_core::RuntimeName for IWiaDataTransfer {}
 windows_core::imp::define_interface!(IWiaDevMgr, IWiaDevMgr_Vtbl, 0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
 windows_core::imp::interface_hierarchy!(IWiaDevMgr, windows_core::IUnknown);
@@ -713,21 +713,21 @@ impl IWiaDevMgr {
             (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SelectDeviceDlg(&self, hwndparent: super::windef::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<IWiaItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SelectDeviceDlgID(&self, hwndparent: super::windef::HWND, ldevicetype: i32, lflags: i32) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetImageDlg<P4>(&self, hwndparent: super::windef::HWND, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: P4, bstrfilename: &windows_core::BSTR, pguidformat: *mut windows_core::GUID) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IWiaItem>,
@@ -749,7 +749,7 @@ impl IWiaDevMgr {
     pub unsafe fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, pclsid, core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AddDeviceDlg(&self, hwndparent: super::windef::HWND, lflags: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, lflags) }
     }
@@ -760,27 +760,27 @@ pub struct IWiaDevMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SelectDeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, i32, i32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SelectDeviceDlg: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SelectDeviceDlgID: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SelectDeviceDlgID: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetImageDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, i32, i32, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetImageDlg: usize,
     pub RegisterEventCallbackProgram: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RegisterEventCallbackInterface: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RegisterEventCallbackCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AddDeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AddDeviceDlg: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IWiaDevMgr_Impl: windows_core::IUnknownImpl {
     fn EnumDeviceInfo(&self, lflag: i32) -> windows_core::Result<IEnumWIA_DEV_INFO>;
     fn CreateDevice(&self, bstrdeviceid: &windows_core::BSTR) -> windows_core::Result<IWiaItem>;
@@ -792,7 +792,7 @@ pub trait IWiaDevMgr_Impl: windows_core::IUnknownImpl {
     fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AddDeviceDlg(&self, hwndparent: super::windef::HWND, lflags: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IWiaDevMgr_Vtbl {
     pub const fn new<Identity: IWiaDevMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumDeviceInfo<Identity: IWiaDevMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflag: i32, ppienum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -896,7 +896,7 @@ impl IWiaDevMgr_Vtbl {
         iid == &<IWiaDevMgr as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IWiaDevMgr {}
 windows_core::imp::define_interface!(IWiaDevMgr2, IWiaDevMgr2_Vtbl, 0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
 windows_core::imp::interface_hierarchy!(IWiaDevMgr2, windows_core::IUnknown);
@@ -913,14 +913,14 @@ impl IWiaDevMgr2 {
             (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SelectDeviceDlg(&self, hwndparent: super::windef::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<IWiaItem2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SelectDeviceDlgID(&self, hwndparent: super::windef::HWND, ldevicetype: i32, lflags: i32) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -942,7 +942,7 @@ impl IWiaDevMgr2 {
     pub unsafe fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, pclsid, core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrdescription), core::mem::transmute_copy(bstricon)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetImageDlg(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, hwndparent: super::windef::HWND, bstrfoldername: &windows_core::BSTR, bstrfilename: &windows_core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: *mut Option<IWiaItem2>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), hwndparent, core::mem::transmute_copy(bstrfoldername), core::mem::transmute_copy(bstrfilename), plnumfiles as _, ppbstrfilepaths as _, core::mem::transmute(ppitem)) }
     }
@@ -953,23 +953,23 @@ pub struct IWiaDevMgr2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SelectDeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, i32, i32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SelectDeviceDlg: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SelectDeviceDlgID: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SelectDeviceDlgID: usize,
     pub RegisterEventCallbackInterface: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RegisterEventCallbackProgram: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RegisterEventCallbackCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetImageDlg: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, super::windef::HWND, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, *mut *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetImageDlg: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IWiaDevMgr2_Impl: windows_core::IUnknownImpl {
     fn EnumDeviceInfo(&self, lflags: i32) -> windows_core::Result<IEnumWIA_DEV_INFO>;
     fn CreateDevice(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR) -> windows_core::Result<IWiaItem2>;
@@ -980,7 +980,7 @@ pub trait IWiaDevMgr2_Impl: windows_core::IUnknownImpl {
     fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetImageDlg(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, hwndparent: super::windef::HWND, bstrfoldername: &windows_core::BSTR, bstrfilename: &windows_core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: windows_core::OutRef<IWiaItem2>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IWiaDevMgr2_Vtbl {
     pub const fn new<Identity: IWiaDevMgr2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumDeviceInfo<Identity: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, ppienum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1077,12 +1077,12 @@ impl IWiaDevMgr2_Vtbl {
         iid == &<IWiaDevMgr2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IWiaDevMgr2 {}
 windows_core::imp::define_interface!(IWiaErrorHandler, IWiaErrorHandler_Vtbl, 0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
 windows_core::imp::interface_hierarchy!(IWiaErrorHandler, windows_core::IUnknown);
 impl IWiaErrorHandler {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ReportStatus<P2>(&self, lflags: i32, hwndparent: super::windef::HWND, pwiaitem2: P2, hrstatus: windows_core::HRESULT, lpercentcomplete: i32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IWiaItem2>,
@@ -1103,18 +1103,18 @@ impl IWiaErrorHandler {
 #[doc(hidden)]
 pub struct IWiaErrorHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ReportStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::windef::HWND, *mut core::ffi::c_void, windows_core::HRESULT, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ReportStatus: usize,
     pub GetStatusDescription: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, windows_core::HRESULT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IWiaErrorHandler_Impl: windows_core::IUnknownImpl {
     fn ReportStatus(&self, lflags: i32, hwndparent: super::windef::HWND, pwiaitem2: windows_core::Ref<IWiaItem2>, hrstatus: windows_core::HRESULT, lpercentcomplete: i32) -> windows_core::Result<()>;
     fn GetStatusDescription(&self, lflags: i32, pwiaitem2: windows_core::Ref<IWiaItem2>, hrstatus: windows_core::HRESULT) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IWiaErrorHandler_Vtbl {
     pub const fn new<Identity: IWiaErrorHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReportStatus<Identity: IWiaErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, hwndparent: super::windef::HWND, pwiaitem2: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT, lpercentcomplete: i32) -> windows_core::HRESULT {
@@ -1145,7 +1145,7 @@ impl IWiaErrorHandler_Vtbl {
         iid == &<IWiaErrorHandler as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IWiaErrorHandler {}
 windows_core::imp::define_interface!(IWiaEventCallback, IWiaEventCallback_Vtbl, 0xae6287b0_0084_11d2_973b_00a0c9068f2e);
 windows_core::imp::interface_hierarchy!(IWiaEventCallback, windows_core::IUnknown);
@@ -1194,7 +1194,7 @@ impl IWiaImageFilter {
     {
         unsafe { (windows_core::Interface::vtable(self).SetNewCallback)(windows_core::Interface::as_raw(self), pwiatransfercallback.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidlbase", feature = "windef"))]
     pub unsafe fn FilterPreviewImage<P1, P3>(&self, lflags: i32, pwiachilditem2: P1, inputimageextents: super::windef::RECT, pinputstream: P3) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IWiaItem2>,
@@ -1215,20 +1215,20 @@ pub struct IWiaImageFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetNewCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidlbase", feature = "windef"))]
     pub FilterPreviewImage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, super::windef::RECT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "windef")))]
     FilterPreviewImage: usize,
     pub ApplyProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidlbase", feature = "windef"))]
 pub trait IWiaImageFilter_Impl: windows_core::IUnknownImpl {
     fn InitializeFilter(&self, pwiaitem2: windows_core::Ref<IWiaItem2>, pwiatransfercallback: windows_core::Ref<IWiaTransferCallback>) -> windows_core::Result<()>;
     fn SetNewCallback(&self, pwiatransfercallback: windows_core::Ref<IWiaTransferCallback>) -> windows_core::Result<()>;
     fn FilterPreviewImage(&self, lflags: i32, pwiachilditem2: windows_core::Ref<IWiaItem2>, inputimageextents: &super::windef::RECT, pinputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
     fn ApplyProperties(&self, pwiapropertystorage: windows_core::Ref<IWiaPropertyStorage>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidlbase", feature = "windef"))]
 impl IWiaImageFilter_Vtbl {
     pub const fn new<Identity: IWiaImageFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFilter<Identity: IWiaImageFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwiaitem2: *mut core::ffi::c_void, pwiatransfercallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1267,7 +1267,7 @@ impl IWiaImageFilter_Vtbl {
         iid == &<IWiaImageFilter as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidlbase", feature = "windef"))]
 impl windows_core::RuntimeName for IWiaImageFilter {}
 windows_core::imp::define_interface!(IWiaItem, IWiaItem_Vtbl, 0x4db1ad10_3391_11d2_9a33_00c04fa36145);
 windows_core::imp::interface_hierarchy!(IWiaItem, windows_core::IUnknown);
@@ -1308,7 +1308,7 @@ impl IWiaItem {
             (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn DeviceDlg(&self, hwndparent: super::windef::HWND, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut Option<Self>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, lflags, lintent, plitemcount as _, ppiwiaitem as _) }
     }
@@ -1360,9 +1360,9 @@ pub struct IWiaItem_Vtbl {
     pub CreateChildItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumRegisterEventInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub DeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, i32, i32, *mut i32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     DeviceDlg: usize,
     pub DeviceCommand: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRootItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1372,7 +1372,7 @@ pub struct IWiaItem_Vtbl {
     pub DumpTreeItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Diagnostic: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IWiaItem_Impl: windows_core::IUnknownImpl {
     fn GetItemType(&self) -> windows_core::Result<i32>;
     fn AnalyzeItem(&self, lflags: i32) -> windows_core::Result<()>;
@@ -1390,7 +1390,7 @@ pub trait IWiaItem_Impl: windows_core::IUnknownImpl {
     fn DumpTreeItemData(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Diagnostic(&self, ulsize: u32, pbuffer: *const u8) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IWiaItem_Vtbl {
     pub const fn new<Identity: IWiaItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetItemType<Identity: IWiaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitemtype: *mut i32) -> windows_core::HRESULT {
@@ -1566,7 +1566,7 @@ impl IWiaItem_Vtbl {
         iid == &<IWiaItem as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IWiaItem {}
 windows_core::imp::define_interface!(IWiaItem2, IWiaItem2_Vtbl, 0x6cba0075_1287_407d_9b77_cf0e030435cc);
 windows_core::imp::interface_hierarchy!(IWiaItem2, windows_core::IUnknown);
@@ -1604,7 +1604,7 @@ impl IWiaItem2 {
             (windows_core::Interface::vtable(self).GetItemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn DeviceDlg(&self, lflags: i32, hwndparent: super::windef::HWND, bstrfoldername: &windows_core::BSTR, bstrfilename: &windows_core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: Option<*mut Option<Self>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), lflags, hwndparent, core::mem::transmute_copy(bstrfoldername), core::mem::transmute_copy(bstrfilename), plnumfiles as _, ppbstrfilepaths as _, ppitem.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -1668,9 +1668,9 @@ pub struct IWiaItem2_Vtbl {
     pub FindItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetItemCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetItemType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub DeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::windef::HWND, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, *mut *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     DeviceDlg: usize,
     pub DeviceCommand: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1682,7 +1682,7 @@ pub struct IWiaItem2_Vtbl {
     pub EnumRegisterEventInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Diagnostic: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IWiaItem2_Impl: windows_core::IUnknownImpl {
     fn CreateChildItem(&self, litemflags: i32, lcreationflags: i32, bstritemname: &windows_core::BSTR) -> windows_core::Result<IWiaItem2>;
     fn DeleteItem(&self, lflags: i32) -> windows_core::Result<()>;
@@ -1701,7 +1701,7 @@ pub trait IWiaItem2_Impl: windows_core::IUnknownImpl {
     fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const windows_core::GUID) -> windows_core::Result<IEnumWIA_DEV_CAPS>;
     fn Diagnostic(&self, ulsize: u32, pbuffer: *const u8) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IWiaItem2_Vtbl {
     pub const fn new<Identity: IWiaItem2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateChildItem<Identity: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, litemflags: i32, lcreationflags: i32, bstritemname: *mut core::ffi::c_void, ppiwiaitem2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1890,7 +1890,7 @@ impl IWiaItem2_Vtbl {
         iid == &<IWiaItem2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IWiaItem2 {}
 windows_core::imp::define_interface!(IWiaItemExtras, IWiaItemExtras_Vtbl, 0x6291ef2c_36ef_4532_876a_8e132593778d);
 windows_core::imp::interface_hierarchy!(IWiaItemExtras, windows_core::IUnknown);
@@ -2211,33 +2211,33 @@ impl windows_core::RuntimeName for IWiaPreview {}
 windows_core::imp::define_interface!(IWiaPropertyStorage, IWiaPropertyStorage_Vtbl, 0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
 windows_core::imp::interface_hierarchy!(IWiaPropertyStorage, windows_core::IUnknown);
 impl IWiaPropertyStorage {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC, rgpropvar: *const super::propidlbase::PROPVARIANT, propidnamefirst: super::wtypes::PROPID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, core::mem::transmute(rgpropvar), propidnamefirst) }
     }
-    #[cfg(all(feature = "Win32_propidlbase", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "propidlbase", feature = "wtypes"))]
     pub unsafe fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const super::wtypes::PROPID) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadPropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const super::wtypes::PROPID, rglpwstrname: *const windows_core::PCWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WritePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn DeletePropertyNames(&self, cpropid: u32, rgpropid: *const super::wtypes::PROPID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeletePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid) }
     }
@@ -2247,25 +2247,25 @@ impl IWiaPropertyStorage {
     pub unsafe fn Revert(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Revert)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_propidlbase")]
+    #[cfg(feature = "propidlbase")]
     pub unsafe fn Enum(&self) -> windows_core::Result<super::propidlbase::IEnumSTATPROPSTG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetTimes(&self, pctime: *const super::minwindef::FILETIME, patime: *const super::minwindef::FILETIME, pmtime: *const super::minwindef::FILETIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTimes)(windows_core::Interface::as_raw(self), pctime, patime, pmtime) }
     }
     pub unsafe fn SetClass(&self, clsid: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClass)(windows_core::Interface::as_raw(self), clsid) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_propidlbase"))]
+    #[cfg(all(feature = "minwindef", feature = "propidlbase"))]
     pub unsafe fn Stat(&self, pstatpsstg: *mut super::propidlbase::STATPROPSETSTG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), pstatpsstg as _) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyAttributes)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgflags as _, core::mem::transmute(rgpropvar)) }
     }
@@ -2275,11 +2275,11 @@ impl IWiaPropertyStorage {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetPropertyStream(&self, pcompatibilityid: *mut windows_core::GUID, ppistream: *mut Option<super::objidlbase::IStream>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyStream)(windows_core::Interface::as_raw(self), pcompatibilityid as _, core::mem::transmute(ppistream)) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn SetPropertyStream<P1>(&self, pcompatibilityid: *const windows_core::GUID, pistream: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidlbase::IStream>,
@@ -2291,60 +2291,60 @@ impl IWiaPropertyStorage {
 #[doc(hidden)]
 pub struct IWiaPropertyStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub ReadMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::propidlbase::PROPSPEC, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     ReadMultiple: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub WriteMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::propidlbase::PROPSPEC, *const super::propidlbase::PROPVARIANT, super::wtypes::PROPID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     WriteMultiple: usize,
-    #[cfg(all(feature = "Win32_propidlbase", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "propidlbase", feature = "wtypes"))]
     pub DeleteMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::propidlbase::PROPSPEC) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_propidlbase", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "propidlbase", feature = "wtypes")))]
     DeleteMultiple: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ReadPropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::wtypes::PROPID, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ReadPropertyNames: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub WritePropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::wtypes::PROPID, *const windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     WritePropertyNames: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub DeletePropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::wtypes::PROPID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     DeletePropertyNames: usize,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Revert: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_propidlbase")]
+    #[cfg(feature = "propidlbase")]
     pub Enum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propidlbase"))]
+    #[cfg(not(feature = "propidlbase"))]
     Enum: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub SetTimes: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::minwindef::FILETIME, *const super::minwindef::FILETIME, *const super::minwindef::FILETIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     SetTimes: usize,
     pub SetClass: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_propidlbase"))]
+    #[cfg(all(feature = "minwindef", feature = "propidlbase"))]
     pub Stat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::propidlbase::STATPROPSETSTG) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_propidlbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "propidlbase")))]
     Stat: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPropertyAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::propidlbase::PROPSPEC, *mut u32, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetPropertyAttributes: usize,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetPropertyStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetPropertyStream: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub SetPropertyStream: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     SetPropertyStream: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWiaPropertyStorage_Impl: windows_core::IUnknownImpl {
     fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC) -> windows_core::Result<super::propidlbase::PROPVARIANT>;
     fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC, rgpropvar: *const super::propidlbase::PROPVARIANT, propidnamefirst: super::wtypes::PROPID) -> windows_core::Result<()>;
@@ -2363,7 +2363,7 @@ pub trait IWiaPropertyStorage_Impl: windows_core::IUnknownImpl {
     fn GetPropertyStream(&self, pcompatibilityid: *mut windows_core::GUID, ppistream: windows_core::OutRef<super::objidlbase::IStream>) -> windows_core::Result<()>;
     fn SetPropertyStream(&self, pcompatibilityid: *const windows_core::GUID, pistream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IWiaPropertyStorage_Vtbl {
     pub const fn new<Identity: IWiaPropertyStorage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReadMultiple<Identity: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC, rgpropvar: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
@@ -2510,12 +2510,12 @@ impl IWiaPropertyStorage_Vtbl {
         iid == &<IWiaPropertyStorage as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWiaPropertyStorage {}
 windows_core::imp::define_interface!(IWiaSegmentationFilter, IWiaSegmentationFilter_Vtbl, 0xec46a697_ac04_4447_8f65_ff63d5154b21);
 windows_core::imp::interface_hierarchy!(IWiaSegmentationFilter, windows_core::IUnknown);
 impl IWiaSegmentationFilter {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn DetectRegions<P1, P2>(&self, lflags: i32, pinputstream: P1, pwiaitem2: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidlbase::IStream>,
@@ -2528,16 +2528,16 @@ impl IWiaSegmentationFilter {
 #[doc(hidden)]
 pub struct IWiaSegmentationFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub DetectRegions: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     DetectRegions: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IWiaSegmentationFilter_Impl: windows_core::IUnknownImpl {
     fn DetectRegions(&self, lflags: i32, pinputstream: windows_core::Ref<super::objidlbase::IStream>, pwiaitem2: windows_core::Ref<IWiaItem2>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IWiaSegmentationFilter_Vtbl {
     pub const fn new<Identity: IWiaSegmentationFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DetectRegions<Identity: IWiaSegmentationFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pinputstream: *mut core::ffi::c_void, pwiaitem2: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2552,7 +2552,7 @@ impl IWiaSegmentationFilter_Vtbl {
         iid == &<IWiaSegmentationFilter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IWiaSegmentationFilter {}
 windows_core::imp::define_interface!(IWiaTransfer, IWiaTransfer_Vtbl, 0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a);
 windows_core::imp::interface_hierarchy!(IWiaTransfer, windows_core::IUnknown);
@@ -2563,7 +2563,7 @@ impl IWiaTransfer {
     {
         unsafe { (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), lflags, piwiatransfercallback.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Upload<P1, P2>(&self, lflags: i32, psource: P1, piwiatransfercallback: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidlbase::IStream>,
@@ -2586,21 +2586,21 @@ impl IWiaTransfer {
 pub struct IWiaTransfer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Download: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Upload: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Upload: usize,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumWIA_FORMAT_INFO: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IWiaTransfer_Impl: windows_core::IUnknownImpl {
     fn Download(&self, lflags: i32, piwiatransfercallback: windows_core::Ref<IWiaTransferCallback>) -> windows_core::Result<()>;
     fn Upload(&self, lflags: i32, psource: windows_core::Ref<super::objidlbase::IStream>, piwiatransfercallback: windows_core::Ref<IWiaTransferCallback>) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
     fn EnumWIA_FORMAT_INFO(&self) -> windows_core::Result<IEnumWIA_FORMAT_INFO>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IWiaTransfer_Vtbl {
     pub const fn new<Identity: IWiaTransfer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Download<Identity: IWiaTransfer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, piwiatransfercallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2645,7 +2645,7 @@ impl IWiaTransfer_Vtbl {
         iid == &<IWiaTransfer as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IWiaTransfer {}
 windows_core::imp::define_interface!(IWiaTransferCallback, IWiaTransferCallback_Vtbl, 0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
 windows_core::imp::interface_hierarchy!(IWiaTransferCallback, windows_core::IUnknown);
@@ -2653,7 +2653,7 @@ impl IWiaTransferCallback {
     pub unsafe fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TransferCallback)(windows_core::Interface::as_raw(self), lflags, pwiatransferparams) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &windows_core::BSTR, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2666,17 +2666,17 @@ impl IWiaTransferCallback {
 pub struct IWiaTransferCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TransferCallback: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const WiaTransferParams) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetNextStream: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetNextStream: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IWiaTransferCallback_Impl: windows_core::IUnknownImpl {
     fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> windows_core::Result<()>;
     fn GetNextStream(&self, lflags: i32, bstritemname: &windows_core::BSTR, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<super::objidlbase::IStream>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IWiaTransferCallback_Vtbl {
     pub const fn new<Identity: IWiaTransferCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TransferCallback<Identity: IWiaTransferCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> windows_core::HRESULT {
@@ -2707,7 +2707,7 @@ impl IWiaTransferCallback_Vtbl {
         iid == &<IWiaTransferCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IWiaTransferCallback {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -2800,17 +2800,17 @@ impl Default for PWIA_FORMAT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWIA_PROPID_TO_NAME(pub *mut WIA_PROPID_TO_NAME);
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl PWIA_PROPID_TO_NAME {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for PWIA_PROPID_TO_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2877,7 +2877,7 @@ pub struct WIA_FORMAT_INFO {
     pub lTymed: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: super::wtypes::PROPID,

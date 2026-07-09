@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateVirtualCamera(r#type : MFVirtualCameraType, lifetime : MFVirtualCameraLifetime, access : MFVirtualCameraAccess, friendlyname : windows_sys::core::PCWSTR, sourceid : windows_sys::core::PCWSTR, categories : *const windows_sys::core::GUID, categorycount : u32, virtualcamera : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfsensorgroup.dll" "system" fn MFIsVirtualCameraTypeSupported(r#type : MFVirtualCameraType, supported : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 pub type MFVirtualCameraAccess = i32;

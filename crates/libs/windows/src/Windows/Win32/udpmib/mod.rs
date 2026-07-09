@@ -1,12 +1,12 @@
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDP6ROW {
     pub dwLocalAddr: super::in6addr::IN6_ADDR,
     pub dwLocalScopeId: u32,
     pub dwLocalPort: u32,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for MIB_UDP6ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -93,13 +93,13 @@ impl Default for MIB_UDP6ROW_OWNER_PID {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDP6TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW; 1],
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for MIB_UDP6TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -277,17 +277,17 @@ impl Default for MIB_UDPTABLE_OWNER_PID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_UDP6ROW(pub *mut MIB_UDP6ROW);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PMIB_UDP6ROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PMIB_UDP6ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -332,17 +332,17 @@ impl Default for PMIB_UDP6ROW_OWNER_PID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_UDP6TABLE(pub *mut MIB_UDP6TABLE);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PMIB_UDP6TABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PMIB_UDP6TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

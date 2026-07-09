@@ -347,7 +347,7 @@ pub struct PROCESSOR_OBJECT_INFO_EX {
     pub PBlkLength: u8,
     pub InitialApicId: u32,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 pub type PTHERMAL_INFORMATION = *mut THERMAL_INFORMATION;
 pub type PTHERMAL_POLICY = *mut THERMAL_POLICY;
 pub type PTHERMAL_WAIT_READ = *mut THERMAL_WAIT_READ;
@@ -363,7 +363,7 @@ pub const SYS_BUTTON_POWER: u32 = 1;
 pub const SYS_BUTTON_SLEEP: u32 = 2;
 pub const SYS_BUTTON_WAKE: u32 = 2147483648;
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub struct THERMAL_INFORMATION {
     pub ThermalStamp: u32,
@@ -377,7 +377,7 @@ pub struct THERMAL_INFORMATION {
     pub ActiveTripPointCount: u8,
     pub ActiveTripPoint: [u32; 10],
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for THERMAL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

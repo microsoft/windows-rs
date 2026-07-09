@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[inline]
 pub unsafe fn FreeAddrInfoEx(paddrinfoex: Option<*const ADDRINFOEXA>) {
     windows_core::link!("ws2_32.dll" "system" fn FreeAddrInfoEx(paddrinfoex : *const ADDRINFOEXA));
     unsafe { FreeAddrInfoEx(paddrinfoex.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[inline]
 pub unsafe fn FreeAddrInfoExW(paddrinfoex: Option<*const ADDRINFOEXW>) {
     windows_core::link!("ws2_32.dll" "system" fn FreeAddrInfoExW(paddrinfoex : *const ADDRINFOEXW));
@@ -15,7 +15,7 @@ pub unsafe fn FreeAddrInfoW(paddrinfo: Option<*const ADDRINFOW>) {
     windows_core::link!("ws2_32.dll" "system" fn FreeAddrInfoW(paddrinfo : *const ADDRINFOW));
     unsafe { FreeAddrInfoW(paddrinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
 #[inline]
 pub unsafe fn GetAddrInfoExA<P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: Option<*const windows_core::GUID>, hints: Option<*const ADDRINFOEXA>, ppresult: *mut PADDRINFOEXA, timeout: Option<*const super::winsock2::timeval>, lpoverlapped: Option<*const super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Option<*mut super::winnt::HANDLE>) -> i32
 where
@@ -25,19 +25,19 @@ where
     windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExA(pname : windows_core::PCSTR, pservicename : windows_core::PCSTR, dwnamespace : u32, lpnspid : *const windows_core::GUID, hints : *const ADDRINFOEXA, ppresult : *mut PADDRINFOEXA, timeout : *const super::winsock2::timeval, lpoverlapped : *const super::minwinbase::OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::winnt::HANDLE) -> i32);
     unsafe { GetAddrInfoExA(pname.param().abi(), pservicename.param().abi(), dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, hints.unwrap_or(core::mem::zeroed()) as _, ppresult as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lpnamehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetAddrInfoExCancel(lphandle: *const super::winnt::HANDLE) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExCancel(lphandle : *const super::winnt::HANDLE) -> i32);
     unsafe { GetAddrInfoExCancel(lphandle) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::minwinbase::OVERLAPPED) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExOverlappedResult(lpoverlapped : *const super::minwinbase::OVERLAPPED) -> i32);
     unsafe { GetAddrInfoExOverlappedResult(lpoverlapped) }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
 #[inline]
 pub unsafe fn GetAddrInfoExW<P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: Option<*const windows_core::GUID>, hints: Option<*const ADDRINFOEXW>, ppresult: *mut PADDRINFOEXW, timeout: Option<*const super::winsock2::timeval>, lpoverlapped: Option<*const super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: Option<*mut super::winnt::HANDLE>) -> i32
 where
@@ -74,7 +74,7 @@ where
     windows_core::link!("ws2_32.dll" "system" fn InetPtonW(family : i32, pszaddrstring : windows_core::PCWSTR, paddrbuf : *mut core::ffi::c_void) -> i32);
     unsafe { InetPtonW(family, pszaddrstring.param().abi(), paddrbuf as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn SetAddrInfoExA<P0, P1>(pname: P0, pservicename: P1, paddresses: Option<*const SOCKET_ADDRESS>, dwaddresscount: u32, lpblob: Option<*const super::wtypesbase::BLOB>, dwflags: u32, dwnamespace: u32, lpnspid: Option<*const windows_core::GUID>, timeout: Option<*const super::winsock2::timeval>, lpoverlapped: Option<*const super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Option<*mut super::winnt::HANDLE>) -> i32
 where
@@ -84,7 +84,7 @@ where
     windows_core::link!("ws2_32.dll" "system" fn SetAddrInfoExA(pname : windows_core::PCSTR, pservicename : windows_core::PCSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : *const super::wtypesbase::BLOB, dwflags : u32, dwnamespace : u32, lpnspid : *const windows_core::GUID, timeout : *const super::winsock2::timeval, lpoverlapped : *const super::minwinbase::OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::winnt::HANDLE) -> i32);
     unsafe { SetAddrInfoExA(pname.param().abi(), pservicename.param().abi(), paddresses.unwrap_or(core::mem::zeroed()) as _, dwaddresscount, lpblob.unwrap_or(core::mem::zeroed()) as _, dwflags, dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lpnamehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn SetAddrInfoExW<P0, P1>(pname: P0, pservicename: P1, paddresses: Option<*const SOCKET_ADDRESS>, dwaddresscount: u32, lpblob: Option<*const super::wtypesbase::BLOB>, dwflags: u32, dwnamespace: u32, lpnspid: Option<*const windows_core::GUID>, timeout: Option<*const super::winsock2::timeval>, lpoverlapped: Option<*const super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Option<*mut super::winnt::HANDLE>) -> i32
 where
@@ -147,10 +147,10 @@ impl Default for ADDRINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type ADDRINFOEX = ADDRINFOEXA;
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX2A {
     pub ai_flags: i32,
@@ -167,14 +167,14 @@ pub struct ADDRINFOEX2A {
     pub ai_version: i32,
     pub ai_fqdn: *mut i8,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for ADDRINFOEX2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX2W {
     pub ai_flags: i32,
@@ -191,14 +191,14 @@ pub struct ADDRINFOEX2W {
     pub ai_version: i32,
     pub ai_fqdn: windows_core::PWSTR,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for ADDRINFOEX2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX3 {
     pub ai_flags: i32,
@@ -216,14 +216,14 @@ pub struct ADDRINFOEX3 {
     pub ai_fqdn: windows_core::PWSTR,
     pub ai_interfaceindex: i32,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for ADDRINFOEX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX4 {
     pub ai_flags: i32,
@@ -242,14 +242,14 @@ pub struct ADDRINFOEX4 {
     pub ai_interfaceindex: i32,
     pub ai_resolutionhandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for ADDRINFOEX4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX5 {
     pub ai_flags: i32,
@@ -269,14 +269,14 @@ pub struct ADDRINFOEX5 {
     pub ai_resolutionhandle: super::winnt::HANDLE,
     pub ai_ttl: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for ADDRINFOEX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX6 {
     pub ai_flags: i32,
@@ -299,14 +299,14 @@ pub struct ADDRINFOEX6 {
     pub ai_servers: *mut ADDRINFO_DNS_SERVER,
     pub ai_responseflags: u64,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for ADDRINFOEX6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX7 {
     pub ai_flags: i32,
@@ -330,14 +330,14 @@ pub struct ADDRINFOEX7 {
     pub ai_responseflags: u64,
     pub ai_extraflags: u64,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for ADDRINFOEX7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEXA {
     pub ai_flags: i32,
@@ -352,14 +352,14 @@ pub struct ADDRINFOEXA {
     pub ai_provider: super::guiddef::LPGUID,
     pub ai_next: *mut Self,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for ADDRINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEXW {
     pub ai_flags: i32,
@@ -374,7 +374,7 @@ pub struct ADDRINFOEXW {
     pub ai_provider: super::guiddef::LPGUID,
     pub ai_next: *mut Self,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for ADDRINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -497,18 +497,18 @@ pub const AI_SECURE: u32 = 32768;
 pub const AI_SECURE_WITH_FALLBACK: u32 = 1048576;
 pub const AI_V4MAPPED: u32 = 2048;
 pub type BTHNS_INQUIRYBLOB = BTH_QUERY_DEVICE;
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 pub type BTHNS_RESTRICTIONBLOB = BTH_QUERY_SERVICE;
 pub const BTHNS_RESULT_DEVICE_AUTHENTICATED: u32 = 262144;
 pub const BTHNS_RESULT_DEVICE_CONNECTED: u32 = 65536;
 pub const BTHNS_RESULT_DEVICE_REMEMBERED: u32 = 131072;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type BTHNS_SETBLOB = BTH_SET_SERVICE;
 pub const BTHPROTO_L2CAP: u32 = 256;
 pub const BTHPROTO_RFCOMM: u32 = 3;
 pub const BTH_ADDR_STRING_SIZE: u32 = 12;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 #[derive(Clone, Copy, Default)]
 pub struct BTH_INFO_REQ {
     pub btAddr: super::bthdef::BTH_ADDR,
@@ -538,14 +538,14 @@ impl Default for BTH_INFO_RSP_0 {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 #[derive(Clone, Copy)]
 pub struct BTH_PING_REQ {
     pub btAddr: super::bthdef::BTH_ADDR,
     pub dataLen: u8,
     pub data: [u8; 44],
 }
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 impl Default for BTH_PING_REQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -569,7 +569,7 @@ pub struct BTH_QUERY_DEVICE {
     pub length: u8,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 #[derive(Clone, Copy)]
 pub struct BTH_QUERY_SERVICE {
     pub r#type: u32,
@@ -578,7 +578,7 @@ pub struct BTH_QUERY_SERVICE {
     pub numRange: u32,
     pub pRange: [super::bthsdpdef::SdpAttributeRange; 1],
 }
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 impl Default for BTH_QUERY_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -586,7 +586,7 @@ impl Default for BTH_QUERY_SERVICE {
 }
 pub const BTH_SDP_VERSION: u32 = 1;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct BTH_SET_SERVICE {
     pub pSdpVersion: super::minwindef::PULONG,
@@ -596,7 +596,7 @@ pub struct BTH_SET_SERVICE {
     pub ulRecordLength: u32,
     pub pRecord: [u8; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for BTH_SET_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -655,7 +655,7 @@ pub struct GROUP_SOURCE_REQ {
     pub gsr_source: SOCKADDR_STORAGE,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub struct ICMP_ERROR_INFO {
     pub srcaddress: SOCKADDR_INET,
@@ -663,7 +663,7 @@ pub struct ICMP_ERROR_INFO {
     pub r#type: u8,
     pub code: u8,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for ICMP_ERROR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -681,26 +681,26 @@ pub const IN6ADDR_SOLICITEDNODEMULTICASTPREFIX_LENGTH: u32 = 104;
 pub const IN6ADDR_TEREDOPREFIX_LENGTH: u32 = 32;
 pub const IN6ADDR_V4MAPPEDPREFIX_LENGTH: u32 = 96;
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct IN6_PKTINFO {
     pub ipi6_addr: super::in6addr::IN6_ADDR,
     pub ipi6_ifindex: u32,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for IN6_PKTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct IN6_PKTINFO_EX {
     pub pkt_info: IN6_PKTINFO,
     pub scope_id: SCOPE_ID,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for IN6_PKTINFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -713,7 +713,7 @@ pub const INADDR_NONE: u32 = 4294967295;
 pub const INET6_ADDRSTRLEN: u32 = 65;
 pub const INET_ADDRSTRLEN: u32 = 22;
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub struct INTERFACE_INFO {
     pub iiFlags: u32,
@@ -721,7 +721,7 @@ pub struct INTERFACE_INFO {
     pub iiBroadcastAddress: sockaddr_gen,
     pub iiNetmask: sockaddr_gen,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for INTERFACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -750,26 +750,26 @@ pub const IN_CLASSD_HOST: u32 = 268435455;
 pub const IN_CLASSD_NET: u32 = 4026531840;
 pub const IN_CLASSD_NSHIFT: u32 = 28;
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct IN_PKTINFO {
     pub ipi_addr: super::inaddr::IN_ADDR,
     pub ipi_ifindex: u32,
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for IN_PKTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct IN_PKTINFO_EX {
     pub pkt_info: IN_PKTINFO,
     pub scope_id: SCOPE_ID,
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for IN_PKTINFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -894,13 +894,13 @@ pub const IPV6_IFLIST: u32 = 28;
 pub const IPV6_JOIN_GROUP: u32 = 12;
 pub const IPV6_LEAVE_GROUP: u32 = 13;
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct IPV6_MREQ {
     pub ipv6mr_multiaddr: super::in6addr::IN6_ADDR,
     pub ipv6mr_interface: u32,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for IPV6_MREQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -943,34 +943,34 @@ pub const IP_HDRINCL: u32 = 2;
 pub const IP_HOPLIMIT: u32 = 21;
 pub const IP_IFLIST: u32 = 28;
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct IP_MREQ {
     pub imr_multiaddr: super::inaddr::IN_ADDR,
     pub imr_interface: super::inaddr::IN_ADDR,
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for IP_MREQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct IP_MREQ_SOURCE {
     pub imr_multiaddr: super::inaddr::IN_ADDR,
     pub imr_sourceaddr: super::inaddr::IN_ADDR,
     pub imr_interface: super::inaddr::IN_ADDR,
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for IP_MREQ_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct IP_MSFILTER {
     pub imsf_multiaddr: super::inaddr::IN_ADDR,
@@ -979,7 +979,7 @@ pub struct IP_MSFILTER {
     pub imsf_numsrc: u32,
     pub imsf_slist: [super::inaddr::IN_ADDR; 1],
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for IP_MSFILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1034,113 +1034,113 @@ impl Default for LPADDRINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPADDRINFOEX2A(pub *mut ADDRINFOEX2A);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl LPADDRINFOEX2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for LPADDRINFOEX2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPADDRINFOEX2W(pub *mut ADDRINFOEX2W);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl LPADDRINFOEX2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for LPADDRINFOEX2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPADDRINFOEX3(pub *mut ADDRINFOEX3);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl LPADDRINFOEX3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for LPADDRINFOEX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPADDRINFOEX4(pub *mut ADDRINFOEX4);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPADDRINFOEX4 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPADDRINFOEX4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPADDRINFOEX5(pub *mut ADDRINFOEX5);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPADDRINFOEX5 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPADDRINFOEX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPADDRINFOEXA(pub *mut ADDRINFOEXA);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl LPADDRINFOEXA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for LPADDRINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPADDRINFOEXW(pub *mut ADDRINFOEXW);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl LPADDRINFOEXW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for LPADDRINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1159,17 +1159,17 @@ impl Default for LPCSADDR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPINTERFACE_INFO(pub *mut INTERFACE_INFO);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl LPINTERFACE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for LPINTERFACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1188,7 +1188,7 @@ impl Default for LPINTERFACE_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 pub type LPLOOKUPSERVICE_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerror: u32, dwbytes: u32, lpoverlapped: *const super::minwinbase::OVERLAPPED)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1203,49 +1203,49 @@ impl Default for LPSOCKADDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPSOCKADDR_IN6(pub *mut SOCKADDR_IN6_LH);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl LPSOCKADDR_IN6 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for LPSOCKADDR_IN6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPSOCKADDR_IN6_LH(pub *mut SOCKADDR_IN6_LH);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl LPSOCKADDR_IN6_LH {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for LPSOCKADDR_IN6_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPSOCKADDR_IN6_W2KSP1(pub *mut SOCKADDR_IN6_W2KSP1);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl LPSOCKADDR_IN6_W2KSP1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for LPSOCKADDR_IN6_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1421,161 +1421,161 @@ impl Default for PADDRINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PADDRINFOEX(pub *mut ADDRINFOEXA);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl PADDRINFOEX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for PADDRINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PADDRINFOEX2A(pub *mut ADDRINFOEX2A);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl PADDRINFOEX2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for PADDRINFOEX2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PADDRINFOEX2W(pub *mut ADDRINFOEX2W);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl PADDRINFOEX2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for PADDRINFOEX2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PADDRINFOEX3(pub *mut ADDRINFOEX3);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl PADDRINFOEX3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for PADDRINFOEX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PADDRINFOEX4(pub *mut ADDRINFOEX4);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PADDRINFOEX4 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PADDRINFOEX4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PADDRINFOEX5(pub *mut ADDRINFOEX5);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PADDRINFOEX5 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PADDRINFOEX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PADDRINFOEX6(pub *mut ADDRINFOEX6);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PADDRINFOEX6 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PADDRINFOEX6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PADDRINFOEX7(pub *mut ADDRINFOEX7);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PADDRINFOEX7 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PADDRINFOEX7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PADDRINFOEXA(pub *mut ADDRINFOEXA);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl PADDRINFOEXA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for PADDRINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PADDRINFOEXW(pub *mut ADDRINFOEXW);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl PADDRINFOEXW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for PADDRINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1620,49 +1620,49 @@ impl Default for PBTHNS_INQUIRYBLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PBTHNS_RESTRICTIONBLOB(pub *mut BTH_QUERY_SERVICE);
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 impl PBTHNS_RESTRICTIONBLOB {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 impl Default for PBTHNS_RESTRICTIONBLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PBTHNS_SETBLOB(pub *mut BTH_SET_SERVICE);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl PBTHNS_SETBLOB {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for PBTHNS_SETBLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PBTH_INFO_REQ(pub *mut BTH_INFO_REQ);
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 impl PBTH_INFO_REQ {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 impl Default for PBTH_INFO_REQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1681,17 +1681,17 @@ impl Default for PBTH_INFO_RSP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PBTH_PING_REQ(pub *mut BTH_PING_REQ);
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 impl PBTH_PING_REQ {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 impl Default for PBTH_PING_REQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1723,33 +1723,33 @@ impl Default for PBTH_QUERY_DEVICE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PBTH_QUERY_SERVICE(pub *mut BTH_QUERY_SERVICE);
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 impl PBTH_QUERY_SERVICE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 impl Default for PBTH_QUERY_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PBTH_SET_SERVICE(pub *mut BTH_SET_SERVICE);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl PBTH_SET_SERVICE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for PBTH_SET_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1820,81 +1820,81 @@ impl Default for PGROUP_SOURCE_REQ {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PICMP_ERROR_INFO(pub *mut ICMP_ERROR_INFO);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl PICMP_ERROR_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for PICMP_ERROR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIN6_PKTINFO(pub *mut IN6_PKTINFO);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PIN6_PKTINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PIN6_PKTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIN6_PKTINFO_EX(pub *mut IN6_PKTINFO_EX);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PIN6_PKTINFO_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PIN6_PKTINFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIN_PKTINFO(pub *mut IN_PKTINFO);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl PIN_PKTINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for PIN_PKTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIN_PKTINFO_EX(pub *mut IN_PKTINFO_EX);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl PIN_PKTINFO_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for PIN_PKTINFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1926,65 +1926,65 @@ impl Default for PIPROTO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIPV6_MREQ(pub *mut IPV6_MREQ);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PIPV6_MREQ {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PIPV6_MREQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIP_MREQ(pub *mut IP_MREQ);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl PIP_MREQ {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for PIP_MREQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIP_MREQ_SOURCE(pub *mut IP_MREQ_SOURCE);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl PIP_MREQ_SOURCE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for PIP_MREQ_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIP_MSFILTER(pub *mut IP_MSFILTER);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl PIP_MSFILTER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for PIP_MSFILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2086,17 +2086,17 @@ impl Default for PSOCKADDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSOCKADDR_BTH(pub *mut SOCKADDR_BTH);
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 impl PSOCKADDR_BTH {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 impl Default for PSOCKADDR_BTH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2115,97 +2115,97 @@ impl Default for PSOCKADDR_DL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSOCKADDR_IN(pub *mut SOCKADDR_IN);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl PSOCKADDR_IN {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for PSOCKADDR_IN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSOCKADDR_IN6(pub *mut SOCKADDR_IN6_LH);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PSOCKADDR_IN6 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PSOCKADDR_IN6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSOCKADDR_IN6_LH(pub *mut SOCKADDR_IN6_LH);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PSOCKADDR_IN6_LH {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PSOCKADDR_IN6_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSOCKADDR_IN6_PAIR(pub *mut SOCKADDR_IN6_PAIR);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PSOCKADDR_IN6_PAIR {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PSOCKADDR_IN6_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSOCKADDR_IN6_W2KSP1(pub *mut SOCKADDR_IN6_W2KSP1);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PSOCKADDR_IN6_W2KSP1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PSOCKADDR_IN6_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSOCKADDR_INET(pub *mut SOCKADDR_INET);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl PSOCKADDR_INET {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for PSOCKADDR_INET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2276,17 +2276,17 @@ impl Default for PSOCKET_ADDRESS_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSOCKET_PROCESSOR_AFFINITY(pub *mut SOCKET_PROCESSOR_AFFINITY);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PSOCKET_PROCESSOR_AFFINITY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PSOCKET_PROCESSOR_AFFINITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2499,7 +2499,7 @@ impl Default for SOCKADDR {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKADDR_BTH {
     pub addressFamily: u16,
@@ -2520,7 +2520,7 @@ impl Default for SOCKADDR_DL {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN {
     pub sin_family: ADDRESS_FAMILY,
@@ -2528,16 +2528,16 @@ pub struct SOCKADDR_IN {
     pub sin_addr: super::inaddr::IN_ADDR,
     pub sin_zero: [i8; 8],
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for SOCKADDR_IN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type SOCKADDR_IN6 = SOCKADDR_IN6_LH;
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN6_LH {
     pub sin6_family: ADDRESS_FAMILY,
@@ -2546,34 +2546,34 @@ pub struct SOCKADDR_IN6_LH {
     pub sin6_addr: super::in6addr::IN6_ADDR,
     pub Anonymous: SOCKADDR_IN6_LH_0,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for SOCKADDR_IN6_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub union SOCKADDR_IN6_LH_0 {
     pub sin6_scope_id: u32,
     pub sin6_scope_struct: SCOPE_ID,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for SOCKADDR_IN6_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOCKADDR_IN6_PAIR {
     pub SourceAddress: PSOCKADDR_IN6,
     pub DestinationAddress: PSOCKADDR_IN6,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN6_W2KSP1 {
     pub sin6_family: i16,
@@ -2582,21 +2582,21 @@ pub struct SOCKADDR_IN6_W2KSP1 {
     pub sin6_addr: super::in6addr::IN6_ADDR,
     pub sin6_scope_id: u32,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for SOCKADDR_IN6_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub union SOCKADDR_INET {
     pub Ipv4: SOCKADDR_IN,
     pub Ipv6: SOCKADDR_IN6,
     pub si_family: ADDRESS_FAMILY,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for SOCKADDR_INET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2647,7 +2647,7 @@ impl Default for SOCKET_ADDRESS_LIST {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOCKET_PROCESSOR_AFFINITY {
     pub Processor: super::winnt::PROCESSOR_NUMBER,
@@ -2770,21 +2770,21 @@ pub struct WSAMSG {
 }
 pub const WSK_SO_BASE: u32 = 16384;
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub union sockaddr_gen {
     pub Address: SOCKADDR,
     pub AddressIn: SOCKADDR_IN,
     pub AddressIn6: sockaddr_in6_old,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for sockaddr_gen {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct sockaddr_in6_old {
     pub sin6_family: i16,
@@ -2792,7 +2792,7 @@ pub struct sockaddr_in6_old {
     pub sin6_flowinfo: u32,
     pub sin6_addr: super::in6addr::IN6_ADDR,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for sockaddr_in6_old {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

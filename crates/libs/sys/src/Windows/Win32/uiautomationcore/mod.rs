@@ -315,14 +315,14 @@ pub const UIAutomationType_RectArray: UIAutomationType = 65542;
 pub const UIAutomationType_String: UIAutomationType = 3;
 pub const UIAutomationType_StringArray: UIAutomationType = 65539;
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct UiaChangeInfo {
     pub uiaId: i32,
     pub payload: super::oaidl::VARIANT,
     pub extraInfo: super::oaidl::VARIANT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for UiaChangeInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

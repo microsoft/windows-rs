@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn CoGetClassObjectFromURL<P1, P4, P5>(rclassid: *const windows_core::GUID, szcode: P1, dwfileversionms: u32, dwfileversionls: u32, sztype: P4, pbindctx: P5, dwclscontext: u32, pvreserved: Option<*const core::ffi::c_void>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
@@ -45,7 +45,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn CoInternetCompareUrl(pwzurl1 : windows_core::PCWSTR, pwzurl2 : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
     unsafe { CoInternetCompareUrl(pwzurl1.param().abi(), pwzurl2.param().abi(), dwflags) }
 }
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 #[inline]
 pub unsafe fn CoInternetCreateSecurityManager<P0>(psp: P0, ppsm: *mut Option<IInternetSecurityManager>, dwreserved: u32) -> windows_core::HRESULT
 where
@@ -54,7 +54,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn CoInternetCreateSecurityManager(psp : *mut core::ffi::c_void, ppsm : *mut *mut core::ffi::c_void, dwreserved : u32) -> windows_core::HRESULT);
     unsafe { CoInternetCreateSecurityManager(psp.param().abi(), core::mem::transmute(ppsm), dwreserved) }
 }
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 #[inline]
 pub unsafe fn CoInternetCreateZoneManager<P0>(psp: P0, ppzm: *mut Option<IInternetZoneManager>, dwreserved: u32) -> windows_core::HRESULT
 where
@@ -164,13 +164,13 @@ pub unsafe fn CompatFlagsFromClsid(pclsid: *const windows_core::GUID, pdwcompatf
     windows_core::link!("urlmon.dll" "system" fn CompatFlagsFromClsid(pclsid : *const windows_core::GUID, pdwcompatflags : *mut u32, pdwmiscstatusflags : *mut u32) -> windows_core::HRESULT);
     unsafe { CompatFlagsFromClsid(pclsid, pdwcompatflags as _, pdwmiscstatusflags as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 #[inline]
 pub unsafe fn CopyBindInfo(pcbisrc: *const BINDINFO, pbidest: *mut BINDINFO) -> windows_core::HRESULT {
     windows_core::link!("urlmon.dll" "system" fn CopyBindInfo(pcbisrc : *const BINDINFO, pbidest : *mut BINDINFO) -> windows_core::HRESULT);
     unsafe { CopyBindInfo(core::mem::transmute(pcbisrc), core::mem::transmute(pbidest)) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 #[inline]
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::objidl::STGMEDIUM) -> windows_core::Result<super::objidl::STGMEDIUM> {
     windows_core::link!("urlmon.dll" "system" fn CopyStgMedium(pcstgmedsrc : *const super::objidl::STGMEDIUM, pstgmeddest : *mut super::objidl::STGMEDIUM) -> windows_core::HRESULT);
@@ -179,7 +179,7 @@ pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::objidl::STGMEDIUM) -> win
         CopyStgMedium(core::mem::transmute(pcstgmedsrc), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn CreateAsyncBindCtx<P1, P2>(reserved: u32, pbscb: P1, pefetc: P2) -> windows_core::Result<super::objidl::IBindCtx>
 where
@@ -192,7 +192,7 @@ where
         CreateAsyncBindCtx(reserved, pbscb.param().abi(), pefetc.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn CreateAsyncBindCtxEx<P0, P2, P3>(pbc: P0, dwoptions: u32, pbscb: P2, penum: P3, ppbc: *mut Option<super::objidl::IBindCtx>, reserved: u32) -> windows_core::HRESULT
 where
@@ -203,7 +203,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn CreateAsyncBindCtxEx(pbc : *mut core::ffi::c_void, dwoptions : u32, pbscb : *mut core::ffi::c_void, penum : *mut core::ffi::c_void, ppbc : *mut *mut core::ffi::c_void, reserved : u32) -> windows_core::HRESULT);
     unsafe { CreateAsyncBindCtxEx(pbc.param().abi(), dwoptions, pbscb.param().abi(), penum.param().abi(), core::mem::transmute(ppbc), reserved) }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidl", feature = "wtypes"))]
 #[inline]
 pub unsafe fn CreateFormatEnumerator(rgfmtetc: &[super::objidl::FORMATETC]) -> windows_core::Result<super::objidl::IEnumFORMATETC> {
     windows_core::link!("urlmon.dll" "system" fn CreateFormatEnumerator(cfmtetc : u32, rgfmtetc : *const super::objidl::FORMATETC, ppenumfmtetc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -223,7 +223,7 @@ where
         CreateIUriBuilder(piuri.param().abi(), dwflags, dwreserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn CreateURLMoniker<P0, P1>(pmkctx: P0, szurl: P1) -> windows_core::Result<super::objidl::IMoniker>
 where
@@ -236,7 +236,7 @@ where
         CreateURLMoniker(pmkctx.param().abi(), szurl.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn CreateURLMonikerEx<P0, P1>(pmkctx: P0, szurl: P1, ppmk: *mut Option<super::objidl::IMoniker>, dwflags: u32) -> windows_core::HRESULT
 where
@@ -246,7 +246,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn CreateURLMonikerEx(pmkctx : *mut core::ffi::c_void, szurl : windows_core::PCWSTR, ppmk : *mut *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
     unsafe { CreateURLMonikerEx(pmkctx.param().abi(), szurl.param().abi(), core::mem::transmute(ppmk), dwflags) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn CreateURLMonikerEx2<P0, P1>(pmkctx: P0, puri: P1, ppmk: *mut Option<super::objidl::IMoniker>, dwflags: u32) -> windows_core::HRESULT
 where
@@ -290,13 +290,13 @@ where
         CreateUriWithFragment(pwzuri.param().abi(), pwzfragment.param().abi(), dwflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "windef", feature = "winnt", feature = "wtypes"))]
 #[inline]
 pub unsafe fn FaultInIEFeature(hwnd: super::windef::HWND, pclassspec: *const super::wtypes::uCLSSPEC, pquery: Option<*mut super::wtypes::QUERYCONTEXT>, dwflags: u32) -> windows_core::HRESULT {
     windows_core::link!("urlmon.dll" "system" fn FaultInIEFeature(hwnd : super::windef::HWND, pclassspec : *const super::wtypes::uCLSSPEC, pquery : *mut super::wtypes::QUERYCONTEXT, dwflags : u32) -> windows_core::HRESULT);
     unsafe { FaultInIEFeature(hwnd, pclassspec, pquery.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[inline]
 pub unsafe fn FindMediaType<P0>(rgsztypes: P0) -> windows_core::Result<super::wtypes::CLIPFORMAT>
 where
@@ -308,7 +308,7 @@ where
         FindMediaType(rgsztypes.param().abi(), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn FindMediaTypeClass<P0, P1>(pbc: P0, sztype: P1, pclsid: *mut windows_core::GUID, reserved: u32) -> windows_core::HRESULT
 where
@@ -318,7 +318,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn FindMediaTypeClass(pbc : *mut core::ffi::c_void, sztype : windows_core::PCSTR, pclsid : *mut windows_core::GUID, reserved : u32) -> windows_core::HRESULT);
     unsafe { FindMediaTypeClass(pbc.param().abi(), sztype.param().abi(), pclsid as _, reserved) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn FindMimeFromData<P0, P1, P4>(pbc: P0, pwzurl: P1, pbuffer: Option<*const core::ffi::c_void>, cbsize: u32, pwzmimeproposed: P4, dwmimeflags: u32, ppwzmimeout: *mut windows_core::PWSTR, dwreserved: Option<u32>) -> windows_core::HRESULT
 where
@@ -329,7 +329,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn FindMimeFromData(pbc : *mut core::ffi::c_void, pwzurl : windows_core::PCWSTR, pbuffer : *const core::ffi::c_void, cbsize : u32, pwzmimeproposed : windows_core::PCWSTR, dwmimeflags : u32, ppwzmimeout : *mut windows_core::PWSTR, dwreserved : u32) -> windows_core::HRESULT);
     unsafe { FindMimeFromData(pbc.param().abi(), pwzurl.param().abi(), pbuffer.unwrap_or(core::mem::zeroed()) as _, cbsize, pwzmimeproposed.param().abi(), dwmimeflags, ppwzmimeout as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn GetClassFileOrMime<P0, P1, P4>(pbc: P0, szfilename: P1, pbuffer: Option<*const core::ffi::c_void>, cbsize: u32, szmime: P4, dwreserved: u32) -> windows_core::Result<windows_core::GUID>
 where
@@ -354,7 +354,7 @@ where
         GetClassURL(szurl.param().abi(), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[inline]
 pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::wtypes::uCLSSPEC) -> windows_core::Result<windows_core::PSTR> {
     windows_core::link!("urlmon.dll" "system" fn GetComponentIDFromCLSSPEC(pclassspec : *const super::wtypes::uCLSSPEC, ppszcomponentid : *mut windows_core::PSTR) -> windows_core::HRESULT);
@@ -387,7 +387,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn HlinkGoForward(punk : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HlinkGoForward(punk.param().abi()) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkNavigateMoniker<P0, P1>(punk: P0, pmktarget: P1) -> windows_core::HRESULT
 where
@@ -406,7 +406,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn HlinkNavigateString(punk : *mut core::ffi::c_void, sztarget : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { HlinkNavigateString(punk.param().abi(), sztarget.param().abi()) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkSimpleNavigateToMoniker<P0, P1, P2, P3, P4, P5>(pmktarget: P0, szlocation: P1, sztargetframename: P2, punk: P3, pbc: P4, param5: P5, grfhlnf: u32, dwreserved: u32) -> windows_core::HRESULT
 where
@@ -420,7 +420,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn HlinkSimpleNavigateToMoniker(pmktarget : *mut core::ffi::c_void, szlocation : windows_core::PCWSTR, sztargetframename : windows_core::PCWSTR, punk : *mut core::ffi::c_void, pbc : *mut core::ffi::c_void, param5 : *mut core::ffi::c_void, grfhlnf : u32, dwreserved : u32) -> windows_core::HRESULT);
     unsafe { HlinkSimpleNavigateToMoniker(pmktarget.param().abi(), szlocation.param().abi(), sztargetframename.param().abi(), punk.param().abi(), pbc.param().abi(), param5.param().abi(), grfhlnf, dwreserved) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkSimpleNavigateToString<P0, P1, P2, P3, P4, P5>(sztarget: P0, szlocation: P1, sztargetframename: P2, punk: P3, pbc: P4, param5: P5, grfhlnf: u32, dwreserved: u32) -> windows_core::HRESULT
 where
@@ -447,7 +447,7 @@ pub unsafe fn IEInstallScope() -> windows_core::Result<u32> {
         IEInstallScope(&mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn IsAsyncMoniker<P0>(pmk: P0) -> windows_core::HRESULT
 where
@@ -472,7 +472,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn IsLoggingEnabledW(pwszurl : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { IsLoggingEnabledW(pwszurl.param().abi()) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn IsValidURL<P0, P1>(pbc: P0, szurl: P1, dwreserved: u32) -> windows_core::HRESULT
 where
@@ -482,7 +482,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn IsValidURL(pbc : *mut core::ffi::c_void, szurl : windows_core::PCWSTR, dwreserved : u32) -> windows_core::HRESULT);
     unsafe { IsValidURL(pbc.param().abi(), szurl.param().abi(), dwreserved) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn MkParseDisplayNameEx<P0, P1>(pbc: P0, szdisplayname: P1, pcheaten: *mut u32, ppmk: *mut Option<super::objidl::IMoniker>) -> windows_core::HRESULT
 where
@@ -497,7 +497,7 @@ pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: windows_core::PSTR,
     windows_core::link!("urlmon.dll" "system" fn ObtainUserAgentString(dwoption : u32, pszuaout : windows_core::PSTR, cbsize : *mut u32) -> windows_core::HRESULT);
     unsafe { ObtainUserAgentString(dwoption, core::mem::transmute(pszuaout), cbsize as _) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn RegisterBindStatusCallback<P0, P1>(pbc: P0, pbscb: P1, ppbscbprev: *mut Option<IBindStatusCallback>, dwreserved: u32) -> windows_core::HRESULT
 where
@@ -507,7 +507,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn RegisterBindStatusCallback(pbc : *mut core::ffi::c_void, pbscb : *mut core::ffi::c_void, ppbscbprev : *mut *mut core::ffi::c_void, dwreserved : u32) -> windows_core::HRESULT);
     unsafe { RegisterBindStatusCallback(pbc.param().abi(), pbscb.param().abi(), core::mem::transmute(ppbscbprev), dwreserved) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn RegisterFormatEnumerator<P0, P1>(pbc: P0, pefetc: P1, reserved: u32) -> windows_core::HRESULT
 where
@@ -517,7 +517,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn RegisterFormatEnumerator(pbc : *mut core::ffi::c_void, pefetc : *mut core::ffi::c_void, reserved : u32) -> windows_core::HRESULT);
     unsafe { RegisterFormatEnumerator(pbc.param().abi(), pefetc.param().abi(), reserved) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn RegisterMediaTypeClass<P0>(pbc: P0, ctypes: u32, rgsztypes: *const windows_core::PCSTR, rgclsid: *const windows_core::GUID, reserved: u32) -> windows_core::HRESULT
 where
@@ -526,19 +526,19 @@ where
     windows_core::link!("urlmon.dll" "system" fn RegisterMediaTypeClass(pbc : *mut core::ffi::c_void, ctypes : u32, rgsztypes : *const windows_core::PCSTR, rgclsid : *const windows_core::GUID, reserved : u32) -> windows_core::HRESULT);
     unsafe { RegisterMediaTypeClass(pbc.param().abi(), ctypes, rgsztypes, rgclsid, reserved) }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[inline]
 pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const windows_core::PCSTR, rgcftypes: *mut super::wtypes::CLIPFORMAT) -> windows_core::HRESULT {
     windows_core::link!("urlmon.dll" "system" fn RegisterMediaTypes(ctypes : u32, rgsztypes : *const windows_core::PCSTR, rgcftypes : *mut super::wtypes::CLIPFORMAT) -> windows_core::HRESULT);
     unsafe { RegisterMediaTypes(ctypes, rgsztypes, rgcftypes as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 #[inline]
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut BINDINFO) {
     windows_core::link!("urlmon.dll" "system" fn ReleaseBindInfo(pbindinfo : *mut BINDINFO));
     unsafe { ReleaseBindInfo(core::mem::transmute(pbindinfo)) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn RevokeBindStatusCallback<P0, P1>(pbc: P0, pbscb: P1) -> windows_core::HRESULT
 where
@@ -548,7 +548,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn RevokeBindStatusCallback(pbc : *mut core::ffi::c_void, pbscb : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { RevokeBindStatusCallback(pbc.param().abi(), pbscb.param().abi()) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn RevokeFormatEnumerator<P0, P1>(pbc: P0, pefetc: P1) -> windows_core::HRESULT
 where
@@ -558,7 +558,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn RevokeFormatEnumerator(pbc : *mut core::ffi::c_void, pefetc : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { RevokeFormatEnumerator(pbc.param().abi(), pefetc.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetAccessForIEAppContainer(hobject: super::winnt::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> windows_core::HRESULT {
     windows_core::link!("urlmon.dll" "system" fn SetAccessForIEAppContainer(hobject : super::winnt::HANDLE, ieobjecttype : IEObjectType, dwaccessmask : u32) -> windows_core::HRESULT);
@@ -614,7 +614,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn URLDownloadToFileW(param0 : *mut core::ffi::c_void, param1 : windows_core::PCWSTR, param2 : windows_core::PCWSTR, param3 : u32, param4 : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { URLDownloadToFileW(param0.param().abi(), param1.param().abi(), param2.param().abi(), param3, param4.param().abi()) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn URLOpenBlockingStreamA<P0, P1, P4>(param0: P0, param1: P1, param2: *mut Option<super::objidlbase::IStream>, param3: u32, param4: P4) -> windows_core::HRESULT
 where
@@ -625,7 +625,7 @@ where
     windows_core::link!("urlmon.dll" "system" fn URLOpenBlockingStreamA(param0 : *mut core::ffi::c_void, param1 : windows_core::PCSTR, param2 : *mut *mut core::ffi::c_void, param3 : u32, param4 : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { URLOpenBlockingStreamA(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2), param3, param4.param().abi()) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn URLOpenBlockingStreamW<P0, P1, P4>(param0: P0, param1: P1, param2: *mut Option<super::objidlbase::IStream>, param3: u32, param4: P4) -> windows_core::HRESULT
 where
@@ -686,7 +686,7 @@ pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: Option<*const core::
     windows_core::link!("urlmon.dll" "system" fn UrlMkSetSessionOption(dwoption : u32, pbuffer : *const core::ffi::c_void, dwbufferlength : u32, dwreserved : u32) -> windows_core::HRESULT);
     unsafe { UrlMkSetSessionOption(dwoption, pbuffer.unwrap_or(core::mem::zeroed()) as _, dwbufferlength, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[inline]
 pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> windows_core::BOOL {
     windows_core::link!("urlmon.dll" "system" fn WriteHitLogging(lplogginginfo : *const HIT_LOGGING_INFO) -> windows_core::BOOL);
@@ -774,7 +774,7 @@ pub const BINDHANDLETYPES_APPCACHE: BINDHANDLETYPES = 0;
 pub const BINDHANDLETYPES_COUNT: BINDHANDLETYPES = 2;
 pub const BINDHANDLETYPES_DEPENDENCY: BINDHANDLETYPES = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub struct BINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_core::PWSTR,
@@ -791,13 +791,13 @@ pub struct BINDINFO {
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub dwReserved: u32,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl Clone for BINDINFO {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl Default for BINDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1034,7 +1034,7 @@ pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8;
 pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: u32,
@@ -1046,7 +1046,7 @@ pub struct HIT_LOGGING_INFO {
 windows_core::imp::define_interface!(IAuthenticate, IAuthenticate_Vtbl, 0x79eac9d0_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IAuthenticate, windows_core::IUnknown);
 impl IAuthenticate {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Authenticate(&self, phwnd: *mut super::windef::HWND, pszusername: *mut windows_core::PWSTR, pszpassword: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Authenticate)(windows_core::Interface::as_raw(self), phwnd as _, pszusername as _, pszpassword as _) }
     }
@@ -1055,16 +1055,16 @@ impl IAuthenticate {
 #[doc(hidden)]
 pub struct IAuthenticate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Authenticate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Authenticate: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IAuthenticate_Impl: windows_core::IUnknownImpl {
     fn Authenticate(&self, phwnd: *mut super::windef::HWND, pszusername: *mut windows_core::PWSTR, pszpassword: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IAuthenticate_Vtbl {
     pub const fn new<Identity: IAuthenticate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Authenticate<Identity: IAuthenticate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phwnd: *mut super::windef::HWND, pszusername: *mut windows_core::PWSTR, pszpassword: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1079,7 +1079,7 @@ impl IAuthenticate_Vtbl {
         iid == &<IAuthenticate as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IAuthenticate {}
 windows_core::imp::define_interface!(IAuthenticateEx, IAuthenticateEx_Vtbl, 0x2ad1edaf_d83d_48b5_9adf_03dbe19f53bd);
 impl core::ops::Deref for IAuthenticateEx {
@@ -1090,7 +1090,7 @@ impl core::ops::Deref for IAuthenticateEx {
 }
 windows_core::imp::interface_hierarchy!(IAuthenticateEx, windows_core::IUnknown, IAuthenticate);
 impl IAuthenticateEx {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AuthenticateEx(&self, phwnd: *mut super::windef::HWND, pszusername: *mut windows_core::PWSTR, pszpassword: *mut windows_core::PWSTR, pauthinfo: *const AUTHENTICATEINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AuthenticateEx)(windows_core::Interface::as_raw(self), phwnd as _, pszusername as _, pszpassword as _, pauthinfo) }
     }
@@ -1099,16 +1099,16 @@ impl IAuthenticateEx {
 #[doc(hidden)]
 pub struct IAuthenticateEx_Vtbl {
     pub base__: IAuthenticate_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AuthenticateEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND, *mut windows_core::PWSTR, *mut windows_core::PWSTR, *const AUTHENTICATEINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AuthenticateEx: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IAuthenticateEx_Impl: IAuthenticate_Impl {
     fn AuthenticateEx(&self, phwnd: *mut super::windef::HWND, pszusername: *mut windows_core::PWSTR, pszpassword: *mut windows_core::PWSTR, pauthinfo: *const AUTHENTICATEINFO) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IAuthenticateEx_Vtbl {
     pub const fn new<Identity: IAuthenticateEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AuthenticateEx<Identity: IAuthenticateEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phwnd: *mut super::windef::HWND, pszusername: *mut windows_core::PWSTR, pszpassword: *mut windows_core::PWSTR, pauthinfo: *const AUTHENTICATEINFO) -> windows_core::HRESULT {
@@ -1123,12 +1123,12 @@ impl IAuthenticateEx_Vtbl {
         iid == &<IAuthenticateEx as windows_core::Interface>::IID || iid == &<IAuthenticate as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IAuthenticateEx {}
 windows_core::imp::define_interface!(IBindCallbackRedirect, IBindCallbackRedirect_Vtbl, 0x11c81bc2_121e_4ed5_b9c4_b430bd54f2c0);
 windows_core::imp::interface_hierarchy!(IBindCallbackRedirect, windows_core::IUnknown);
 impl IBindCallbackRedirect {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Redirect<P0>(&self, lpcurl: P0) -> windows_core::Result<super::wtypes::VARIANT_BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1143,16 +1143,16 @@ impl IBindCallbackRedirect {
 #[doc(hidden)]
 pub struct IBindCallbackRedirect_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Redirect: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Redirect: usize,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub trait IBindCallbackRedirect_Impl: windows_core::IUnknownImpl {
     fn Redirect(&self, lpcurl: &windows_core::PCWSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl IBindCallbackRedirect_Vtbl {
     pub const fn new<Identity: IBindCallbackRedirect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Redirect<Identity: IBindCallbackRedirect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpcurl: windows_core::PCWSTR, vbcancel: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1173,12 +1173,12 @@ impl IBindCallbackRedirect_Vtbl {
         iid == &<IBindCallbackRedirect as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl windows_core::RuntimeName for IBindCallbackRedirect {}
 windows_core::imp::define_interface!(IBindHost, IBindHost_Vtbl, 0xfc4801a1_2ba9_11cf_a229_00aa003d7352);
 windows_core::imp::interface_hierarchy!(IBindHost, windows_core::IUnknown);
 impl IBindHost {
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn CreateMoniker<P0, P1>(&self, szname: P0, pbc: P1, ppmk: *mut Option<super::objidl::IMoniker>, dwreserved: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1186,7 +1186,7 @@ impl IBindHost {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateMoniker)(windows_core::Interface::as_raw(self), szname.param().abi(), pbc.param().abi(), core::mem::transmute(ppmk), dwreserved) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn MonikerBindToStorage<P0, P1, P2>(&self, pmk: P0, pbc: P1, pbsc: P2, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IMoniker>,
@@ -1195,7 +1195,7 @@ impl IBindHost {
     {
         unsafe { (windows_core::Interface::vtable(self).MonikerBindToStorage)(windows_core::Interface::as_raw(self), pmk.param().abi(), pbc.param().abi(), pbsc.param().abi(), riid, ppvobj as _) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn MonikerBindToObject<P0, P1, P2>(&self, pmk: P0, pbc: P1, pbsc: P2, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IMoniker>,
@@ -1209,26 +1209,26 @@ impl IBindHost {
 #[doc(hidden)]
 pub struct IBindHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub CreateMoniker: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     CreateMoniker: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub MonikerBindToStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     MonikerBindToStorage: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub MonikerBindToObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     MonikerBindToObject: usize,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait IBindHost_Impl: windows_core::IUnknownImpl {
     fn CreateMoniker(&self, szname: &windows_core::PCWSTR, pbc: windows_core::Ref<super::objidl::IBindCtx>, ppmk: windows_core::OutRef<super::objidl::IMoniker>, dwreserved: u32) -> windows_core::Result<()>;
     fn MonikerBindToStorage(&self, pmk: windows_core::Ref<super::objidl::IMoniker>, pbc: windows_core::Ref<super::objidl::IBindCtx>, pbsc: windows_core::Ref<IBindStatusCallback>, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn MonikerBindToObject(&self, pmk: windows_core::Ref<super::objidl::IMoniker>, pbc: windows_core::Ref<super::objidl::IBindCtx>, pbsc: windows_core::Ref<IBindStatusCallback>, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl IBindHost_Vtbl {
     pub const fn new<Identity: IBindHost_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateMoniker<Identity: IBindHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCWSTR, pbc: *mut core::ffi::c_void, ppmk: *mut *mut core::ffi::c_void, dwreserved: u32) -> windows_core::HRESULT {
@@ -1260,7 +1260,7 @@ impl IBindHost_Vtbl {
         iid == &<IBindHost as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for IBindHost {}
 windows_core::imp::define_interface!(IBindHttpSecurity, IBindHttpSecurity_Vtbl, 0xa9eda967_f50e_4a33_b358_206f6ef3086d);
 windows_core::imp::interface_hierarchy!(IBindHttpSecurity, windows_core::IUnknown);
@@ -1305,7 +1305,7 @@ impl windows_core::RuntimeName for IBindHttpSecurity {}
 windows_core::imp::define_interface!(IBindProtocol, IBindProtocol_Vtbl, 0x79eac9cd_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IBindProtocol, windows_core::IUnknown);
 impl IBindProtocol {
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn CreateBinding<P0, P1>(&self, szurl: P0, pbc: P1) -> windows_core::Result<IBinding>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1321,16 +1321,16 @@ impl IBindProtocol {
 #[doc(hidden)]
 pub struct IBindProtocol_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub CreateBinding: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     CreateBinding: usize,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait IBindProtocol_Impl: windows_core::IUnknownImpl {
     fn CreateBinding(&self, szurl: &windows_core::PCWSTR, pbc: windows_core::Ref<super::objidl::IBindCtx>) -> windows_core::Result<IBinding>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl IBindProtocol_Vtbl {
     pub const fn new<Identity: IBindProtocol_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateBinding<Identity: IBindProtocol_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szurl: windows_core::PCWSTR, pbc: *mut core::ffi::c_void, ppb: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1351,7 +1351,7 @@ impl IBindProtocol_Vtbl {
         iid == &<IBindProtocol as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for IBindProtocol {}
 windows_core::imp::define_interface!(IBindStatusCallback, IBindStatusCallback_Vtbl, 0x79eac9c1_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IBindStatusCallback, windows_core::IUnknown);
@@ -1383,11 +1383,11 @@ impl IBindStatusCallback {
     {
         unsafe { (windows_core::Interface::vtable(self).OnStopBinding)(windows_core::Interface::as_raw(self), hresult, szerror.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBindInfo)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo)) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn OnDataAvailable(&self, grfbscf: u32, dwsize: u32, pformatetc: *const super::objidl::FORMATETC, pstgmed: *const super::objidl::STGMEDIUM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnDataAvailable)(windows_core::Interface::as_raw(self), grfbscf, dwsize, pformatetc, core::mem::transmute(pstgmed)) }
     }
@@ -1407,17 +1407,17 @@ pub struct IBindStatusCallback_Vtbl {
     pub OnLowResource: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub OnProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OnStopBinding: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub GetBindInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut BINDINFO) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes")))]
     GetBindInfo: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub OnDataAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const super::objidl::FORMATETC, *const super::objidl::STGMEDIUM) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes")))]
     OnDataAvailable: usize,
     pub OnObjectAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub trait IBindStatusCallback_Impl: windows_core::IUnknownImpl {
     fn OnStartBinding(&self, dwreserved: u32, pib: windows_core::Ref<IBinding>) -> windows_core::Result<()>;
     fn GetPriority(&self) -> windows_core::Result<i32>;
@@ -1428,7 +1428,7 @@ pub trait IBindStatusCallback_Impl: windows_core::IUnknownImpl {
     fn OnDataAvailable(&self, grfbscf: u32, dwsize: u32, pformatetc: *const super::objidl::FORMATETC, pstgmed: *const super::objidl::STGMEDIUM) -> windows_core::Result<()>;
     fn OnObjectAvailable(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl IBindStatusCallback_Vtbl {
     pub const fn new<Identity: IBindStatusCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStartBinding<Identity: IBindStatusCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: u32, pib: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1501,7 +1501,7 @@ impl IBindStatusCallback_Vtbl {
         iid == &<IBindStatusCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl windows_core::RuntimeName for IBindStatusCallback {}
 windows_core::imp::define_interface!(IBindStatusCallbackEx, IBindStatusCallbackEx_Vtbl, 0xaaa74ef9_8ee7_4659_88d9_f8c504da73cc);
 impl core::ops::Deref for IBindStatusCallbackEx {
@@ -1512,7 +1512,7 @@ impl core::ops::Deref for IBindStatusCallbackEx {
 }
 windows_core::imp::interface_hierarchy!(IBindStatusCallbackEx, windows_core::IUnknown, IBindStatusCallback);
 impl IBindStatusCallbackEx {
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBindInfoEx)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo), grfbindf2 as _, pdwreserved as _) }
     }
@@ -1521,16 +1521,16 @@ impl IBindStatusCallbackEx {
 #[doc(hidden)]
 pub struct IBindStatusCallbackEx_Vtbl {
     pub base__: IBindStatusCallback_Vtbl,
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub GetBindInfoEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut BINDINFO, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes")))]
     GetBindInfoEx: usize,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub trait IBindStatusCallbackEx_Impl: IBindStatusCallback_Impl {
     fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl IBindStatusCallbackEx_Vtbl {
     pub const fn new<Identity: IBindStatusCallbackEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBindInfoEx<Identity: IBindStatusCallbackEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> windows_core::HRESULT {
@@ -1545,7 +1545,7 @@ impl IBindStatusCallbackEx_Vtbl {
         iid == &<IBindStatusCallbackEx as windows_core::Interface>::IID || iid == &<IBindStatusCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl windows_core::RuntimeName for IBindStatusCallbackEx {}
 windows_core::imp::define_interface!(IBinding, IBinding_Vtbl, 0x79eac9c0_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IBinding, windows_core::IUnknown);
@@ -1728,11 +1728,11 @@ pub struct ICodeInstall_Vtbl {
     pub base__: IWindowForBindingUI_Vtbl,
     pub OnCodeInstallProblem: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ICodeInstall_Impl: IWindowForBindingUI_Impl {
     fn OnCodeInstallProblem(&self, ulstatuscode: u32, szdestination: &windows_core::PCWSTR, szsource: &windows_core::PCWSTR, dwreserved: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ICodeInstall_Vtbl {
     pub const fn new<Identity: ICodeInstall_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnCodeInstallProblem<Identity: ICodeInstall_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstatuscode: u32, szdestination: windows_core::PCWSTR, szsource: windows_core::PCWSTR, dwreserved: u32) -> windows_core::HRESULT {
@@ -1747,7 +1747,7 @@ impl ICodeInstall_Vtbl {
         iid == &<ICodeInstall as windows_core::Interface>::IID || iid == &<IWindowForBindingUI as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ICodeInstall {}
 windows_core::imp::define_interface!(IDataFilter, IDataFilter_Vtbl, 0x69d14c80_c18e_11d0_a9ce_006097942311);
 windows_core::imp::interface_hierarchy!(IDataFilter, windows_core::IUnknown);
@@ -1891,7 +1891,7 @@ impl windows_core::RuntimeName for IEncodingFilterFactory {}
 windows_core::imp::define_interface!(IGetBindHandle, IGetBindHandle_Vtbl, 0xaf0ff408_129d_4b20_91f0_02bd23d88352);
 windows_core::imp::interface_hierarchy!(IGetBindHandle, windows_core::IUnknown);
 impl IGetBindHandle {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> windows_core::Result<super::winnt::HANDLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1903,16 +1903,16 @@ impl IGetBindHandle {
 #[doc(hidden)]
 pub struct IGetBindHandle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetBindHandle: unsafe extern "system" fn(*mut core::ffi::c_void, BINDHANDLETYPES, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetBindHandle: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IGetBindHandle_Impl: windows_core::IUnknownImpl {
     fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> windows_core::Result<super::winnt::HANDLE>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IGetBindHandle_Vtbl {
     pub const fn new<Identity: IGetBindHandle_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBindHandle<Identity: IGetBindHandle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumrequestedhandle: BINDHANDLETYPES, prethandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
@@ -1933,7 +1933,7 @@ impl IGetBindHandle_Vtbl {
         iid == &<IGetBindHandle as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IGetBindHandle {}
 windows_core::imp::define_interface!(IHttpNegotiate, IHttpNegotiate_Vtbl, 0x79eac9d2_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IHttpNegotiate, windows_core::IUnknown);
@@ -2100,11 +2100,11 @@ pub struct IHttpSecurity_Vtbl {
     pub base__: IWindowForBindingUI_Vtbl,
     pub OnSecurityProblem: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IHttpSecurity_Impl: IWindowForBindingUI_Impl {
     fn OnSecurityProblem(&self, dwproblem: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IHttpSecurity_Vtbl {
     pub const fn new<Identity: IHttpSecurity_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnSecurityProblem<Identity: IHttpSecurity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwproblem: u32) -> windows_core::HRESULT {
@@ -2119,7 +2119,7 @@ impl IHttpSecurity_Vtbl {
         iid == &<IHttpSecurity as windows_core::Interface>::IID || iid == &<IWindowForBindingUI as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IHttpSecurity {}
 windows_core::imp::define_interface!(IInternet, IInternet_Vtbl, 0x79eac9e0_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IInternet, windows_core::IUnknown);
@@ -2141,7 +2141,7 @@ impl windows_core::RuntimeName for IInternet {}
 windows_core::imp::define_interface!(IInternetBindInfo, IInternetBindInfo_Vtbl, 0x79eac9e1_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IInternetBindInfo, windows_core::IUnknown);
 impl IInternetBindInfo {
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBindInfo)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo)) }
     }
@@ -2153,18 +2153,18 @@ impl IInternetBindInfo {
 #[doc(hidden)]
 pub struct IInternetBindInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub GetBindInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut BINDINFO) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes")))]
     GetBindInfo: usize,
     pub GetBindString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub trait IInternetBindInfo_Impl: windows_core::IUnknownImpl {
     fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> windows_core::Result<()>;
     fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut windows_core::PWSTR, cel: u32, pcelfetched: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl IInternetBindInfo_Vtbl {
     pub const fn new<Identity: IInternetBindInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBindInfo<Identity: IInternetBindInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> windows_core::HRESULT {
@@ -2189,7 +2189,7 @@ impl IInternetBindInfo_Vtbl {
         iid == &<IInternetBindInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl windows_core::RuntimeName for IInternetBindInfo {}
 windows_core::imp::define_interface!(IInternetBindInfoEx, IInternetBindInfoEx_Vtbl, 0xa3e015b7_a82c_4dcd_a150_569aeeed36ab);
 impl core::ops::Deref for IInternetBindInfoEx {
@@ -2200,7 +2200,7 @@ impl core::ops::Deref for IInternetBindInfoEx {
 }
 windows_core::imp::interface_hierarchy!(IInternetBindInfoEx, windows_core::IUnknown, IInternetBindInfo);
 impl IInternetBindInfoEx {
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBindInfoEx)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo), grfbindf2 as _, pdwreserved as _) }
     }
@@ -2209,16 +2209,16 @@ impl IInternetBindInfoEx {
 #[doc(hidden)]
 pub struct IInternetBindInfoEx_Vtbl {
     pub base__: IInternetBindInfo_Vtbl,
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub GetBindInfoEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut BINDINFO, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes")))]
     GetBindInfoEx: usize,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub trait IInternetBindInfoEx_Impl: IInternetBindInfo_Impl {
     fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl IInternetBindInfoEx_Vtbl {
     pub const fn new<Identity: IInternetBindInfoEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBindInfoEx<Identity: IInternetBindInfoEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> windows_core::HRESULT {
@@ -2233,7 +2233,7 @@ impl IInternetBindInfoEx_Vtbl {
         iid == &<IInternetBindInfoEx as windows_core::Interface>::IID || iid == &<IInternetBindInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl windows_core::RuntimeName for IInternetBindInfoEx {}
 windows_core::imp::define_interface!(IInternetHostSecurityManager, IInternetHostSecurityManager_Vtbl, 0x3af280b6_cb3f_11d0_891e_00c04fb6bfc4);
 windows_core::imp::interface_hierarchy!(IInternetHostSecurityManager, windows_core::IUnknown);
@@ -2382,14 +2382,14 @@ pub struct IInternetProtocol_Vtbl {
     pub LockRequest: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub UnlockRequest: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 pub trait IInternetProtocol_Impl: IInternetProtocolRoot_Impl {
     fn Read(&self, pv: *mut core::ffi::c_void, cb: u32, pcbread: *mut u32) -> windows_core::Result<()>;
     fn Seek(&self, dlibmove: i64, dworigin: u32) -> windows_core::Result<u64>;
     fn LockRequest(&self, dwoptions: u32) -> windows_core::Result<()>;
     fn UnlockRequest(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl IInternetProtocol_Vtbl {
     pub const fn new<Identity: IInternetProtocol_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Read<Identity: IInternetProtocol_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pv: *mut core::ffi::c_void, cb: u32, pcbread: *mut u32) -> windows_core::HRESULT {
@@ -2434,7 +2434,7 @@ impl IInternetProtocol_Vtbl {
         iid == &<IInternetProtocol as windows_core::Interface>::IID || iid == &<IInternetProtocolRoot as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl windows_core::RuntimeName for IInternetProtocol {}
 windows_core::imp::define_interface!(IInternetProtocolEx, IInternetProtocolEx_Vtbl, 0xc7a98e66_1010_492c_a1c8_c809e1f75905);
 impl core::ops::Deref for IInternetProtocolEx {
@@ -2445,7 +2445,7 @@ impl core::ops::Deref for IInternetProtocolEx {
 }
 windows_core::imp::interface_hierarchy!(IInternetProtocolEx, windows_core::IUnknown, IInternetProtocolRoot, IInternetProtocol);
 impl IInternetProtocolEx {
-    #[cfg(feature = "Win32_basetsd")]
+    #[cfg(feature = "basetsd")]
     pub unsafe fn StartEx<P0, P1, P2>(&self, puri: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: super::basetsd::HANDLE_PTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUri>,
@@ -2459,16 +2459,16 @@ impl IInternetProtocolEx {
 #[doc(hidden)]
 pub struct IInternetProtocolEx_Vtbl {
     pub base__: IInternetProtocol_Vtbl,
-    #[cfg(feature = "Win32_basetsd")]
+    #[cfg(feature = "basetsd")]
     pub StartEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::basetsd::HANDLE_PTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_basetsd"))]
+    #[cfg(not(feature = "basetsd"))]
     StartEx: usize,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 pub trait IInternetProtocolEx_Impl: IInternetProtocol_Impl {
     fn StartEx(&self, puri: windows_core::Ref<IUri>, poiprotsink: windows_core::Ref<IInternetProtocolSink>, poibindinfo: windows_core::Ref<IInternetBindInfo>, grfpi: u32, dwreserved: super::basetsd::HANDLE_PTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl IInternetProtocolEx_Vtbl {
     pub const fn new<Identity: IInternetProtocolEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartEx<Identity: IInternetProtocolEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puri: *mut core::ffi::c_void, poiprotsink: *mut core::ffi::c_void, poibindinfo: *mut core::ffi::c_void, grfpi: u32, dwreserved: super::basetsd::HANDLE_PTR) -> windows_core::HRESULT {
@@ -2483,7 +2483,7 @@ impl IInternetProtocolEx_Vtbl {
         iid == &<IInternetProtocolEx as windows_core::Interface>::IID || iid == &<IInternetProtocolRoot as windows_core::Interface>::IID || iid == &<IInternetProtocol as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl windows_core::RuntimeName for IInternetProtocolEx {}
 windows_core::imp::define_interface!(IInternetProtocolInfo, IInternetProtocolInfo_Vtbl, 0x79eac9ec_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IInternetProtocolInfo, windows_core::IUnknown);
@@ -2572,7 +2572,7 @@ impl windows_core::RuntimeName for IInternetProtocolInfo {}
 windows_core::imp::define_interface!(IInternetProtocolRoot, IInternetProtocolRoot_Vtbl, 0x79eac9e3_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IInternetProtocolRoot, windows_core::IUnknown);
 impl IInternetProtocolRoot {
-    #[cfg(feature = "Win32_basetsd")]
+    #[cfg(feature = "basetsd")]
     pub unsafe fn Start<P0, P1, P2>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: super::basetsd::HANDLE_PTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2601,9 +2601,9 @@ impl IInternetProtocolRoot {
 #[doc(hidden)]
 pub struct IInternetProtocolRoot_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_basetsd")]
+    #[cfg(feature = "basetsd")]
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::basetsd::HANDLE_PTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_basetsd"))]
+    #[cfg(not(feature = "basetsd"))]
     Start: usize,
     pub Continue: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROTOCOLDATA) -> windows_core::HRESULT,
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
@@ -2611,7 +2611,7 @@ pub struct IInternetProtocolRoot_Vtbl {
     pub Suspend: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 pub trait IInternetProtocolRoot_Impl: windows_core::IUnknownImpl {
     fn Start(&self, szurl: &windows_core::PCWSTR, poiprotsink: windows_core::Ref<IInternetProtocolSink>, poibindinfo: windows_core::Ref<IInternetBindInfo>, grfpi: u32, dwreserved: super::basetsd::HANDLE_PTR) -> windows_core::Result<()>;
     fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> windows_core::Result<()>;
@@ -2620,7 +2620,7 @@ pub trait IInternetProtocolRoot_Impl: windows_core::IUnknownImpl {
     fn Suspend(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl IInternetProtocolRoot_Vtbl {
     pub const fn new<Identity: IInternetProtocolRoot_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Start<Identity: IInternetProtocolRoot_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szurl: windows_core::PCWSTR, poiprotsink: *mut core::ffi::c_void, poibindinfo: *mut core::ffi::c_void, grfpi: u32, dwreserved: super::basetsd::HANDLE_PTR) -> windows_core::HRESULT {
@@ -2673,7 +2673,7 @@ impl IInternetProtocolRoot_Vtbl {
         iid == &<IInternetProtocolRoot as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl windows_core::RuntimeName for IInternetProtocolRoot {}
 windows_core::imp::define_interface!(IInternetProtocolSink, IInternetProtocolSink_Vtbl, 0x79eac9e5_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IInternetProtocolSink, windows_core::IUnknown);
@@ -2857,7 +2857,7 @@ impl IInternetSecurityManager {
     {
         unsafe { (windows_core::Interface::vtable(self).SetZoneMapping)(windows_core::Interface::as_raw(self), dwzone, lpszpattern.param().abi(), dwflags) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut Option<super::objidlbase::IEnumString>, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetZoneMappings)(windows_core::Interface::as_raw(self), dwzone, core::mem::transmute(ppenumstring), dwflags) }
     }
@@ -2873,12 +2873,12 @@ pub struct IInternetSecurityManager_Vtbl {
     pub ProcessUrlAction: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u8, u32, *const u8, u32, u32, u32) -> windows_core::HRESULT,
     pub QueryCustomPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut u8, *mut u32, *const u8, u32, u32) -> windows_core::HRESULT,
     pub SetZoneMapping: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetZoneMappings: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetZoneMappings: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IInternetSecurityManager_Impl: windows_core::IUnknownImpl {
     fn SetSecuritySite(&self, psite: windows_core::Ref<IInternetSecurityMgrSite>) -> windows_core::Result<()>;
     fn GetSecuritySite(&self) -> windows_core::Result<IInternetSecurityMgrSite>;
@@ -2889,7 +2889,7 @@ pub trait IInternetSecurityManager_Impl: windows_core::IUnknownImpl {
     fn SetZoneMapping(&self, dwzone: u32, lpszpattern: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<()>;
     fn GetZoneMappings(&self, dwzone: u32, ppenumstring: windows_core::OutRef<super::objidlbase::IEnumString>, dwflags: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IInternetSecurityManager_Vtbl {
     pub const fn new<Identity: IInternetSecurityManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetSecuritySite<Identity: IInternetSecurityManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psite: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2962,7 +2962,7 @@ impl IInternetSecurityManager_Vtbl {
         iid == &<IInternetSecurityManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IInternetSecurityManager {}
 windows_core::imp::define_interface!(IInternetSecurityManagerEx, IInternetSecurityManagerEx_Vtbl, 0xf164edf1_cc7c_4f0d_9a94_34222625c393);
 impl core::ops::Deref for IInternetSecurityManagerEx {
@@ -2986,11 +2986,11 @@ pub struct IInternetSecurityManagerEx_Vtbl {
     pub base__: IInternetSecurityManager_Vtbl,
     pub ProcessUrlActionEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u8, u32, *const u8, u32, u32, u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IInternetSecurityManagerEx_Impl: IInternetSecurityManager_Impl {
     fn ProcessUrlActionEx(&self, pwszurl: &windows_core::PCWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IInternetSecurityManagerEx_Vtbl {
     pub const fn new<Identity: IInternetSecurityManagerEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProcessUrlActionEx<Identity: IInternetSecurityManagerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: windows_core::PCWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> windows_core::HRESULT {
@@ -3005,7 +3005,7 @@ impl IInternetSecurityManagerEx_Vtbl {
         iid == &<IInternetSecurityManagerEx as windows_core::Interface>::IID || iid == &<IInternetSecurityManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IInternetSecurityManagerEx {}
 windows_core::imp::define_interface!(IInternetSecurityManagerEx2, IInternetSecurityManagerEx2_Vtbl, 0xf1e50292_a795_4117_8e09_2b560a72ac60);
 impl core::ops::Deref for IInternetSecurityManagerEx2 {
@@ -3050,14 +3050,14 @@ pub struct IInternetSecurityManagerEx2_Vtbl {
     pub GetSecurityIdEx2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u8, *mut u32, usize) -> windows_core::HRESULT,
     pub QueryCustomPolicyEx2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut u8, *mut u32, *const u8, u32, usize) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IInternetSecurityManagerEx2_Impl: IInternetSecurityManagerEx_Impl {
     fn MapUrlToZoneEx2(&self, puri: windows_core::Ref<IUri>, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut windows_core::PWSTR, pdwoutflags: *mut u32) -> windows_core::Result<()>;
     fn ProcessUrlActionEx2(&self, puri: windows_core::Ref<IUri>, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> windows_core::Result<()>;
     fn GetSecurityIdEx2(&self, puri: windows_core::Ref<IUri>, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> windows_core::Result<()>;
     fn QueryCustomPolicyEx2(&self, puri: windows_core::Ref<IUri>, guidkey: *const windows_core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IInternetSecurityManagerEx2_Vtbl {
     pub const fn new<Identity: IInternetSecurityManagerEx2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MapUrlToZoneEx2<Identity: IInternetSecurityManagerEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puri: *mut core::ffi::c_void, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut windows_core::PWSTR, pdwoutflags: *mut u32) -> windows_core::HRESULT {
@@ -3096,12 +3096,12 @@ impl IInternetSecurityManagerEx2_Vtbl {
         iid == &<IInternetSecurityManagerEx2 as windows_core::Interface>::IID || iid == &<IInternetSecurityManager as windows_core::Interface>::IID || iid == &<IInternetSecurityManagerEx as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IInternetSecurityManagerEx2 {}
 windows_core::imp::define_interface!(IInternetSecurityMgrSite, IInternetSecurityMgrSite_Vtbl, 0x79eac9ed_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IInternetSecurityMgrSite, windows_core::IUnknown);
 impl IInternetSecurityMgrSite {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetWindow(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3116,18 +3116,18 @@ impl IInternetSecurityMgrSite {
 #[doc(hidden)]
 pub struct IInternetSecurityMgrSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetWindow: usize,
     pub EnableModeless: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IInternetSecurityMgrSite_Impl: windows_core::IUnknownImpl {
     fn GetWindow(&self) -> windows_core::Result<super::windef::HWND>;
     fn EnableModeless(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IInternetSecurityMgrSite_Vtbl {
     pub const fn new<Identity: IInternetSecurityMgrSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetWindow<Identity: IInternetSecurityMgrSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phwnd: *mut super::windef::HWND) -> windows_core::HRESULT {
@@ -3158,12 +3158,12 @@ impl IInternetSecurityMgrSite_Vtbl {
         iid == &<IInternetSecurityMgrSite as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IInternetSecurityMgrSite {}
 windows_core::imp::define_interface!(IInternetSession, IInternetSession_Vtbl, 0x79eac9e7_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IInternetSession, windows_core::IUnknown);
 impl IInternetSession {
-    #[cfg(feature = "Win32_unknwnbase")]
+    #[cfg(feature = "unknwnbase")]
     pub unsafe fn RegisterNameSpace<P0, P2>(&self, pcf: P0, rclsid: *const windows_core::GUID, pwzprotocol: P2, cpatterns: u32, ppwzpatterns: *const windows_core::PCWSTR, dwreserved: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::unknwnbase::IClassFactory>,
@@ -3171,7 +3171,7 @@ impl IInternetSession {
     {
         unsafe { (windows_core::Interface::vtable(self).RegisterNameSpace)(windows_core::Interface::as_raw(self), pcf.param().abi(), rclsid, pwzprotocol.param().abi(), cpatterns, ppwzpatterns, dwreserved) }
     }
-    #[cfg(feature = "Win32_unknwnbase")]
+    #[cfg(feature = "unknwnbase")]
     pub unsafe fn UnregisterNameSpace<P0, P1>(&self, pcf: P0, pszprotocol: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::unknwnbase::IClassFactory>,
@@ -3179,7 +3179,7 @@ impl IInternetSession {
     {
         unsafe { (windows_core::Interface::vtable(self).UnregisterNameSpace)(windows_core::Interface::as_raw(self), pcf.param().abi(), pszprotocol.param().abi()) }
     }
-    #[cfg(feature = "Win32_unknwnbase")]
+    #[cfg(feature = "unknwnbase")]
     pub unsafe fn RegisterMimeFilter<P0, P2>(&self, pcf: P0, rclsid: *const windows_core::GUID, pwztype: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::unknwnbase::IClassFactory>,
@@ -3187,7 +3187,7 @@ impl IInternetSession {
     {
         unsafe { (windows_core::Interface::vtable(self).RegisterMimeFilter)(windows_core::Interface::as_raw(self), pcf.param().abi(), rclsid, pwztype.param().abi()) }
     }
-    #[cfg(feature = "Win32_unknwnbase")]
+    #[cfg(feature = "unknwnbase")]
     pub unsafe fn UnregisterMimeFilter<P0, P1>(&self, pcf: P0, pwztype: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::unknwnbase::IClassFactory>,
@@ -3195,7 +3195,7 @@ impl IInternetSession {
     {
         unsafe { (windows_core::Interface::vtable(self).UnregisterMimeFilter)(windows_core::Interface::as_raw(self), pcf.param().abi(), pwztype.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn CreateBinding<P0, P1, P2>(&self, pbc: P0, szurl: P1, punkouter: P2, ppunk: *mut Option<windows_core::IUnknown>, ppoinetprot: *mut Option<IInternetProtocol>, dwoption: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IBindCtx>,
@@ -3215,30 +3215,30 @@ impl IInternetSession {
 #[doc(hidden)]
 pub struct IInternetSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_unknwnbase")]
+    #[cfg(feature = "unknwnbase")]
     pub RegisterNameSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_unknwnbase"))]
+    #[cfg(not(feature = "unknwnbase"))]
     RegisterNameSpace: usize,
-    #[cfg(feature = "Win32_unknwnbase")]
+    #[cfg(feature = "unknwnbase")]
     pub UnregisterNameSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_unknwnbase"))]
+    #[cfg(not(feature = "unknwnbase"))]
     UnregisterNameSpace: usize,
-    #[cfg(feature = "Win32_unknwnbase")]
+    #[cfg(feature = "unknwnbase")]
     pub RegisterMimeFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_unknwnbase"))]
+    #[cfg(not(feature = "unknwnbase"))]
     RegisterMimeFilter: usize,
-    #[cfg(feature = "Win32_unknwnbase")]
+    #[cfg(feature = "unknwnbase")]
     pub UnregisterMimeFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_unknwnbase"))]
+    #[cfg(not(feature = "unknwnbase"))]
     UnregisterMimeFilter: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub CreateBinding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     CreateBinding: usize,
     pub SetSessionOption: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetSessionOption: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_unknwnbase"))]
+#[cfg(all(feature = "objidl", feature = "unknwnbase"))]
 pub trait IInternetSession_Impl: windows_core::IUnknownImpl {
     fn RegisterNameSpace(&self, pcf: windows_core::Ref<super::unknwnbase::IClassFactory>, rclsid: *const windows_core::GUID, pwzprotocol: &windows_core::PCWSTR, cpatterns: u32, ppwzpatterns: *const windows_core::PCWSTR, dwreserved: u32) -> windows_core::Result<()>;
     fn UnregisterNameSpace(&self, pcf: windows_core::Ref<super::unknwnbase::IClassFactory>, pszprotocol: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -3248,7 +3248,7 @@ pub trait IInternetSession_Impl: windows_core::IUnknownImpl {
     fn SetSessionOption(&self, dwoption: u32, pbuffer: *const core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> windows_core::Result<()>;
     fn GetSessionOption(&self, dwoption: u32, pbuffer: *mut core::ffi::c_void, pdwbufferlength: *mut u32, dwreserved: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_unknwnbase"))]
+#[cfg(all(feature = "objidl", feature = "unknwnbase"))]
 impl IInternetSession_Vtbl {
     pub const fn new<Identity: IInternetSession_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterNameSpace<Identity: IInternetSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcf: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, pwzprotocol: windows_core::PCWSTR, cpatterns: u32, ppwzpatterns: *const windows_core::PCWSTR, dwreserved: u32) -> windows_core::HRESULT {
@@ -3308,7 +3308,7 @@ impl IInternetSession_Vtbl {
         iid == &<IInternetSession as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_unknwnbase"))]
+#[cfg(all(feature = "objidl", feature = "unknwnbase"))]
 impl windows_core::RuntimeName for IInternetSession {}
 windows_core::imp::define_interface!(IInternetThreadSwitch, IInternetThreadSwitch_Vtbl, 0x79eac9e8_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IInternetThreadSwitch, windows_core::IUnknown);
@@ -3373,7 +3373,7 @@ impl IInternetZoneManager {
     pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetZoneActionPolicy)(windows_core::Interface::as_raw(self), dwzone, dwaction, core::mem::transmute(ppolicy.as_ptr()), ppolicy.len().try_into().unwrap(), urlzonereg) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn PromptAction<P2, P3>(&self, dwaction: u32, hwndparent: super::windef::HWND, pwszurl: P2, pwsztext: P3, dwpromptflags: u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -3414,9 +3414,9 @@ pub struct IInternetZoneManager_Vtbl {
     pub SetZoneCustomPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const u8, u32, URLZONEREG) -> windows_core::HRESULT,
     pub GetZoneActionPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u8, u32, URLZONEREG) -> windows_core::HRESULT,
     pub SetZoneActionPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8, u32, URLZONEREG) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub PromptAction: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::windef::HWND, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     PromptAction: usize,
     pub LogAction: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub CreateZoneEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, u32) -> windows_core::HRESULT,
@@ -3424,7 +3424,7 @@ pub struct IInternetZoneManager_Vtbl {
     pub DestroyZoneEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub CopyTemplatePoliciesToZone: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IInternetZoneManager_Impl: windows_core::IUnknownImpl {
     fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> windows_core::Result<()>;
     fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> windows_core::Result<()>;
@@ -3439,7 +3439,7 @@ pub trait IInternetZoneManager_Impl: windows_core::IUnknownImpl {
     fn DestroyZoneEnumerator(&self, dwenum: u32) -> windows_core::Result<()>;
     fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IInternetZoneManager_Vtbl {
     pub const fn new<Identity: IInternetZoneManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetZoneAttributes<Identity: IInternetZoneManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> windows_core::HRESULT {
@@ -3540,7 +3540,7 @@ impl IInternetZoneManager_Vtbl {
         iid == &<IInternetZoneManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IInternetZoneManager {}
 windows_core::imp::define_interface!(IInternetZoneManagerEx, IInternetZoneManagerEx_Vtbl, 0xa4c23339_8e06_431e_9bf4_7e711c085648);
 impl core::ops::Deref for IInternetZoneManagerEx {
@@ -3565,12 +3565,12 @@ pub struct IInternetZoneManagerEx_Vtbl {
     pub GetZoneActionPolicyEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u8, u32, URLZONEREG, u32) -> windows_core::HRESULT,
     pub SetZoneActionPolicyEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8, u32, URLZONEREG, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IInternetZoneManagerEx_Impl: IInternetZoneManager_Impl {
     fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> windows_core::Result<()>;
     fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IInternetZoneManagerEx_Vtbl {
     pub const fn new<Identity: IInternetZoneManagerEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetZoneActionPolicyEx<Identity: IInternetZoneManagerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> windows_core::HRESULT {
@@ -3595,7 +3595,7 @@ impl IInternetZoneManagerEx_Vtbl {
         iid == &<IInternetZoneManagerEx as windows_core::Interface>::IID || iid == &<IInternetZoneManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IInternetZoneManagerEx {}
 windows_core::imp::define_interface!(IInternetZoneManagerEx2, IInternetZoneManagerEx2_Vtbl, 0xedc17559_dd5d_4846_8eef_8becba5a4abf);
 impl core::ops::Deref for IInternetZoneManagerEx2 {
@@ -3628,14 +3628,14 @@ pub struct IInternetZoneManagerEx2_Vtbl {
     pub GetIESecurityState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut u32, *mut windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub FixUnsecureSettings: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IInternetZoneManagerEx2_Impl: IInternetZoneManagerEx_Impl {
     fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> windows_core::Result<()>;
     fn GetZoneSecurityState(&self, dwzoneindex: u32, frespectpolicy: windows_core::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetIESecurityState(&self, frespectpolicy: windows_core::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut windows_core::BOOL, fnocache: windows_core::BOOL) -> windows_core::Result<()>;
     fn FixUnsecureSettings(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IInternetZoneManagerEx2_Vtbl {
     pub const fn new<Identity: IInternetZoneManagerEx2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetZoneAttributesEx<Identity: IInternetZoneManagerEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> windows_core::HRESULT {
@@ -3674,7 +3674,7 @@ impl IInternetZoneManagerEx2_Vtbl {
         iid == &<IInternetZoneManagerEx2 as windows_core::Interface>::IID || iid == &<IInternetZoneManager as windows_core::Interface>::IID || iid == &<IInternetZoneManagerEx as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IInternetZoneManagerEx2 {}
 windows_core::imp::define_interface!(IMonikerProp, IMonikerProp_Vtbl, 0xa5ca5f7f_1847_4d87_9c5b_918509f7511d);
 windows_core::imp::interface_hierarchy!(IMonikerProp, windows_core::IUnknown);
@@ -3755,7 +3755,7 @@ impl IPersistMoniker {
     pub unsafe fn IsDirty(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn Load<P1, P2>(&self, ffullyavailable: bool, pimkname: P1, pibc: P2, grfmode: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IMoniker>,
@@ -3763,7 +3763,7 @@ impl IPersistMoniker {
     {
         unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), ffullyavailable.into(), pimkname.param().abi(), pibc.param().abi(), grfmode) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn Save<P0, P1>(&self, pimkname: P0, pbc: P1, fremember: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IMoniker>,
@@ -3771,7 +3771,7 @@ impl IPersistMoniker {
     {
         unsafe { (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pimkname.param().abi(), pbc.param().abi(), fremember.into()) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn SaveCompleted<P0, P1>(&self, pimkname: P0, pibc: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IMoniker>,
@@ -3779,7 +3779,7 @@ impl IPersistMoniker {
     {
         unsafe { (windows_core::Interface::vtable(self).SaveCompleted)(windows_core::Interface::as_raw(self), pimkname.param().abi(), pibc.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetCurMoniker(&self) -> windows_core::Result<super::objidl::IMoniker> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3793,24 +3793,24 @@ pub struct IPersistMoniker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClassID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     Load: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     Save: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub SaveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     SaveCompleted: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetCurMoniker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetCurMoniker: usize,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait IPersistMoniker_Impl: windows_core::IUnknownImpl {
     fn GetClassID(&self) -> windows_core::Result<windows_core::GUID>;
     fn IsDirty(&self) -> windows_core::Result<()>;
@@ -3819,7 +3819,7 @@ pub trait IPersistMoniker_Impl: windows_core::IUnknownImpl {
     fn SaveCompleted(&self, pimkname: windows_core::Ref<super::objidl::IMoniker>, pibc: windows_core::Ref<super::objidl::IBindCtx>) -> windows_core::Result<()>;
     fn GetCurMoniker(&self) -> windows_core::Result<super::objidl::IMoniker>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl IPersistMoniker_Vtbl {
     pub const fn new<Identity: IPersistMoniker_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetClassID<Identity: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclassid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -3884,12 +3884,12 @@ impl IPersistMoniker_Vtbl {
         iid == &<IPersistMoniker as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for IPersistMoniker {}
 windows_core::imp::define_interface!(ISoftDistExt, ISoftDistExt_Vtbl, 0xb15b8dc1_c7e1_11d0_8680_00aa00bdcb71);
 windows_core::imp::interface_hierarchy!(ISoftDistExt, windows_core::IUnknown);
 impl ISoftDistExt {
-    #[cfg(all(feature = "Win32_msxml", feature = "Win32_oaidl"))]
+    #[cfg(all(feature = "msxml", feature = "oaidl"))]
     pub unsafe fn ProcessSoftDist<P0, P1>(&self, szcdfurl: P0, psoftdistelement: P1, lpsdi: *mut SOFTDISTINFO) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -3903,7 +3903,7 @@ impl ISoftDistExt {
     pub unsafe fn GetNextCodeBase(&self, szcodebase: *const windows_core::PCWSTR, dwmaxsize: *const u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNextCodeBase)(windows_core::Interface::as_raw(self), szcodebase, dwmaxsize) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn AsyncInstallDistributionUnit<P0>(&self, pbc: P0, pvreserved: *const core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IBindCtx>,
@@ -3915,25 +3915,25 @@ impl ISoftDistExt {
 #[doc(hidden)]
 pub struct ISoftDistExt_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_msxml", feature = "Win32_oaidl"))]
+    #[cfg(all(feature = "msxml", feature = "oaidl"))]
     pub ProcessSoftDist: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut SOFTDISTINFO) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msxml", feature = "Win32_oaidl")))]
+    #[cfg(not(all(feature = "msxml", feature = "oaidl")))]
     ProcessSoftDist: usize,
     pub GetFirstCodeBase: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::PCWSTR, *const u32) -> windows_core::HRESULT,
     pub GetNextCodeBase: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::PCWSTR, *const u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub AsyncInstallDistributionUnit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, u32, *const CODEBASEHOLD) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     AsyncInstallDistributionUnit: usize,
 }
-#[cfg(all(feature = "Win32_msxml", feature = "Win32_oaidl", feature = "Win32_objidl"))]
+#[cfg(all(feature = "msxml", feature = "oaidl", feature = "objidl"))]
 pub trait ISoftDistExt_Impl: windows_core::IUnknownImpl {
     fn ProcessSoftDist(&self, szcdfurl: &windows_core::PCWSTR, psoftdistelement: windows_core::Ref<super::msxml::IXMLElement>, lpsdi: *mut SOFTDISTINFO) -> windows_core::Result<()>;
     fn GetFirstCodeBase(&self, szcodebase: *const windows_core::PCWSTR, dwmaxsize: *const u32) -> windows_core::Result<()>;
     fn GetNextCodeBase(&self, szcodebase: *const windows_core::PCWSTR, dwmaxsize: *const u32) -> windows_core::Result<()>;
     fn AsyncInstallDistributionUnit(&self, pbc: windows_core::Ref<super::objidl::IBindCtx>, pvreserved: *const core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_msxml", feature = "Win32_oaidl", feature = "Win32_objidl"))]
+#[cfg(all(feature = "msxml", feature = "oaidl", feature = "objidl"))]
 impl ISoftDistExt_Vtbl {
     pub const fn new<Identity: ISoftDistExt_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProcessSoftDist<Identity: ISoftDistExt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szcdfurl: windows_core::PCWSTR, psoftdistelement: *mut core::ffi::c_void, lpsdi: *mut SOFTDISTINFO) -> windows_core::HRESULT {
@@ -3972,7 +3972,7 @@ impl ISoftDistExt_Vtbl {
         iid == &<ISoftDistExt as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msxml", feature = "Win32_oaidl", feature = "Win32_objidl"))]
+#[cfg(all(feature = "msxml", feature = "oaidl", feature = "objidl"))]
 impl windows_core::RuntimeName for ISoftDistExt {}
 windows_core::imp::define_interface!(IUri, IUri_Vtbl, 0xa39ee748_6a27_4817_a6f2_13914bef5890);
 windows_core::imp::interface_hierarchy!(IUri, windows_core::IUnknown);
@@ -5190,7 +5190,7 @@ impl windows_core::RuntimeName for IWinInetInfo {}
 windows_core::imp::define_interface!(IWindowForBindingUI, IWindowForBindingUI_Vtbl, 0x79eac9d5_bafa_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IWindowForBindingUI, windows_core::IUnknown);
 impl IWindowForBindingUI {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetWindow(&self, rguidreason: *const windows_core::GUID) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5202,16 +5202,16 @@ impl IWindowForBindingUI {
 #[doc(hidden)]
 pub struct IWindowForBindingUI_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetWindow: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IWindowForBindingUI_Impl: windows_core::IUnknownImpl {
     fn GetWindow(&self, rguidreason: *const windows_core::GUID) -> windows_core::Result<super::windef::HWND>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IWindowForBindingUI_Vtbl {
     pub const fn new<Identity: IWindowForBindingUI_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetWindow<Identity: IWindowForBindingUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidreason: *const windows_core::GUID, phwnd: *mut super::windef::HWND) -> windows_core::HRESULT {
@@ -5232,7 +5232,7 @@ impl IWindowForBindingUI_Vtbl {
         iid == &<IWindowForBindingUI as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IWindowForBindingUI {}
 windows_core::imp::define_interface!(IWrappedProtocol, IWrappedProtocol_Vtbl, 0x53c84785_8425_4dc5_971b_e58d9c19f9b6);
 windows_core::imp::interface_hierarchy!(IWrappedProtocol, windows_core::IUnknown);
@@ -5466,17 +5466,17 @@ impl Default for LPCODEBASEHOLD {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPHIT_LOGGING_INFO(pub *mut HIT_LOGGING_INFO);
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 impl LPHIT_LOGGING_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 impl Default for LPHIT_LOGGING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5767,7 +5767,7 @@ pub const SZM_DELETE: SZM_FLAGS = 1;
 pub type SZM_FLAGS = i32;
 pub const S_ASYNCHRONOUS: u32 = 262632;
 #[repr(C)]
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct StartParam {
     pub iid: windows_core::GUID,

@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn GetDpiForMonitor(hmonitor: super::windef::HMONITOR, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn GetDpiForMonitor(hmonitor : super::windef::HMONITOR, dpitype : MONITOR_DPI_TYPE, dpix : *mut u32, dpiy : *mut u32) -> windows_core::HRESULT);
@@ -9,7 +9,7 @@ pub unsafe fn GetDpiForShellUIComponent(param0: SHELL_UI_COMPONENT) -> u32 {
     windows_core::link!("api-ms-win-shcore-scaling-l1-1-2.dll" "system" fn GetDpiForShellUIComponent(param0 : SHELL_UI_COMPONENT) -> u32);
     unsafe { GetDpiForShellUIComponent(param0) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessDpiAwareness(hprocess: Option<super::winnt::HANDLE>) -> windows_core::Result<PROCESS_DPI_AWARENESS> {
     windows_core::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn GetProcessDpiAwareness(hprocess : super::winnt::HANDLE, value : *mut PROCESS_DPI_AWARENESS) -> windows_core::HRESULT);
@@ -18,13 +18,13 @@ pub unsafe fn GetProcessDpiAwareness(hprocess: Option<super::winnt::HANDLE>) -> 
         GetProcessDpiAwareness(hprocess.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn GetScaleFactorForDevice(devicetype: DISPLAY_DEVICE_TYPE) -> super::shtypes::DEVICE_SCALE_FACTOR {
     windows_core::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" fn GetScaleFactorForDevice(devicetype : DISPLAY_DEVICE_TYPE) -> super::shtypes::DEVICE_SCALE_FACTOR);
     unsafe { GetScaleFactorForDevice(devicetype) }
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 #[inline]
 pub unsafe fn GetScaleFactorForMonitor(hmon: super::windef::HMONITOR) -> windows_core::Result<super::shtypes::DEVICE_SCALE_FACTOR> {
     windows_core::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn GetScaleFactorForMonitor(hmon : super::windef::HMONITOR, pscale : *mut super::shtypes::DEVICE_SCALE_FACTOR) -> windows_core::HRESULT);
@@ -33,7 +33,7 @@ pub unsafe fn GetScaleFactorForMonitor(hmon: super::windef::HMONITOR) -> windows
         GetScaleFactorForMonitor(hmon, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RegisterScaleChangeEvent(hevent: super::winnt::HANDLE) -> windows_core::Result<usize> {
     windows_core::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn RegisterScaleChangeEvent(hevent : super::winnt::HANDLE, pdwcookie : *mut usize) -> windows_core::HRESULT);
@@ -42,7 +42,7 @@ pub unsafe fn RegisterScaleChangeEvent(hevent: super::winnt::HANDLE) -> windows_
         RegisterScaleChangeEvent(hevent, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RegisterScaleChangeNotifications(displaydevice: DISPLAY_DEVICE_TYPE, hwndnotify: super::windef::HWND, umsgnotify: u32) -> windows_core::Result<u32> {
     windows_core::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" fn RegisterScaleChangeNotifications(displaydevice : DISPLAY_DEVICE_TYPE, hwndnotify : super::windef::HWND, umsgnotify : u32, pdwcookie : *mut u32) -> windows_core::HRESULT);

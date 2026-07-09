@@ -49,27 +49,27 @@ pub struct MIB_IFSTATUS {
     pub bMHbeatAlive: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPDESTROW {
     pub ForwardRow: super::ipmib::MIB_IPFORWARDROW,
     pub dwForwardPreference: u32,
     pub dwForwardViewSet: u32,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 impl Default for MIB_IPDESTROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPDESTTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPDESTROW; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 impl Default for MIB_IPDESTTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -162,9 +162,9 @@ pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39;
 pub type PMIB_BEST_IF = *mut MIB_BEST_IF;
 pub type PMIB_BOUNDARYROW = *mut MIB_BOUNDARYROW;
 pub type PMIB_IFSTATUS = *mut MIB_IFSTATUS;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 pub type PMIB_IPDESTROW = *mut MIB_IPDESTROW;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 pub type PMIB_IPDESTTABLE = *mut MIB_IPDESTTABLE;
 pub type PMIB_IPMCAST_BOUNDARY = *mut MIB_IPMCAST_BOUNDARY;
 pub type PMIB_IPMCAST_BOUNDARY_TABLE = *mut MIB_IPMCAST_BOUNDARY_TABLE;
@@ -175,7 +175,7 @@ pub type PMIB_OPAQUE_QUERY = *mut MIB_OPAQUE_QUERY;
 pub type PMIB_PROXYARP = *mut MIB_PROXYARP;
 pub type PMIB_ROUTESTATE = *mut MIB_ROUTESTATE;
 pub const PROXY_ARP: u32 = 22;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTCPIP_OWNER_MODULE_BASIC_INFO = *mut TCPIP_OWNER_MODULE_BASIC_INFO;
 pub type PTCPIP_OWNER_MODULE_INFO_CLASS = *mut TCPIP_OWNER_MODULE_INFO_CLASS;
 pub type PTCP_TABLE_CLASS = *mut TCP_TABLE_CLASS;
@@ -189,13 +189,13 @@ pub type SCOPE_NAME_BUFFER = [SN_CHAR; 256];
 pub type SN_CHAR = u16;
 pub const TCP6_STATS: u32 = 38;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct TCPIP_OWNER_MODULE_BASIC_INFO {
     pub pModuleName: super::winnt::PWCHAR,
     pub pModulePath: super::winnt::PWCHAR,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for TCPIP_OWNER_MODULE_BASIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

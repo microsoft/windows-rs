@@ -6,7 +6,7 @@ windows_link::link!("ntdsapi.dll" "system" fn DsCrackSpnA(pszspn : windows_sys::
 windows_link::link!("ntdsapi.dll" "system" fn DsCrackSpnW(pszspn : windows_sys::core::PCWSTR, pcserviceclass : *mut u32, serviceclass : windows_sys::core::PWSTR, pcservicename : *mut u32, servicename : windows_sys::core::PWSTR, pcinstancename : *mut u32, instancename : windows_sys::core::PWSTR, pinstanceport : *mut u16) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsCrackUnquotedMangledRdnA(pszrdn : windows_sys::core::PCSTR, cchrdn : u32, pguid : *mut windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_sys::core::BOOL);
 windows_link::link!("ntdsapi.dll" "system" fn DsCrackUnquotedMangledRdnW(pszrdn : windows_sys::core::PCWSTR, cchrdn : u32, pguid : *mut windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsGetRdnW(ppdn : *mut super::winnt::LPCWCH, pcdn : *mut u32, ppkey : *mut super::winnt::LPCWCH, pckey : *mut u32, ppval : *mut super::winnt::LPCWCH, pcval : *mut u32) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsIsMangledDnA(pszdn : windows_sys::core::PCSTR, edsmanglefor : DS_MANGLE_FOR) -> windows_sys::core::BOOL);
 windows_link::link!("ntdsapi.dll" "system" fn DsIsMangledDnW(pszdn : windows_sys::core::PCWSTR, edsmanglefor : DS_MANGLE_FOR) -> windows_sys::core::BOOL);

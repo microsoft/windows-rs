@@ -1,6 +1,6 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetConfigGet(server : windows_sys::core::PCWSTR, component : windows_sys::core::PCWSTR, parameter : windows_sys::core::PCWSTR, bufptr : *mut super::minwindef::LPBYTE) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetConfigGetAll(server : windows_sys::core::PCWSTR, component : windows_sys::core::PCWSTR, bufptr : *mut super::minwindef::LPBYTE) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetConfigSet(server : windows_sys::core::PCWSTR, reserved1 : windows_sys::core::PCWSTR, component : windows_sys::core::PCWSTR, level : u32, reserved2 : u32, buf : *mut u8, reserved3 : u32) -> u32);
 #[repr(C)]

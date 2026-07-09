@@ -91,7 +91,7 @@ impl Default for WMDRM_IMPORT_INIT_STRUCT {
 }
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct WMMPEG2VIDEOINFO {
     pub hdr: WMVIDEOINFOHEADER2,
@@ -102,7 +102,7 @@ pub struct WMMPEG2VIDEOINFO {
     pub dwFlags: u32,
     pub dwSequenceHeader: [u32; 1],
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 impl Default for WMMPEG2VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -123,14 +123,14 @@ pub const WMT_BACKUPRESTORE_END: WMT_STATUS = 27;
 pub const WMT_BUFFERING_START: WMT_STATUS = 2;
 pub const WMT_BUFFERING_STOP: WMT_STATUS = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 #[derive(Clone, Copy)]
 pub struct WMT_BUFFER_SEGMENT {
     pub pBuffer: *mut core::ffi::c_void,
     pub cbOffset: u32,
     pub cbLength: u32,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl Default for WMT_BUFFER_SEGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -173,7 +173,7 @@ pub const WMT_EOF: WMT_STATUS = 4;
 pub const WMT_ERROR: WMT_STATUS = 0;
 pub const WMT_ERROR_WITHURL: WMT_STATUS = 30;
 #[repr(C)]
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 #[derive(Clone, Copy)]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
@@ -182,7 +182,7 @@ pub struct WMT_FILESINK_DATA_UNIT {
     pub cPayloadDataFragments: u32,
     pub pPayloadDataFragments: *mut WMT_PAYLOAD_FRAGMENT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl Default for WMT_FILESINK_DATA_UNIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -235,7 +235,7 @@ pub const WMT_OFFSET_FORMAT_TIMECODE: WMT_OFFSET_FORMAT = 3;
 pub const WMT_ON: WMT_STREAM_SELECTION = 2;
 pub const WMT_OPENED: WMT_STATUS = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 #[derive(Clone, Copy, Default)]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
@@ -438,7 +438,7 @@ impl Default for WMT_WEBSTREAM_SAMPLE_HEADER {
 pub const WMT_WMETYPE_AUDIO: WMT_WATERMARK_ENTRY_TYPE = 1;
 pub const WMT_WMETYPE_VIDEO: WMT_WATERMARK_ENTRY_TYPE = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Default)]
 pub struct WMVIDEOINFOHEADER {
     pub rcSource: super::windef::RECT,
@@ -449,7 +449,7 @@ pub struct WMVIDEOINFOHEADER {
     pub bmiHeader: super::wingdi::BITMAPINFOHEADER,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Default)]
 pub struct WMVIDEOINFOHEADER2 {
     pub rcSource: super::windef::RECT,
@@ -567,7 +567,7 @@ pub struct WM_PORT_NUMBER_RANGE {
     pub wPortEnd: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: u32,
@@ -580,7 +580,7 @@ pub struct WM_READER_CLIENTINFO {
     pub qwHostVersion: u64,
     pub wszPlayerUserAgent: *mut u16,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for WM_READER_CLIENTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

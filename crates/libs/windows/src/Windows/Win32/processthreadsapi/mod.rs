@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateProcessA<P0, P7>(lpapplicationname: P0, lpcommandline: Option<windows_core::PSTR>, lpprocessattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, lpthreadattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, binherithandles: bool, dwcreationflags: u32, lpenvironment: Option<*const core::ffi::c_void>, lpcurrentdirectory: P7, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> windows_core::BOOL
 where
@@ -8,7 +8,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn CreateProcessA(lpapplicationname : windows_core::PCSTR, lpcommandline : windows_core::PSTR, lpprocessattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, lpthreadattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, binherithandles : windows_core::BOOL, dwcreationflags : u32, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCSTR, lpstartupinfo : *const STARTUPINFOA, lpprocessinformation : *mut PROCESS_INFORMATION) -> windows_core::BOOL);
     unsafe { CreateProcessA(lpapplicationname.param().abi(), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, lpcurrentdirectory.param().abi(), lpstartupinfo, lpprocessinformation as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateProcessAsUserA<P1, P8>(htoken: Option<super::winnt::HANDLE>, lpapplicationname: P1, lpcommandline: Option<windows_core::PSTR>, lpprocessattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, lpthreadattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, binherithandles: bool, dwcreationflags: u32, lpenvironment: Option<*const core::ffi::c_void>, lpcurrentdirectory: P8, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> windows_core::BOOL
 where
@@ -18,7 +18,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn CreateProcessAsUserA(htoken : super::winnt::HANDLE, lpapplicationname : windows_core::PCSTR, lpcommandline : windows_core::PSTR, lpprocessattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, lpthreadattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, binherithandles : windows_core::BOOL, dwcreationflags : u32, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCSTR, lpstartupinfo : *const STARTUPINFOA, lpprocessinformation : *mut PROCESS_INFORMATION) -> windows_core::BOOL);
     unsafe { CreateProcessAsUserA(htoken.unwrap_or(core::mem::zeroed()) as _, lpapplicationname.param().abi(), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, lpcurrentdirectory.param().abi(), lpstartupinfo, lpprocessinformation as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateProcessAsUserW<P1, P8>(htoken: Option<super::winnt::HANDLE>, lpapplicationname: P1, lpcommandline: Option<windows_core::PWSTR>, lpprocessattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, lpthreadattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, binherithandles: bool, dwcreationflags: u32, lpenvironment: Option<*const core::ffi::c_void>, lpcurrentdirectory: P8, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> windows_core::BOOL
 where
@@ -28,7 +28,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn CreateProcessAsUserW(htoken : super::winnt::HANDLE, lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, lpprocessattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, lpthreadattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, binherithandles : windows_core::BOOL, dwcreationflags : u32, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> windows_core::BOOL);
     unsafe { CreateProcessAsUserW(htoken.unwrap_or(core::mem::zeroed()) as _, lpapplicationname.param().abi(), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, lpcurrentdirectory.param().abi(), lpstartupinfo, lpprocessinformation as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateProcessW<P0, P7>(lpapplicationname: P0, lpcommandline: Option<windows_core::PWSTR>, lpprocessattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, lpthreadattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, binherithandles: bool, dwcreationflags: u32, lpenvironment: Option<*const core::ffi::c_void>, lpcurrentdirectory: P7, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> windows_core::BOOL
 where
@@ -38,19 +38,19 @@ where
     windows_core::link!("kernel32.dll" "system" fn CreateProcessW(lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, lpprocessattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, lpthreadattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, binherithandles : windows_core::BOOL, dwcreationflags : u32, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> windows_core::BOOL);
     unsafe { CreateProcessW(lpapplicationname.param().abi(), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, lpcurrentdirectory.param().abi(), lpstartupinfo, lpprocessinformation as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateRemoteThread(hprocess: super::winnt::HANDLE, lpthreadattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, dwstacksize: usize, lpstartaddress: super::minwinbase::LPTHREAD_START_ROUTINE, lpparameter: Option<*const core::ffi::c_void>, dwcreationflags: u32, lpthreadid: Option<*mut u32>) -> super::winnt::HANDLE {
     windows_core::link!("kernel32.dll" "system" fn CreateRemoteThread(hprocess : super::winnt::HANDLE, lpthreadattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, dwstacksize : usize, lpstartaddress : super::minwinbase::LPTHREAD_START_ROUTINE, lpparameter : *const core::ffi::c_void, dwcreationflags : u32, lpthreadid : *mut u32) -> super::winnt::HANDLE);
     unsafe { CreateRemoteThread(hprocess, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, dwstacksize, lpstartaddress, lpparameter.unwrap_or(core::mem::zeroed()) as _, dwcreationflags, lpthreadid.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateRemoteThreadEx(hprocess: super::winnt::HANDLE, lpthreadattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, dwstacksize: usize, lpstartaddress: super::minwinbase::LPTHREAD_START_ROUTINE, lpparameter: Option<*const core::ffi::c_void>, dwcreationflags: u32, lpattributelist: Option<*const _PROC_THREAD_ATTRIBUTE_LIST>, lpthreadid: Option<*mut u32>) -> super::winnt::HANDLE {
     windows_core::link!("kernel32.dll" "system" fn CreateRemoteThreadEx(hprocess : super::winnt::HANDLE, lpthreadattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, dwstacksize : usize, lpstartaddress : super::minwinbase::LPTHREAD_START_ROUTINE, lpparameter : *const core::ffi::c_void, dwcreationflags : u32, lpattributelist : *const _PROC_THREAD_ATTRIBUTE_LIST, lpthreadid : *mut u32) -> super::winnt::HANDLE);
     unsafe { CreateRemoteThreadEx(hprocess, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, dwstacksize, lpstartaddress, lpparameter.unwrap_or(core::mem::zeroed()) as _, dwcreationflags, lpattributelist.unwrap_or(core::mem::zeroed()) as _, lpthreadid.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateThread(lpthreadattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, dwstacksize: usize, lpstartaddress: super::minwinbase::LPTHREAD_START_ROUTINE, lpparameter: Option<*const core::ffi::c_void>, dwcreationflags: u32, lpthreadid: Option<*mut u32>) -> super::winnt::HANDLE {
     windows_core::link!("kernel32.dll" "system" fn CreateThread(lpthreadattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, dwstacksize : usize, lpstartaddress : super::minwinbase::LPTHREAD_START_ROUTINE, lpparameter : *const core::ffi::c_void, dwcreationflags : u32, lpthreadid : *mut u32) -> super::winnt::HANDLE);
@@ -71,7 +71,7 @@ pub unsafe fn ExitThread(dwexitcode: u32) -> ! {
     windows_core::link!("kernel32.dll" "system" fn ExitThread(dwexitcode : u32) -> !);
     unsafe { ExitThread(dwexitcode) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn FlushInstructionCache(hprocess: super::winnt::HANDLE, lpbaseaddress: Option<*const core::ffi::c_void>, dwsize: usize) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn FlushInstructionCache(hprocess : super::winnt::HANDLE, lpbaseaddress : *const core::ffi::c_void, dwsize : usize) -> windows_core::BOOL);
@@ -82,7 +82,7 @@ pub unsafe fn FlushProcessWriteBuffers() {
     windows_core::link!("kernel32.dll" "system" fn FlushProcessWriteBuffers());
     unsafe { FlushProcessWriteBuffers() }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetCurrentProcess() -> super::winnt::HANDLE {
     windows_core::link!("kernel32.dll" "system" fn GetCurrentProcess() -> super::winnt::HANDLE);
@@ -98,7 +98,7 @@ pub unsafe fn GetCurrentProcessorNumber() -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetCurrentProcessorNumber() -> u32);
     unsafe { GetCurrentProcessorNumber() }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetCurrentProcessorNumberEx() -> super::winnt::PROCESSOR_NUMBER {
     windows_core::link!("kernel32.dll" "system" fn GetCurrentProcessorNumberEx(procnumber : *mut super::winnt::PROCESSOR_NUMBER));
@@ -108,7 +108,7 @@ pub unsafe fn GetCurrentProcessorNumberEx() -> super::winnt::PROCESSOR_NUMBER {
         result__
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetCurrentThread() -> super::winnt::HANDLE {
     windows_core::link!("kernel32.dll" "system" fn GetCurrentThread() -> super::winnt::HANDLE);
@@ -131,13 +131,13 @@ pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut u64, highlimit: *mut u6
     windows_core::link!("kernel32.dll" "system" fn GetCurrentThreadStackLimits(lowlimit : *mut u64, highlimit : *mut u64));
     unsafe { GetCurrentThreadStackLimits(lowlimit as _, highlimit as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetExitCodeProcess(hprocess: super::winnt::HANDLE, lpexitcode: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetExitCodeProcess(hprocess : super::winnt::HANDLE, lpexitcode : *mut u32) -> windows_core::BOOL);
     unsafe { GetExitCodeProcess(hprocess, lpexitcode as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetExitCodeThread(hthread: super::winnt::HANDLE, lpexitcode: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetExitCodeThread(hthread : super::winnt::HANDLE, lpexitcode : *mut u32) -> windows_core::BOOL);
@@ -151,55 +151,55 @@ pub unsafe fn GetMachineTypeAttributes(machine: u16) -> windows_core::Result<MAC
         GetMachineTypeAttributes(machine, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetPriorityClass(hprocess: super::winnt::HANDLE) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetPriorityClass(hprocess : super::winnt::HANDLE) -> u32);
     unsafe { GetPriorityClass(hprocess) }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetProcessDefaultCpuSetMasks(process: super::winnt::HANDLE, cpusetmasks: Option<&mut [super::winnt::GROUP_AFFINITY]>, requiredmaskcount: *mut u16) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessDefaultCpuSetMasks(process : super::winnt::HANDLE, cpusetmasks : *mut super::winnt::GROUP_AFFINITY, cpusetmaskcount : u16, requiredmaskcount : *mut u16) -> windows_core::BOOL);
     unsafe { GetProcessDefaultCpuSetMasks(process, core::mem::transmute(cpusetmasks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessDefaultCpuSets(process: super::winnt::HANDLE, cpusetids: Option<&mut [u32]>, requiredidcount: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessDefaultCpuSets(process : super::winnt::HANDLE, cpusetids : *mut u32, cpusetidcount : u32, requiredidcount : *mut u32) -> windows_core::BOOL);
     unsafe { GetProcessDefaultCpuSets(process, core::mem::transmute(cpusetids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredidcount as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessHandleCount(hprocess: super::winnt::HANDLE, pdwhandlecount: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessHandleCount(hprocess : super::winnt::HANDLE, pdwhandlecount : *mut u32) -> windows_core::BOOL);
     unsafe { GetProcessHandleCount(hprocess, pdwhandlecount as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessId(process: super::winnt::HANDLE) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetProcessId(process : super::winnt::HANDLE) -> u32);
     unsafe { GetProcessId(process) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessIdOfThread(thread: super::winnt::HANDLE) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetProcessIdOfThread(thread : super::winnt::HANDLE) -> u32);
     unsafe { GetProcessIdOfThread(thread) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessInformation(hprocess: super::winnt::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *mut core::ffi::c_void, processinformationsize: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessInformation(hprocess : super::winnt::HANDLE, processinformationclass : PROCESS_INFORMATION_CLASS, processinformation : *mut core::ffi::c_void, processinformationsize : u32) -> windows_core::BOOL);
     unsafe { GetProcessInformation(hprocess, processinformationclass, processinformation as _, processinformationsize) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessMitigationPolicy(hprocess: super::winnt::HANDLE, mitigationpolicy: super::winnt::PROCESS_MITIGATION_POLICY, lpbuffer: *mut core::ffi::c_void, dwlength: usize) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessMitigationPolicy(hprocess : super::winnt::HANDLE, mitigationpolicy : super::winnt::PROCESS_MITIGATION_POLICY, lpbuffer : *mut core::ffi::c_void, dwlength : usize) -> windows_core::BOOL);
     unsafe { GetProcessMitigationPolicy(hprocess, mitigationpolicy, lpbuffer as _, dwlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessPriorityBoost(hprocess: super::winnt::HANDLE, pdisablepriorityboost: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessPriorityBoost(hprocess : super::winnt::HANDLE, pdisablepriorityboost : *mut windows_core::BOOL) -> windows_core::BOOL);
@@ -210,7 +210,7 @@ pub unsafe fn GetProcessShutdownParameters(lpdwlevel: *mut u32, lpdwflags: *mut 
     windows_core::link!("kernel32.dll" "system" fn GetProcessShutdownParameters(lpdwlevel : *mut u32, lpdwflags : *mut u32) -> windows_core::BOOL);
     unsafe { GetProcessShutdownParameters(lpdwlevel as _, lpdwflags as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetProcessTimes(hprocess: super::winnt::HANDLE, lpcreationtime: *mut super::minwindef::FILETIME, lpexittime: *mut super::minwindef::FILETIME, lpkerneltime: *mut super::minwindef::FILETIME, lpusertime: *mut super::minwindef::FILETIME) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessTimes(hprocess : super::winnt::HANDLE, lpcreationtime : *mut super::minwindef::FILETIME, lpexittime : *mut super::minwindef::FILETIME, lpkerneltime : *mut super::minwindef::FILETIME, lpusertime : *mut super::minwindef::FILETIME) -> windows_core::BOOL);
@@ -221,31 +221,31 @@ pub unsafe fn GetProcessVersion(processid: u32) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetProcessVersion(processid : u32) -> u32);
     unsafe { GetProcessVersion(processid) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
     windows_core::link!("kernel32.dll" "system" fn GetStartupInfoW(lpstartupinfo : *mut STARTUPINFOW));
     unsafe { GetStartupInfoW(lpstartupinfo as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSystemCpuSetInformation(information: Option<*mut super::winnt::SYSTEM_CPU_SET_INFORMATION>, bufferlength: u32, returnedlength: *mut u32, process: Option<super::winnt::HANDLE>, flags: Option<u32>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetSystemCpuSetInformation(information : *mut super::winnt::SYSTEM_CPU_SET_INFORMATION, bufferlength : u32, returnedlength : *mut u32, process : super::winnt::HANDLE, flags : u32) -> windows_core::BOOL);
     unsafe { GetSystemCpuSetInformation(information.unwrap_or(core::mem::zeroed()) as _, bufferlength, returnedlength as _, process.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetSystemTimes(lpidletime: Option<*mut super::minwindef::FILETIME>, lpkerneltime: Option<*mut super::minwindef::FILETIME>, lpusertime: Option<*mut super::minwindef::FILETIME>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetSystemTimes(lpidletime : *mut super::minwindef::FILETIME, lpkerneltime : *mut super::minwindef::FILETIME, lpusertime : *mut super::minwindef::FILETIME) -> windows_core::BOOL);
     unsafe { GetSystemTimes(lpidletime.unwrap_or(core::mem::zeroed()) as _, lpkerneltime.unwrap_or(core::mem::zeroed()) as _, lpusertime.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetThreadContext(hthread: super::winnt::HANDLE, lpcontext: super::minwinbase::LPCONTEXT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadContext(hthread : super::winnt::HANDLE, lpcontext : super::minwinbase::LPCONTEXT) -> windows_core::BOOL);
     unsafe { GetThreadContext(hthread, lpcontext as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetThreadDescription(hthread: super::winnt::HANDLE) -> windows_core::Result<windows_core::PWSTR> {
     windows_core::link!("kernel32.dll" "system" fn GetThreadDescription(hthread : super::winnt::HANDLE, ppszthreaddescription : *mut windows_core::PWSTR) -> windows_core::HRESULT);
@@ -254,55 +254,55 @@ pub unsafe fn GetThreadDescription(hthread: super::winnt::HANDLE) -> windows_cor
         GetThreadDescription(hthread, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetThreadIOPendingFlag(hthread: super::winnt::HANDLE, lpioispending: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadIOPendingFlag(hthread : super::winnt::HANDLE, lpioispending : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { GetThreadIOPendingFlag(hthread, lpioispending as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetThreadId(thread: super::winnt::HANDLE) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetThreadId(thread : super::winnt::HANDLE) -> u32);
     unsafe { GetThreadId(thread) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetThreadIdealProcessorEx(hthread: super::winnt::HANDLE, lpidealprocessor: *mut super::winnt::PROCESSOR_NUMBER) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadIdealProcessorEx(hthread : super::winnt::HANDLE, lpidealprocessor : *mut super::winnt::PROCESSOR_NUMBER) -> windows_core::BOOL);
     unsafe { GetThreadIdealProcessorEx(hthread, lpidealprocessor as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetThreadInformation(hthread: super::winnt::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *mut core::ffi::c_void, threadinformationsize: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadInformation(hthread : super::winnt::HANDLE, threadinformationclass : THREAD_INFORMATION_CLASS, threadinformation : *mut core::ffi::c_void, threadinformationsize : u32) -> windows_core::BOOL);
     unsafe { GetThreadInformation(hthread, threadinformationclass, threadinformation as _, threadinformationsize) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetThreadPriority(hthread: super::winnt::HANDLE) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetThreadPriority(hthread : super::winnt::HANDLE) -> i32);
     unsafe { GetThreadPriority(hthread) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetThreadPriorityBoost(hthread: super::winnt::HANDLE, pdisablepriorityboost: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadPriorityBoost(hthread : super::winnt::HANDLE, pdisablepriorityboost : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { GetThreadPriorityBoost(hthread, pdisablepriorityboost as _) }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetThreadSelectedCpuSetMasks(thread: super::winnt::HANDLE, cpusetmasks: Option<&mut [super::winnt::GROUP_AFFINITY]>, requiredmaskcount: *mut u16) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadSelectedCpuSetMasks(thread : super::winnt::HANDLE, cpusetmasks : *mut super::winnt::GROUP_AFFINITY, cpusetmaskcount : u16, requiredmaskcount : *mut u16) -> windows_core::BOOL);
     unsafe { GetThreadSelectedCpuSetMasks(thread, core::mem::transmute(cpusetmasks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetThreadSelectedCpuSets(thread: super::winnt::HANDLE, cpusetids: Option<&mut [u32]>, requiredidcount: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadSelectedCpuSets(thread : super::winnt::HANDLE, cpusetids : *mut u32, cpusetidcount : u32, requiredidcount : *mut u32) -> windows_core::BOOL);
     unsafe { GetThreadSelectedCpuSets(thread, core::mem::transmute(cpusetids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredidcount as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetThreadTimes(hthread: super::winnt::HANDLE, lpcreationtime: *mut super::minwindef::FILETIME, lpexittime: *mut super::minwindef::FILETIME, lpkerneltime: *mut super::minwindef::FILETIME, lpusertime: *mut super::minwindef::FILETIME) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadTimes(hthread : super::winnt::HANDLE, lpcreationtime : *mut super::minwindef::FILETIME, lpexittime : *mut super::minwindef::FILETIME, lpkerneltime : *mut super::minwindef::FILETIME, lpusertime : *mut super::minwindef::FILETIME) -> windows_core::BOOL);
@@ -313,7 +313,7 @@ pub unsafe fn InitializeProcThreadAttributeList(lpattributelist: Option<*mut _PR
     windows_core::link!("kernel32.dll" "system" fn InitializeProcThreadAttributeList(lpattributelist : *mut _PROC_THREAD_ATTRIBUTE_LIST, dwattributecount : u32, dwflags : u32, lpsize : *mut usize) -> windows_core::BOOL);
     unsafe { InitializeProcThreadAttributeList(lpattributelist.unwrap_or(core::mem::zeroed()) as _, dwattributecount, dwflags.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn IsProcessCritical(hprocess: super::winnt::HANDLE, critical: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn IsProcessCritical(hprocess : super::winnt::HANDLE, critical : *mut windows_core::BOOL) -> windows_core::BOOL);
@@ -324,25 +324,25 @@ pub unsafe fn IsProcessorFeaturePresent(processorfeature: u32) -> windows_core::
     windows_core::link!("kernel32.dll" "system" fn IsProcessorFeaturePresent(processorfeature : u32) -> windows_core::BOOL);
     unsafe { IsProcessorFeaturePresent(processorfeature) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn OpenProcess(dwdesiredaccess: u32, binherithandle: bool, dwprocessid: u32) -> super::winnt::HANDLE {
     windows_core::link!("kernel32.dll" "system" fn OpenProcess(dwdesiredaccess : u32, binherithandle : windows_core::BOOL, dwprocessid : u32) -> super::winnt::HANDLE);
     unsafe { OpenProcess(dwdesiredaccess, binherithandle.into(), dwprocessid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn OpenProcessToken(processhandle: super::winnt::HANDLE, desiredaccess: u32, tokenhandle: *mut super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn OpenProcessToken(processhandle : super::winnt::HANDLE, desiredaccess : u32, tokenhandle : *mut super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { OpenProcessToken(processhandle, desiredaccess, tokenhandle as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn OpenThread(dwdesiredaccess: u32, binherithandle: bool, dwthreadid: u32) -> super::winnt::HANDLE {
     windows_core::link!("kernel32.dll" "system" fn OpenThread(dwdesiredaccess : u32, binherithandle : windows_core::BOOL, dwthreadid : u32) -> super::winnt::HANDLE);
     unsafe { OpenThread(dwdesiredaccess, binherithandle.into(), dwthreadid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn OpenThreadToken(threadhandle: super::winnt::HANDLE, desiredaccess: u32, openasself: bool, tokenhandle: *mut super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn OpenThreadToken(threadhandle : super::winnt::HANDLE, desiredaccess : u32, openasself : windows_core::BOOL, tokenhandle : *mut super::winnt::HANDLE) -> windows_core::BOOL);
@@ -353,7 +353,7 @@ pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> wi
     windows_core::link!("kernel32.dll" "system" fn ProcessIdToSessionId(dwprocessid : u32, psessionid : *mut u32) -> windows_core::BOOL);
     unsafe { ProcessIdToSessionId(dwprocessid, psessionid as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn QueryProcessAffinityUpdateMode(hprocess: super::winnt::HANDLE, lpdwflags: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn QueryProcessAffinityUpdateMode(hprocess : super::winnt::HANDLE, lpdwflags : *mut u32) -> windows_core::BOOL);
@@ -371,73 +371,73 @@ pub unsafe fn QueryProtectedPolicy(policyguid: *const windows_core::GUID, policy
     windows_core::link!("kernel32.dll" "system" fn QueryProtectedPolicy(policyguid : *const windows_core::GUID, policyvalue : *mut u64) -> windows_core::BOOL);
     unsafe { QueryProtectedPolicy(policyguid, policyvalue as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn QueueUserAPC(pfnapc: super::winnt::PAPCFUNC, hthread: super::winnt::HANDLE, dwdata: usize) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn QueueUserAPC(pfnapc : super::winnt::PAPCFUNC, hthread : super::winnt::HANDLE, dwdata : usize) -> u32);
     unsafe { QueueUserAPC(pfnapc, hthread, dwdata) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn QueueUserAPC2(apcroutine: super::winnt::PAPCFUNC, thread: super::winnt::HANDLE, data: usize, flags: QUEUE_USER_APC_FLAGS) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn QueueUserAPC2(apcroutine : super::winnt::PAPCFUNC, thread : super::winnt::HANDLE, data : usize, flags : QUEUE_USER_APC_FLAGS) -> windows_core::BOOL);
     unsafe { QueueUserAPC2(apcroutine, thread, data, flags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ResumeThread(hthread: super::winnt::HANDLE) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn ResumeThread(hthread : super::winnt::HANDLE) -> u32);
     unsafe { ResumeThread(hthread) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetPriorityClass(hprocess: super::winnt::HANDLE, dwpriorityclass: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetPriorityClass(hprocess : super::winnt::HANDLE, dwpriorityclass : u32) -> windows_core::BOOL);
     unsafe { SetPriorityClass(hprocess, dwpriorityclass) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessAffinityUpdateMode(hprocess: super::winnt::HANDLE, dwflags: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessAffinityUpdateMode(hprocess : super::winnt::HANDLE, dwflags : u32) -> windows_core::BOOL);
     unsafe { SetProcessAffinityUpdateMode(hprocess, dwflags) }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetProcessDefaultCpuSetMasks(process: super::winnt::HANDLE, cpusetmasks: Option<&[super::winnt::GROUP_AFFINITY]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSetMasks(process : super::winnt::HANDLE, cpusetmasks : *const super::winnt::GROUP_AFFINITY, cpusetmaskcount : u16) -> windows_core::BOOL);
     unsafe { SetProcessDefaultCpuSetMasks(process, core::mem::transmute(cpusetmasks.map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessDefaultCpuSets(process: super::winnt::HANDLE, cpusetids: Option<&[u32]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSets(process : super::winnt::HANDLE, cpusetids : *const u32, cpusetidcount : u32) -> windows_core::BOOL);
     unsafe { SetProcessDefaultCpuSets(process, core::mem::transmute(cpusetids.map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetids.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessDynamicEHContinuationTargets(process: super::winnt::HANDLE, targets: &mut [super::winnt::PROCESS_DYNAMIC_EH_CONTINUATION_TARGET]) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDynamicEHContinuationTargets(process : super::winnt::HANDLE, numberoftargets : u16, targets : *mut super::winnt::PROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> windows_core::BOOL);
     unsafe { SetProcessDynamicEHContinuationTargets(process, targets.len().try_into().unwrap(), core::mem::transmute(targets.as_ptr())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessDynamicEnforcedCetCompatibleRanges(process: super::winnt::HANDLE, ranges: &mut [super::winnt::PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE]) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDynamicEnforcedCetCompatibleRanges(process : super::winnt::HANDLE, numberofranges : u16, ranges : *mut super::winnt::PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> windows_core::BOOL);
     unsafe { SetProcessDynamicEnforcedCetCompatibleRanges(process, ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessInformation(hprocess: super::winnt::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *const core::ffi::c_void, processinformationsize: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessInformation(hprocess : super::winnt::HANDLE, processinformationclass : PROCESS_INFORMATION_CLASS, processinformation : *const core::ffi::c_void, processinformationsize : u32) -> windows_core::BOOL);
     unsafe { SetProcessInformation(hprocess, processinformationclass, processinformation, processinformationsize) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessMitigationPolicy(mitigationpolicy: super::winnt::PROCESS_MITIGATION_POLICY, lpbuffer: *const core::ffi::c_void, dwlength: usize) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessMitigationPolicy(mitigationpolicy : super::winnt::PROCESS_MITIGATION_POLICY, lpbuffer : *const core::ffi::c_void, dwlength : usize) -> windows_core::BOOL);
     unsafe { SetProcessMitigationPolicy(mitigationpolicy, lpbuffer, dwlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessPriorityBoost(hprocess: super::winnt::HANDLE, bdisablepriorityboost: bool) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessPriorityBoost(hprocess : super::winnt::HANDLE, bdisablepriorityboost : windows_core::BOOL) -> windows_core::BOOL);
@@ -460,13 +460,13 @@ pub unsafe fn SetProtectedPolicy(policyguid: *const windows_core::GUID, policyva
     windows_core::link!("kernel32.dll" "system" fn SetProtectedPolicy(policyguid : *const windows_core::GUID, policyvalue : usize, oldpolicyvalue : *mut u64) -> windows_core::BOOL);
     unsafe { SetProtectedPolicy(policyguid, policyvalue, oldpolicyvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadContext(hthread: super::winnt::HANDLE, lpcontext: *const super::winnt::CONTEXT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadContext(hthread : super::winnt::HANDLE, lpcontext : *const super::winnt::CONTEXT) -> windows_core::BOOL);
     unsafe { SetThreadContext(hthread, lpcontext) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadDescription<P1>(hthread: super::winnt::HANDLE, lpthreaddescription: P1) -> windows_core::HRESULT
 where
@@ -475,43 +475,43 @@ where
     windows_core::link!("kernel32.dll" "system" fn SetThreadDescription(hthread : super::winnt::HANDLE, lpthreaddescription : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { SetThreadDescription(hthread, lpthreaddescription.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadIdealProcessor(hthread: super::winnt::HANDLE, dwidealprocessor: u32) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn SetThreadIdealProcessor(hthread : super::winnt::HANDLE, dwidealprocessor : u32) -> u32);
     unsafe { SetThreadIdealProcessor(hthread, dwidealprocessor) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadIdealProcessorEx(hthread: super::winnt::HANDLE, lpidealprocessor: *const super::winnt::PROCESSOR_NUMBER, lppreviousidealprocessor: Option<*mut super::winnt::PROCESSOR_NUMBER>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadIdealProcessorEx(hthread : super::winnt::HANDLE, lpidealprocessor : *const super::winnt::PROCESSOR_NUMBER, lppreviousidealprocessor : *mut super::winnt::PROCESSOR_NUMBER) -> windows_core::BOOL);
     unsafe { SetThreadIdealProcessorEx(hthread, lpidealprocessor, lppreviousidealprocessor.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadInformation(hthread: super::winnt::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *const core::ffi::c_void, threadinformationsize: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadInformation(hthread : super::winnt::HANDLE, threadinformationclass : THREAD_INFORMATION_CLASS, threadinformation : *const core::ffi::c_void, threadinformationsize : u32) -> windows_core::BOOL);
     unsafe { SetThreadInformation(hthread, threadinformationclass, threadinformation, threadinformationsize) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadPriority(hthread: super::winnt::HANDLE, npriority: i32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadPriority(hthread : super::winnt::HANDLE, npriority : i32) -> windows_core::BOOL);
     unsafe { SetThreadPriority(hthread, npriority) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadPriorityBoost(hthread: super::winnt::HANDLE, bdisablepriorityboost: bool) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadPriorityBoost(hthread : super::winnt::HANDLE, bdisablepriorityboost : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SetThreadPriorityBoost(hthread, bdisablepriorityboost.into()) }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetThreadSelectedCpuSetMasks(thread: super::winnt::HANDLE, cpusetmasks: Option<&[super::winnt::GROUP_AFFINITY]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadSelectedCpuSetMasks(thread : super::winnt::HANDLE, cpusetmasks : *const super::winnt::GROUP_AFFINITY, cpusetmaskcount : u16) -> windows_core::BOOL);
     unsafe { SetThreadSelectedCpuSetMasks(thread, core::mem::transmute(cpusetmasks.map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadSelectedCpuSets(thread: super::winnt::HANDLE, cpusetids: &[u32]) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadSelectedCpuSets(thread : super::winnt::HANDLE, cpusetids : *const u32, cpusetidcount : u32) -> windows_core::BOOL);
@@ -522,13 +522,13 @@ pub unsafe fn SetThreadStackGuarantee(stacksizeinbytes: *mut u32) -> windows_cor
     windows_core::link!("kernel32.dll" "system" fn SetThreadStackGuarantee(stacksizeinbytes : *mut u32) -> windows_core::BOOL);
     unsafe { SetThreadStackGuarantee(stacksizeinbytes as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadToken(thread: Option<*const super::winnt::HANDLE>, token: Option<super::winnt::HANDLE>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetThreadToken(thread : *const super::winnt::HANDLE, token : super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { SetThreadToken(thread.unwrap_or(core::mem::zeroed()) as _, token.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SuspendThread(hthread: super::winnt::HANDLE) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn SuspendThread(hthread : super::winnt::HANDLE) -> u32);
@@ -539,13 +539,13 @@ pub unsafe fn SwitchToThread() -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SwitchToThread() -> windows_core::BOOL);
     unsafe { SwitchToThread() }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn TerminateProcess(hprocess: super::winnt::HANDLE, uexitcode: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn TerminateProcess(hprocess : super::winnt::HANDLE, uexitcode : u32) -> windows_core::BOOL);
     unsafe { TerminateProcess(hprocess, uexitcode) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn TerminateThread(hthread: super::winnt::HANDLE, dwexitcode: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn TerminateThread(hthread : super::winnt::HANDLE, dwexitcode : u32) -> windows_core::BOOL);
@@ -582,7 +582,7 @@ pub unsafe fn UpdateProcThreadAttribute(lpattributelist: *mut _PROC_THREAD_ATTRI
     unsafe { UpdateProcThreadAttribute(lpattributelist as _, dwflags, attribute, lpvalue.unwrap_or(core::mem::zeroed()) as _, cbsize, lppreviousvalue.unwrap_or(core::mem::zeroed()) as _, lpreturnsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct APC_CALLBACK_DATA {
     pub Parameter: usize,
@@ -599,17 +599,17 @@ pub struct APP_MEMORY_INFORMATION {
     pub TotalCommitUsage: u64,
 }
 pub const KernelEnabled: MACHINE_ATTRIBUTES = 2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROCESS_INFORMATION(pub *mut PROCESS_INFORMATION);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPPROCESS_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPPROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -628,37 +628,37 @@ impl Default for LPPROC_THREAD_ATTRIBUTE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPSTARTUPINFO(pub LPSTARTUPINFOA);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPSTARTUPINFOA(pub *mut STARTUPINFOA);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl LPSTARTUPINFOA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for LPSTARTUPINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPSTARTUPINFOW(pub *mut STARTUPINFOW);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl LPSTARTUPINFOW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for LPSTARTUPINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -673,17 +673,17 @@ pub struct MEMORY_PRIORITY_INFORMATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct OVERRIDE_PREFETCH_PARAMETER(pub u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PAPC_CALLBACK_DATA(pub *mut APC_CALLBACK_DATA);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PAPC_CALLBACK_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PAPC_CALLBACK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -720,17 +720,17 @@ pub const PMETypeMax: PROCESS_MEMORY_EXHAUSTION_TYPE = 1;
 pub const PME_CURRENT_VERSION: u32 = 1;
 pub const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: u32 = 0;
 pub const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPROCESS_INFORMATION(pub *mut PROCESS_INFORMATION);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PPROCESS_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PPROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -803,7 +803,7 @@ impl Default for PPROC_THREAD_ATTRIBUTE_LIST {
 }
 pub const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_INFORMATION {
     pub hProcess: super::winnt::HANDLE,
@@ -870,10 +870,10 @@ pub const QUEUE_USER_APC_CALLBACK_DATA_CONTEXT: QUEUE_USER_APC_FLAGS = 65536;
 pub type QUEUE_USER_APC_FLAGS = i32;
 pub const QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = 0;
 pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = 1;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type STARTUPINFO = STARTUPINFOA;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STARTUPINFOA {
     pub cb: u32,
@@ -896,7 +896,7 @@ pub struct STARTUPINFOA {
     pub hStdError: super::winnt::HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STARTUPINFOW {
     pub cb: u32,

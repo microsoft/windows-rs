@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn NCryptCreateClaim(hsubjectkey: Option<NCRYPT_KEY_HANDLE>, hauthoritykey: Option<NCRYPT_KEY_HANDLE>, dwclaimtype: u32, pparameterlist: Option<*const NCryptBufferDesc>, pbclaimblob: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptCreateClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : u32, pparameterlist : *const NCryptBufferDesc, pbclaimblob : *mut u8, cbclaimblob : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
@@ -28,7 +28,7 @@ pub unsafe fn NCryptDeleteKey(hkey: NCRYPT_KEY_HANDLE, dwflags: u32) -> SECURITY
     windows_core::link!("ncrypt.dll" "system" fn NCryptDeleteKey(hkey : NCRYPT_KEY_HANDLE, dwflags : u32) -> SECURITY_STATUS);
     unsafe { NCryptDeleteKey(hkey, dwflags) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn NCryptDeriveKey<P1>(hsharedsecret: NCRYPT_SECRET_HANDLE, pwszkdf: P1, pparameterlist: Option<*const NCryptBufferDesc>, pbderivedkey: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS
 where
@@ -65,7 +65,7 @@ pub unsafe fn NCryptEnumStorageProviders(pdwprovidercount: *mut u32, ppproviderl
     windows_core::link!("ncrypt.dll" "system" fn NCryptEnumStorageProviders(pdwprovidercount : *mut u32, ppproviderlist : *mut *mut NCryptProviderName, dwflags : u32) -> SECURITY_STATUS);
     unsafe { NCryptEnumStorageProviders(pdwprovidercount as _, ppproviderlist as _, dwflags) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn NCryptExportKey<P2>(hkey: NCRYPT_KEY_HANDLE, hexportkey: Option<NCRYPT_KEY_HANDLE>, pszblobtype: P2, pparameterlist: Option<*const NCryptBufferDesc>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS
 where
@@ -97,7 +97,7 @@ where
     windows_core::link!("ncrypt.dll" "system" fn NCryptGetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
     unsafe { NCryptGetProperty(hobject, pszproperty.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn NCryptImportKey<P2>(hprovider: NCRYPT_PROV_HANDLE, himportkey: Option<NCRYPT_KEY_HANDLE>, pszblobtype: P2, pparameterlist: Option<*const NCryptBufferDesc>, phkey: *mut NCRYPT_KEY_HANDLE, pbdata: &[u8], dwflags: u32) -> SECURITY_STATUS
 where
@@ -119,13 +119,13 @@ pub unsafe fn NCryptIsKeyHandle(hkey: NCRYPT_KEY_HANDLE) -> windows_core::BOOL {
     windows_core::link!("ncrypt.dll" "system" fn NCryptIsKeyHandle(hkey : NCRYPT_KEY_HANDLE) -> windows_core::BOOL);
     unsafe { NCryptIsKeyHandle(hkey) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn NCryptKeyDerivation(hkey: NCRYPT_KEY_HANDLE, pparameterlist: Option<*const NCryptBufferDesc>, pbderivedkey: &mut [u8], pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptKeyDerivation(hkey : NCRYPT_KEY_HANDLE, pparameterlist : *const NCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
     unsafe { NCryptKeyDerivation(hkey, pparameterlist.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), pcbresult as _, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn NCryptNotifyChangeKey(hprovider: NCRYPT_PROV_HANDLE, phevent: *mut super::winnt::HANDLE, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptNotifyChangeKey(hprovider : NCRYPT_PROV_HANDLE, phevent : *mut super::winnt::HANDLE, dwflags : u32) -> SECURITY_STATUS);
@@ -165,13 +165,13 @@ pub unsafe fn NCryptSignHash(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Option<*cons
     windows_core::link!("ncrypt.dll" "system" fn NCryptSignHash(hkey : NCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhashvalue : *const u8, cbhashvalue : u32, pbsignature : *mut u8, cbsignature : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
     unsafe { NCryptSignHash(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsignature.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[inline]
 pub unsafe fn NCryptTranslateHandle(phprovider: Option<*mut NCRYPT_PROV_HANDLE>, phkey: *mut NCRYPT_KEY_HANDLE, hlegacyprov: super::wincrypt::HCRYPTPROV, hlegacykey: Option<super::wincrypt::HCRYPTKEY>, dwlegacykeyspec: Option<u32>, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptTranslateHandle(phprovider : *mut NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, hlegacyprov : super::wincrypt::HCRYPTPROV, hlegacykey : super::wincrypt::HCRYPTKEY, dwlegacykeyspec : u32, dwflags : u32) -> SECURITY_STATUS);
     unsafe { NCryptTranslateHandle(phprovider.unwrap_or(core::mem::zeroed()) as _, phkey as _, hlegacyprov, hlegacykey.unwrap_or(core::mem::zeroed()) as _, dwlegacykeyspec.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn NCryptVerifyClaim(hsubjectkey: NCRYPT_KEY_HANDLE, hauthoritykey: Option<NCRYPT_KEY_HANDLE>, dwclaimtype: u32, pparameterlist: Option<*const NCryptBufferDesc>, pbclaimblob: &[u8], poutput: *mut NCryptBufferDesc, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptVerifyClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : u32, pparameterlist : *const NCryptBufferDesc, pbclaimblob : *const u8, cbclaimblob : u32, poutput : *mut NCryptBufferDesc, dwflags : u32) -> SECURITY_STATUS);
@@ -276,7 +276,7 @@ pub const NCRYPT_CIPHER_NO_PADDING_FLAG: u32 = 0;
 pub const NCRYPT_CIPHER_OPERATION: u32 = 1;
 pub const NCRYPT_CIPHER_OTHER_PADDING_FLAG: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbSize: u32,
@@ -368,7 +368,7 @@ pub const NCRYPT_KEY_ACCESS_POLICY_PROPERTY: windows_core::PCWSTR = windows_core
 pub const NCRYPT_KEY_ACCESS_POLICY_VERSION: u32 = 1;
 pub const NCRYPT_KEY_ATTEST_MAGIC: u32 = 1146110283;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub magic: u32,
@@ -754,9 +754,9 @@ pub struct NCryptAlgorithmName {
     pub dwAlgOperations: u32,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 pub type NCryptBuffer = super::bcrypt::BCryptBuffer;
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 pub type NCryptBufferDesc = super::bcrypt::BCryptBufferDesc;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -774,17 +774,17 @@ pub struct NCryptProviderName {
 }
 pub type PFN_NCRYPT_ALLOC = Option<unsafe extern "system" fn(cbsize: usize) -> *mut core::ffi::c_void>;
 pub type PFN_NCRYPT_FREE = Option<unsafe extern "system" fn(pv: *const core::ffi::c_void)>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNCRYPT_CIPHER_PADDING_INFO(pub *mut NCRYPT_CIPHER_PADDING_INFO);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PNCRYPT_CIPHER_PADDING_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PNCRYPT_CIPHER_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -985,33 +985,33 @@ impl Default for PNCRYPT_VBS_ROOT_KEY_ATTESTATION_CLAIM_DETAILS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNCryptBuffer(pub *mut super::bcrypt::BCryptBuffer);
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 impl PNCryptBuffer {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 impl Default for PNCryptBuffer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNCryptBufferDesc(pub *mut super::bcrypt::BCryptBufferDesc);
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 impl PNCryptBufferDesc {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 impl Default for PNCryptBufferDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

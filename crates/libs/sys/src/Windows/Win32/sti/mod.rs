@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("sti.dll" "system" fn StiCreateInstanceW(hinst : super::minwindef::HINSTANCE, dwver : u32, ppsti : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const CLSID_Sti: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb323f8e0_2e68_11d0_90ea_00aa0060f86c);
 pub type DIAG = STI_DIAG;
@@ -14,7 +14,7 @@ pub const GUID_ScanPrintImage: windows_sys::core::GUID = windows_sys::core::GUID
 pub struct IStiDeviceW(pub u8);
 pub type LPDIAG = LPSTI_DIAG;
 pub type LPSTINOTIFY = *mut STINOTIFY;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPSTISUBSCRIBE = *mut STISUBSCRIBE;
 pub type LPSTI_DIAG = *mut STI_DIAG;
 pub const MAX_NOTIFICATION_DATA: u32 = 64;
@@ -42,7 +42,7 @@ impl Default for STINOTIFY {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct STISUBSCRIBE {
     pub dwSize: u32,
@@ -52,7 +52,7 @@ pub struct STISUBSCRIBE {
     pub hEvent: super::winnt::HANDLE,
     pub uiNotificationMessage: u32,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for STISUBSCRIBE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

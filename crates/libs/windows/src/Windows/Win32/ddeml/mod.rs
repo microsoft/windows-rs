@@ -3,7 +3,7 @@ pub unsafe fn DdeAbandonTransaction(idinst: u32, hconv: HCONV, idtransaction: u3
     windows_core::link!("user32.dll" "system" fn DdeAbandonTransaction(idinst : u32, hconv : HCONV, idtransaction : u32) -> windows_core::BOOL);
     unsafe { DdeAbandonTransaction(idinst, hconv, idtransaction) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DdeAccessData(hdata: HDDEDATA, pcbdatasize: Option<*mut u32>) -> super::minwindef::LPBYTE {
     windows_core::link!("user32.dll" "system" fn DdeAccessData(hdata : HDDEDATA, pcbdatasize : *mut u32) -> super::minwindef::LPBYTE);
@@ -24,13 +24,13 @@ pub unsafe fn DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ) -> i32 {
     windows_core::link!("user32.dll" "system" fn DdeCmpStringHandles(hsz1 : HSZ, hsz2 : HSZ) -> i32);
     unsafe { DdeCmpStringHandles(hsz1, hsz2) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DdeConnect(idinst: u32, hszservice: HSZ, hsztopic: HSZ, pcc: Option<*const CONVCONTEXT>) -> HCONV {
     windows_core::link!("user32.dll" "system" fn DdeConnect(idinst : u32, hszservice : HSZ, hsztopic : HSZ, pcc : *const CONVCONTEXT) -> HCONV);
     unsafe { DdeConnect(idinst, hszservice, hsztopic, pcc.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: Option<*const CONVCONTEXT>) -> HCONVLIST {
     windows_core::link!("user32.dll" "system" fn DdeConnectList(idinst : u32, hszservice : HSZ, hsztopic : HSZ, hconvlist : HCONVLIST, pcc : *const CONVCONTEXT) -> HCONVLIST);
@@ -122,7 +122,7 @@ pub unsafe fn DdePostAdvise(idinst: u32, hsztopic: HSZ, hszitem: HSZ) -> windows
     windows_core::link!("user32.dll" "system" fn DdePostAdvise(idinst : u32, hsztopic : HSZ, hszitem : HSZ) -> windows_core::BOOL);
     unsafe { DdePostAdvise(idinst, hsztopic, hszitem) }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn DdeQueryConvInfo(hconv: HCONV, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32 {
     windows_core::link!("user32.dll" "system" fn DdeQueryConvInfo(hconv : HCONV, idtransaction : u32, pconvinfo : *mut CONVINFO) -> u32);
@@ -184,7 +184,7 @@ pub const CBF_SKIP_REGISTRATIONS: u32 = 524288;
 pub const CBF_SKIP_UNREGISTRATIONS: u32 = 1048576;
 pub const CBR_BLOCK: HDDEDATA = HDDEDATA(-1 as _);
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONVCONTEXT {
     pub cb: u32,
@@ -196,7 +196,7 @@ pub struct CONVCONTEXT {
     pub qos: super::winnt::SECURITY_QUALITY_OF_SERVICE,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONVINFO {
     pub cb: u32,
@@ -347,7 +347,7 @@ pub const MH_CREATE: u32 = 1;
 pub const MH_DELETE: u32 = 3;
 pub const MH_KEEP: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONCBSTRUCT {
     pub cb: u32,
@@ -366,14 +366,14 @@ pub struct MONCBSTRUCT {
     pub cbData: u32,
     pub Data: [u32; 8],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MONCBSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MONCONVSTRUCT {
     pub cb: u32,
@@ -386,7 +386,7 @@ pub struct MONCONVSTRUCT {
     pub hConvServer: HCONV,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MONERRSTRUCT {
     pub cb: u32,
@@ -394,10 +394,10 @@ pub struct MONERRSTRUCT {
     pub dwTime: u32,
     pub hTask: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type MONHSZSTRUCT = MONHSZSTRUCTA;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONHSZSTRUCTA {
     pub cb: u32,
@@ -407,14 +407,14 @@ pub struct MONHSZSTRUCTA {
     pub hTask: super::winnt::HANDLE,
     pub str: [i8; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MONHSZSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONHSZSTRUCTW {
     pub cb: u32,
@@ -424,14 +424,14 @@ pub struct MONHSZSTRUCTW {
     pub hTask: super::winnt::HANDLE,
     pub str: [u16; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MONHSZSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MONLINKSTRUCT {
     pub cb: u32,
@@ -448,7 +448,7 @@ pub struct MONLINKSTRUCT {
     pub hConvClient: HCONV,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MONMSGSTRUCT {
     pub cb: u32,
@@ -461,33 +461,33 @@ pub struct MONMSGSTRUCT {
     pub dmhd: DDEML_MSG_HOOK_DATA,
 }
 pub const MSGF_DDEMGR: u32 = 32769;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCONVCONTEXT(pub *mut CONVCONTEXT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PCONVCONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PCONVCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCONVINFO(pub *mut CONVINFO);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl PCONVINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for PCONVINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -520,117 +520,117 @@ impl Default for PHSZPAIR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMONCBSTRUCT(pub *mut MONCBSTRUCT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PMONCBSTRUCT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PMONCBSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMONCONVSTRUCT(pub *mut MONCONVSTRUCT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PMONCONVSTRUCT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PMONCONVSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMONERRSTRUCT(pub *mut MONERRSTRUCT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PMONERRSTRUCT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PMONERRSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMONHSZSTRUCT(pub PMONHSZSTRUCTA);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMONHSZSTRUCTA(pub *mut MONHSZSTRUCTA);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PMONHSZSTRUCTA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PMONHSZSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMONHSZSTRUCTW(pub *mut MONHSZSTRUCTW);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PMONHSZSTRUCTW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PMONHSZSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMONLINKSTRUCT(pub *mut MONLINKSTRUCT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PMONLINKSTRUCT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PMONLINKSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMONMSGSTRUCT(pub *mut MONMSGSTRUCT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl PMONMSGSTRUCT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for PMONMSGSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

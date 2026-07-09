@@ -13,13 +13,13 @@ pub unsafe fn I_RpcAllocate(size: u32) -> *mut core::ffi::c_void {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcAllocate(size : u32) -> *mut core::ffi::c_void);
     unsafe { I_RpcAllocate(size) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn I_RpcAsyncAbortCall(pasync: *const RPC_ASYNC_STATE, exceptioncode: u32) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcAsyncAbortCall(pasync : *const RPC_ASYNC_STATE, exceptioncode : u32) -> RPC_STATUS);
     unsafe { I_RpcAsyncAbortCall(pasync, exceptioncode) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn I_RpcAsyncSetHandle(message: *const RPC_MESSAGE, pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcAsyncSetHandle(message : *const RPC_MESSAGE, pasync : *const RPC_ASYNC_STATE) -> RPC_STATUS);
@@ -40,7 +40,7 @@ pub unsafe fn I_RpcBindingHandleToAsyncHandle(binding: RPC_BINDING_HANDLE, async
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingHandleToAsyncHandle(binding : RPC_BINDING_HANDLE, asynchandle : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     unsafe { I_RpcBindingHandleToAsyncHandle(binding, asynchandle as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn I_RpcBindingInqClientTokenAttributes(binding: RPC_BINDING_HANDLE, tokenid: Option<*mut super::winnt::LUID>, authenticationid: Option<*mut super::winnt::LUID>, modifiedid: Option<*mut super::winnt::LUID>) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingInqClientTokenAttributes(binding : RPC_BINDING_HANDLE, tokenid : *mut super::winnt::LUID, authenticationid : *mut super::winnt::LUID, modifiedid : *mut super::winnt::LUID) -> RPC_STATUS);
@@ -420,7 +420,7 @@ pub unsafe fn NDRSContextUnmarshallEx(bindinghandle: RPC_BINDING_HANDLE, pbuff: 
     windows_core::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshallEx(bindinghandle : RPC_BINDING_HANDLE, pbuff : *const core::ffi::c_void, datarepresentation : u32) -> NDR_SCONTEXT);
     unsafe { NDRSContextUnmarshallEx(bindinghandle, pbuff, datarepresentation) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn Ndr64AsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut core::ffi::c_void) -> CLIENT_CALL_RETURN {
     windows_core::link!("rpcrt4.dll" "C" fn Ndr64AsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
@@ -436,13 +436,13 @@ pub unsafe fn Ndr64AsyncServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCallAll(prpcmsg : *mut RPC_MESSAGE));
     unsafe { Ndr64AsyncServerCallAll(prpcmsg as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut core::ffi::c_void) -> CLIENT_CALL_RETURN {
     windows_core::link!("rpcrt4.dll" "C" fn Ndr64DcomAsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
     unsafe { Ndr64DcomAsyncClientCall(pproxyinfo as _, nprocnum, preturnvalue as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn Ndr64DcomAsyncStubCall<P0, P1>(pthis: P0, pchannel: P1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32
 where
@@ -452,13 +452,13 @@ where
     windows_core::link!("rpcrt4.dll" "system" fn Ndr64DcomAsyncStubCall(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
     unsafe { Ndr64DcomAsyncStubCall(pthis.param().abi(), pchannel.param().abi(), prpcmsg as _, pdwstubphase as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut core::ffi::c_void {
     windows_core::link!("rpcrt4.dll" "system" fn NdrAllocate(pstubmsg : *mut MIDL_STUB_MESSAGE, len : usize) -> *mut core::ffi::c_void);
     unsafe { NdrAllocate(core::mem::transmute(pstubmsg), len) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrAsyncClientCall(pstubdescriptor: *const MIDL_STUB_DESC, pformat: *const u8) -> CLIENT_CALL_RETURN {
     windows_core::link!("rpcrt4.dll" "C" fn NdrAsyncClientCall(pstubdescriptor : *const MIDL_STUB_DESC, pformat : *const u8) -> CLIENT_CALL_RETURN);
@@ -469,319 +469,319 @@ pub unsafe fn NdrAsyncServerCall(prpcmsg: *mut RPC_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrAsyncServerCall(prpcmsg : *mut RPC_MESSAGE));
     unsafe { NdrAsyncServerCall(prpcmsg as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrByteCountPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrByteCountPointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrByteCountPointerBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrByteCountPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrByteCountPointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrByteCountPointerFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrByteCountPointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrByteCountPointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrByteCountPointerMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrByteCountPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrByteCountPointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrByteCountPointerUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrClearOutParameters(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8, argaddr: *mut core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrClearOutParameters(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8, argaddr : *mut core::ffi::c_void));
     unsafe { NdrClearOutParameters(core::mem::transmute(pstubmsg), pformat, argaddr as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrClientCall2(pstubdescriptor: *const MIDL_STUB_DESC, pformat: *const u8) -> CLIENT_CALL_RETURN {
     windows_core::link!("rpcrt4.dll" "C" fn NdrClientCall2(pstubdescriptor : *const MIDL_STUB_DESC, pformat : *const u8) -> CLIENT_CALL_RETURN);
     unsafe { NdrClientCall2(pstubdescriptor, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrClientCall3(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut core::ffi::c_void) -> CLIENT_CALL_RETURN {
     windows_core::link!("rpcrt4.dll" "C" fn NdrClientCall3(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
     unsafe { NdrClientCall3(pproxyinfo as _, nprocnum, preturnvalue as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrClientContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: NDR_CCONTEXT, fcheck: i32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrClientContextMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : NDR_CCONTEXT, fcheck : i32));
     unsafe { NdrClientContextMarshall(core::mem::transmute(pstubmsg), contexthandle, fcheck) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrClientContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pcontexthandle: *mut NDR_CCONTEXT, bindhandle: RPC_BINDING_HANDLE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrClientContextUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pcontexthandle : *mut NDR_CCONTEXT, bindhandle : RPC_BINDING_HANDLE));
     unsafe { NdrClientContextUnmarshall(core::mem::transmute(pstubmsg), pcontexthandle as _, bindhandle) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *const MIDL_STUB_DESC, procnum: u32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrClientInitialize(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC, procnum : u32));
     unsafe { NdrClientInitialize(prpcmsg as _, core::mem::transmute(pstubmsg), pstubdescriptor, procnum) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *const MIDL_STUB_DESC, procnum: u32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrClientInitializeNew(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC, procnum : u32));
     unsafe { NdrClientInitializeNew(prpcmsg as _, core::mem::transmute(pstubmsg), pstubdescriptor, procnum) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrComplexArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrComplexArrayBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrComplexArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrComplexArrayFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrComplexArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrComplexArrayMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrComplexArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrComplexArrayMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrComplexArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrComplexArrayUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrComplexStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrComplexStructBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrComplexStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrComplexStructFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrComplexStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrComplexStructMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrComplexStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrComplexStructMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrComplexStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrComplexStructUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrConformantArrayBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrConformantArrayFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrConformantArrayMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrConformantArrayMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrConformantArrayUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStringBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrConformantStringBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantStringMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStringMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrConformantStringMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantStringMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStringMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrConformantStringMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStringUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrConformantStringUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrConformantStructBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrConformantStructFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrConformantStructMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrConformantStructMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrConformantStructUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrConformantVaryingArrayBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrConformantVaryingArrayFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantVaryingArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrConformantVaryingArrayMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrConformantVaryingArrayMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrConformantVaryingArrayUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantVaryingStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrConformantVaryingStructBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantVaryingStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrConformantVaryingStructFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantVaryingStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrConformantVaryingStructMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantVaryingStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrConformantVaryingStructMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConformantVaryingStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrConformantVaryingStructUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrContextHandleInitialize(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> NDR_SCONTEXT {
     windows_core::link!("rpcrt4.dll" "system" fn NdrContextHandleInitialize(pstubmsg : *const MIDL_STUB_MESSAGE, pformat : *const u8) -> NDR_SCONTEXT);
     unsafe { NdrContextHandleInitialize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrContextHandleSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrContextHandleSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrContextHandleSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConvert(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConvert(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8));
     unsafe { NdrConvert(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8, numberparams: i32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConvert2(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8, numberparams : i32));
     unsafe { NdrConvert2(core::mem::transmute(pstubmsg), pformat, numberparams) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrCorrelationFree(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrCorrelationFree(pstubmsg : *mut MIDL_STUB_MESSAGE));
     unsafe { NdrCorrelationFree(core::mem::transmute(pstubmsg)) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrCorrelationInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut core::ffi::c_void, cachesize: u32, flags: u32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrCorrelationInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void, cachesize : u32, flags : u32));
     unsafe { NdrCorrelationInitialize(core::mem::transmute(pstubmsg), pmemory as _, cachesize, flags) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrCorrelationPass(pstubmsg : *mut MIDL_STUB_MESSAGE));
     unsafe { NdrCorrelationPass(core::mem::transmute(pstubmsg)) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrCreateServerInterfaceFromStub<P0>(pstub: P0, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS
 where
@@ -790,13 +790,13 @@ where
     windows_core::link!("rpcrt4.dll" "system" fn NdrCreateServerInterfaceFromStub(pstub : *mut core::ffi::c_void, pserverif : *mut RPC_SERVER_INTERFACE) -> RPC_STATUS);
     unsafe { NdrCreateServerInterfaceFromStub(pstub.param().abi(), pserverif as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrDcomAsyncClientCall(pstubdescriptor: *const MIDL_STUB_DESC, pformat: *const u8) -> CLIENT_CALL_RETURN {
     windows_core::link!("rpcrt4.dll" "C" fn NdrDcomAsyncClientCall(pstubdescriptor : *const MIDL_STUB_DESC, pformat : *const u8) -> CLIENT_CALL_RETURN);
     unsafe { NdrDcomAsyncClientCall(pstubdescriptor, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrDcomAsyncStubCall<P0, P1>(pthis: P0, pchannel: P1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32
 where
@@ -806,67 +806,67 @@ where
     windows_core::link!("rpcrt4.dll" "system" fn NdrDcomAsyncStubCall(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
     unsafe { NdrDcomAsyncStubCall(pthis.param().abi(), pchannel.param().abi(), prpcmsg as _, pdwstubphase as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrEncapsulatedUnionBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrEncapsulatedUnionFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrEncapsulatedUnionMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrEncapsulatedUnionMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrEncapsulatedUnionMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrEncapsulatedUnionMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrEncapsulatedUnionUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrFixedArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFixedArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrFixedArrayBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrFixedArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFixedArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrFixedArrayFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrFixedArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFixedArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrFixedArrayMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrFixedArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFixedArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrFixedArrayMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrFixedArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFixedArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrFixedArrayUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrFreeBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFreeBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE));
@@ -886,121 +886,121 @@ pub unsafe fn NdrFullPointerXlatInit(numberofpointers: u32, xlatside: XLAT_SIDE)
     windows_core::link!("rpcrt4.dll" "system" fn NdrFullPointerXlatInit(numberofpointers : u32, xlatside : XLAT_SIDE) -> PFULL_PTR_XLAT_TABLES);
     unsafe { NdrFullPointerXlatInit(numberofpointers, xlatside) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: RPC_BINDING_HANDLE) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : RPC_BINDING_HANDLE) -> *mut u8);
     unsafe { NdrGetBuffer(core::mem::transmute(pstubmsg), bufferlength, handle) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: *mut MIDL_STUB_MESSAGE, pversion: *mut RPC_VERSION) -> windows_core::HRESULT {
     windows_core::link!("rpcrt4.dll" "system" fn NdrGetDcomProtocolVersion(pstubmsg : *mut MIDL_STUB_MESSAGE, pversion : *mut RPC_VERSION) -> windows_core::HRESULT);
     unsafe { NdrGetDcomProtocolVersion(core::mem::transmute(pstubmsg), pversion as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrGetUserMarshalInfo(pflags: *const u32, informationlevel: u32, pmarshalinfo: *mut NDR_USER_MARSHAL_INFO) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn NdrGetUserMarshalInfo(pflags : *const u32, informationlevel : u32, pmarshalinfo : *mut NDR_USER_MARSHAL_INFO) -> RPC_STATUS);
     unsafe { NdrGetUserMarshalInfo(pflags, informationlevel, core::mem::transmute(pmarshalinfo)) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrInterfacePointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrInterfacePointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrInterfacePointerBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrInterfacePointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrInterfacePointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrInterfacePointerFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrInterfacePointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrInterfacePointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrInterfacePointerMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrInterfacePointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrInterfacePointerMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrInterfacePointerMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrInterfacePointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrInterfacePointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrInterfacePointerUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrMapCommAndFaultStatus(pstubmsg: *mut MIDL_STUB_MESSAGE, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: RPC_STATUS) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn NdrMapCommAndFaultStatus(pstubmsg : *mut MIDL_STUB_MESSAGE, pcommstatus : *mut u32, pfaultstatus : *mut u32, status : RPC_STATUS) -> RPC_STATUS);
     unsafe { NdrMapCommAndFaultStatus(core::mem::transmute(pstubmsg), pcommstatus as _, pfaultstatus as _, status) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrNonConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonConformantStringBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrNonConformantStringBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrNonConformantStringMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonConformantStringMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrNonConformantStringMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrNonConformantStringMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonConformantStringMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrNonConformantStringMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrNonConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonConformantStringUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrNonConformantStringUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrNonEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrNonEncapsulatedUnionBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrNonEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrNonEncapsulatedUnionFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrNonEncapsulatedUnionMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrNonEncapsulatedUnionMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrNonEncapsulatedUnionMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrNonEncapsulatedUnionMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrNonEncapsulatedUnionUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrNsGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: RPC_BINDING_HANDLE) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNsGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : RPC_BINDING_HANDLE) -> *mut u8);
     unsafe { NdrNsGetBuffer(core::mem::transmute(pstubmsg), bufferlength, handle) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrNsSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut u8, pautohandle: *mut RPC_BINDING_HANDLE) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNsSendReceive(pstubmsg : *mut MIDL_STUB_MESSAGE, pbufferend : *mut u8, pautohandle : *mut RPC_BINDING_HANDLE) -> *mut u8);
@@ -1016,61 +1016,61 @@ pub unsafe fn NdrOleFree(nodetofree: *const core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrOleFree(nodetofree : *const core::ffi::c_void));
     unsafe { NdrOleFree(nodetofree) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void));
     unsafe { NdrPartialIgnoreClientBufferSize(core::mem::transmute(pstubmsg), pmemory as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void));
     unsafe { NdrPartialIgnoreClientMarshall(core::mem::transmute(pstubmsg), pmemory as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut core::ffi::c_void, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut core::ffi::c_void, pformat : *const u8));
     unsafe { NdrPartialIgnoreServerInitialize(core::mem::transmute(pstubmsg), ppmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut core::ffi::c_void));
     unsafe { NdrPartialIgnoreServerUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrPointerBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrPointerFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrPointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrPointerMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrPointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPointerMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrPointerMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrPointerUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrRangeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRangeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
@@ -1086,7 +1086,7 @@ pub unsafe fn NdrRpcSmClientFree(nodetofree: *const core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSmClientFree(nodetofree : *const core::ffi::c_void));
     unsafe { NdrRpcSmClientFree(nodetofree) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrRpcSmSetClientToOsf(pmessage: *mut MIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSmSetClientToOsf(pmessage : *mut MIDL_STUB_MESSAGE));
@@ -1102,19 +1102,19 @@ pub unsafe fn NdrRpcSsDefaultFree(nodetofree: *const core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultFree(nodetofree : *const core::ffi::c_void));
     unsafe { NdrRpcSsDefaultFree(nodetofree) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrRpcSsDisableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSsDisableAllocate(pmessage : *mut MIDL_STUB_MESSAGE));
     unsafe { NdrRpcSsDisableAllocate(core::mem::transmute(pmessage)) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrRpcSsEnableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSsEnableAllocate(pmessage : *mut MIDL_STUB_MESSAGE));
     unsafe { NdrRpcSsEnableAllocate(core::mem::transmute(pmessage)) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSendReceive(pstubmsg : *mut MIDL_STUB_MESSAGE, pbufferend : *mut u8) -> *mut u8);
@@ -1135,97 +1135,97 @@ pub unsafe fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerCallNdr64(prpcmsg : *mut RPC_MESSAGE));
     unsafe { NdrServerCallNdr64(prpcmsg as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut _NDR_SCONTEXT, rundownroutine: NDR_RUNDOWN) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerContextMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : *mut _NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN));
     unsafe { NdrServerContextMarshall(core::mem::transmute(pstubmsg), contexthandle as _, rundownroutine) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut _NDR_SCONTEXT, rundownroutine: NDR_RUNDOWN, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerContextNewMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : *mut _NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN, pformat : *const u8));
     unsafe { NdrServerContextNewMarshall(core::mem::transmute(pstubmsg), contexthandle as _, rundownroutine, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrServerContextNewUnmarshall(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> NDR_SCONTEXT {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerContextNewUnmarshall(pstubmsg : *const MIDL_STUB_MESSAGE, pformat : *const u8) -> NDR_SCONTEXT);
     unsafe { NdrServerContextNewUnmarshall(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrServerContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE) -> NDR_SCONTEXT {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerContextUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE) -> NDR_SCONTEXT);
     unsafe { NdrServerContextUnmarshall(core::mem::transmute(pstubmsg)) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrServerInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *const MIDL_STUB_DESC) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerInitialize(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC) -> *mut u8);
     unsafe { NdrServerInitialize(prpcmsg as _, core::mem::transmute(pstubmsg), pstubdescriptor) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrServerInitializeMarshall(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerInitializeMarshall(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE));
     unsafe { NdrServerInitializeMarshall(prpcmsg as _, core::mem::transmute(pstubmsg)) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrServerInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *const MIDL_STUB_DESC) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerInitializeNew(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC) -> *mut u8);
     unsafe { NdrServerInitializeNew(prpcmsg as _, core::mem::transmute(pstubmsg), pstubdescriptor) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *const MIDL_STUB_DESC, requestedbuffersize: u32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerInitializePartial(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC, requestedbuffersize : u32));
     unsafe { NdrServerInitializePartial(prpcmsg as _, core::mem::transmute(pstubmsg), pstubdescriptor, requestedbuffersize) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrServerInitializeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *const MIDL_STUB_DESC, prpcmsg: *mut RPC_MESSAGE) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerInitializeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC, prpcmsg : *mut RPC_MESSAGE) -> *mut u8);
     unsafe { NdrServerInitializeUnmarshall(core::mem::transmute(pstubmsg), pstubdescriptor, prpcmsg as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrSimpleStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrSimpleStructBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrSimpleStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrSimpleStructFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrSimpleStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrSimpleStructMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrSimpleStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrSimpleStructMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrSimpleStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrSimpleStructUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrSimpleTypeMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleTypeMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
     unsafe { NdrSimpleTypeMarshall(core::mem::transmute(pstubmsg), pmemory as _, formatchar) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrSimpleTypeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleTypeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
@@ -1241,25 +1241,25 @@ pub unsafe fn NdrStubCall3(pthis: *mut core::ffi::c_void, pchannel: *mut core::f
     windows_core::link!("rpcrt4.dll" "system" fn NdrStubCall3(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
     unsafe { NdrStubCall3(pthis as _, pchannel as _, prpcmsg as _, pdwstubphase as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrUserMarshalBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrUserMarshalBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrUserMarshalFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrUserMarshalFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrUserMarshalMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrUserMarshalMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrUserMarshalMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
@@ -1270,109 +1270,109 @@ pub unsafe fn NdrUserMarshalSimpleTypeConvert(pflags: *mut u32, pbuffer: *mut u8
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalSimpleTypeConvert(pflags : *mut u32, pbuffer : *mut u8, formatchar : u8) -> *mut u8);
     unsafe { NdrUserMarshalSimpleTypeConvert(pflags as _, pbuffer as _, formatchar) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrUserMarshalUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrUserMarshalUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrVaryingArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrVaryingArrayBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrVaryingArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrVaryingArrayFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrVaryingArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrVaryingArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrVaryingArrayMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrVaryingArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrVaryingArrayMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrVaryingArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrVaryingArrayUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrXmitOrRepAsBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrXmitOrRepAsBufferSize(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrXmitOrRepAsFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
     unsafe { NdrXmitOrRepAsFree(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrXmitOrRepAsMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *const u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
     unsafe { NdrXmitOrRepAsMarshall(core::mem::transmute(pstubmsg), pmemory as _, pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrXmitOrRepAsMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
     unsafe { NdrXmitOrRepAsMemorySize(core::mem::transmute(pstubmsg), pformat) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *const u8, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
     unsafe { NdrXmitOrRepAsUnmarshall(core::mem::transmute(pstubmsg), ppmemory as _, pformat, fmustalloc) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncAbortCall(pasync : *mut RPC_ASYNC_STATE, exceptioncode : u32) -> RPC_STATUS);
     unsafe { RpcAsyncAbortCall(pasync as _, exceptioncode) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncCancelCall(pasync: *mut RPC_ASYNC_STATE, fabort: bool) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncCancelCall(pasync : *mut RPC_ASYNC_STATE, fabort : windows_core::BOOL) -> RPC_STATUS);
     unsafe { RpcAsyncCancelCall(pasync as _, fabort.into()) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncCompleteCall(pasync: *mut RPC_ASYNC_STATE, reply: Option<*mut core::ffi::c_void>) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncCompleteCall(pasync : *mut RPC_ASYNC_STATE, reply : *mut core::ffi::c_void) -> RPC_STATUS);
     unsafe { RpcAsyncCompleteCall(pasync as _, reply.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncGetCallStatus(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncGetCallStatus(pasync : *const RPC_ASYNC_STATE) -> RPC_STATUS);
     unsafe { RpcAsyncGetCallStatus(pasync) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncInitializeHandle(pasync : *mut RPC_ASYNC_STATE, size : u32) -> RPC_STATUS);
     unsafe { RpcAsyncInitializeHandle(pasync as _, size) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncRegisterInfo(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncRegisterInfo(pasync : *const RPC_ASYNC_STATE) -> RPC_STATUS);
     unsafe { RpcAsyncRegisterInfo(pasync) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcBindingBind(pasync: Option<*const RPC_ASYNC_STATE>, binding: RPC_BINDING_HANDLE, ifspec: RPC_IF_HANDLE) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcBindingBind(pasync : *const RPC_ASYNC_STATE, binding : RPC_BINDING_HANDLE, ifspec : RPC_IF_HANDLE) -> RPC_STATUS);
@@ -1563,7 +1563,7 @@ pub unsafe fn RpcEpUnregister(ifspec: RPC_IF_HANDLE, bindingvector: *const RPC_B
     windows_core::link!("rpcrt4.dll" "system" fn RpcEpUnregister(ifspec : RPC_IF_HANDLE, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR) -> RPC_STATUS);
     unsafe { RpcEpUnregister(ifspec, bindingvector, uuidvector.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[inline]
 pub unsafe fn RpcErrorAddRecord(errorinfo: *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcErrorAddRecord(errorinfo : *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS);
@@ -1579,7 +1579,7 @@ pub unsafe fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> 
     windows_core::link!("rpcrt4.dll" "system" fn RpcErrorEndEnumeration(enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS);
     unsafe { RpcErrorEndEnumeration(enumhandle as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[inline]
 pub unsafe fn RpcErrorGetNextRecord(enumhandle: *const RPC_ERROR_ENUM_HANDLE, copystrings: bool, errorinfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcErrorGetNextRecord(enumhandle : *const RPC_ERROR_ENUM_HANDLE, copystrings : windows_core::BOOL, errorinfo : *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS);
@@ -1620,7 +1620,7 @@ pub unsafe fn RpcFreeAuthorizationContext(pauthzclientcontext: *mut *mut core::f
     windows_core::link!("rpcrt4.dll" "system" fn RpcFreeAuthorizationContext(pauthzclientcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     unsafe { RpcFreeAuthorizationContext(pauthzclientcontext as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RpcGetAuthorizationContextForClient(clientbinding: Option<RPC_BINDING_HANDLE>, impersonateonreturn: bool, reserved1: Option<*const core::ffi::c_void>, pexpirationtime: Option<*const i64>, reserved2: super::winnt::LUID, reserved3: u32, reserved4: Option<*const core::ffi::c_void>, pauthzclientcontext: *mut *mut core::ffi::c_void) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcGetAuthorizationContextForClient(clientbinding : RPC_BINDING_HANDLE, impersonateonreturn : windows_core::BOOL, reserved1 : *const core::ffi::c_void, pexpirationtime : *const i64, reserved2 : super::winnt::LUID, reserved3 : u32, reserved4 : *const core::ffi::c_void, pauthzclientcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
@@ -2216,7 +2216,7 @@ pub unsafe fn RpcServerRegisterIfEx(ifspec: RPC_IF_HANDLE, mgrtypeuuid: Option<*
     windows_core::link!("rpcrt4.dll" "system" fn RpcServerRegisterIfEx(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, ifcallback : RPC_IF_CALLBACK_FN) -> RPC_STATUS);
     unsafe { RpcServerRegisterIfEx(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _, flags, maxcalls, ifcallback) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcServerSubscribeForNotification(binding: Option<RPC_BINDING_HANDLE>, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcServerSubscribeForNotification(binding : RPC_BINDING_HANDLE, notification : RPC_NOTIFICATIONS, notificationtype : RPC_NOTIFICATION_TYPES, notificationinfo : *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS);
@@ -2591,7 +2591,7 @@ pub const EEInfoGCFRS: u32 = 12;
 pub const EEInfoNextRecordsMissing: u32 = 2;
 pub const EEInfoPreviousRecordsMissing: u32 = 1;
 pub const EEInfoUseFileTime: u32 = 4;
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub type EXPR_EVAL = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 pub type ExtendedErrorParamTypes = i32;
 #[repr(C)]
@@ -2746,7 +2746,7 @@ impl Default for MIDL_METHOD_PROPERTY_MAP {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIDL_SERVER_INFO {
     pub pStubDesc: PMIDL_STUB_DESC,
@@ -2758,14 +2758,14 @@ pub struct MIDL_SERVER_INFO {
     pub nCount: usize,
     pub pSyntaxInfo: PMIDL_SYNTAX_INFO,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for MIDL_SERVER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIDL_STUBLESS_PROXY_INFO {
     pub pStubDesc: PMIDL_STUB_DESC,
@@ -2775,14 +2775,14 @@ pub struct MIDL_STUBLESS_PROXY_INFO {
     pub nCount: usize,
     pub pSyntaxInfo: PMIDL_SYNTAX_INFO,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for MIDL_STUBLESS_PROXY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Copy)]
 pub struct MIDL_STUB_DESC {
     pub RpcInterfaceInformation: *mut core::ffi::c_void,
@@ -2806,28 +2806,28 @@ pub struct MIDL_STUB_DESC {
     pub ProxyServerInfo: *mut core::ffi::c_void,
     pub pExprInfo: *const NDR_EXPR_DESC,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for MIDL_STUB_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Copy)]
 pub union MIDL_STUB_DESC_0 {
     pub pAutoHandle: *mut handle_t,
     pub pPrimitiveHandle: *mut handle_t,
     pub pGenericBindingInfo: PGENERIC_BINDING_INFO,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for MIDL_STUB_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Debug, PartialEq)]
 pub struct MIDL_STUB_MESSAGE {
     pub RpcMsg: PRPC_MESSAGE,
@@ -2890,7 +2890,7 @@ pub struct MIDL_STUB_MESSAGE {
     pub Reserved51_4: isize,
     pub Reserved51_5: isize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for MIDL_STUB_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2914,7 +2914,7 @@ impl Default for MIDL_SYNTAX_INFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     pub Version: u32,
@@ -3008,42 +3008,42 @@ impl Default for NDR_SCONTEXT {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub struct NDR_USER_MARSHAL_INFO {
     pub InformationLevel: u32,
     pub Anonymous: NDR_USER_MARSHAL_INFO_0,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Clone for NDR_USER_MARSHAL_INFO {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for NDR_USER_MARSHAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub union NDR_USER_MARSHAL_INFO_0 {
     pub Level1: core::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO_LEVEL1>,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Clone for NDR_USER_MARSHAL_INFO_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for NDR_USER_MARSHAL_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Debug, PartialEq)]
 pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
     pub Buffer: *mut core::ffi::c_void,
@@ -3053,7 +3053,7 @@ pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
     pub pRpcChannelBuffer: core::mem::ManuallyDrop<Option<super::objidlbase::IRpcChannelBuffer>>,
     pub Reserved: [usize; 5],
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for NDR_USER_MARSHAL_INFO_LEVEL1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3087,7 +3087,7 @@ impl Default for PARRAY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 pub type PFN_RPCNOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -3180,65 +3180,65 @@ impl Default for PMIDL_METHOD_PROPERTY_MAP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDL_SERVER_INFO(pub *mut MIDL_SERVER_INFO);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl PMIDL_SERVER_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for PMIDL_SERVER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDL_STUBLESS_PROXY_INFO(pub *mut MIDL_STUBLESS_PROXY_INFO);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl PMIDL_STUBLESS_PROXY_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for PMIDL_STUBLESS_PROXY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDL_STUB_DESC(pub *const MIDL_STUB_DESC);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl PMIDL_STUB_DESC {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for PMIDL_STUB_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDL_STUB_MESSAGE(pub *mut MIDL_STUB_MESSAGE);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl PMIDL_STUB_MESSAGE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for PMIDL_STUB_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3257,17 +3257,17 @@ impl Default for PMIDL_SYNTAX_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDL_WINRT_TYPE_SERIALIZATION_INFO(pub *mut MIDL_WINRT_TYPE_SERIALIZATION_INFO);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl PMIDL_WINRT_TYPE_SERIALIZATION_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for PMIDL_WINRT_TYPE_SERIALIZATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3334,33 +3334,33 @@ pub const PROXY_MARSHAL: PROXY_PHASE = 2;
 pub type PROXY_PHASE = i32;
 pub const PROXY_SENDRECEIVE: PROXY_PHASE = 3;
 pub const PROXY_UNMARSHAL: PROXY_PHASE = 4;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRPC_ASYNC_NOTIFICATION_INFO(pub *mut RPC_ASYNC_NOTIFICATION_INFO);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 impl PRPC_ASYNC_NOTIFICATION_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 impl Default for PRPC_ASYNC_NOTIFICATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRPC_ASYNC_STATE(pub *mut RPC_ASYNC_STATE);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 impl PRPC_ASYNC_STATE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 impl Default for PRPC_ASYNC_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3874,17 +3874,17 @@ impl Default for PSEC_WINNT_AUTH_IDENTITY_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PXMIT_ROUTINE_QUINTUPLE(pub *mut XMIT_ROUTINE_QUINTUPLE);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl PXMIT_ROUTINE_QUINTUPLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for PXMIT_ROUTINE_QUINTUPLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3934,13 +3934,13 @@ pub const RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = 5;
 pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = 1;
 pub const RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = 3;
 pub type RPCLT_PDU_FILTER_FUNC = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 pub type RPCNOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
 pub type RPC_ADDRESS_CHANGE_FN = Option<unsafe extern "system" fn(arg: *mut core::ffi::c_void)>;
 pub type RPC_ADDRESS_CHANGE_TYPE = i32;
 pub type RPC_ASYNC_EVENT = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub APC: RPC_ASYNC_NOTIFICATION_INFO_0,
@@ -3949,21 +3949,21 @@ pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub hEvent: super::winnt::HANDLE,
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 impl Default for RPC_ASYNC_NOTIFICATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
     pub hThread: super::winnt::HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
     pub hIOPort: super::winnt::HANDLE,
@@ -3972,14 +3972,14 @@ pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
     pub lpOverlapped: super::minwinbase::LPOVERLAPPED,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub hWnd: super::windef::HWND,
     pub Msg: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RPC_ASYNC_STATE {
     pub Size: u32,
@@ -3994,7 +3994,7 @@ pub struct RPC_ASYNC_STATE {
     pub u: RPC_ASYNC_NOTIFICATION_INFO,
     pub Reserved: [isize; 4],
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 impl Default for RPC_ASYNC_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4154,7 +4154,7 @@ impl Default for RPC_BUFPTR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type RPC_CALL_ATTRIBUTES = RPC_CALL_ATTRIBUTES_V3_A;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4193,7 +4193,7 @@ impl Default for RPC_CALL_ATTRIBUTES_V1_W {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub Version: u32,
@@ -4215,14 +4215,14 @@ pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub OpNum: u16,
     pub InterfaceUuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for RPC_CALL_ATTRIBUTES_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub Version: u32,
@@ -4244,14 +4244,14 @@ pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub OpNum: u16,
     pub InterfaceUuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for RPC_CALL_ATTRIBUTES_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub Version: u32,
@@ -4275,14 +4275,14 @@ pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for RPC_CALL_ATTRIBUTES_V3_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub Version: u32,
@@ -4306,7 +4306,7 @@ pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for RPC_CALL_ATTRIBUTES_V3_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4628,7 +4628,7 @@ impl Default for RPC_ERROR_ENUM_HANDLE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub struct RPC_EXTENDED_ERROR_INFO {
     pub Version: u32,
@@ -4642,20 +4642,20 @@ pub struct RPC_EXTENDED_ERROR_INFO {
     pub NumberOfParameters: i32,
     pub Parameters: [RPC_EE_INFO_PARAM; 4],
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 impl Default for RPC_EXTENDED_ERROR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub union RPC_EXTENDED_ERROR_INFO_0 {
     pub SystemTime: super::minwinbase::SYSTEMTIME,
     pub FileTime: super::minwindef::FILETIME,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 impl Default for RPC_EXTENDED_ERROR_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5391,7 +5391,7 @@ pub const STUB_CALL_SERVER: STUB_PHASE = 1;
 pub const STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = 3;
 pub const STUB_MARSHAL: STUB_PHASE = 2;
 pub type STUB_PHASE = i32;
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub type STUB_THUNK = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 pub const STUB_UNMARSHAL: STUB_PHASE = 0;
 pub const SYSTEM_HANDLE_COMPOSITION_OBJECT: system_handle_t = 9;
@@ -5427,7 +5427,7 @@ pub const TRANSPORT_TYPE_WMSG: u32 = 8;
 pub const USER_CALL_IS_ASYNC: u32 = 256;
 pub const USER_CALL_NEW_CORRELATION_DESC: u32 = 512;
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USER_MARSHAL_CB {
     pub Flags: u32,
@@ -5482,10 +5482,10 @@ impl Default for UUID_VECTOR {
 pub const XLAT_CLIENT: XLAT_SIDE = 2;
 pub const XLAT_SERVER: XLAT_SIDE = 1;
 pub type XLAT_SIDE = i32;
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub type XMIT_HELPER_ROUTINE = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct XMIT_ROUTINE_QUINTUPLE {
     pub pfnTranslateToXmit: XMIT_HELPER_ROUTINE,

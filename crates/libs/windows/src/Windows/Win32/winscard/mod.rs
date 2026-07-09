@@ -1,16 +1,16 @@
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[inline]
 pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
     windows_core::link!("scarddlg.dll" "system" fn GetOpenCardNameA(param0 : *mut OPENCARDNAMEA) -> i32);
     unsafe { GetOpenCardNameA(param0 as _) }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[inline]
 pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
     windows_core::link!("scarddlg.dll" "system" fn GetOpenCardNameW(param0 : *mut OPENCARDNAMEW) -> i32);
     unsafe { GetOpenCardNameW(param0 as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SCardAccessStartedEvent() -> super::winnt::HANDLE {
     windows_core::link!("winscard.dll" "system" fn SCardAccessStartedEvent() -> super::winnt::HANDLE);
@@ -491,19 +491,19 @@ where
     windows_core::link!("winscard.dll" "system" fn SCardStatusW(hcard : SCARDHANDLE, mszreadernames : windows_core::PCWSTR, pcchreaderlen : *mut u32, pdwstate : *mut u32, pdwprotocol : *mut u32, pbatr : *mut u8, pcbatrlen : *mut u32) -> i32);
     unsafe { SCardStatusW(hcard, mszreadernames.param().abi(), pcchreaderlen.unwrap_or(core::mem::zeroed()) as _, pdwstate.unwrap_or(core::mem::zeroed()) as _, pdwprotocol.unwrap_or(core::mem::zeroed()) as _, pbatr as _, pcbatrlen.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winsmcrd")]
+#[cfg(feature = "winsmcrd")]
 #[inline]
 pub unsafe fn SCardTransmit(hcard: SCARDHANDLE, piosendpci: *const super::winsmcrd::SCARD_IO_REQUEST, pbsendbuffer: &[u8], piorecvpci: Option<*mut super::winsmcrd::SCARD_IO_REQUEST>, pbrecvbuffer: *mut u8, pcbrecvlength: *mut u32) -> i32 {
     windows_core::link!("winscard.dll" "system" fn SCardTransmit(hcard : SCARDHANDLE, piosendpci : *const super::winsmcrd::SCARD_IO_REQUEST, pbsendbuffer : *const u8, cbsendlength : u32, piorecvpci : *mut super::winsmcrd::SCARD_IO_REQUEST, pbrecvbuffer : *mut u8, pcbrecvlength : *mut u32) -> i32);
     unsafe { SCardTransmit(hcard, piosendpci, core::mem::transmute(pbsendbuffer.as_ptr()), pbsendbuffer.len().try_into().unwrap(), piorecvpci.unwrap_or(core::mem::zeroed()) as _, pbrecvbuffer as _, pcbrecvlength as _) }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[inline]
 pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
     windows_core::link!("scarddlg.dll" "system" fn SCardUIDlgSelectCardA(param0 : *mut OPENCARDNAME_EXA) -> i32);
     unsafe { SCardUIDlgSelectCardA(param0 as _) }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[inline]
 pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     windows_core::link!("scarddlg.dll" "system" fn SCardUIDlgSelectCardW(param0 : *mut OPENCARDNAME_EXW) -> i32);
@@ -542,109 +542,109 @@ pub type LPOCNCHKPROC = Option<unsafe extern "system" fn(param0: SCARDCONTEXT, p
 pub type LPOCNCONNPROCA = Option<unsafe extern "system" fn(param0: SCARDCONTEXT, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *const core::ffi::c_void) -> SCARDHANDLE>;
 pub type LPOCNCONNPROCW = Option<unsafe extern "system" fn(param0: SCARDCONTEXT, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *const core::ffi::c_void) -> SCARDHANDLE>;
 pub type LPOCNDSCPROC = Option<unsafe extern "system" fn(param0: SCARDCONTEXT, param1: SCARDHANDLE, param2: *const core::ffi::c_void)>;
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPOPENCARDNAME(pub LPOPENCARDNAMEA);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPOPENCARDNAMEA(pub *mut OPENCARDNAMEA);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl LPOPENCARDNAMEA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for LPOPENCARDNAMEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPOPENCARDNAMEW(pub *mut OPENCARDNAMEW);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl LPOPENCARDNAMEW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for LPOPENCARDNAMEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPOPENCARDNAME_EX(pub LPOPENCARDNAME_EXA);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPOPENCARDNAME_EXA(pub *mut OPENCARDNAME_EXA);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl LPOPENCARDNAME_EXA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for LPOPENCARDNAME_EXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPOPENCARDNAME_EXW(pub *mut OPENCARDNAME_EXW);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl LPOPENCARDNAME_EXW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for LPOPENCARDNAME_EXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPOPENCARD_SEARCH_CRITERIA(pub LPOPENCARD_SEARCH_CRITERIAA);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPOPENCARD_SEARCH_CRITERIAA(pub *mut OPENCARD_SEARCH_CRITERIAA);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl LPOPENCARD_SEARCH_CRITERIAA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for LPOPENCARD_SEARCH_CRITERIAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPOPENCARD_SEARCH_CRITERIAW(pub *mut OPENCARD_SEARCH_CRITERIAW);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl LPOPENCARD_SEARCH_CRITERIAW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for LPOPENCARD_SEARCH_CRITERIAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -718,10 +718,10 @@ impl Default for LPSCARD_READERSTATEW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 pub type OPENCARDNAME = OPENCARDNAMEA;
 #[repr(C)]
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAMEA {
     pub dwStructSize: u32,
@@ -748,14 +748,14 @@ pub struct OPENCARDNAMEA {
     pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: SCARDHANDLE,
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for OPENCARDNAMEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAMEW {
     pub dwStructSize: u32,
@@ -782,16 +782,16 @@ pub struct OPENCARDNAMEW {
     pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: SCARDHANDLE,
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for OPENCARDNAMEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 pub type OPENCARDNAME_EX = OPENCARDNAME_EXA;
 #[repr(C)]
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAME_EXA {
     pub dwStructSize: u32,
@@ -813,14 +813,14 @@ pub struct OPENCARDNAME_EXA {
     pub dwActiveProtocol: u32,
     pub hCardHandle: SCARDHANDLE,
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for OPENCARDNAME_EXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAME_EXW {
     pub dwStructSize: u32,
@@ -842,16 +842,16 @@ pub struct OPENCARDNAME_EXW {
     pub dwActiveProtocol: u32,
     pub hCardHandle: SCARDHANDLE,
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for OPENCARDNAME_EXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type OPENCARD_SEARCH_CRITERIA = OPENCARD_SEARCH_CRITERIAA;
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Debug)]
 pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwStructSize: u32,
@@ -868,14 +868,14 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for OPENCARD_SEARCH_CRITERIAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Debug)]
 pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwStructSize: u32,
@@ -892,115 +892,115 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for OPENCARD_SEARCH_CRITERIAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct POPENCARDNAME(pub POPENCARDNAMEA);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POPENCARDNAMEA(pub *mut OPENCARDNAMEA);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl POPENCARDNAMEA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for POPENCARDNAMEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POPENCARDNAMEW(pub *mut OPENCARDNAMEW);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl POPENCARDNAMEW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for POPENCARDNAMEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct POPENCARDNAME_EX(pub POPENCARDNAME_EXA);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POPENCARDNAME_EXA(pub *mut OPENCARDNAME_EXA);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl POPENCARDNAME_EXA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for POPENCARDNAME_EXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POPENCARDNAME_EXW(pub *mut OPENCARDNAME_EXW);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl POPENCARDNAME_EXW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_windef"))]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl Default for POPENCARDNAME_EXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct POPENCARD_SEARCH_CRITERIA(pub POPENCARD_SEARCH_CRITERIAA);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POPENCARD_SEARCH_CRITERIAA(pub *mut OPENCARD_SEARCH_CRITERIAA);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl POPENCARD_SEARCH_CRITERIAA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for POPENCARD_SEARCH_CRITERIAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POPENCARD_SEARCH_CRITERIAW(pub *mut OPENCARD_SEARCH_CRITERIAW);
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl POPENCARD_SEARCH_CRITERIAW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for POPENCARD_SEARCH_CRITERIAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

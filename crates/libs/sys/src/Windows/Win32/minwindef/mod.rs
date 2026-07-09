@@ -10,15 +10,15 @@ pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type GLOBALHANDLE = super::winnt::HANDLE;
 pub type HFILE = i32;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HGLOBAL = super::winnt::HANDLE;
 pub type HINSTANCE = *mut core::ffi::c_void;
 pub type HKEY = *mut core::ffi::c_void;
 pub type HKL = *mut core::ffi::c_void;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HLOCAL = super::winnt::HANDLE;
 pub type HLSURF = *mut core::ffi::c_void;
 pub type HMETAFILE = *mut core::ffi::c_void;
@@ -29,14 +29,14 @@ pub type HSPRITE = *mut core::ffi::c_void;
 pub type HSTR = *mut core::ffi::c_void;
 pub type HTASK = *mut core::ffi::c_void;
 pub type HWINSTA = *mut core::ffi::c_void;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LOCALHANDLE = super::winnt::HANDLE;
 pub type LPARAM = isize;
 pub type LPBOOL = *mut windows_sys::core::BOOL;
 pub type LPBYTE = *mut u8;
 pub type LPDWORD = *mut u32;
 pub type LPFILETIME = *mut FILETIME;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPHANDLE = *mut super::winnt::HANDLE;
 pub type LPINT = *mut i32;
 pub type LPLONG = *mut i32;
@@ -64,7 +64,7 @@ pub type PUINT = *mut u32;
 pub type PULONG = *mut u32;
 pub type PUSHORT = *mut u16;
 pub type PWORD = *mut u16;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type SPHANDLE = *mut super::winnt::HANDLE;
 pub const STRICT: u32 = 1;
 pub const TRUE: u32 = 1;

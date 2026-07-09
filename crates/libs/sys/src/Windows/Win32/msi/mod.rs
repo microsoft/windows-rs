@@ -1,22 +1,22 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("msi.dll" "system" fn MsiAdvertiseProductA(szpackagepath : windows_sys::core::PCSTR, szscriptfilepath : windows_sys::core::PCSTR, sztransforms : windows_sys::core::PCSTR, lgidlanguage : super::winnt::LANGID) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("msi.dll" "system" fn MsiAdvertiseProductExA(szpackagepath : windows_sys::core::PCSTR, szscriptfilepath : windows_sys::core::PCSTR, sztransforms : windows_sys::core::PCSTR, lgidlanguage : super::winnt::LANGID, dwplatform : u32, dwoptions : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("msi.dll" "system" fn MsiAdvertiseProductExW(szpackagepath : windows_sys::core::PCWSTR, szscriptfilepath : windows_sys::core::PCWSTR, sztransforms : windows_sys::core::PCWSTR, lgidlanguage : super::winnt::LANGID, dwplatform : u32, dwoptions : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("msi.dll" "system" fn MsiAdvertiseProductW(szpackagepath : windows_sys::core::PCWSTR, szscriptfilepath : windows_sys::core::PCWSTR, sztransforms : windows_sys::core::PCWSTR, lgidlanguage : super::winnt::LANGID) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("msi.dll" "system" fn MsiAdvertiseScriptA(szscriptfile : windows_sys::core::PCSTR, dwflags : u32, phregdata : *const super::minwindef::HKEY, fremoveitems : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("msi.dll" "system" fn MsiAdvertiseScriptW(szscriptfile : windows_sys::core::PCWSTR, dwflags : u32, phregdata : *const super::minwindef::HKEY, fremoveitems : windows_sys::core::BOOL) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiApplyMultiplePatchesA(szpatchpackages : windows_sys::core::PCSTR, szproductcode : windows_sys::core::PCSTR, szpropertieslist : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiApplyMultiplePatchesW(szpatchpackages : windows_sys::core::PCWSTR, szproductcode : windows_sys::core::PCWSTR, szpropertieslist : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiApplyPatchA(szpatchpackage : windows_sys::core::PCSTR, szinstallpackage : windows_sys::core::PCSTR, einstalltype : INSTALLTYPE, szcommandline : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiApplyPatchW(szpatchpackage : windows_sys::core::PCWSTR, szinstallpackage : windows_sys::core::PCWSTR, einstalltype : INSTALLTYPE, szcommandline : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("msi.dll" "system" fn MsiBeginTransactionA(szname : windows_sys::core::PCSTR, dwtransactionattributes : u32, phtransactionhandle : *mut MSIHANDLE, phchangeofownerevent : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("msi.dll" "system" fn MsiBeginTransactionW(szname : windows_sys::core::PCWSTR, dwtransactionattributes : u32, phtransactionhandle : *mut MSIHANDLE, phchangeofownerevent : *mut super::winnt::HANDLE) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiCloseAllHandles() -> u32);
 windows_link::link!("msi.dll" "system" fn MsiCloseHandle(hany : MSIHANDLE) -> u32);
@@ -69,9 +69,9 @@ windows_link::link!("msi.dll" "system" fn MsiGetFeatureUsageA(szproduct : window
 windows_link::link!("msi.dll" "system" fn MsiGetFeatureUsageW(szproduct : windows_sys::core::PCWSTR, szfeature : windows_sys::core::PCWSTR, pdwusecount : *mut u32, pwdateused : *mut u16) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiGetFileHashA(szfilepath : windows_sys::core::PCSTR, dwoptions : u32, phash : *mut MSIFILEHASHINFO) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiGetFileHashW(szfilepath : windows_sys::core::PCWSTR, dwoptions : u32, phash : *mut MSIFILEHASHINFO) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 windows_link::link!("msi.dll" "system" fn MsiGetFileSignatureInformationA(szsignedobjectpath : windows_sys::core::PCSTR, dwflags : u32, ppccertcontext : *mut super::wincrypt::PCCERT_CONTEXT, pbhashdata : *mut u8, pcbhashdata : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 windows_link::link!("msi.dll" "system" fn MsiGetFileSignatureInformationW(szsignedobjectpath : windows_sys::core::PCWSTR, dwflags : u32, ppccertcontext : *mut super::wincrypt::PCCERT_CONTEXT, pbhashdata : *mut u8, pcbhashdata : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("msi.dll" "system" fn MsiGetFileVersionA(szfilepath : windows_sys::core::PCSTR, lpversionbuf : windows_sys::core::PSTR, pcchversionbuf : *mut u32, lplangbuf : windows_sys::core::PSTR, pcchlangbuf : *mut u32) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiGetFileVersionW(szfilepath : windows_sys::core::PCWSTR, lpversionbuf : windows_sys::core::PWSTR, pcchversionbuf : *mut u32, lplangbuf : windows_sys::core::PWSTR, pcchlangbuf : *mut u32) -> u32);
@@ -86,9 +86,9 @@ windows_link::link!("msi.dll" "system" fn MsiGetProductCodeW(szcomponent : windo
 windows_link::link!("msi.dll" "system" fn MsiGetProductInfoA(szproduct : windows_sys::core::PCSTR, szattribute : windows_sys::core::PCSTR, lpvaluebuf : windows_sys::core::PSTR, pcchvaluebuf : *mut u32) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiGetProductInfoExA(szproductcode : windows_sys::core::PCSTR, szusersid : windows_sys::core::PCSTR, dwcontext : MSIINSTALLCONTEXT, szproperty : windows_sys::core::PCSTR, szvalue : windows_sys::core::PSTR, pcchvalue : *mut u32) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiGetProductInfoExW(szproductcode : windows_sys::core::PCWSTR, szusersid : windows_sys::core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, szproperty : windows_sys::core::PCWSTR, szvalue : windows_sys::core::PWSTR, pcchvalue : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("msi.dll" "system" fn MsiGetProductInfoFromScriptA(szscriptfile : windows_sys::core::PCSTR, lpproductbuf39 : windows_sys::core::PSTR, plgidlanguage : *mut super::winnt::LANGID, pdwversion : *mut u32, lpnamebuf : windows_sys::core::PSTR, pcchnamebuf : *mut u32, lppackagebuf : windows_sys::core::PSTR, pcchpackagebuf : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("msi.dll" "system" fn MsiGetProductInfoFromScriptW(szscriptfile : windows_sys::core::PCWSTR, lpproductbuf39 : windows_sys::core::PWSTR, plgidlanguage : *mut super::winnt::LANGID, pdwversion : *mut u32, lpnamebuf : windows_sys::core::PWSTR, pcchnamebuf : *mut u32, lppackagebuf : windows_sys::core::PWSTR, pcchpackagebuf : *mut u32) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiGetProductInfoW(szproduct : windows_sys::core::PCWSTR, szattribute : windows_sys::core::PCWSTR, lpvaluebuf : windows_sys::core::PWSTR, pcchvaluebuf : *mut u32) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiGetProductPropertyA(hproduct : MSIHANDLE, szproperty : windows_sys::core::PCSTR, lpvaluebuf : windows_sys::core::PSTR, pcchvaluebuf : *mut u32) -> u32);
@@ -105,7 +105,7 @@ windows_link::link!("msi.dll" "system" fn MsiInstallProductA(szpackagepath : win
 windows_link::link!("msi.dll" "system" fn MsiInstallProductW(szpackagepath : windows_sys::core::PCWSTR, szcommandline : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiIsProductElevatedA(szproduct : windows_sys::core::PCSTR, pfelevated : *mut windows_sys::core::BOOL) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiIsProductElevatedW(szproduct : windows_sys::core::PCWSTR, pfelevated : *mut windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("msi.dll" "system" fn MsiJoinTransaction(htransactionhandle : MSIHANDLE, dwtransactionattributes : u32, phchangeofownerevent : *mut super::winnt::HANDLE) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiLocateComponentA(szcomponent : windows_sys::core::PCSTR, lppathbuf : windows_sys::core::PSTR, pcchbuf : *mut u32) -> INSTALLSTATE);
 windows_link::link!("msi.dll" "system" fn MsiLocateComponentW(szcomponent : windows_sys::core::PCWSTR, lppathbuf : windows_sys::core::PWSTR, pcchbuf : *mut u32) -> INSTALLSTATE);
@@ -117,9 +117,9 @@ windows_link::link!("msi.dll" "system" fn MsiOpenPackageExW(szpackagepath : wind
 windows_link::link!("msi.dll" "system" fn MsiOpenPackageW(szpackagepath : windows_sys::core::PCWSTR, hproduct : *mut MSIHANDLE) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiOpenProductA(szproduct : windows_sys::core::PCSTR, hproduct : *mut MSIHANDLE) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiOpenProductW(szproduct : windows_sys::core::PCWSTR, hproduct : *mut MSIHANDLE) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptA(szscriptfile : windows_sys::core::PCSTR, sziconfolder : windows_sys::core::PCSTR, hregdata : super::minwindef::HKEY, fshortcuts : windows_sys::core::BOOL, fremoveitems : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptW(szscriptfile : windows_sys::core::PCWSTR, sziconfolder : windows_sys::core::PCWSTR, hregdata : super::minwindef::HKEY, fshortcuts : windows_sys::core::BOOL, fremoveitems : windows_sys::core::BOOL) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiProvideAssemblyA(szassemblyname : windows_sys::core::PCSTR, szappcontext : windows_sys::core::PCSTR, dwinstallmode : u32, dwassemblyinfo : u32, lppathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiProvideAssemblyW(szassemblyname : windows_sys::core::PCWSTR, szappcontext : windows_sys::core::PCWSTR, dwinstallmode : u32, dwassemblyinfo : u32, lppathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
@@ -146,7 +146,7 @@ windows_link::link!("msi.dll" "system" fn MsiRemovePatchesW(szpatchlist : window
 windows_link::link!("msi.dll" "system" fn MsiSetExternalUIA(puihandler : INSTALLUI_HANDLERA, dwmessagefilter : u32, pvcontext : *const core::ffi::c_void) -> INSTALLUI_HANDLERA);
 windows_link::link!("msi.dll" "system" fn MsiSetExternalUIRecord(puihandler : INSTALLUI_HANDLER_RECORD, dwmessagefilter : u32, pvcontext : *const core::ffi::c_void, ppuiprevhandler : *mut INSTALLUI_HANDLER_RECORD) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiSetExternalUIW(puihandler : INSTALLUI_HANDLERW, dwmessagefilter : u32, pvcontext : *const core::ffi::c_void) -> INSTALLUI_HANDLERW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("msi.dll" "system" fn MsiSetInternalUI(dwuilevel : INSTALLUILEVEL, phwnd : *mut super::windef::HWND) -> INSTALLUILEVEL);
 windows_link::link!("msi.dll" "system" fn MsiSourceListAddMediaDiskA(szproductcodeorpatchcode : windows_sys::core::PCSTR, szusersid : windows_sys::core::PCSTR, dwcontext : MSIINSTALLCONTEXT, dwoptions : u32, dwdiskid : u32, szvolumelabel : windows_sys::core::PCSTR, szdiskprompt : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiSourceListAddMediaDiskW(szproductcodeorpatchcode : windows_sys::core::PCWSTR, szusersid : windows_sys::core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, dwoptions : u32, dwdiskid : u32, szvolumelabel : windows_sys::core::PCWSTR, szdiskprompt : windows_sys::core::PCWSTR) -> u32);

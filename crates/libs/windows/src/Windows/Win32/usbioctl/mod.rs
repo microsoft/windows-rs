@@ -78,7 +78,7 @@ pub struct HCD_STAT_INFORMATION_2 {
     pub IsoCounters: HCD_ISO_STAT_COUNTERS,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HUB_DEVICE_CONFIG_INFO {
     pub Version: u32,
@@ -90,7 +90,7 @@ pub struct HUB_DEVICE_CONFIG_INFO {
     pub Reserved: [u32; 19],
     pub UxdSettings: USB_HUB_DEVICE_UXD_SETTINGS,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HUB_DEVICE_CONFIG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -216,17 +216,17 @@ impl Default for PHCD_STAT_INFORMATION_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHUB_DEVICE_CONFIG_INFO(pub *mut HUB_DEVICE_CONFIG_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PHUB_DEVICE_CONFIG_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PHUB_DEVICE_CONFIG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -258,17 +258,17 @@ impl Default for PUSB_BUS_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_COMPOSITE_DEVICE_INFO(pub *mut USB_COMPOSITE_DEVICE_INFO);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_COMPOSITE_DEVICE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_COMPOSITE_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -365,49 +365,49 @@ impl Default for PUSB_DEVICE_CHARACTERISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_DEVICE_INFO(pub *mut USB_DEVICE_INFO);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_DEVICE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_DEVICE_NODE_INFO(pub *mut USB_DEVICE_NODE_INFO);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_DEVICE_NODE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_DEVICE_NODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_DEVICE_PERFORMANCE_INFO(pub *mut USB_DEVICE_PERFORMANCE_INFO);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_DEVICE_PERFORMANCE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_DEVICE_PERFORMANCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -426,17 +426,17 @@ impl Default for PUSB_DEVICE_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION(pub *mut USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PUSB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PUSB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -494,17 +494,17 @@ impl Default for PUSB_HUB_CAP_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_HUB_DEVICE_INFO(pub *mut USB_HUB_DEVICE_INFO);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_HUB_DEVICE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_HUB_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -523,33 +523,33 @@ impl Default for PUSB_HUB_DEVICE_UXD_SETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_HUB_INFORMATION(pub *mut USB_HUB_INFORMATION);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_HUB_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_HUB_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_HUB_INFORMATION_EX(pub *mut USB_HUB_INFORMATION_EX);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_HUB_INFORMATION_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_HUB_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -581,17 +581,17 @@ impl Default for PUSB_HUB_PORT_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_ID_STRING(pub *mut USB_ID_STRING);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PUSB_ID_STRING {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PUSB_ID_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -636,33 +636,33 @@ impl Default for PUSB_NODE_CONNECTION_DRIVERKEY_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_NODE_CONNECTION_INFORMATION(pub *mut USB_NODE_CONNECTION_INFORMATION);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_NODE_CONNECTION_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_NODE_CONNECTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_NODE_CONNECTION_INFORMATION_EX(pub *mut USB_NODE_CONNECTION_INFORMATION_EX);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_NODE_CONNECTION_INFORMATION_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_NODE_CONNECTION_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -707,33 +707,33 @@ impl Default for PUSB_NODE_CONNECTION_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION(pub *mut USB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_NODE_INFORMATION(pub *mut USB_NODE_INFORMATION);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_NODE_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_NODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -752,17 +752,17 @@ impl Default for PUSB_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_PIPE_INFO(pub *mut USB_PIPE_INFO);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSB_PIPE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSB_PIPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -820,33 +820,33 @@ impl Default for PUSB_ROOT_HUB_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_START_TRACKING_FOR_TIME_SYNC_INFORMATION(pub *mut USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PUSB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PUSB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION(pub *mut USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PUSB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PUSB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -967,7 +967,7 @@ impl Default for USB_CHANGE_REGISTRATION_HANDLE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct USB_COMPOSITE_DEVICE_INFO {
     pub DeviceDescriptor: super::usbspec::USB_DEVICE_DESCRIPTOR,
@@ -976,7 +976,7 @@ pub struct USB_COMPOSITE_DEVICE_INFO {
     pub NumberOfFunctions: u8,
     pub FunctionInfo: [USB_COMPOSITE_FUNCTION_INFO; 1],
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_COMPOSITE_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1054,7 +1054,7 @@ impl Default for USB_DEVICE_CHARACTERISTICS {
 pub const USB_DEVICE_CHARACTERISTICS_MAXIMUM_PATH_DELAYS_AVAILABLE: u32 = 1;
 pub const USB_DEVICE_CHARACTERISTICS_VERSION_1: u32 = 1;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_INFO {
     pub DeviceState: USB_DEVICE_STATE,
@@ -1072,14 +1072,14 @@ pub struct USB_DEVICE_INFO {
     pub NumberOfOpenPipes: u32,
     pub PipeList: [USB_PIPE_INFO; 1],
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_NODE_INFO {
     pub Sig: u32,
@@ -1089,14 +1089,14 @@ pub struct USB_DEVICE_NODE_INFO {
     pub BusAddress: USB_TOPOLOGY_ADDRESS,
     pub Anonymous: USB_DEVICE_NODE_INFO_0,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_DEVICE_NODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_NODE_INFO_0 {
     pub UsbDeviceInfo: USB_DEVICE_INFO,
@@ -1105,14 +1105,14 @@ pub union USB_DEVICE_NODE_INFO_0 {
     pub ControllerDeviceInfo: USB_CONTROLLER_DEVICE_INFO,
     pub DeviceInformation: [u8; 4],
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_DEVICE_NODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_PERFORMANCE_INFO {
     pub BulkBytes: u32,
@@ -1139,7 +1139,7 @@ pub struct USB_DEVICE_PERFORMANCE_INFO {
     pub HcPeriodicIdleState: u32,
     pub HcPeriodicCacheFlushCount: u32,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_DEVICE_PERFORMANCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1151,7 +1151,7 @@ pub struct USB_DEVICE_STATE {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::winnt::HANDLE,
@@ -1209,7 +1209,7 @@ pub struct USB_HUB_CAP_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_DEVICE_INFO {
     pub HubDescriptor: super::usbspec::USB_HUB_DESCRIPTOR,
@@ -1221,7 +1221,7 @@ pub struct USB_HUB_DEVICE_INFO {
     pub NumberOfHubPorts: u32,
     pub PortInfo: [USB_HUB_PORT_INFORMATION; 1],
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_HUB_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1244,34 +1244,34 @@ impl Default for USB_HUB_DEVICE_UXD_SETTINGS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_INFORMATION {
     pub HubDescriptor: super::usbspec::USB_HUB_DESCRIPTOR,
     pub HubIsBusPowered: bool,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_INFORMATION_EX {
     pub HubType: USB_HUB_TYPE,
     pub HighestPortNumber: u16,
     pub u: USB_HUB_INFORMATION_EX_0,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_HUB_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub union USB_HUB_INFORMATION_EX_0 {
     pub UsbHubDescriptor: super::usbspec::USB_HUB_DESCRIPTOR,
     pub Usb30HubDescriptor: super::usbspec::USB_30_HUB_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_HUB_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1300,7 +1300,7 @@ pub struct USB_HUB_PORT_INFORMATION {
 }
 pub type USB_HUB_TYPE = i32;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_ID_STRING {
     pub LanguageId: u16,
@@ -1333,7 +1333,7 @@ impl Default for USB_NODE_CONNECTION_DRIVERKEY_NAME {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION {
     pub ConnectionIndex: u32,
@@ -1346,14 +1346,14 @@ pub struct USB_NODE_CONNECTION_INFORMATION {
     pub ConnectionStatus: USB_CONNECTION_STATUS,
     pub PipeList: [USB_PIPE_INFO; 0],
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_NODE_CONNECTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION_EX {
     pub ConnectionIndex: u32,
@@ -1366,7 +1366,7 @@ pub struct USB_NODE_CONNECTION_INFORMATION_EX {
     pub ConnectionStatus: USB_CONNECTION_STATUS,
     pub PipeList: [USB_PIPE_INFO; 0],
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_NODE_CONNECTION_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1414,7 +1414,7 @@ impl Default for USB_NODE_CONNECTION_NAME {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION {
     pub ConnectionIndex: u32,
@@ -1424,33 +1424,33 @@ pub struct USB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION {
     pub TxSuperSpeedPlus: super::usbspec::USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED,
     pub TxLaneCount: u32,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_INFORMATION {
     pub NodeType: USB_HUB_NODE,
     pub u: USB_NODE_INFORMATION_0,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_NODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub union USB_NODE_INFORMATION_0 {
     pub HubInformation: USB_HUB_INFORMATION,
     pub MiParentInformation: USB_MI_PARENT_INFORMATION,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USB_NODE_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1464,7 +1464,7 @@ pub struct USB_NOTIFICATION {
 }
 pub type USB_NOTIFICATION_TYPE = i32;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_PIPE_INFO {
     pub EndpointDescriptor: super::usbspec::USB_ENDPOINT_DESCRIPTOR,
@@ -1531,14 +1531,14 @@ impl Default for USB_ROOT_HUB_NAME {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::winnt::HANDLE,
     pub IsStartupDelayTolerable: bool,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::winnt::HANDLE,

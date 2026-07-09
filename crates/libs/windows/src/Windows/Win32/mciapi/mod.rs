@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn mciDriverNotify(hwndcallback: super::winnt::HANDLE, wdeviceid: MCIDEVICEID, ustatus: u32) -> windows_core::BOOL {
     windows_core::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::winnt::HANDLE, wdeviceid : MCIDEVICEID, ustatus : u32) -> windows_core::BOOL);
@@ -14,7 +14,7 @@ pub unsafe fn mciFreeCommandResource(wtable: u32) -> windows_core::BOOL {
     windows_core::link!("winmm.dll" "system" fn mciFreeCommandResource(wtable : u32) -> windows_core::BOOL);
     unsafe { mciFreeCommandResource(wtable) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn mciGetCreatorTask(mciid: MCIDEVICEID) -> super::minwindef::HTASK {
     windows_core::link!("winmm.dll" "system" fn mciGetCreatorTask(mciid : MCIDEVICEID) -> super::minwindef::HTASK);
@@ -72,7 +72,7 @@ pub unsafe fn mciGetYieldProc(mciid: MCIDEVICEID, pdwyielddata: *const u32) -> Y
     windows_core::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : MCIDEVICEID, pdwyielddata : *const u32) -> YIELDPROC);
     unsafe { mciGetYieldProc(mciid, pdwyielddata) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn mciLoadCommandResource<P1>(hinstance: super::winnt::HANDLE, lpresname: P1, wtype: u32) -> u32
 where
@@ -91,7 +91,7 @@ pub unsafe fn mciSendCommandW(mciid: MCIDEVICEID, umsg: u32, dwparam1: Option<us
     windows_core::link!("winmm.dll" "system" fn mciSendCommandW(mciid : MCIDEVICEID, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> MCIERROR);
     unsafe { mciSendCommandW(mciid, umsg, dwparam1.unwrap_or(core::mem::zeroed()) as _, dwparam2.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn mciSendStringA<P0>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u8]>, hwndcallback: Option<super::windef::HWND>) -> MCIERROR
 where
@@ -100,7 +100,7 @@ where
     windows_core::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : windows_core::PCSTR, lpstrreturnstring : windows_core::PSTR, ureturnlength : u32, hwndcallback : super::windef::HWND) -> MCIERROR);
     unsafe { mciSendStringA(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn mciSendStringW<P0>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u16]>, hwndcallback: Option<super::windef::HWND>) -> MCIERROR
 where
@@ -119,37 +119,37 @@ pub unsafe fn mciSetYieldProc(mciid: MCIDEVICEID, fpyieldproc: YIELDPROC, dwyiel
     windows_core::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : MCIDEVICEID, fpyieldproc : YIELDPROC, dwyielddata : u32) -> windows_core::BOOL);
     unsafe { mciSetYieldProc(mciid, fpyieldproc, dwyielddata) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMCI_ANIM_OPEN_PARMS(pub LPMCI_ANIM_OPEN_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_ANIM_OPEN_PARMSA(pub *mut MCI_ANIM_OPEN_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_ANIM_OPEN_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_ANIM_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_ANIM_OPEN_PARMSW(pub *mut MCI_ANIM_OPEN_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_ANIM_OPEN_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_ANIM_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -168,17 +168,17 @@ impl Default for LPMCI_ANIM_PLAY_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_ANIM_RECT_PARMS(pub *mut MCI_ANIM_RECT_PARMS);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_ANIM_RECT_PARMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_ANIM_RECT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -197,69 +197,69 @@ impl Default for LPMCI_ANIM_STEP_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_ANIM_UPDATE_PARMS(pub *mut MCI_ANIM_UPDATE_PARMS);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_ANIM_UPDATE_PARMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_ANIM_UPDATE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMCI_ANIM_WINDOW_PARMS(pub LPMCI_ANIM_WINDOW_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_ANIM_WINDOW_PARMSA(pub *mut MCI_ANIM_WINDOW_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_ANIM_WINDOW_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_ANIM_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_ANIM_WINDOW_PARMSW(pub *mut MCI_ANIM_WINDOW_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_ANIM_WINDOW_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_ANIM_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_BREAK_PARMS(pub *mut MCI_BREAK_PARMS);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_BREAK_PARMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_BREAK_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -378,161 +378,161 @@ impl Default for LPMCI_OPEN_PARMSW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMCI_OVLY_LOAD_PARMS(pub LPMCI_OVLY_LOAD_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_OVLY_LOAD_PARMSA(pub *mut MCI_OVLY_LOAD_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_OVLY_LOAD_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_OVLY_LOAD_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_OVLY_LOAD_PARMSW(pub *mut MCI_OVLY_LOAD_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_OVLY_LOAD_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_OVLY_LOAD_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMCI_OVLY_OPEN_PARMS(pub LPMCI_OVLY_OPEN_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_OVLY_OPEN_PARMSA(pub *mut MCI_OVLY_OPEN_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_OVLY_OPEN_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_OVLY_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_OVLY_OPEN_PARMSW(pub *mut MCI_OVLY_OPEN_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_OVLY_OPEN_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_OVLY_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_OVLY_RECT_PARMS(pub *mut MCI_OVLY_RECT_PARMS);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_OVLY_RECT_PARMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_OVLY_RECT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMCI_OVLY_SAVE_PARMS(pub LPMCI_OVLY_SAVE_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_OVLY_SAVE_PARMSA(pub *mut MCI_OVLY_SAVE_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_OVLY_SAVE_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_OVLY_SAVE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_OVLY_SAVE_PARMSW(pub *mut MCI_OVLY_SAVE_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_OVLY_SAVE_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_OVLY_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMCI_OVLY_WINDOW_PARMS(pub LPMCI_OVLY_WINDOW_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_OVLY_WINDOW_PARMSA(pub *mut MCI_OVLY_WINDOW_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_OVLY_WINDOW_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_OVLY_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMCI_OVLY_WINDOW_PARMSW(pub *mut MCI_OVLY_WINDOW_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMCI_OVLY_WINDOW_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMCI_OVLY_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -877,10 +877,10 @@ pub const MCI_ANIM_GETDEVCAPS_SLOW_RATE: u32 = 16387;
 pub const MCI_ANIM_INFO_TEXT: u32 = 65536;
 pub const MCI_ANIM_OPEN_NOSTATIC: u32 = 262144;
 pub const MCI_ANIM_OPEN_PARENT: u32 = 131072;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_ANIM_OPEN_PARMS = MCI_ANIM_OPEN_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -892,7 +892,7 @@ pub struct MCI_ANIM_OPEN_PARMSA {
     pub hWndParent: super::windef::HWND,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -923,7 +923,7 @@ pub const MCI_ANIM_REALIZE_BKGD: u32 = 131072;
 pub const MCI_ANIM_REALIZE_NORM: u32 = 65536;
 pub const MCI_ANIM_RECT: u32 = 65536;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_RECT_PARMS {
     pub dwCallback: usize,
@@ -944,7 +944,7 @@ pub struct MCI_ANIM_STEP_PARMS {
 pub const MCI_ANIM_STEP_REVERSE: u32 = 65536;
 pub const MCI_ANIM_UPDATE_HDC: u32 = 131072;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_UPDATE_PARMS {
     pub dwCallback: usize,
@@ -957,10 +957,10 @@ pub const MCI_ANIM_WINDOW_DEFAULT: u32 = 0;
 pub const MCI_ANIM_WINDOW_DISABLE_STRETCH: u32 = 2097152;
 pub const MCI_ANIM_WINDOW_ENABLE_STRETCH: u32 = 1048576;
 pub const MCI_ANIM_WINDOW_HWND: u32 = 65536;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_ANIM_WINDOW_PARMS = MCI_ANIM_WINDOW_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -969,7 +969,7 @@ pub struct MCI_ANIM_WINDOW_PARMSA {
     pub lpstrText: windows_core::PCSTR,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -984,7 +984,7 @@ pub const MCI_BREAK_HWND: u32 = 512;
 pub const MCI_BREAK_KEY: u32 = 256;
 pub const MCI_BREAK_OFF: u32 = 1024;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_BREAK_PARMS {
     pub dwCallback: usize,
@@ -1131,10 +1131,10 @@ pub const MCI_OVLY_GETDEVCAPS_CAN_FREEZE: u32 = 16386;
 pub const MCI_OVLY_GETDEVCAPS_CAN_STRETCH: u32 = 16385;
 pub const MCI_OVLY_GETDEVCAPS_MAX_WINDOWS: u32 = 16387;
 pub const MCI_OVLY_INFO_TEXT: u32 = 65536;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_OVLY_LOAD_PARMS = MCI_OVLY_LOAD_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_LOAD_PARMSA {
     pub dwCallback: usize,
@@ -1142,7 +1142,7 @@ pub struct MCI_OVLY_LOAD_PARMSA {
     pub rc: super::windef::RECT,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_LOAD_PARMSW {
     pub dwCallback: usize,
@@ -1150,10 +1150,10 @@ pub struct MCI_OVLY_LOAD_PARMSW {
     pub rc: super::windef::RECT,
 }
 pub const MCI_OVLY_OPEN_PARENT: u32 = 131072;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_OVLY_OPEN_PARMS = MCI_OVLY_OPEN_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -1165,7 +1165,7 @@ pub struct MCI_OVLY_OPEN_PARMSA {
     pub hWndParent: super::windef::HWND,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -1183,16 +1183,16 @@ pub const MCI_OVLY_PUT_SOURCE: u32 = 131072;
 pub const MCI_OVLY_PUT_VIDEO: u32 = 1048576;
 pub const MCI_OVLY_RECT: u32 = 65536;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::windef::RECT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_OVLY_SAVE_PARMS = MCI_OVLY_SAVE_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_SAVE_PARMSA {
     pub dwCallback: usize,
@@ -1200,7 +1200,7 @@ pub struct MCI_OVLY_SAVE_PARMSA {
     pub rc: super::windef::RECT,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_SAVE_PARMSW {
     pub dwCallback: usize,
@@ -1217,10 +1217,10 @@ pub const MCI_OVLY_WINDOW_DEFAULT: u32 = 0;
 pub const MCI_OVLY_WINDOW_DISABLE_STRETCH: u32 = 2097152;
 pub const MCI_OVLY_WINDOW_ENABLE_STRETCH: u32 = 1048576;
 pub const MCI_OVLY_WINDOW_HWND: u32 = 65536;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_OVLY_WINDOW_PARMS = MCI_OVLY_WINDOW_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -1229,7 +1229,7 @@ pub struct MCI_OVLY_WINDOW_PARMSA {
     pub lpstrText: windows_core::PCSTR,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -1516,37 +1516,37 @@ pub const MCI_WAVE_STATUS_LEVEL: u32 = 16391;
 pub const MCI_WAVE_STATUS_SAMPLESPERSEC: u32 = 16387;
 pub const MCI_WHERE: u32 = 2115;
 pub const MCI_WINDOW: u32 = 2113;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMCI_ANIM_OPEN_PARMS(pub PMCI_ANIM_OPEN_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_ANIM_OPEN_PARMSA(pub *mut MCI_ANIM_OPEN_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_ANIM_OPEN_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_ANIM_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_ANIM_OPEN_PARMSW(pub *mut MCI_ANIM_OPEN_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_ANIM_OPEN_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_ANIM_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1565,17 +1565,17 @@ impl Default for PMCI_ANIM_PLAY_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_ANIM_RECT_PARMS(pub *mut MCI_ANIM_RECT_PARMS);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_ANIM_RECT_PARMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_ANIM_RECT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1594,69 +1594,69 @@ impl Default for PMCI_ANIM_STEP_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_ANIM_UPDATE_PARMS(pub *mut MCI_ANIM_UPDATE_PARMS);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_ANIM_UPDATE_PARMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_ANIM_UPDATE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMCI_ANIM_WINDOW_PARMS(pub PMCI_ANIM_WINDOW_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_ANIM_WINDOW_PARMSA(pub *mut MCI_ANIM_WINDOW_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_ANIM_WINDOW_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_ANIM_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_ANIM_WINDOW_PARMSW(pub *mut MCI_ANIM_WINDOW_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_ANIM_WINDOW_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_ANIM_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_BREAK_PARMS(pub *mut MCI_BREAK_PARMS);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_BREAK_PARMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_BREAK_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1746,161 +1746,161 @@ impl Default for PMCI_OPEN_PARMSW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMCI_OVLY_LOAD_PARMS(pub PMCI_OVLY_LOAD_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_OVLY_LOAD_PARMSA(pub *mut MCI_OVLY_LOAD_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_OVLY_LOAD_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_OVLY_LOAD_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_OVLY_LOAD_PARMSW(pub *mut MCI_OVLY_LOAD_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_OVLY_LOAD_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_OVLY_LOAD_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMCI_OVLY_OPEN_PARMS(pub PMCI_OVLY_OPEN_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_OVLY_OPEN_PARMSA(pub *mut MCI_OVLY_OPEN_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_OVLY_OPEN_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_OVLY_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_OVLY_OPEN_PARMSW(pub *mut MCI_OVLY_OPEN_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_OVLY_OPEN_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_OVLY_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_OVLY_RECT_PARMS(pub *mut MCI_OVLY_RECT_PARMS);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_OVLY_RECT_PARMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_OVLY_RECT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMCI_OVLY_SAVE_PARMS(pub PMCI_OVLY_SAVE_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_OVLY_SAVE_PARMSA(pub *mut MCI_OVLY_SAVE_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_OVLY_SAVE_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_OVLY_SAVE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_OVLY_SAVE_PARMSW(pub *mut MCI_OVLY_SAVE_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_OVLY_SAVE_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_OVLY_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMCI_OVLY_WINDOW_PARMS(pub PMCI_OVLY_WINDOW_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_OVLY_WINDOW_PARMSA(pub *mut MCI_OVLY_WINDOW_PARMSA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_OVLY_WINDOW_PARMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_OVLY_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMCI_OVLY_WINDOW_PARMSW(pub *mut MCI_OVLY_WINDOW_PARMSW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMCI_OVLY_WINDOW_PARMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMCI_OVLY_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

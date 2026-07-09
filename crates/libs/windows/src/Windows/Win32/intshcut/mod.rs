@@ -1,6 +1,6 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type CURLINVOKECOMMANDINFOA = URLINVOKECOMMANDINFOA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type CURLINVOKECOMMANDINFOW = URLINVOKECOMMANDINFOW;
 pub const E_FLAGS: i32 = -2147217408;
 pub const IS_E_EXEC_FAILED: i32 = -2147213310;
@@ -37,7 +37,7 @@ impl IUniformResourceLocatorA {
             (windows_core::Interface::vtable(self).GetURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn InvokeCommand(&self) -> windows_core::Result<URLINVOKECOMMANDINFOA> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -54,12 +54,12 @@ pub struct IUniformResourceLocatorA_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub SetURL: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut URLINVOKECOMMANDINFOA) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     InvokeCommand: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IUniformResourceLocatorA_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -68,7 +68,7 @@ pub trait IUniformResourceLocatorA_Impl: windows_core::IUnknownImpl {
     fn GetURL(&self) -> windows_core::Result<windows_core::PSTR>;
     fn InvokeCommand(&self) -> windows_core::Result<URLINVOKECOMMANDINFOA>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IUniformResourceLocatorA_Vtbl {
     pub const fn new<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -133,7 +133,7 @@ impl IUniformResourceLocatorA_Vtbl {
         iid == &<IUniformResourceLocatorA as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IUniformResourceLocatorA {}
 windows_core::imp::define_interface!(IUniformResourceLocatorW, IUniformResourceLocatorW_Vtbl, 0xcabb0da0_da57_11cf_9974_0020afd79762);
 windows_core::imp::interface_hierarchy!(IUniformResourceLocatorW, windows_core::IUnknown);
@@ -159,7 +159,7 @@ impl IUniformResourceLocatorW {
             (windows_core::Interface::vtable(self).GetURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn InvokeCommand(&self) -> windows_core::Result<URLINVOKECOMMANDINFOW> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -176,12 +176,12 @@ pub struct IUniformResourceLocatorW_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub SetURL: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut URLINVOKECOMMANDINFOW) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     InvokeCommand: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IUniformResourceLocatorW_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -190,7 +190,7 @@ pub trait IUniformResourceLocatorW_Impl: windows_core::IUnknownImpl {
     fn GetURL(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn InvokeCommand(&self) -> windows_core::Result<URLINVOKECOMMANDINFOW>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IUniformResourceLocatorW_Vtbl {
     pub const fn new<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -255,69 +255,69 @@ impl IUniformResourceLocatorW_Vtbl {
         iid == &<IUniformResourceLocatorW as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IUniformResourceLocatorW {}
 pub const MIMEASSOCDLG_FL_REGISTER_ASSOC: MIMEASSOCIATIONDIALOG_IN_FLAGS = 1;
 pub type MIMEASSOCIATIONDIALOG_IN_FLAGS = i32;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCURLINVOKECOMMANDINFOA(pub *const URLINVOKECOMMANDINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PCURLINVOKECOMMANDINFOA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PCURLINVOKECOMMANDINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCURLINVOKECOMMANDINFOW(pub *const URLINVOKECOMMANDINFOW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PCURLINVOKECOMMANDINFOW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PCURLINVOKECOMMANDINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PURLINVOKECOMMANDINFOA(pub *mut URLINVOKECOMMANDINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PURLINVOKECOMMANDINFOA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PURLINVOKECOMMANDINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PURLINVOKECOMMANDINFOW(pub *mut URLINVOKECOMMANDINFOW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PURLINVOKECOMMANDINFOW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PURLINVOKECOMMANDINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -330,7 +330,7 @@ pub const URLASSOCDLG_FL_REGISTER_ASSOC: URLASSOCIATIONDIALOG_IN_FLAGS = 2;
 pub const URLASSOCDLG_FL_USE_DEFAULT_NAME: URLASSOCIATIONDIALOG_IN_FLAGS = 1;
 pub type URLASSOCIATIONDIALOG_IN_FLAGS = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct URLINVOKECOMMANDINFOA {
     pub dwcbSize: u32,
@@ -339,7 +339,7 @@ pub struct URLINVOKECOMMANDINFOA {
     pub pcszVerb: windows_core::PCSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct URLINVOKECOMMANDINFOW {
     pub dwcbSize: u32,

@@ -1,10 +1,10 @@
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BOID {
     pub rgb: [super::rpc::byte; 16],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for BOID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13,7 +13,7 @@ impl Default for BOID {
 windows_core::imp::define_interface!(IKernelTransaction, IKernelTransaction_Vtbl, 0x79427a2b_f895_40e0_be79_b57dc82ed231);
 windows_core::imp::interface_hierarchy!(IKernelTransaction, windows_core::IUnknown);
 impl IKernelTransaction {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetHandle(&self) -> windows_core::Result<super::winnt::HANDLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -25,16 +25,16 @@ impl IKernelTransaction {
 #[doc(hidden)]
 pub struct IKernelTransaction_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetHandle: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IKernelTransaction_Impl: windows_core::IUnknownImpl {
     fn GetHandle(&self) -> windows_core::Result<super::winnt::HANDLE>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IKernelTransaction_Vtbl {
     pub const fn new<Identity: IKernelTransaction_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetHandle<Identity: IKernelTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
@@ -55,7 +55,7 @@ impl IKernelTransaction_Vtbl {
         iid == &<IKernelTransaction as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IKernelTransaction {}
 pub type ISOFLAG = i32;
 pub const ISOFLAG_OPTIMISTIC: ISOFLAG = 16;
@@ -143,11 +143,11 @@ impl ITransaction {
     pub unsafe fn Commit(&self, fretaining: bool, grftc: u32, grfrm: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), fretaining.into(), grftc, grfrm) }
     }
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn Abort(&self, pboidreason: *const BOID, fretaining: bool, fasync: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self), pboidreason, fretaining.into(), fasync.into()) }
     }
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTransactionInfo)(windows_core::Interface::as_raw(self), pinfo as _) }
     }
@@ -157,22 +157,22 @@ impl ITransaction {
 pub struct ITransaction_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void, *const BOID, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     Abort: usize,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub GetTransactionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XACTTRANSINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     GetTransactionInfo: usize,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait ITransaction_Impl: windows_core::IUnknownImpl {
     fn Commit(&self, fretaining: windows_core::BOOL, grftc: u32, grfrm: u32) -> windows_core::Result<()>;
     fn Abort(&self, pboidreason: *const BOID, fretaining: windows_core::BOOL, fasync: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl ITransaction_Vtbl {
     pub const fn new<Identity: ITransaction_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Commit<Identity: ITransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: windows_core::BOOL, grftc: u32, grfrm: u32) -> windows_core::HRESULT {
@@ -204,7 +204,7 @@ impl ITransaction_Vtbl {
         iid == &<ITransaction as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ITransaction {}
 windows_core::imp::define_interface!(ITransaction2, ITransaction2_Vtbl, 0x34021548_0065_11d3_bac1_00c04f797be2);
 impl core::ops::Deref for ITransaction2 {
@@ -215,7 +215,7 @@ impl core::ops::Deref for ITransaction2 {
 }
 windows_core::imp::interface_hierarchy!(ITransaction2, windows_core::IUnknown, ITransaction, ITransactionCloner);
 impl ITransaction2 {
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTransactionInfo2)(windows_core::Interface::as_raw(self), pinfo as _) }
     }
@@ -224,16 +224,16 @@ impl ITransaction2 {
 #[doc(hidden)]
 pub struct ITransaction2_Vtbl {
     pub base__: ITransactionCloner_Vtbl,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub GetTransactionInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XACTTRANSINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     GetTransactionInfo2: usize,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait ITransaction2_Impl: ITransactionCloner_Impl {
     fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl ITransaction2_Vtbl {
     pub const fn new<Identity: ITransaction2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTransactionInfo2<Identity: ITransaction2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> windows_core::HRESULT {
@@ -248,7 +248,7 @@ impl ITransaction2_Vtbl {
         iid == &<ITransaction2 as windows_core::Interface>::IID || iid == &<ITransaction as windows_core::Interface>::IID || iid == &<ITransactionCloner as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ITransaction2 {}
 windows_core::imp::define_interface!(ITransactionCloner, ITransactionCloner_Vtbl, 0x02656950_2152_11d0_944c_00a0c905416e);
 impl core::ops::Deref for ITransactionCloner {
@@ -272,11 +272,11 @@ pub struct ITransactionCloner_Vtbl {
     pub base__: ITransaction_Vtbl,
     pub CloneWithCommitDisabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait ITransactionCloner_Impl: ITransaction_Impl {
     fn CloneWithCommitDisabled(&self) -> windows_core::Result<ITransaction>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl ITransactionCloner_Vtbl {
     pub const fn new<Identity: ITransactionCloner_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CloneWithCommitDisabled<Identity: ITransactionCloner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppitransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -297,7 +297,7 @@ impl ITransactionCloner_Vtbl {
         iid == &<ITransactionCloner as windows_core::Interface>::IID || iid == &<ITransaction as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ITransactionCloner {}
 windows_core::imp::define_interface!(ITransactionDispenser, ITransactionDispenser_Vtbl, 0x3a6ad9e1_23b9_11cf_ad60_00aa00a74ccd);
 windows_core::imp::interface_hierarchy!(ITransactionDispenser, windows_core::IUnknown);
@@ -416,15 +416,15 @@ impl windows_core::RuntimeName for ITransactionOptions {}
 windows_core::imp::define_interface!(ITransactionOutcomeEvents, ITransactionOutcomeEvents_Vtbl, 0x3a6ad9e2_23b9_11cf_ad60_00aa00a74ccd);
 windows_core::imp::interface_hierarchy!(ITransactionOutcomeEvents, windows_core::IUnknown);
 impl ITransactionOutcomeEvents {
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn Committed(&self, fretaining: bool, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Committed)(windows_core::Interface::as_raw(self), fretaining.into(), pnewuow, hr) }
     }
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn Aborted(&self, pboidreason: *const BOID, fretaining: bool, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Aborted)(windows_core::Interface::as_raw(self), pboidreason, fretaining.into(), pnewuow, hr) }
     }
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).HeuristicDecision)(windows_core::Interface::as_raw(self), dwdecision, pboidreason, hr) }
     }
@@ -436,28 +436,28 @@ impl ITransactionOutcomeEvents {
 #[doc(hidden)]
 pub struct ITransactionOutcomeEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub Committed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *const XACTUOW, windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     Committed: usize,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub Aborted: unsafe extern "system" fn(*mut core::ffi::c_void, *const BOID, windows_core::BOOL, *const XACTUOW, windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     Aborted: usize,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub HeuristicDecision: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const BOID, windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     HeuristicDecision: usize,
     pub Indoubt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait ITransactionOutcomeEvents_Impl: windows_core::IUnknownImpl {
     fn Committed(&self, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn Aborted(&self, pboidreason: *const BOID, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn Indoubt(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl ITransactionOutcomeEvents_Vtbl {
     pub const fn new<Identity: ITransactionOutcomeEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Committed<Identity: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::HRESULT {
@@ -496,7 +496,7 @@ impl ITransactionOutcomeEvents_Vtbl {
         iid == &<ITransactionOutcomeEvents as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ITransactionOutcomeEvents {}
 pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = 40;
 pub type TX_MISC_CONSTANTS = i32;
@@ -523,7 +523,7 @@ pub const XACTRM_NOREADONLYPREPARES: XACTRM = 2;
 pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = 1;
 pub type XACTSTAT = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XACTSTATS {
     pub cOpen: u32,
@@ -566,7 +566,7 @@ pub const XACTTC_SYNC: XACTTC = 2;
 pub const XACTTC_SYNC_PHASEONE: XACTTC = 1;
 pub const XACTTC_SYNC_PHASETWO: XACTTC = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XACTTRANSINFO {
     pub uow: XACTUOW,
@@ -577,5 +577,5 @@ pub struct XACTTRANSINFO {
     pub grfTCSupportedRetaining: u32,
     pub grfRMSupportedRetaining: u32,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub type XACTUOW = BOID;

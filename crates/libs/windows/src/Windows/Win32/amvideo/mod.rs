@@ -23,7 +23,7 @@ pub const AM_PROPERTY_FRAMESTEP_CANSTEP: AM_PROPERTY_FRAMESTEP = 3;
 pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = 4;
 pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef"))]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ANALOGVIDEOINFO {
     pub rcSource: super::windef::RECT,
@@ -195,29 +195,29 @@ impl IDirectDrawVideo {
     pub unsafe fn SetSwitches(&self, switches: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSwitches)(windows_core::Interface::as_raw(self), switches) }
     }
-    #[cfg(feature = "Win32_ddraw")]
+    #[cfg(feature = "ddraw")]
     pub unsafe fn GetCaps(&self, pcaps: *mut super::ddraw::DDCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), pcaps as _) }
     }
-    #[cfg(feature = "Win32_ddraw")]
+    #[cfg(feature = "ddraw")]
     pub unsafe fn GetEmulatedCaps(&self, pcaps: *mut super::ddraw::DDCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetEmulatedCaps)(windows_core::Interface::as_raw(self), pcaps as _) }
     }
-    #[cfg(all(feature = "Win32_ddraw", feature = "Win32_ksmedia"))]
+    #[cfg(all(feature = "ddraw", feature = "ksmedia"))]
     pub unsafe fn GetSurfaceDesc(&self, psurfacedesc: *mut super::ddraw::DDSURFACEDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), psurfacedesc as _) }
     }
     pub unsafe fn GetFourCCCodes(&self, pcount: *mut u32, pcodes: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), pcount as _, pcodes as _) }
     }
-    #[cfg(feature = "Win32_ddraw")]
+    #[cfg(feature = "ddraw")]
     pub unsafe fn SetDirectDraw<P0>(&self, pdirectdraw: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::ddraw::IDirectDraw>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDirectDraw)(windows_core::Interface::as_raw(self), pdirectdraw.param().abi()) }
     }
-    #[cfg(feature = "Win32_ddraw")]
+    #[cfg(feature = "ddraw")]
     pub unsafe fn GetDirectDraw(&self) -> windows_core::Result<super::ddraw::IDirectDraw> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -270,26 +270,26 @@ pub struct IDirectDrawVideo_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetSwitches: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetSwitches: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ddraw")]
+    #[cfg(feature = "ddraw")]
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ddraw::DDCAPS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ddraw"))]
+    #[cfg(not(feature = "ddraw"))]
     GetCaps: usize,
-    #[cfg(feature = "Win32_ddraw")]
+    #[cfg(feature = "ddraw")]
     pub GetEmulatedCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ddraw::DDCAPS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ddraw"))]
+    #[cfg(not(feature = "ddraw"))]
     GetEmulatedCaps: usize,
-    #[cfg(all(feature = "Win32_ddraw", feature = "Win32_ksmedia"))]
+    #[cfg(all(feature = "ddraw", feature = "ksmedia"))]
     pub GetSurfaceDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ddraw::DDSURFACEDESC) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_ddraw", feature = "Win32_ksmedia")))]
+    #[cfg(not(all(feature = "ddraw", feature = "ksmedia")))]
     GetSurfaceDesc: usize,
     pub GetFourCCCodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ddraw")]
+    #[cfg(feature = "ddraw")]
     pub SetDirectDraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ddraw"))]
+    #[cfg(not(feature = "ddraw"))]
     SetDirectDraw: usize,
-    #[cfg(feature = "Win32_ddraw")]
+    #[cfg(feature = "ddraw")]
     pub GetDirectDraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ddraw"))]
+    #[cfg(not(feature = "ddraw"))]
     GetDirectDraw: usize,
     pub GetSurfaceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetDefault: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -300,7 +300,7 @@ pub struct IDirectDrawVideo_Vtbl {
     pub UseWhenFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub WillUseFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_ddraw", feature = "Win32_ksmedia"))]
+#[cfg(all(feature = "ddraw", feature = "ksmedia"))]
 pub trait IDirectDrawVideo_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -322,7 +322,7 @@ pub trait IDirectDrawVideo_Impl: windows_core::IUnknownImpl {
     fn UseWhenFullScreen(&self, usewhenfullscreen: i32) -> windows_core::Result<()>;
     fn WillUseFullScreen(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_ddraw", feature = "Win32_ksmedia"))]
+#[cfg(all(feature = "ddraw", feature = "ksmedia"))]
 impl IDirectDrawVideo_Vtbl {
     pub const fn new<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -502,7 +502,7 @@ impl IDirectDrawVideo_Vtbl {
         iid == &<IDirectDrawVideo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_ddraw", feature = "Win32_ksmedia"))]
+#[cfg(all(feature = "ddraw", feature = "ksmedia"))]
 impl windows_core::RuntimeName for IDirectDrawVideo {}
 windows_core::imp::define_interface!(IFullScreenVideo, IFullScreenVideo_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IFullScreenVideo, windows_core::IUnknown);
@@ -549,11 +549,11 @@ impl IFullScreenVideo {
     pub unsafe fn SetClipFactor(&self, clipfactor: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClipFactor)(windows_core::Interface::as_raw(self), clipfactor) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetMessageDrain(&self, hwnd: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMessageDrain)(windows_core::Interface::as_raw(self), hwnd) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetMessageDrain(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -603,13 +603,13 @@ pub struct IFullScreenVideo_Vtbl {
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub GetClipFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetClipFactor: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetMessageDrain: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetMessageDrain: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetMessageDrain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetMessageDrain: usize,
     pub SetMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -619,7 +619,7 @@ pub struct IFullScreenVideo_Vtbl {
     pub GetCaption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDefault: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IFullScreenVideo_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -642,7 +642,7 @@ pub trait IFullScreenVideo_Impl: windows_core::IUnknownImpl {
     fn GetCaption(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDefault(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IFullScreenVideo_Vtbl {
     pub const fn new<Identity: IFullScreenVideo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -829,7 +829,7 @@ impl IFullScreenVideo_Vtbl {
         iid == &<IFullScreenVideo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IFullScreenVideo {}
 windows_core::imp::define_interface!(IFullScreenVideoEx, IFullScreenVideoEx_Vtbl, 0);
 impl core::ops::Deref for IFullScreenVideoEx {
@@ -882,11 +882,11 @@ impl IFullScreenVideoEx {
     pub unsafe fn SetClipFactor(&self, clipfactor: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClipFactor)(windows_core::Interface::as_raw(self), clipfactor) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetMessageDrain(&self, hwnd: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMessageDrain)(windows_core::Interface::as_raw(self), hwnd) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetMessageDrain(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -920,11 +920,11 @@ impl IFullScreenVideoEx {
     pub unsafe fn SetDefault(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDefault)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetAcceleratorTable(&self, hwnd: super::windef::HWND, haccel: super::windef::HACCEL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAcceleratorTable)(windows_core::Interface::as_raw(self), hwnd, haccel) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetAcceleratorTable(&self, phwnd: *mut super::windef::HWND, phaccel: *mut super::windef::HACCEL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAcceleratorTable)(windows_core::Interface::as_raw(self), phwnd as _, phaccel as _) }
     }
@@ -953,13 +953,13 @@ pub struct IFullScreenVideoEx_Vtbl {
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub GetClipFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetClipFactor: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetMessageDrain: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetMessageDrain: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetMessageDrain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetMessageDrain: usize,
     pub SetMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -968,18 +968,18 @@ pub struct IFullScreenVideoEx_Vtbl {
     pub SetCaption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCaption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDefault: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetAcceleratorTable: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, super::windef::HACCEL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetAcceleratorTable: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetAcceleratorTable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND, *mut super::windef::HACCEL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetAcceleratorTable: usize,
     pub KeepPixelAspectRatio: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub IsKeepPixelAspectRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IFullScreenVideoEx_Impl: IFullScreenVideo_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -1006,7 +1006,7 @@ pub trait IFullScreenVideoEx_Impl: IFullScreenVideo_Impl {
     fn KeepPixelAspectRatio(&self, keepaspect: i32) -> windows_core::Result<()>;
     fn IsKeepPixelAspectRatio(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IFullScreenVideoEx_Vtbl {
     pub const fn new<Identity: IFullScreenVideoEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IFullScreenVideoEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1227,7 +1227,7 @@ impl IFullScreenVideoEx_Vtbl {
         iid == &<IFullScreenVideoEx as windows_core::Interface>::IID || iid == &<IFullScreenVideo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IFullScreenVideoEx {}
 windows_core::imp::define_interface!(IQualProp, IQualProp_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IQualProp, windows_core::IUnknown);
@@ -1415,7 +1415,7 @@ impl IQualProp_Vtbl {
 impl windows_core::RuntimeName for IQualProp {}
 pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140;
 #[repr(C)]
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MPEG1VIDEOINFO {
     pub hdr: VIDEOINFOHEADER,
@@ -1423,7 +1423,7 @@ pub struct MPEG1VIDEOINFO {
     pub cbSequenceHeader: u32,
     pub bSequenceHeader: [u8; 1],
 }
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for MPEG1VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1431,20 +1431,20 @@ impl Default for MPEG1VIDEOINFO {
 }
 pub const SIZE_PREHEADER: u32 = 48;
 #[repr(C)]
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRUECOLORINFO {
     pub dwBitMasks: [u32; 3],
     pub bmiColors: [super::wingdi::RGBQUAD; 256],
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 impl Default for TRUECOLORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct VIDEOINFO {
     pub rcSource: super::windef::RECT,
@@ -1455,28 +1455,28 @@ pub struct VIDEOINFO {
     pub bmiHeader: super::wingdi::BITMAPINFOHEADER,
     pub Anonymous: VIDEOINFO_0,
 }
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub union VIDEOINFO_0 {
     pub bmiColors: [super::wingdi::RGBQUAD; 256],
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: TRUECOLORINFO,
 }
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEOINFOHEADER {
     pub rcSource: super::windef::RECT,

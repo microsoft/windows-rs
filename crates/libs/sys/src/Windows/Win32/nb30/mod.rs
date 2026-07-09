@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -103,7 +103,7 @@ impl Default for NAME_BUFFER {
 pub const NAME_FLAGS_MASK: u32 = 135;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct NCB {
     pub ncb_command: u8,
@@ -123,7 +123,7 @@ pub struct NCB {
     pub ncb_event: super::winnt::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for NCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -131,7 +131,7 @@ impl Default for NCB {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct NCB {
     pub ncb_command: u8,
@@ -151,7 +151,7 @@ pub struct NCB {
     pub ncb_event: super::winnt::HANDLE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for NCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -229,7 +229,7 @@ pub type PFIND_NAME_BUFFER = *mut FIND_NAME_BUFFER;
 pub type PFIND_NAME_HEADER = *mut FIND_NAME_HEADER;
 pub type PLANA_ENUM = *mut LANA_ENUM;
 pub type PNAME_BUFFER = *mut NAME_BUFFER;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PNCB = *mut NCB;
 pub type PSESSION_BUFFER = *mut SESSION_BUFFER;
 pub type PSESSION_HEADER = *mut SESSION_HEADER;

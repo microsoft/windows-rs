@@ -1,12 +1,12 @@
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 windows_link::link!("d3d9.dll" "system" fn D3DPERF_BeginEvent(col : super::dsound::D3DCOLOR, wszname : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("d3d9.dll" "system" fn D3DPERF_EndEvent() -> i32);
 windows_link::link!("d3d9.dll" "system" fn D3DPERF_GetStatus() -> u32);
 windows_link::link!("d3d9.dll" "system" fn D3DPERF_QueryRepeatFrame() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 windows_link::link!("d3d9.dll" "system" fn D3DPERF_SetMarker(col : super::dsound::D3DCOLOR, wszname : windows_sys::core::PCWSTR));
 windows_link::link!("d3d9.dll" "system" fn D3DPERF_SetOptions(dwoptions : u32));
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 windows_link::link!("d3d9.dll" "system" fn D3DPERF_SetRegion(col : super::dsound::D3DCOLOR, wszname : windows_sys::core::PCWSTR));
 windows_link::link!("d3d9.dll" "system" fn Direct3DCreate9(sdkversion : u32) -> *mut core::ffi::c_void);
 windows_link::link!("d3d9.dll" "system" fn Direct3DCreate9Ex(sdkversion : u32, param1 : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -75,7 +75,7 @@ pub struct D3DAES_CTR_IV {
 }
 pub type D3DAUTHENTICATEDCHANNELTYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -83,14 +83,14 @@ pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
     pub CryptoSessionHandle: super::winnt::HANDLE,
     pub DeviceHandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -98,20 +98,20 @@ pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
     pub StartSequenceConfigure: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub Protections: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -119,21 +119,21 @@ pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
     pub ProcessHandle: super::winnt::HANDLE,
     pub AllowAccess: windows_sys::core::BOOL,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub EncryptionGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
     pub omac: D3D_OMAC,
@@ -141,14 +141,14 @@ pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
     pub hChannel: super::winnt::HANDLE,
     pub SequenceNumber: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
     pub omac: D3D_OMAC,
@@ -157,7 +157,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
     pub SequenceNumber: u32,
     pub ReturnCode: windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -194,27 +194,27 @@ pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub ChannelType: D3DAUTHENTICATEDCHANNELTYPE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub DXVA2DecodeHandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -222,41 +222,41 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
     pub CryptoSessionHandle: super::winnt::HANDLE,
     pub DeviceHandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DeviceHandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumEncryptionGuids: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub EncryptionGuidIndex: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -264,7 +264,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
     pub EncryptionGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -273,21 +273,21 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
     pub bAccessibleInNonContiguousBlocks: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub DeviceHandle: super::winnt::HANDLE,
     pub CryptoSessionHandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -295,14 +295,14 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
     pub CryptoSessionHandle: super::winnt::HANDLE,
     pub NumOutputIDs: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
@@ -310,7 +310,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
     pub CryptoSessionHandle: super::winnt::HANDLE,
     pub OutputIDIndex: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -318,7 +318,7 @@ impl Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -328,7 +328,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     pub OutputID: u64,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -336,7 +336,7 @@ impl Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -346,41 +346,41 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     pub OutputID: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub ProtectionFlags: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumRestrictedSharedResourceProcesses: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub ProcessIndex: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -388,42 +388,42 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
     pub ProcessIdentifer: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
     pub ProcessHandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub EncryptionGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumUnrestrictedProtectedSharedResources: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
     pub QueryType: windows_sys::core::GUID,
     pub hChannel: super::winnt::HANDLE,
     pub SequenceNumber: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     pub omac: D3D_OMAC,
@@ -432,7 +432,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     pub SequenceNumber: u32,
     pub ReturnCode: windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -809,7 +809,7 @@ pub const D3DDEVCAPS_TEXTUREVIDEOMEMORY: u32 = 512;
 pub const D3DDEVCAPS_TLVERTEXSYSTEMMEMORY: u32 = 64;
 pub const D3DDEVCAPS_TLVERTEXVIDEOMEMORY: u32 = 128;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct D3DDEVICE_CREATION_PARAMETERS {
     pub AdapterOrdinal: u32,
@@ -817,7 +817,7 @@ pub struct D3DDEVICE_CREATION_PARAMETERS {
     pub hFocusWindow: super::windef::HWND,
     pub BehaviorFlags: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for D3DDEVICE_CREATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1116,7 +1116,7 @@ pub const D3DISSUE_END: u32 = 1;
 pub const D3DKEYEXCHANGE_DXVA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43d3775c_38e5_4924_8d86_d3fccf153e9b);
 pub const D3DKEYEXCHANGE_RSAES_OAEP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc1949895_d72a_4a1d_8e5d_ed857d171520);
 #[repr(C)]
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dsound", feature = "dxgi"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DLIGHT9 {
     pub Type: D3DLIGHTTYPE,
@@ -1174,7 +1174,7 @@ pub const D3DLOCK_NOSYSLOCK: u32 = 2048;
 pub const D3DLOCK_NO_DIRTY_UPDATE: u32 = 32768;
 pub const D3DLOCK_READONLY: u32 = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DMATERIAL9 {
     pub Diffuse: super::dxgi::D3DCOLORVALUE,
@@ -1359,7 +1359,7 @@ pub const D3DPRESENT_INTERVAL_THREE: u32 = 4;
 pub const D3DPRESENT_INTERVAL_TWO: u32 = 2;
 pub const D3DPRESENT_LINEAR_CONTENT: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct D3DPRESENT_PARAMETERS {
     pub BackBufferWidth: u32,
@@ -1377,7 +1377,7 @@ pub struct D3DPRESENT_PARAMETERS {
     pub FullScreen_RefreshRateInHz: u32,
     pub PresentationInterval: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for D3DPRESENT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

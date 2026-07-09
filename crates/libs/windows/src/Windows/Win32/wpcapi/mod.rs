@@ -20,11 +20,11 @@ pub struct IWPCGamesSettings_Vtbl {
     pub base__: IWPCSettings_Vtbl,
     pub IsBlocked: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 pub trait IWPCGamesSettings_Impl: IWPCSettings_Impl {
     fn IsBlocked(&self, guidappid: &windows_core::GUID) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 impl IWPCGamesSettings_Vtbl {
     pub const fn new<Identity: IWPCGamesSettings_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsBlocked<Identity: IWPCGamesSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidappid: windows_core::GUID, pdwreasons: *mut u32) -> windows_core::HRESULT {
@@ -45,7 +45,7 @@ impl IWPCGamesSettings_Vtbl {
         iid == &<IWPCGamesSettings as windows_core::Interface>::IID || iid == &<IWPCSettings as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 impl windows_core::RuntimeName for IWPCGamesSettings {}
 windows_core::imp::define_interface!(IWPCProviderConfig, IWPCProviderConfig_Vtbl, 0xbef54196_2d02_4a26_b6e5_d65af295d0f1);
 windows_core::imp::interface_hierarchy!(IWPCProviderConfig, windows_core::IUnknown);
@@ -56,11 +56,11 @@ impl IWPCProviderConfig {
             (windows_core::Interface::vtable(self).GetUserSummary)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsid), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Configure(&self, hwnd: super::windef::HWND, bstrsid: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), hwnd, core::mem::transmute_copy(bstrsid)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RequestOverride(&self, hwnd: super::windef::HWND, bstrpath: &windows_core::BSTR, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RequestOverride)(windows_core::Interface::as_raw(self), hwnd, core::mem::transmute_copy(bstrpath), dwflags) }
     }
@@ -70,22 +70,22 @@ impl IWPCProviderConfig {
 pub struct IWPCProviderConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUserSummary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Configure: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RequestOverride: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RequestOverride: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IWPCProviderConfig_Impl: windows_core::IUnknownImpl {
     fn GetUserSummary(&self, bstrsid: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn Configure(&self, hwnd: super::windef::HWND, bstrsid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RequestOverride(&self, hwnd: super::windef::HWND, bstrpath: &windows_core::BSTR, dwflags: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IWPCProviderConfig_Vtbl {
     pub const fn new<Identity: IWPCProviderConfig_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetUserSummary<Identity: IWPCProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsid: *mut core::ffi::c_void, pbstrusersummary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -123,7 +123,7 @@ impl IWPCProviderConfig_Vtbl {
         iid == &<IWPCProviderConfig as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IWPCProviderConfig {}
 windows_core::imp::define_interface!(IWPCProviderState, IWPCProviderState_Vtbl, 0x50b6a267_c4bd_450b_adb5_759073837c9e);
 windows_core::imp::interface_hierarchy!(IWPCProviderState, windows_core::IUnknown);
@@ -216,7 +216,7 @@ impl IWPCSettings {
             (windows_core::Interface::vtable(self).IsLoggingRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub unsafe fn GetLastSettingsChangeTime(&self) -> windows_core::Result<super::minwinbase::SYSTEMTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -235,19 +235,19 @@ impl IWPCSettings {
 pub struct IWPCSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsLoggingRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub GetLastSettingsChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwinbase"))]
+    #[cfg(not(feature = "minwinbase"))]
     GetLastSettingsChangeTime: usize,
     pub GetRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 pub trait IWPCSettings_Impl: windows_core::IUnknownImpl {
     fn IsLoggingRequired(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetLastSettingsChangeTime(&self) -> windows_core::Result<super::minwinbase::SYSTEMTIME>;
     fn GetRestrictions(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 impl IWPCSettings_Vtbl {
     pub const fn new<Identity: IWPCSettings_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsLoggingRequired<Identity: IWPCSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrequired: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -297,7 +297,7 @@ impl IWPCSettings_Vtbl {
         iid == &<IWPCSettings as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 impl windows_core::RuntimeName for IWPCSettings {}
 windows_core::imp::define_interface!(IWPCWebSettings, IWPCWebSettings_Vtbl, 0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa);
 impl core::ops::Deref for IWPCWebSettings {
@@ -314,7 +314,7 @@ impl IWPCWebSettings {
             (windows_core::Interface::vtable(self).GetSettings)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RequestURLOverride<P1>(&self, hwnd: super::windef::HWND, pcszurl: P1, curls: u32, ppcszsuburls: *const windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -330,17 +330,17 @@ impl IWPCWebSettings {
 pub struct IWPCWebSettings_Vtbl {
     pub base__: IWPCSettings_Vtbl,
     pub GetSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RequestURLOverride: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RequestURLOverride: usize,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwinbase", feature = "windef"))]
 pub trait IWPCWebSettings_Impl: IWPCSettings_Impl {
     fn GetSettings(&self) -> windows_core::Result<u32>;
     fn RequestURLOverride(&self, hwnd: super::windef::HWND, pcszurl: &windows_core::PCWSTR, curls: u32, ppcszsuburls: *const windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwinbase", feature = "windef"))]
 impl IWPCWebSettings_Vtbl {
     pub const fn new<Identity: IWPCWebSettings_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSettings<Identity: IWPCWebSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwsettings: *mut u32) -> windows_core::HRESULT {
@@ -377,7 +377,7 @@ impl IWPCWebSettings_Vtbl {
         iid == &<IWPCWebSettings as windows_core::Interface>::IID || iid == &<IWPCSettings as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwinbase", feature = "windef"))]
 impl windows_core::RuntimeName for IWPCWebSettings {}
 windows_core::imp::define_interface!(IWindowsParentalControls, IWindowsParentalControls_Vtbl, 0x28b4d88b_e072_49e6_804d_26edbe21a7b9);
 impl core::ops::Deref for IWindowsParentalControls {

@@ -17,14 +17,14 @@ pub struct ADPCMCOEFSET {
     pub iCoef2: i16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct ADPCMEWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
 pub struct ADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -32,26 +32,26 @@ pub struct ADPCMWAVEFORMAT {
     pub wNumCoef: u16,
     pub aCoef: [ADPCMCOEFSET; 0],
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl Default for ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct APTXWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct AUDIOFILE_AF10WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct AUDIOFILE_AF36WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -61,35 +61,35 @@ pub const BICOMP_CREATIVEYUV: u32 = 1987410275;
 pub const BICOMP_IBMPHOTOMOTION: u32 = 1330464848;
 pub const BICOMP_IBMULTIMOTION: u32 = 1230261333;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct CONTRESCR10WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct CONTRESVQLPCWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct CREATIVEADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wRevision: u16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wRevision: u16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -97,52 +97,52 @@ pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
 }
 pub const CRYSTAL_NET_SFM_CODEC: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct CSIMAADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct DIALOGICOKIADPCMWAVEFORMAT {
     pub ewf: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct DIGIADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct DIGIFIXWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct DIGIREALWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct DIGISTDWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct DOLBYAC2WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub nAuxBitsCode: u16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct DRMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -151,14 +151,14 @@ pub struct DRMWAVEFORMAT {
     pub wfxSecure: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct DVIADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct ECHOSC1WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -171,14 +171,14 @@ pub struct ECHOWAVEFILTER {
     pub dwDelay: u32,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[derive(Clone, Copy, Default)]
 pub struct EXBMINFOHEADER {
     pub bmi: super::wingdi::BITMAPINFOHEADER,
     pub biExtDataOffset: u32,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct FMTOWNS_SND_WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -186,14 +186,14 @@ pub struct FMTOWNS_SND_WAVEFORMAT {
 }
 pub const FOURCC_RDSP: u32 = 1347634258;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct G721_ADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub nAuxBlockSize: u16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct G723_ADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -201,27 +201,27 @@ pub struct G723_ADPCMWAVEFORMAT {
     pub nAuxBlockSize: u16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct GSM610WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
 pub struct HEAACWAVEFORMAT {
     pub wfInfo: HEAACWAVEINFO,
     pub pbAudioSpecificConfig: [u8; 1],
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl Default for HEAACWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct HEAACWAVEINFO {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -234,7 +234,7 @@ pub struct HEAACWAVEINFO {
 pub const ICTYPE_AUDIO: u32 = 1667528033;
 pub const ICTYPE_VIDEO: u32 = 1667524982;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -324,99 +324,99 @@ pub struct KSDATAFORMAT_SUBTYPE_PCM(pub u8);
 #[derive(Clone, Copy, Default)]
 pub struct KSDATAFORMAT_SUBTYPE_WAVEFORMATEX(pub u8);
 pub type LPADPCMCOEFSET = *mut ADPCMCOEFSET;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPCONTRESCR10WAVEFORMAT = *mut CONTRESCR10WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPCONTRESVQLPCWAVEFORMAT = *mut CONTRESVQLPCWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPCREATIVEADPCMWAVEFORMAT = *mut CREATIVEADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPCREATIVEFASTSPEECH10WAVEFORMAT = *mut CREATIVEFASTSPEECH10WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPCREATIVEFASTSPEECH8WAVEFORMAT = *mut CREATIVEFASTSPEECH8WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPCSIMAADPCMWAVEFORMAT = *mut CSIMAADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPDIALOGICOKIADPCMWAVEFORMAT = *mut DIALOGICOKIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPDIGIADPCMWAVEFORMAT = *mut DIGIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPDIGIFIXWAVEFORMAT = *mut DIGIFIXWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPDIGIREALWAVEFORMAT = *mut DIGIREALWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPDIGISTDWAVEFORMAT = *mut DIGISTDWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPDRMWAVEFORMAT = *mut DRMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPDVIADPCMWAVEFORMAT = *mut DVIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPECHOSC1WAVEFORMAT = *mut ECHOSC1WAVEFORMAT;
 pub type LPECHOWAVEFILTER = *mut ECHOWAVEFILTER;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPFMTOWNS_SND_WAVEFORMAT = *mut FMTOWNS_SND_WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPG721_ADPCMWAVEFORMAT = *mut G721_ADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPG723_ADPCMWAVEFORMAT = *mut G723_ADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPGSM610WAVEFORMAT = *mut GSM610WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPHEAACWAVEFORMAT = *mut HEAACWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPHEAACWAVEINFO = *mut HEAACWAVEINFO;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPIMAADPCMWAVEFORMAT = *mut IMAADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPMEDIASPACEADPCMWAVEFORMAT = *mut MEDIASPACEADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPMPEG1WAVEFORMAT = *mut MPEG1WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPMPEGLAYER3WAVEFORMAT = *mut MPEGLAYER3WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPMSAUDIO1WAVEFORMAT = *mut MSAUDIO1WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPNMS_VBXADPCMWAVEFORMAT = *mut NMS_VBXADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPOLIADPCMWAVEFORMAT = *mut OLIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPOLICELPWAVEFORMAT = *mut OLICELPWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPOLIGSMWAVEFORMAT = *mut OLIGSMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPOLIOPRWAVEFORMAT = *mut OLIOPRWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPOLISBCWAVEFORMAT = *mut OLISBCWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPSIERRAADPCMWAVEFORMAT = *mut SIERRAADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
 pub type LPVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
 pub type LPWAVEFILTER = *mut WAVEFILTER;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPWMAUDIO2WAVEFORMAT = *mut WMAUDIO2WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPWMAUDIO3WAVEFORMAT = *mut WMAUDIO3WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct MEDIASPACEADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -1948,7 +1948,7 @@ pub const MM_ZEFIRO_ZA2: u32 = 2;
 pub const MM_ZYXEL: u32 = 9;
 pub const MM_ZYXEL_ACM_ADPCM: u32 = 1;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct MPEG1WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -1962,7 +1962,7 @@ pub struct MPEG1WAVEFORMAT {
     pub dwPTSHigh: u32,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct MPEGLAYER3WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -1980,7 +1980,7 @@ pub const MPEGLAYER3_ID_MPEG: u32 = 1;
 pub const MPEGLAYER3_ID_UNKNOWN: u32 = 0;
 pub const MPEGLAYER3_WFX_EXTRA_BYTES: u32 = 12;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct MSAUDIO1WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -1990,215 +1990,215 @@ pub struct MSAUDIO1WAVEFORMAT {
 pub const MSAUDIO1_BITS_PER_SAMPLE: u32 = 16;
 pub const MSAUDIO1_MAX_CHANNELS: u32 = 2;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct NMS_VBXADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
 pub type NPADPCMCOEFSET = *mut ADPCMCOEFSET;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPCONTRESCR10WAVEFORMAT = *mut CONTRESCR10WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPCONTRESVQLPCWAVEFORMAT = *mut CONTRESVQLPCWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPCREATIVEADPCMWAVEFORMAT = *mut CREATIVEADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPCREATIVEFASTSPEECH10WAVEFORMAT = *mut CREATIVEFASTSPEECH10WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPCREATIVEFASTSPEECH8WAVEFORMAT = *mut CREATIVEFASTSPEECH8WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPCSIMAADPCMWAVEFORMAT = *mut CSIMAADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPDIALOGICOKIADPCMWAVEFORMAT = *mut DIALOGICOKIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPDIGIADPCMWAVEFORMAT = *mut DIGIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPDIGIFIXWAVEFORMAT = *mut DIGIFIXWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPDIGIREALWAVEFORMAT = *mut DIGIREALWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPDIGISTDWAVEFORMAT = *mut DIGISTDWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPDRMWAVEFORMAT = *mut DRMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPDVIADPCMWAVEFORMAT = *mut DVIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPECHOSC1WAVEFORMAT = *mut ECHOSC1WAVEFORMAT;
 pub type NPECHOWAVEFILTER = *mut ECHOWAVEFILTER;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPFMTOWNS_SND_WAVEFORMAT = *mut FMTOWNS_SND_WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPG721_ADPCMWAVEFORMAT = *mut G721_ADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPG723_ADPCMWAVEFORMAT = *mut G723_ADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPGSM610WAVEFORMAT = *mut GSM610WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPHEAACWAVEFORMAT = *mut HEAACWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPHEAACWAVEINFO = *mut HEAACWAVEINFO;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPIMAADPCMWAVEFORMAT = *mut IMAADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPMEDIASPACEADPCMWAVEFORMAT = *mut MEDIASPACEADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPMPEG1WAVEFORMAT = *mut MPEG1WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPMPEGLAYER3WAVEFORMAT = *mut MPEGLAYER3WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPNMS_VBXADPCMWAVEFORMAT = *mut NMS_VBXADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPOLIADPCMWAVEFORMAT = *mut OLIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPOLICELPWAVEFORMAT = *mut OLICELPWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPOLIGSMWAVEFORMAT = *mut OLIGSMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPOLIOPRWAVEFORMAT = *mut OLIOPRWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPOLISBCWAVEFORMAT = *mut OLISBCWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPSIERRAADPCMWAVEFORMAT = *mut SIERRAADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
 pub type NPVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
 pub type NPWAVEFILTER = *mut WAVEFILTER;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type NPYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct OLIADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct OLICELPWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct OLIGSMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct OLIOPRWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct OLISBCWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
 pub type PADPCMCOEFSET = *mut ADPCMCOEFSET;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PCONTRESCR10WAVEFORMAT = *mut CONTRESCR10WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PCONTRESVQLPCWAVEFORMAT = *mut CONTRESVQLPCWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PCREATIVEADPCMWAVEFORMAT = *mut CREATIVEADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PCREATIVEFASTSPEECH10WAVEFORMAT = *mut CREATIVEFASTSPEECH10WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PCREATIVEFASTSPEECH8WAVEFORMAT = *mut CREATIVEFASTSPEECH8WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PCSIMAADPCMWAVEFORMAT = *mut CSIMAADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PDIALOGICOKIADPCMWAVEFORMAT = *mut DIALOGICOKIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PDIGIADPCMWAVEFORMAT = *mut DIGIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PDIGIFIXWAVEFORMAT = *mut DIGIFIXWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PDIGIREALWAVEFORMAT = *mut DIGIREALWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PDIGISTDWAVEFORMAT = *mut DIGISTDWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PDRMWAVEFORMAT = *mut DRMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PDVIADPCMWAVEFORMAT = *mut DVIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PECHOSC1WAVEFORMAT = *mut ECHOSC1WAVEFORMAT;
 pub type PECHOWAVEFILTER = *mut ECHOWAVEFILTER;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PFMTOWNS_SND_WAVEFORMAT = *mut FMTOWNS_SND_WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PG721_ADPCMWAVEFORMAT = *mut G721_ADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PG723_ADPCMWAVEFORMAT = *mut G723_ADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PGSM610WAVEFORMAT = *mut GSM610WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PHEAACWAVEFORMAT = *mut HEAACWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PHEAACWAVEINFO = *mut HEAACWAVEINFO;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PIMAADPCMWAVEFORMAT = *mut IMAADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PMEDIASPACEADPCMWAVEFORMAT = *mut MEDIASPACEADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PMPEG1WAVEFORMAT = *mut MPEG1WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PMPEGLAYER3WAVEFORMAT = *mut MPEGLAYER3WAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PNMS_VBXADPCMWAVEFORMAT = *mut NMS_VBXADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type POLIADPCMWAVEFORMAT = *mut OLIADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type POLICELPWAVEFORMAT = *mut OLICELPWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type POLIGSMWAVEFORMAT = *mut OLIGSMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type POLIOPRWAVEFORMAT = *mut OLIOPRWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type POLISBCWAVEFORMAT = *mut OLISBCWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PSIERRAADPCMWAVEFORMAT = *mut SIERRAADPCMWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
 pub type PVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
 pub type PWAVEFILTER = *mut WAVEFILTER;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PWAVEFORMATEXTENSIBLE = *mut WAVEFORMATEXTENSIBLE;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
 pub const RIFFCPPO: u32 = 1330663491;
 pub const RIFFCPPO_byte: u32 = 1702132066;
@@ -2256,14 +2256,14 @@ pub const ROCKWELL_WA2_SYNTH: u32 = 202;
 pub const ROCKWELL_WA2_WAVEIN: u32 = 200;
 pub const ROCKWELL_WA2_WAVEOUT: u32 = 201;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct SIERRAADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wRevision: u16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct SONARCWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -2290,7 +2290,7 @@ pub const SPEAKER_TOP_FRONT_CENTER: u32 = 8192;
 pub const SPEAKER_TOP_FRONT_LEFT: u32 = 4096;
 pub const SPEAKER_TOP_FRONT_RIGHT: u32 = 16384;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
 pub struct TRUESPEECHWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -2298,7 +2298,7 @@ pub struct TRUESPEECHWAVEFORMAT {
     pub nSamplesPerBlock: u16,
     pub abReserved: [u8; 28],
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl Default for TRUESPEECHWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2324,7 +2324,7 @@ impl Default for WAVEFILTER {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
 pub struct WAVEFORMATEXTENSIBLE {
     pub Format: super::mmeapi::WAVEFORMATEX,
@@ -2332,29 +2332,29 @@ pub struct WAVEFORMATEXTENSIBLE {
     pub dwChannelMask: u32,
     pub SubFormat: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl Default for WAVEFORMATEXTENSIBLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
 pub union WAVEFORMATEXTENSIBLE_0 {
     pub wValidBitsPerSample: u16,
     pub wSamplesPerBlock: u16,
     pub wReserved: u16,
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl Default for WAVEFORMATEXTENSIBLE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type WAVEFORMATIEEEFLOATEX = WAVEFORMATEXTENSIBLE;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type WAVEFORMATPCMEX = WAVEFORMATEXTENSIBLE;
 pub const WAVE_FILTER_DEVELOPMENT: u32 = 65535;
 pub const WAVE_FILTER_ECHO: u32 = 2;
@@ -2629,7 +2629,7 @@ pub const WAVE_FORMAT_YAMAHA_ADPCM: u32 = 32;
 pub const WAVE_FORMAT_ZOLL_ASAO: u32 = 41224;
 pub const WAVE_FORMAT_ZYXEL_ADPCM: u32 = 151;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct WMAUDIO2WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -2640,7 +2640,7 @@ pub struct WMAUDIO2WAVEFORMAT {
 pub const WMAUDIO2_BITS_PER_SAMPLE: u32 = 16;
 pub const WMAUDIO2_MAX_CHANNELS: u32 = 2;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct WMAUDIO3WAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
@@ -2654,7 +2654,7 @@ pub struct WMAUDIO3WAVEFORMAT {
 pub const WMAUDIO_BITS_PER_SAMPLE: u32 = 16;
 pub const WMAUDIO_MAX_CHANNELS: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
 pub struct YAMAHA_ADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,

@@ -1,13 +1,13 @@
 windows_link::link!("txfw32.dll" "system" fn TxfGetThreadMiniVersionForCreate(miniversion : *mut u16));
-#[cfg(feature = "Win32_clfs")]
+#[cfg(feature = "clfs")]
 windows_link::link!("txfw32.dll" "system" fn TxfLogCreateFileReadContext(logpath : windows_sys::core::PCWSTR, beginninglsn : super::clfs::CLFS_LSN, endinglsn : super::clfs::CLFS_LSN, txffileid : *const TXF_ID, txflogcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_clfs")]
+#[cfg(feature = "clfs")]
 windows_link::link!("txfw32.dll" "system" fn TxfLogCreateRangeReadContext(logpath : windows_sys::core::PCWSTR, beginninglsn : super::clfs::CLFS_LSN, endinglsn : super::clfs::CLFS_LSN, beginningvirtualclock : *const i64, endingvirtualclock : *const i64, recordtypemask : u32, txflogcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("txfw32.dll" "system" fn TxfLogDestroyReadContext(txflogcontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("txfw32.dll" "system" fn TxfLogReadRecords(txflogcontext : *const core::ffi::c_void, bufferlength : u32, buffer : *mut core::ffi::c_void, bytesused : *mut u32, recordcount : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("txfw32.dll" "system" fn TxfLogRecordGetFileName(recordbuffer : *const core::ffi::c_void, recordbufferlengthinbytes : u32, namebuffer : windows_sys::core::PWSTR, namebufferlengthinbytes : *mut u32, txfid : *mut TXF_ID) -> windows_sys::core::BOOL);
 windows_link::link!("txfw32.dll" "system" fn TxfLogRecordGetGenericType(recordbuffer : *const core::ffi::c_void, recordbufferlengthinbytes : u32, generictype : *mut u32, virtualclock : *mut i64) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_clfs", feature = "Win32_winnt"))]
+#[cfg(all(feature = "clfs", feature = "winnt"))]
 windows_link::link!("txfw32.dll" "system" fn TxfReadMetadataInfo(filehandle : super::winnt::HANDLE, txffileid : *mut TXF_ID, lastlsn : *mut super::clfs::CLFS_LSN, transactionstate : *mut u32, lockingtransaction : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
 windows_link::link!("txfw32.dll" "system" fn TxfSetThreadMiniVersionForCreate(miniversion : u16));
 pub type PGUID = *mut windows_sys::core::GUID;

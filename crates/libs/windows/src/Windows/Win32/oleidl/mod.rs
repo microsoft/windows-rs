@@ -2,7 +2,7 @@ pub type BINDSPEED = i32;
 pub const BINDSPEED_IMMEDIATE: BINDSPEED = 3;
 pub const BINDSPEED_INDEFINITE: BINDSPEED = 1;
 pub const BINDSPEED_MODERATE: BINDSPEED = 2;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type BORDERWIDTHS = super::windef::RECT;
 pub const DD_DEFDRAGDELAY: u32 = 200;
 pub const DD_DEFDRAGMINDIST: u32 = 2;
@@ -19,7 +19,7 @@ pub const DROPEFFECT_MOVE: u32 = 2;
 pub const DROPEFFECT_NEWTARGET: u32 = 1073741824;
 pub const DROPEFFECT_NONE: u32 = 0;
 pub const DROPEFFECT_SCROLL: u32 = 2147483648;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HOLEMENU(pub super::minwindef::HGLOBAL);
@@ -103,7 +103,7 @@ impl windows_core::RuntimeName for IDropSource {}
 windows_core::imp::define_interface!(IDropSourceNotify, IDropSourceNotify_Vtbl, 0x0000012b_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IDropSourceNotify, windows_core::IUnknown);
 impl IDropSourceNotify {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn DragEnterTarget(&self, hwndtarget: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DragEnterTarget)(windows_core::Interface::as_raw(self), hwndtarget) }
     }
@@ -115,18 +115,18 @@ impl IDropSourceNotify {
 #[doc(hidden)]
 pub struct IDropSourceNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub DragEnterTarget: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     DragEnterTarget: usize,
     pub DragLeaveTarget: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IDropSourceNotify_Impl: windows_core::IUnknownImpl {
     fn DragEnterTarget(&self, hwndtarget: super::windef::HWND) -> windows_core::Result<()>;
     fn DragLeaveTarget(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IDropSourceNotify_Vtbl {
     pub const fn new<Identity: IDropSourceNotify_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DragEnterTarget<Identity: IDropSourceNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndtarget: super::windef::HWND) -> windows_core::HRESULT {
@@ -151,26 +151,26 @@ impl IDropSourceNotify_Vtbl {
         iid == &<IDropSourceNotify as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IDropSourceNotify {}
 windows_core::imp::define_interface!(IDropTarget, IDropTarget_Vtbl, 0x00000122_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IDropTarget, windows_core::IUnknown);
 impl IDropTarget {
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub unsafe fn DragEnter<P0>(&self, pdataobj: P0, grfkeystate: u32, pt: super::windef::POINTL, pdweffect: *mut u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IDataObject>,
     {
         unsafe { (windows_core::Interface::vtable(self).DragEnter)(windows_core::Interface::as_raw(self), pdataobj.param().abi(), grfkeystate, core::mem::transmute(pt), pdweffect as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn DragOver(&self, grfkeystate: u32, pt: super::windef::POINTL, pdweffect: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DragOver)(windows_core::Interface::as_raw(self), grfkeystate, core::mem::transmute(pt), pdweffect as _) }
     }
     pub unsafe fn DragLeave(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DragLeave)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub unsafe fn Drop<P0>(&self, pdataobj: P0, grfkeystate: u32, pt: super::windef::POINTL, pdweffect: *mut u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IDataObject>,
@@ -182,28 +182,28 @@ impl IDropTarget {
 #[doc(hidden)]
 pub struct IDropTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub DragEnter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::windef::POINTL, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "objidl", feature = "windef")))]
     DragEnter: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub DragOver: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::windef::POINTL, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     DragOver: usize,
     pub DragLeave: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub Drop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::windef::POINTL, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "objidl", feature = "windef")))]
     Drop: usize,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "windef"))]
 pub trait IDropTarget_Impl: windows_core::IUnknownImpl {
     fn DragEnter(&self, pdataobj: windows_core::Ref<super::objidl::IDataObject>, grfkeystate: u32, pt: &super::windef::POINTL, pdweffect: *mut u32) -> windows_core::Result<()>;
     fn DragOver(&self, grfkeystate: u32, pt: &super::windef::POINTL, pdweffect: *mut u32) -> windows_core::Result<()>;
     fn DragLeave(&self) -> windows_core::Result<()>;
     fn Drop(&self, pdataobj: windows_core::Ref<super::objidl::IDataObject>, grfkeystate: u32, pt: &super::windef::POINTL, pdweffect: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "windef"))]
 impl IDropTarget_Vtbl {
     pub const fn new<Identity: IDropTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DragEnter<Identity: IDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobj: *mut core::ffi::c_void, grfkeystate: u32, pt: super::windef::POINTL, pdweffect: *mut u32) -> windows_core::HRESULT {
@@ -242,7 +242,7 @@ impl IDropTarget_Vtbl {
         iid == &<IDropTarget as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "windef"))]
 impl windows_core::RuntimeName for IDropTarget {}
 windows_core::imp::define_interface!(IEnterpriseDropTarget, IEnterpriseDropTarget_Vtbl, 0x390e3878_fd55_4e18_819d_4682081c0cfd);
 windows_core::imp::interface_hierarchy!(IEnterpriseDropTarget, windows_core::IUnknown);
@@ -384,7 +384,7 @@ impl windows_core::RuntimeName for IEnumOLEVERB {}
 windows_core::imp::define_interface!(IOleAdviseHolder, IOleAdviseHolder_Vtbl, 0x00000111_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IOleAdviseHolder, windows_core::IUnknown);
 impl IOleAdviseHolder {
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn Advise<P0>(&self, padvise: P0) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<super::objidl::IAdviseSink>,
@@ -397,14 +397,14 @@ impl IOleAdviseHolder {
     pub unsafe fn Unadvise(&self, dwconnection: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwconnection) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn EnumAdvise(&self) -> windows_core::Result<super::objidl::IEnumSTATDATA> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumAdvise)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn SendOnRename<P0>(&self, pmk: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IMoniker>,
@@ -422,23 +422,23 @@ impl IOleAdviseHolder {
 #[doc(hidden)]
 pub struct IOleAdviseHolder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub Advise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     Advise: usize,
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub EnumAdvise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     EnumAdvise: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub SendOnRename: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     SendOnRename: usize,
     pub SendOnSave: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendOnClose: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait IOleAdviseHolder_Impl: windows_core::IUnknownImpl {
     fn Advise(&self, padvise: windows_core::Ref<super::objidl::IAdviseSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwconnection: u32) -> windows_core::Result<()>;
@@ -447,7 +447,7 @@ pub trait IOleAdviseHolder_Impl: windows_core::IUnknownImpl {
     fn SendOnSave(&self) -> windows_core::Result<()>;
     fn SendOnClose(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl IOleAdviseHolder_Vtbl {
     pub const fn new<Identity: IOleAdviseHolder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Advise<Identity: IOleAdviseHolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padvise: *mut core::ffi::c_void, pdwconnection: *mut u32) -> windows_core::HRESULT {
@@ -512,12 +512,12 @@ impl IOleAdviseHolder_Vtbl {
         iid == &<IOleAdviseHolder as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for IOleAdviseHolder {}
 windows_core::imp::define_interface!(IOleCache, IOleCache_Vtbl, 0x0000011e_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IOleCache, windows_core::IUnknown);
 impl IOleCache {
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidl", feature = "wtypes"))]
     pub unsafe fn Cache(&self, pformatetc: *const super::objidl::FORMATETC, advf: u32) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -527,21 +527,21 @@ impl IOleCache {
     pub unsafe fn Uncache(&self, dwconnection: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Uncache)(windows_core::Interface::as_raw(self), dwconnection) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn EnumCache(&self) -> windows_core::Result<super::objidl::IEnumSTATDATA> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumCache)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn InitCache<P0>(&self, pdataobject: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IDataObject>,
     {
         unsafe { (windows_core::Interface::vtable(self).InitCache)(windows_core::Interface::as_raw(self), pdataobject.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn SetData(&self, pformatetc: *const super::objidl::FORMATETC, pmedium: *const super::objidl::STGMEDIUM, frelease: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pmedium), frelease.into()) }
     }
@@ -550,25 +550,25 @@ impl IOleCache {
 #[doc(hidden)]
 pub struct IOleCache_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidl", feature = "wtypes"))]
     pub Cache: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::objidl::FORMATETC, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "objidl", feature = "wtypes")))]
     Cache: usize,
     pub Uncache: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub EnumCache: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     EnumCache: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub InitCache: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     InitCache: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::objidl::FORMATETC, *const super::objidl::STGMEDIUM, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes")))]
     SetData: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub trait IOleCache_Impl: windows_core::IUnknownImpl {
     fn Cache(&self, pformatetc: *const super::objidl::FORMATETC, advf: u32) -> windows_core::Result<u32>;
     fn Uncache(&self, dwconnection: u32) -> windows_core::Result<()>;
@@ -576,7 +576,7 @@ pub trait IOleCache_Impl: windows_core::IUnknownImpl {
     fn InitCache(&self, pdataobject: windows_core::Ref<super::objidl::IDataObject>) -> windows_core::Result<()>;
     fn SetData(&self, pformatetc: *const super::objidl::FORMATETC, pmedium: *const super::objidl::STGMEDIUM, frelease: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl IOleCache_Vtbl {
     pub const fn new<Identity: IOleCache_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Cache<Identity: IOleCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformatetc: *const super::objidl::FORMATETC, advf: u32, pdwconnection: *mut u32) -> windows_core::HRESULT {
@@ -634,7 +634,7 @@ impl IOleCache_Vtbl {
         iid == &<IOleCache as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl windows_core::RuntimeName for IOleCache {}
 windows_core::imp::define_interface!(IOleCache2, IOleCache2_Vtbl, 0x00000128_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleCache2 {
@@ -645,7 +645,7 @@ impl core::ops::Deref for IOleCache2 {
 }
 windows_core::imp::interface_hierarchy!(IOleCache2, windows_core::IUnknown, IOleCache);
 impl IOleCache2 {
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn UpdateCache<P0>(&self, pdataobject: P0, grfupdf: u32, preserved: Option<*const core::ffi::c_void>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IDataObject>,
@@ -660,18 +660,18 @@ impl IOleCache2 {
 #[doc(hidden)]
 pub struct IOleCache2_Vtbl {
     pub base__: IOleCache_Vtbl,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub UpdateCache: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     UpdateCache: usize,
     pub DiscardCache: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub trait IOleCache2_Impl: IOleCache_Impl {
     fn UpdateCache(&self, pdataobject: windows_core::Ref<super::objidl::IDataObject>, grfupdf: u32, preserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn DiscardCache(&self, dwdiscardoptions: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl IOleCache2_Vtbl {
     pub const fn new<Identity: IOleCache2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn UpdateCache<Identity: IOleCache2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void, grfupdf: u32, preserved: *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -692,12 +692,12 @@ impl IOleCache2_Vtbl {
         iid == &<IOleCache2 as windows_core::Interface>::IID || iid == &<IOleCache as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl windows_core::RuntimeName for IOleCache2 {}
 windows_core::imp::define_interface!(IOleCacheControl, IOleCacheControl_Vtbl, 0x00000129_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IOleCacheControl, windows_core::IUnknown);
 impl IOleCacheControl {
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn OnRun<P0>(&self, pdataobject: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IDataObject>,
@@ -712,18 +712,18 @@ impl IOleCacheControl {
 #[doc(hidden)]
 pub struct IOleCacheControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub OnRun: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     OnRun: usize,
     pub OnStop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait IOleCacheControl_Impl: windows_core::IUnknownImpl {
     fn OnRun(&self, pdataobject: windows_core::Ref<super::objidl::IDataObject>) -> windows_core::Result<()>;
     fn OnStop(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl IOleCacheControl_Vtbl {
     pub const fn new<Identity: IOleCacheControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnRun<Identity: IOleCacheControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -744,7 +744,7 @@ impl IOleCacheControl_Vtbl {
         iid == &<IOleCacheControl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for IOleCacheControl {}
 windows_core::imp::define_interface!(IOleClientSite, IOleClientSite_Vtbl, 0x00000118_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IOleClientSite, windows_core::IUnknown);
@@ -752,7 +752,7 @@ impl IOleClientSite {
     pub unsafe fn SaveObject(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SaveObject)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetMoniker(&self, dwassign: u32, dwwhichmoniker: u32) -> windows_core::Result<super::objidl::IMoniker> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -780,16 +780,16 @@ impl IOleClientSite {
 pub struct IOleClientSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SaveObject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetMoniker: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetMoniker: usize,
     pub GetContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShowObject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnShowWindow: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub RequestNewObjectLayout: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait IOleClientSite_Impl: windows_core::IUnknownImpl {
     fn SaveObject(&self) -> windows_core::Result<()>;
     fn GetMoniker(&self, dwassign: u32, dwwhichmoniker: u32) -> windows_core::Result<super::objidl::IMoniker>;
@@ -798,7 +798,7 @@ pub trait IOleClientSite_Impl: windows_core::IUnknownImpl {
     fn OnShowWindow(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn RequestNewObjectLayout(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl IOleClientSite_Vtbl {
     pub const fn new<Identity: IOleClientSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SaveObject<Identity: IOleClientSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -863,7 +863,7 @@ impl IOleClientSite_Vtbl {
         iid == &<IOleClientSite as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for IOleClientSite {}
 windows_core::imp::define_interface!(IOleContainer, IOleContainer_Vtbl, 0x0000011b_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleContainer {
@@ -874,7 +874,7 @@ impl core::ops::Deref for IOleContainer {
 }
 windows_core::imp::interface_hierarchy!(IOleContainer, windows_core::IUnknown, IParseDisplayName);
 impl IOleContainer {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn EnumObjects(&self, grfflags: u32) -> windows_core::Result<super::objidlbase::IEnumUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -889,18 +889,18 @@ impl IOleContainer {
 #[doc(hidden)]
 pub struct IOleContainer_Vtbl {
     pub base__: IParseDisplayName_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub EnumObjects: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     EnumObjects: usize,
     pub LockContainer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "objidl", feature = "objidlbase"))]
 pub trait IOleContainer_Impl: IParseDisplayName_Impl {
     fn EnumObjects(&self, grfflags: u32) -> windows_core::Result<super::objidlbase::IEnumUnknown>;
     fn LockContainer(&self, flock: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "objidl", feature = "objidlbase"))]
 impl IOleContainer_Vtbl {
     pub const fn new<Identity: IOleContainer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumObjects<Identity: IOleContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: u32, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -931,7 +931,7 @@ impl IOleContainer_Vtbl {
         iid == &<IOleContainer as windows_core::Interface>::IID || iid == &<IParseDisplayName as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "objidl", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IOleContainer {}
 windows_core::imp::define_interface!(IOleInPlaceActiveObject, IOleInPlaceActiveObject_Vtbl, 0x00000117_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleInPlaceActiveObject {
@@ -942,7 +942,7 @@ impl core::ops::Deref for IOleInPlaceActiveObject {
 }
 windows_core::imp::interface_hierarchy!(IOleInPlaceActiveObject, windows_core::IUnknown, IOleWindow);
 impl IOleInPlaceActiveObject {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub unsafe fn TranslateAccelerator(&self, lpmsg: Option<*const super::winuser::MSG>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TranslateAccelerator)(windows_core::Interface::as_raw(self), lpmsg.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -952,7 +952,7 @@ impl IOleInPlaceActiveObject {
     pub unsafe fn OnDocWindowActivate(&self, factivate: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnDocWindowActivate)(windows_core::Interface::as_raw(self), factivate.into()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ResizeBorder<P1>(&self, prcborder: *const super::windef::RECT, puiwindow: P1, fframewindow: bool) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IOleInPlaceUIWindow>,
@@ -967,19 +967,19 @@ impl IOleInPlaceActiveObject {
 #[doc(hidden)]
 pub struct IOleInPlaceActiveObject_Vtbl {
     pub base__: IOleWindow_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub TranslateAccelerator: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::winuser::MSG) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser")))]
+    #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     TranslateAccelerator: usize,
     pub OnFrameWindowActivate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub OnDocWindowActivate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ResizeBorder: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::RECT, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ResizeBorder: usize,
     pub EnableModeless: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub trait IOleInPlaceActiveObject_Impl: IOleWindow_Impl {
     fn TranslateAccelerator(&self, lpmsg: *const super::winuser::MSG) -> windows_core::Result<()>;
     fn OnFrameWindowActivate(&self, factivate: windows_core::BOOL) -> windows_core::Result<()>;
@@ -987,7 +987,7 @@ pub trait IOleInPlaceActiveObject_Impl: IOleWindow_Impl {
     fn ResizeBorder(&self, prcborder: *const super::windef::RECT, puiwindow: windows_core::Ref<IOleInPlaceUIWindow>, fframewindow: windows_core::BOOL) -> windows_core::Result<()>;
     fn EnableModeless(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl IOleInPlaceActiveObject_Vtbl {
     pub const fn new<Identity: IOleInPlaceActiveObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TranslateAccelerator<Identity: IOleInPlaceActiveObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpmsg: *const super::winuser::MSG) -> windows_core::HRESULT {
@@ -1033,7 +1033,7 @@ impl IOleInPlaceActiveObject_Vtbl {
         iid == &<IOleInPlaceActiveObject as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl windows_core::RuntimeName for IOleInPlaceActiveObject {}
 windows_core::imp::define_interface!(IOleInPlaceFrame, IOleInPlaceFrame_Vtbl, 0x00000116_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleInPlaceFrame {
@@ -1044,15 +1044,15 @@ impl core::ops::Deref for IOleInPlaceFrame {
 }
 windows_core::imp::interface_hierarchy!(IOleInPlaceFrame, windows_core::IUnknown, IOleWindow, IOleInPlaceUIWindow);
 impl IOleInPlaceFrame {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn InsertMenus(&self, hmenushared: super::windef::HMENU, lpmenuwidths: *mut OLEMENUGROUPWIDTHS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InsertMenus)(windows_core::Interface::as_raw(self), hmenushared, lpmenuwidths as _) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
     pub unsafe fn SetMenu(&self, hmenushared: super::windef::HMENU, holemenu: HOLEMENU, hwndactiveobject: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMenu)(windows_core::Interface::as_raw(self), hmenushared, holemenu, hwndactiveobject) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RemoveMenus(&self, hmenushared: super::windef::HMENU) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveMenus)(windows_core::Interface::as_raw(self), hmenushared) }
     }
@@ -1065,7 +1065,7 @@ impl IOleInPlaceFrame {
     pub unsafe fn EnableModeless(&self, fenable: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnableModeless)(windows_core::Interface::as_raw(self), fenable.into()) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub unsafe fn TranslateAccelerator(&self, lpmsg: *const super::winuser::MSG, wid: u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TranslateAccelerator)(windows_core::Interface::as_raw(self), lpmsg, wid) }
     }
@@ -1074,26 +1074,26 @@ impl IOleInPlaceFrame {
 #[doc(hidden)]
 pub struct IOleInPlaceFrame_Vtbl {
     pub base__: IOleInPlaceUIWindow_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub InsertMenus: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HMENU, *mut OLEMENUGROUPWIDTHS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     InsertMenus: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
     pub SetMenu: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HMENU, HOLEMENU, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winnt")))]
     SetMenu: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RemoveMenus: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HMENU) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RemoveMenus: usize,
     pub SetStatusText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub EnableModeless: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub TranslateAccelerator: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::winuser::MSG, u16) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser")))]
+    #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     TranslateAccelerator: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub trait IOleInPlaceFrame_Impl: IOleInPlaceUIWindow_Impl {
     fn InsertMenus(&self, hmenushared: super::windef::HMENU, lpmenuwidths: *mut OLEMENUGROUPWIDTHS) -> windows_core::Result<()>;
     fn SetMenu(&self, hmenushared: super::windef::HMENU, holemenu: HOLEMENU, hwndactiveobject: super::windef::HWND) -> windows_core::Result<()>;
@@ -1102,7 +1102,7 @@ pub trait IOleInPlaceFrame_Impl: IOleInPlaceUIWindow_Impl {
     fn EnableModeless(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
     fn TranslateAccelerator(&self, lpmsg: *const super::winuser::MSG, wid: u16) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl IOleInPlaceFrame_Vtbl {
     pub const fn new<Identity: IOleInPlaceFrame_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InsertMenus<Identity: IOleInPlaceFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenushared: super::windef::HMENU, lpmenuwidths: *mut OLEMENUGROUPWIDTHS) -> windows_core::HRESULT {
@@ -1155,7 +1155,7 @@ impl IOleInPlaceFrame_Vtbl {
         iid == &<IOleInPlaceFrame as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID || iid == &<IOleInPlaceUIWindow as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl windows_core::RuntimeName for IOleInPlaceFrame {}
 windows_core::imp::define_interface!(IOleInPlaceObject, IOleInPlaceObject_Vtbl, 0x00000113_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleInPlaceObject {
@@ -1172,7 +1172,7 @@ impl IOleInPlaceObject {
     pub unsafe fn UIDeactivate(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UIDeactivate)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetObjectRects(&self, lprcposrect: *const super::windef::RECT, lprccliprect: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetObjectRects)(windows_core::Interface::as_raw(self), lprcposrect, lprccliprect) }
     }
@@ -1186,20 +1186,20 @@ pub struct IOleInPlaceObject_Vtbl {
     pub base__: IOleWindow_Vtbl,
     pub InPlaceDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UIDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetObjectRects: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::RECT, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetObjectRects: usize,
     pub ReactivateAndUndo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IOleInPlaceObject_Impl: IOleWindow_Impl {
     fn InPlaceDeactivate(&self) -> windows_core::Result<()>;
     fn UIDeactivate(&self) -> windows_core::Result<()>;
     fn SetObjectRects(&self, lprcposrect: *const super::windef::RECT, lprccliprect: *const super::windef::RECT) -> windows_core::Result<()>;
     fn ReactivateAndUndo(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IOleInPlaceObject_Vtbl {
     pub const fn new<Identity: IOleInPlaceObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InPlaceDeactivate<Identity: IOleInPlaceObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1238,7 +1238,7 @@ impl IOleInPlaceObject_Vtbl {
         iid == &<IOleInPlaceObject as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IOleInPlaceObject {}
 windows_core::imp::define_interface!(IOleInPlaceSite, IOleInPlaceSite_Vtbl, 0x00000119_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleInPlaceSite {
@@ -1258,11 +1258,11 @@ impl IOleInPlaceSite {
     pub unsafe fn OnUIActivate(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnUIActivate)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetWindowContext(&self, ppframe: *mut Option<IOleInPlaceFrame>, ppdoc: *mut Option<IOleInPlaceUIWindow>, lprcposrect: *mut super::windef::RECT, lprccliprect: *mut super::windef::RECT, lpframeinfo: *mut OLEINPLACEFRAMEINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindowContext)(windows_core::Interface::as_raw(self), core::mem::transmute(ppframe), core::mem::transmute(ppdoc), lprcposrect as _, lprccliprect as _, lpframeinfo as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Scroll(&self, scrollextant: super::windef::SIZE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), core::mem::transmute(scrollextant)) }
     }
@@ -1278,7 +1278,7 @@ impl IOleInPlaceSite {
     pub unsafe fn DeactivateAndUndo(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeactivateAndUndo)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn OnPosRectChange(&self, lprcposrect: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnPosRectChange)(windows_core::Interface::as_raw(self), lprcposrect) }
     }
@@ -1290,24 +1290,24 @@ pub struct IOleInPlaceSite_Vtbl {
     pub CanInPlaceActivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnInPlaceActivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnUIActivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetWindowContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::windef::RECT, *mut super::windef::RECT, *mut OLEINPLACEFRAMEINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetWindowContext: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Scroll: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::SIZE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Scroll: usize,
     pub OnUIDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub OnInPlaceDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DiscardUndoState: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeactivateAndUndo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub OnPosRectChange: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     OnPosRectChange: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IOleInPlaceSite_Impl: IOleWindow_Impl {
     fn CanInPlaceActivate(&self) -> windows_core::Result<()>;
     fn OnInPlaceActivate(&self) -> windows_core::Result<()>;
@@ -1320,7 +1320,7 @@ pub trait IOleInPlaceSite_Impl: IOleWindow_Impl {
     fn DeactivateAndUndo(&self) -> windows_core::Result<()>;
     fn OnPosRectChange(&self, lprcposrect: *const super::windef::RECT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IOleInPlaceSite_Vtbl {
     pub const fn new<Identity: IOleInPlaceSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CanInPlaceActivate<Identity: IOleInPlaceSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1401,7 +1401,7 @@ impl IOleInPlaceSite_Vtbl {
         iid == &<IOleInPlaceSite as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IOleInPlaceSite {}
 windows_core::imp::define_interface!(IOleInPlaceUIWindow, IOleInPlaceUIWindow_Vtbl, 0x00000115_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleInPlaceUIWindow {
@@ -1412,18 +1412,18 @@ impl core::ops::Deref for IOleInPlaceUIWindow {
 }
 windows_core::imp::interface_hierarchy!(IOleInPlaceUIWindow, windows_core::IUnknown, IOleWindow);
 impl IOleInPlaceUIWindow {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetBorder(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBorder)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RequestBorderSpace(&self, pborderwidths: LPCBORDERWIDTHS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RequestBorderSpace)(windows_core::Interface::as_raw(self), pborderwidths) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetBorderSpace(&self, pborderwidths: LPCBORDERWIDTHS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBorderSpace)(windows_core::Interface::as_raw(self), pborderwidths) }
     }
@@ -1439,28 +1439,28 @@ impl IOleInPlaceUIWindow {
 #[doc(hidden)]
 pub struct IOleInPlaceUIWindow_Vtbl {
     pub base__: IOleWindow_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetBorder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetBorder: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RequestBorderSpace: unsafe extern "system" fn(*mut core::ffi::c_void, LPCBORDERWIDTHS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RequestBorderSpace: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetBorderSpace: unsafe extern "system" fn(*mut core::ffi::c_void, LPCBORDERWIDTHS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetBorderSpace: usize,
     pub SetActiveObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IOleInPlaceUIWindow_Impl: IOleWindow_Impl {
     fn GetBorder(&self) -> windows_core::Result<super::windef::RECT>;
     fn RequestBorderSpace(&self, pborderwidths: LPCBORDERWIDTHS) -> windows_core::Result<()>;
     fn SetBorderSpace(&self, pborderwidths: LPCBORDERWIDTHS) -> windows_core::Result<()>;
     fn SetActiveObject(&self, pactiveobject: windows_core::Ref<IOleInPlaceActiveObject>, pszobjname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IOleInPlaceUIWindow_Vtbl {
     pub const fn new<Identity: IOleInPlaceUIWindow_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBorder<Identity: IOleInPlaceUIWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprectborder: *mut super::windef::RECT) -> windows_core::HRESULT {
@@ -1505,7 +1505,7 @@ impl IOleInPlaceUIWindow_Vtbl {
         iid == &<IOleInPlaceUIWindow as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IOleInPlaceUIWindow {}
 windows_core::imp::define_interface!(IOleItemContainer, IOleItemContainer_Vtbl, 0x0000011c_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleItemContainer {
@@ -1516,7 +1516,7 @@ impl core::ops::Deref for IOleItemContainer {
 }
 windows_core::imp::interface_hierarchy!(IOleItemContainer, windows_core::IUnknown, IParseDisplayName, IOleContainer);
 impl IOleItemContainer {
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetObject<P0, P2, T>(&self, pszitem: P0, dwspeedneeded: u32, pbc: P2) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1526,7 +1526,7 @@ impl IOleItemContainer {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), pszitem.param().abi(), dwspeedneeded, pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetObjectStorage<P0, P1, T>(&self, pszitem: P0, pbc: P1) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1547,23 +1547,23 @@ impl IOleItemContainer {
 #[doc(hidden)]
 pub struct IOleItemContainer_Vtbl {
     pub base__: IOleContainer_Vtbl,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetObject: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetObjectStorage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetObjectStorage: usize,
     pub IsRunning: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "objidl", feature = "objidlbase"))]
 pub trait IOleItemContainer_Impl: IOleContainer_Impl {
     fn GetObject(&self, pszitem: &windows_core::PCWSTR, dwspeedneeded: u32, pbc: windows_core::Ref<super::objidl::IBindCtx>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetObjectStorage(&self, pszitem: &windows_core::PCWSTR, pbc: windows_core::Ref<super::objidl::IBindCtx>, riid: *const windows_core::GUID, ppvstorage: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn IsRunning(&self, pszitem: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "objidl", feature = "objidlbase"))]
 impl IOleItemContainer_Vtbl {
     pub const fn new<Identity: IOleItemContainer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetObject<Identity: IOleItemContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszitem: windows_core::PCWSTR, dwspeedneeded: u32, pbc: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1595,7 +1595,7 @@ impl IOleItemContainer_Vtbl {
         iid == &<IOleItemContainer as windows_core::Interface>::IID || iid == &<IParseDisplayName as windows_core::Interface>::IID || iid == &<IOleContainer as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "objidl", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IOleItemContainer {}
 windows_core::imp::define_interface!(IOleLink, IOleLink_Vtbl, 0x0000011d_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IOleLink, windows_core::IUnknown);
@@ -1609,14 +1609,14 @@ impl IOleLink {
             (windows_core::Interface::vtable(self).GetUpdateOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn SetSourceMoniker<P0>(&self, pmk: P0, rclsid: *const windows_core::GUID) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IMoniker>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSourceMoniker)(windows_core::Interface::as_raw(self), pmk.param().abi(), rclsid) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetSourceMoniker(&self) -> windows_core::Result<super::objidl::IMoniker> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1635,7 +1635,7 @@ impl IOleLink {
             (windows_core::Interface::vtable(self).GetSourceDisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn BindToSource<P1>(&self, bindflags: u32, pbc: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IBindCtx>,
@@ -1654,7 +1654,7 @@ impl IOleLink {
     pub unsafe fn UnbindSource(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnbindSource)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn Update<P0>(&self, pbc: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IBindCtx>,
@@ -1668,29 +1668,29 @@ pub struct IOleLink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetUpdateOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetUpdateOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub SetSourceMoniker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     SetSourceMoniker: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetSourceMoniker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetSourceMoniker: usize,
     pub SetSourceDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetSourceDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub BindToSource: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     BindToSource: usize,
     pub BindIfRunning: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBoundSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnbindSource: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     Update: usize,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait IOleLink_Impl: windows_core::IUnknownImpl {
     fn SetUpdateOptions(&self, dwupdateopt: u32) -> windows_core::Result<()>;
     fn GetUpdateOptions(&self) -> windows_core::Result<u32>;
@@ -1704,7 +1704,7 @@ pub trait IOleLink_Impl: windows_core::IUnknownImpl {
     fn UnbindSource(&self) -> windows_core::Result<()>;
     fn Update(&self, pbc: windows_core::Ref<super::objidl::IBindCtx>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl IOleLink_Vtbl {
     pub const fn new<Identity: IOleLink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetUpdateOptions<Identity: IOleLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwupdateopt: u32) -> windows_core::HRESULT {
@@ -1816,7 +1816,7 @@ impl IOleLink_Vtbl {
         iid == &<IOleLink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for IOleLink {}
 windows_core::imp::define_interface!(IOleObject, IOleObject_Vtbl, 0x00000112_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IOleObject, windows_core::IUnknown);
@@ -1843,35 +1843,35 @@ impl IOleObject {
     pub unsafe fn Close(&self, dwsaveoption: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), dwsaveoption) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn SetMoniker<P1>(&self, dwwhichmoniker: u32, pmk: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IMoniker>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMoniker)(windows_core::Interface::as_raw(self), dwwhichmoniker, pmk.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetMoniker(&self, dwassign: u32, dwwhichmoniker: u32) -> windows_core::Result<super::objidl::IMoniker> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), dwassign, dwwhichmoniker, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn InitFromData<P0>(&self, pdataobject: P0, fcreation: bool, dwreserved: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IDataObject>,
     {
         unsafe { (windows_core::Interface::vtable(self).InitFromData)(windows_core::Interface::as_raw(self), pdataobject.param().abi(), fcreation.into(), dwreserved) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetClipboardData(&self, dwreserved: u32) -> windows_core::Result<super::objidl::IDataObject> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), dwreserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub unsafe fn DoVerb<P2>(&self, iverb: i32, lpmsg: *const super::winuser::MSG, pactivesite: P2, lindex: i32, hwndparent: super::windef::HWND, lprcposrect: *const super::windef::RECT) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IOleClientSite>,
@@ -1902,18 +1902,18 @@ impl IOleObject {
             (windows_core::Interface::vtable(self).GetUserType)(windows_core::Interface::as_raw(self), dwformoftype, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetExtent(&self, dwdrawaspect: u32, psizel: *const super::windef::SIZEL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetExtent)(windows_core::Interface::as_raw(self), dwdrawaspect, psizel) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetExtent(&self, dwdrawaspect: u32) -> windows_core::Result<super::windef::SIZEL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetExtent)(windows_core::Interface::as_raw(self), dwdrawaspect, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn Advise<P0>(&self, padvsink: P0) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<super::objidl::IAdviseSink>,
@@ -1926,7 +1926,7 @@ impl IOleObject {
     pub unsafe fn Unadvise(&self, dwconnection: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwconnection) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn EnumAdvise(&self) -> windows_core::Result<super::objidl::IEnumSTATDATA> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1939,7 +1939,7 @@ impl IOleObject {
             (windows_core::Interface::vtable(self).GetMiscStatus)(windows_core::Interface::as_raw(self), dwaspect, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn SetColorScheme(&self, plogpal: *const super::wingdi::LOGPALETTE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetColorScheme)(windows_core::Interface::as_raw(self), plogpal) }
     }
@@ -1952,55 +1952,55 @@ pub struct IOleObject_Vtbl {
     pub GetClientSite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetHostNames: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub SetMoniker: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     SetMoniker: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetMoniker: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetMoniker: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub InitFromData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     InitFromData: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetClipboardData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetClipboardData: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub DoVerb: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const super::winuser::MSG, *mut core::ffi::c_void, i32, super::windef::HWND, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser")))]
+    #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     DoVerb: usize,
     pub EnumVerbs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsUpToDate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetUserClassID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetUserType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetExtent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::windef::SIZEL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetExtent: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetExtent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::windef::SIZEL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetExtent: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub Advise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     Advise: usize,
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub EnumAdvise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     EnumAdvise: usize,
     pub GetMiscStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub SetColorScheme: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wingdi::LOGPALETTE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     SetColorScheme: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "windef", feature = "wingdi", feature = "winuser"))]
 pub trait IOleObject_Impl: windows_core::IUnknownImpl {
     fn SetClientSite(&self, pclientsite: windows_core::Ref<IOleClientSite>) -> windows_core::Result<()>;
     fn GetClientSite(&self) -> windows_core::Result<IOleClientSite>;
@@ -2024,7 +2024,7 @@ pub trait IOleObject_Impl: windows_core::IUnknownImpl {
     fn GetMiscStatus(&self, dwaspect: u32) -> windows_core::Result<u32>;
     fn SetColorScheme(&self, plogpal: *const super::wingdi::LOGPALETTE) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "windef", feature = "wingdi", feature = "winuser"))]
 impl IOleObject_Vtbl {
     pub const fn new<Identity: IOleObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetClientSite<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclientsite: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2242,12 +2242,12 @@ impl IOleObject_Vtbl {
         iid == &<IOleObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "windef", feature = "wingdi", feature = "winuser"))]
 impl windows_core::RuntimeName for IOleObject {}
 windows_core::imp::define_interface!(IOleWindow, IOleWindow_Vtbl, 0x00000114_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IOleWindow, windows_core::IUnknown);
 impl IOleWindow {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetWindow(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2262,18 +2262,18 @@ impl IOleWindow {
 #[doc(hidden)]
 pub struct IOleWindow_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetWindow: usize,
     pub ContextSensitiveHelp: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IOleWindow_Impl: windows_core::IUnknownImpl {
     fn GetWindow(&self) -> windows_core::Result<super::windef::HWND>;
     fn ContextSensitiveHelp(&self, fentermode: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IOleWindow_Vtbl {
     pub const fn new<Identity: IOleWindow_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetWindow<Identity: IOleWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phwnd: *mut super::windef::HWND) -> windows_core::HRESULT {
@@ -2304,12 +2304,12 @@ impl IOleWindow_Vtbl {
         iid == &<IOleWindow as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IOleWindow {}
 windows_core::imp::define_interface!(IParseDisplayName, IParseDisplayName_Vtbl, 0x0000011a_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IParseDisplayName, windows_core::IUnknown);
 impl IParseDisplayName {
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn ParseDisplayName<P0, P1>(&self, pbc: P0, pszdisplayname: P1, pcheaten: *mut u32, ppmkout: *mut Option<super::objidl::IMoniker>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IBindCtx>,
@@ -2322,16 +2322,16 @@ impl IParseDisplayName {
 #[doc(hidden)]
 pub struct IParseDisplayName_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub ParseDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     ParseDisplayName: usize,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait IParseDisplayName_Impl: windows_core::IUnknownImpl {
     fn ParseDisplayName(&self, pbc: windows_core::Ref<super::objidl::IBindCtx>, pszdisplayname: &windows_core::PCWSTR, pcheaten: *mut u32, ppmkout: windows_core::OutRef<super::objidl::IMoniker>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl IParseDisplayName_Vtbl {
     pub const fn new<Identity: IParseDisplayName_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ParseDisplayName<Identity: IParseDisplayName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbc: *mut core::ffi::c_void, pszdisplayname: windows_core::PCWSTR, pcheaten: *mut u32, ppmkout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2346,16 +2346,16 @@ impl IParseDisplayName_Vtbl {
         iid == &<IParseDisplayName as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for IParseDisplayName {}
 windows_core::imp::define_interface!(IViewObject, IViewObject_Vtbl, 0x0000010d_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IViewObject, windows_core::IUnknown);
 impl IViewObject {
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub unsafe fn Draw(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *const core::ffi::c_void, ptd: Option<*const super::objidl::DVTARGETDEVICE>, hdctargetdev: Option<super::windef::HDC>, hdcdraw: super::windef::HDC, lprcbounds: Option<*const super::windef::RECTL>, lprcwbounds: Option<*const super::windef::RECTL>, pfncontinue: Option<*const u8>, dwcontinue: usize) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect, ptd.unwrap_or(core::mem::zeroed()) as _, hdctargetdev.unwrap_or(core::mem::zeroed()) as _, hdcdraw, lprcbounds.unwrap_or(core::mem::zeroed()) as _, lprcwbounds.unwrap_or(core::mem::zeroed()) as _, pfncontinue.unwrap_or(core::mem::zeroed()) as _, dwcontinue) }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi"))]
+    #[cfg(all(feature = "objidl", feature = "windef", feature = "wingdi"))]
     pub unsafe fn GetColorSet(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *const core::ffi::c_void, ptd: Option<*const super::objidl::DVTARGETDEVICE>, hictargetdev: Option<super::windef::HDC>) -> windows_core::Result<*mut super::wingdi::LOGPALETTE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2371,14 +2371,14 @@ impl IViewObject {
     pub unsafe fn Unfreeze(&self, dwfreeze: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Unfreeze)(windows_core::Interface::as_raw(self), dwfreeze) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn SetAdvise<P2>(&self, aspects: u32, advf: u32, padvsink: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<super::objidl::IAdviseSink>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetAdvise)(windows_core::Interface::as_raw(self), aspects, advf, padvsink.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetAdvise(&self, paspects: Option<*mut u32>, padvf: Option<*mut u32>, ppadvsink: *mut Option<super::objidl::IAdviseSink>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAdvise)(windows_core::Interface::as_raw(self), paspects.unwrap_or(core::mem::zeroed()) as _, padvf.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppadvsink)) }
     }
@@ -2387,26 +2387,26 @@ impl IViewObject {
 #[doc(hidden)]
 pub struct IViewObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *const core::ffi::c_void, *const super::objidl::DVTARGETDEVICE, super::windef::HDC, super::windef::HDC, *const super::windef::RECTL, *const super::windef::RECTL, *const u8, usize) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "objidl", feature = "windef")))]
     Draw: usize,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi"))]
+    #[cfg(all(feature = "objidl", feature = "windef", feature = "wingdi"))]
     pub GetColorSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *const core::ffi::c_void, *const super::objidl::DVTARGETDEVICE, super::windef::HDC, *mut *mut super::wingdi::LOGPALETTE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi")))]
+    #[cfg(not(all(feature = "objidl", feature = "windef", feature = "wingdi")))]
     GetColorSet: usize,
     pub Freeze: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Unfreeze: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub SetAdvise: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     SetAdvise: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetAdvise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetAdvise: usize,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "objidl", feature = "windef", feature = "wingdi"))]
 pub trait IViewObject_Impl: windows_core::IUnknownImpl {
     fn Draw(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *const core::ffi::c_void, ptd: *const super::objidl::DVTARGETDEVICE, hdctargetdev: super::windef::HDC, hdcdraw: super::windef::HDC, lprcbounds: *const super::windef::RECTL, lprcwbounds: *const super::windef::RECTL, pfncontinue: *const u8, dwcontinue: usize) -> windows_core::Result<()>;
     fn GetColorSet(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *const core::ffi::c_void, ptd: *const super::objidl::DVTARGETDEVICE, hictargetdev: super::windef::HDC) -> windows_core::Result<*mut super::wingdi::LOGPALETTE>;
@@ -2415,7 +2415,7 @@ pub trait IViewObject_Impl: windows_core::IUnknownImpl {
     fn SetAdvise(&self, aspects: u32, advf: u32, padvsink: windows_core::Ref<super::objidl::IAdviseSink>) -> windows_core::Result<()>;
     fn GetAdvise(&self, paspects: *mut u32, padvf: *mut u32, ppadvsink: windows_core::OutRef<super::objidl::IAdviseSink>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "objidl", feature = "windef", feature = "wingdi"))]
 impl IViewObject_Vtbl {
     pub const fn new<Identity: IViewObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Draw<Identity: IViewObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *const core::ffi::c_void, ptd: *const super::objidl::DVTARGETDEVICE, hdctargetdev: super::windef::HDC, hdcdraw: super::windef::HDC, lprcbounds: *const super::windef::RECTL, lprcwbounds: *const super::windef::RECTL, pfncontinue: *const u8, dwcontinue: usize) -> windows_core::HRESULT {
@@ -2480,7 +2480,7 @@ impl IViewObject_Vtbl {
         iid == &<IViewObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "objidl", feature = "windef", feature = "wingdi"))]
 impl windows_core::RuntimeName for IViewObject {}
 windows_core::imp::define_interface!(IViewObject2, IViewObject2_Vtbl, 0x00000127_0000_0000_c000_000000000046);
 impl core::ops::Deref for IViewObject2 {
@@ -2491,7 +2491,7 @@ impl core::ops::Deref for IViewObject2 {
 }
 windows_core::imp::interface_hierarchy!(IViewObject2, windows_core::IUnknown, IViewObject);
 impl IViewObject2 {
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub unsafe fn GetExtent(&self, dwdrawaspect: u32, lindex: i32, ptd: *const super::objidl::DVTARGETDEVICE) -> windows_core::Result<super::windef::SIZE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2503,16 +2503,16 @@ impl IViewObject2 {
 #[doc(hidden)]
 pub struct IViewObject2_Vtbl {
     pub base__: IViewObject_Vtbl,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub GetExtent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *const super::objidl::DVTARGETDEVICE, *mut super::windef::SIZE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "objidl", feature = "windef")))]
     GetExtent: usize,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "objidl", feature = "windef", feature = "wingdi"))]
 pub trait IViewObject2_Impl: IViewObject_Impl {
     fn GetExtent(&self, dwdrawaspect: u32, lindex: i32, ptd: *const super::objidl::DVTARGETDEVICE) -> windows_core::Result<super::windef::SIZE>;
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "objidl", feature = "windef", feature = "wingdi"))]
 impl IViewObject2_Vtbl {
     pub const fn new<Identity: IViewObject2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetExtent<Identity: IViewObject2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdrawaspect: u32, lindex: i32, ptd: *const super::objidl::DVTARGETDEVICE, lpsizel: *mut super::windef::SIZE) -> windows_core::HRESULT {
@@ -2533,61 +2533,61 @@ impl IViewObject2_Vtbl {
         iid == &<IViewObject2 as windows_core::Interface>::IID || iid == &<IViewObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "objidl", feature = "windef", feature = "wingdi"))]
 impl windows_core::RuntimeName for IViewObject2 {}
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LINKSRCDESCRIPTOR = OBJECTDESCRIPTOR;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPBORDERWIDTHS(pub super::windef::LPRECT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPCBORDERWIDTHS(pub super::windef::LPCRECT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPLINKSRCDESCRIPTOR(pub *mut OBJECTDESCRIPTOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPLINKSRCDESCRIPTOR {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPLINKSRCDESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPOBJECTDESCRIPTOR(pub *mut OBJECTDESCRIPTOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPOBJECTDESCRIPTOR {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPOBJECTDESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPOLEINPLACEFRAMEINFO(pub *mut OLEINPLACEFRAMEINFO);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPOLEINPLACEFRAMEINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPOLEINPLACEFRAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2647,7 +2647,7 @@ impl Default for LPOLEVERB {
 }
 pub const MK_ALT: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OBJECTDESCRIPTOR {
     pub cbSize: u32,
@@ -2675,7 +2675,7 @@ pub const OLEGETMONIKER_ONLYIFTHERE: OLEGETMONIKER = 1;
 pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = 4;
 pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OLEINPLACEFRAMEINFO {
     pub cb: u32,
@@ -2742,33 +2742,33 @@ pub type OLEWHICHMK = i32;
 pub const OLEWHICHMK_CONTAINER: OLEWHICHMK = 1;
 pub const OLEWHICHMK_OBJFULL: OLEWHICHMK = 3;
 pub const OLEWHICHMK_OBJREL: OLEWHICHMK = 2;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLINKSRCDESCRIPTOR(pub *mut OBJECTDESCRIPTOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PLINKSRCDESCRIPTOR {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PLINKSRCDESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POBJECTDESCRIPTOR(pub *mut OBJECTDESCRIPTOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl POBJECTDESCRIPTOR {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for POBJECTDESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

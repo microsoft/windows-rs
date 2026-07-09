@@ -56,7 +56,7 @@ impl TypeTree {
     }
 
     pub fn feature(&self) -> String {
-        self.namespace.split_once('.').unwrap().1.replace('.', "_")
+        namespace_feature(self.namespace)
     }
 
     fn with_namespace(namespace: &'static str) -> Self {

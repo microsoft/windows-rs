@@ -6,7 +6,7 @@ pub struct MIB_IFNUMBER {
     pub dwValue: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IFROW {
     pub wszName: [u16; 256],
@@ -34,27 +34,27 @@ pub struct MIB_IFROW {
     pub dwDescrLen: u32,
     pub bDescr: [u8; 256],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 impl Default for MIB_IFROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IFTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IFROW; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 impl Default for MIB_IFTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type PMIB_IFNUMBER = *mut MIB_IFNUMBER;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 pub type PMIB_IFROW = *mut MIB_IFROW;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
 pub type PMIB_IFTABLE = *mut MIB_IFTABLE;

@@ -8,7 +8,7 @@ pub unsafe fn DPA_Create(citemgrow: i32) -> HDPA {
     windows_core::link!("comctl32.dll" "system" fn DPA_Create(citemgrow : i32) -> HDPA);
     unsafe { DPA_Create(citemgrow) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DPA_CreateEx(cpgrow: i32, hheap: Option<super::winnt::HANDLE>) -> HDPA {
     windows_core::link!("comctl32.dll" "system" fn DPA_CreateEx(cpgrow : i32, hheap : super::winnt::HANDLE) -> HDPA);
@@ -64,7 +64,7 @@ pub unsafe fn DPA_InsertPtr(hdpa: *mut _DPA, i: i32, p: Option<*const core::ffi:
     windows_core::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : *mut _DPA, i : i32, p : *const core::ffi::c_void) -> i32);
     unsafe { DPA_InsertPtr(hdpa as _, i, p.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn DPA_LoadStream<P2>(phdpa: *mut HDPA, pfn: PFNDPASTREAM, pstream: P2, pvinstdata: Option<*const core::ffi::c_void>) -> windows_core::HRESULT
 where
@@ -73,13 +73,13 @@ where
     windows_core::link!("comctl32.dll" "system" fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : *mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { DPA_LoadStream(phdpa as _, pfn, pstream.param().abi(), pvinstdata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DPA_Merge(hdpadest: *mut _DPA, hdpasrc: *const _DPA, dwflags: u32, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: super::minwindef::LPARAM) -> windows_core::BOOL {
     windows_core::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : *mut _DPA, hdpasrc : *const _DPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::minwindef::LPARAM) -> windows_core::BOOL);
     unsafe { DPA_Merge(hdpadest as _, hdpasrc, dwflags, pfncompare, pfnmerge, lparam) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn DPA_SaveStream<P2>(hdpa: *const _DPA, pfn: PFNDPASTREAM, pstream: P2, pvinstdata: Option<*const core::ffi::c_void>) -> windows_core::HRESULT
 where
@@ -88,7 +88,7 @@ where
     windows_core::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : *const _DPA, pfn : PFNDPASTREAM, pstream : *mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { DPA_SaveStream(hdpa, pfn, pstream.param().abi(), pvinstdata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DPA_Search(hdpa: *const _DPA, pfind: Option<*const core::ffi::c_void>, istart: i32, pfncompare: PFNDACOMPARE, lparam: super::minwindef::LPARAM, options: u32) -> i32 {
     windows_core::link!("comctl32.dll" "system" fn DPA_Search(hdpa : *const _DPA, pfind : *const core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::minwindef::LPARAM, options : u32) -> i32);
@@ -99,7 +99,7 @@ pub unsafe fn DPA_SetPtr(hdpa: *mut _DPA, i: i32, p: Option<*const core::ffi::c_
     windows_core::link!("comctl32.dll" "system" fn DPA_SetPtr(hdpa : *mut _DPA, i : i32, p : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { DPA_SetPtr(hdpa as _, i, p.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DPA_Sort(hdpa: *mut _DPA, pfncompare: PFNDACOMPARE, lparam: super::minwindef::LPARAM) -> windows_core::BOOL {
     windows_core::link!("comctl32.dll" "system" fn DPA_Sort(hdpa : *mut _DPA, pfncompare : PFNDACOMPARE, lparam : super::minwindef::LPARAM) -> windows_core::BOOL);
@@ -165,7 +165,7 @@ pub unsafe fn DSA_SetItem(hdsa: *mut _DSA, i: i32, pitem: *const core::ffi::c_vo
     windows_core::link!("comctl32.dll" "system" fn DSA_SetItem(hdsa : *mut _DSA, i : i32, pitem : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { DSA_SetItem(hdsa as _, i, pitem) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DSA_Sort(pdsa: *mut _DSA, pfncompare: PFNDACOMPARE, lparam: super::minwindef::LPARAM) -> windows_core::BOOL {
     windows_core::link!("comctl32.dll" "system" fn DSA_Sort(pdsa : *mut _DSA, pfncompare : PFNDACOMPARE, lparam : super::minwindef::LPARAM) -> windows_core::BOOL);
@@ -232,17 +232,17 @@ impl Default for HDSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFNDACOMPARE = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::minwindef::LPARAM) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFNDACOMPARECONST = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::minwindef::LPARAM) -> i32>;
 pub type PFNDAENUMCALLBACK = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
 pub type PFNDAENUMCALLBACKCONST = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFNDPAMERGE = Option<unsafe extern "system" fn(umsg: u32, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::minwindef::LPARAM) -> *mut core::ffi::c_void>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFNDPAMERGECONST = Option<unsafe extern "system" fn(umsg: u32, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::minwindef::LPARAM) -> *const core::ffi::c_void>;
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub type PFNDPASTREAM = Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: windows_core::Ref<super::objidlbase::IStream>, pvinstdata: *const core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

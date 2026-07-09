@@ -517,7 +517,7 @@ pub const IMP_SizeNWSE: InkMousePointer = 6;
 pub const IMP_SizeWE: InkMousePointer = 7;
 pub const IMP_UpArrow: InkMousePointer = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct INKMETRIC {
     pub iHeight: i32,
@@ -669,7 +669,7 @@ pub const InkPicture: windows_sys::core::GUID = windows_sys::core::GUID::from_u1
 pub type InkPictureSizeMode = i32;
 pub type InkRasterOperation = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::windef::RECT,
@@ -696,7 +696,7 @@ pub type InkSystemGesture = i32;
 pub const InkTablets: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e4fcb12_510a_4d40_9304_1da10ae9147c);
 pub const InkTransform: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe3d5d93c_1663_4a78_a1a7_22375dfebaee);
 pub const InkWordList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9de85094_f71f_44f1_8471_15a2fa76fcf3);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PINKMETRIC = *mut INKMETRIC;
 pub const SHR_E: SelectionHitResult = 5;
 pub const SHR_N: SelectionHitResult = 7;

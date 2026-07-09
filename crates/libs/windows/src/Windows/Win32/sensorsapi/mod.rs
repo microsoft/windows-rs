@@ -80,14 +80,14 @@ impl ISensor {
             (windows_core::Interface::vtable(self).GetFriendlyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetProperty(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetProperties<P0>(&self, pkeys: P0) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDeviceKeyCollection>,
@@ -97,14 +97,14 @@ impl ISensor {
             (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pkeys.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedDataFields(&self) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceKeyCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedDataFields)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn SetProperties<P0>(&self, pproperties: P0) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDeviceValues>,
@@ -114,7 +114,7 @@ impl ISensor {
             (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), pproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SupportsDataField(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -133,7 +133,7 @@ impl ISensor {
             (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SupportsEvent(&self, eventguid: *const windows_core::GUID) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -161,37 +161,37 @@ pub struct ISensor_Vtbl {
     pub GetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SENSOR_CATEGORY_ID) -> windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SENSOR_TYPE_ID) -> windows_core::HRESULT,
     pub GetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetProperty: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetProperties: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedDataFields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedDataFields: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub SetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     SetProperties: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SupportsDataField: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SupportsDataField: usize,
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SensorState) -> windows_core::HRESULT,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SupportsEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SupportsEvent: usize,
     pub GetEventInterest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     pub SetEventInterest: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32) -> windows_core::HRESULT,
     pub SetEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "portabledevicetypes", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISensor_Impl: windows_core::IUnknownImpl {
     fn GetID(&self) -> windows_core::Result<SENSOR_ID>;
     fn GetCategory(&self) -> windows_core::Result<SENSOR_CATEGORY_ID>;
@@ -209,7 +209,7 @@ pub trait ISensor_Impl: windows_core::IUnknownImpl {
     fn SetEventInterest(&self, pvalues: *const windows_core::GUID, count: u32) -> windows_core::Result<()>;
     fn SetEventSink(&self, pevents: windows_core::Ref<ISensorEvents>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "portabledevicetypes", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl ISensor_Vtbl {
     pub const fn new<Identity: ISensor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetID<Identity: ISensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: *mut SENSOR_ID) -> windows_core::HRESULT {
@@ -397,7 +397,7 @@ impl ISensor_Vtbl {
         iid == &<ISensor as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "portabledevicetypes", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISensor {}
 windows_core::imp::define_interface!(ISensorCollection, ISensorCollection_Vtbl, 0x23571e11_e545_4dd8_a337_b89bf44b10df);
 windows_core::imp::interface_hierarchy!(ISensorCollection, windows_core::IUnknown);
@@ -520,21 +520,21 @@ impl windows_core::RuntimeName for ISensorCollection {}
 windows_core::imp::define_interface!(ISensorDataReport, ISensorDataReport_Vtbl, 0x0ab9df9b_c4b5_4796_8898_0470706a2e1d);
 windows_core::imp::interface_hierarchy!(ISensorDataReport, windows_core::IUnknown);
 impl ISensorDataReport {
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub unsafe fn GetTimestamp(&self) -> windows_core::Result<super::minwinbase::SYSTEMTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetSensorValue(&self, pkey: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSensorValue)(windows_core::Interface::as_raw(self), pkey, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSensorValues<P0>(&self, pkeys: P0) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDeviceKeyCollection>,
@@ -549,26 +549,26 @@ impl ISensorDataReport {
 #[doc(hidden)]
 pub struct ISensorDataReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub GetTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwinbase"))]
+    #[cfg(not(feature = "minwinbase"))]
     GetTimestamp: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetSensorValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetSensorValue: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSensorValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSensorValues: usize,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "portabledevicetypes", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISensorDataReport_Impl: windows_core::IUnknownImpl {
     fn GetTimestamp(&self) -> windows_core::Result<super::minwinbase::SYSTEMTIME>;
     fn GetSensorValue(&self, pkey: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::propidlbase::PROPVARIANT>;
     fn GetSensorValues(&self, pkeys: windows_core::Ref<super::portabledevicetypes::IPortableDeviceKeyCollection>) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "portabledevicetypes", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl ISensorDataReport_Vtbl {
     pub const fn new<Identity: ISensorDataReport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTimestamp<Identity: ISensorDataReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimestamp: *mut super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT {
@@ -618,7 +618,7 @@ impl ISensorDataReport_Vtbl {
         iid == &<ISensorDataReport as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "portabledevicetypes", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISensorDataReport {}
 windows_core::imp::define_interface!(ISensorEvents, ISensorEvents_Vtbl, 0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391);
 windows_core::imp::interface_hierarchy!(ISensorEvents, windows_core::IUnknown);
@@ -636,7 +636,7 @@ impl ISensorEvents {
     {
         unsafe { (windows_core::Interface::vtable(self).OnDataUpdated)(windows_core::Interface::as_raw(self), psensor.param().abi(), pnewdata.param().abi()) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn OnEvent<P0, P2>(&self, psensor: P0, eventid: *const windows_core::GUID, peventdata: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISensor>,
@@ -654,20 +654,20 @@ pub struct ISensorEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SensorState) -> windows_core::HRESULT,
     pub OnDataUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     OnEvent: usize,
     pub OnLeave: unsafe extern "system" fn(*mut core::ffi::c_void, REFSENSOR_ID) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 pub trait ISensorEvents_Impl: windows_core::IUnknownImpl {
     fn OnStateChanged(&self, psensor: windows_core::Ref<ISensor>, state: SensorState) -> windows_core::Result<()>;
     fn OnDataUpdated(&self, psensor: windows_core::Ref<ISensor>, pnewdata: windows_core::Ref<ISensorDataReport>) -> windows_core::Result<()>;
     fn OnEvent(&self, psensor: windows_core::Ref<ISensor>, eventid: *const windows_core::GUID, peventdata: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>) -> windows_core::Result<()>;
     fn OnLeave(&self, id: REFSENSOR_ID) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl ISensorEvents_Vtbl {
     pub const fn new<Identity: ISensorEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStateChanged<Identity: ISensorEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psensor: *mut core::ffi::c_void, state: SensorState) -> windows_core::HRESULT {
@@ -706,7 +706,7 @@ impl ISensorEvents_Vtbl {
         iid == &<ISensorEvents as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl windows_core::RuntimeName for ISensorEvents {}
 windows_core::imp::define_interface!(ISensorManager, ISensorManager_Vtbl, 0xbd77db67_45a8_42dc_8d00_6dcf15f8377a);
 windows_core::imp::interface_hierarchy!(ISensorManager, windows_core::IUnknown);
@@ -735,7 +735,7 @@ impl ISensorManager {
     {
         unsafe { (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), pevents.param().abi()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RequestPermissions<P1>(&self, hparent: super::windef::HWND, psensors: P1, fmodal: bool) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ISensorCollection>,
@@ -751,12 +751,12 @@ pub struct ISensorManager_Vtbl {
     pub GetSensorsByType: unsafe extern "system" fn(*mut core::ffi::c_void, REFSENSOR_TYPE_ID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSensorByID: unsafe extern "system" fn(*mut core::ffi::c_void, REFSENSOR_ID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RequestPermissions: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ISensorManager_Impl: windows_core::IUnknownImpl {
     fn GetSensorsByCategory(&self, sensorcategory: REFSENSOR_CATEGORY_ID) -> windows_core::Result<ISensorCollection>;
     fn GetSensorsByType(&self, sensortype: REFSENSOR_TYPE_ID) -> windows_core::Result<ISensorCollection>;
@@ -764,7 +764,7 @@ pub trait ISensorManager_Impl: windows_core::IUnknownImpl {
     fn SetEventSink(&self, pevents: windows_core::Ref<ISensorManagerEvents>) -> windows_core::Result<()>;
     fn RequestPermissions(&self, hparent: super::windef::HWND, psensors: windows_core::Ref<ISensorCollection>, fmodal: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ISensorManager_Vtbl {
     pub const fn new<Identity: ISensorManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSensorsByCategory<Identity: ISensorManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sensorcategory: REFSENSOR_CATEGORY_ID, ppsensorsfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -828,7 +828,7 @@ impl ISensorManager_Vtbl {
         iid == &<ISensorManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ISensorManager {}
 windows_core::imp::define_interface!(ISensorManagerEvents, ISensorManagerEvents_Vtbl, 0x9b3b0b86_266a_4aad_b21f_fde5501001b7);
 windows_core::imp::interface_hierarchy!(ISensorManagerEvents, windows_core::IUnknown);

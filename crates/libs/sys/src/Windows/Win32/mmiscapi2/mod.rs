@@ -1,6 +1,6 @@
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn timeKillEvent(utimerid : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresolution : u32, fptc : LPTIMECALLBACK, dwuser : usize, fuevent : u32) -> super::mmsyscom::MMRESULT);
 pub type LPTIMECALLBACK = Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub type TIMECALLBACK = Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;

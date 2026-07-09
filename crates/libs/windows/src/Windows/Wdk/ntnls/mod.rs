@@ -1,5 +1,5 @@
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CPTABLEINFO {
     pub CodePage: u16,
@@ -15,7 +15,7 @@ pub struct CPTABLEINFO {
     pub DBCSRanges: super::super::Win32::minwindef::PUSHORT,
     pub DBCSOffsets: super::super::Win32::minwindef::PUSHORT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CPTABLEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23,7 +23,7 @@ impl Default for CPTABLEINFO {
 }
 pub const MAXIMUM_LEADBYTES: u32 = 12;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NLSTABLEINFO {
     pub OemTableInfo: CPTABLEINFO,
@@ -31,56 +31,56 @@ pub struct NLSTABLEINFO {
     pub UpperCaseTable: super::super::Win32::minwindef::PUSHORT,
     pub LowerCaseTable: super::super::Win32::minwindef::PUSHORT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCPTABLEINFO(pub *mut CPTABLEINFO);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PCPTABLEINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PCPTABLEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNLSTABLEINFO(pub *mut NLSTABLEINFO);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PNLSTABLEINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PNLSTABLEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRTL_NLS_STATE(pub *mut RTL_NLS_STATE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PRTL_NLS_STATE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PRTL_NLS_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RTL_NLS_STATE {
     pub DefaultAcpTableInfo: CPTABLEINFO,

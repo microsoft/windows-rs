@@ -1,25 +1,25 @@
 windows_link::link!("wcmapi.dll" "system" fn WcmFreeMemory(pmemory : *mut core::ffi::c_void));
 windows_link::link!("wcmapi.dll" "system" fn WcmGetProfileList(preserved : *const core::ffi::c_void, ppprofilelist : *mut *mut WCM_PROFILE_INFO_LIST) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("wcmapi.dll" "system" fn WcmQueryProperty(pinterface : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut super::minwindef::PBYTE) -> u32);
 windows_link::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : windows_sys::core::BOOL, preserved : *const core::ffi::c_void) -> u32);
 windows_link::link!("wcmapi.dll" "system" fn WcmSetProperty(pinterface : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, dwdatasize : u32, pbdata : *const u8) -> u32);
 pub type PWCM_CONNECTION_COST = *mut WCM_CONNECTION_COST;
 pub type PWCM_CONNECTION_COST_DATA = *mut WCM_CONNECTION_COST_DATA;
 pub type PWCM_CONNECTION_COST_SOURCE = *mut WCM_CONNECTION_COST_SOURCE;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PWCM_DATAPLAN_STATUS = *mut WCM_DATAPLAN_STATUS;
 pub type PWCM_MEDIA_TYPE = *mut WCM_MEDIA_TYPE;
 pub type PWCM_POLICY_VALUE = *mut WCM_POLICY_VALUE;
 pub type PWCM_PROFILE_INFO = *mut WCM_PROFILE_INFO;
 pub type PWCM_PROFILE_INFO_LIST = *mut WCM_PROFILE_INFO_LIST;
 pub type PWCM_PROPERTY = *mut WCM_PROPERTY;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PWCM_USAGE_DATA = *mut WCM_USAGE_DATA;
 pub const WCM_API_VERSION: u32 = 1;
 pub const WCM_API_VERSION_1_0: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct WCM_BILLING_CYCLE_INFO {
     pub StartDate: super::minwindef::FILETIME,
@@ -47,7 +47,7 @@ pub const WCM_CONNECTION_COST_UNKNOWN: WCM_CONNECTION_COST = 0;
 pub const WCM_CONNECTION_COST_UNRESTRICTED: WCM_CONNECTION_COST = 1;
 pub const WCM_CONNECTION_COST_VARIABLE: WCM_CONNECTION_COST = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct WCM_DATAPLAN_STATUS {
     pub UsageData: WCM_USAGE_DATA,
@@ -103,7 +103,7 @@ pub struct WCM_TIME_INTERVAL {
 }
 pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct WCM_USAGE_DATA {
     pub UsageInMegabytes: u32,

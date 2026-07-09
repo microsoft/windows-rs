@@ -68,7 +68,7 @@ where
     windows_core::link!("dhcpsapi.dll" "C" fn DhcpAuditLogSetParams(serveripaddress : windows_core::PCWSTR, flags : u32, auditlogdir : windows_core::PCWSTR, diskcheckinterval : u32, maxlogfilessize : u32, minspaceondisk : u32) -> u32);
     unsafe { DhcpAuditLogSetParams(serveripaddress.param().abi(), flags, auditlogdir.param().abi(), diskcheckinterval, maxlogfilessize, minspaceondisk) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpCreateClass<P0>(serveripaddress: P0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32
 where
@@ -77,7 +77,7 @@ where
     windows_core::link!("dhcpsapi.dll" "C" fn DhcpCreateClass(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, classinfo : *mut DHCP_CLASS_INFO) -> u32);
     unsafe { DhcpCreateClass(serveripaddress.param().abi(), reservedmustbezero, classinfo as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpCreateClassV6<P0>(serveripaddress: P0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32
 where
@@ -244,7 +244,7 @@ pub unsafe fn DhcpDsInit() -> u32 {
     windows_core::link!("dhcpsapi.dll" "C" fn DhcpDsInit() -> u32);
     unsafe { DhcpDsInit() }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpEnumClasses<P0>(serveripaddress: P0, reservedmustbezero: u32, resumehandle: *mut DHCP_RESUME_HANDLE, preferredmaximum: u32, classinfoarray: *mut LPDHCP_CLASS_INFO_ARRAY, nread: *mut u32, ntotal: *mut u32) -> u32
 where
@@ -253,7 +253,7 @@ where
     windows_core::link!("dhcpsapi.dll" "C" fn DhcpEnumClasses(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : u32, classinfoarray : *mut LPDHCP_CLASS_INFO_ARRAY, nread : *mut u32, ntotal : *mut u32) -> u32);
     unsafe { DhcpEnumClasses(serveripaddress.param().abi(), reservedmustbezero, resumehandle as _, preferredmaximum, classinfoarray as _, nread as _, ntotal as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpEnumClassesV6<P0>(serveripaddress: P0, reservedmustbezero: u32, resumehandle: *mut DHCP_RESUME_HANDLE, preferredmaximum: u32, classinfoarray: *mut LPDHCP_CLASS_INFO_ARRAY_V6, nread: *mut u32, ntotal: *mut u32) -> u32
 where
@@ -459,7 +459,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetAllOptionsV6(serveripaddress : windows_core::PCWSTR, flags : u32, optionstruct : *mut LPDHCP_ALL_OPTIONS) -> u32);
     unsafe { DhcpGetAllOptionsV6(serveripaddress.param().abi(), flags, optionstruct as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpGetClassInfo<P0>(serveripaddress: P0, reservedmustbezero: u32, partialclassinfo: *mut DHCP_CLASS_INFO, filledclassinfo: *mut LPDHCP_CLASS_INFO) -> u32
 where
@@ -596,7 +596,7 @@ where
     windows_core::link!("dhcpsapi.dll" "C" fn DhcpGetOptionValueV6(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : DHCP_OPTION_ID, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6, optionvalue : *mut LPDHCP_OPTION_VALUE) -> u32);
     unsafe { DhcpGetOptionValueV6(serveripaddress.param().abi(), flags, optionid, classname.param().abi(), vendorname.param().abi(), scopeinfo as _, optionvalue as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpGetServerBindingInfo<P0>(serveripaddress: P0, flags: u32, bindelementsinfo: *mut LPDHCP_BIND_ELEMENT_ARRAY) -> u32
 where
@@ -605,7 +605,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetServerBindingInfo(serveripaddress : windows_core::PCWSTR, flags : u32, bindelementsinfo : *mut LPDHCP_BIND_ELEMENT_ARRAY) -> u32);
     unsafe { DhcpGetServerBindingInfo(serveripaddress.param().abi(), flags, bindelementsinfo as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpGetServerBindingInfoV6<P0>(serveripaddress: P0, flags: u32, bindelementsinfo: *mut LPDHCPV6_BIND_ELEMENT_ARRAY) -> u32
 where
@@ -675,7 +675,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetVersion(serveripaddress : windows_core::PCWSTR, majorversion : *mut u32, minorversion : *mut u32) -> u32);
     unsafe { DhcpGetVersion(serveripaddress.param().abi(), majorversion as _, minorversion as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprAddV4PolicyCondition<P5>(policy: *mut DHCP_POLICY, parentexpr: u32, r#type: DHCP_POL_ATTR_TYPE, optionid: u32, suboptionid: u32, vendorname: P5, operator: DHCP_POL_COMPARATOR, value: &[u8], conditionindex: *mut u32) -> u32
 where
@@ -684,19 +684,19 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprAddV4PolicyCondition(policy : *mut DHCP_POLICY, parentexpr : u32, r#type : DHCP_POL_ATTR_TYPE, optionid : u32, suboptionid : u32, vendorname : windows_core::PCWSTR, operator : DHCP_POL_COMPARATOR, value : *const u8, valuelength : u32, conditionindex : *mut u32) -> u32);
     unsafe { DhcpHlprAddV4PolicyCondition(policy as _, parentexpr, r#type, optionid, suboptionid, vendorname.param().abi(), operator, core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap(), conditionindex as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprAddV4PolicyExpr(policy: *mut DHCP_POLICY, parentexpr: u32, operator: DHCP_POL_LOGIC_OPER, exprindex: *mut u32) -> u32 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprAddV4PolicyExpr(policy : *mut DHCP_POLICY, parentexpr : u32, operator : DHCP_POL_LOGIC_OPER, exprindex : *mut u32) -> u32);
     unsafe { DhcpHlprAddV4PolicyExpr(policy as _, parentexpr, operator, exprindex as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprAddV4PolicyRange(policy: *mut DHCP_POLICY, range: *const DHCP_IP_RANGE) -> u32 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprAddV4PolicyRange(policy : *mut DHCP_POLICY, range : *const DHCP_IP_RANGE) -> u32);
     unsafe { DhcpHlprAddV4PolicyRange(policy as _, range) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprCreateV4Policy<P0, P5>(policyname: P0, fglobalpolicy: bool, subnet: DHCP_IP_ADDRESS, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: P5, enabled: bool, policy: *mut LPDHCP_POLICY) -> u32
 where
@@ -706,7 +706,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4Policy(policyname : windows_core::PCWSTR, fglobalpolicy : windows_core::BOOL, subnet : DHCP_IP_ADDRESS, processingorder : u32, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_core::PCWSTR, enabled : windows_core::BOOL, policy : *mut LPDHCP_POLICY) -> u32);
     unsafe { DhcpHlprCreateV4Policy(policyname.param().abi(), fglobalpolicy.into(), subnet, processingorder, rootoperator, description.param().abi(), enabled.into(), policy as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprCreateV4PolicyEx<P0, P5>(policyname: P0, fglobalpolicy: bool, subnet: DHCP_IP_ADDRESS, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: P5, enabled: bool, policy: *mut LPDHCP_POLICY_EX) -> u32
 where
@@ -731,61 +731,61 @@ pub unsafe fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray : *mut DHCP_PROPERTY_ARRAY));
     unsafe { DhcpHlprFreeV4DhcpPropertyArray(propertyarray as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY) {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4Policy(policy : *mut DHCP_POLICY));
     unsafe { DhcpHlprFreeV4Policy(policy as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY) {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyArray(policyarray : *mut DHCP_POLICY_ARRAY));
     unsafe { DhcpHlprFreeV4PolicyArray(policyarray as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX) {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyEx(policyex : *mut DHCP_POLICY_EX));
     unsafe { DhcpHlprFreeV4PolicyEx(policyex as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARRAY) {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprFreeV4PolicyExArray(policyexarray : *mut DHCP_POLICY_EX_ARRAY));
     unsafe { DhcpHlprFreeV4PolicyExArray(policyexarray as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprIsV4PolicySingleUC(policy: *const DHCP_POLICY) -> windows_core::BOOL {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprIsV4PolicySingleUC(policy : *const DHCP_POLICY) -> windows_core::BOOL);
     unsafe { DhcpHlprIsV4PolicySingleUC(policy) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprIsV4PolicyValid(ppolicy : *const DHCP_POLICY) -> u32);
     unsafe { DhcpHlprIsV4PolicyValid(ppolicy) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprIsV4PolicyWellFormed(ppolicy: *const DHCP_POLICY) -> windows_core::BOOL {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprIsV4PolicyWellFormed(ppolicy : *const DHCP_POLICY) -> windows_core::BOOL);
     unsafe { DhcpHlprIsV4PolicyWellFormed(ppolicy) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprModifyV4PolicyExpr(policy: *mut DHCP_POLICY, operator: DHCP_POL_LOGIC_OPER) -> u32 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprModifyV4PolicyExpr(policy : *mut DHCP_POLICY, operator : DHCP_POL_LOGIC_OPER) -> u32);
     unsafe { DhcpHlprModifyV4PolicyExpr(policy as _, operator) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpHlprResetV4PolicyExpr(policy: *mut DHCP_POLICY) -> u32 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprResetV4PolicyExpr(policy : *mut DHCP_POLICY) -> u32);
     unsafe { DhcpHlprResetV4PolicyExpr(policy as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpModifyClass<P0>(serveripaddress: P0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32
 where
@@ -794,7 +794,7 @@ where
     windows_core::link!("dhcpsapi.dll" "C" fn DhcpModifyClass(serveripaddress : windows_core::PCWSTR, reservedmustbezero : u32, classinfo : *mut DHCP_CLASS_INFO) -> u32);
     unsafe { DhcpModifyClass(serveripaddress.param().abi(), reservedmustbezero, classinfo as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpModifyClassV6<P0>(serveripaddress: P0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32
 where
@@ -1159,7 +1159,7 @@ where
     windows_core::link!("dhcpsapi.dll" "C" fn DhcpSetOptionValuesV5(serveripaddress : windows_core::PCWSTR, flags : u32, classname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, optionvalues : *mut DHCP_OPTION_VALUE_ARRAY) -> u32);
     unsafe { DhcpSetOptionValuesV5(serveripaddress.param().abi(), flags, classname.param().abi(), vendorname.param().abi(), scopeinfo as _, optionvalues as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpSetServerBindingInfo<P0>(serveripaddress: P0, flags: u32, bindelementinfo: *mut DHCP_BIND_ELEMENT_ARRAY) -> u32
 where
@@ -1168,7 +1168,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpSetServerBindingInfo(serveripaddress : windows_core::PCWSTR, flags : u32, bindelementinfo : *mut DHCP_BIND_ELEMENT_ARRAY) -> u32);
     unsafe { DhcpSetServerBindingInfo(serveripaddress.param().abi(), flags, bindelementinfo as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpSetServerBindingInfoV6<P0>(serveripaddress: P0, flags: u32, bindelementinfo: *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32
 where
@@ -1248,7 +1248,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpV4CreateClientInfoEx(serveripaddress : windows_core::PCWSTR, clientinfo : *const DHCP_CLIENT_INFO_EX) -> u32);
     unsafe { DhcpV4CreateClientInfoEx(serveripaddress.param().abi(), clientinfo) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpV4CreatePolicy<P0>(serveripaddress: P0, ppolicy: *const DHCP_POLICY) -> u32
 where
@@ -1257,7 +1257,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpV4CreatePolicy(serveripaddress : windows_core::PCWSTR, ppolicy : *const DHCP_POLICY) -> u32);
     unsafe { DhcpV4CreatePolicy(serveripaddress.param().abi(), ppolicy) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpV4CreatePolicyEx<P0>(serveripaddress: P0, policyex: *const DHCP_POLICY_EX) -> u32
 where
@@ -1275,7 +1275,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpV4DeletePolicy(serveripaddress : windows_core::PCWSTR, fglobalpolicy : windows_core::BOOL, subnetaddress : DHCP_IP_ADDRESS, policyname : windows_core::PCWSTR) -> u32);
     unsafe { DhcpV4DeletePolicy(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, policyname.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpV4EnumPolicies<P0>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, fglobalpolicy: bool, subnetaddress: DHCP_IP_ADDRESS, enuminfo: *mut LPDHCP_POLICY_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
 where
@@ -1284,7 +1284,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpV4EnumPolicies(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, fglobalpolicy : windows_core::BOOL, subnetaddress : DHCP_IP_ADDRESS, enuminfo : *mut LPDHCP_POLICY_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
     unsafe { DhcpV4EnumPolicies(serveripaddress.param().abi(), resumehandle as _, preferredmaximum, fglobalpolicy.into(), subnetaddress, enuminfo as _, elementsread as _, elementstotal as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpV4EnumPoliciesEx<P0>(serveripaddress: P0, resumehandle: *mut u32, preferredmaximum: u32, globalpolicy: bool, subnetaddress: DHCP_IP_ADDRESS, enuminfo: *mut LPDHCP_POLICY_EX_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
 where
@@ -1466,7 +1466,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpV4GetOptionValue(serveripaddress : windows_core::PCWSTR, flags : u32, optionid : DHCP_OPTION_ID, policyname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, optionvalue : *mut LPDHCP_OPTION_VALUE) -> u32);
     unsafe { DhcpV4GetOptionValue(serveripaddress.param().abi(), flags, optionid, policyname.param().abi(), vendorname.param().abi(), scopeinfo as _, optionvalue as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpV4GetPolicy<P0, P3>(serveripaddress: P0, fglobalpolicy: bool, subnetaddress: DHCP_IP_ADDRESS, policyname: P3, policy: *mut LPDHCP_POLICY) -> u32
 where
@@ -1476,7 +1476,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpV4GetPolicy(serveripaddress : windows_core::PCWSTR, fglobalpolicy : windows_core::BOOL, subnetaddress : DHCP_IP_ADDRESS, policyname : windows_core::PCWSTR, policy : *mut LPDHCP_POLICY) -> u32);
     unsafe { DhcpV4GetPolicy(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, policyname.param().abi(), policy as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpV4GetPolicyEx<P0, P3>(serveripaddress: P0, globalpolicy: bool, subnetaddress: DHCP_IP_ADDRESS, policyname: P3, policy: *mut LPDHCP_POLICY_EX) -> u32
 where
@@ -1533,7 +1533,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpV4SetOptionValues(serveripaddress : windows_core::PCWSTR, flags : u32, policyname : windows_core::PCWSTR, vendorname : windows_core::PCWSTR, scopeinfo : *mut DHCP_OPTION_SCOPE_INFO, optionvalues : *mut DHCP_OPTION_VALUE_ARRAY) -> u32);
     unsafe { DhcpV4SetOptionValues(serveripaddress.param().abi(), flags, policyname.param().abi(), vendorname.param().abi(), scopeinfo as _, optionvalues as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpV4SetPolicy<P0, P4>(serveripaddress: P0, fieldsmodified: u32, fglobalpolicy: bool, subnetaddress: DHCP_IP_ADDRESS, policyname: P4, policy: *const DHCP_POLICY) -> u32
 where
@@ -1551,7 +1551,7 @@ where
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicyEnforcement(serveripaddress : windows_core::PCWSTR, fglobalpolicy : windows_core::BOOL, subnetaddress : DHCP_IP_ADDRESS, enable : windows_core::BOOL) -> u32);
     unsafe { DhcpV4SetPolicyEnforcement(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, enable.into()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DhcpV4SetPolicyEx<P0, P4>(serveripaddress: P0, fieldsmodified: u32, globalpolicy: bool, subnetaddress: DHCP_IP_ADDRESS, policyname: P4, policy: *const DHCP_POLICY_EX) -> u32
 where
@@ -1701,7 +1701,7 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
     pub AddressStateEx: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCPV6_BIND_ELEMENT {
     pub Flags: u32,
@@ -1714,7 +1714,7 @@ pub struct DHCPV6_BIND_ELEMENT {
     pub IfId: super::minwindef::LPBYTE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCPV6_BIND_ELEMENT_ARRAY {
     pub NumElements: u32,
@@ -1872,7 +1872,7 @@ impl Default for DHCP_BINARY_DATA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_BIND_ELEMENT {
     pub Flags: u32,
@@ -1884,7 +1884,7 @@ pub struct DHCP_BIND_ELEMENT {
     pub IfId: super::minwindef::LPBYTE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_BIND_ELEMENT_ARRAY {
     pub NumElements: u32,
@@ -1899,7 +1899,7 @@ pub struct DHCP_BOOTP_IP_RANGE {
     pub MaxBootpAllowed: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_CLASS_INFO {
     pub ClassName: windows_core::PWSTR,
@@ -1910,21 +1910,21 @@ pub struct DHCP_CLASS_INFO {
     pub ClassData: super::minwindef::LPBYTE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_CLASS_INFO_ARRAY {
     pub NumElements: u32,
     pub Classes: LPDHCP_CLASS_INFO,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_CLASS_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Classes: LPDHCP_CLASS_INFO_V6,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_CLASS_INFO_V6 {
     pub ClassName: windows_core::PWSTR,
@@ -2549,7 +2549,7 @@ pub struct DHCP_PERF_STATS {
     pub dwNumPacketsInQuarDecisionQueue: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_POLICY {
     pub PolicyName: windows_core::PWSTR,
@@ -2563,14 +2563,14 @@ pub struct DHCP_POLICY {
     pub Enabled: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_POLICY_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCP_POLICY,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_POLICY_EX {
     pub PolicyName: windows_core::PWSTR,
@@ -2585,7 +2585,7 @@ pub struct DHCP_POLICY_EX {
     pub Properties: LPDHCP_PROPERTY_ARRAY,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_POLICY_EX_ARRAY {
     pub NumElements: u32,
@@ -2595,7 +2595,7 @@ pub type DHCP_POLICY_FIELDS_TO_UPDATE = i32;
 pub type DHCP_POL_ATTR_TYPE = i32;
 pub type DHCP_POL_COMPARATOR = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_POL_COND {
     pub ParentExpr: u32,
@@ -2608,7 +2608,7 @@ pub struct DHCP_POL_COND {
     pub ValueLength: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DHCP_POL_COND_ARRAY {
     pub NumElements: u32,
@@ -3316,33 +3316,33 @@ impl Default for LPDHCPV4_FAILOVER_CLIENT_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCPV6_BIND_ELEMENT(pub *mut DHCPV6_BIND_ELEMENT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCPV6_BIND_ELEMENT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCPV6_BIND_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCPV6_BIND_ELEMENT_ARRAY(pub *mut DHCPV6_BIND_ELEMENT_ARRAY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCPV6_BIND_ELEMENT_ARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCPV6_BIND_ELEMENT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3504,33 +3504,33 @@ impl Default for LPDHCP_BINARY_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_BIND_ELEMENT(pub *mut DHCP_BIND_ELEMENT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_BIND_ELEMENT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_BIND_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_BIND_ELEMENT_ARRAY(pub *mut DHCP_BIND_ELEMENT_ARRAY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_BIND_ELEMENT_ARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_BIND_ELEMENT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3549,65 +3549,65 @@ impl Default for LPDHCP_BOOT_IP_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_CLASS_INFO(pub *mut DHCP_CLASS_INFO);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_CLASS_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_CLASS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_CLASS_INFO_ARRAY(pub *mut DHCP_CLASS_INFO_ARRAY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_CLASS_INFO_ARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_CLASS_INFO_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_CLASS_INFO_ARRAY_V6(pub *mut DHCP_CLASS_INFO_ARRAY_V6);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_CLASS_INFO_ARRAY_V6 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_CLASS_INFO_ARRAY_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_CLASS_INFO_V6(pub *mut DHCP_CLASS_INFO_V6);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_CLASS_INFO_V6 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_CLASS_INFO_V6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4406,97 +4406,97 @@ impl Default for LPDHCP_PERF_STATS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_POLICY(pub *mut DHCP_POLICY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_POLICY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_POLICY_ARRAY(pub *mut DHCP_POLICY_ARRAY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_POLICY_ARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_POLICY_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_POLICY_EX(pub *mut DHCP_POLICY_EX);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_POLICY_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_POLICY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_POLICY_EX_ARRAY(pub *mut DHCP_POLICY_EX_ARRAY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_POLICY_EX_ARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_POLICY_EX_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_POL_COND(pub *mut DHCP_POL_COND);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_POL_COND {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_POL_COND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDHCP_POL_COND_ARRAY(pub *mut DHCP_POL_COND_ARRAY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDHCP_POL_COND_ARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDHCP_POL_COND_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5234,97 +5234,97 @@ impl Default for PDHCP_IP_RANGE_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDHCP_POLICY(pub *mut DHCP_POLICY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDHCP_POLICY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDHCP_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDHCP_POLICY_ARRAY(pub *mut DHCP_POLICY_ARRAY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDHCP_POLICY_ARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDHCP_POLICY_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDHCP_POLICY_EX(pub *mut DHCP_POLICY_EX);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDHCP_POLICY_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDHCP_POLICY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDHCP_POLICY_EX_ARRAY(pub *mut DHCP_POLICY_EX_ARRAY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDHCP_POLICY_EX_ARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDHCP_POLICY_EX_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDHCP_POL_COND(pub *mut DHCP_POL_COND);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDHCP_POL_COND {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDHCP_POL_COND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDHCP_POL_COND_ARRAY(pub *mut DHCP_POL_COND_ARRAY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDHCP_POL_COND_ARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDHCP_POL_COND_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

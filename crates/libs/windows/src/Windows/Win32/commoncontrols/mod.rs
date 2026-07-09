@@ -9,14 +9,14 @@ where
 windows_core::imp::define_interface!(IImageList, IImageList_Vtbl, 0x46eb5926_582e_4017_9fdf_e8998daa0950);
 windows_core::imp::interface_hierarchy!(IImageList, windows_core::IUnknown);
 impl IImageList {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Add(&self, hbmimage: super::windef::HBITMAP, hbmmask: Option<super::windef::HBITMAP>) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), hbmimage, hbmmask.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ReplaceIcon(&self, i: i32, hicon: super::windef::HICON) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -26,32 +26,32 @@ impl IImageList {
     pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetOverlayImage)(windows_core::Interface::as_raw(self), iimage, ioverlay) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Replace(&self, i: i32, hbmimage: super::windef::HBITMAP, hbmmask: Option<super::windef::HBITMAP>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), i, hbmimage, hbmmask.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AddMasked(&self, hbmimage: super::windef::HBITMAP, crmask: super::windef::COLORREF) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddMasked)(windows_core::Interface::as_raw(self), hbmimage, crmask, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "commctrl", feature = "windef"))]
     pub unsafe fn Draw(&self, pimldp: *const super::commctrl::IMAGELISTDRAWPARAMS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pimldp) }
     }
     pub unsafe fn Remove(&self, i: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), i) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> windows_core::Result<super::windef::HICON> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIcon)(windows_core::Interface::as_raw(self), i, flags, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "commctrl", feature = "windef"))]
     pub unsafe fn GetImageInfo(&self, i: i32, pimageinfo: *mut super::commctrl::IMAGEINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetImageInfo)(windows_core::Interface::as_raw(self), i, pimageinfo as _) }
     }
@@ -76,7 +76,7 @@ impl IImageList {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetImageRect(&self, i: i32) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -98,14 +98,14 @@ impl IImageList {
     pub unsafe fn SetImageCount(&self, unewcount: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetImageCount)(windows_core::Interface::as_raw(self), unewcount) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetBkColor(&self, clrbk: super::windef::COLORREF) -> windows_core::Result<super::windef::COLORREF> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetBkColor)(windows_core::Interface::as_raw(self), clrbk, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetBkColor(&self) -> windows_core::Result<super::windef::COLORREF> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -118,11 +118,11 @@ impl IImageList {
     pub unsafe fn EndDrag(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndDrag)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn DragEnter(&self, hwndlock: Option<super::windef::HWND>, x: i32, y: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DragEnter)(windows_core::Interface::as_raw(self), hwndlock.unwrap_or(core::mem::zeroed()) as _, x, y) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn DragLeave(&self, hwndlock: Option<super::windef::HWND>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DragLeave)(windows_core::Interface::as_raw(self), hwndlock.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -138,7 +138,7 @@ impl IImageList {
     pub unsafe fn DragShowNolock(&self, fshow: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DragShowNolock)(windows_core::Interface::as_raw(self), fshow.into()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetDragImage<T>(&self, ppt: Option<*mut super::windef::POINT>, ppthotspot: Option<*mut super::windef::POINT>) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -163,76 +163,76 @@ impl IImageList {
 #[doc(hidden)]
 pub struct IImageList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HBITMAP, super::windef::HBITMAP, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Add: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ReplaceIcon: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::windef::HICON, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ReplaceIcon: usize,
     pub SetOverlayImage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Replace: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::windef::HBITMAP, super::windef::HBITMAP) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Replace: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AddMasked: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HBITMAP, super::windef::COLORREF, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AddMasked: usize,
-    #[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "commctrl", feature = "windef"))]
     pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::commctrl::IMAGELISTDRAWPARAMS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_commctrl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "commctrl", feature = "windef")))]
     Draw: usize,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut super::windef::HICON) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetIcon: usize,
-    #[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "commctrl", feature = "windef"))]
     pub GetImageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::commctrl::IMAGEINFO) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_commctrl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "commctrl", feature = "windef")))]
     GetImageInfo: usize,
     pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, u32) -> windows_core::HRESULT,
     pub Merge: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, i32, i32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetImageRect: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetImageRect: usize,
     pub GetIconSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub SetIconSize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub GetImageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetImageCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetBkColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::COLORREF, *mut super::windef::COLORREF) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetBkColor: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetBkColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::COLORREF) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetBkColor: usize,
     pub BeginDrag: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
     pub EndDrag: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub DragEnter: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, i32, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     DragEnter: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub DragLeave: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     DragLeave: usize,
     pub DragMove: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetDragCursorImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
     pub DragShowNolock: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetDragImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::POINT, *mut super::windef::POINT, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetDragImage: usize,
     pub GetItemFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut u32) -> windows_core::HRESULT,
     pub GetOverlayImage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+#[cfg(all(feature = "commctrl", feature = "windef"))]
 pub trait IImageList_Impl: windows_core::IUnknownImpl {
     fn Add(&self, hbmimage: super::windef::HBITMAP, hbmmask: super::windef::HBITMAP) -> windows_core::Result<i32>;
     fn ReplaceIcon(&self, i: i32, hicon: super::windef::HICON) -> windows_core::Result<i32>;
@@ -264,7 +264,7 @@ pub trait IImageList_Impl: windows_core::IUnknownImpl {
     fn GetItemFlags(&self, i: i32) -> windows_core::Result<u32>;
     fn GetOverlayImage(&self, ioverlay: i32) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+#[cfg(all(feature = "commctrl", feature = "windef"))]
 impl IImageList_Vtbl {
     pub const fn new<Identity: IImageList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Add<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hbmimage: super::windef::HBITMAP, hbmmask: super::windef::HBITMAP, pi: *mut i32) -> windows_core::HRESULT {
@@ -538,7 +538,7 @@ impl IImageList_Vtbl {
         iid == &<IImageList as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+#[cfg(all(feature = "commctrl", feature = "windef"))]
 impl windows_core::RuntimeName for IImageList {}
 windows_core::imp::define_interface!(IImageList2, IImageList2_Vtbl, 0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
 impl core::ops::Deref for IImageList2 {
@@ -577,7 +577,7 @@ impl IImageList2 {
     pub unsafe fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DiscardImages)(windows_core::Interface::as_raw(self), ifirstimage, ilastimage, dwflags) }
     }
-    #[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "commctrl", feature = "windef"))]
     pub unsafe fn PreloadImages(&self, pimldp: *const super::commctrl::IMAGELISTDRAWPARAMS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PreloadImages)(windows_core::Interface::as_raw(self), pimldp) }
     }
@@ -587,7 +587,7 @@ impl IImageList2 {
     pub unsafe fn Initialize(&self, cx: i32, cy: i32, flags: u32, cinitial: i32, cgrow: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), cx, cy, flags, cinitial, cgrow) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Replace2<P3>(&self, i: i32, hbmimage: super::windef::HBITMAP, hbmmask: Option<super::windef::HBITMAP>, punk: P3, dwflags: u32) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
@@ -613,19 +613,19 @@ pub struct IImageList2_Vtbl {
     pub GetCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ForceImagePresent: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32) -> windows_core::HRESULT,
     pub DiscardImages: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "commctrl", feature = "windef"))]
     pub PreloadImages: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::commctrl::IMAGELISTDRAWPARAMS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_commctrl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "commctrl", feature = "windef")))]
     PreloadImages: usize,
     pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMAGELISTSTATS) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, i32, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Replace2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::windef::HBITMAP, super::windef::HBITMAP, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Replace2: usize,
     pub ReplaceFromImageList: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+#[cfg(all(feature = "commctrl", feature = "windef"))]
 pub trait IImageList2_Impl: IImageList_Impl {
     fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> windows_core::Result<()>;
     fn GetOriginalSize(&self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> windows_core::Result<()>;
@@ -640,7 +640,7 @@ pub trait IImageList2_Impl: IImageList_Impl {
     fn Replace2(&self, i: i32, hbmimage: super::windef::HBITMAP, hbmmask: super::windef::HBITMAP, punk: windows_core::Ref<windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<()>;
     fn ReplaceFromImageList(&self, i: i32, pil: windows_core::Ref<IImageList>, isrc: i32, punk: windows_core::Ref<windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+#[cfg(all(feature = "commctrl", feature = "windef"))]
 impl IImageList2_Vtbl {
     pub const fn new<Identity: IImageList2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Resize<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cxnewiconsize: i32, cynewiconsize: i32) -> windows_core::HRESULT {
@@ -735,7 +735,7 @@ impl IImageList2_Vtbl {
         iid == &<IImageList2 as windows_core::Interface>::IID || iid == &<IImageList as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+#[cfg(all(feature = "commctrl", feature = "windef"))]
 impl windows_core::RuntimeName for IImageList2 {}
 pub const ILDI_PURGE: u32 = 1;
 pub const ILDI_QUERYACCESS: u32 = 8;

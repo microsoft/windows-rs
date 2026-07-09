@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn K32EmptyWorkingSet(hprocess: super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "C" fn K32EmptyWorkingSet(hprocess : super::winnt::HANDLE) -> windows_core::BOOL);
@@ -19,13 +19,13 @@ pub unsafe fn K32EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pco
     windows_core::link!("kernel32.dll" "C" fn K32EnumPageFilesW(pcallbackroutine : PENUM_PAGE_FILE_CALLBACKW, pcontext : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { K32EnumPageFilesW(pcallbackroutine, pcontext as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn K32EnumProcessModules(hprocess: super::winnt::HANDLE, lphmodule: *mut super::minwindef::HMODULE, cb: u32, lpcbneeded: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "C" fn K32EnumProcessModules(hprocess : super::winnt::HANDLE, lphmodule : *mut super::minwindef::HMODULE, cb : u32, lpcbneeded : *mut u32) -> windows_core::BOOL);
     unsafe { K32EnumProcessModules(hprocess, lphmodule as _, cb, lpcbneeded as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn K32EnumProcessModulesEx(hprocess: super::winnt::HANDLE, lphmodule: *mut super::minwindef::HMODULE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "C" fn K32EnumProcessModulesEx(hprocess : super::winnt::HANDLE, lphmodule : *mut super::minwindef::HMODULE, cb : u32, lpcbneeded : *mut u32, dwfilterflag : u32) -> windows_core::BOOL);
@@ -56,31 +56,31 @@ pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const core::ffi::c_void, l
     windows_core::link!("kernel32.dll" "C" fn K32GetDeviceDriverFileNameW(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
     unsafe { K32GetDeviceDriverFileNameW(imagebase, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn K32GetMappedFileNameA(hprocess: super::winnt::HANDLE, lpv: *const core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "C" fn K32GetMappedFileNameA(hprocess : super::winnt::HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
     unsafe { K32GetMappedFileNameA(hprocess, lpv, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn K32GetMappedFileNameW(hprocess: super::winnt::HANDLE, lpv: *const core::ffi::c_void, lpfilename: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "C" fn K32GetMappedFileNameW(hprocess : super::winnt::HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
     unsafe { K32GetMappedFileNameW(hprocess, lpv, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn K32GetModuleBaseNameA(hprocess: super::winnt::HANDLE, hmodule: Option<super::minwindef::HMODULE>, lpbasename: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "C" fn K32GetModuleBaseNameA(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpbasename : windows_core::PSTR, nsize : u32) -> u32);
     unsafe { K32GetModuleBaseNameA(hprocess, hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap()) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn K32GetModuleBaseNameW(hprocess: super::winnt::HANDLE, hmodule: Option<super::minwindef::HMODULE>, lpbasename: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "C" fn K32GetModuleBaseNameW(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpbasename : windows_core::PWSTR, nsize : u32) -> u32);
     unsafe { K32GetModuleBaseNameW(hprocess, hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap()) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn K32GetModuleFileNameExA<P2>(hprocess: Option<super::winnt::HANDLE>, hmodule: Option<super::minwindef::HMODULE>, lpfilename: P2, nsize: u32) -> u32
 where
@@ -89,7 +89,7 @@ where
     windows_core::link!("kernel32.dll" "C" fn K32GetModuleFileNameExA(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpfilename : windows_core::PCSTR, nsize : u32) -> u32);
     unsafe { K32GetModuleFileNameExA(hprocess.unwrap_or(core::mem::zeroed()) as _, hmodule.unwrap_or(core::mem::zeroed()) as _, lpfilename.param().abi(), nsize) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn K32GetModuleFileNameExW<P2>(hprocess: Option<super::winnt::HANDLE>, hmodule: Option<super::minwindef::HMODULE>, lpfilename: P2, nsize: u32) -> u32
 where
@@ -98,7 +98,7 @@ where
     windows_core::link!("kernel32.dll" "C" fn K32GetModuleFileNameExW(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpfilename : windows_core::PCWSTR, nsize : u32) -> u32);
     unsafe { K32GetModuleFileNameExW(hprocess.unwrap_or(core::mem::zeroed()) as _, hmodule.unwrap_or(core::mem::zeroed()) as _, lpfilename.param().abi(), nsize) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn K32GetModuleInformation(hprocess: super::winnt::HANDLE, hmodule: super::minwindef::HMODULE, lpmodinfo: *mut MODULEINFO, cb: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "C" fn K32GetModuleInformation(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpmodinfo : *mut MODULEINFO, cb : u32) -> windows_core::BOOL);
@@ -109,49 +109,49 @@ pub unsafe fn K32GetPerformanceInfo(pperformanceinformation: *mut PERFORMANCE_IN
     windows_core::link!("kernel32.dll" "C" fn K32GetPerformanceInfo(pperformanceinformation : *mut PERFORMANCE_INFORMATION, cb : u32) -> windows_core::BOOL);
     unsafe { K32GetPerformanceInfo(pperformanceinformation as _, cb) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn K32GetProcessImageFileNameA(hprocess: super::winnt::HANDLE, lpimagefilename: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "C" fn K32GetProcessImageFileNameA(hprocess : super::winnt::HANDLE, lpimagefilename : windows_core::PSTR, nsize : u32) -> u32);
     unsafe { K32GetProcessImageFileNameA(hprocess, core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn K32GetProcessImageFileNameW(hprocess: super::winnt::HANDLE, lpimagefilename: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "C" fn K32GetProcessImageFileNameW(hprocess : super::winnt::HANDLE, lpimagefilename : windows_core::PWSTR, nsize : u32) -> u32);
     unsafe { K32GetProcessImageFileNameW(hprocess, core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn K32GetProcessMemoryInfo(process: super::winnt::HANDLE, ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS, cb: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "C" fn K32GetProcessMemoryInfo(process : super::winnt::HANDLE, ppsmemcounters : *mut PROCESS_MEMORY_COUNTERS, cb : u32) -> windows_core::BOOL);
     unsafe { K32GetProcessMemoryInfo(process, ppsmemcounters as _, cb) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn K32GetWsChanges(hprocess: super::winnt::HANDLE, lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "C" fn K32GetWsChanges(hprocess : super::winnt::HANDLE, lpwatchinfo : *mut PSAPI_WS_WATCH_INFORMATION, cb : u32) -> windows_core::BOOL);
     unsafe { K32GetWsChanges(hprocess, lpwatchinfo as _, cb) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn K32GetWsChangesEx(hprocess: super::winnt::HANDLE, lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX, cb: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "C" fn K32GetWsChangesEx(hprocess : super::winnt::HANDLE, lpwatchinfoex : *mut PSAPI_WS_WATCH_INFORMATION_EX, cb : *mut u32) -> windows_core::BOOL);
     unsafe { K32GetWsChangesEx(hprocess, lpwatchinfoex as _, cb as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn K32InitializeProcessForWsWatch(hprocess: super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "C" fn K32InitializeProcessForWsWatch(hprocess : super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { K32InitializeProcessForWsWatch(hprocess) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn K32QueryWorkingSet(hprocess: super::winnt::HANDLE, pv: *mut core::ffi::c_void, cb: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "C" fn K32QueryWorkingSet(hprocess : super::winnt::HANDLE, pv : *mut core::ffi::c_void, cb : u32) -> windows_core::BOOL);
     unsafe { K32QueryWorkingSet(hprocess, pv as _, cb) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn K32QueryWorkingSetEx(hprocess: super::winnt::HANDLE, pv: *mut core::ffi::c_void, cb: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "C" fn K32QueryWorkingSetEx(hprocess : super::winnt::HANDLE, pv : *mut core::ffi::c_void, cb : u32) -> windows_core::BOOL);

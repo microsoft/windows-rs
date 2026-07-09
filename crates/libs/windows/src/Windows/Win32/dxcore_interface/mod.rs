@@ -496,7 +496,7 @@ impl IDXCoreAdapterFactory {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateAdapterList)(windows_core::Interface::as_raw(self), filterattributes.len().try_into().unwrap(), core::mem::transmute(filterattributes.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetAdapterByLuid<T>(&self, adapterluid: *const super::winnt::LUID) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -525,15 +525,15 @@ impl IDXCoreAdapterFactory {
 pub struct IDXCoreAdapterFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateAdapterList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetAdapterByLuid: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::winnt::LUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetAdapterByLuid: usize,
     pub IsNotificationTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreNotificationType) -> bool,
     pub RegisterEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DXCoreNotificationType, PFN_DXCORE_NOTIFICATION_CALLBACK, *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub UnregisterEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDXCoreAdapterFactory_Impl: windows_core::IUnknownImpl {
     fn CreateAdapterList(&self, numattributes: u32, filterattributes: *const windows_core::GUID, riid: *const windows_core::GUID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetAdapterByLuid(&self, adapterluid: *const super::winnt::LUID, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -541,7 +541,7 @@ pub trait IDXCoreAdapterFactory_Impl: windows_core::IUnknownImpl {
     fn RegisterEventNotification(&self, dxcoreobject: windows_core::Ref<windows_core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::Result<u32>;
     fn UnregisterEventNotification(&self, eventcookie: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDXCoreAdapterFactory_Vtbl {
     pub const fn new<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateAdapterList<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numattributes: u32, filterattributes: *const windows_core::GUID, riid: *const windows_core::GUID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -593,7 +593,7 @@ impl IDXCoreAdapterFactory_Vtbl {
         iid == &<IDXCoreAdapterFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDXCoreAdapterFactory {}
 windows_core::imp::define_interface!(IDXCoreAdapterFactory1, IDXCoreAdapterFactory1_Vtbl, 0xd5682e19_6d21_401c_827a_9a51a4ea35d7);
 impl core::ops::Deref for IDXCoreAdapterFactory1 {
@@ -618,11 +618,11 @@ pub struct IDXCoreAdapterFactory1_Vtbl {
     pub base__: IDXCoreAdapterFactory_Vtbl,
     pub CreateAdapterListByWorkload: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreWorkload, DXCoreRuntimeFilterFlags, DXCoreHardwareTypeFilterFlags, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDXCoreAdapterFactory1_Impl: IDXCoreAdapterFactory_Impl {
     fn CreateAdapterListByWorkload(&self, workload: DXCoreWorkload, runtimefilter: DXCoreRuntimeFilterFlags, hardwaretypefilter: DXCoreHardwareTypeFilterFlags, riid: *const windows_core::GUID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDXCoreAdapterFactory1_Vtbl {
     pub const fn new<Identity: IDXCoreAdapterFactory1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateAdapterListByWorkload<Identity: IDXCoreAdapterFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workload: DXCoreWorkload, runtimefilter: DXCoreRuntimeFilterFlags, hardwaretypefilter: DXCoreHardwareTypeFilterFlags, riid: *const windows_core::GUID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -637,7 +637,7 @@ impl IDXCoreAdapterFactory1_Vtbl {
         iid == &<IDXCoreAdapterFactory1 as windows_core::Interface>::IID || iid == &<IDXCoreAdapterFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDXCoreAdapterFactory1 {}
 windows_core::imp::define_interface!(IDXCoreAdapterList, IDXCoreAdapterList_Vtbl, 0x526c7776_40e9_459b_b711_f32ad76dfc28);
 windows_core::imp::interface_hierarchy!(IDXCoreAdapterList, windows_core::IUnknown);

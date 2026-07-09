@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shobjidl_core", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn AssocGetDetailsOfPropKey<P0>(psf: P0, pidl: *const super::shtypes::ITEMIDLIST, pkey: *const super::wtypes::PROPERTYKEY, pv: *mut super::oaidl::VARIANT, pffoundpropkey: Option<*mut windows_core::BOOL>) -> windows_core::HRESULT
 where
@@ -7,7 +7,7 @@ where
     windows_core::link!("shell32.dll" "system" fn AssocGetDetailsOfPropKey(psf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, pkey : *const super::wtypes::PROPERTYKEY, pv : *mut super::oaidl::VARIANT, pffoundpropkey : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { AssocGetDetailsOfPropKey(psf.param().abi(), pidl, pkey, core::mem::transmute(pv), pffoundpropkey.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[inline]
 pub unsafe fn CDefFolderMenu_Create2<P4>(pidlfolder: Option<*const super::shtypes::ITEMIDLIST>, hwnd: Option<super::windef::HWND>, apidl: Option<&[super::shtypes::LPCITEMIDLIST]>, psf: P4, pfn: LPFNDFMCALLBACK, ahkeys: Option<&[super::minwindef::HKEY]>) -> windows_core::Result<super::shobjidl_core::IContextMenu>
 where
@@ -19,7 +19,7 @@ where
         CDefFolderMenu_Create2(pidlfolder.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), psf.param().abi(), pfn, ahkeys.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ahkeys.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shtypes"))]
 #[inline]
 pub unsafe fn CIDLData_CreateFromIDArray(pidlfolder: *const super::shtypes::ITEMIDLIST, apidl: Option<&[super::shtypes::LPCITEMIDLIST]>) -> windows_core::Result<super::objidl::IDataObject> {
     windows_core::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : *const super::shtypes::ITEMIDLIST, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, ppdtobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -28,19 +28,19 @@ pub unsafe fn CIDLData_CreateFromIDArray(pidlfolder: *const super::shtypes::ITEM
         CIDLData_CreateFromIDArray(pidlfolder, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DAD_AutoScroll(hwnd: super::windef::HWND, pad: *mut AUTO_SCROLL_DATA, pptnow: *const super::windef::POINT) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn DAD_AutoScroll(hwnd : super::windef::HWND, pad : *mut AUTO_SCROLL_DATA, pptnow : *const super::windef::POINT) -> windows_core::BOOL);
     unsafe { DAD_AutoScroll(hwnd, pad as _, pptnow) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DAD_DragEnterEx(hwndtarget: super::windef::HWND, ptstart: super::windef::POINT) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn DAD_DragEnterEx(hwndtarget : super::windef::HWND, ptstart : super::windef::POINT) -> windows_core::BOOL);
     unsafe { DAD_DragEnterEx(hwndtarget, core::mem::transmute(ptstart)) }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "windef"))]
 #[inline]
 pub unsafe fn DAD_DragEnterEx2<P2>(hwndtarget: super::windef::HWND, ptstart: super::windef::POINT, pdtobject: P2) -> windows_core::BOOL
 where
@@ -54,13 +54,13 @@ pub unsafe fn DAD_DragLeave() -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn DAD_DragLeave() -> windows_core::BOOL);
     unsafe { DAD_DragLeave() }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DAD_DragMove(pt: super::windef::POINT) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn DAD_DragMove(pt : super::windef::POINT) -> windows_core::BOOL);
     unsafe { DAD_DragMove(core::mem::transmute(pt)) }
 }
-#[cfg(all(feature = "Win32_commctrl", feature = "Win32_windef"))]
+#[cfg(all(feature = "commctrl", feature = "windef"))]
 #[inline]
 pub unsafe fn DAD_SetDragImage(him: *mut super::commctrl::_IMAGELIST, pptoffset: *mut super::windef::POINT) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn DAD_SetDragImage(him : *mut super::commctrl::_IMAGELIST, pptoffset : *mut super::windef::POINT) -> windows_core::BOOL);
@@ -76,7 +76,7 @@ pub unsafe fn DriveType(idrive: i32) -> i32 {
     windows_core::link!("shell32.dll" "system" fn DriveType(idrive : i32) -> i32);
     unsafe { DriveType(idrive) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn GetFileNameFromBrowse<P3, P4, P5, P6>(hwnd: Option<super::windef::HWND>, pszfilepath: &mut [u16], pszworkingdir: P3, pszdefext: P4, pszfilters: P5, psztitle: P6) -> windows_core::BOOL
 where
@@ -88,31 +88,31 @@ where
     windows_core::link!("shell32.dll" "system" fn GetFileNameFromBrowse(hwnd : super::windef::HWND, pszfilepath : windows_core::PWSTR, cchfilepath : u32, pszworkingdir : windows_core::PCWSTR, pszdefext : windows_core::PCWSTR, pszfilters : windows_core::PCWSTR, psztitle : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { GetFileNameFromBrowse(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszfilepath.as_ptr()), pszfilepath.len().try_into().unwrap(), pszworkingdir.param().abi(), pszdefext.param().abi(), pszfilters.param().abi(), psztitle.param().abi()) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILAppendID(pidl: Option<*const super::shtypes::ITEMIDLIST>, pmkid: *const super::shtypes::SHITEMID, fappend: bool) -> super::shtypes::LPITEMIDLIST {
     windows_core::link!("shell32.dll" "system" fn ILAppendID(pidl : *const super::shtypes::ITEMIDLIST, pmkid : *const super::shtypes::SHITEMID, fappend : windows_core::BOOL) -> super::shtypes::LPITEMIDLIST);
     unsafe { ILAppendID(pidl.unwrap_or(core::mem::zeroed()) as _, pmkid, fappend.into()) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILClone(pidl: *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST {
     windows_core::link!("shell32.dll" "system" fn ILClone(pidl : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
     unsafe { ILClone(pidl) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILCloneFirst(pidl: *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST {
     windows_core::link!("shell32.dll" "system" fn ILCloneFirst(pidl : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
     unsafe { ILCloneFirst(pidl) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILCombine(pidl1: Option<*const super::shtypes::ITEMIDLIST>, pidl2: Option<*const super::shtypes::ITEMIDLIST>) -> super::shtypes::LPITEMIDLIST {
     windows_core::link!("shell32.dll" "system" fn ILCombine(pidl1 : *const super::shtypes::ITEMIDLIST, pidl2 : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
     unsafe { ILCombine(pidl1.unwrap_or(core::mem::zeroed()) as _, pidl2.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILCreateFromPathA<P0>(pszpath: P0) -> super::shtypes::LPITEMIDLIST
 where
@@ -121,7 +121,7 @@ where
     windows_core::link!("shell32.dll" "system" fn ILCreateFromPathA(pszpath : windows_core::PCSTR) -> super::shtypes::LPITEMIDLIST);
     unsafe { ILCreateFromPathA(pszpath.param().abi()) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILCreateFromPathW<P0>(pszpath: P0) -> super::shtypes::LPITEMIDLIST
 where
@@ -130,49 +130,49 @@ where
     windows_core::link!("shell32.dll" "system" fn ILCreateFromPathW(pszpath : windows_core::PCWSTR) -> super::shtypes::LPITEMIDLIST);
     unsafe { ILCreateFromPathW(pszpath.param().abi()) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILFindChild(pidlparent: *const super::shtypes::ITEMIDLIST, pidlchild: *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST {
     windows_core::link!("shell32.dll" "system" fn ILFindChild(pidlparent : *const super::shtypes::ITEMIDLIST, pidlchild : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
     unsafe { ILFindChild(pidlparent, pidlchild) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILFindLastID(pidl: *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST {
     windows_core::link!("shell32.dll" "system" fn ILFindLastID(pidl : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
     unsafe { ILFindLastID(pidl) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILFree(pidl: Option<*const super::shtypes::ITEMIDLIST>) {
     windows_core::link!("shell32.dll" "system" fn ILFree(pidl : *const super::shtypes::ITEMIDLIST));
     unsafe { ILFree(pidl.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILGetNext(pidl: Option<*const super::shtypes::ITEMIDLIST>) -> super::shtypes::LPITEMIDLIST {
     windows_core::link!("shell32.dll" "system" fn ILGetNext(pidl : *const super::shtypes::ITEMIDLIST) -> super::shtypes::LPITEMIDLIST);
     unsafe { ILGetNext(pidl.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILGetSize(pidl: Option<*const super::shtypes::ITEMIDLIST>) -> u32 {
     windows_core::link!("shell32.dll" "system" fn ILGetSize(pidl : *const super::shtypes::ITEMIDLIST) -> u32);
     unsafe { ILGetSize(pidl.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILIsEqual(pidl1: *const super::shtypes::ITEMIDLIST, pidl2: *const super::shtypes::ITEMIDLIST) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn ILIsEqual(pidl1 : *const super::shtypes::ITEMIDLIST, pidl2 : *const super::shtypes::ITEMIDLIST) -> windows_core::BOOL);
     unsafe { ILIsEqual(pidl1, pidl2) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILIsParent(pidl1: *const super::shtypes::ITEMIDLIST, pidl2: *const super::shtypes::ITEMIDLIST, fimmediate: bool) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn ILIsParent(pidl1 : *const super::shtypes::ITEMIDLIST, pidl2 : *const super::shtypes::ITEMIDLIST, fimmediate : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { ILIsParent(pidl1, pidl2, fimmediate.into()) }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "shtypes"))]
 #[inline]
 pub unsafe fn ILLoadFromStreamEx<P0>(pstm: P0) -> windows_core::Result<super::shtypes::LPITEMIDLIST>
 where
@@ -184,13 +184,13 @@ where
         ILLoadFromStreamEx(pstm.param().abi(), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn ILRemoveLastID(pidl: Option<*mut super::shtypes::ITEMIDLIST>) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn ILRemoveLastID(pidl : *mut super::shtypes::ITEMIDLIST) -> windows_core::BOOL);
     unsafe { ILRemoveLastID(pidl.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "shtypes"))]
 #[inline]
 pub unsafe fn ILSaveToStream<P0>(pstm: P0, pidl: *const super::shtypes::ITEMIDLIST) -> windows_core::HRESULT
 where
@@ -209,7 +209,7 @@ pub unsafe fn IsUserAnAdmin() -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn IsUserAnAdmin() -> windows_core::BOOL);
     unsafe { IsUserAnAdmin() }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 #[inline]
 pub unsafe fn OpenRegStream<P1, P2>(hkey: super::minwindef::HKEY, pszsubkey: P1, pszvalue: P2, grfmode: u32) -> Option<super::objidlbase::IStream>
 where
@@ -265,19 +265,19 @@ where
     windows_core::link!("shell32.dll" "system" fn PathYetAnotherMakeUniqueName(pszuniquename : windows_core::PWSTR, pszpath : windows_core::PCWSTR, pszshort : windows_core::PCWSTR, pszfilespec : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { PathYetAnotherMakeUniqueName(core::mem::transmute(pszuniquename), pszpath.param().abi(), pszshort.param().abi(), pszfilespec.param().abi()) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn PickIconDlg(hwnd: Option<super::windef::HWND>, psziconpath: &mut [u16], piiconindex: Option<*mut i32>) -> i32 {
     windows_core::link!("shell32.dll" "system" fn PickIconDlg(hwnd : super::windef::HWND, psziconpath : windows_core::PWSTR, cchiconpath : u32, piiconindex : *mut i32) -> i32);
     unsafe { PickIconDlg(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_ptr()), psziconpath.len().try_into().unwrap(), piiconindex.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PifMgr_CloseProperties(hprops: Option<super::winnt::HANDLE>, flopt: u32) -> super::winnt::HANDLE {
     windows_core::link!("shell32.dll" "system" fn PifMgr_CloseProperties(hprops : super::winnt::HANDLE, flopt : u32) -> super::winnt::HANDLE);
     unsafe { PifMgr_CloseProperties(hprops.unwrap_or(core::mem::zeroed()) as _, flopt) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PifMgr_GetProperties<P1>(hprops: Option<super::winnt::HANDLE>, pszgroup: P1, lpprops: Option<*mut core::ffi::c_void>, cbprops: i32, flopt: u32) -> i32
 where
@@ -286,7 +286,7 @@ where
     windows_core::link!("shell32.dll" "system" fn PifMgr_GetProperties(hprops : super::winnt::HANDLE, pszgroup : windows_core::PCSTR, lpprops : *mut core::ffi::c_void, cbprops : i32, flopt : u32) -> i32);
     unsafe { PifMgr_GetProperties(hprops.unwrap_or(core::mem::zeroed()) as _, pszgroup.param().abi(), lpprops.unwrap_or(core::mem::zeroed()) as _, cbprops, flopt) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PifMgr_OpenProperties<P0, P1>(pszapp: P0, pszpif: P1, hinf: u32, flopt: u32) -> super::winnt::HANDLE
 where
@@ -296,7 +296,7 @@ where
     windows_core::link!("shell32.dll" "system" fn PifMgr_OpenProperties(pszapp : windows_core::PCWSTR, pszpif : windows_core::PCWSTR, hinf : u32, flopt : u32) -> super::winnt::HANDLE);
     unsafe { PifMgr_OpenProperties(pszapp.param().abi(), pszpif.param().abi(), hinf, flopt) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PifMgr_SetProperties<P1>(hprops: Option<super::winnt::HANDLE>, pszgroup: P1, lpprops: *const core::ffi::c_void, cbprops: i32, flopt: u32) -> i32
 where
@@ -315,7 +315,7 @@ pub unsafe fn RealDriveType(idrive: i32, foktohitnet: bool) -> i32 {
     windows_core::link!("shell32.dll" "system" fn RealDriveType(idrive : i32, foktohitnet : windows_core::BOOL) -> i32);
     unsafe { RealDriveType(idrive, foktohitnet.into()) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RestartDialog<P1>(hwnd: Option<super::windef::HWND>, pszprompt: P1, dwreturn: u32) -> i32
 where
@@ -324,7 +324,7 @@ where
     windows_core::link!("shell32.dll" "system" fn RestartDialog(hwnd : super::windef::HWND, pszprompt : windows_core::PCWSTR, dwreturn : u32) -> i32);
     unsafe { RestartDialog(hwnd.unwrap_or(core::mem::zeroed()) as _, pszprompt.param().abi(), dwreturn) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RestartDialogEx<P1>(hwnd: Option<super::windef::HWND>, pszprompt: P1, dwreturn: u32, dwreasoncode: u32) -> i32
 where
@@ -333,7 +333,7 @@ where
     windows_core::link!("shell32.dll" "system" fn RestartDialogEx(hwnd : super::windef::HWND, pszprompt : windows_core::PCWSTR, dwreturn : u32, dwreasoncode : u32) -> i32);
     unsafe { RestartDialogEx(hwnd.unwrap_or(core::mem::zeroed()) as _, pszprompt.param().abi(), dwreturn, dwreasoncode) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_prsht"))]
+#[cfg(all(feature = "minwindef", feature = "prsht"))]
 #[inline]
 pub unsafe fn SHAddFromPropSheetExtArray(hpsxa: HPSXA, lpfnaddpage: super::prsht::LPFNADDPROPSHEETPAGE, lparam: super::minwindef::LPARAM) -> u32 {
     windows_core::link!("shell32.dll" "system" fn SHAddFromPropSheetExtArray(hpsxa : HPSXA, lpfnaddpage : super::prsht::LPFNADDPROPSHEETPAGE, lparam : super::minwindef::LPARAM) -> u32);
@@ -349,7 +349,7 @@ pub unsafe fn SHAlloc(cb: usize) -> *mut core::ffi::c_void {
     windows_core::link!("shell32.dll" "system" fn SHAlloc(cb : usize) -> *mut core::ffi::c_void);
     unsafe { SHAlloc(cb) }
 }
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
 pub unsafe fn SHBindToFolderIDListParent<P0>(psfroot: P0, pidl: *const super::shtypes::ITEMIDLIST, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void, ppidllast: *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT
 where
@@ -358,7 +358,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHBindToFolderIDListParent(psfroot : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT);
     unsafe { SHBindToFolderIDListParent(psfroot.param().abi(), pidl, riid, ppv as _, ppidllast as _) }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
 pub unsafe fn SHBindToFolderIDListParentEx<P0, P2>(psfroot: P0, pidl: *const super::shtypes::ITEMIDLIST, ppbc: P2, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void, ppidllast: *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT
 where
@@ -368,7 +368,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHBindToFolderIDListParentEx(psfroot : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, ppbc : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT);
     unsafe { SHBindToFolderIDListParentEx(psfroot.param().abi(), pidl, ppbc.param().abi(), riid, ppv as _, ppidllast as _) }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
 pub unsafe fn SHBindToObject<P0, P2>(psf: P0, pidl: *const super::shtypes::ITEMIDLIST, pbc: P2, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
@@ -378,19 +378,19 @@ where
     windows_core::link!("shell32.dll" "system" fn SHBindToObject(psf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, pbc : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SHBindToObject(psf.param().abi(), pidl, pbc.param().abi(), riid, ppv as _) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn SHBindToParent(pidl: *const super::shtypes::ITEMIDLIST, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void, ppidllast: *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHBindToParent(pidl : *const super::shtypes::ITEMIDLIST, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT);
     unsafe { SHBindToParent(pidl, riid, ppv as _, ppidllast as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[inline]
 pub unsafe fn SHBrowseForFolderA(lpbi: *const BROWSEINFOA) -> super::shtypes::LPITEMIDLIST {
     windows_core::link!("shell32.dll" "system" fn SHBrowseForFolderA(lpbi : *const BROWSEINFOA) -> super::shtypes::LPITEMIDLIST);
     unsafe { SHBrowseForFolderA(lpbi) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[inline]
 pub unsafe fn SHBrowseForFolderW(lpbi: *const BROWSEINFOW) -> super::shtypes::LPITEMIDLIST {
     windows_core::link!("shell32.dll" "system" fn SHBrowseForFolderW(lpbi : *const BROWSEINFOW) -> super::shtypes::LPITEMIDLIST);
@@ -407,13 +407,13 @@ where
         SHCLSIDFromString(psz.param().abi(), &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn SHChangeNotification_Lock(hchange: super::winnt::HANDLE, dwprocid: u32, pppidl: *mut *mut super::shtypes::LPITEMIDLIST, plevent: Option<*mut i32>) -> super::winnt::HANDLE {
     windows_core::link!("shell32.dll" "system" fn SHChangeNotification_Lock(hchange : super::winnt::HANDLE, dwprocid : u32, pppidl : *mut *mut super::shtypes::LPITEMIDLIST, plevent : *mut i32) -> super::winnt::HANDLE);
     unsafe { SHChangeNotification_Lock(hchange, dwprocid, pppidl as _, plevent.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SHChangeNotification_Unlock(hlock: super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHChangeNotification_Unlock(hlock : super::winnt::HANDLE) -> windows_core::BOOL);
@@ -429,13 +429,13 @@ pub unsafe fn SHChangeNotifyDeregister(ulid: u32) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHChangeNotifyDeregister(ulid : u32) -> windows_core::BOOL);
     unsafe { SHChangeNotifyDeregister(ulid) }
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 #[inline]
 pub unsafe fn SHChangeNotifyRegister(hwnd: super::windef::HWND, fsources: i32, fevents: i32, wmsg: u32, centries: i32, pshcne: *const SHChangeNotifyEntry) -> u32 {
     windows_core::link!("shell32.dll" "system" fn SHChangeNotifyRegister(hwnd : super::windef::HWND, fsources : i32, fevents : i32, wmsg : u32, centries : i32, pshcne : *const SHChangeNotifyEntry) -> u32);
     unsafe { SHChangeNotifyRegister(hwnd, fsources, fevents, wmsg, centries, pshcne) }
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 #[inline]
 pub unsafe fn SHCloneSpecialIDList(hwnd: Option<super::windef::HWND>, csidl: i32, fcreate: bool) -> super::shtypes::LPITEMIDLIST {
     windows_core::link!("shell32.dll" "system" fn SHCloneSpecialIDList(hwnd : super::windef::HWND, csidl : i32, fcreate : windows_core::BOOL) -> super::shtypes::LPITEMIDLIST);
@@ -450,7 +450,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHCoCreateInstance(pszclsid : windows_core::PCWSTR, pclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SHCoCreateInstance(pszclsid.param().abi(), pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), riid, ppv as _) }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shtypes"))]
 #[inline]
 pub unsafe fn SHCreateDataObject<P3>(pidlfolder: Option<*const super::shtypes::ITEMIDLIST>, apidl: Option<&[super::shtypes::LPCITEMIDLIST]>, pdtinner: P3, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
@@ -459,13 +459,13 @@ where
     windows_core::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : *const super::shtypes::ITEMIDLIST, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, pdtinner : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SHCreateDataObject(pidlfolder.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), pdtinner.param().abi(), riid, ppv as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[inline]
 pub unsafe fn SHCreateDefaultContextMenu(pdcm: *const DEFCONTEXTMENU, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SHCreateDefaultContextMenu(core::mem::transmute(pdcm), riid, ppv as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHCreateDirectory<P1>(hwnd: Option<super::windef::HWND>, pszpath: P1) -> i32
 where
@@ -474,7 +474,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHCreateDirectory(hwnd : super::windef::HWND, pszpath : windows_core::PCWSTR) -> i32);
     unsafe { SHCreateDirectory(hwnd.unwrap_or(core::mem::zeroed()) as _, pszpath.param().abi()) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwinbase", feature = "windef"))]
 #[inline]
 pub unsafe fn SHCreateDirectoryExA<P1>(hwnd: Option<super::windef::HWND>, pszpath: P1, psa: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>) -> i32
 where
@@ -483,7 +483,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHCreateDirectoryExA(hwnd : super::windef::HWND, pszpath : windows_core::PCSTR, psa : *const super::minwinbase::SECURITY_ATTRIBUTES) -> i32);
     unsafe { SHCreateDirectoryExA(hwnd.unwrap_or(core::mem::zeroed()) as _, pszpath.param().abi(), psa.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwinbase", feature = "windef"))]
 #[inline]
 pub unsafe fn SHCreateDirectoryExW<P1>(hwnd: Option<super::windef::HWND>, pszpath: P1, psa: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>) -> i32
 where
@@ -500,7 +500,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHCreateFileExtractIconW(pszfile : windows_core::PCWSTR, dwfileattributes : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SHCreateFileExtractIconW(pszfile.param().abi(), dwfileattributes, riid, ppv as _) }
 }
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_shobjidl_core"))]
+#[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
 #[inline]
 pub unsafe fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE) -> windows_core::Result<super::shobjidl_core::IShellView> {
     windows_core::link!("shell32.dll" "system" fn SHCreateShellFolderView(pcsfv : *const SFV_CREATE, ppsv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -509,7 +509,7 @@ pub unsafe fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE) -> windows_core:
         SHCreateShellFolderView(core::mem::transmute(pcsfv), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[inline]
 pub unsafe fn SHCreateShellFolderViewEx(pcsfv: *const CSFV) -> windows_core::Result<super::shobjidl_core::IShellView> {
     windows_core::link!("shell32.dll" "system" fn SHCreateShellFolderViewEx(pcsfv : *const CSFV, ppsv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -518,7 +518,7 @@ pub unsafe fn SHCreateShellFolderViewEx(pcsfv: *const CSFV) -> windows_core::Res
         SHCreateShellFolderViewEx(core::mem::transmute(pcsfv), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
 pub unsafe fn SHCreateShellItem<P1>(pidlparent: Option<*const super::shtypes::ITEMIDLIST>, psfparent: P1, pidl: *const super::shtypes::ITEMIDLIST) -> windows_core::Result<super::shobjidl_core::IShellItem>
 where
@@ -530,7 +530,7 @@ where
         SHCreateShellItem(pidlparent.unwrap_or(core::mem::zeroed()) as _, psfparent.param().abi(), pidl, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidl", feature = "wtypes"))]
 #[inline]
 pub unsafe fn SHCreateStdEnumFmtEtc(afmt: &[super::objidl::FORMATETC]) -> windows_core::Result<super::objidl::IEnumFORMATETC> {
     windows_core::link!("shell32.dll" "system" fn SHCreateStdEnumFmtEtc(cfmt : u32, afmt : *const super::objidl::FORMATETC, ppenumformatetc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -539,7 +539,7 @@ pub unsafe fn SHCreateStdEnumFmtEtc(afmt: &[super::objidl::FORMATETC]) -> window
         SHCreateStdEnumFmtEtc(afmt.len().try_into().unwrap(), core::mem::transmute(afmt.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHDefExtractIconA<P0>(psziconfile: P0, iindex: i32, uflags: u32, phiconlarge: Option<*mut super::windef::HICON>, phiconsmall: Option<*mut super::windef::HICON>, niconsize: u32) -> windows_core::HRESULT
 where
@@ -548,7 +548,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHDefExtractIconA(psziconfile : windows_core::PCSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::windef::HICON, phiconsmall : *mut super::windef::HICON, niconsize : u32) -> windows_core::HRESULT);
     unsafe { SHDefExtractIconA(psziconfile.param().abi(), iindex, uflags, phiconlarge.unwrap_or(core::mem::zeroed()) as _, phiconsmall.unwrap_or(core::mem::zeroed()) as _, niconsize) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHDefExtractIconW<P0>(psziconfile: P0, iindex: i32, uflags: u32, phiconlarge: Option<*mut super::windef::HICON>, phiconsmall: Option<*mut super::windef::HICON>, niconsize: u32) -> windows_core::HRESULT
 where
@@ -562,7 +562,7 @@ pub unsafe fn SHDestroyPropSheetExtArray(hpsxa: HPSXA) {
     windows_core::link!("shell32.dll" "system" fn SHDestroyPropSheetExtArray(hpsxa : HPSXA));
     unsafe { SHDestroyPropSheetExtArray(hpsxa) }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef"))]
 #[inline]
 pub unsafe fn SHDoDragDrop<P1, P2>(hwnd: Option<super::windef::HWND>, pdata: P1, pdsrc: P2, dweffect: u32) -> windows_core::Result<u32>
 where
@@ -575,13 +575,13 @@ where
         SHDoDragDrop(hwnd.unwrap_or(core::mem::zeroed()) as _, pdata.param().abi(), pdsrc.param().abi(), dweffect, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn SHFindFiles(pidlfolder: Option<*const super::shtypes::ITEMIDLIST>, pidlsavefile: Option<*const super::shtypes::ITEMIDLIST>) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHFindFiles(pidlfolder : *const super::shtypes::ITEMIDLIST, pidlsavefile : *const super::shtypes::ITEMIDLIST) -> windows_core::BOOL);
     unsafe { SHFindFiles(pidlfolder.unwrap_or(core::mem::zeroed()) as _, pidlsavefile.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef"))]
 #[inline]
 pub unsafe fn SHFind_InitMenuPopup(hmenu: super::windef::HMENU, hwndowner: Option<super::windef::HWND>, idcmdfirst: u32, idcmdlast: u32) -> Option<super::shobjidl_core::IContextMenu> {
     windows_core::link!("shell32.dll" "system" fn SHFind_InitMenuPopup(hmenu : super::windef::HMENU, hwndowner : super::windef::HWND, idcmdfirst : u32, idcmdlast : u32) -> Option < super::shobjidl_core::IContextMenu >);
@@ -592,7 +592,7 @@ pub unsafe fn SHFlushSFCache() {
     windows_core::link!("shell32.dll" "system" fn SHFlushSFCache());
     unsafe { SHFlushSFCache() }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHFormatDrive(hwnd: super::windef::HWND, drive: u32, fmtid: u32, options: u32) -> u32 {
     windows_core::link!("shell32.dll" "system" fn SHFormatDrive(hwnd : super::windef::HWND, drive : u32, fmtid : u32, options : u32) -> u32);
@@ -603,7 +603,7 @@ pub unsafe fn SHFree(pv: Option<*const core::ffi::c_void>) {
     windows_core::link!("shell32.dll" "system" fn SHFree(pv : *const core::ffi::c_void));
     unsafe { SHFree(pv.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn SHGetAttributesFromDataObject<P0>(pdo: P0, dwattributemask: u32, pdwattributes: Option<*mut u32>, pcitems: Option<*mut u32>) -> windows_core::HRESULT
 where
@@ -612,7 +612,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHGetAttributesFromDataObject(pdo : *mut core::ffi::c_void, dwattributemask : u32, pdwattributes : *mut u32, pcitems : *mut u32) -> windows_core::HRESULT);
     unsafe { SHGetAttributesFromDataObject(pdo.param().abi(), dwattributemask, pdwattributes.unwrap_or(core::mem::zeroed()) as _, pcitems.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
 pub unsafe fn SHGetDataFromIDListA<P0>(psf: P0, pidl: *const super::shtypes::ITEMIDLIST, nformat: i32, pv: *mut core::ffi::c_void, cb: i32) -> windows_core::HRESULT
 where
@@ -621,7 +621,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHGetDataFromIDListA(psf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, nformat : i32, pv : *mut core::ffi::c_void, cb : i32) -> windows_core::HRESULT);
     unsafe { SHGetDataFromIDListA(psf.param().abi(), pidl, nformat, pv as _, cb) }
 }
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
 pub unsafe fn SHGetDataFromIDListW<P0>(psf: P0, pidl: *const super::shtypes::ITEMIDLIST, nformat: i32, pv: *mut core::ffi::c_void, cb: i32) -> windows_core::HRESULT
 where
@@ -630,7 +630,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHGetDataFromIDListW(psf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, nformat : i32, pv : *mut core::ffi::c_void, cb : i32) -> windows_core::HRESULT);
     unsafe { SHGetDataFromIDListW(psf.param().abi(), pidl, nformat, pv as _, cb) }
 }
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 #[inline]
 pub unsafe fn SHGetDesktopFolder() -> windows_core::Result<super::shobjidl_core::IShellFolder> {
     windows_core::link!("shell32.dll" "system" fn SHGetDesktopFolder(ppshf : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -639,7 +639,7 @@ pub unsafe fn SHGetDesktopFolder() -> windows_core::Result<super::shobjidl_core:
         SHGetDesktopFolder(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SHGetFolderLocation(hwnd: Option<super::windef::HWND>, csidl: i32, htoken: Option<super::winnt::HANDLE>, dwflags: u32) -> windows_core::Result<super::shtypes::LPITEMIDLIST> {
     windows_core::link!("shell32.dll" "system" fn SHGetFolderLocation(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, ppidl : *mut super::shtypes::LPITEMIDLIST) -> windows_core::HRESULT);
@@ -648,13 +648,13 @@ pub unsafe fn SHGetFolderLocation(hwnd: Option<super::windef::HWND>, csidl: i32,
         SHGetFolderLocation(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SHGetFolderPathA(hwnd: Option<super::windef::HWND>, csidl: i32, htoken: Option<super::winnt::HANDLE>, dwflags: u32, pszpath: windows_core::PSTR) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHGetFolderPathA(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszpath : windows_core::PSTR) -> windows_core::HRESULT);
     unsafe { SHGetFolderPathA(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, core::mem::transmute(pszpath)) }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SHGetFolderPathAndSubDirA<P4>(hwnd: Option<super::windef::HWND>, csidl: i32, htoken: Option<super::winnt::HANDLE>, dwflags: u32, pszsubdir: P4, pszpath: windows_core::PSTR) -> windows_core::HRESULT
 where
@@ -663,7 +663,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirA(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszsubdir : windows_core::PCSTR, pszpath : windows_core::PSTR) -> windows_core::HRESULT);
     unsafe { SHGetFolderPathAndSubDirA(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, pszsubdir.param().abi(), core::mem::transmute(pszpath)) }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SHGetFolderPathAndSubDirW<P4>(hwnd: Option<super::windef::HWND>, csidl: i32, htoken: Option<super::winnt::HANDLE>, dwflags: u32, pszsubdir: P4, pszpath: windows_core::PWSTR) -> windows_core::HRESULT
 where
@@ -672,7 +672,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirW(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszsubdir : windows_core::PCWSTR, pszpath : windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { SHGetFolderPathAndSubDirW(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, pszsubdir.param().abi(), core::mem::transmute(pszpath)) }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SHGetFolderPathW(hwnd: Option<super::windef::HWND>, csidl: i32, htoken: Option<super::winnt::HANDLE>, dwflags: u32, pszpath: windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHGetFolderPathW(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszpath : windows_core::PWSTR) -> windows_core::HRESULT);
@@ -702,7 +702,7 @@ pub unsafe fn SHGetInstanceExplorer() -> windows_core::Result<windows_core::IUnk
         SHGetInstanceExplorer(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn SHGetKnownFolderIDList(rfid: *const super::shtypes::KNOWNFOLDERID, dwflags: u32, htoken: Option<super::winnt::HANDLE>) -> windows_core::Result<super::shtypes::LPITEMIDLIST> {
     windows_core::link!("shell32.dll" "system" fn SHGetKnownFolderIDList(rfid : *const super::shtypes::KNOWNFOLDERID, dwflags : u32, htoken : super::winnt::HANDLE, ppidl : *mut super::shtypes::LPITEMIDLIST) -> windows_core::HRESULT);
@@ -711,13 +711,13 @@ pub unsafe fn SHGetKnownFolderIDList(rfid: *const super::shtypes::KNOWNFOLDERID,
         SHGetKnownFolderIDList(rfid, dwflags, htoken.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn SHGetKnownFolderItem(rfid: *const super::shtypes::KNOWNFOLDERID, flags: KNOWN_FOLDER_FLAG, htoken: Option<super::winnt::HANDLE>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHGetKnownFolderItem(rfid : *const super::shtypes::KNOWNFOLDERID, flags : KNOWN_FOLDER_FLAG, htoken : super::winnt::HANDLE, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SHGetKnownFolderItem(rfid, flags, htoken.unwrap_or(core::mem::zeroed()) as _, riid, ppv as _) }
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn SHGetKnownFolderPath(rfid: *const super::shtypes::KNOWNFOLDERID, dwflags: u32, htoken: Option<super::winnt::HANDLE>) -> windows_core::Result<windows_core::PWSTR> {
     windows_core::link!("shell32.dll" "system" fn SHGetKnownFolderPath(rfid : *const super::shtypes::KNOWNFOLDERID, dwflags : u32, htoken : super::winnt::HANDLE, ppszpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
@@ -726,7 +726,7 @@ pub unsafe fn SHGetKnownFolderPath(rfid: *const super::shtypes::KNOWNFOLDERID, d
         SHGetKnownFolderPath(rfid, dwflags, htoken.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn SHGetMalloc() -> windows_core::Result<super::objidlbase::IMalloc> {
     windows_core::link!("shell32.dll" "system" fn SHGetMalloc(ppmalloc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -735,25 +735,25 @@ pub unsafe fn SHGetMalloc() -> windows_core::Result<super::objidlbase::IMalloc> 
         SHGetMalloc(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn SHGetPathFromIDListA(pidl: *const super::shtypes::ITEMIDLIST, pszpath: windows_core::PSTR) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHGetPathFromIDListA(pidl : *const super::shtypes::ITEMIDLIST, pszpath : windows_core::PSTR) -> windows_core::BOOL);
     unsafe { SHGetPathFromIDListA(pidl, core::mem::transmute(pszpath)) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn SHGetPathFromIDListEx(pidl: *const super::shtypes::ITEMIDLIST, pszpath: &mut [u16], uopts: GPFIDL_FLAGS) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHGetPathFromIDListEx(pidl : *const super::shtypes::ITEMIDLIST, pszpath : windows_core::PWSTR, cchpath : u32, uopts : GPFIDL_FLAGS) -> windows_core::BOOL);
     unsafe { SHGetPathFromIDListEx(pidl, core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap(), uopts) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn SHGetPathFromIDListW(pidl: *const super::shtypes::ITEMIDLIST, pszpath: windows_core::PWSTR) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHGetPathFromIDListW(pidl : *const super::shtypes::ITEMIDLIST, pszpath : windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { SHGetPathFromIDListW(pidl, core::mem::transmute(pszpath)) }
 }
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
 pub unsafe fn SHGetRealIDL<P0>(psf: P0, pidlsimple: *const super::shtypes::ITEMIDLIST) -> windows_core::Result<super::shtypes::LPITEMIDLIST>
 where
@@ -765,7 +765,7 @@ where
         SHGetRealIDL(psf.param().abi(), pidlsimple, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 #[inline]
 pub unsafe fn SHGetSetFolderCustomSettings<P1>(pfcs: *mut SHFOLDERCUSTOMSETTINGS, pszpath: P1, dwreadwrite: u32) -> windows_core::HRESULT
 where
@@ -784,7 +784,7 @@ pub unsafe fn SHGetSettings(psfs: *mut SHELLFLAGSTATE, dwmask: u32) {
     windows_core::link!("shell32.dll" "system" fn SHGetSettings(psfs : *mut SHELLFLAGSTATE, dwmask : u32));
     unsafe { SHGetSettings(psfs as _, dwmask) }
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "shtypes", feature = "windef"))]
 #[inline]
 pub unsafe fn SHGetSpecialFolderLocation(hwnd: Option<super::windef::HWND>, csidl: i32) -> windows_core::Result<super::shtypes::LPITEMIDLIST> {
     windows_core::link!("shell32.dll" "system" fn SHGetSpecialFolderLocation(hwnd : super::windef::HWND, csidl : i32, ppidl : *mut super::shtypes::LPITEMIDLIST) -> windows_core::HRESULT);
@@ -793,25 +793,25 @@ pub unsafe fn SHGetSpecialFolderLocation(hwnd: Option<super::windef::HWND>, csid
         SHGetSpecialFolderLocation(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHGetSpecialFolderPathA(hwnd: Option<super::windef::HWND>, pszpath: windows_core::PSTR, csidl: i32, fcreate: bool) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHGetSpecialFolderPathA(hwnd : super::windef::HWND, pszpath : windows_core::PSTR, csidl : i32, fcreate : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SHGetSpecialFolderPathA(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszpath), csidl, fcreate.into()) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHGetSpecialFolderPathW(hwnd: Option<super::windef::HWND>, pszpath: windows_core::PWSTR, csidl: i32, fcreate: bool) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHGetSpecialFolderPathW(hwnd : super::windef::HWND, pszpath : windows_core::PWSTR, csidl : i32, fcreate : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SHGetSpecialFolderPathW(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszpath), csidl, fcreate.into()) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn SHHandleUpdateImage(pidlextra: *const super::shtypes::ITEMIDLIST) -> i32 {
     windows_core::link!("shell32.dll" "system" fn SHHandleUpdateImage(pidlextra : *const super::shtypes::ITEMIDLIST) -> i32);
     unsafe { SHHandleUpdateImage(pidlextra) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn SHILCreateFromPath<P0>(pszpath: P0, ppidl: *mut super::shtypes::LPITEMIDLIST, rgfinout: Option<*mut u32>) -> windows_core::HRESULT
 where
@@ -820,7 +820,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHILCreateFromPath(pszpath : windows_core::PCWSTR, ppidl : *mut super::shtypes::LPITEMIDLIST, rgfinout : *mut u32) -> windows_core::HRESULT);
     unsafe { SHILCreateFromPath(pszpath.param().abi(), ppidl as _, rgfinout.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef"))]
 #[inline]
 pub unsafe fn SHLimitInputEdit<P1>(hwndedit: super::windef::HWND, psf: P1) -> windows_core::HRESULT
 where
@@ -834,7 +834,7 @@ pub unsafe fn SHLoadInProc(rclsid: *const windows_core::GUID) -> windows_core::H
     windows_core::link!("shell32.dll" "system" fn SHLoadInProc(rclsid : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { SHLoadInProc(rclsid) }
 }
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
 pub unsafe fn SHMapPIDLToSystemImageListIndex<P0>(pshf: P0, pidl: *const super::shtypes::ITEMIDLIST, piindexsel: Option<*mut i32>) -> i32
 where
@@ -843,7 +843,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHMapPIDLToSystemImageListIndex(pshf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, piindexsel : *mut i32) -> i32);
     unsafe { SHMapPIDLToSystemImageListIndex(pshf.param().abi(), pidl, piindexsel.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHObjectProperties<P2, P3>(hwnd: Option<super::windef::HWND>, shopobjecttype: u32, pszobjectname: P2, pszpropertypage: P3) -> windows_core::BOOL
 where
@@ -853,19 +853,19 @@ where
     windows_core::link!("shell32.dll" "system" fn SHObjectProperties(hwnd : super::windef::HWND, shopobjecttype : u32, pszobjectname : windows_core::PCWSTR, pszpropertypage : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SHObjectProperties(hwnd.unwrap_or(core::mem::zeroed()) as _, shopobjecttype, pszobjectname.param().abi(), pszpropertypage.param().abi()) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn SHOpenFolderAndSelectItems(pidlfolder: *const super::shtypes::ITEMIDLIST, apidl: Option<&[super::shtypes::LPCITEMIDLIST]>, dwflags: u32) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : *const super::shtypes::ITEMIDLIST, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, dwflags : u32) -> windows_core::HRESULT);
     unsafe { SHOpenFolderAndSelectItems(pidlfolder, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), dwflags) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHOpenWithDialog(hwndparent: Option<super::windef::HWND>, poainfo: *const OPENASINFO) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHOpenWithDialog(hwndparent : super::windef::HWND, poainfo : *const OPENASINFO) -> windows_core::HRESULT);
     unsafe { SHOpenWithDialog(hwndparent.unwrap_or(core::mem::zeroed()) as _, poainfo) }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
 pub unsafe fn SHParseDisplayName<P0, P1>(pszname: P0, pbc: P1, ppidl: *mut super::shtypes::LPITEMIDLIST, sfgaoin: super::shobjidl_core::SFGAOF, psfgaoout: Option<*mut super::shobjidl_core::SFGAOF>) -> windows_core::HRESULT
 where
@@ -875,7 +875,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHParseDisplayName(pszname : windows_core::PCWSTR, pbc : *mut core::ffi::c_void, ppidl : *mut super::shtypes::LPITEMIDLIST, sfgaoin : super::shobjidl_core::SFGAOF, psfgaoout : *mut super::shobjidl_core::SFGAOF) -> windows_core::HRESULT);
     unsafe { SHParseDisplayName(pszname.param().abi(), pbc.param().abi(), ppidl as _, sfgaoin, psfgaoout.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHPathPrepareForWriteA<P1, P2>(hwnd: Option<super::windef::HWND>, punkenablemodless: P1, pszpath: P2, dwflags: u32) -> windows_core::HRESULT
 where
@@ -885,7 +885,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHPathPrepareForWriteA(hwnd : super::windef::HWND, punkenablemodless : *mut core::ffi::c_void, pszpath : windows_core::PCSTR, dwflags : u32) -> windows_core::HRESULT);
     unsafe { SHPathPrepareForWriteA(hwnd.unwrap_or(core::mem::zeroed()) as _, punkenablemodless.param().abi(), pszpath.param().abi(), dwflags) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHPathPrepareForWriteW<P1, P2>(hwnd: Option<super::windef::HWND>, punkenablemodless: P1, pszpath: P2, dwflags: u32) -> windows_core::HRESULT
 where
@@ -895,7 +895,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHPathPrepareForWriteW(hwnd : super::windef::HWND, punkenablemodless : *mut core::ffi::c_void, pszpath : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
     unsafe { SHPathPrepareForWriteW(hwnd.unwrap_or(core::mem::zeroed()) as _, punkenablemodless.param().abi(), pszpath.param().abi(), dwflags) }
 }
-#[cfg(feature = "Win32_propidlbase")]
+#[cfg(feature = "propidlbase")]
 #[inline]
 pub unsafe fn SHPropStgCreate<P0>(psstg: P0, fmtid: *const windows_core::GUID, pclsid: Option<*const windows_core::GUID>, grfflags: u32, grfmode: u32, dwdisposition: u32, ppstg: *mut Option<super::propidlbase::IPropertyStorage>, pucodepage: Option<*mut u32>) -> windows_core::HRESULT
 where
@@ -904,7 +904,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHPropStgCreate(psstg : *mut core::ffi::c_void, fmtid : *const windows_core::GUID, pclsid : *const windows_core::GUID, grfflags : u32, grfmode : u32, dwdisposition : u32, ppstg : *mut *mut core::ffi::c_void, pucodepage : *mut u32) -> windows_core::HRESULT);
     unsafe { SHPropStgCreate(psstg.param().abi(), fmtid, pclsid.unwrap_or(core::mem::zeroed()) as _, grfflags, grfmode, dwdisposition, core::mem::transmute(ppstg), pucodepage.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn SHPropStgReadMultiple<P0>(pps: P0, ucodepage: u32, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC, rgvar: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT
 where
@@ -913,7 +913,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHPropStgReadMultiple(pps : *mut core::ffi::c_void, ucodepage : u32, cpspec : u32, rgpspec : *const super::propidlbase::PROPSPEC, rgvar : *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT);
     unsafe { SHPropStgReadMultiple(pps.param().abi(), ucodepage, cpspec, rgpspec, core::mem::transmute(rgvar)) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn SHPropStgWriteMultiple<P0>(pps: P0, pucodepage: Option<*mut u32>, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC, rgvar: *mut super::propidlbase::PROPVARIANT, propidnamefirst: super::wtypes::PROPID) -> windows_core::HRESULT
 where
@@ -922,7 +922,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHPropStgWriteMultiple(pps : *mut core::ffi::c_void, pucodepage : *mut u32, cpspec : u32, rgpspec : *const super::propidlbase::PROPSPEC, rgvar : *mut super::propidlbase::PROPVARIANT, propidnamefirst : super::wtypes::PROPID) -> windows_core::HRESULT);
     unsafe { SHPropStgWriteMultiple(pps.param().abi(), pucodepage.unwrap_or(core::mem::zeroed()) as _, cpspec, rgpspec, core::mem::transmute(rgvar), propidnamefirst) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_prsht"))]
+#[cfg(all(feature = "minwindef", feature = "prsht"))]
 #[inline]
 pub unsafe fn SHReplaceFromPropSheetExtArray(hpsxa: HPSXA, upageid: u32, lpfnreplacewith: super::prsht::LPFNADDPROPSHEETPAGE, lparam: super::minwindef::LPARAM) -> u32 {
     windows_core::link!("shell32.dll" "system" fn SHReplaceFromPropSheetExtArray(hpsxa : HPSXA, upageid : u32, lpfnreplacewith : super::prsht::LPFNADDPROPSHEETPAGE, lparam : super::minwindef::LPARAM) -> u32);
@@ -933,7 +933,7 @@ pub unsafe fn SHRestricted(rest: RESTRICTIONS) -> u32 {
     windows_core::link!("shell32.dll" "system" fn SHRestricted(rest : RESTRICTIONS) -> u32);
     unsafe { SHRestricted(rest) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SHSetFolderPathA<P3>(csidl: i32, htoken: Option<super::winnt::HANDLE>, dwflags: u32, pszpath: P3) -> windows_core::HRESULT
 where
@@ -942,7 +942,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHSetFolderPathA(csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszpath : windows_core::PCSTR) -> windows_core::HRESULT);
     unsafe { SHSetFolderPathA(csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, pszpath.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SHSetFolderPathW<P3>(csidl: i32, htoken: Option<super::winnt::HANDLE>, dwflags: u32, pszpath: P3) -> windows_core::HRESULT
 where
@@ -959,7 +959,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHSetInstanceExplorer(punk : *mut core::ffi::c_void));
     unsafe { SHSetInstanceExplorer(punk.param().abi()) }
 }
-#[cfg(all(feature = "Win32_shtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shtypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn SHSetKnownFolderPath<P3>(rfid: *const super::shtypes::KNOWNFOLDERID, dwflags: u32, htoken: Option<super::winnt::HANDLE>, pszpath: P3) -> windows_core::HRESULT
 where
@@ -968,13 +968,13 @@ where
     windows_core::link!("shell32.dll" "system" fn SHSetKnownFolderPath(rfid : *const super::shtypes::KNOWNFOLDERID, dwflags : u32, htoken : super::winnt::HANDLE, pszpath : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { SHSetKnownFolderPath(rfid, dwflags, htoken.unwrap_or(core::mem::zeroed()) as _, pszpath.param().abi()) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn SHShellFolderView_Message(hwndmain: super::windef::HWND, umsg: u32, lparam: super::minwindef::LPARAM) -> super::minwindef::LRESULT {
     windows_core::link!("shell32.dll" "system" fn SHShellFolderView_Message(hwndmain : super::windef::HWND, umsg : u32, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
     unsafe { SHShellFolderView_Message(hwndmain, umsg, lparam) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHStartNetConnectionDialogW<P1>(hwnd: Option<super::windef::HWND>, pszremotename: P1, dwtype: u32) -> windows_core::HRESULT
 where
@@ -999,7 +999,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHUpdateImageW(pszhashitem : windows_core::PCWSTR, iindex : i32, uflags : u32, iimageindex : i32));
     unsafe { SHUpdateImageW(pszhashitem.param().abi(), iindex, uflags, iimageindex) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHValidateUNC(hwndowner: Option<super::windef::HWND>, pszfile: windows_core::PWSTR, fconnect: u32) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHValidateUNC(hwndowner : super::windef::HWND, pszfile : windows_core::PWSTR, fconnect : u32) -> windows_core::BOOL);
@@ -1029,25 +1029,25 @@ where
     windows_core::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexW(psziconpath : windows_core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
     unsafe { Shell_GetCachedImageIndexW(psziconpath.param().abi(), iiconindex, uiconflags) }
 }
-#[cfg(feature = "Win32_commctrl")]
+#[cfg(feature = "commctrl")]
 #[inline]
 pub unsafe fn Shell_GetImageLists(phiml: Option<*mut super::commctrl::HIMAGELIST>, phimlsmall: Option<*mut super::commctrl::HIMAGELIST>) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn Shell_GetImageLists(phiml : *mut super::commctrl::HIMAGELIST, phimlsmall : *mut super::commctrl::HIMAGELIST) -> windows_core::BOOL);
     unsafe { Shell_GetImageLists(phiml.unwrap_or(core::mem::zeroed()) as _, phimlsmall.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn Shell_MergeMenus(hmdst: super::windef::HMENU, hmsrc: super::windef::HMENU, uinsert: u32, uidadjust: u32, uidadjustmax: u32, uflags: u32) -> u32 {
     windows_core::link!("shell32.dll" "system" fn Shell_MergeMenus(hmdst : super::windef::HMENU, hmsrc : super::windef::HMENU, uinsert : u32, uidadjust : u32, uidadjustmax : u32, uflags : u32) -> u32);
     unsafe { Shell_MergeMenus(hmdst, hmsrc, uinsert, uidadjust, uidadjustmax, uflags) }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn SignalFileOpen(pidl: *const super::shtypes::ITEMIDLIST) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SignalFileOpen(pidl : *const super::shtypes::ITEMIDLIST) -> windows_core::BOOL);
     unsafe { SignalFileOpen(pidl) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn StgMakeUniqueName<P0, P1>(pstgparent: P0, pszfilespec: P1, grfmode: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
@@ -1091,7 +1091,7 @@ pub const AD_GETWP_IMAGE: u32 = 1;
 pub const AD_GETWP_LAST_APPLIED: u32 = 2;
 pub type AUTOCOMPLETELISTOPTIONS = i32;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct AUTO_SCROLL_DATA {
     pub iNextSample: i32,
@@ -1100,13 +1100,13 @@ pub struct AUTO_SCROLL_DATA {
     pub pts: [super::windef::POINT; 3],
     pub dwTimes: [u32; 3],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for AUTO_SCROLL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type BFFCALLBACK = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, umsg: u32, lparam: super::minwindef::LPARAM, lpdata: super::minwindef::LPARAM) -> i32>;
 pub const BFFM_ENABLEOK: u32 = 1125;
 pub const BFFM_INITIALIZED: u32 = 1;
@@ -1141,7 +1141,7 @@ pub const BIF_UAHINT: u32 = 256;
 pub const BIF_USENEWUI: u32 = 80;
 pub const BIF_VALIDATE: u32 = 32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct BROWSEINFOA {
     pub hwndOwner: super::windef::HWND,
@@ -1154,7 +1154,7 @@ pub struct BROWSEINFOA {
     pub iImage: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct BROWSEINFOW {
     pub hwndOwner: super::windef::HWND,
@@ -1267,7 +1267,7 @@ pub const COMP_TYPE_MAX: u32 = 4;
 pub const COMP_TYPE_PICTURE: u32 = 1;
 pub const COMP_TYPE_WEBSITE: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Debug, Default)]
 pub struct CSFV {
     pub cbSize: u32,
@@ -1348,7 +1348,7 @@ pub struct DATABLOCK_HEADER {
     pub dwSignature: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Debug, PartialEq)]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::windef::HWND,
@@ -1361,14 +1361,14 @@ pub struct DEFCONTEXTMENU {
     pub cKeys: u32,
     pub aKeys: *const super::minwindef::HKEY,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 impl Default for DEFCONTEXTMENU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[derive(Clone, Copy)]
 pub struct DETAILSINFO {
     pub pidl: super::shtypes::LPCITEMIDLIST,
@@ -1377,14 +1377,14 @@ pub struct DETAILSINFO {
     pub str: super::shtypes::STRRET,
     pub iImage: i32,
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl Default for DETAILSINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct DFMICS {
     pub cbSize: u32,
@@ -1437,7 +1437,7 @@ impl Default for DROPDESCRIPTION {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DROPFILES {
     pub pFiles: u32,
@@ -1549,7 +1549,7 @@ pub const FD_SIZEPOINT: FD_FLAGS = 2;
 pub const FD_UNICODE: FD_FLAGS = -2147483648;
 pub const FD_WRITESTIME: FD_FLAGS = 32;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct FILEDESCRIPTORA {
     pub dwFlags: u32,
@@ -1564,14 +1564,14 @@ pub struct FILEDESCRIPTORA {
     pub nFileSizeLow: u32,
     pub cFileName: [i8; 260],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for FILEDESCRIPTORA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct FILEDESCRIPTORW {
     pub dwFlags: u32,
@@ -1586,33 +1586,33 @@ pub struct FILEDESCRIPTORW {
     pub nFileSizeLow: u32,
     pub cFileName: [u16; 260],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for FILEDESCRIPTORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct FILEGROUPDESCRIPTORA {
     pub cItems: u32,
     pub fgd: [FILEDESCRIPTORA; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for FILEGROUPDESCRIPTORA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct FILEGROUPDESCRIPTORW {
     pub cItems: u32,
     pub fgd: [FILEDESCRIPTORW; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for FILEGROUPDESCRIPTORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1802,7 +1802,7 @@ impl IActiveDesktop {
     pub unsafe fn AddDesktopItem(&self, pcomp: *const COMPONENT, dwreserved: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddDesktopItem)(windows_core::Interface::as_raw(self), pcomp, dwreserved) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AddDesktopItemWithUI(&self, hwnd: Option<super::windef::HWND>, pcomp: *const COMPONENT, dwreserved: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddDesktopItemWithUI)(windows_core::Interface::as_raw(self), hwnd.unwrap_or(core::mem::zeroed()) as _, pcomp, dwreserved) }
     }
@@ -1827,7 +1827,7 @@ impl IActiveDesktop {
     {
         unsafe { (windows_core::Interface::vtable(self).GenerateDesktopItemHtml)(windows_core::Interface::as_raw(self), pwszfilename.param().abi(), pcomp, dwreserved) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AddUrl<P1>(&self, hwnd: Option<super::windef::HWND>, pszsource: P1, pcomp: *const COMPONENT, dwflags: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1858,9 +1858,9 @@ pub struct IActiveDesktop_Vtbl {
     pub GetDesktopItemOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut COMPONENTSOPT, u32) -> windows_core::HRESULT,
     pub SetDesktopItemOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMPONENTSOPT, u32) -> windows_core::HRESULT,
     pub AddDesktopItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMPONENT, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AddDesktopItemWithUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, *const COMPONENT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AddDesktopItemWithUI: usize,
     pub ModifyDesktopItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut COMPONENT, u32) -> windows_core::HRESULT,
     pub RemoveDesktopItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMPONENT, u32) -> windows_core::HRESULT,
@@ -1868,13 +1868,13 @@ pub struct IActiveDesktop_Vtbl {
     pub GetDesktopItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut COMPONENT, u32) -> windows_core::HRESULT,
     pub GetDesktopItemByID: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut COMPONENT, u32) -> windows_core::HRESULT,
     pub GenerateDesktopItemHtml: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const COMPONENT, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AddUrl: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, windows_core::PCWSTR, *const COMPONENT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AddUrl: usize,
     pub GetDesktopItemBySource: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut COMPONENT, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IActiveDesktop_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -1899,7 +1899,7 @@ pub trait IActiveDesktop_Impl: windows_core::IUnknownImpl {
     fn AddUrl(&self, hwnd: super::windef::HWND, pszsource: &windows_core::PCWSTR, pcomp: *const COMPONENT, dwflags: u32) -> windows_core::Result<()>;
     fn GetDesktopItemBySource(&self, pwszsource: &windows_core::PCWSTR, pcomp: *mut COMPONENT, dwreserved: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IActiveDesktop_Vtbl {
     pub const fn new<Identity: IActiveDesktop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2064,26 +2064,26 @@ impl IActiveDesktop_Vtbl {
         iid == &<IActiveDesktop as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IActiveDesktop {}
 pub const IDO_SHGIOI_DEFAULT: u32 = 4294967292;
 pub const IDO_SHGIOI_LINK: u32 = 268435454;
 pub const IDO_SHGIOI_SHARE: u32 = 268435455;
 pub const IDO_SHGIOI_SLOWFILE: u32 = 4294967293;
-#[cfg(feature = "Win32_oleidl")]
+#[cfg(feature = "oleidl")]
 windows_core::imp::define_interface!(IDockingWindowSite, IDockingWindowSite_Vtbl, 0x2a342fc2_7b26_11d0_8ca9_00a0c92dbfe8);
-#[cfg(feature = "Win32_oleidl")]
+#[cfg(feature = "oleidl")]
 impl core::ops::Deref for IDockingWindowSite {
     type Target = super::oleidl::IOleWindow;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oleidl")]
+#[cfg(feature = "oleidl")]
 windows_core::imp::interface_hierarchy!(IDockingWindowSite, windows_core::IUnknown, super::oleidl::IOleWindow);
-#[cfg(feature = "Win32_oleidl")]
+#[cfg(feature = "oleidl")]
 impl IDockingWindowSite {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetBorderDW<P0>(&self, punkobj: P0) -> windows_core::Result<super::windef::RECT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -2093,14 +2093,14 @@ impl IDockingWindowSite {
             (windows_core::Interface::vtable(self).GetBorderDW)(windows_core::Interface::as_raw(self), punkobj.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RequestBorderSpaceDW<P0>(&self, punkobj: P0, pbw: super::oleidl::LPCBORDERWIDTHS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).RequestBorderSpaceDW)(windows_core::Interface::as_raw(self), punkobj.param().abi(), pbw) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetBorderSpaceDW<P0>(&self, punkobj: P0, pbw: super::oleidl::LPCBORDERWIDTHS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -2108,31 +2108,31 @@ impl IDockingWindowSite {
         unsafe { (windows_core::Interface::vtable(self).SetBorderSpaceDW)(windows_core::Interface::as_raw(self), punkobj.param().abi(), pbw) }
     }
 }
-#[cfg(feature = "Win32_oleidl")]
+#[cfg(feature = "oleidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDockingWindowSite_Vtbl {
     pub base__: super::oleidl::IOleWindow_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetBorderDW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetBorderDW: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RequestBorderSpaceDW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::oleidl::LPCBORDERWIDTHS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RequestBorderSpaceDW: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetBorderSpaceDW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::oleidl::LPCBORDERWIDTHS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetBorderSpaceDW: usize,
 }
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oleidl", feature = "windef"))]
 pub trait IDockingWindowSite_Impl: super::oleidl::IOleWindow_Impl {
     fn GetBorderDW(&self, punkobj: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::windef::RECT>;
     fn RequestBorderSpaceDW(&self, punkobj: windows_core::Ref<windows_core::IUnknown>, pbw: super::oleidl::LPCBORDERWIDTHS) -> windows_core::Result<()>;
     fn SetBorderSpaceDW(&self, punkobj: windows_core::Ref<windows_core::IUnknown>, pbw: super::oleidl::LPCBORDERWIDTHS) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oleidl", feature = "windef"))]
 impl IDockingWindowSite_Vtbl {
     pub const fn new<Identity: IDockingWindowSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBorderDW<Identity: IDockingWindowSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkobj: *mut core::ffi::c_void, prcborder: *mut super::windef::RECT) -> windows_core::HRESULT {
@@ -2170,7 +2170,7 @@ impl IDockingWindowSite_Vtbl {
         iid == &<IDockingWindowSite as windows_core::Interface>::IID || iid == &<super::oleidl::IOleWindow as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oleidl", feature = "windef"))]
 impl windows_core::RuntimeName for IDockingWindowSite {}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -2202,7 +2202,7 @@ impl IExtractIconA {
     pub unsafe fn GetIconLocation(&self, uflags: u32, psziconfile: &mut [u8], piindex: *mut i32, pwflags: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), uflags, core::mem::transmute(psziconfile.as_ptr()), psziconfile.len().try_into().unwrap(), piindex as _, pwflags as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Extract<P0>(&self, pszfile: P0, niconindex: u32, phiconlarge: Option<*mut super::windef::HICON>, phiconsmall: Option<*mut super::windef::HICON>, niconsize: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
@@ -2215,17 +2215,17 @@ impl IExtractIconA {
 pub struct IExtractIconA_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIconLocation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut i32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Extract: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut super::windef::HICON, *mut super::windef::HICON, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Extract: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IExtractIconA_Impl: windows_core::IUnknownImpl {
     fn GetIconLocation(&self, uflags: u32, psziconfile: windows_core::PSTR, cchmax: u32, piindex: *mut i32, pwflags: *mut u32) -> windows_core::Result<()>;
     fn Extract(&self, pszfile: &windows_core::PCSTR, niconindex: u32, phiconlarge: *mut super::windef::HICON, phiconsmall: *mut super::windef::HICON, niconsize: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IExtractIconA_Vtbl {
     pub const fn new<Identity: IExtractIconA_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetIconLocation<Identity: IExtractIconA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uflags: u32, psziconfile: windows_core::PSTR, cchmax: u32, piindex: *mut i32, pwflags: *mut u32) -> windows_core::HRESULT {
@@ -2250,7 +2250,7 @@ impl IExtractIconA_Vtbl {
         iid == &<IExtractIconA as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IExtractIconA {}
 windows_core::imp::define_interface!(IExtractIconW, IExtractIconW_Vtbl, 0x000214fa_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IExtractIconW, windows_core::IUnknown);
@@ -2258,7 +2258,7 @@ impl IExtractIconW {
     pub unsafe fn GetIconLocation(&self, uflags: u32, psziconfile: &mut [u16], piindex: *mut i32, pwflags: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), uflags, core::mem::transmute(psziconfile.as_ptr()), psziconfile.len().try_into().unwrap(), piindex as _, pwflags as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Extract<P0>(&self, pszfile: P0, niconindex: u32, phiconlarge: Option<*mut super::windef::HICON>, phiconsmall: Option<*mut super::windef::HICON>, niconsize: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2271,17 +2271,17 @@ impl IExtractIconW {
 pub struct IExtractIconW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIconLocation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut i32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Extract: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut super::windef::HICON, *mut super::windef::HICON, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Extract: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IExtractIconW_Impl: windows_core::IUnknownImpl {
     fn GetIconLocation(&self, uflags: u32, psziconfile: windows_core::PWSTR, cchmax: u32, piindex: *mut i32, pwflags: *mut u32) -> windows_core::Result<()>;
     fn Extract(&self, pszfile: &windows_core::PCWSTR, niconindex: u32, phiconlarge: *mut super::windef::HICON, phiconsmall: *mut super::windef::HICON, niconsize: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IExtractIconW_Vtbl {
     pub const fn new<Identity: IExtractIconW_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetIconLocation<Identity: IExtractIconW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uflags: u32, psziconfile: windows_core::PWSTR, cchmax: u32, piindex: *mut i32, pwflags: *mut u32) -> windows_core::HRESULT {
@@ -2306,12 +2306,12 @@ impl IExtractIconW_Vtbl {
         iid == &<IExtractIconW as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IExtractIconW {}
 windows_core::imp::define_interface!(INamedPropertyBag, INamedPropertyBag_Vtbl, 0xfb700430_952c_11d1_946f_000000000000);
 windows_core::imp::interface_hierarchy!(INamedPropertyBag, windows_core::IUnknown);
 impl INamedPropertyBag {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ReadPropertyNPB<P0, P1>(&self, pszbagname: P0, pszpropname: P1, pvar: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2319,7 +2319,7 @@ impl INamedPropertyBag {
     {
         unsafe { (windows_core::Interface::vtable(self).ReadPropertyNPB)(windows_core::Interface::as_raw(self), pszbagname.param().abi(), pszpropname.param().abi(), core::mem::transmute(pvar)) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WritePropertyNPB<P0, P1>(&self, pszbagname: P0, pszpropname: P1, pvar: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2339,23 +2339,23 @@ impl INamedPropertyBag {
 #[doc(hidden)]
 pub struct INamedPropertyBag_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub ReadPropertyNPB: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     ReadPropertyNPB: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub WritePropertyNPB: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     WritePropertyNPB: usize,
     pub RemovePropertyNPB: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INamedPropertyBag_Impl: windows_core::IUnknownImpl {
     fn ReadPropertyNPB(&self, pszbagname: &windows_core::PCWSTR, pszpropname: &windows_core::PCWSTR, pvar: *mut super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
     fn WritePropertyNPB(&self, pszbagname: &windows_core::PCWSTR, pszpropname: &windows_core::PCWSTR, pvar: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
     fn RemovePropertyNPB(&self, pszbagname: &windows_core::PCWSTR, pszpropname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl INamedPropertyBag_Vtbl {
     pub const fn new<Identity: INamedPropertyBag_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReadPropertyNPB<Identity: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbagname: windows_core::PCWSTR, pszpropname: windows_core::PCWSTR, pvar: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
@@ -2387,7 +2387,7 @@ impl INamedPropertyBag_Vtbl {
         iid == &<INamedPropertyBag as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for INamedPropertyBag {}
 windows_core::imp::define_interface!(IObjMgr, IObjMgr_Vtbl, 0x00bb2761_6a77_11d0_a535_00c04fd7d062);
 windows_core::imp::interface_hierarchy!(IObjMgr, windows_core::IUnknown);
@@ -2440,7 +2440,7 @@ impl windows_core::RuntimeName for IObjMgr {}
 windows_core::imp::define_interface!(IProgressDialog, IProgressDialog_Vtbl, 0xebbc7c04_315e_11d2_b62f_006097df5bd4);
 windows_core::imp::interface_hierarchy!(IProgressDialog, windows_core::IUnknown);
 impl IProgressDialog {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn StartProgressDialog<P1>(&self, hwndparent: Option<super::windef::HWND>, punkenablemodless: P1, dwflags: u32, pvresevered: Option<*const core::ffi::c_void>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -2456,7 +2456,7 @@ impl IProgressDialog {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTitle)(windows_core::Interface::as_raw(self), pwztitle.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetAnimation(&self, hinstanimation: Option<super::minwindef::HINSTANCE>, idanimation: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAnimation)(windows_core::Interface::as_raw(self), hinstanimation.unwrap_or(core::mem::zeroed()) as _, idanimation) }
     }
@@ -2489,15 +2489,15 @@ impl IProgressDialog {
 #[doc(hidden)]
 pub struct IProgressDialog_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub StartProgressDialog: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, *mut core::ffi::c_void, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     StartProgressDialog: usize,
     pub StopProgressDialog: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub SetAnimation: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     SetAnimation: usize,
     pub HasUserCancelled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub SetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -2506,7 +2506,7 @@ pub struct IProgressDialog_Vtbl {
     pub SetCancelMsg: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub Timer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IProgressDialog_Impl: windows_core::IUnknownImpl {
     fn StartProgressDialog(&self, hwndparent: super::windef::HWND, punkenablemodless: windows_core::Ref<windows_core::IUnknown>, dwflags: u32, pvresevered: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn StopProgressDialog(&self) -> windows_core::Result<()>;
@@ -2519,7 +2519,7 @@ pub trait IProgressDialog_Impl: windows_core::IUnknownImpl {
     fn SetCancelMsg(&self, pwzcancelmsg: &windows_core::PCWSTR, pvresevered: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn Timer(&self, dwtimeraction: u32, pvresevered: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IProgressDialog_Vtbl {
     pub const fn new<Identity: IProgressDialog_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartProgressDialog<Identity: IProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::windef::HWND, punkenablemodless: *mut core::ffi::c_void, dwflags: u32, pvresevered: *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -2600,7 +2600,7 @@ impl IProgressDialog_Vtbl {
         iid == &<IProgressDialog as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IProgressDialog {}
 windows_core::imp::define_interface!(IQueryInfo, IQueryInfo_Vtbl, 0x00021500_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IQueryInfo, windows_core::IUnknown);
@@ -2763,7 +2763,7 @@ impl windows_core::RuntimeName for ISearchContext {}
 windows_core::imp::define_interface!(IShellChangeNotify, IShellChangeNotify_Vtbl, 0xd82be2b1_5764_11d0_a96e_00c04fd705a2);
 windows_core::imp::interface_hierarchy!(IShellChangeNotify, windows_core::IUnknown);
 impl IShellChangeNotify {
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub unsafe fn OnChange(&self, levent: i32, pidl1: Option<*const super::shtypes::ITEMIDLIST>, pidl2: Option<*const super::shtypes::ITEMIDLIST>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnChange)(windows_core::Interface::as_raw(self), levent, pidl1.unwrap_or(core::mem::zeroed()) as _, pidl2.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -2772,16 +2772,16 @@ impl IShellChangeNotify {
 #[doc(hidden)]
 pub struct IShellChangeNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub OnChange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const super::shtypes::ITEMIDLIST, *const super::shtypes::ITEMIDLIST) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_shtypes"))]
+    #[cfg(not(feature = "shtypes"))]
     OnChange: usize,
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 pub trait IShellChangeNotify_Impl: windows_core::IUnknownImpl {
     fn OnChange(&self, levent: i32, pidl1: *const super::shtypes::ITEMIDLIST, pidl2: *const super::shtypes::ITEMIDLIST) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl IShellChangeNotify_Vtbl {
     pub const fn new<Identity: IShellChangeNotify_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnChange<Identity: IShellChangeNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, levent: i32, pidl1: *const super::shtypes::ITEMIDLIST, pidl2: *const super::shtypes::ITEMIDLIST) -> windows_core::HRESULT {
@@ -2796,12 +2796,12 @@ impl IShellChangeNotify_Vtbl {
         iid == &<IShellChangeNotify as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl windows_core::RuntimeName for IShellChangeNotify {}
 windows_core::imp::define_interface!(IShellDetails, IShellDetails_Vtbl, 0x000214ec_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IShellDetails, windows_core::IUnknown);
 impl IShellDetails {
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub unsafe fn GetDetailsOf(&self, pidl: Option<*const super::shtypes::ITEMIDLIST>, icolumn: u32, pdetails: *mut super::shtypes::SHELLDETAILS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDetailsOf)(windows_core::Interface::as_raw(self), pidl.unwrap_or(core::mem::zeroed()) as _, icolumn, pdetails as _) }
     }
@@ -2813,18 +2813,18 @@ impl IShellDetails {
 #[doc(hidden)]
 pub struct IShellDetails_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub GetDetailsOf: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::shtypes::ITEMIDLIST, u32, *mut super::shtypes::SHELLDETAILS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_shtypes"))]
+    #[cfg(not(feature = "shtypes"))]
     GetDetailsOf: usize,
     pub ColumnClick: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 pub trait IShellDetails_Impl: windows_core::IUnknownImpl {
     fn GetDetailsOf(&self, pidl: *const super::shtypes::ITEMIDLIST, icolumn: u32, pdetails: *mut super::shtypes::SHELLDETAILS) -> windows_core::Result<()>;
     fn ColumnClick(&self, icolumn: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl IShellDetails_Vtbl {
     pub const fn new<Identity: IShellDetails_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDetailsOf<Identity: IShellDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const super::shtypes::ITEMIDLIST, icolumn: u32, pdetails: *mut super::shtypes::SHELLDETAILS) -> windows_core::HRESULT {
@@ -2849,12 +2849,12 @@ impl IShellDetails_Vtbl {
         iid == &<IShellDetails as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl windows_core::RuntimeName for IShellDetails {}
 windows_core::imp::define_interface!(IShellExecuteHookA, IShellExecuteHookA_Vtbl, 0x000214f5_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IShellExecuteHookA, windows_core::IUnknown);
 impl IShellExecuteHookA {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt"))]
     pub unsafe fn Execute(&self, pei: *mut super::shellapi::SHELLEXECUTEINFOA) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), pei as _) }
     }
@@ -2863,16 +2863,16 @@ impl IShellExecuteHookA {
 #[doc(hidden)]
 pub struct IShellExecuteHookA_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt"))]
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::shellapi::SHELLEXECUTEINFOA) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt")))]
     Execute: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt"))]
 pub trait IShellExecuteHookA_Impl: windows_core::IUnknownImpl {
     fn Execute(&self, pei: *mut super::shellapi::SHELLEXECUTEINFOA) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt"))]
 impl IShellExecuteHookA_Vtbl {
     pub const fn new<Identity: IShellExecuteHookA_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Execute<Identity: IShellExecuteHookA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pei: *mut super::shellapi::SHELLEXECUTEINFOA) -> windows_core::HRESULT {
@@ -2887,12 +2887,12 @@ impl IShellExecuteHookA_Vtbl {
         iid == &<IShellExecuteHookA as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IShellExecuteHookA {}
 windows_core::imp::define_interface!(IShellExecuteHookW, IShellExecuteHookW_Vtbl, 0x000214fb_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IShellExecuteHookW, windows_core::IUnknown);
 impl IShellExecuteHookW {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt"))]
     pub unsafe fn Execute(&self, pei: *mut super::shellapi::SHELLEXECUTEINFOW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), pei as _) }
     }
@@ -2901,16 +2901,16 @@ impl IShellExecuteHookW {
 #[doc(hidden)]
 pub struct IShellExecuteHookW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt"))]
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::shellapi::SHELLEXECUTEINFOW) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt")))]
     Execute: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt"))]
 pub trait IShellExecuteHookW_Impl: windows_core::IUnknownImpl {
     fn Execute(&self, pei: *mut super::shellapi::SHELLEXECUTEINFOW) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt"))]
 impl IShellExecuteHookW_Vtbl {
     pub const fn new<Identity: IShellExecuteHookW_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Execute<Identity: IShellExecuteHookW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pei: *mut super::shellapi::SHELLEXECUTEINFOW) -> windows_core::HRESULT {
@@ -2925,16 +2925,16 @@ impl IShellExecuteHookW_Vtbl {
         iid == &<IShellExecuteHookW as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shellapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shellapi", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IShellExecuteHookW {}
 windows_core::imp::define_interface!(IShellFolderView, IShellFolderView_Vtbl, 0x37a378c0_f82d_11ce_ae65_08002b2e1262);
 windows_core::imp::interface_hierarchy!(IShellFolderView, windows_core::IUnknown);
 impl IShellFolderView {
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Rearrange(&self, lparamsort: super::minwindef::LPARAM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Rearrange)(windows_core::Interface::as_raw(self), lparamsort) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetArrangeParam(&self) -> windows_core::Result<super::minwindef::LPARAM> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2950,18 +2950,18 @@ impl IShellFolderView {
     pub unsafe fn GetAutoArrange(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAutoArrange)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub unsafe fn AddObject(&self, pidl: *const super::shtypes::ITEMIDLIST) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddObject)(windows_core::Interface::as_raw(self), pidl, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub unsafe fn GetObject(&self, ppidl: *mut super::shtypes::LPITEMIDLIST, uitem: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), ppidl as _, uitem) }
     }
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub unsafe fn RemoveObject(&self, pidl: Option<*const super::shtypes::ITEMIDLIST>) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2977,14 +2977,14 @@ impl IShellFolderView {
     pub unsafe fn SetObjectCount(&self, ucount: u32, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetObjectCount)(windows_core::Interface::as_raw(self), ucount, dwflags) }
     }
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub unsafe fn UpdateObject(&self, pidlold: *const super::shtypes::ITEMIDLIST, pidlnew: *const super::shtypes::ITEMIDLIST) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdateObject)(windows_core::Interface::as_raw(self), pidlold, pidlnew, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub unsafe fn RefreshObject(&self, pidl: *const super::shtypes::ITEMIDLIST) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3000,43 +3000,43 @@ impl IShellFolderView {
             (windows_core::Interface::vtable(self).GetSelectedCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub unsafe fn GetSelectedObjects(&self, pppidl: *mut *mut super::shtypes::LPCITEMIDLIST, puitems: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSelectedObjects)(windows_core::Interface::as_raw(self), pppidl as _, puitems as _) }
     }
-    #[cfg(feature = "Win32_oleidl")]
+    #[cfg(feature = "oleidl")]
     pub unsafe fn IsDropOnSource<P0>(&self, pdroptarget: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::oleidl::IDropTarget>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsDropOnSource)(windows_core::Interface::as_raw(self), pdroptarget.param().abi()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetDragPoint(&self) -> windows_core::Result<super::windef::POINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDragPoint)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetDropPoint(&self) -> windows_core::Result<super::windef::POINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDropPoint)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn MoveIcons<P0>(&self, pdataobject: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IDataObject>,
     {
         unsafe { (windows_core::Interface::vtable(self).MoveIcons)(windows_core::Interface::as_raw(self), pdataobject.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+    #[cfg(all(feature = "shtypes", feature = "windef"))]
     pub unsafe fn SetItemPos(&self, pidl: *const super::shtypes::ITEMIDLIST, ppt: *const super::windef::POINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetItemPos)(windows_core::Interface::as_raw(self), pidl, ppt) }
     }
-    #[cfg(feature = "Win32_oleidl")]
+    #[cfg(feature = "oleidl")]
     pub unsafe fn IsBkDropTarget<P0>(&self, pdroptarget: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::oleidl::IDropTarget>,
@@ -3046,7 +3046,7 @@ impl IShellFolderView {
     pub unsafe fn SetClipboard(&self, bmove: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClipboard)(windows_core::Interface::as_raw(self), bmove.into()) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn SetPoints<P0>(&self, pdataobject: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IDataObject>,
@@ -3074,7 +3074,7 @@ impl IShellFolderView {
     pub unsafe fn QuerySupport(&self, pdwsupport: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QuerySupport)(windows_core::Interface::as_raw(self), pdwsupport as _) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn SetAutomationObject<P0>(&self, pdisp: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -3086,84 +3086,84 @@ impl IShellFolderView {
 #[doc(hidden)]
 pub struct IShellFolderView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Rearrange: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::LPARAM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Rearrange: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetArrangeParam: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::minwindef::LPARAM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetArrangeParam: usize,
     pub ArrangeGrid: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AutoArrange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAutoArrange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub AddObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::shtypes::ITEMIDLIST, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_shtypes"))]
+    #[cfg(not(feature = "shtypes"))]
     AddObject: usize,
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::shtypes::LPITEMIDLIST, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_shtypes"))]
+    #[cfg(not(feature = "shtypes"))]
     GetObject: usize,
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub RemoveObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::shtypes::ITEMIDLIST, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_shtypes"))]
+    #[cfg(not(feature = "shtypes"))]
     RemoveObject: usize,
     pub GetObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub UpdateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::shtypes::ITEMIDLIST, *const super::shtypes::ITEMIDLIST, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_shtypes"))]
+    #[cfg(not(feature = "shtypes"))]
     UpdateObject: usize,
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub RefreshObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::shtypes::ITEMIDLIST, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_shtypes"))]
+    #[cfg(not(feature = "shtypes"))]
     RefreshObject: usize,
     pub SetRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetSelectedCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub GetSelectedObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::shtypes::LPCITEMIDLIST, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_shtypes"))]
+    #[cfg(not(feature = "shtypes"))]
     GetSelectedObjects: usize,
-    #[cfg(feature = "Win32_oleidl")]
+    #[cfg(feature = "oleidl")]
     pub IsDropOnSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oleidl"))]
+    #[cfg(not(feature = "oleidl"))]
     IsDropOnSource: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetDragPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::POINT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetDragPoint: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetDropPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::POINT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetDropPoint: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub MoveIcons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     MoveIcons: usize,
-    #[cfg(all(feature = "Win32_shtypes", feature = "Win32_windef"))]
+    #[cfg(all(feature = "shtypes", feature = "windef"))]
     pub SetItemPos: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::shtypes::ITEMIDLIST, *const super::windef::POINT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_shtypes", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "shtypes", feature = "windef")))]
     SetItemPos: usize,
-    #[cfg(feature = "Win32_oleidl")]
+    #[cfg(feature = "oleidl")]
     pub IsBkDropTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oleidl"))]
+    #[cfg(not(feature = "oleidl"))]
     IsBkDropTarget: usize,
     pub SetClipboard: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub SetPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     SetPoints: usize,
     pub GetItemSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ITEMSPACING) -> windows_core::HRESULT,
     pub SetCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Select: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub QuerySupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub SetAutomationObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     SetAutomationObject: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "oleidl", feature = "shtypes", feature = "windef"))]
 pub trait IShellFolderView_Impl: windows_core::IUnknownImpl {
     fn Rearrange(&self, lparamsort: super::minwindef::LPARAM) -> windows_core::Result<()>;
     fn GetArrangeParam(&self) -> windows_core::Result<super::minwindef::LPARAM>;
@@ -3194,7 +3194,7 @@ pub trait IShellFolderView_Impl: windows_core::IUnknownImpl {
     fn QuerySupport(&self, pdwsupport: *mut u32) -> windows_core::Result<()>;
     fn SetAutomationObject(&self, pdisp: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "oleidl", feature = "shtypes", feature = "windef"))]
 impl IShellFolderView_Vtbl {
     pub const fn new<Identity: IShellFolderView_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Rearrange<Identity: IShellFolderView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lparamsort: super::minwindef::LPARAM) -> windows_core::HRESULT {
@@ -3467,12 +3467,12 @@ impl IShellFolderView_Vtbl {
         iid == &<IShellFolderView as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "oleidl", feature = "shtypes", feature = "windef"))]
 impl windows_core::RuntimeName for IShellFolderView {}
 windows_core::imp::define_interface!(IShellFolderViewCB, IShellFolderViewCB_Vtbl, 0x2047e320_f2a9_11ce_ae65_08002b2e1262);
 windows_core::imp::interface_hierarchy!(IShellFolderViewCB, windows_core::IUnknown);
 impl IShellFolderViewCB {
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn MessageSFVCB(&self, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MessageSFVCB)(windows_core::Interface::as_raw(self), umsg, wparam, lparam) }
     }
@@ -3481,16 +3481,16 @@ impl IShellFolderViewCB {
 #[doc(hidden)]
 pub struct IShellFolderViewCB_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub MessageSFVCB: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::minwindef::WPARAM, super::minwindef::LPARAM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     MessageSFVCB: usize,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IShellFolderViewCB_Impl: windows_core::IUnknownImpl {
     fn MessageSFVCB(&self, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IShellFolderViewCB_Vtbl {
     pub const fn new<Identity: IShellFolderViewCB_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MessageSFVCB<Identity: IShellFolderViewCB_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::HRESULT {
@@ -3505,16 +3505,16 @@ impl IShellFolderViewCB_Vtbl {
         iid == &<IShellFolderViewCB as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IShellFolderViewCB {}
 windows_core::imp::define_interface!(IShellIconOverlay, IShellIconOverlay_Vtbl, 0x7d688a70_c613_11d0_999b_00c04fd655e1);
 windows_core::imp::interface_hierarchy!(IShellIconOverlay, windows_core::IUnknown);
 impl IShellIconOverlay {
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub unsafe fn GetOverlayIndex(&self, pidl: *const super::shtypes::ITEMIDLIST, pindex: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetOverlayIndex)(windows_core::Interface::as_raw(self), pidl, pindex as _) }
     }
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub unsafe fn GetOverlayIconIndex(&self, pidl: *const super::shtypes::ITEMIDLIST, piconindex: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetOverlayIconIndex)(windows_core::Interface::as_raw(self), pidl, piconindex as _) }
     }
@@ -3523,21 +3523,21 @@ impl IShellIconOverlay {
 #[doc(hidden)]
 pub struct IShellIconOverlay_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub GetOverlayIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::shtypes::ITEMIDLIST, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_shtypes"))]
+    #[cfg(not(feature = "shtypes"))]
     GetOverlayIndex: usize,
-    #[cfg(feature = "Win32_shtypes")]
+    #[cfg(feature = "shtypes")]
     pub GetOverlayIconIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::shtypes::ITEMIDLIST, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_shtypes"))]
+    #[cfg(not(feature = "shtypes"))]
     GetOverlayIconIndex: usize,
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 pub trait IShellIconOverlay_Impl: windows_core::IUnknownImpl {
     fn GetOverlayIndex(&self, pidl: *const super::shtypes::ITEMIDLIST, pindex: *mut i32) -> windows_core::Result<()>;
     fn GetOverlayIconIndex(&self, pidl: *const super::shtypes::ITEMIDLIST, piconindex: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl IShellIconOverlay_Vtbl {
     pub const fn new<Identity: IShellIconOverlay_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOverlayIndex<Identity: IShellIconOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const super::shtypes::ITEMIDLIST, pindex: *mut i32) -> windows_core::HRESULT {
@@ -3562,7 +3562,7 @@ impl IShellIconOverlay_Vtbl {
         iid == &<IShellIconOverlay as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl windows_core::RuntimeName for IShellIconOverlay {}
 windows_core::imp::define_interface!(IShellIconOverlayManager, IShellIconOverlayManager_Vtbl, 0xf10b5e34_dd3b_42a7_aa7d_2f4ec54bb09b);
 windows_core::imp::interface_hierarchy!(IShellIconOverlayManager, windows_core::IUnknown);
@@ -3748,33 +3748,33 @@ pub const KF_FLAG_NO_PACKAGE_REDIRECTION: KNOWN_FOLDER_FLAG = 65536;
 pub const KF_FLAG_RETURN_FILTER_REDIRECTION_TARGET: KNOWN_FOLDER_FLAG = 262144;
 pub const KF_FLAG_SIMPLE_IDLIST: KNOWN_FOLDER_FLAG = 256;
 pub type KNOWN_FOLDER_FLAG = u32;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPBROWSEINFOA(pub *mut BROWSEINFOA);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 impl LPBROWSEINFOA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 impl Default for LPBROWSEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPBROWSEINFOW(pub *mut BROWSEINFOW);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 impl LPBROWSEINFOW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 impl Default for LPBROWSEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3923,17 +3923,17 @@ impl Default for LPCPROPPRG {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCSFV(pub *mut CSFV);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 impl LPCSFV {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 impl Default for LPCSFV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3978,17 +3978,17 @@ impl Default for LPDBLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDROPFILES(pub *mut DROPFILES);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPDROPFILES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPDROPFILES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4033,73 +4033,73 @@ impl Default for LPEXP_SZ_LINK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPFILEDESCRIPTORA(pub *mut FILEDESCRIPTORA);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl LPFILEDESCRIPTORA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for LPFILEDESCRIPTORA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPFILEDESCRIPTORW(pub *mut FILEDESCRIPTORW);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl LPFILEDESCRIPTORW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for LPFILEDESCRIPTORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPFILEGROUPDESCRIPTORA(pub *mut FILEGROUPDESCRIPTORA);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl LPFILEGROUPDESCRIPTORA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for LPFILEGROUPDESCRIPTORA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPFILEGROUPDESCRIPTORW(pub *mut FILEGROUPDESCRIPTORW);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl LPFILEGROUPDESCRIPTORW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for LPFILEGROUPDESCRIPTORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "shobjidl_core", feature = "windef"))]
 pub type LPFNDFMCALLBACK = Option<unsafe extern "system" fn(psf: windows_core::Ref<super::shobjidl_core::IShellFolder>, hwnd: super::windef::HWND, pdtobj: windows_core::Ref<super::objidl::IDataObject>, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
 pub type LPFNVIEWCALLBACK = Option<unsafe extern "system" fn(psvouter: windows_core::Ref<super::shobjidl_core::IShellView>, psf: windows_core::Ref<super::shobjidl_core::IShellFolder>, hwndmain: super::windef::HWND, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -4127,33 +4127,33 @@ impl Default for LPIE4COMPONENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnetwk")]
+#[cfg(feature = "winnetwk")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPNRESARRAY(pub *mut NRESARRAY);
-#[cfg(feature = "Win32_winnetwk")]
+#[cfg(feature = "winnetwk")]
 impl LPNRESARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnetwk")]
+#[cfg(feature = "winnetwk")]
 impl Default for LPNRESARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "wincontypes", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPNT_CONSOLE_PROPS(pub *mut NT_CONSOLE_PROPS);
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "wincontypes", feature = "windef"))]
 impl LPNT_CONSOLE_PROPS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "wincontypes", feature = "windef"))]
 impl Default for LPNT_CONSOLE_PROPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4185,17 +4185,17 @@ impl Default for LPPROPPRG {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPQCMINFO(pub *mut QCMINFO);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPQCMINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPQCMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4279,17 +4279,17 @@ impl Default for LPSHELLSTATEW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPSHFOLDERCUSTOMSETTINGS(pub *mut SHFOLDERCUSTOMSETTINGS);
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 impl LPSHFOLDERCUSTOMSETTINGS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 impl Default for LPSHFOLDERCUSTOMSETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4314,20 +4314,20 @@ pub const MM_ADDSEPARATOR: u32 = 1;
 pub const MM_DONTREMOVESEPS: u32 = 4;
 pub const MM_SUBMENUSHAVEIDS: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnetwk")]
+#[cfg(feature = "winnetwk")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NRESARRAY {
     pub cItems: u32,
     pub nr: [super::winnetwk::NETRESOURCE; 1],
 }
-#[cfg(feature = "Win32_winnetwk")]
+#[cfg(feature = "winnetwk")]
 impl Default for NRESARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "wincontypes", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct NT_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
@@ -4352,7 +4352,7 @@ pub struct NT_CONSOLE_PROPS {
     pub bHistoryNoDup: windows_core::BOOL,
     pub ColorTable: [super::windef::COLORREF; 16],
 }
-#[cfg(all(feature = "Win32_wincontypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "wincontypes", feature = "windef"))]
 impl Default for NT_CONSOLE_PROPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4388,33 +4388,33 @@ pub struct OPENASINFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct OPEN_AS_INFO_FLAGS(pub i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PBROWSEINFOA(pub *mut BROWSEINFOA);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 impl PBROWSEINFOA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 impl Default for PBROWSEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PBROWSEINFOW(pub *mut BROWSEINFOW);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 impl PBROWSEINFOW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 impl Default for PBROWSEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4425,33 +4425,33 @@ pub const PCS_PATHTOOLONG: u32 = 8;
 pub const PCS_REMOVEDCHAR: u32 = 2;
 pub const PCS_REPLACEDCHAR: u32 = 1;
 pub const PCS_TRUNCATED: u32 = 4;
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDETAILSINFO(pub *mut DETAILSINFO);
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl PDETAILSINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 impl Default for PDETAILSINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDFMICS(pub *mut DFMICS);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 impl PDFMICS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 impl Default for PDFMICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4572,7 +4572,7 @@ impl Default for PROPPRG {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QCMINFO {
     pub hmenu: super::windef::HMENU,
@@ -4581,7 +4581,7 @@ pub struct QCMINFO {
     pub idCmdLast: u32,
     pub pIdMap: *const QCMINFO_IDMAP,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for QCMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4816,7 +4816,7 @@ pub const SFVM_INITMENUPOPUP: u32 = 7;
 pub const SFVM_INVOKECOMMAND: u32 = 2;
 pub const SFVM_MERGEMENU: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_prsht"))]
+#[cfg(all(feature = "minwindef", feature = "prsht"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct SFVM_PROPPAGE_DATA {
     pub dwReserved: u32,
@@ -4836,7 +4836,7 @@ pub const SFVS_SELECT_ALLITEMS: u32 = 1;
 pub const SFVS_SELECT_INVERT: u32 = 2;
 pub const SFVS_SELECT_NONE: u32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_shobjidl_core"))]
+#[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct SFV_CREATE {
     pub cbSize: u32,
@@ -4846,21 +4846,21 @@ pub struct SFV_CREATE {
 }
 pub type SHARD = i32;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 #[derive(Default)]
 pub struct SHARDAPPIDINFO {
     pub psi: core::mem::ManuallyDrop<Option<super::shobjidl_core::IShellItem>>,
     pub pszAppID: windows_core::PCWSTR,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[derive(Clone, Copy, Default)]
 pub struct SHARDAPPIDINFOIDLIST {
     pub pidl: super::shtypes::LPCITEMIDLIST,
     pub pszAppID: windows_core::PCWSTR,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 #[derive(Default)]
 pub struct SHARDAPPIDINFOLINK {
     pub psl: core::mem::ManuallyDrop<Option<super::shobjidl_core::IShellLinkA>>,
@@ -4928,7 +4928,7 @@ pub struct SHChangeDWORDAsIDList {
     pub cbZero: u16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_shtypes")]
+#[cfg(feature = "shtypes")]
 #[derive(Clone, Copy, Default)]
 pub struct SHChangeNotifyEntry {
     pub pidl: super::shtypes::LPCITEMIDLIST,
@@ -5020,7 +5020,7 @@ pub const SHFMT_NOFORMAT: u32 = 4294967293;
 pub const SHFMT_OPT_FULL: u32 = 1;
 pub const SHFMT_OPT_SYSONLY: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHFOLDERCUSTOMSETTINGS {
     pub dwSize: u32,
@@ -5039,7 +5039,7 @@ pub struct SHFOLDERCUSTOMSETTINGS {
     pub pszLogo: windows_core::PWSTR,
     pub cchLogo: u32,
 }
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 impl Default for SHFOLDERCUSTOMSETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

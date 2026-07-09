@@ -35,7 +35,7 @@ impl windows_core::RuntimeName for IWbemAddressResolution {}
 windows_core::imp::define_interface!(IWbemClientConnectionTransport, IWbemClientConnectionTransport_Vtbl, 0xa889c72a_fcc1_4a9e_af61_ed071333fb5b);
 windows_core::imp::interface_hierarchy!(IWbemClientConnectionTransport, windows_core::IUnknown);
 impl IWbemClientConnectionTransport {
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub unsafe fn Open<P8, T>(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lflags: i32, pctx: P8, pcallres: *mut Option<super::wbemcli::IWbemCallResult>) -> windows_core::Result<T>
     where
         P8: windows_core::Param<super::wbemcli::IWbemContext>,
@@ -44,7 +44,7 @@ impl IWbemClientConnectionTransport {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(straddresstype), dwbinaryaddresslength, abbinaryaddress, core::mem::transmute_copy(strobject), core::mem::transmute_copy(struser), core::mem::transmute_copy(strpassword), core::mem::transmute_copy(strlocale), lflags, pctx.param().abi(), &T::IID, &mut result__, core::mem::transmute(pcallres)).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub unsafe fn OpenAsync<P8, P10>(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lflags: i32, pctx: P8, riid: *const windows_core::GUID, presponsehandler: P10) -> windows_core::HRESULT
     where
         P8: windows_core::Param<super::wbemcli::IWbemContext>,
@@ -52,7 +52,7 @@ impl IWbemClientConnectionTransport {
     {
         unsafe { (windows_core::Interface::vtable(self).OpenAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(straddresstype), dwbinaryaddresslength, abbinaryaddress, core::mem::transmute_copy(strobject), core::mem::transmute_copy(struser), core::mem::transmute_copy(strpassword), core::mem::transmute_copy(strlocale), lflags, pctx.param().abi(), riid, presponsehandler.param().abi()) }
     }
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub unsafe fn Cancel<P1>(&self, lflags: i32, phandler: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::wbemcli::IWbemObjectSink>,
@@ -64,26 +64,26 @@ impl IWbemClientConnectionTransport {
 #[doc(hidden)]
 pub struct IWbemClientConnectionTransport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wbemcli"))]
+    #[cfg(not(feature = "wbemcli"))]
     Open: usize,
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub OpenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wbemcli"))]
+    #[cfg(not(feature = "wbemcli"))]
     OpenAsync: usize,
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wbemcli"))]
+    #[cfg(not(feature = "wbemcli"))]
     Cancel: usize,
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 pub trait IWbemClientConnectionTransport_Impl: windows_core::IUnknownImpl {
     fn Open(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lflags: i32, pctx: windows_core::Ref<super::wbemcli::IWbemContext>, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void, pcallres: windows_core::OutRef<super::wbemcli::IWbemCallResult>) -> windows_core::Result<()>;
     fn OpenAsync(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lflags: i32, pctx: windows_core::Ref<super::wbemcli::IWbemContext>, riid: *const windows_core::GUID, presponsehandler: windows_core::Ref<super::wbemcli::IWbemObjectSink>) -> windows_core::Result<()>;
     fn Cancel(&self, lflags: i32, phandler: windows_core::Ref<super::wbemcli::IWbemObjectSink>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 impl IWbemClientConnectionTransport_Vtbl {
     pub const fn new<Identity: IWbemClientConnectionTransport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IWbemClientConnectionTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straddresstype: *mut core::ffi::c_void, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: *mut core::ffi::c_void, struser: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void, strlocale: *mut core::ffi::c_void, lflags: i32, pctx: *mut core::ffi::c_void, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void, pcallres: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -115,12 +115,12 @@ impl IWbemClientConnectionTransport_Vtbl {
         iid == &<IWbemClientConnectionTransport as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 impl windows_core::RuntimeName for IWbemClientConnectionTransport {}
 windows_core::imp::define_interface!(IWbemClientTransport, IWbemClientTransport_Vtbl, 0xf7ce2e11_8c90_11d1_9e7b_00c04fc324a8);
 windows_core::imp::interface_hierarchy!(IWbemClientTransport, windows_core::IUnknown);
 impl IWbemClientTransport {
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub unsafe fn ConnectServer<P9>(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strnetworkresource: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lsecurityflags: i32, strauthority: &windows_core::BSTR, pctx: P9) -> windows_core::Result<super::wbemcli::IWbemServices>
     where
         P9: windows_core::Param<super::wbemcli::IWbemContext>,
@@ -135,16 +135,16 @@ impl IWbemClientTransport {
 #[doc(hidden)]
 pub struct IWbemClientTransport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wbemcli"))]
+    #[cfg(not(feature = "wbemcli"))]
     ConnectServer: usize,
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 pub trait IWbemClientTransport_Impl: windows_core::IUnknownImpl {
     fn ConnectServer(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strnetworkresource: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lsecurityflags: i32, strauthority: &windows_core::BSTR, pctx: windows_core::Ref<super::wbemcli::IWbemContext>) -> windows_core::Result<super::wbemcli::IWbemServices>;
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 impl IWbemClientTransport_Vtbl {
     pub const fn new<Identity: IWbemClientTransport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConnectServer<Identity: IWbemClientTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straddresstype: *mut core::ffi::c_void, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strnetworkresource: *mut core::ffi::c_void, struser: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void, strlocale: *mut core::ffi::c_void, lsecurityflags: i32, strauthority: *mut core::ffi::c_void, pctx: *mut core::ffi::c_void, ppnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -165,12 +165,12 @@ impl IWbemClientTransport_Vtbl {
         iid == &<IWbemClientTransport as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 impl windows_core::RuntimeName for IWbemClientTransport {}
 windows_core::imp::define_interface!(IWbemConnectorLogin, IWbemConnectorLogin_Vtbl, 0xd8ec9cb1_b135_4f10_8b1b_c7188bb0d186);
 windows_core::imp::interface_hierarchy!(IWbemConnectorLogin, windows_core::IUnknown);
 impl IWbemConnectorLogin {
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub unsafe fn ConnectorLogin<P0, P1, P3, T>(&self, wsznetworkresource: P0, wszpreferredlocale: P1, lflags: i32, pctx: P3) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -186,16 +186,16 @@ impl IWbemConnectorLogin {
 #[doc(hidden)]
 pub struct IWbemConnectorLogin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub ConnectorLogin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wbemcli"))]
+    #[cfg(not(feature = "wbemcli"))]
     ConnectorLogin: usize,
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 pub trait IWbemConnectorLogin_Impl: windows_core::IUnknownImpl {
     fn ConnectorLogin(&self, wsznetworkresource: &windows_core::PCWSTR, wszpreferredlocale: &windows_core::PCWSTR, lflags: i32, pctx: windows_core::Ref<super::wbemcli::IWbemContext>, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 impl IWbemConnectorLogin_Vtbl {
     pub const fn new<Identity: IWbemConnectorLogin_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConnectorLogin<Identity: IWbemConnectorLogin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wsznetworkresource: windows_core::PCWSTR, wszpreferredlocale: windows_core::PCWSTR, lflags: i32, pctx: *mut core::ffi::c_void, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -210,7 +210,7 @@ impl IWbemConnectorLogin_Vtbl {
         iid == &<IWbemConnectorLogin as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 impl windows_core::RuntimeName for IWbemConnectorLogin {}
 windows_core::imp::define_interface!(IWbemConstructClassObject, IWbemConstructClassObject_Vtbl, 0x9ef76194_70d5_11d1_ad90_00c04fd8fdff);
 windows_core::imp::interface_hierarchy!(IWbemConstructClassObject, windows_core::IUnknown);
@@ -314,7 +314,7 @@ impl IWbemLevel1Login {
             (windows_core::Interface::vtable(self).RequestChallenge)(windows_core::Interface::as_raw(self), wsznetworkresource.param().abi(), wszuser.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub unsafe fn WBEMLogin<P0, P3>(&self, wszpreferredlocale: P0, accesstoken: *const u8, lflags: i32, pctx: P3) -> windows_core::Result<super::wbemcli::IWbemServices>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -325,7 +325,7 @@ impl IWbemLevel1Login {
             (windows_core::Interface::vtable(self).WBEMLogin)(windows_core::Interface::as_raw(self), wszpreferredlocale.param().abi(), accesstoken, lflags, pctx.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub unsafe fn NTLMLogin<P0, P1, P3>(&self, wsznetworkresource: P0, wszpreferredlocale: P1, lflags: i32, pctx: P3) -> windows_core::Result<super::wbemcli::IWbemServices>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -344,23 +344,23 @@ pub struct IWbemLevel1Login_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EstablishPosition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub RequestChallenge: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut u8) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub WBEMLogin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u8, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wbemcli"))]
+    #[cfg(not(feature = "wbemcli"))]
     WBEMLogin: usize,
-    #[cfg(feature = "Win32_wbemcli")]
+    #[cfg(feature = "wbemcli")]
     pub NTLMLogin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wbemcli"))]
+    #[cfg(not(feature = "wbemcli"))]
     NTLMLogin: usize,
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 pub trait IWbemLevel1Login_Impl: windows_core::IUnknownImpl {
     fn EstablishPosition(&self, wszlocalelist: &windows_core::PCWSTR, dwnumlocales: u32) -> windows_core::Result<u32>;
     fn RequestChallenge(&self, wsznetworkresource: &windows_core::PCWSTR, wszuser: &windows_core::PCWSTR) -> windows_core::Result<u8>;
     fn WBEMLogin(&self, wszpreferredlocale: &windows_core::PCWSTR, accesstoken: *const u8, lflags: i32, pctx: windows_core::Ref<super::wbemcli::IWbemContext>) -> windows_core::Result<super::wbemcli::IWbemServices>;
     fn NTLMLogin(&self, wsznetworkresource: &windows_core::PCWSTR, wszpreferredlocale: &windows_core::PCWSTR, lflags: i32, pctx: windows_core::Ref<super::wbemcli::IWbemContext>) -> windows_core::Result<super::wbemcli::IWbemServices>;
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 impl IWbemLevel1Login_Vtbl {
     pub const fn new<Identity: IWbemLevel1Login_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EstablishPosition<Identity: IWbemLevel1Login_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszlocalelist: windows_core::PCWSTR, dwnumlocales: u32, reserved: *mut u32) -> windows_core::HRESULT {
@@ -423,7 +423,7 @@ impl IWbemLevel1Login_Vtbl {
         iid == &<IWbemLevel1Login as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wbemcli")]
+#[cfg(feature = "wbemcli")]
 impl windows_core::RuntimeName for IWbemLevel1Login {}
 windows_core::imp::define_interface!(IWbemTransport, IWbemTransport_Vtbl, 0x553fe584_2156_11d0_b6ae_00aa003240c7);
 windows_core::imp::interface_hierarchy!(IWbemTransport, windows_core::IUnknown);

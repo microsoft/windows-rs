@@ -1,55 +1,55 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmAttachMilContent(hwnd : super::windef::HWND) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmDefWindowProc(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM, plresult : *mut super::minwindef::LRESULT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmDetachMilContent(hwnd : super::windef::HWND) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmEnableBlurBehindWindow(hwnd : super::windef::HWND, pblurbehind : *const DWM_BLURBEHIND) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmEnableComposition(ucompositionaction : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmEnableMMCSS(fenablemmcss : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_uxtheme", feature = "Win32_windef"))]
+#[cfg(all(feature = "uxtheme", feature = "windef"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmExtendFrameIntoClientArea(hwnd : super::windef::HWND, pmarinset : *const super::uxtheme::MARGINS) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmFlush() -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmGetColorizationColor(pcrcolorization : *mut u32, pfopaqueblend : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmGetCompositionTimingInfo(hwnd : super::windef::HWND, ptiminginfo : *mut DWM_TIMING_INFO) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamClient(uindex : u32, pclientuuid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamTransformHint(uindex : u32, ptransform : *mut MilMatrix3x2D) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmGetTransportAttributes(pfisremoting : *mut windows_sys::core::BOOL, pfisconnected : *mut windows_sys::core::BOOL, pdwgeneration : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmGetUnmetTabRequirements(appwindow : super::windef::HWND, value : *mut DWM_TAB_WINDOW_REQUIREMENTS) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmGetWindowAttribute(hwnd : super::windef::HWND, dwattribute : u32, pvattribute : *mut core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmInvalidateIconicBitmaps(hwnd : super::windef::HWND) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmIsCompositionEnabled(pfenabled : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmModifyPreviousDxFrameDuration(hwnd : super::windef::HWND, crefreshes : i32, frelative : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : HTHUMBNAIL, psize : *mut super::windef::SIZE) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::windef::HWND, hwndsource : super::windef::HWND, phthumbnailid : *mut HTHUMBNAIL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmRenderGesture(gt : GESTURE_TYPE, ccontacts : u32, pdwpointerid : *const u32, ppoints : *const super::windef::POINT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmSetDxFrameDuration(hwnd : super::windef::HWND, crefreshes : i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd : super::windef::HWND, hbmp : super::windef::HBITMAP, pptclient : *const super::windef::POINT, dwsitflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicThumbnail(hwnd : super::windef::HWND, hbmp : super::windef::HBITMAP, dwsitflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmSetPresentParameters(hwnd : super::windef::HWND, ppresentparams : *mut DWM_PRESENT_PARAMETERS) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::windef::HWND, dwattribute : u32, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmShowContact(dwpointerid : u32, eshowcontact : DWM_SHOWCONTACT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : windows_sys::core::BOOL, pttether : super::windef::POINT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmTransitionOwnedWindow(hwnd : super::windef::HWND, target : DWMTRANSITION_OWNEDWINDOW_TARGET) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("dwmapi.dll" "system" fn DwmUnregisterThumbnail(hthumbnailid : HTHUMBNAIL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmUpdateThumbnailProperties(hthumbnailid : HTHUMBNAIL, ptnproperties : *const DWM_THUMBNAIL_PROPERTIES) -> windows_sys::core::HRESULT);
 pub type DWMFLIP3DWINDOWPOLICY = i32;
 pub const DWMFLIP3D_DEFAULT: DWMFLIP3DWINDOWPOLICY = 0;
@@ -125,7 +125,7 @@ pub const DWM_BB_BLURREGION: u32 = 2;
 pub const DWM_BB_ENABLE: u32 = 1;
 pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DWM_BLURBEHIND {
     pub dwFlags: u32,
@@ -133,7 +133,7 @@ pub struct DWM_BLURBEHIND {
     pub hRgnBlur: super::minwindef::HRGN,
     pub fTransitionOnMaximized: windows_sys::core::BOOL,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DWM_BLURBEHIND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -167,7 +167,7 @@ pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = 0;
 pub type DWM_SYSTEMBACKDROP_TYPE = i32;
 pub type DWM_TAB_WINDOW_REQUIREMENTS = u32;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
     pub dwFlags: u32,
@@ -239,7 +239,7 @@ pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = 9;
 pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = 10;
 pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = 7;
 pub const GT_TOUCH_TAP: GESTURE_TYPE = 5;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HTHUMBNAIL = super::winnt::HANDLE;
 pub type MIL_MATRIX3X2D = MilMatrix3x2D;
 #[repr(C, packed(1))]
@@ -252,11 +252,11 @@ pub struct MilMatrix3x2D {
     pub DX: f64,
     pub DY: f64,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PDWM_BLURBEHIND = *mut DWM_BLURBEHIND;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PDWM_THUMBNAIL_PROPERTIES = *mut DWM_THUMBNAIL_PROPERTIES;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHTHUMBNAIL = *mut HTHUMBNAIL;
 pub type QPC_TIME = u64;
 #[repr(C, packed(1))]

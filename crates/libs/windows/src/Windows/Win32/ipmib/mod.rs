@@ -72,7 +72,7 @@ pub struct MIB_ICMP_EX_XPSP1 {
     pub icmpInStats: MIBICMPSTATS_EX,
     pub icmpOutStats: MIBICMPSTATS_EX,
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 pub type MIB_IPADDRROW = MIB_IPADDRROW_XP;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -86,7 +86,7 @@ pub struct MIB_IPADDRROW_W2K {
     pub unused2: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MIB_IPADDRROW_XP {
     pub dwAddr: u32,
@@ -98,13 +98,13 @@ pub struct MIB_IPADDRROW_XP {
     pub wType: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIB_IPADDRTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPADDRROW; 1],
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for MIB_IPADDRTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -122,7 +122,7 @@ pub struct MIB_IPFORWARDNUMBER {
     pub dwValue: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPFORWARDROW {
     pub dwForwardDest: u32,
@@ -140,52 +140,52 @@ pub struct MIB_IPFORWARDROW {
     pub dwForwardMetric4: u32,
     pub dwForwardMetric5: u32,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 impl Default for MIB_IPFORWARDROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 #[derive(Clone, Copy)]
 pub union MIB_IPFORWARDROW_0 {
     pub dwForwardType: u32,
     pub ForwardType: MIB_IPFORWARD_TYPE,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 impl Default for MIB_IPFORWARDROW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 #[derive(Clone, Copy)]
 pub union MIB_IPFORWARDROW_1 {
     pub dwForwardProto: u32,
     pub ForwardProto: MIB_IPFORWARD_PROTO,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 impl Default for MIB_IPFORWARDROW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPFORWARDTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPFORWARDROW; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 impl Default for MIB_IPFORWARDTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_nldef")]
+#[cfg(feature = "nldef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct MIB_IPFORWARD_PROTO(pub super::nldef::NL_ROUTE_PROTOCOL);
@@ -349,10 +349,10 @@ pub struct MIB_IPMCAST_OIF_XP {
     pub dwReserved: u32,
     pub dwReserved1: u32,
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 pub type MIB_IPNETROW = MIB_IPNETROW_LH;
 #[repr(C)]
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[derive(Clone, Copy)]
 pub struct MIB_IPNETROW_LH {
     pub dwIndex: super::ifdef::IF_INDEX,
@@ -361,27 +361,27 @@ pub struct MIB_IPNETROW_LH {
     pub dwAddr: u32,
     pub Anonymous: MIB_IPNETROW_LH_0,
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for MIB_IPNETROW_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[derive(Clone, Copy)]
 pub union MIB_IPNETROW_LH_0 {
     pub dwType: u32,
     pub Type: MIB_IPNET_TYPE,
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for MIB_IPNETROW_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIB_IPNETROW_W2K {
     pub dwIndex: super::ifdef::IF_INDEX,
@@ -390,20 +390,20 @@ pub struct MIB_IPNETROW_W2K {
     pub dwAddr: u32,
     pub dwType: u32,
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for MIB_IPNETROW_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[derive(Clone, Copy)]
 pub struct MIB_IPNETTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPNETROW; 1],
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for MIB_IPNETTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -638,17 +638,17 @@ impl Default for PMIB_ICMP_EX_XPSP1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPADDRROW(pub *mut MIB_IPADDRROW_XP);
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl PMIB_IPADDRROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for PMIB_IPADDRROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -667,33 +667,33 @@ impl Default for PMIB_IPADDRROW_W2K {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPADDRROW_XP(pub *mut MIB_IPADDRROW_XP);
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl PMIB_IPADDRROW_XP {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for PMIB_IPADDRROW_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPADDRTABLE(pub *mut MIB_IPADDRTABLE);
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl PMIB_IPADDRTABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for PMIB_IPADDRTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -712,33 +712,33 @@ impl Default for PMIB_IPFORWARDNUMBER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPFORWARDROW(pub *mut MIB_IPFORWARDROW);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 impl PMIB_IPFORWARDROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 impl Default for PMIB_IPFORWARDROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPFORWARDTABLE(pub *mut MIB_IPFORWARDTABLE);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 impl PMIB_IPFORWARDTABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 impl Default for PMIB_IPFORWARDTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -913,65 +913,65 @@ impl Default for PMIB_IPMCAST_OIF_XP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPNETROW(pub *mut MIB_IPNETROW_LH);
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl PMIB_IPNETROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for PMIB_IPNETROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPNETROW_LH(pub *mut MIB_IPNETROW_LH);
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl PMIB_IPNETROW_LH {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for PMIB_IPNETROW_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPNETROW_W2K(pub *mut MIB_IPNETROW_W2K);
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl PMIB_IPNETROW_W2K {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for PMIB_IPNETROW_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPNETTABLE(pub *mut MIB_IPNETTABLE);
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl PMIB_IPNETTABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ifdef")]
+#[cfg(feature = "ifdef")]
 impl Default for PMIB_IPNETTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -92,7 +92,7 @@ impl windows_core::RuntimeName for IEnumPortableDeviceObjectIDs {}
 windows_core::imp::define_interface!(IPortableDevice, IPortableDevice_Vtbl, 0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
 windows_core::imp::interface_hierarchy!(IPortableDevice, windows_core::IUnknown);
 impl IPortableDevice {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn Open<P0, P1>(&self, pszpnpdeviceid: P0, pclientinfo: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -100,7 +100,7 @@ impl IPortableDevice {
     {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), pszpnpdeviceid.param().abi(), pclientinfo.param().abi()) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn SendCommand<P1>(&self, dwflags: u32, pparameters: P1) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>
     where
         P1: windows_core::Param<super::portabledevicetypes::IPortableDeviceValues>,
@@ -128,7 +128,7 @@ impl IPortableDevice {
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn Advise<P1, P2>(&self, dwflags: u32, pcallback: P1, pparameters: P2) -> windows_core::Result<windows_core::PWSTR>
     where
         P1: windows_core::Param<IPortableDeviceEventCallback>,
@@ -156,26 +156,26 @@ impl IPortableDevice {
 #[doc(hidden)]
 pub struct IPortableDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     Open: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub SendCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     SendCommand: usize,
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub Advise: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     Advise: usize,
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetPnPDeviceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 pub trait IPortableDevice_Impl: windows_core::IUnknownImpl {
     fn Open(&self, pszpnpdeviceid: &windows_core::PCWSTR, pclientinfo: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>) -> windows_core::Result<()>;
     fn SendCommand(&self, dwflags: u32, pparameters: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>;
@@ -187,7 +187,7 @@ pub trait IPortableDevice_Impl: windows_core::IUnknownImpl {
     fn Unadvise(&self, pszcookie: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetPnPDeviceID(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl IPortableDevice_Vtbl {
     pub const fn new<Identity: IPortableDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IPortableDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, pclientinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -291,61 +291,61 @@ impl IPortableDevice_Vtbl {
         iid == &<IPortableDevice as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl windows_core::RuntimeName for IPortableDevice {}
 windows_core::imp::define_interface!(IPortableDeviceCapabilities, IPortableDeviceCapabilities_Vtbl, 0x2c8c6dbf_e3dc_4061_becc_8542e810d126);
 windows_core::imp::interface_hierarchy!(IPortableDeviceCapabilities, windows_core::IUnknown);
 impl IPortableDeviceCapabilities {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedCommands(&self) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceKeyCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedCommands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub unsafe fn GetCommandOptions(&self, command: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCommandOptions)(windows_core::Interface::as_raw(self), command, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetFunctionalCategories(&self) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFunctionalCategories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetFunctionalObjects(&self, category: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFunctionalObjects)(windows_core::Interface::as_raw(self), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedContentTypes(&self, category: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedContentTypes)(windows_core::Interface::as_raw(self), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedFormats(&self, contenttype: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedFormats)(windows_core::Interface::as_raw(self), contenttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedFormatProperties(&self, format: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceKeyCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedFormatProperties)(windows_core::Interface::as_raw(self), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub unsafe fn GetFixedPropertyAttributes(&self, format: *const windows_core::GUID, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -355,14 +355,14 @@ impl IPortableDeviceCapabilities {
     pub unsafe fn Cancel(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedEvents(&self) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedEvents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetEventOptions(&self, event: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -374,49 +374,49 @@ impl IPortableDeviceCapabilities {
 #[doc(hidden)]
 pub struct IPortableDeviceCapabilities_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedCommands: usize,
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub GetCommandOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "portabledevicetypes", feature = "wtypes")))]
     GetCommandOptions: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetFunctionalCategories: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetFunctionalCategories: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetFunctionalObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetFunctionalObjects: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedContentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedContentTypes: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedFormats: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedFormatProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedFormatProperties: usize,
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub GetFixedPropertyAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "portabledevicetypes", feature = "wtypes")))]
     GetFixedPropertyAttributes: usize,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedEvents: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetEventOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetEventOptions: usize,
 }
-#[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
 pub trait IPortableDeviceCapabilities_Impl: windows_core::IUnknownImpl {
     fn GetSupportedCommands(&self) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceKeyCollection>;
     fn GetCommandOptions(&self, command: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>;
@@ -430,7 +430,7 @@ pub trait IPortableDeviceCapabilities_Impl: windows_core::IUnknownImpl {
     fn GetSupportedEvents(&self) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection>;
     fn GetEventOptions(&self, event: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>;
 }
-#[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
 impl IPortableDeviceCapabilities_Vtbl {
     pub const fn new<Identity: IPortableDeviceCapabilities_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSupportedCommands<Identity: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcommands: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -578,12 +578,12 @@ impl IPortableDeviceCapabilities_Vtbl {
         iid == &<IPortableDeviceCapabilities as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
 impl windows_core::RuntimeName for IPortableDeviceCapabilities {}
 windows_core::imp::define_interface!(IPortableDeviceContent, IPortableDeviceContent_Vtbl, 0x6a96ed84_7c73_4480_9938_bf5af477d426);
 windows_core::imp::interface_hierarchy!(IPortableDeviceContent, windows_core::IUnknown);
 impl IPortableDeviceContent {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn EnumObjects<P1, P2>(&self, dwflags: u32, pszparentobjectid: P1, pfilter: P2) -> windows_core::Result<IEnumPortableDeviceObjectIDs>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -606,28 +606,28 @@ impl IPortableDeviceContent {
             (windows_core::Interface::vtable(self).Transfer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn CreateObjectWithPropertiesOnly<P0>(&self, pvalues: P0, ppszobjectid: *mut windows_core::PWSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDeviceValues>,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateObjectWithPropertiesOnly)(windows_core::Interface::as_raw(self), pvalues.param().abi(), ppszobjectid as _) }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+    #[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
     pub unsafe fn CreateObjectWithPropertiesAndData<P0>(&self, pvalues: P0, ppdata: *mut Option<super::objidlbase::IStream>, pdwoptimalwritebuffersize: *mut u32, ppszcookie: *mut windows_core::PWSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDeviceValues>,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateObjectWithPropertiesAndData)(windows_core::Interface::as_raw(self), pvalues.param().abi(), core::mem::transmute(ppdata), pdwoptimalwritebuffersize as _, ppszcookie as _) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn Delete<P1>(&self, dwoptions: u32, pobjectids: P1, ppresults: *mut Option<super::portabledevicetypes::IPortableDevicePropVariantCollection>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::portabledevicetypes::IPortableDevicePropVariantCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), dwoptions, pobjectids.param().abi(), core::mem::transmute(ppresults)) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetObjectIDsFromPersistentUniqueIDs<P0>(&self, ppersistentuniqueids: P0) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection>
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDevicePropVariantCollection>,
@@ -640,7 +640,7 @@ impl IPortableDeviceContent {
     pub unsafe fn Cancel(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn Move<P0, P1>(&self, pobjectids: P0, pszdestinationfolderobjectid: P1, ppresults: *mut Option<super::portabledevicetypes::IPortableDevicePropVariantCollection>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDevicePropVariantCollection>,
@@ -648,7 +648,7 @@ impl IPortableDeviceContent {
     {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), pobjectids.param().abi(), pszdestinationfolderobjectid.param().abi(), core::mem::transmute(ppresults)) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn Copy<P0, P1>(&self, pobjectids: P0, pszdestinationfolderobjectid: P1, ppresults: *mut Option<super::portabledevicetypes::IPortableDevicePropVariantCollection>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDevicePropVariantCollection>,
@@ -661,39 +661,39 @@ impl IPortableDeviceContent {
 #[doc(hidden)]
 pub struct IPortableDeviceContent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub EnumObjects: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     EnumObjects: usize,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Transfer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub CreateObjectWithPropertiesOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     CreateObjectWithPropertiesOnly: usize,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+    #[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
     pub CreateObjectWithPropertiesAndData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "portabledevicetypes")))]
     CreateObjectWithPropertiesAndData: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     Delete: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetObjectIDsFromPersistentUniqueIDs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetObjectIDsFromPersistentUniqueIDs: usize,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     Move: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     Copy: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+#[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
 pub trait IPortableDeviceContent_Impl: windows_core::IUnknownImpl {
     fn EnumObjects(&self, dwflags: u32, pszparentobjectid: &windows_core::PCWSTR, pfilter: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>) -> windows_core::Result<IEnumPortableDeviceObjectIDs>;
     fn Properties(&self) -> windows_core::Result<IPortableDeviceProperties>;
@@ -706,7 +706,7 @@ pub trait IPortableDeviceContent_Impl: windows_core::IUnknownImpl {
     fn Move(&self, pobjectids: windows_core::Ref<super::portabledevicetypes::IPortableDevicePropVariantCollection>, pszdestinationfolderobjectid: &windows_core::PCWSTR, ppresults: windows_core::OutRef<super::portabledevicetypes::IPortableDevicePropVariantCollection>) -> windows_core::Result<()>;
     fn Copy(&self, pobjectids: windows_core::Ref<super::portabledevicetypes::IPortableDevicePropVariantCollection>, pszdestinationfolderobjectid: &windows_core::PCWSTR, ppresults: windows_core::OutRef<super::portabledevicetypes::IPortableDevicePropVariantCollection>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+#[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
 impl IPortableDeviceContent_Vtbl {
     pub const fn new<Identity: IPortableDeviceContent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumObjects<Identity: IPortableDeviceContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pszparentobjectid: windows_core::PCWSTR, pfilter: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -811,7 +811,7 @@ impl IPortableDeviceContent_Vtbl {
         iid == &<IPortableDeviceContent as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+#[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
 impl windows_core::RuntimeName for IPortableDeviceContent {}
 windows_core::imp::define_interface!(IPortableDeviceContent2, IPortableDeviceContent2_Vtbl, 0x9b4add96_f6bf_4034_8708_eca72bf10554);
 impl core::ops::Deref for IPortableDeviceContent2 {
@@ -822,7 +822,7 @@ impl core::ops::Deref for IPortableDeviceContent2 {
 }
 windows_core::imp::interface_hierarchy!(IPortableDeviceContent2, windows_core::IUnknown, IPortableDeviceContent);
 impl IPortableDeviceContent2 {
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+    #[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
     pub unsafe fn UpdateObjectWithPropertiesAndData<P0, P1>(&self, pszobjectid: P0, pproperties: P1, ppdata: *mut Option<super::objidlbase::IStream>, pdwoptimalwritebuffersize: *mut u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -835,16 +835,16 @@ impl IPortableDeviceContent2 {
 #[doc(hidden)]
 pub struct IPortableDeviceContent2_Vtbl {
     pub base__: IPortableDeviceContent_Vtbl,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+    #[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
     pub UpdateObjectWithPropertiesAndData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "portabledevicetypes")))]
     UpdateObjectWithPropertiesAndData: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+#[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
 pub trait IPortableDeviceContent2_Impl: IPortableDeviceContent_Impl {
     fn UpdateObjectWithPropertiesAndData(&self, pszobjectid: &windows_core::PCWSTR, pproperties: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>, ppdata: windows_core::OutRef<super::objidlbase::IStream>, pdwoptimalwritebuffersize: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+#[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
 impl IPortableDeviceContent2_Vtbl {
     pub const fn new<Identity: IPortableDeviceContent2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn UpdateObjectWithPropertiesAndData<Identity: IPortableDeviceContent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, pproperties: *mut core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pdwoptimalwritebuffersize: *mut u32) -> windows_core::HRESULT {
@@ -862,20 +862,20 @@ impl IPortableDeviceContent2_Vtbl {
         iid == &<IPortableDeviceContent2 as windows_core::Interface>::IID || iid == &<IPortableDeviceContent as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+#[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
 impl windows_core::RuntimeName for IPortableDeviceContent2 {}
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(IPortableDeviceDataStream, IPortableDeviceDataStream_Vtbl, 0x88e04db3_1012_4d64_9996_f703a950d3f4);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl core::ops::Deref for IPortableDeviceDataStream {
     type Target = super::objidlbase::IStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 windows_core::imp::interface_hierarchy!(IPortableDeviceDataStream, windows_core::IUnknown, super::objidlbase::ISequentialStream, super::objidlbase::IStream);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IPortableDeviceDataStream {
     pub unsafe fn GetObjectID(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -887,7 +887,7 @@ impl IPortableDeviceDataStream {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceDataStream_Vtbl {
@@ -895,12 +895,12 @@ pub struct IPortableDeviceDataStream_Vtbl {
     pub GetObjectID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 pub trait IPortableDeviceDataStream_Impl: super::objidlbase::IStream_Impl {
     fn GetObjectID(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Cancel(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl IPortableDeviceDataStream_Vtbl {
     pub const fn new<Identity: IPortableDeviceDataStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetObjectID<Identity: IPortableDeviceDataStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszobjectid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -931,12 +931,12 @@ impl IPortableDeviceDataStream_Vtbl {
         iid == &<IPortableDeviceDataStream as windows_core::Interface>::IID || iid == &<super::objidlbase::ISequentialStream as windows_core::Interface>::IID || iid == &<super::objidlbase::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IPortableDeviceDataStream {}
 windows_core::imp::define_interface!(IPortableDeviceDispatchFactory, IPortableDeviceDispatchFactory_Vtbl, 0x5e1eafc3_e3d7_4132_96fa_759c0f9d1e0f);
 windows_core::imp::interface_hierarchy!(IPortableDeviceDispatchFactory, windows_core::IUnknown);
 impl IPortableDeviceDispatchFactory {
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetDeviceDispatch<P0>(&self, pszpnpdeviceid: P0) -> windows_core::Result<super::oaidl::IDispatch>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -951,16 +951,16 @@ impl IPortableDeviceDispatchFactory {
 #[doc(hidden)]
 pub struct IPortableDeviceDispatchFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetDeviceDispatch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetDeviceDispatch: usize,
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 pub trait IPortableDeviceDispatchFactory_Impl: windows_core::IUnknownImpl {
     fn GetDeviceDispatch(&self, pszpnpdeviceid: &windows_core::PCWSTR) -> windows_core::Result<super::oaidl::IDispatch>;
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IPortableDeviceDispatchFactory_Vtbl {
     pub const fn new<Identity: IPortableDeviceDispatchFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDeviceDispatch<Identity: IPortableDeviceDispatchFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, ppdevicedispatch: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -981,12 +981,12 @@ impl IPortableDeviceDispatchFactory_Vtbl {
         iid == &<IPortableDeviceDispatchFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl windows_core::RuntimeName for IPortableDeviceDispatchFactory {}
 windows_core::imp::define_interface!(IPortableDeviceEventCallback, IPortableDeviceEventCallback_Vtbl, 0xa8792a31_f385_493c_a893_40f64eb45f6e);
 windows_core::imp::interface_hierarchy!(IPortableDeviceEventCallback, windows_core::IUnknown);
 impl IPortableDeviceEventCallback {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn OnEvent<P0>(&self, peventparameters: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDeviceValues>,
@@ -998,16 +998,16 @@ impl IPortableDeviceEventCallback {
 #[doc(hidden)]
 pub struct IPortableDeviceEventCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     OnEvent: usize,
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 pub trait IPortableDeviceEventCallback_Impl: windows_core::IUnknownImpl {
     fn OnEvent(&self, peventparameters: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl IPortableDeviceEventCallback_Vtbl {
     pub const fn new<Identity: IPortableDeviceEventCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnEvent<Identity: IPortableDeviceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventparameters: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1022,7 +1022,7 @@ impl IPortableDeviceEventCallback_Vtbl {
         iid == &<IPortableDeviceEventCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl windows_core::RuntimeName for IPortableDeviceEventCallback {}
 windows_core::imp::define_interface!(IPortableDeviceManager, IPortableDeviceManager_Vtbl, 0xa1567595_4c2f_4574_a6fa_ecef917b9a40);
 windows_core::imp::interface_hierarchy!(IPortableDeviceManager, windows_core::IUnknown);
@@ -1146,7 +1146,7 @@ impl windows_core::RuntimeName for IPortableDeviceManager {}
 windows_core::imp::define_interface!(IPortableDeviceProperties, IPortableDeviceProperties_Vtbl, 0x7f6d695c_03df_4439_a809_59266beee3a6);
 windows_core::imp::interface_hierarchy!(IPortableDeviceProperties, windows_core::IUnknown);
 impl IPortableDeviceProperties {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedProperties<P0>(&self, pszobjectid: P0) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceKeyCollection>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1156,7 +1156,7 @@ impl IPortableDeviceProperties {
             (windows_core::Interface::vtable(self).GetSupportedProperties)(windows_core::Interface::as_raw(self), pszobjectid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub unsafe fn GetPropertyAttributes<P0>(&self, pszobjectid: P0, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1166,7 +1166,7 @@ impl IPortableDeviceProperties {
             (windows_core::Interface::vtable(self).GetPropertyAttributes)(windows_core::Interface::as_raw(self), pszobjectid.param().abi(), key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetValues<P0, P1>(&self, pszobjectid: P0, pkeys: P1) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1177,7 +1177,7 @@ impl IPortableDeviceProperties {
             (windows_core::Interface::vtable(self).GetValues)(windows_core::Interface::as_raw(self), pszobjectid.param().abi(), pkeys.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn SetValues<P0, P1>(&self, pszobjectid: P0, pvalues: P1) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1188,7 +1188,7 @@ impl IPortableDeviceProperties {
             (windows_core::Interface::vtable(self).SetValues)(windows_core::Interface::as_raw(self), pszobjectid.param().abi(), pvalues.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn Delete<P0, P1>(&self, pszobjectid: P0, pkeys: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1204,29 +1204,29 @@ impl IPortableDeviceProperties {
 #[doc(hidden)]
 pub struct IPortableDeviceProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedProperties: usize,
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub GetPropertyAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "portabledevicetypes", feature = "wtypes")))]
     GetPropertyAttributes: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetValues: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetValues: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub SetValues: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     SetValues: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     Delete: usize,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
 pub trait IPortableDeviceProperties_Impl: windows_core::IUnknownImpl {
     fn GetSupportedProperties(&self, pszobjectid: &windows_core::PCWSTR) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceKeyCollection>;
     fn GetPropertyAttributes(&self, pszobjectid: &windows_core::PCWSTR, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>;
@@ -1235,7 +1235,7 @@ pub trait IPortableDeviceProperties_Impl: windows_core::IUnknownImpl {
     fn Delete(&self, pszobjectid: &windows_core::PCWSTR, pkeys: windows_core::Ref<super::portabledevicetypes::IPortableDeviceKeyCollection>) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
 impl IPortableDeviceProperties_Vtbl {
     pub const fn new<Identity: IPortableDeviceProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSupportedProperties<Identity: IPortableDeviceProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, ppkeys: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1312,12 +1312,12 @@ impl IPortableDeviceProperties_Vtbl {
         iid == &<IPortableDeviceProperties as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
 impl windows_core::RuntimeName for IPortableDeviceProperties {}
 windows_core::imp::define_interface!(IPortableDevicePropertiesBulk, IPortableDevicePropertiesBulk_Vtbl, 0x482b05c0_4056_44ed_9e0f_5e23b009da93);
 windows_core::imp::interface_hierarchy!(IPortableDevicePropertiesBulk, windows_core::IUnknown);
 impl IPortableDevicePropertiesBulk {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn QueueGetValuesByObjectList<P0, P1, P2>(&self, pobjectids: P0, pkeys: P1, pcallback: P2) -> windows_core::Result<windows_core::GUID>
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDevicePropVariantCollection>,
@@ -1329,7 +1329,7 @@ impl IPortableDevicePropertiesBulk {
             (windows_core::Interface::vtable(self).QueueGetValuesByObjectList)(windows_core::Interface::as_raw(self), pobjectids.param().abi(), pkeys.param().abi(), pcallback.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn QueueGetValuesByObjectFormat<P1, P3, P4>(&self, pguidobjectformat: *const windows_core::GUID, pszparentobjectid: P1, dwdepth: u32, pkeys: P3, pcallback: P4) -> windows_core::Result<windows_core::GUID>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1341,7 +1341,7 @@ impl IPortableDevicePropertiesBulk {
             (windows_core::Interface::vtable(self).QueueGetValuesByObjectFormat)(windows_core::Interface::as_raw(self), pguidobjectformat, pszparentobjectid.param().abi(), dwdepth, pkeys.param().abi(), pcallback.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn QueueSetValuesByObjectList<P0, P1>(&self, pobjectvalues: P0, pcallback: P1) -> windows_core::Result<windows_core::GUID>
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDeviceValuesCollection>,
@@ -1363,22 +1363,22 @@ impl IPortableDevicePropertiesBulk {
 #[doc(hidden)]
 pub struct IPortableDevicePropertiesBulk_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub QueueGetValuesByObjectList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     QueueGetValuesByObjectList: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub QueueGetValuesByObjectFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     QueueGetValuesByObjectFormat: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub QueueSetValuesByObjectList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     QueueSetValuesByObjectList: usize,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 pub trait IPortableDevicePropertiesBulk_Impl: windows_core::IUnknownImpl {
     fn QueueGetValuesByObjectList(&self, pobjectids: windows_core::Ref<super::portabledevicetypes::IPortableDevicePropVariantCollection>, pkeys: windows_core::Ref<super::portabledevicetypes::IPortableDeviceKeyCollection>, pcallback: windows_core::Ref<IPortableDevicePropertiesBulkCallback>) -> windows_core::Result<windows_core::GUID>;
     fn QueueGetValuesByObjectFormat(&self, pguidobjectformat: *const windows_core::GUID, pszparentobjectid: &windows_core::PCWSTR, dwdepth: u32, pkeys: windows_core::Ref<super::portabledevicetypes::IPortableDeviceKeyCollection>, pcallback: windows_core::Ref<IPortableDevicePropertiesBulkCallback>) -> windows_core::Result<windows_core::GUID>;
@@ -1386,7 +1386,7 @@ pub trait IPortableDevicePropertiesBulk_Impl: windows_core::IUnknownImpl {
     fn Start(&self, pcontext: *const windows_core::GUID) -> windows_core::Result<()>;
     fn Cancel(&self, pcontext: *const windows_core::GUID) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl IPortableDevicePropertiesBulk_Vtbl {
     pub const fn new<Identity: IPortableDevicePropertiesBulk_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueueGetValuesByObjectList<Identity: IPortableDevicePropertiesBulk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectids: *mut core::ffi::c_void, pkeys: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void, pcontext: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -1450,7 +1450,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
         iid == &<IPortableDevicePropertiesBulk as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl windows_core::RuntimeName for IPortableDevicePropertiesBulk {}
 windows_core::imp::define_interface!(IPortableDevicePropertiesBulkCallback, IPortableDevicePropertiesBulkCallback_Vtbl, 0x9deacb80_11e8_40e3_a9f3_f557986a7845);
 windows_core::imp::interface_hierarchy!(IPortableDevicePropertiesBulkCallback, windows_core::IUnknown);
@@ -1458,7 +1458,7 @@ impl IPortableDevicePropertiesBulkCallback {
     pub unsafe fn OnStart(&self, pcontext: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnStart)(windows_core::Interface::as_raw(self), pcontext) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn OnProgress<P1>(&self, pcontext: *const windows_core::GUID, presults: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::portabledevicetypes::IPortableDeviceValuesCollection>,
@@ -1474,19 +1474,19 @@ impl IPortableDevicePropertiesBulkCallback {
 pub struct IPortableDevicePropertiesBulkCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStart: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub OnProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     OnProgress: usize,
     pub OnEnd: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 pub trait IPortableDevicePropertiesBulkCallback_Impl: windows_core::IUnknownImpl {
     fn OnStart(&self, pcontext: *const windows_core::GUID) -> windows_core::Result<()>;
     fn OnProgress(&self, pcontext: *const windows_core::GUID, presults: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValuesCollection>) -> windows_core::Result<()>;
     fn OnEnd(&self, pcontext: *const windows_core::GUID, hrstatus: windows_core::HRESULT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl IPortableDevicePropertiesBulkCallback_Vtbl {
     pub const fn new<Identity: IPortableDevicePropertiesBulkCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStart<Identity: IPortableDevicePropertiesBulkCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -1518,12 +1518,12 @@ impl IPortableDevicePropertiesBulkCallback_Vtbl {
         iid == &<IPortableDevicePropertiesBulkCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl windows_core::RuntimeName for IPortableDevicePropertiesBulkCallback {}
 windows_core::imp::define_interface!(IPortableDeviceResources, IPortableDeviceResources_Vtbl, 0xfd8878ac_d841_4d17_891c_e6829cdb6934);
 windows_core::imp::interface_hierarchy!(IPortableDeviceResources, windows_core::IUnknown);
 impl IPortableDeviceResources {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedResources<P0>(&self, pszobjectid: P0) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceKeyCollection>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1533,7 +1533,7 @@ impl IPortableDeviceResources {
             (windows_core::Interface::vtable(self).GetSupportedResources)(windows_core::Interface::as_raw(self), pszobjectid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub unsafe fn GetResourceAttributes<P0>(&self, pszobjectid: P0, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1543,14 +1543,14 @@ impl IPortableDeviceResources {
             (windows_core::Interface::vtable(self).GetResourceAttributes)(windows_core::Interface::as_raw(self), pszobjectid.param().abi(), key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidlbase", feature = "wtypes"))]
     pub unsafe fn GetStream<P0>(&self, pszobjectid: P0, key: *const super::wtypes::PROPERTYKEY, dwmode: u32, pdwoptimalbuffersize: *mut u32, ppstream: *mut Option<super::objidlbase::IStream>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), pszobjectid.param().abi(), key, dwmode, pdwoptimalbuffersize as _, core::mem::transmute(ppstream)) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn Delete<P0, P1>(&self, pszobjectid: P0, pkeys: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1561,7 +1561,7 @@ impl IPortableDeviceResources {
     pub unsafe fn Cancel(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+    #[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
     pub unsafe fn CreateResource<P0>(&self, presourceattributes: P0, ppdata: *mut Option<super::objidlbase::IStream>, pdwoptimalwritebuffersize: *mut u32, ppszcookie: *mut windows_core::PWSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::portabledevicetypes::IPortableDeviceValues>,
@@ -1573,29 +1573,29 @@ impl IPortableDeviceResources {
 #[doc(hidden)]
 pub struct IPortableDeviceResources_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedResources: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedResources: usize,
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub GetResourceAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "portabledevicetypes", feature = "wtypes")))]
     GetResourceAttributes: usize,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidlbase", feature = "wtypes"))]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::wtypes::PROPERTYKEY, u32, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "wtypes")))]
     GetStream: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     Delete: usize,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes"))]
+    #[cfg(all(feature = "objidlbase", feature = "portabledevicetypes"))]
     pub CreateResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "portabledevicetypes")))]
     CreateResource: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "portabledevicetypes", feature = "wtypes"))]
 pub trait IPortableDeviceResources_Impl: windows_core::IUnknownImpl {
     fn GetSupportedResources(&self, pszobjectid: &windows_core::PCWSTR) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceKeyCollection>;
     fn GetResourceAttributes(&self, pszobjectid: &windows_core::PCWSTR, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>;
@@ -1604,7 +1604,7 @@ pub trait IPortableDeviceResources_Impl: windows_core::IUnknownImpl {
     fn Cancel(&self) -> windows_core::Result<()>;
     fn CreateResource(&self, presourceattributes: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>, ppdata: windows_core::OutRef<super::objidlbase::IStream>, pdwoptimalwritebuffersize: *mut u32, ppszcookie: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "portabledevicetypes", feature = "wtypes"))]
 impl IPortableDeviceResources_Vtbl {
     pub const fn new<Identity: IPortableDeviceResources_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSupportedResources<Identity: IPortableDeviceResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, ppkeys: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1669,12 +1669,12 @@ impl IPortableDeviceResources_Vtbl {
         iid == &<IPortableDeviceResources as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "portabledevicetypes", feature = "wtypes"))]
 impl windows_core::RuntimeName for IPortableDeviceResources {}
 windows_core::imp::define_interface!(IPortableDeviceService, IPortableDeviceService_Vtbl, 0xd3bd3a44_d7b5_40a9_98b7_2fa4d01dec08);
 windows_core::imp::interface_hierarchy!(IPortableDeviceService, windows_core::IUnknown);
 impl IPortableDeviceService {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn Open<P0, P1>(&self, pszpnpserviceid: P0, pclientinfo: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1718,7 +1718,7 @@ impl IPortableDeviceService {
             (windows_core::Interface::vtable(self).GetPnPServiceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn Advise<P1, P2>(&self, dwflags: u32, pcallback: P1, pparameters: P2) -> windows_core::Result<windows_core::PWSTR>
     where
         P1: windows_core::Param<IPortableDeviceEventCallback>,
@@ -1735,7 +1735,7 @@ impl IPortableDeviceService {
     {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), pszcookie.param().abi()) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn SendCommand<P1>(&self, dwflags: u32, pparameters: P1) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>
     where
         P1: windows_core::Param<super::portabledevicetypes::IPortableDeviceValues>,
@@ -1750,9 +1750,9 @@ impl IPortableDeviceService {
 #[doc(hidden)]
 pub struct IPortableDeviceService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     Open: usize,
     pub Capabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1761,17 +1761,17 @@ pub struct IPortableDeviceService_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetServiceObjectID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetPnPServiceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub Advise: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     Advise: usize,
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub SendCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     SendCommand: usize,
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 pub trait IPortableDeviceService_Impl: windows_core::IUnknownImpl {
     fn Open(&self, pszpnpserviceid: &windows_core::PCWSTR, pclientinfo: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>) -> windows_core::Result<()>;
     fn Capabilities(&self) -> windows_core::Result<IPortableDeviceServiceCapabilities>;
@@ -1785,7 +1785,7 @@ pub trait IPortableDeviceService_Impl: windows_core::IUnknownImpl {
     fn Unadvise(&self, pszcookie: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SendCommand(&self, dwflags: u32, pparameters: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>;
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl IPortableDeviceService_Vtbl {
     pub const fn new<Identity: IPortableDeviceService_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpserviceid: windows_core::PCWSTR, pclientinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1915,12 +1915,12 @@ impl IPortableDeviceService_Vtbl {
         iid == &<IPortableDeviceService as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl windows_core::RuntimeName for IPortableDeviceService {}
 windows_core::imp::define_interface!(IPortableDeviceServiceActivation, IPortableDeviceServiceActivation_Vtbl, 0xe56b0534_d9b9_425c_9b99_75f97cb3d7c8);
 windows_core::imp::interface_hierarchy!(IPortableDeviceServiceActivation, windows_core::IUnknown);
 impl IPortableDeviceServiceActivation {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn OpenAsync<P0, P1, P2>(&self, pszpnpserviceid: P0, pclientinfo: P1, pcallback: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1937,18 +1937,18 @@ impl IPortableDeviceServiceActivation {
 #[doc(hidden)]
 pub struct IPortableDeviceServiceActivation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub OpenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     OpenAsync: usize,
     pub CancelOpenAsync: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 pub trait IPortableDeviceServiceActivation_Impl: windows_core::IUnknownImpl {
     fn OpenAsync(&self, pszpnpserviceid: &windows_core::PCWSTR, pclientinfo: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>, pcallback: windows_core::Ref<IPortableDeviceServiceOpenCallback>) -> windows_core::Result<()>;
     fn CancelOpenAsync(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl IPortableDeviceServiceActivation_Vtbl {
     pub const fn new<Identity: IPortableDeviceServiceActivation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OpenAsync<Identity: IPortableDeviceServiceActivation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpserviceid: windows_core::PCWSTR, pclientinfo: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1973,110 +1973,110 @@ impl IPortableDeviceServiceActivation_Vtbl {
         iid == &<IPortableDeviceServiceActivation as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl windows_core::RuntimeName for IPortableDeviceServiceActivation {}
 windows_core::imp::define_interface!(IPortableDeviceServiceCapabilities, IPortableDeviceServiceCapabilities_Vtbl, 0x24dbd89d_413e_43e0_bd5b_197f3c56c886);
 windows_core::imp::interface_hierarchy!(IPortableDeviceServiceCapabilities, windows_core::IUnknown);
 impl IPortableDeviceServiceCapabilities {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedMethods(&self) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedMethods)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedMethodsByFormat(&self, format: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedMethodsByFormat)(windows_core::Interface::as_raw(self), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetMethodAttributes(&self, method: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMethodAttributes)(windows_core::Interface::as_raw(self), method, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub unsafe fn GetMethodParameterAttributes(&self, method: *const windows_core::GUID, parameter: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMethodParameterAttributes)(windows_core::Interface::as_raw(self), method, parameter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedFormats(&self) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedFormats)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetFormatAttributes(&self, format: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFormatAttributes)(windows_core::Interface::as_raw(self), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedFormatProperties(&self, format: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceKeyCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedFormatProperties)(windows_core::Interface::as_raw(self), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub unsafe fn GetFormatPropertyAttributes(&self, format: *const windows_core::GUID, property: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFormatPropertyAttributes)(windows_core::Interface::as_raw(self), format, property, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedEvents(&self) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedEvents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetEventAttributes(&self, event: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEventAttributes)(windows_core::Interface::as_raw(self), event, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub unsafe fn GetEventParameterAttributes(&self, event: *const windows_core::GUID, parameter: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEventParameterAttributes)(windows_core::Interface::as_raw(self), event, parameter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetInheritedServices(&self, dwinheritancetype: u32) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInheritedServices)(windows_core::Interface::as_raw(self), dwinheritancetype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetFormatRenderingProfiles(&self, format: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValuesCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFormatRenderingProfiles)(windows_core::Interface::as_raw(self), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn GetSupportedCommands(&self) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceKeyCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedCommands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub unsafe fn GetCommandOptions(&self, command: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2091,69 +2091,69 @@ impl IPortableDeviceServiceCapabilities {
 #[doc(hidden)]
 pub struct IPortableDeviceServiceCapabilities_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedMethods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedMethods: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedMethodsByFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedMethodsByFormat: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetMethodAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetMethodAttributes: usize,
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub GetMethodParameterAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "portabledevicetypes", feature = "wtypes")))]
     GetMethodParameterAttributes: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedFormats: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetFormatAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetFormatAttributes: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedFormatProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedFormatProperties: usize,
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub GetFormatPropertyAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "portabledevicetypes", feature = "wtypes")))]
     GetFormatPropertyAttributes: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedEvents: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetEventAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetEventAttributes: usize,
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub GetEventParameterAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "portabledevicetypes", feature = "wtypes")))]
     GetEventParameterAttributes: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetInheritedServices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetInheritedServices: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetFormatRenderingProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetFormatRenderingProfiles: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub GetSupportedCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     GetSupportedCommands: usize,
-    #[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
     pub GetCommandOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "portabledevicetypes", feature = "wtypes")))]
     GetCommandOptions: usize,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
 pub trait IPortableDeviceServiceCapabilities_Impl: windows_core::IUnknownImpl {
     fn GetSupportedMethods(&self) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection>;
     fn GetSupportedMethodsByFormat(&self, format: *const windows_core::GUID) -> windows_core::Result<super::portabledevicetypes::IPortableDevicePropVariantCollection>;
@@ -2172,7 +2172,7 @@ pub trait IPortableDeviceServiceCapabilities_Impl: windows_core::IUnknownImpl {
     fn GetCommandOptions(&self, command: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::portabledevicetypes::IPortableDeviceValues>;
     fn Cancel(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
 impl IPortableDeviceServiceCapabilities_Vtbl {
     pub const fn new<Identity: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSupportedMethods<Identity: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmethods: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2385,7 +2385,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         iid == &<IPortableDeviceServiceCapabilities as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_portabledevicetypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "portabledevicetypes", feature = "wtypes"))]
 impl windows_core::RuntimeName for IPortableDeviceServiceCapabilities {}
 windows_core::imp::define_interface!(IPortableDeviceServiceManager, IPortableDeviceServiceManager_Vtbl, 0xa8abc4e9_a84a_47a9_80b3_c5d9b172a961);
 windows_core::imp::interface_hierarchy!(IPortableDeviceServiceManager, windows_core::IUnknown);
@@ -2451,7 +2451,7 @@ impl windows_core::RuntimeName for IPortableDeviceServiceManager {}
 windows_core::imp::define_interface!(IPortableDeviceServiceMethodCallback, IPortableDeviceServiceMethodCallback_Vtbl, 0xc424233c_afce_4828_a756_7ed7a2350083);
 windows_core::imp::interface_hierarchy!(IPortableDeviceServiceMethodCallback, windows_core::IUnknown);
 impl IPortableDeviceServiceMethodCallback {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn OnComplete<P1>(&self, hrstatus: windows_core::HRESULT, presults: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::portabledevicetypes::IPortableDeviceValues>,
@@ -2463,16 +2463,16 @@ impl IPortableDeviceServiceMethodCallback {
 #[doc(hidden)]
 pub struct IPortableDeviceServiceMethodCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub OnComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     OnComplete: usize,
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 pub trait IPortableDeviceServiceMethodCallback_Impl: windows_core::IUnknownImpl {
     fn OnComplete(&self, hrstatus: windows_core::HRESULT, presults: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl IPortableDeviceServiceMethodCallback_Vtbl {
     pub const fn new<Identity: IPortableDeviceServiceMethodCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnComplete<Identity: IPortableDeviceServiceMethodCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT, presults: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2487,19 +2487,19 @@ impl IPortableDeviceServiceMethodCallback_Vtbl {
         iid == &<IPortableDeviceServiceMethodCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl windows_core::RuntimeName for IPortableDeviceServiceMethodCallback {}
 windows_core::imp::define_interface!(IPortableDeviceServiceMethods, IPortableDeviceServiceMethods_Vtbl, 0xe20333c9_fd34_412d_a381_cc6f2d820df7);
 windows_core::imp::interface_hierarchy!(IPortableDeviceServiceMethods, windows_core::IUnknown);
 impl IPortableDeviceServiceMethods {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn Invoke<P1>(&self, method: *const windows_core::GUID, pparameters: P1, ppresults: *mut Option<super::portabledevicetypes::IPortableDeviceValues>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::portabledevicetypes::IPortableDeviceValues>,
     {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), method, pparameters.param().abi(), core::mem::transmute(ppresults)) }
     }
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn InvokeAsync<P1, P2>(&self, method: *const windows_core::GUID, pparameters: P1, pcallback: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::portabledevicetypes::IPortableDeviceValues>,
@@ -2518,23 +2518,23 @@ impl IPortableDeviceServiceMethods {
 #[doc(hidden)]
 pub struct IPortableDeviceServiceMethods_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     Invoke: usize,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub InvokeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     InvokeAsync: usize,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 pub trait IPortableDeviceServiceMethods_Impl: windows_core::IUnknownImpl {
     fn Invoke(&self, method: *const windows_core::GUID, pparameters: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>, ppresults: windows_core::OutRef<super::portabledevicetypes::IPortableDeviceValues>) -> windows_core::Result<()>;
     fn InvokeAsync(&self, method: *const windows_core::GUID, pparameters: windows_core::Ref<super::portabledevicetypes::IPortableDeviceValues>, pcallback: windows_core::Ref<IPortableDeviceServiceMethodCallback>) -> windows_core::Result<()>;
     fn Cancel(&self, pcallback: windows_core::Ref<IPortableDeviceServiceMethodCallback>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl IPortableDeviceServiceMethods_Vtbl {
     pub const fn new<Identity: IPortableDeviceServiceMethods_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Invoke<Identity: IPortableDeviceServiceMethods_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: *const windows_core::GUID, pparameters: *mut core::ffi::c_void, ppresults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2566,7 +2566,7 @@ impl IPortableDeviceServiceMethods_Vtbl {
         iid == &<IPortableDeviceServiceMethods as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl windows_core::RuntimeName for IPortableDeviceServiceMethods {}
 windows_core::imp::define_interface!(IPortableDeviceServiceOpenCallback, IPortableDeviceServiceOpenCallback_Vtbl, 0xbced49c8_8efe_41ed_960b_61313abd47a9);
 windows_core::imp::interface_hierarchy!(IPortableDeviceServiceOpenCallback, windows_core::IUnknown);
@@ -2602,7 +2602,7 @@ impl windows_core::RuntimeName for IPortableDeviceServiceOpenCallback {}
 windows_core::imp::define_interface!(IPortableDeviceUnitsStream, IPortableDeviceUnitsStream_Vtbl, 0x5e98025f_bfc4_47a2_9a5f_bc900a507c67);
 windows_core::imp::interface_hierarchy!(IPortableDeviceUnitsStream, windows_core::IUnknown);
 impl IPortableDeviceUnitsStream {
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub unsafe fn SeekInUnits(&self, dlibmove: i64, units: super::portabledevicetypes::WPD_STREAM_UNITS, dworigin: u32, plibnewposition: Option<*mut u64>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SeekInUnits)(windows_core::Interface::as_raw(self), dlibmove, units, dworigin, plibnewposition.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -2614,18 +2614,18 @@ impl IPortableDeviceUnitsStream {
 #[doc(hidden)]
 pub struct IPortableDeviceUnitsStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_portabledevicetypes")]
+    #[cfg(feature = "portabledevicetypes")]
     pub SeekInUnits: unsafe extern "system" fn(*mut core::ffi::c_void, i64, super::portabledevicetypes::WPD_STREAM_UNITS, u32, *mut u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_portabledevicetypes"))]
+    #[cfg(not(feature = "portabledevicetypes"))]
     SeekInUnits: usize,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 pub trait IPortableDeviceUnitsStream_Impl: windows_core::IUnknownImpl {
     fn SeekInUnits(&self, dlibmove: i64, units: super::portabledevicetypes::WPD_STREAM_UNITS, dworigin: u32, plibnewposition: *mut u64) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl IPortableDeviceUnitsStream_Vtbl {
     pub const fn new<Identity: IPortableDeviceUnitsStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SeekInUnits<Identity: IPortableDeviceUnitsStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dlibmove: i64, units: super::portabledevicetypes::WPD_STREAM_UNITS, dworigin: u32, plibnewposition: *mut u64) -> windows_core::HRESULT {
@@ -2646,20 +2646,20 @@ impl IPortableDeviceUnitsStream_Vtbl {
         iid == &<IPortableDeviceUnitsStream as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_portabledevicetypes")]
+#[cfg(feature = "portabledevicetypes")]
 impl windows_core::RuntimeName for IPortableDeviceUnitsStream {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IPortableDeviceWebControl, IPortableDeviceWebControl_Vtbl, 0x94fc7953_5ca1_483a_8aee_df52e7747d00);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IPortableDeviceWebControl {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IPortableDeviceWebControl, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IPortableDeviceWebControl {
     pub unsafe fn GetDeviceFromId(&self, deviceid: &windows_core::BSTR) -> windows_core::Result<super::oaidl::IDispatch> {
         unsafe {
@@ -2675,7 +2675,7 @@ impl IPortableDeviceWebControl {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceFromIdAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(deviceid), pcompletionhandler.param().abi(), perrorhandler.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceWebControl_Vtbl {
@@ -2683,12 +2683,12 @@ pub struct IPortableDeviceWebControl_Vtbl {
     pub GetDeviceFromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceFromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPortableDeviceWebControl_Impl: super::oaidl::IDispatch_Impl {
     fn GetDeviceFromId(&self, deviceid: &windows_core::BSTR) -> windows_core::Result<super::oaidl::IDispatch>;
     fn GetDeviceFromIdAsync(&self, deviceid: &windows_core::BSTR, pcompletionhandler: windows_core::Ref<super::oaidl::IDispatch>, perrorhandler: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPortableDeviceWebControl_Vtbl {
     pub const fn new<Identity: IPortableDeviceWebControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDeviceFromId<Identity: IPortableDeviceWebControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: *mut core::ffi::c_void, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2719,7 +2719,7 @@ impl IPortableDeviceWebControl_Vtbl {
         iid == &<IPortableDeviceWebControl as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPortableDeviceWebControl {}
 pub const PortableDevice: windows_core::GUID = windows_core::GUID::from_u128(0x728a21c5_3d9e_48d7_9810_864848f0f404);
 pub const PortableDeviceDispatchFactory: windows_core::GUID = windows_core::GUID::from_u128(0x43232233_8338_4658_ae01_0b4ae830b6b0);

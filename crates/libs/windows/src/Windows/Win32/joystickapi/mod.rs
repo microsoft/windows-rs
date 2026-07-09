@@ -1,16 +1,16 @@
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn joyConfigChanged(dwflags: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn joyConfigChanged(dwflags : u32) -> super::mmsyscom::MMRESULT);
     unsafe { joyConfigChanged(dwflags) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn joyGetDevCapsA(ujoyid : usize, pjc : *mut JOYCAPSA, cbjc : u32) -> super::mmsyscom::MMRESULT);
     unsafe { joyGetDevCapsA(ujoyid, pjc as _, cbjc) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn joyGetDevCapsW(ujoyid : usize, pjc : *mut JOYCAPSW, cbjc : u32) -> super::mmsyscom::MMRESULT);
@@ -21,37 +21,37 @@ pub unsafe fn joyGetNumDevs() -> u32 {
     windows_core::link!("winmm.dll" "system" fn joyGetNumDevs() -> u32);
     unsafe { joyGetNumDevs() }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn joyGetPos(ujoyid : u32, pji : *mut JOYINFO) -> super::mmsyscom::MMRESULT);
     unsafe { joyGetPos(ujoyid, pji as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn joyGetPosEx(ujoyid : u32, pji : *mut JOYINFOEX) -> super::mmsyscom::MMRESULT);
     unsafe { joyGetPosEx(ujoyid, pji as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn joyGetThreshold(ujoyid : u32, puthreshold : *mut u32) -> super::mmsyscom::MMRESULT);
     unsafe { joyGetThreshold(ujoyid, puthreshold as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn joyReleaseCapture(ujoyid: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn joyReleaseCapture(ujoyid : u32) -> super::mmsyscom::MMRESULT);
     unsafe { joyReleaseCapture(ujoyid) }
 }
-#[cfg(all(feature = "Win32_mmsyscom", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmsyscom", feature = "windef"))]
 #[inline]
 pub unsafe fn joySetCapture(hwnd: super::windef::HWND, ujoyid: u32, uperiod: u32, fchanged: bool) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::windef::HWND, ujoyid : u32, uperiod : u32, fchanged : windows_core::BOOL) -> super::mmsyscom::MMRESULT);
     unsafe { joySetCapture(hwnd, ujoyid, uperiod, fchanged.into()) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn joySetThreshold(ujoyid : u32, uthreshold : u32) -> super::mmsyscom::MMRESULT);

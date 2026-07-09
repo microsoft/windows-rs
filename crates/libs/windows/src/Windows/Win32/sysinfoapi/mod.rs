@@ -34,7 +34,7 @@ pub unsafe fn GetIntegratedDisplaySize() -> windows_core::Result<f64> {
         GetIntegratedDisplaySize(&mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[inline]
 pub unsafe fn GetLocalTime() -> super::minwinbase::SYSTEMTIME {
     windows_core::link!("kernel32.dll" "system" fn GetLocalTime(lpsystemtime : *mut super::minwinbase::SYSTEMTIME));
@@ -44,13 +44,13 @@ pub unsafe fn GetLocalTime() -> super::minwinbase::SYSTEMTIME {
         result__
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetLogicalProcessorInformation(buffer: Option<*mut super::winnt::SYSTEM_LOGICAL_PROCESSOR_INFORMATION>, returnedlength: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetLogicalProcessorInformation(buffer : *mut super::winnt::SYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength : *mut u32) -> windows_core::BOOL);
     unsafe { GetLogicalProcessorInformation(buffer.unwrap_or(core::mem::zeroed()) as _, returnedlength as _) }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: super::winnt::LOGICAL_PROCESSOR_RELATIONSHIP, buffer: Option<*mut super::winnt::SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX>, returnedlength: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetLogicalProcessorInformationEx(relationshiptype : super::winnt::LOGICAL_PROCESSOR_RELATIONSHIP, buffer : *mut super::winnt::SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength : *mut u32) -> windows_core::BOOL);
@@ -76,7 +76,7 @@ pub unsafe fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u6
     windows_core::link!("kernel32.dll" "system" fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes : *mut u64) -> windows_core::BOOL);
     unsafe { GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessorSystemCycleTime(group: u16, buffer: Option<*mut super::winnt::SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION>, returnedlength: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessorSystemCycleTime(group : u16, buffer : *mut super::winnt::SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength : *mut u32) -> windows_core::BOOL);
@@ -117,7 +117,7 @@ pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut windows_core::BOOL, f
     windows_core::link!("kernel32.dll" "system" fn GetSystemLeapSecondInformation(enabled : *mut windows_core::BOOL, flags : *mut u32) -> windows_core::BOOL);
     unsafe { GetSystemLeapSecondInformation(enabled as _, flags as _) }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[inline]
 pub unsafe fn GetSystemTime() -> super::minwinbase::SYSTEMTIME {
     windows_core::link!("kernel32.dll" "system" fn GetSystemTime(lpsystemtime : *mut super::minwinbase::SYSTEMTIME));
@@ -137,7 +137,7 @@ pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimei
     windows_core::link!("api-ms-win-core-sysinfo-l1-2-4.dll" "system" fn GetSystemTimeAdjustmentPrecise(lptimeadjustment : *mut u64, lptimeincrement : *mut u64, lptimeadjustmentdisabled : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { GetSystemTimeAdjustmentPrecise(lptimeadjustment as _, lptimeincrement as _, lptimeadjustmentdisabled as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetSystemTimeAsFileTime() -> super::minwindef::FILETIME {
     windows_core::link!("kernel32.dll" "system" fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime : *mut super::minwindef::FILETIME));
@@ -147,7 +147,7 @@ pub unsafe fn GetSystemTimeAsFileTime() -> super::minwindef::FILETIME {
         result__
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetSystemTimePreciseAsFileTime() -> super::minwindef::FILETIME {
     windows_core::link!("kernel32.dll" "system" fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime : *mut super::minwindef::FILETIME));
@@ -182,13 +182,13 @@ pub unsafe fn GetVersion() -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetVersion() -> u32);
     unsafe { GetVersion() }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetVersionExA(lpversioninformation: *mut super::winnt::OSVERSIONINFOA) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetVersionExA(lpversioninformation : *mut super::winnt::OSVERSIONINFOA) -> windows_core::BOOL);
     unsafe { GetVersionExA(lpversioninformation as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetVersionExW(lpversioninformation: *mut super::winnt::OSVERSIONINFOW) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetVersionExW(lpversioninformation : *mut super::winnt::OSVERSIONINFOW) -> windows_core::BOOL);
@@ -204,13 +204,13 @@ pub unsafe fn GetWindowsDirectoryW(lpbuffer: Option<&mut [u16]>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetWindowsDirectoryW(lpbuffer : windows_core::PWSTR, usize : u32) -> u32);
     unsafe { GetWindowsDirectoryW(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GlobalMemoryStatusEx(lpbuffer : *mut MEMORYSTATUSEX) -> windows_core::BOOL);
     unsafe { GlobalMemoryStatusEx(lpbuffer as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn InstallELAMCertificateInfo(elamfile: super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn InstallELAMCertificateInfo(elamfile : super::winnt::HANDLE) -> windows_core::BOOL);
@@ -261,13 +261,13 @@ where
     windows_core::link!("kernel32.dll" "system" fn SetComputerNameW(lpcomputername : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetComputerNameW(lpcomputername.param().abi()) }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[inline]
 pub unsafe fn SetLocalTime(lpsystemtime: *const super::minwinbase::SYSTEMTIME) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetLocalTime(lpsystemtime : *const super::minwinbase::SYSTEMTIME) -> windows_core::BOOL);
     unsafe { SetLocalTime(lpsystemtime) }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[inline]
 pub unsafe fn SetSystemTime(lpsystemtime: *const super::minwinbase::SYSTEMTIME) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetSystemTime(lpsystemtime : *const super::minwinbase::SYSTEMTIME) -> windows_core::BOOL);
@@ -298,17 +298,17 @@ pub const DeveloperDriveDisabledByGroupPolicy: DEVELOPER_DRIVE_ENABLEMENT_STATE 
 pub const DeveloperDriveDisabledBySystemPolicy: DEVELOPER_DRIVE_ENABLEMENT_STATE = 2;
 pub const DeveloperDriveEnabled: DEVELOPER_DRIVE_ENABLEMENT_STATE = 1;
 pub const DeveloperDriveEnablementStateError: DEVELOPER_DRIVE_ENABLEMENT_STATE = 0;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMEMORYSTATUSEX(pub *mut MEMORYSTATUSEX);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPMEMORYSTATUSEX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPMEMORYSTATUSEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -328,7 +328,7 @@ impl Default for LPSYSTEM_INFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MEMORYSTATUSEX {
     pub dwLength: u32,

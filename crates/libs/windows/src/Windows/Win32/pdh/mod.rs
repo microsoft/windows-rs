@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhAddCounterA<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> PDH_STATUS
 where
@@ -7,7 +7,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhAddCounterA(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> PDH_STATUS);
     unsafe { PdhAddCounterA(hquery, szfullcounterpath.param().abi(), dwuserdata, phcounter as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhAddCounterW<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> PDH_STATUS
 where
@@ -16,7 +16,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhAddCounterW(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCWSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> PDH_STATUS);
     unsafe { PdhAddCounterW(hquery, szfullcounterpath.param().abi(), dwuserdata, phcounter as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhAddEnglishCounterA<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> PDH_STATUS
 where
@@ -25,7 +25,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhAddEnglishCounterA(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> PDH_STATUS);
     unsafe { PdhAddEnglishCounterA(hquery, szfullcounterpath.param().abi(), dwuserdata, phcounter as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhAddEnglishCounterW<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> PDH_STATUS
 where
@@ -34,7 +34,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhAddEnglishCounterW(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCWSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> PDH_STATUS);
     unsafe { PdhAddEnglishCounterW(hquery, szfullcounterpath.param().abi(), dwuserdata, phcounter as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhBindInputDataSourceA<P1>(phdatasource: *mut PDH_HLOG, logfilenamelist: P1) -> PDH_STATUS
 where
@@ -43,7 +43,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhBindInputDataSourceA(phdatasource : *mut PDH_HLOG, logfilenamelist : windows_core::PCSTR) -> PDH_STATUS);
     unsafe { PdhBindInputDataSourceA(phdatasource as _, logfilenamelist.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhBindInputDataSourceW<P1>(phdatasource: *mut PDH_HLOG, logfilenamelist: P1) -> PDH_STATUS
 where
@@ -52,67 +52,67 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhBindInputDataSourceW(phdatasource : *mut PDH_HLOG, logfilenamelist : windows_core::PCWSTR) -> PDH_STATUS);
     unsafe { PdhBindInputDataSourceW(phdatasource as _, logfilenamelist.param().abi()) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhBrowseCountersA(pbrowsedlgdata : *const PDH_BROWSE_DLG_CONFIG_A) -> PDH_STATUS);
     unsafe { PdhBrowseCountersA(pbrowsedlgdata) }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HA) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhBrowseCountersHA(pbrowsedlgdata : *const PDH_BROWSE_DLG_CONFIG_HA) -> PDH_STATUS);
     unsafe { PdhBrowseCountersHA(pbrowsedlgdata) }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HW) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhBrowseCountersHW(pbrowsedlgdata : *const PDH_BROWSE_DLG_CONFIG_HW) -> PDH_STATUS);
     unsafe { PdhBrowseCountersHW(pbrowsedlgdata) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhBrowseCountersW(pbrowsedlgdata : *const PDH_BROWSE_DLG_CONFIG_W) -> PDH_STATUS);
     unsafe { PdhBrowseCountersW(pbrowsedlgdata) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn PdhCalculateCounterFromRawValue(hcounter: PDH_HCOUNTER, dwformat: u32, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhCalculateCounterFromRawValue(hcounter : PDH_HCOUNTER, dwformat : u32, rawvalue1 : *const PDH_RAW_COUNTER, rawvalue2 : *const PDH_RAW_COUNTER, fmtvalue : *mut PDH_FMT_COUNTERVALUE) -> PDH_STATUS);
     unsafe { PdhCalculateCounterFromRawValue(hcounter, dwformat, rawvalue1, rawvalue2, fmtvalue as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhCloseLog(hlog: PDH_HLOG, dwflags: u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhCloseLog(hlog : PDH_HLOG, dwflags : u32) -> PDH_STATUS);
     unsafe { PdhCloseLog(hlog, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhCloseQuery(hquery: PDH_HQUERY) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhCloseQuery(hquery : PDH_HQUERY) -> PDH_STATUS);
     unsafe { PdhCloseQuery(hquery as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhCollectQueryData(hquery: PDH_HQUERY) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhCollectQueryData(hquery : PDH_HQUERY) -> PDH_STATUS);
     unsafe { PdhCollectQueryData(hquery as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhCollectQueryDataEx(hquery: PDH_HQUERY, dwintervaltime: u32, hnewdataevent: super::winnt::HANDLE) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhCollectQueryDataEx(hquery : PDH_HQUERY, dwintervaltime : u32, hnewdataevent : super::winnt::HANDLE) -> PDH_STATUS);
     unsafe { PdhCollectQueryDataEx(hquery, dwintervaltime, hnewdataevent) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhCollectQueryDataWithTime(hquery: PDH_HQUERY, plltimestamp: *mut i64) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhCollectQueryDataWithTime(hquery : PDH_HQUERY, plltimestamp : *mut i64) -> PDH_STATUS);
     unsafe { PdhCollectQueryDataWithTime(hquery as _, plltimestamp as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn PdhComputeCounterStatistics(hcounter: PDH_HCOUNTER, dwformat: u32, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhComputeCounterStatistics(hcounter : PDH_HCOUNTER, dwformat : u32, dwfirstentry : u32, dwnumentries : u32, lprawvaluearray : *const PDH_RAW_COUNTER, data : *mut PDH_STATISTICS) -> PDH_STATUS);
@@ -174,13 +174,13 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhEnumMachinesA(szdatasource : windows_core::PCSTR, mszmachinelist : *mut i8, pcchbuffersize : *mut u32) -> PDH_STATUS);
     unsafe { PdhEnumMachinesA(szdatasource.param().abi(), mszmachinelist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhEnumMachinesHA(hdatasource: Option<PDH_HLOG>, mszmachinelist: Option<*mut i8>, pcchbuffersize: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhEnumMachinesHA(hdatasource : PDH_HLOG, mszmachinelist : *mut i8, pcchbuffersize : *mut u32) -> PDH_STATUS);
     unsafe { PdhEnumMachinesHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, mszmachinelist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhEnumMachinesHW(hdatasource: Option<PDH_HLOG>, mszmachinelist: Option<*mut u16>, pcchbuffersize: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhEnumMachinesHW(hdatasource : PDH_HLOG, mszmachinelist : *mut u16, pcchbuffersize : *mut u32) -> PDH_STATUS);
@@ -204,7 +204,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectItemsA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, mszcounterlist : *mut i8, pcchcounterlistlength : *mut u32, mszinstancelist : *mut i8, pcchinstancelistlength : *mut u32, dwdetaillevel : u32, dwflags : u32) -> PDH_STATUS);
     unsafe { PdhEnumObjectItemsA(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), mszcounterlist.unwrap_or(core::mem::zeroed()) as _, pcchcounterlistlength as _, mszinstancelist.unwrap_or(core::mem::zeroed()) as _, pcchinstancelistlength as _, dwdetaillevel, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhEnumObjectItemsHA<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, mszcounterlist: Option<*mut i8>, pcchcounterlistlength: *mut u32, mszinstancelist: Option<*mut i8>, pcchinstancelistlength: *mut u32, dwdetaillevel: u32, dwflags: u32) -> PDH_STATUS
 where
@@ -214,7 +214,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectItemsHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, mszcounterlist : *mut i8, pcchcounterlistlength : *mut u32, mszinstancelist : *mut i8, pcchinstancelistlength : *mut u32, dwdetaillevel : u32, dwflags : u32) -> PDH_STATUS);
     unsafe { PdhEnumObjectItemsHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), szobjectname.param().abi(), mszcounterlist.unwrap_or(core::mem::zeroed()) as _, pcchcounterlistlength as _, mszinstancelist.unwrap_or(core::mem::zeroed()) as _, pcchinstancelistlength as _, dwdetaillevel, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhEnumObjectItemsHW<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, mszcounterlist: Option<*mut u16>, pcchcounterlistlength: *mut u32, mszinstancelist: Option<*mut u16>, pcchinstancelistlength: *mut u32, dwdetaillevel: u32, dwflags: u32) -> PDH_STATUS
 where
@@ -243,7 +243,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectsA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, mszobjectlist : *mut i8, pcchbuffersize : *mut u32, dwdetaillevel : u32, brefresh : windows_core::BOOL) -> PDH_STATUS);
     unsafe { PdhEnumObjectsA(szdatasource.param().abi(), szmachinename.param().abi(), mszobjectlist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _, dwdetaillevel, brefresh.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhEnumObjectsHA<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, mszobjectlist: Option<*mut i8>, pcchbuffersize: *mut u32, dwdetaillevel: u32, brefresh: bool) -> PDH_STATUS
 where
@@ -252,7 +252,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectsHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, mszobjectlist : *mut i8, pcchbuffersize : *mut u32, dwdetaillevel : u32, brefresh : windows_core::BOOL) -> PDH_STATUS);
     unsafe { PdhEnumObjectsHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), mszobjectlist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _, dwdetaillevel, brefresh.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhEnumObjectsHW<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, mszobjectlist: Option<*mut u16>, pcchbuffersize: *mut u32, dwdetaillevel: u32, brefresh: bool) -> PDH_STATUS
 where
@@ -295,7 +295,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhExpandWildCardPathA(szdatasource : windows_core::PCSTR, szwildcardpath : windows_core::PCSTR, mszexpandedpathlist : *mut i8, pcchpathlistlength : *mut u32, dwflags : u32) -> PDH_STATUS);
     unsafe { PdhExpandWildCardPathA(szdatasource.param().abi(), szwildcardpath.param().abi(), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhExpandWildCardPathHA<P1>(hdatasource: Option<PDH_HLOG>, szwildcardpath: P1, mszexpandedpathlist: Option<*mut i8>, pcchpathlistlength: *mut u32, dwflags: u32) -> PDH_STATUS
 where
@@ -304,7 +304,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhExpandWildCardPathHA(hdatasource : PDH_HLOG, szwildcardpath : windows_core::PCSTR, mszexpandedpathlist : *mut i8, pcchpathlistlength : *mut u32, dwflags : u32) -> PDH_STATUS);
     unsafe { PdhExpandWildCardPathHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szwildcardpath.param().abi(), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhExpandWildCardPathHW<P1>(hdatasource: Option<PDH_HLOG>, szwildcardpath: P1, mszexpandedpathlist: Option<*mut u16>, pcchpathlistlength: *mut u32, dwflags: u32) -> PDH_STATUS
 where
@@ -322,25 +322,25 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhExpandWildCardPathW(szdatasource : windows_core::PCWSTR, szwildcardpath : windows_core::PCWSTR, mszexpandedpathlist : *mut u16, pcchpathlistlength : *mut u32, dwflags : u32) -> PDH_STATUS);
     unsafe { PdhExpandWildCardPathW(szdatasource.param().abi(), szwildcardpath.param().abi(), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _, dwflags) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: u32, ptimebase: Option<*const i64>, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhFormatFromRawValue(dwcountertype : u32, dwformat : u32, ptimebase : *const i64, prawvalue1 : *const PDH_RAW_COUNTER, prawvalue2 : *const PDH_RAW_COUNTER, pfmtvalue : *mut PDH_FMT_COUNTERVALUE) -> PDH_STATUS);
     unsafe { PdhFormatFromRawValue(dwcountertype, dwformat, ptimebase.unwrap_or(core::mem::zeroed()) as _, prawvalue1, prawvalue2, pfmtvalue as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetCounterInfoA(hcounter: PDH_HCOUNTER, bretrieveexplaintext: bool, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_A>) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetCounterInfoA(hcounter : PDH_HCOUNTER, bretrieveexplaintext : bool, pdwbuffersize : *mut u32, lpbuffer : *mut PDH_COUNTER_INFO_A) -> PDH_STATUS);
     unsafe { PdhGetCounterInfoA(hcounter, bretrieveexplaintext, pdwbuffersize as _, lpbuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetCounterInfoW(hcounter: PDH_HCOUNTER, bretrieveexplaintext: bool, pdwbuffersize: *mut u32, lpbuffer: Option<*mut PDH_COUNTER_INFO_W>) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetCounterInfoW(hcounter : PDH_HCOUNTER, bretrieveexplaintext : bool, pdwbuffersize : *mut u32, lpbuffer : *mut PDH_COUNTER_INFO_W) -> PDH_STATUS);
     unsafe { PdhGetCounterInfoW(hcounter, bretrieveexplaintext, pdwbuffersize as _, lpbuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetCounterTimeBase(hcounter: PDH_HCOUNTER, ptimebase: *mut i64) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetCounterTimeBase(hcounter : PDH_HCOUNTER, ptimebase : *mut i64) -> PDH_STATUS);
@@ -354,7 +354,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhGetDataSourceTimeRangeA(szdatasource : windows_core::PCSTR, pdwnumentries : *mut u32, pinfo : *mut PDH_TIME_INFO, pdwbuffersize : *mut u32) -> PDH_STATUS);
     unsafe { PdhGetDataSourceTimeRangeA(szdatasource.param().abi(), pdwnumentries as _, pinfo as _, pdwbuffersize as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeH(hdatasource: Option<PDH_HLOG>, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetDataSourceTimeRangeH(hdatasource : PDH_HLOG, pdwnumentries : *mut u32, pinfo : *mut PDH_TIME_INFO, pdwbuffersize : *mut u32) -> PDH_STATUS);
@@ -378,7 +378,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfCounterA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, szdefaultcountername : windows_core::PSTR, pcchbuffersize : *mut u32) -> PDH_STATUS);
     unsafe { PdhGetDefaultPerfCounterA(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), szdefaultcountername.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterHA<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, szdefaultcountername: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> PDH_STATUS
 where
@@ -388,7 +388,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfCounterHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, szdefaultcountername : windows_core::PSTR, pcchbuffersize : *mut u32) -> PDH_STATUS);
     unsafe { PdhGetDefaultPerfCounterHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), szobjectname.param().abi(), szdefaultcountername.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterHW<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, szdefaultcountername: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> PDH_STATUS
 where
@@ -417,7 +417,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfObjectA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, szdefaultobjectname : windows_core::PSTR, pcchbuffersize : *mut u32) -> PDH_STATUS);
     unsafe { PdhGetDefaultPerfObjectA(szdatasource.param().abi(), szmachinename.param().abi(), szdefaultobjectname.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectHA<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szdefaultobjectname: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> PDH_STATUS
 where
@@ -426,7 +426,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfObjectHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, szdefaultobjectname : windows_core::PSTR, pcchbuffersize : *mut u32) -> PDH_STATUS);
     unsafe { PdhGetDefaultPerfObjectHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), szdefaultobjectname.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectHW<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szdefaultobjectname: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> PDH_STATUS
 where
@@ -449,55 +449,55 @@ pub unsafe fn PdhGetDllVersion(lpdwversion: Option<*mut u32>) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetDllVersion(lpdwversion : *mut u32) -> PDH_STATUS);
     unsafe { PdhGetDllVersion(lpdwversion.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetFormattedCounterArrayA(hcounter: PDH_HCOUNTER, dwformat: u32, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_FMT_COUNTERVALUE_ITEM_A>) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetFormattedCounterArrayA(hcounter : PDH_HCOUNTER, dwformat : u32, lpdwbuffersize : *mut u32, lpdwitemcount : *mut u32, itembuffer : *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> PDH_STATUS);
     unsafe { PdhGetFormattedCounterArrayA(hcounter, dwformat, lpdwbuffersize as _, lpdwitemcount as _, itembuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetFormattedCounterArrayW(hcounter: PDH_HCOUNTER, dwformat: u32, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_FMT_COUNTERVALUE_ITEM_W>) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetFormattedCounterArrayW(hcounter : PDH_HCOUNTER, dwformat : u32, lpdwbuffersize : *mut u32, lpdwitemcount : *mut u32, itembuffer : *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> PDH_STATUS);
     unsafe { PdhGetFormattedCounterArrayW(hcounter, dwformat, lpdwbuffersize as _, lpdwitemcount as _, itembuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetFormattedCounterValue(hcounter: PDH_HCOUNTER, dwformat: u32, lpdwtype: Option<*mut u32>, pvalue: *mut PDH_FMT_COUNTERVALUE) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetFormattedCounterValue(hcounter : PDH_HCOUNTER, dwformat : u32, lpdwtype : *mut u32, pvalue : *mut PDH_FMT_COUNTERVALUE) -> PDH_STATUS);
     unsafe { PdhGetFormattedCounterValue(hcounter, dwformat, lpdwtype.unwrap_or(core::mem::zeroed()) as _, pvalue as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetLogFileSize(hlog: PDH_HLOG, llsize: *mut i64) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetLogFileSize(hlog : PDH_HLOG, llsize : *mut i64) -> PDH_STATUS);
     unsafe { PdhGetLogFileSize(hlog, llsize as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhGetLogSetGUID(hlog: PDH_HLOG, pguid: Option<*mut windows_core::GUID>, prunid: Option<*mut i32>) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetLogSetGUID(hlog : PDH_HLOG, pguid : *mut windows_core::GUID, prunid : *mut i32) -> PDH_STATUS);
     unsafe { PdhGetLogSetGUID(hlog, pguid.unwrap_or(core::mem::zeroed()) as _, prunid.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn PdhGetRawCounterArrayA(hcounter: PDH_HCOUNTER, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_RAW_COUNTER_ITEM_A>) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetRawCounterArrayA(hcounter : PDH_HCOUNTER, lpdwbuffersize : *mut u32, lpdwitemcount : *mut u32, itembuffer : *mut PDH_RAW_COUNTER_ITEM_A) -> PDH_STATUS);
     unsafe { PdhGetRawCounterArrayA(hcounter, lpdwbuffersize as _, lpdwitemcount as _, itembuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn PdhGetRawCounterArrayW(hcounter: PDH_HCOUNTER, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: Option<*mut PDH_RAW_COUNTER_ITEM_W>) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetRawCounterArrayW(hcounter : PDH_HCOUNTER, lpdwbuffersize : *mut u32, lpdwitemcount : *mut u32, itembuffer : *mut PDH_RAW_COUNTER_ITEM_W) -> PDH_STATUS);
     unsafe { PdhGetRawCounterArrayW(hcounter, lpdwbuffersize as _, lpdwitemcount as _, itembuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn PdhGetRawCounterValue(hcounter: PDH_HCOUNTER, lpdwtype: Option<*mut u32>, pvalue: *mut PDH_RAW_COUNTER) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhGetRawCounterValue(hcounter : PDH_HCOUNTER, lpdwtype : *mut u32, pvalue : *mut PDH_RAW_COUNTER) -> PDH_STATUS);
     unsafe { PdhGetRawCounterValue(hcounter, lpdwtype.unwrap_or(core::mem::zeroed()) as _, pvalue as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhIsRealTimeQuery(hquery: PDH_HQUERY) -> windows_core::BOOL {
     windows_core::link!("pdh.dll" "system" fn PdhIsRealTimeQuery(hquery : PDH_HQUERY) -> windows_core::BOOL);
@@ -547,7 +547,7 @@ pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_
     windows_core::link!("pdh.dll" "system" fn PdhMakeCounterPathW(pcounterpathelements : *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer : windows_core::PWSTR, pcchbuffersize : *mut u32, dwflags : u32) -> PDH_STATUS);
     unsafe { PdhMakeCounterPathW(pcounterpathelements, szfullpathbuffer.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhOpenLogA<P0, P5>(szlogfilename: P0, dwaccessflags: u32, lpdwlogtype: *mut u32, hquery: Option<PDH_HQUERY>, dwmaxsize: u32, szusercaption: P5, phlog: *mut PDH_HLOG) -> PDH_STATUS
 where
@@ -557,7 +557,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhOpenLogA(szlogfilename : windows_core::PCSTR, dwaccessflags : u32, lpdwlogtype : *mut u32, hquery : PDH_HQUERY, dwmaxsize : u32, szusercaption : windows_core::PCSTR, phlog : *mut PDH_HLOG) -> PDH_STATUS);
     unsafe { PdhOpenLogA(szlogfilename.param().abi(), dwaccessflags, lpdwlogtype as _, hquery.unwrap_or(core::mem::zeroed()) as _, dwmaxsize, szusercaption.param().abi(), phlog as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhOpenLogW<P0, P5>(szlogfilename: P0, dwaccessflags: u32, lpdwlogtype: *mut u32, hquery: Option<PDH_HQUERY>, dwmaxsize: u32, szusercaption: P5, phlog: *mut PDH_HLOG) -> PDH_STATUS
 where
@@ -567,7 +567,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhOpenLogW(szlogfilename : windows_core::PCWSTR, dwaccessflags : u32, lpdwlogtype : *mut u32, hquery : PDH_HQUERY, dwmaxsize : u32, szusercaption : windows_core::PCWSTR, phlog : *mut PDH_HLOG) -> PDH_STATUS);
     unsafe { PdhOpenLogW(szlogfilename.param().abi(), dwaccessflags, lpdwlogtype as _, hquery.unwrap_or(core::mem::zeroed()) as _, dwmaxsize, szusercaption.param().abi(), phlog as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhOpenQueryA<P0>(szdatasource: P0, dwuserdata: usize, phquery: *mut PDH_HQUERY) -> PDH_STATUS
 where
@@ -576,13 +576,13 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhOpenQueryA(szdatasource : windows_core::PCSTR, dwuserdata : usize, phquery : *mut PDH_HQUERY) -> PDH_STATUS);
     unsafe { PdhOpenQueryA(szdatasource.param().abi(), dwuserdata, phquery as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhOpenQueryH(hdatasource: Option<PDH_HLOG>, dwuserdata: usize, phquery: *mut PDH_HQUERY) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhOpenQueryH(hdatasource : PDH_HLOG, dwuserdata : usize, phquery : *mut PDH_HQUERY) -> PDH_STATUS);
     unsafe { PdhOpenQueryH(hdatasource.unwrap_or(core::mem::zeroed()) as _, dwuserdata, phquery as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhOpenQueryW<P0>(szdatasource: P0, dwuserdata: usize, phquery: *mut PDH_HQUERY) -> PDH_STATUS
 where
@@ -623,31 +623,31 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhParseInstanceNameW(szinstancestring : windows_core::PCWSTR, szinstancename : windows_core::PWSTR, pcchinstancenamelength : *mut u32, szparentname : windows_core::PWSTR, pcchparentnamelength : *mut u32, lpindex : *mut u32) -> PDH_STATUS);
     unsafe { PdhParseInstanceNameW(szinstancestring.param().abi(), szinstancename.unwrap_or(core::mem::zeroed()) as _, pcchinstancenamelength as _, szparentname.unwrap_or(core::mem::zeroed()) as _, pcchparentnamelength as _, lpindex as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn PdhReadRawLogRecord(hlog: PDH_HLOG, ftrecord: super::minwindef::FILETIME, prawlogrecord: Option<*mut PDH_RAW_LOG_RECORD>, pdwbufferlength: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhReadRawLogRecord(hlog : PDH_HLOG, ftrecord : super::minwindef::FILETIME, prawlogrecord : *mut PDH_RAW_LOG_RECORD, pdwbufferlength : *mut u32) -> PDH_STATUS);
     unsafe { PdhReadRawLogRecord(hlog, core::mem::transmute(ftrecord), prawlogrecord.unwrap_or(core::mem::zeroed()) as _, pdwbufferlength as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhRemoveCounter(hcounter: PDH_HCOUNTER) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhRemoveCounter(hcounter : PDH_HCOUNTER) -> PDH_STATUS);
     unsafe { PdhRemoveCounter(hcounter) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn PdhSelectDataSourceA(hwndowner: super::windef::HWND, dwflags: u32, szdatasource: windows_core::PSTR, pcchbufferlength: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhSelectDataSourceA(hwndowner : super::windef::HWND, dwflags : u32, szdatasource : windows_core::PSTR, pcchbufferlength : *mut u32) -> PDH_STATUS);
     unsafe { PdhSelectDataSourceA(hwndowner, dwflags, core::mem::transmute(szdatasource), pcchbufferlength as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn PdhSelectDataSourceW(hwndowner: super::windef::HWND, dwflags: u32, szdatasource: windows_core::PWSTR, pcchbufferlength: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhSelectDataSourceW(hwndowner : super::windef::HWND, dwflags : u32, szdatasource : windows_core::PWSTR, pcchbufferlength : *mut u32) -> PDH_STATUS);
     unsafe { PdhSelectDataSourceW(hwndowner, dwflags, core::mem::transmute(szdatasource), pcchbufferlength as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhSetCounterScaleFactor(hcounter: PDH_HCOUNTER, lfactor: i32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhSetCounterScaleFactor(hcounter : PDH_HCOUNTER, lfactor : i32) -> PDH_STATUS);
@@ -658,19 +658,19 @@ pub unsafe fn PdhSetDefaultRealTimeDataSource(dwdatasourceid: u32) -> PDH_STATUS
     windows_core::link!("pdh.dll" "system" fn PdhSetDefaultRealTimeDataSource(dwdatasourceid : u32) -> PDH_STATUS);
     unsafe { PdhSetDefaultRealTimeDataSource(dwdatasourceid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhSetLogSetRunID(hlog: PDH_HLOG, runid: i32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhSetLogSetRunID(hlog : PDH_HLOG, runid : i32) -> PDH_STATUS);
     unsafe { PdhSetLogSetRunID(hlog as _, runid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhSetQueryTimeRange(hquery: PDH_HQUERY, pinfo: *const PDH_TIME_INFO) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhSetQueryTimeRange(hquery : PDH_HQUERY, pinfo : *const PDH_TIME_INFO) -> PDH_STATUS);
     unsafe { PdhSetQueryTimeRange(hquery, pinfo) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhUpdateLogA<P1>(hlog: PDH_HLOG, szuserstring: P1) -> PDH_STATUS
 where
@@ -679,13 +679,13 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhUpdateLogA(hlog : PDH_HLOG, szuserstring : windows_core::PCSTR) -> PDH_STATUS);
     unsafe { PdhUpdateLogA(hlog, szuserstring.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhUpdateLogFileCatalog(hlog: PDH_HLOG) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhUpdateLogFileCatalog(hlog : PDH_HLOG) -> PDH_STATUS);
     unsafe { PdhUpdateLogFileCatalog(hlog) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhUpdateLogW<P1>(hlog: PDH_HLOG, szuserstring: P1) -> PDH_STATUS
 where
@@ -702,7 +702,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhValidatePathA(szfullpathbuffer : windows_core::PCSTR) -> PDH_STATUS);
     unsafe { PdhValidatePathA(szfullpathbuffer.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhValidatePathExA<P1>(hdatasource: Option<PDH_HLOG>, szfullpathbuffer: P1) -> PDH_STATUS
 where
@@ -711,7 +711,7 @@ where
     windows_core::link!("pdh.dll" "system" fn PdhValidatePathExA(hdatasource : PDH_HLOG, szfullpathbuffer : windows_core::PCSTR) -> PDH_STATUS);
     unsafe { PdhValidatePathExA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szfullpathbuffer.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PdhValidatePathExW<P1>(hdatasource: Option<PDH_HLOG>, szfullpathbuffer: P1) -> PDH_STATUS
 where
@@ -748,15 +748,15 @@ pub type CounterPathCallBack = Option<unsafe extern "system" fn(param0: usize) -
 pub const DATA_SOURCE_LOGFILE: u32 = 2;
 pub const DATA_SOURCE_REGISTRY: u32 = 1;
 pub const DATA_SOURCE_WBEM: u32 = 4;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCOUNTER(pub PDH_HCOUNTER);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HLOG(pub PDH_HLOG);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HQUERY(pub PDH_HQUERY);
@@ -765,7 +765,7 @@ pub const MAX_COUNTER_PATH: u32 = 256;
 pub const MAX_TIME_VALUE: i64 = 9223372036854775807;
 pub const MIN_TIME_VALUE: i64 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
@@ -780,7 +780,7 @@ pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub szDialogBoxCaption: windows_core::PSTR,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub _bitfield: u32,
@@ -795,7 +795,7 @@ pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub szDialogBoxCaption: windows_core::PSTR,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub _bitfield: u32,
@@ -810,7 +810,7 @@ pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub szDialogBoxCaption: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub _bitfield: u32,
@@ -1007,15 +1007,15 @@ pub const PDH_FMT_NODATA: u32 = 16384;
 pub const PDH_FMT_NOSCALE: u32 = 4096;
 pub const PDH_FMT_RAW: u32 = 16;
 pub const PDH_FMT_UNICODE: u32 = 64;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PDH_HCOUNTER(pub super::winnt::HANDLE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PDH_HLOG(pub super::winnt::HANDLE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PDH_HQUERY(pub super::winnt::HANDLE);
@@ -1032,7 +1032,7 @@ pub const PDH_LOG_OPT_MAX_IS_BYTES: u32 = 67108864;
 pub const PDH_LOG_OPT_USER_STRING: u32 = 16777216;
 pub const PDH_LOG_READ_ACCESS: u32 = 65536;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
     pub dwSize: u32,
@@ -1045,27 +1045,27 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_A_0,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDH_LOG_SERVICE_QUERY_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_A_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_A_0_1,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: u32,
@@ -1078,7 +1078,7 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlLogEndTime: super::minwindef::FILETIME,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlNumberOfBuffers: u32,
@@ -1093,7 +1093,7 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlLogFileName: windows_core::PSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
     pub dwSize: u32,
@@ -1106,27 +1106,27 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_W_0,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDH_LOG_SERVICE_QUERY_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_W_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_W_0_1,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: u32,
@@ -1139,7 +1139,7 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlLogEndTime: super::minwindef::FILETIME,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlNumberOfBuffers: u32,
@@ -1176,7 +1176,7 @@ pub const PDH_OBJECT_HAS_INSTANCES: u32 = 1;
 pub const PDH_PATH_WBEM_INPUT: u32 = 2;
 pub const PDH_PATH_WBEM_RESULT: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PDH_RAW_COUNTER {
     pub CStatus: u32,
@@ -1186,14 +1186,14 @@ pub struct PDH_RAW_COUNTER {
     pub MultiCount: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PDH_RAW_COUNTER_ITEM_A {
     pub szName: windows_core::PSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PDH_RAW_COUNTER_ITEM_W {
     pub szName: windows_core::PWSTR,
@@ -1240,65 +1240,65 @@ pub struct PDH_TIME_INFO {
 pub const PDH_VERSION: u32 = 1283;
 pub const PERF_DETAIL_COSTLY: u32 = 65536;
 pub const PERF_DETAIL_STANDARD: u32 = 65535;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPDH_BROWSE_DLG_CONFIG_A(pub *mut PDH_BROWSE_DLG_CONFIG_A);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PPDH_BROWSE_DLG_CONFIG_A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PPDH_BROWSE_DLG_CONFIG_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPDH_BROWSE_DLG_CONFIG_HA(pub *mut PDH_BROWSE_DLG_CONFIG_HA);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl PPDH_BROWSE_DLG_CONFIG_HA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for PPDH_BROWSE_DLG_CONFIG_HA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPDH_BROWSE_DLG_CONFIG_HW(pub *mut PDH_BROWSE_DLG_CONFIG_HW);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl PPDH_BROWSE_DLG_CONFIG_HW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for PPDH_BROWSE_DLG_CONFIG_HW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPDH_BROWSE_DLG_CONFIG_W(pub *mut PDH_BROWSE_DLG_CONFIG_W);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PPDH_BROWSE_DLG_CONFIG_W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PPDH_BROWSE_DLG_CONFIG_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1421,81 +1421,81 @@ impl Default for PPDH_FMT_COUNTERVALUE_ITEM_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPDH_LOG_SERVICE_QUERY_INFO_A(pub *mut PDH_LOG_SERVICE_QUERY_INFO_A);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PPDH_LOG_SERVICE_QUERY_INFO_A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PPDH_LOG_SERVICE_QUERY_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPDH_LOG_SERVICE_QUERY_INFO_W(pub *mut PDH_LOG_SERVICE_QUERY_INFO_W);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PPDH_LOG_SERVICE_QUERY_INFO_W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PPDH_LOG_SERVICE_QUERY_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPDH_RAW_COUNTER(pub *mut PDH_RAW_COUNTER);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PPDH_RAW_COUNTER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PPDH_RAW_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPDH_RAW_COUNTER_ITEM_A(pub *mut PDH_RAW_COUNTER_ITEM_A);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PPDH_RAW_COUNTER_ITEM_A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PPDH_RAW_COUNTER_ITEM_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPDH_RAW_COUNTER_ITEM_W(pub *mut PDH_RAW_COUNTER_ITEM_W);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PPDH_RAW_COUNTER_ITEM_W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PPDH_RAW_COUNTER_ITEM_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

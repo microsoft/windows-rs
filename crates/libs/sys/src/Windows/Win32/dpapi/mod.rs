@@ -1,10 +1,10 @@
-#[cfg(all(feature = "Win32_wincrypt", feature = "Win32_windef"))]
+#[cfg(all(feature = "wincrypt", feature = "windef"))]
 windows_link::link!("crypt32.dll" "system" fn CryptProtectData(pdatain : *const super::wincrypt::DATA_BLOB, szdatadescr : windows_sys::core::PCWSTR, poptionalentropy : *const super::wincrypt::DATA_BLOB, pvreserved : *const core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut super::wincrypt::DATA_BLOB) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptProtectMemory(pdatain : *mut core::ffi::c_void, cbdatain : u32, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_wincrypt", feature = "Win32_windef"))]
+#[cfg(all(feature = "wincrypt", feature = "windef"))]
 windows_link::link!("crypt32.dll" "system" fn CryptUnprotectData(pdatain : *const super::wincrypt::DATA_BLOB, ppszdatadescr : *mut windows_sys::core::PWSTR, poptionalentropy : *const super::wincrypt::DATA_BLOB, pvreserved : *const core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut super::wincrypt::DATA_BLOB) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptUnprotectMemory(pdatain : *mut core::ffi::c_void, cbdatain : u32, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("crypt32.dll" "system" fn CryptUpdateProtectedState(poldsid : super::winnt::PSID, pwszoldpassword : windows_sys::core::PCWSTR, dwflags : u32, pdwsuccesscount : *mut u32, pdwfailurecount : *mut u32) -> windows_sys::core::BOOL);
 pub const CRYPTPROTECTMEMORY_BLOCK_SIZE: u32 = 16;
 pub const CRYPTPROTECTMEMORY_CROSS_PROCESS: u32 = 1;
@@ -18,7 +18,7 @@ pub const CRYPTPROTECT_LAST_RESERVED_FLAGVAL: u32 = 4294967295;
 pub const CRYPTPROTECT_LOCAL_MACHINE: u32 = 4;
 pub const CRYPTPROTECT_NO_RECOVERY: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct CRYPTPROTECT_PROMPTSTRUCT {
     pub cbSize: u32,
@@ -26,7 +26,7 @@ pub struct CRYPTPROTECT_PROMPTSTRUCT {
     pub hwndApp: super::windef::HWND,
     pub szPrompt: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for CRYPTPROTECT_PROMPTSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -39,7 +39,7 @@ pub const CRYPTPROTECT_PROMPT_RESERVED: u32 = 4;
 pub const CRYPTPROTECT_PROMPT_STRONG: u32 = 8;
 pub const CRYPTPROTECT_UI_FORBIDDEN: u32 = 1;
 pub const CRYPTPROTECT_VERIFY_PROTECTION: u32 = 64;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PCRYPTPROTECT_PROMPTSTRUCT = *mut CRYPTPROTECT_PROMPTSTRUCT;
 pub const dwFORCE_KEY_PROTECTION_DISABLED: u32 = 0;
 pub const dwFORCE_KEY_PROTECTION_HIGH: u32 = 2;

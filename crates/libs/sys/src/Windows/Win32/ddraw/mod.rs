@@ -2,9 +2,9 @@ windows_link::link!("ddraw.dll" "system" fn DirectDrawCreate(lpguid : *mut windo
 windows_link::link!("ddraw.dll" "system" fn DirectDrawCreateClipper(dwflags : u32, lplpddclipper : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut windows_sys::core::GUID, lplpdd : *mut *mut core::ffi::c_void, iid : *const windows_sys::core::GUID, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateA(lpcallback : LPDDENUMCALLBACKA, lpcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateExA(lpcallback : LPDDENUMCALLBACKEXA, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateExW(lpcallback : LPDDENUMCALLBACKEXW, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateW(lpcallback : LPDDENUMCALLBACKW, lpcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const CLSID_DirectDraw: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7b70ee0_4340_11cf_b063_0020afc2cd35);
@@ -26,7 +26,7 @@ pub const DDBD_32: u32 = 256;
 pub const DDBD_4: u32 = 4096;
 pub const DDBD_8: u32 = 2048;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DDBLTBATCH {
     pub lprDest: super::windef::LPRECT,
@@ -35,7 +35,7 @@ pub struct DDBLTBATCH {
     pub dwFlags: u32,
     pub lpDDBltFx: LPDDBLTFX,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DDBLTBATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1152,7 +1152,7 @@ pub const DDSMT_ISTESTREQUIRED: u32 = 1;
 pub const DDSPD_IUNKNOWNPOINTER: u32 = 1;
 pub const DDSPD_VOLATILE: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub struct DDSURFACEDESC {
     pub dwSize: u32,
@@ -1172,41 +1172,41 @@ pub struct DDSURFACEDESC {
     pub ddpfPixelFormat: super::ksmedia::DDPIXELFORMAT,
     pub ddsCaps: DDSCAPS,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC_0 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC_1 {
     pub dwMipMapCount: u32,
     pub dwZBufferBitDepth: u32,
     pub dwRefreshRate: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub struct DDSURFACEDESC2 {
     pub dwSize: u32,
@@ -1227,73 +1227,73 @@ pub struct DDSURFACEDESC2 {
     pub ddsCaps: DDSCAPS2,
     pub dwTextureStage: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_0 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_1 {
     pub dwBackBufferCount: u32,
     pub dwDepth: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_2 {
     pub dwMipMapCount: u32,
     pub dwRefreshRate: u32,
     pub dwSrcVBHandle: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_3 {
     pub ddckCKDestOverlay: DDCOLORKEY,
     pub dwEmptyFaceColor: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_4 {
     pub ddpfPixelFormat: super::ksmedia::DDPIXELFORMAT,
     pub dwFVF: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1316,10 +1316,10 @@ pub const FOURCC_DXT2: u32 = 844388420;
 pub const FOURCC_DXT3: u32 = 861165636;
 pub const FOURCC_DXT4: u32 = 877942852;
 pub const FOURCC_DXT5: u32 = 894720068;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCLIPPERCALLBACK = Option<unsafe extern "system" fn(lpddclipper: *mut core::ffi::c_void, hwnd: super::windef::HWND, code: u32, lpcontext: *mut core::ffi::c_void) -> u32>;
 pub type LPDDARGB = *mut DDARGB;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDDBLTBATCH = *mut DDBLTBATCH;
 pub type LPDDBLTFX = *mut DDBLTFX;
 pub type LPDDCAPS = *mut DDCAPS;
@@ -1334,22 +1334,22 @@ pub type LPDDDEVICEIDENTIFIER = *mut DDDEVICEIDENTIFIER;
 pub type LPDDDEVICEIDENTIFIER2 = *mut DDDEVICEIDENTIFIER2;
 pub type LPDDENUMCALLBACK = LPDDENUMCALLBACKA;
 pub type LPDDENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDDENUMCALLBACKEX = LPDDENUMCALLBACKEXA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDDENUMCALLBACKEXA = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void, param4: super::windef::HMONITOR) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDDENUMCALLBACKEXW = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void, param4: super::windef::HMONITOR) -> windows_sys::core::BOOL>;
 pub type LPDDENUMCALLBACKW = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDENUMMODESCALLBACK = Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC, param1: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDENUMMODESCALLBACK2 = Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC2, param1: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDENUMSURFACESCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDENUMSURFACESCALLBACK2 = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDENUMSURFACESCALLBACK7 = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type LPDDFXROP = *mut _DDFXROP;
 pub type LPDDGAMMARAMP = *mut DDGAMMARAMP;
@@ -1359,15 +1359,15 @@ pub type LPDDRGBA = *mut DDRGBA;
 pub type LPDDSCAPS = *mut DDSCAPS;
 pub type LPDDSCAPS2 = *mut DDSCAPS2;
 pub type LPDDSCAPSEX = *mut DDSCAPSEX;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDSURFACEDESC = *mut DDSURFACEDESC;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDSURFACEDESC2 = *mut DDSURFACEDESC2;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIRECTDRAWENUMERATEEX = LPDIRECTDRAWENUMERATEEXA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIRECTDRAWENUMERATEEXA = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIRECTDRAWENUMERATEEXW = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_sys::core::HRESULT>;
 pub const MAX_DDDEVICEID_STRING: u32 = 512;
 pub const REGSTR_KEY_DDHW_DESCRIPTION: windows_sys::core::PCSTR = windows_sys::core::s!("Description");

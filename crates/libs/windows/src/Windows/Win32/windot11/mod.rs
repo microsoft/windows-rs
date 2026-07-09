@@ -4,7 +4,7 @@ pub const DISCOVERY_FILTER_BITMASK_DEVICE: u32 = 1;
 pub const DISCOVERY_FILTER_BITMASK_GO: u32 = 2;
 pub type DOT11_AC_PARAM = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_ADDITIONAL_IE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -21,7 +21,7 @@ pub struct DOT11_AKM_CIPHER_PAIR {
     pub cipher: RSNA_CIPHER_SUITE,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -32,7 +32,7 @@ pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
 pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 pub type DOT11_ANQP_QUERY_RESULT = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_AP_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
@@ -41,7 +41,7 @@ pub struct DOT11_AP_JOIN_REQUEST {
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -71,7 +71,7 @@ pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub MulticastMgmtCipher: super::wlan::DOT11_CIPHER_ALGORITHM,
     pub uAssocComebackTime: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -102,7 +102,7 @@ impl Default for DOT11_ASSOCIATION_INFO_EX {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_ASSOCIATION_INFO_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -110,7 +110,7 @@ pub struct DOT11_ASSOCIATION_INFO_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11AssocInfo: [DOT11_ASSOCIATION_INFO_EX; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_ASSOCIATION_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -118,7 +118,7 @@ impl Default for DOT11_ASSOCIATION_INFO_LIST {
 }
 pub const DOT11_ASSOCIATION_INFO_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_ASSOCIATION_PARAMS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -126,7 +126,7 @@ pub struct DOT11_ASSOCIATION_PARAMS {
     pub uAssocRequestIEsOffset: u32,
     pub uAssocRequestIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_ASSOCIATION_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -134,7 +134,7 @@ impl Default for DOT11_ASSOCIATION_PARAMS {
 }
 pub const DOT11_ASSOCIATION_PARAMS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_ASSOCIATION_START_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -143,7 +143,7 @@ pub struct DOT11_ASSOCIATION_START_PARAMETERS {
     pub uIHVDataOffset: u32,
     pub uIHVDataSize: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_ASSOCIATION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -184,7 +184,7 @@ pub const DOT11_ASSOC_STATUS_SUCCESS: u32 = 0;
 pub const DOT11_ASSOC_STATUS_SYSTEM_ERROR: u32 = 10;
 pub const DOT11_ASSOC_STATUS_UNREACHABLE: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_AUTH_ALGORITHM_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -192,7 +192,7 @@ pub struct DOT11_AUTH_ALGORITHM_LIST {
     pub uTotalNumOfEntries: u32,
     pub AlgorithmIds: [super::wlan::DOT11_AUTH_ALGORITHM; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_AUTH_ALGORITHM_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -201,7 +201,7 @@ impl Default for DOT11_AUTH_ALGORITHM_LIST {
 pub const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: u32 = 1;
 pub const DOT11_AUTH_ALGO_MICHAEL: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_AUTH_CIPHER_PAIR_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -209,7 +209,7 @@ pub struct DOT11_AUTH_CIPHER_PAIR_LIST {
     pub uTotalNumOfEntries: u32,
     pub AuthCipherPairs: [super::wlan::DOT11_AUTH_CIPHER_PAIR; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_AUTH_CIPHER_PAIR_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -217,7 +217,7 @@ impl Default for DOT11_AUTH_CIPHER_PAIR_LIST {
 }
 pub const DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_AVAILABLE_CHANNEL_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -225,7 +225,7 @@ pub struct DOT11_AVAILABLE_CHANNEL_LIST {
     pub uTotalNumOfEntries: u32,
     pub uChannelNumber: [u32; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_AVAILABLE_CHANNEL_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -233,7 +233,7 @@ impl Default for DOT11_AVAILABLE_CHANNEL_LIST {
 }
 pub const DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_AVAILABLE_FREQUENCY_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -241,7 +241,7 @@ pub struct DOT11_AVAILABLE_FREQUENCY_LIST {
     pub uTotalNumOfEntries: u32,
     pub uFrequencyValue: [u32; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_AVAILABLE_FREQUENCY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -261,7 +261,7 @@ impl Default for DOT11_BSSID_CANDIDATE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_BSSID_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -269,7 +269,7 @@ pub struct DOT11_BSSID_LIST {
     pub uTotalNumOfEntries: u32,
     pub BSSIDs: [DOT11_MAC_ADDRESS; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_BSSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -277,7 +277,7 @@ impl Default for DOT11_BSSID_LIST {
 }
 pub const DOT11_BSSID_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_BSS_DESCRIPTION {
     pub uReserved: u32,
@@ -289,14 +289,14 @@ pub struct DOT11_BSS_DESCRIPTION {
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for DOT11_BSS_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_BSS_ENTRY {
     pub uPhyId: u32,
@@ -313,7 +313,7 @@ pub struct DOT11_BSS_ENTRY {
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for DOT11_BSS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -339,7 +339,7 @@ pub struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     pub uDwellTime: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_BYTE_ARRAY {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -347,14 +347,14 @@ pub struct DOT11_BYTE_ARRAY {
     pub uTotalNumOfBytes: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_BYTE_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -385,7 +385,7 @@ pub struct DOT11_CHANNEL_HINT {
     pub uChannelNumber: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_CIPHER_ALGORITHM_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -393,7 +393,7 @@ pub struct DOT11_CIPHER_ALGORITHM_LIST {
     pub uTotalNumOfEntries: u32,
     pub AlgorithmIds: [super::wlan::DOT11_CIPHER_ALGORITHM; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_CIPHER_ALGORITHM_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -401,7 +401,7 @@ impl Default for DOT11_CIPHER_ALGORITHM_LIST {
 }
 pub const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -413,7 +413,7 @@ pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -421,7 +421,7 @@ impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
 }
 pub const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
@@ -432,7 +432,7 @@ pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -442,7 +442,7 @@ pub const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE_BYTE_ARRAY_REVISION_1: u32 = 1;
 pub const DOT11_CONF_ALGO_TKIP: u32 = 2;
 pub const DOT11_CONF_ALGO_WEP_RC4: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -450,7 +450,7 @@ pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
 }
 pub const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_CONNECTION_START_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -458,7 +458,7 @@ pub struct DOT11_CONNECTION_START_PARAMETERS {
     pub AdhocBSSID: DOT11_MAC_ADDRESS,
     pub AdhocSSID: super::wlan::DOT11_SSID,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_CONNECTION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -491,7 +491,7 @@ pub struct DOT11_COUNTERS_ENTRY {
 }
 pub type DOT11_COUNTRY_OR_REGION_STRING = [u8; 3];
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -499,7 +499,7 @@ pub struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
     pub uTotalNumOfEntries: u32,
     pub CountryOrRegionStrings: [DOT11_COUNTRY_OR_REGION_STRING; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_COUNTRY_OR_REGION_STRING_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -536,14 +536,14 @@ pub struct DOT11_DATA_RATE_MAPPING_ENTRY {
     pub usDataRateValue: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_DATA_RATE_MAPPING_TABLE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uDataRateMappingLength: u32,
     pub DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_DATA_RATE_MAPPING_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -552,7 +552,7 @@ impl Default for DOT11_DATA_RATE_MAPPING_TABLE {
 pub const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: u32 = 1;
 pub const DOT11_DATA_RATE_NON_STANDARD: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_DEFAULT_WEP_OFFLOAD {
     pub uReserved: u32,
@@ -570,14 +570,14 @@ pub struct DOT11_DEFAULT_WEP_OFFLOAD {
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DOT11_DEFAULT_WEP_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_DEFAULT_WEP_UPLOAD {
     pub uReserved: u32,
@@ -587,7 +587,7 @@ pub struct DOT11_DEFAULT_WEP_UPLOAD {
     pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
     pub usDot11RWBitMaps: [u16; 16],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DOT11_DEFAULT_WEP_UPLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -602,14 +602,14 @@ pub const DOT11_DIR_BOTH: DOT11_DIRECTION = 3;
 pub const DOT11_DIR_INBOUND: DOT11_DIRECTION = 1;
 pub const DOT11_DIR_OUTBOUND: DOT11_DIRECTION = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_DISASSOCIATE_PEER_REQUEST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
     pub usReason: u16,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_DISASSOCIATE_PEER_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -617,7 +617,7 @@ impl Default for DOT11_DISASSOCIATE_PEER_REQUEST {
 }
 pub const DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_DISASSOCIATION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -626,7 +626,7 @@ pub struct DOT11_DISASSOCIATION_PARAMETERS {
     pub uIHVDataOffset: u32,
     pub uIHVDataSize: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_DISASSOCIATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -687,7 +687,7 @@ pub const DOT11_EXEMPT_NO_EXEMPTION: u32 = 0;
 pub const DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE: u32 = 2;
 pub const DOT11_EXEMPT_UNICAST: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_EXTAP_ATTRIBUTES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -706,14 +706,14 @@ pub struct DOT11_EXTAP_ATTRIBUTES {
     pub pInfraSupportedMcastAlgoPairs: super::wlan::PDOT11_AUTH_CIPHER_PAIR,
 }
 pub const DOT11_EXTAP_ATTRIBUTES_REVISION_1: u32 = 1;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type DOT11_EXTAP_RECV_CONTEXT = DOT11_EXTSTA_RECV_CONTEXT;
 pub const DOT11_EXTAP_RECV_CONTEXT_REVISION_1: u32 = 1;
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 pub type DOT11_EXTAP_SEND_CONTEXT = DOT11_EXTSTA_SEND_CONTEXT;
 pub const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -759,7 +759,7 @@ pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_CERTIFIED: u32 = 2;
 pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_OID_SUPPORTED: u32 = 1;
 pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_RESERVED: u32 = 12;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_EXTSTA_CAPABILITY {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -776,7 +776,7 @@ pub struct DOT11_EXTSTA_CAPABILITY {
 }
 pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -790,7 +790,7 @@ pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub pvMediaSpecificInfo: *mut core::ffi::c_void,
     pub ullTimestamp: u64,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_EXTSTA_RECV_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -798,7 +798,7 @@ impl Default for DOT11_EXTSTA_RECV_CONTEXT {
 }
 pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -808,7 +808,7 @@ pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub pvMediaSpecificInfo: *mut core::ffi::c_void,
     pub uSendFlags: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_EXTSTA_SEND_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -833,7 +833,7 @@ pub const DOT11_FREQUENCY_BANDS_LOWER: u32 = 1;
 pub const DOT11_FREQUENCY_BANDS_MIDDLE: u32 = 2;
 pub const DOT11_FREQUENCY_BANDS_UPPER: u32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -843,7 +843,7 @@ pub struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -851,7 +851,7 @@ impl Default for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -861,7 +861,7 @@ pub struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -869,7 +869,7 @@ impl Default for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -879,7 +879,7 @@ pub struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -927,7 +927,7 @@ pub const DOT11_HW_MSDU_AUTH_SUPPORTED_TX: u32 = 16;
 pub const DOT11_HW_WEP_SUPPORTED_RX: u32 = 2;
 pub const DOT11_HW_WEP_SUPPORTED_TX: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_IBSS_PARAMS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -937,7 +937,7 @@ pub struct DOT11_IBSS_PARAMS {
 }
 pub const DOT11_IBSS_PARAMS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -958,7 +958,7 @@ pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub uBeaconOffset: u32,
     pub uBeaconSize: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -966,7 +966,7 @@ impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
 }
 pub const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_DECISION {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -976,7 +976,7 @@ pub struct DOT11_INCOMING_ASSOC_DECISION {
     pub uAssocResponseIEsOffset: u32,
     pub uAssocResponseIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_INCOMING_ASSOC_DECISION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -985,7 +985,7 @@ impl Default for DOT11_INCOMING_ASSOC_DECISION {
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: u32 = 1;
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -996,14 +996,14 @@ pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
     pub uAssocResponseIEsLength: u32,
     pub WFDStatus: DOT11_WFD_STATUS_CODE,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_INCOMING_ASSOC_DECISION_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1012,7 +1012,7 @@ pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub uAssocReqOffset: u32,
     pub uAssocReqSize: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1020,13 +1020,13 @@ impl Default for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
 }
 pub const DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1035,7 +1035,7 @@ impl Default for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
 pub const DOT11_INCOMING_ASSOC_STARTED_PARAMETERS_REVISION_1: u32 = 1;
 pub const DOT11_INVALID_CHANNEL_NUMBER: u32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1046,7 +1046,7 @@ pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1054,7 +1054,7 @@ impl Default for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1064,7 +1064,7 @@ pub struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1078,7 +1078,7 @@ pub struct DOT11_IV48_COUNTER {
     pub usIV16Counter: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
@@ -1172,7 +1172,7 @@ impl Default for DOT11_LINK_QUALITY_ENTRY {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_LINK_QUALITY_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1182,7 +1182,7 @@ pub struct DOT11_LINK_QUALITY_PARAMETERS {
 pub const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: u32 = 1;
 pub type DOT11_MAC_ADDRESS = [u8; 6];
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_MAC_ADDRESS_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1190,7 +1190,7 @@ pub struct DOT11_MAC_ADDRESS_LIST {
     pub uTotalNumOfEntries: u32,
     pub MacAddrs: [DOT11_MAC_ADDRESS; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_MAC_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1229,7 +1229,7 @@ impl Default for DOT11_MAC_INFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_MAC_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1237,7 +1237,7 @@ pub struct DOT11_MAC_PARAMETERS {
 }
 pub const DOT11_MAC_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1245,7 +1245,7 @@ pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub uStatus: u32,
     pub pvContext: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1386,7 +1386,7 @@ impl Default for DOT11_MD_CAPABILITY_ENTRY_LIST {
 pub const DOT11_MIN_PDU_SIZE: u32 = 256;
 pub const DOT11_MIN_SIZEOF_OFFLOAD_NETWORK_LIST_INFO_REVISION_1: u32 = 24;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_MPDU_MAX_LENGTH_INDICATION {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1434,7 +1434,7 @@ pub struct DOT11_OFFLOAD_CAPABILITY {
     pub uMaxAuthKeyMappingLength: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK {
     pub Ssid: super::wlan::DOT11_SSID,
@@ -1442,14 +1442,14 @@ pub struct DOT11_OFFLOAD_NETWORK {
     pub AuthAlgo: super::wlan::DOT11_AUTH_ALGORITHM,
     pub Dot11ChannelHints: [DOT11_CHANNEL_HINT; 4],
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for DOT11_OFFLOAD_NETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1460,7 +1460,7 @@ pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub uNumOfEntries: u32,
     pub offloadNetworkList: [DOT11_OFFLOAD_NETWORK; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1468,7 +1468,7 @@ impl Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
 }
 pub const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1521,7 +1521,7 @@ pub const DOT11_PACKET_TYPE_PROMISCUOUS_DATA: u32 = 2048;
 pub const DOT11_PACKET_TYPE_PROMISCUOUS_MGMT: u32 = 1024;
 pub const DOT11_PACKET_TYPE_RESERVED: i32 = -32768;
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_PEER_INFO {
     pub MacAddress: DOT11_MAC_ADDRESS,
@@ -1538,14 +1538,14 @@ pub struct DOT11_PEER_INFO {
     pub liAssociationUpTime: i64,
     pub Statistics: DOT11_PEER_STATISTICS,
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for DOT11_PEER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_PEER_INFO_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1553,7 +1553,7 @@ pub struct DOT11_PEER_INFO_LIST {
     pub uTotalNumOfEntries: u32,
     pub PeerInfo: [DOT11_PEER_INFO; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_PEER_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1580,7 +1580,7 @@ pub struct DOT11_PER_MSDU_COUNTERS {
     pub uACKFailureCount: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy)]
 pub struct DOT11_PHY_ATTRIBUTES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1598,21 +1598,21 @@ pub struct DOT11_PHY_ATTRIBUTES {
     pub DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
     pub SupportedDataRatesValue: DOT11_SUPPORTED_DATA_RATES_VALUE_V2,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_PHY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy)]
 pub union DOT11_PHY_ATTRIBUTES_0 {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
     pub OFDMAttributes: DOT11_OFDM_PHY_ATTRIBUTES,
     pub ERPAttributes: DOT11_ERP_PHY_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_PHY_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1643,27 +1643,27 @@ pub struct DOT11_PHY_FRAME_STATISTICS {
     pub ullFCSErrorCount: u64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy)]
 pub struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub ulPhyId: u32,
     pub Anonymous: DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy)]
 pub union DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     pub ulChannel: u32,
     pub ulFrequency: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1672,7 +1672,7 @@ impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
 pub const DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1: u32 = 1;
 pub const DOT11_PHY_ID_ANY: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_PHY_ID_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1680,7 +1680,7 @@ pub struct DOT11_PHY_ID_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11PhyId: [u32; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_PHY_ID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1688,7 +1688,7 @@ impl Default for DOT11_PHY_ID_LIST {
 }
 pub const DOT11_PHY_ID_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_PHY_STATE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1716,7 +1716,7 @@ impl Default for DOT11_PHY_TYPE_INFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_PHY_TYPE_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1724,7 +1724,7 @@ pub struct DOT11_PHY_TYPE_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11PhyType: [DOT11_PHY_TYPE; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_PHY_TYPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1732,7 +1732,7 @@ impl Default for DOT11_PHY_TYPE_LIST {
 }
 pub const DOT11_PHY_TYPE_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1754,7 +1754,7 @@ impl Default for DOT11_PMKID_ENTRY {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_PMKID_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1762,7 +1762,7 @@ pub struct DOT11_PMKID_LIST {
     pub uTotalNumOfEntries: u32,
     pub PMKIDs: [DOT11_PMKID_ENTRY; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_PMKID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1771,14 +1771,14 @@ impl Default for DOT11_PMKID_LIST {
 pub const DOT11_PMKID_LIST_REVISION_1: u32 = 1;
 pub type DOT11_PMKID_VALUE = [u8; 16];
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_PORT_STATE_NOTIFICATION {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerMac: DOT11_MAC_ADDRESS,
     pub bOpen: bool,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_PORT_STATE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1786,7 +1786,7 @@ impl Default for DOT11_PORT_STATE_NOTIFICATION {
 }
 pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1803,7 +1803,7 @@ pub struct DOT11_POWER_MGMT_MODE {
     pub bReceiveDTIMs: bool,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1830,7 +1830,7 @@ pub struct DOT11_PRIVACY_EXEMPTION {
     pub usExemptionPacketType: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_PRIVACY_EXEMPTION_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1838,7 +1838,7 @@ pub struct DOT11_PRIVACY_EXEMPTION_LIST {
     pub uTotalNumOfEntries: u32,
     pub PrivacyExemptionEntries: [DOT11_PRIVACY_EXEMPTION; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_PRIVACY_EXEMPTION_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1846,7 +1846,7 @@ impl Default for DOT11_PRIVACY_EXEMPTION_LIST {
 }
 pub const DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1857,7 +1857,7 @@ pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1865,7 +1865,7 @@ impl Default for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1875,7 +1875,7 @@ pub struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1883,7 +1883,7 @@ impl Default for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_QOS_PARAMS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1924,7 +1924,7 @@ impl Default for DOT11_RATE_SET {
 }
 pub const DOT11_RATE_SET_MAX_LENGTH: u32 = 126;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1933,7 +1933,7 @@ pub struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1941,7 +1941,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
 }
 pub const DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1951,7 +1951,7 @@ pub struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1959,7 +1959,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1969,7 +1969,7 @@ pub struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1977,7 +1977,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1988,7 +1988,7 @@ pub struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1996,7 +1996,7 @@ impl Default for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2006,7 +2006,7 @@ pub struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2014,7 +2014,7 @@ impl Default for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2025,7 +2025,7 @@ pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2033,7 +2033,7 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
 }
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2043,7 +2043,7 @@ pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2051,7 +2051,7 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
 }
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RECV_EXTENSION_INFO {
     pub uVersion: u32,
@@ -2078,14 +2078,14 @@ pub struct DOT11_RECV_EXTENSION_INFO {
     pub usNumberOfFragments: u16,
     pub pNdisPackets: [*mut core::ffi::c_void; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DOT11_RECV_EXTENSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_RECV_EXTENSION_INFO_V2 {
     pub uVersion: u32,
@@ -2110,7 +2110,7 @@ pub struct DOT11_RECV_EXTENSION_INFO_V2 {
     pub usNumberOfFragments: u16,
     pub pNdisPackets: [*mut core::ffi::c_void; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DOT11_RECV_EXTENSION_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2189,7 +2189,7 @@ impl Default for DOT11_RESET_REQUEST {
 }
 pub type DOT11_RESET_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2202,7 +2202,7 @@ pub const DOT11_ROAMING_REASON_BETTER_AP_FOUND: u32 = 11;
 pub const DOT11_ROAMING_REASON_IHV_END: i32 = -1;
 pub const DOT11_ROAMING_REASON_IHV_START: i32 = -2147483648;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_ROAMING_START_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2210,7 +2210,7 @@ pub struct DOT11_ROAMING_START_PARAMETERS {
     pub AdhocSSID: super::wlan::DOT11_SSID,
     pub uRoamingReason: DOT11_ASSOC_STATUS,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_ROAMING_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2225,7 +2225,7 @@ pub struct DOT11_RSSI_RANGE {
     pub uRSSIMax: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SCAN_REQUEST {
     pub dot11BSSType: super::wlan::DOT11_BSS_TYPE,
@@ -2242,14 +2242,14 @@ pub struct DOT11_SCAN_REQUEST {
     pub uIEsLength: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for DOT11_SCAN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SCAN_REQUEST_V2 {
     pub dot11BSSType: super::wlan::DOT11_BSS_TYPE,
@@ -2267,7 +2267,7 @@ pub struct DOT11_SCAN_REQUEST_V2 {
     pub uIEsLength: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for DOT11_SCAN_REQUEST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2275,7 +2275,7 @@ impl Default for DOT11_SCAN_REQUEST_V2 {
 }
 pub type DOT11_SCAN_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2290,7 +2290,7 @@ pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2298,7 +2298,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2312,7 +2312,7 @@ pub struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2320,7 +2320,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2338,7 +2338,7 @@ pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2346,7 +2346,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2364,7 +2364,7 @@ pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2372,7 +2372,7 @@ impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2389,7 +2389,7 @@ pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2397,7 +2397,7 @@ impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2410,7 +2410,7 @@ pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2418,7 +2418,7 @@ impl Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
 }
 pub const DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2429,7 +2429,7 @@ pub struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2440,7 +2440,7 @@ pub const DOT11_SERVICE_CLASS_REORDERABLE_MULTICAST: u32 = 0;
 pub const DOT11_SERVICE_CLASS_STRICTLY_ORDERED: u32 = 1;
 pub const DOT11_SIZEOF_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 12;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_SSID_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2448,7 +2448,7 @@ pub struct DOT11_SSID_LIST {
     pub uTotalNumOfEntries: u32,
     pub SSIDs: [super::wlan::DOT11_SSID; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for DOT11_SSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2456,7 +2456,7 @@ impl Default for DOT11_SSID_LIST {
 }
 pub const DOT11_SSID_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_START_REQUEST {
     pub uStartFailureTimeout: u32,
@@ -2465,7 +2465,7 @@ pub struct DOT11_START_REQUEST {
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_STATISTICS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2476,7 +2476,7 @@ pub struct DOT11_STATISTICS {
     pub MacMcastCounters: DOT11_MAC_FRAME_STATISTICS,
     pub PhyCounters: [DOT11_PHY_FRAME_STATISTICS; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2493,7 +2493,7 @@ pub const DOT11_STATUS_EXCESSIVE_DATA_LENGTH: u32 = 256;
 pub const DOT11_STATUS_GENERATE_AUTH_FAILED: u32 = 16384;
 pub const DOT11_STATUS_ICV_VERIFIED: u32 = 2048;
 #[repr(C)]
-#[cfg(feature = "Win32_types")]
+#[cfg(feature = "types")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_STATUS_INDICATION {
     pub uStatusType: u32,
@@ -2517,7 +2517,7 @@ pub const DOT11_STATUS_UNSUPPORTED_SERVICE_CLASS: u32 = 8;
 pub const DOT11_STATUS_WEP_KEY_UNAVAILABLE: u32 = 1024;
 pub const DOT11_STATUS_XMIT_MSDU_TIMER_EXPIRED: u32 = 64;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_STOP_AP_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2629,7 +2629,7 @@ impl Default for DOT11_SUPPORTED_POWER_LEVELS {
 }
 pub type DOT11_TEMP_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2637,7 +2637,7 @@ pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub uKeyIndex: u32,
     pub PeerMac: DOT11_MAC_ADDRESS,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_TKIPMIC_FAILURE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2658,14 +2658,14 @@ impl Default for DOT11_UPDATE_IE {
 }
 pub type DOT11_UPDATE_IE_OP = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_VWIFI_ATTRIBUTES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uTotalNumOfEntries: u32,
     pub Combinations: [DOT11_VWIFI_COMBINATION; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_VWIFI_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2673,7 +2673,7 @@ impl Default for DOT11_VWIFI_ATTRIBUTES {
 }
 pub const DOT11_VWIFI_ATTRIBUTES_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2685,7 +2685,7 @@ pub const DOT11_VWIFI_COMBINATION_REVISION_1: u32 = 1;
 pub const DOT11_VWIFI_COMBINATION_REVISION_2: u32 = 2;
 pub const DOT11_VWIFI_COMBINATION_REVISION_3: u32 = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION_V2 {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2695,7 +2695,7 @@ pub struct DOT11_VWIFI_COMBINATION_V2 {
     pub uNumVirtualStation: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION_V3 {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2706,7 +2706,7 @@ pub struct DOT11_VWIFI_COMBINATION_V3 {
     pub uNumWFDGroup: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WEP_OFFLOAD {
     pub uReserved: u32,
@@ -2725,14 +2725,14 @@ pub struct DOT11_WEP_OFFLOAD {
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DOT11_WEP_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WEP_UPLOAD {
     pub uReserved: u32,
@@ -2742,14 +2742,14 @@ pub struct DOT11_WEP_UPLOAD {
     pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
     pub usDot11RWBitMaps: [u16; 16],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DOT11_WEP_UPLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_ADDITIONAL_IE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2799,7 +2799,7 @@ impl Default for DOT11_WFD_ADVERTISEMENT_ID {
 pub const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: u32 = 21;
 pub const DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH: u32 = 63;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WFD_ATTRIBUTES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2818,7 +2818,7 @@ pub struct DOT11_WFD_ATTRIBUTES {
     pub uDiscoveryFilterListSize: u32,
     pub uGORoleClientTableSize: u32,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_WFD_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2846,7 +2846,7 @@ pub struct DOT11_WFD_CONFIGURATION_TIMEOUT {
 pub const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: u32 = 16;
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2867,7 +2867,7 @@ pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_6: u32 = 64;
 pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_7: u32 = 128;
 pub const DOT11_WFD_DEVICE_CAPABILITY_SERVICE_DISCOVERY: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_WFD_DEVICE_ENTRY {
     pub uPhyId: u32,
@@ -2887,7 +2887,7 @@ pub struct DOT11_WFD_DEVICE_ENTRY {
     pub uProbeResponseIEsOffset: u32,
     pub uProbeResponseIEsLength: u32,
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for DOT11_WFD_DEVICE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2895,7 +2895,7 @@ impl Default for DOT11_WFD_DEVICE_ENTRY {
 }
 pub const DOT11_WFD_DEVICE_HIGH_AVAILABILITY: u32 = 24;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WFD_DEVICE_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2904,7 +2904,7 @@ pub struct DOT11_WFD_DEVICE_INFO {
     pub PrimaryDeviceType: DOT11_WFD_DEVICE_TYPE,
     pub DeviceName: DOT11_WPS_DEVICE_NAME,
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_WFD_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2912,7 +2912,7 @@ impl Default for DOT11_WFD_DEVICE_INFO {
 }
 pub const DOT11_WFD_DEVICE_INFO_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2934,7 +2934,7 @@ impl Default for DOT11_WFD_DEVICE_TYPE {
 }
 pub const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: u32 = 128;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2946,21 +2946,21 @@ pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
 }
 pub const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_DEVICE_FILTER {
     pub DeviceID: DOT11_MAC_ADDRESS,
     pub ucBitmask: u8,
     pub GroupSSID: super::wlan::DOT11_SSID,
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2994,20 +2994,20 @@ pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_GROUP: u32 = 2;
 pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_RECONNECT_SUPPORTED: u32 = 32;
 pub const DOT11_WFD_GROUP_CAPABILITY_RESERVED_7: u32 = 128;
 #[repr(C)]
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WFD_GROUP_ID {
     pub DeviceAddress: DOT11_MAC_ADDRESS,
     pub SSID: super::wlan::DOT11_SSID,
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for DOT11_WFD_GROUP_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -3018,7 +3018,7 @@ pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
 }
 pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -3032,7 +3032,7 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: u32 = 1;
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -3045,7 +3045,7 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub bEapolKeyIpAddressAllocationSupported: bool,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_GROUP_START_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -3067,7 +3067,7 @@ pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_WFD_COEXISTENCE_POLICY: u32 = 3;
 pub const DOT11_WFD_MINOR_REASON_SUCCESS: u32 = 0;
 pub type DOT11_WFD_SCAN_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -3075,7 +3075,7 @@ pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     pub uTotalNumOfEntries: u32,
     pub SecondaryDeviceTypes: [DOT11_WFD_DEVICE_TYPE; 1],
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3173,7 +3173,7 @@ impl Default for DOT11_WME_UPDATE_IE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WPA_TSC {
     pub uReserved: u32,
@@ -3475,33 +3475,33 @@ impl Default for PDOT11_AC_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_ADDITIONAL_IE(pub *mut DOT11_ADDITIONAL_IE);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_ADDITIONAL_IE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_ADDITIONAL_IE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_ANQP_QUERY_COMPLETE_PARAMETERS(pub *mut DOT11_ANQP_QUERY_COMPLETE_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl PDOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl Default for PDOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3520,33 +3520,33 @@ impl Default for PDOT11_ANQP_QUERY_RESULT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_AP_JOIN_REQUEST(pub *mut DOT11_AP_JOIN_REQUEST);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_AP_JOIN_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_AP_JOIN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_ASSOCIATION_COMPLETION_PARAMETERS(pub *mut DOT11_ASSOCIATION_COMPLETION_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3565,49 +3565,49 @@ impl Default for PDOT11_ASSOCIATION_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_ASSOCIATION_INFO_LIST(pub *mut DOT11_ASSOCIATION_INFO_LIST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_ASSOCIATION_INFO_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_ASSOCIATION_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_ASSOCIATION_PARAMS(pub *mut DOT11_ASSOCIATION_PARAMS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_ASSOCIATION_PARAMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_ASSOCIATION_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_ASSOCIATION_START_PARAMETERS(pub *mut DOT11_ASSOCIATION_START_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_ASSOCIATION_START_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_ASSOCIATION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3626,65 +3626,65 @@ impl Default for PDOT11_ASSOCIATION_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_AUTH_ALGORITHM_LIST(pub *mut DOT11_AUTH_ALGORITHM_LIST);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_AUTH_ALGORITHM_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_AUTH_ALGORITHM_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_AUTH_CIPHER_PAIR_LIST(pub *mut DOT11_AUTH_CIPHER_PAIR_LIST);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_AUTH_CIPHER_PAIR_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_AUTH_CIPHER_PAIR_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_AVAILABLE_CHANNEL_LIST(pub *mut DOT11_AVAILABLE_CHANNEL_LIST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_AVAILABLE_CHANNEL_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_AVAILABLE_CHANNEL_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_AVAILABLE_FREQUENCY_LIST(pub *mut DOT11_AVAILABLE_FREQUENCY_LIST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_AVAILABLE_FREQUENCY_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_AVAILABLE_FREQUENCY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3716,49 +3716,49 @@ impl Default for PDOT11_BSSID_CANDIDATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_BSSID_LIST(pub *mut DOT11_BSSID_LIST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_BSSID_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_BSSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_BSS_DESCRIPTION(pub *mut DOT11_BSS_DESCRIPTION);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_BSS_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_BSS_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_BSS_ENTRY(pub *mut DOT11_BSS_ENTRY);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_BSS_ENTRY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_BSS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3777,33 +3777,33 @@ impl Default for PDOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_BYTE_ARRAY(pub *mut DOT11_BYTE_ARRAY);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_BYTE_ARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_BYTE_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_CAN_SUSTAIN_AP_PARAMETERS(pub *mut DOT11_CAN_SUSTAIN_AP_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_CAN_SUSTAIN_AP_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_CAN_SUSTAIN_AP_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3822,81 +3822,81 @@ impl Default for PDOT11_CHANNEL_HINT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_CIPHER_ALGORITHM_LIST(pub *mut DOT11_CIPHER_ALGORITHM_LIST);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_CIPHER_ALGORITHM_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_CIPHER_ALGORITHM_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_CIPHER_DEFAULT_KEY_VALUE(pub *mut DOT11_CIPHER_DEFAULT_KEY_VALUE);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_CIPHER_DEFAULT_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_CIPHER_KEY_MAPPING_KEY_VALUE(pub *mut DOT11_CIPHER_KEY_MAPPING_KEY_VALUE);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_CONNECTION_COMPLETION_PARAMETERS(pub *mut DOT11_CONNECTION_COMPLETION_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_CONNECTION_COMPLETION_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_CONNECTION_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_CONNECTION_START_PARAMETERS(pub *mut DOT11_CONNECTION_START_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_CONNECTION_START_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_CONNECTION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3928,17 +3928,17 @@ impl Default for PDOT11_COUNTRY_OR_REGION_STRING {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_COUNTRY_OR_REGION_STRING_LIST(pub *mut DOT11_COUNTRY_OR_REGION_STRING_LIST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_COUNTRY_OR_REGION_STRING_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_COUNTRY_OR_REGION_STRING_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3996,49 +3996,49 @@ impl Default for PDOT11_DATA_RATE_MAPPING_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_DATA_RATE_MAPPING_TABLE(pub *mut DOT11_DATA_RATE_MAPPING_TABLE);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_DATA_RATE_MAPPING_TABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_DATA_RATE_MAPPING_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_DEFAULT_WEP_OFFLOAD(pub *mut DOT11_DEFAULT_WEP_OFFLOAD);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDOT11_DEFAULT_WEP_OFFLOAD {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDOT11_DEFAULT_WEP_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_DEFAULT_WEP_UPLOAD(pub *mut DOT11_DEFAULT_WEP_UPLOAD);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDOT11_DEFAULT_WEP_UPLOAD {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDOT11_DEFAULT_WEP_UPLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4057,33 +4057,33 @@ impl Default for PDOT11_DIRECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_DISASSOCIATE_PEER_REQUEST(pub *mut DOT11_DISASSOCIATE_PEER_REQUEST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_DISASSOCIATE_PEER_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_DISASSOCIATE_PEER_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_DISASSOCIATION_PARAMETERS(pub *mut DOT11_DISASSOCIATION_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_DISASSOCIATION_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_DISASSOCIATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4167,113 +4167,113 @@ impl Default for PDOT11_ERP_PHY_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_EXTAP_ATTRIBUTES(pub *mut DOT11_EXTAP_ATTRIBUTES);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_EXTAP_ATTRIBUTES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_EXTAP_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_EXTAP_RECV_CONTEXT(pub *mut DOT11_EXTSTA_RECV_CONTEXT);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_EXTAP_RECV_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_EXTAP_RECV_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_EXTAP_SEND_CONTEXT(pub *mut DOT11_EXTSTA_SEND_CONTEXT);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_EXTAP_SEND_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_EXTAP_SEND_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_EXTSTA_ATTRIBUTES(pub *mut DOT11_EXTSTA_ATTRIBUTES);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_EXTSTA_ATTRIBUTES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_EXTSTA_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_EXTSTA_CAPABILITY(pub *mut DOT11_EXTSTA_CAPABILITY);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_EXTSTA_CAPABILITY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_EXTSTA_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_EXTSTA_RECV_CONTEXT(pub *mut DOT11_EXTSTA_RECV_CONTEXT);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_EXTSTA_RECV_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_EXTSTA_RECV_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_EXTSTA_SEND_CONTEXT(pub *mut DOT11_EXTSTA_SEND_CONTEXT);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_EXTSTA_SEND_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_EXTSTA_SEND_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4292,49 +4292,49 @@ impl Default for PDOT11_FRAGMENT_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS(pub *mut DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl PDOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for PDOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS(pub *mut DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl PDOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for PDOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS(pub *mut DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl PDOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for PDOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4405,129 +4405,129 @@ impl Default for PDOT11_HRDSSS_PHY_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_IBSS_PARAMS(pub *mut DOT11_IBSS_PARAMS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_IBSS_PARAMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_IBSS_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS(pub *mut DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_INCOMING_ASSOC_DECISION(pub *mut DOT11_INCOMING_ASSOC_DECISION);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_INCOMING_ASSOC_DECISION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_INCOMING_ASSOC_DECISION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_INCOMING_ASSOC_DECISION_V2(pub *mut DOT11_INCOMING_ASSOC_DECISION_V2);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_INCOMING_ASSOC_DECISION_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_INCOMING_ASSOC_DECISION_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS(pub *mut DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_INCOMING_ASSOC_STARTED_PARAMETERS(pub *mut DOT11_INCOMING_ASSOC_STARTED_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS(pub *mut DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl PDOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for PDOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS(pub *mut DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl PDOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for PDOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4546,17 +4546,17 @@ impl Default for PDOT11_IV48_COUNTER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_JOIN_REQUEST(pub *mut DOT11_JOIN_REQUEST);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_JOIN_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_JOIN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4666,17 +4666,17 @@ impl Default for PDOT11_LINK_QUALITY_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_LINK_QUALITY_PARAMETERS(pub *mut DOT11_LINK_QUALITY_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_LINK_QUALITY_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_LINK_QUALITY_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4695,17 +4695,17 @@ impl Default for PDOT11_MAC_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_MAC_ADDRESS_LIST(pub *mut DOT11_MAC_ADDRESS_LIST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_MAC_ADDRESS_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_MAC_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4737,33 +4737,33 @@ impl Default for PDOT11_MAC_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_MAC_PARAMETERS(pub *mut DOT11_MAC_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_MAC_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_MAC_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_MANUFACTURING_CALLBACK_PARAMETERS(pub *mut DOT11_MANUFACTURING_CALLBACK_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4938,17 +4938,17 @@ impl Default for PDOT11_MD_CAPABILITY_ENTRY_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_MPDU_MAX_LENGTH_INDICATION(pub *mut DOT11_MPDU_MAX_LENGTH_INDICATION);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_MPDU_MAX_LENGTH_INDICATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_MPDU_MAX_LENGTH_INDICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5006,49 +5006,49 @@ impl Default for PDOT11_OFFLOAD_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_OFFLOAD_NETWORK(pub *mut DOT11_OFFLOAD_NETWORK);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_OFFLOAD_NETWORK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_OFFLOAD_NETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_OFFLOAD_NETWORK_LIST_INFO(pub *mut DOT11_OFFLOAD_NETWORK_LIST_INFO);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_OFFLOAD_NETWORK_LIST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS(pub *mut DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl PDOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for PDOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5093,33 +5093,33 @@ impl Default for PDOT11_OPTIONAL_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PEER_INFO(pub *mut DOT11_PEER_INFO);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_PEER_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_PEER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PEER_INFO_LIST(pub *mut DOT11_PEER_INFO_LIST);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_PEER_INFO_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_PEER_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5151,17 +5151,17 @@ impl Default for PDOT11_PER_MSDU_COUNTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PHY_ATTRIBUTES(pub *mut DOT11_PHY_ATTRIBUTES);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_PHY_ATTRIBUTES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_PHY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5180,49 +5180,49 @@ impl Default for PDOT11_PHY_FRAME_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS(pub *mut DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PHY_ID_LIST(pub *mut DOT11_PHY_ID_LIST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_PHY_ID_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_PHY_ID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PHY_STATE_PARAMETERS(pub *mut DOT11_PHY_STATE_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_PHY_STATE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_PHY_STATE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5254,33 +5254,33 @@ impl Default for PDOT11_PHY_TYPE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PHY_TYPE_LIST(pub *mut DOT11_PHY_TYPE_LIST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_PHY_TYPE_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_PHY_TYPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PMKID_CANDIDATE_LIST_PARAMETERS(pub *mut DOT11_PMKID_CANDIDATE_LIST_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5299,49 +5299,49 @@ impl Default for PDOT11_PMKID_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PMKID_LIST(pub *mut DOT11_PMKID_LIST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_PMKID_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_PMKID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PORT_STATE_NOTIFICATION(pub *mut DOT11_PORT_STATE_NOTIFICATION);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_PORT_STATE_NOTIFICATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_PORT_STATE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO(pub *mut DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5360,17 +5360,17 @@ impl Default for PDOT11_POWER_MGMT_MODE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_POWER_MGMT_MODE_STATUSINFO(pub *mut DOT11_POWER_MGMT_MODE_STATUS_INFO);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_POWER_MGMT_MODE_STATUSINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_POWER_MGMT_MODE_STATUSINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5402,65 +5402,65 @@ impl Default for PDOT11_PRIVACY_EXEMPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PRIVACY_EXEMPTION_LIST(pub *mut DOT11_PRIVACY_EXEMPTION_LIST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_PRIVACY_EXEMPTION_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_PRIVACY_EXEMPTION_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS(pub *mut DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl PDOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for PDOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS(pub *mut DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl PDOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for PDOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_QOS_PARAMS(pub *mut DOT11_QOS_PARAMS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_QOS_PARAMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_QOS_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5505,145 +5505,145 @@ impl Default for PDOT11_RATE_SET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS(pub *mut DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS(pub *mut DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS(pub *mut DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS(pub *mut DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS(pub *mut DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS(pub *mut DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS(pub *mut DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_RECV_EXTENSION_INFO(pub *mut DOT11_RECV_EXTENSION_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDOT11_RECV_EXTENSION_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDOT11_RECV_EXTENSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_RECV_EXTENSION_INFO_V2(pub *mut DOT11_RECV_EXTENSION_INFO_V2);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDOT11_RECV_EXTENSION_INFO_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDOT11_RECV_EXTENSION_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5727,33 +5727,33 @@ impl Default for PDOT11_RESET_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_ROAMING_COMPLETION_PARAMETERS(pub *mut DOT11_ROAMING_COMPLETION_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_ROAMING_COMPLETION_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_ROAMING_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_ROAMING_START_PARAMETERS(pub *mut DOT11_ROAMING_START_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_ROAMING_START_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_ROAMING_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5772,33 +5772,33 @@ impl Default for PDOT11_RSSI_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_SCAN_REQUEST(pub *mut DOT11_SCAN_REQUEST);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_SCAN_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_SCAN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_SCAN_REQUEST_V2(pub *mut DOT11_SCAN_REQUEST_V2);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_SCAN_REQUEST_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_SCAN_REQUEST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5817,193 +5817,193 @@ impl Default for PDOT11_SCAN_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS(pub *mut DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS(pub *mut DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS(pub *mut DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_SEND_INVITATION_REQUEST_PARAMETERS(pub *mut DOT11_SEND_INVITATION_REQUEST_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_SEND_INVITATION_RESPONSE_PARAMETERS(pub *mut DOT11_SEND_INVITATION_RESPONSE_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS(pub *mut DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS(pub *mut DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_SSID_LIST(pub *mut DOT11_SSID_LIST);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl PDOT11_SSID_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
+#[cfg(all(feature = "objectheader", feature = "wlan"))]
 impl Default for PDOT11_SSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_START_REQUEST(pub *mut DOT11_START_REQUEST);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_START_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_START_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_STATISTICS(pub *mut DOT11_STATISTICS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_STATISTICS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_types")]
+#[cfg(feature = "types")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_STATUS_INDICATION(pub *mut DOT11_STATUS_INDICATION);
-#[cfg(feature = "Win32_types")]
+#[cfg(feature = "types")]
 impl PDOT11_STATUS_INDICATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_types")]
+#[cfg(feature = "types")]
 impl Default for PDOT11_STATUS_INDICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_STOP_AP_PARAMETERS(pub *mut DOT11_STOP_AP_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_STOP_AP_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_STOP_AP_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6165,17 +6165,17 @@ impl Default for PDOT11_TEMP_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_TKIPMIC_FAILURE_PARAMETERS(pub *mut DOT11_TKIPMIC_FAILURE_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_TKIPMIC_FAILURE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6207,113 +6207,113 @@ impl Default for PDOT11_UPDATE_IE_OP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_VWIFI_ATTRIBUTES(pub *mut DOT11_VWIFI_ATTRIBUTES);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_VWIFI_ATTRIBUTES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_VWIFI_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_VWIFI_COMBINATION(pub *mut DOT11_VWIFI_COMBINATION);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_VWIFI_COMBINATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_VWIFI_COMBINATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_VWIFI_COMBINATION_V2(pub *mut DOT11_VWIFI_COMBINATION_V2);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_VWIFI_COMBINATION_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_VWIFI_COMBINATION_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_VWIFI_COMBINATION_V3(pub *mut DOT11_VWIFI_COMBINATION_V3);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_VWIFI_COMBINATION_V3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_VWIFI_COMBINATION_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WEP_OFFLOAD(pub *mut DOT11_WEP_OFFLOAD);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDOT11_WEP_OFFLOAD {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDOT11_WEP_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WEP_UPLOAD(pub *mut DOT11_WEP_UPLOAD);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDOT11_WEP_UPLOAD {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDOT11_WEP_UPLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_ADDITIONAL_IE(pub *mut DOT11_WFD_ADDITIONAL_IE);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_WFD_ADDITIONAL_IE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_WFD_ADDITIONAL_IE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6358,17 +6358,17 @@ impl Default for PDOT11_WFD_ADVERTISEMENT_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_ATTRIBUTES(pub *mut DOT11_WFD_ATTRIBUTES);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_WFD_ATTRIBUTES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_WFD_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6400,65 +6400,65 @@ impl Default for PDOT11_WFD_CONFIGURATION_TIMEOUT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_DEVICE_CAPABILITY_CONFIG(pub *mut DOT11_WFD_DEVICE_CAPABILITY_CONFIG);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_DEVICE_ENTRY(pub *mut DOT11_WFD_DEVICE_ENTRY);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_WFD_DEVICE_ENTRY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_WFD_DEVICE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_DEVICE_INFO(pub *mut DOT11_WFD_DEVICE_INFO);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_WFD_DEVICE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_WFD_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_DEVICE_LISTEN_CHANNEL(pub *mut DOT11_WFD_DEVICE_LISTEN_CHANNEL);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_WFD_DEVICE_LISTEN_CHANNEL {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_WFD_DEVICE_LISTEN_CHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6477,49 +6477,49 @@ impl Default for PDOT11_WFD_DEVICE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_DISCOVER_COMPLETE_PARAMETERS(pub *mut DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl PDOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
+#[cfg(all(feature = "objectheader", feature = "types"))]
 impl Default for PDOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_DISCOVER_DEVICE_FILTER(pub *mut DOT11_WFD_DISCOVER_DEVICE_FILTER);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_WFD_DISCOVER_DEVICE_FILTER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_WFD_DISCOVER_DEVICE_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_DISCOVER_REQUEST(pub *mut DOT11_WFD_DISCOVER_REQUEST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_WFD_DISCOVER_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_WFD_DISCOVER_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6551,81 +6551,81 @@ impl Default for PDOT11_WFD_GO_INTENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_GROUP_ID(pub *mut DOT11_WFD_GROUP_ID);
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl PDOT11_WFD_GROUP_ID {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wlan")]
+#[cfg(feature = "wlan")]
 impl Default for PDOT11_WFD_GROUP_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_GROUP_JOIN_PARAMETERS(pub *mut DOT11_WFD_GROUP_JOIN_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_WFD_GROUP_JOIN_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG(pub *mut DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2(pub *mut DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_GROUP_START_PARAMETERS(pub *mut DOT11_WFD_GROUP_START_PARAMETERS);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_WFD_GROUP_START_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_WFD_GROUP_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6657,17 +6657,17 @@ impl Default for PDOT11_WFD_SCAN_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WFD_SECONDARY_DEVICE_TYPE_LIST(pub *mut DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST);
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl PDOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_objectheader")]
+#[cfg(feature = "objectheader")]
 impl Default for PDOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6751,17 +6751,17 @@ impl Default for PDOT11_WME_UPDATE_IE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOT11_WPA_TSC(pub *mut DOT11_WPA_TSC);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDOT11_WPA_TSC {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDOT11_WPA_TSC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

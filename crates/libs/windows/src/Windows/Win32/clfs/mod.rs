@@ -117,7 +117,7 @@ pub struct CLFS_PHYSICAL_LSN_INFORMATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CLFS_RECORD_TYPE(pub CLS_RECORD_TYPE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type CLFS_SCAN_CONTEXT = CLS_SCAN_CONTEXT;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -210,7 +210,7 @@ pub struct CLS_LSN {
 pub struct CLS_RECORD_TYPE(pub u8);
 #[repr(C, align(8))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
@@ -223,7 +223,7 @@ pub struct CLS_SCAN_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
@@ -476,17 +476,17 @@ impl Default for PCLFS_RECORD_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCLFS_SCAN_CONTEXT(pub *mut CLFS_SCAN_CONTEXT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PCLFS_SCAN_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PCLFS_SCAN_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -674,17 +674,17 @@ impl Default for PCLS_RECORD_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCLS_SCAN_CONTEXT(pub *mut CLS_SCAN_CONTEXT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PCLS_SCAN_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PCLS_SCAN_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -703,17 +703,17 @@ impl Default for PCLS_WRITE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_corecrt_wstdio")]
+#[cfg(feature = "corecrt_wstdio")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PFILE(pub *mut super::corecrt_wstdio::FILE);
-#[cfg(feature = "Win32_corecrt_wstdio")]
+#[cfg(feature = "corecrt_wstdio")]
 impl PFILE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_corecrt_wstdio")]
+#[cfg(feature = "corecrt_wstdio")]
 impl Default for PFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -888,17 +888,17 @@ impl Default for PPCLFS_RECORD_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPCLFS_SCAN_CONTEXT(pub *mut *mut CLFS_SCAN_CONTEXT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PPCLFS_SCAN_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PPCLFS_SCAN_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1073,17 +1073,17 @@ impl Default for PPCLS_RECORD_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPCLS_SCAN_CONTEXT(pub *mut *mut CLS_SCAN_CONTEXT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PPCLS_SCAN_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PPCLS_SCAN_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1102,17 +1102,17 @@ impl Default for PPCLS_WRITE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_corecrt_wstdio")]
+#[cfg(feature = "corecrt_wstdio")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPFILE(pub *mut *mut super::corecrt_wstdio::FILE);
-#[cfg(feature = "Win32_corecrt_wstdio")]
+#[cfg(feature = "corecrt_wstdio")]
 impl PPFILE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_corecrt_wstdio")]
+#[cfg(feature = "corecrt_wstdio")]
 impl Default for PPFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

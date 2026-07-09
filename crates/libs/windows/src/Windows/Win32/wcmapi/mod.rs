@@ -8,7 +8,7 @@ pub unsafe fn WcmGetProfileList(preserved: Option<*const core::ffi::c_void>, ppp
     windows_core::link!("wcmapi.dll" "system" fn WcmGetProfileList(preserved : *const core::ffi::c_void, ppprofilelist : *mut *mut WCM_PROFILE_INFO_LIST) -> u32);
     unsafe { WcmGetProfileList(preserved.unwrap_or(core::mem::zeroed()) as _, ppprofilelist as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn WcmQueryProperty<P1>(pinterface: Option<*const windows_core::GUID>, strprofilename: P1, property: WCM_PROPERTY, preserved: Option<*const core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut super::minwindef::PBYTE) -> u32
 where
@@ -69,17 +69,17 @@ impl Default for PWCM_CONNECTION_COST_SOURCE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWCM_DATAPLAN_STATUS(pub *mut WCM_DATAPLAN_STATUS);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PWCM_DATAPLAN_STATUS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PWCM_DATAPLAN_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -150,17 +150,17 @@ impl Default for PWCM_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWCM_USAGE_DATA(pub *mut WCM_USAGE_DATA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PWCM_USAGE_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PWCM_USAGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -169,7 +169,7 @@ impl Default for PWCM_USAGE_DATA {
 pub const WCM_API_VERSION: u32 = 1;
 pub const WCM_API_VERSION_1_0: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WCM_BILLING_CYCLE_INFO {
     pub StartDate: super::minwindef::FILETIME,
@@ -197,7 +197,7 @@ pub const WCM_CONNECTION_COST_UNKNOWN: WCM_CONNECTION_COST = 0;
 pub const WCM_CONNECTION_COST_UNRESTRICTED: WCM_CONNECTION_COST = 1;
 pub const WCM_CONNECTION_COST_VARIABLE: WCM_CONNECTION_COST = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WCM_DATAPLAN_STATUS {
     pub UsageData: WCM_USAGE_DATA,
@@ -253,7 +253,7 @@ pub struct WCM_TIME_INTERVAL {
 }
 pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WCM_USAGE_DATA {
     pub UsageInMegabytes: u32,

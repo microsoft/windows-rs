@@ -1,22 +1,22 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmAttachMilContent(hwnd: super::windef::HWND) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmAttachMilContent(hwnd : super::windef::HWND) -> windows_core::HRESULT);
     unsafe { DwmAttachMilContent(hwnd) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn DwmDefWindowProc(hwnd: super::windef::HWND, msg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM, plresult: *mut super::minwindef::LRESULT) -> windows_core::BOOL {
     windows_core::link!("dwmapi.dll" "system" fn DwmDefWindowProc(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM, plresult : *mut super::minwindef::LRESULT) -> windows_core::BOOL);
     unsafe { DwmDefWindowProc(hwnd, msg, wparam, lparam, plresult as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmDetachMilContent(hwnd: super::windef::HWND) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmDetachMilContent(hwnd : super::windef::HWND) -> windows_core::HRESULT);
     unsafe { DwmDetachMilContent(hwnd) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn DwmEnableBlurBehindWindow(hwnd: super::windef::HWND, pblurbehind: *const DWM_BLURBEHIND) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmEnableBlurBehindWindow(hwnd : super::windef::HWND, pblurbehind : *const DWM_BLURBEHIND) -> windows_core::HRESULT);
@@ -32,7 +32,7 @@ pub unsafe fn DwmEnableMMCSS(fenablemmcss: bool) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmEnableMMCSS(fenablemmcss : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { DwmEnableMMCSS(fenablemmcss.into()) }
 }
-#[cfg(all(feature = "Win32_uxtheme", feature = "Win32_windef"))]
+#[cfg(all(feature = "uxtheme", feature = "windef"))]
 #[inline]
 pub unsafe fn DwmExtendFrameIntoClientArea(hwnd: super::windef::HWND, pmarinset: *const super::uxtheme::MARGINS) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmExtendFrameIntoClientArea(hwnd : super::windef::HWND, pmarinset : *const super::uxtheme::MARGINS) -> windows_core::HRESULT);
@@ -48,7 +48,7 @@ pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: 
     windows_core::link!("dwmapi.dll" "system" fn DwmGetColorizationColor(pcrcolorization : *mut u32, pfopaqueblend : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { DwmGetColorizationColor(pcrcolorization as _, pfopaqueblend as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmGetCompositionTimingInfo(hwnd: super::windef::HWND, ptiminginfo: *mut DWM_TIMING_INFO) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmGetCompositionTimingInfo(hwnd : super::windef::HWND, ptiminginfo : *mut DWM_TIMING_INFO) -> windows_core::HRESULT);
@@ -72,7 +72,7 @@ pub unsafe fn DwmGetTransportAttributes(pfisremoting: &mut [windows_core::BOOL; 
     windows_core::link!("dwmapi.dll" "system" fn DwmGetTransportAttributes(pfisremoting : *mut windows_core::BOOL, pfisconnected : *mut windows_core::BOOL, pdwgeneration : *mut u32) -> windows_core::HRESULT);
     unsafe { DwmGetTransportAttributes(core::mem::transmute(pfisremoting.as_ptr()), core::mem::transmute(pfisconnected.as_ptr()), core::mem::transmute(pdwgeneration.as_ptr())) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmGetUnmetTabRequirements(appwindow: Option<super::windef::HWND>) -> windows_core::Result<DWM_TAB_WINDOW_REQUIREMENTS> {
     windows_core::link!("dwmapi.dll" "system" fn DwmGetUnmetTabRequirements(appwindow : super::windef::HWND, value : *mut DWM_TAB_WINDOW_REQUIREMENTS) -> windows_core::HRESULT);
@@ -81,13 +81,13 @@ pub unsafe fn DwmGetUnmetTabRequirements(appwindow: Option<super::windef::HWND>)
         DwmGetUnmetTabRequirements(appwindow.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmGetWindowAttribute(hwnd: super::windef::HWND, dwattribute: u32, pvattribute: *mut core::ffi::c_void, cbattribute: u32) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmGetWindowAttribute(hwnd : super::windef::HWND, dwattribute : u32, pvattribute : *mut core::ffi::c_void, cbattribute : u32) -> windows_core::HRESULT);
     unsafe { DwmGetWindowAttribute(hwnd, dwattribute, pvattribute as _, cbattribute) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmInvalidateIconicBitmaps(hwnd: super::windef::HWND) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmInvalidateIconicBitmaps(hwnd : super::windef::HWND) -> windows_core::HRESULT);
@@ -101,13 +101,13 @@ pub unsafe fn DwmIsCompositionEnabled() -> windows_core::Result<windows_core::BO
         DwmIsCompositionEnabled(&mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmModifyPreviousDxFrameDuration(hwnd: super::windef::HWND, crefreshes: i32, frelative: bool) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmModifyPreviousDxFrameDuration(hwnd : super::windef::HWND, crefreshes : i32, frelative : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { DwmModifyPreviousDxFrameDuration(hwnd, crefreshes, frelative.into()) }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: HTHUMBNAIL) -> windows_core::Result<super::windef::SIZE> {
     windows_core::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : HTHUMBNAIL, psize : *mut super::windef::SIZE) -> windows_core::HRESULT);
@@ -116,7 +116,7 @@ pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: HTHUMBNAIL) -> windows_cor
         DwmQueryThumbnailSourceSize(hthumbnail, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn DwmRegisterThumbnail(hwnddestination: super::windef::HWND, hwndsource: super::windef::HWND) -> windows_core::Result<HTHUMBNAIL> {
     windows_core::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::windef::HWND, hwndsource : super::windef::HWND, phthumbnailid : *mut HTHUMBNAIL) -> windows_core::HRESULT);
@@ -125,37 +125,37 @@ pub unsafe fn DwmRegisterThumbnail(hwnddestination: super::windef::HWND, hwndsou
         DwmRegisterThumbnail(hwnddestination, hwndsource, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::windef::POINT) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmRenderGesture(gt : GESTURE_TYPE, ccontacts : u32, pdwpointerid : *const u32, ppoints : *const super::windef::POINT) -> windows_core::HRESULT);
     unsafe { DwmRenderGesture(gt, ccontacts, pdwpointerid, ppoints) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmSetDxFrameDuration(hwnd: super::windef::HWND, crefreshes: i32) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmSetDxFrameDuration(hwnd : super::windef::HWND, crefreshes : i32) -> windows_core::HRESULT);
     unsafe { DwmSetDxFrameDuration(hwnd, crefreshes) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmSetIconicLivePreviewBitmap(hwnd: super::windef::HWND, hbmp: super::windef::HBITMAP, pptclient: Option<*const super::windef::POINT>, dwsitflags: u32) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd : super::windef::HWND, hbmp : super::windef::HBITMAP, pptclient : *const super::windef::POINT, dwsitflags : u32) -> windows_core::HRESULT);
     unsafe { DwmSetIconicLivePreviewBitmap(hwnd, hbmp, pptclient.unwrap_or(core::mem::zeroed()) as _, dwsitflags) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmSetIconicThumbnail(hwnd: super::windef::HWND, hbmp: super::windef::HBITMAP, dwsitflags: u32) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmSetIconicThumbnail(hwnd : super::windef::HWND, hbmp : super::windef::HBITMAP, dwsitflags : u32) -> windows_core::HRESULT);
     unsafe { DwmSetIconicThumbnail(hwnd, hbmp, dwsitflags) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmSetPresentParameters(hwnd: super::windef::HWND, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmSetPresentParameters(hwnd : super::windef::HWND, ppresentparams : *mut DWM_PRESENT_PARAMETERS) -> windows_core::HRESULT);
     unsafe { DwmSetPresentParameters(hwnd, ppresentparams as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmSetWindowAttribute(hwnd: super::windef::HWND, dwattribute: u32, pvattribute: *const core::ffi::c_void, cbattribute: u32) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::windef::HWND, dwattribute : u32, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_core::HRESULT);
@@ -166,25 +166,25 @@ pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) ->
     windows_core::link!("dwmapi.dll" "system" fn DwmShowContact(dwpointerid : u32, eshowcontact : DWM_SHOWCONTACT) -> windows_core::HRESULT);
     unsafe { DwmShowContact(dwpointerid, eshowcontact) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmTetherContact(dwpointerid: u32, fenable: bool, pttether: super::windef::POINT) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : windows_core::BOOL, pttether : super::windef::POINT) -> windows_core::HRESULT);
     unsafe { DwmTetherContact(dwpointerid, fenable.into(), core::mem::transmute(pttether)) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DwmTransitionOwnedWindow(hwnd: super::windef::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmTransitionOwnedWindow(hwnd : super::windef::HWND, target : DWMTRANSITION_OWNEDWINDOW_TARGET) -> windows_core::HRESULT);
     unsafe { DwmTransitionOwnedWindow(hwnd, target) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: HTHUMBNAIL) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmUnregisterThumbnail(hthumbnailid : HTHUMBNAIL) -> windows_core::HRESULT);
     unsafe { DwmUnregisterThumbnail(hthumbnailid) }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: HTHUMBNAIL, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmUpdateThumbnailProperties(hthumbnailid : HTHUMBNAIL, ptnproperties : *const DWM_THUMBNAIL_PROPERTIES) -> windows_core::HRESULT);
@@ -264,7 +264,7 @@ pub const DWM_BB_BLURREGION: u32 = 2;
 pub const DWM_BB_ENABLE: u32 = 1;
 pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWM_BLURBEHIND {
     pub dwFlags: u32,
@@ -302,7 +302,7 @@ pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = 0;
 pub type DWM_SYSTEMBACKDROP_TYPE = i32;
 pub type DWM_TAB_WINDOW_REQUIREMENTS = u32;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
     pub dwFlags: u32,
@@ -374,7 +374,7 @@ pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = 9;
 pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = 10;
 pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = 7;
 pub const GT_TOUCH_TAP: GESTURE_TYPE = 5;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HTHUMBNAIL(pub super::winnt::HANDLE);
@@ -389,49 +389,49 @@ pub struct MilMatrix3x2D {
     pub DX: f64,
     pub DY: f64,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDWM_BLURBEHIND(pub *mut DWM_BLURBEHIND);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDWM_BLURBEHIND {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDWM_BLURBEHIND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDWM_THUMBNAIL_PROPERTIES(pub *mut DWM_THUMBNAIL_PROPERTIES);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PDWM_THUMBNAIL_PROPERTIES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PDWM_THUMBNAIL_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTHUMBNAIL(pub *mut HTHUMBNAIL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PHTHUMBNAIL {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PHTHUMBNAIL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CheckRemoteDebuggerPresent(hprocess: super::winnt::HANDLE, pbdebuggerpresent: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn CheckRemoteDebuggerPresent(hprocess : super::winnt::HANDLE, pbdebuggerpresent : *mut windows_core::BOOL) -> windows_core::BOOL);
@@ -45,13 +45,13 @@ where
     windows_core::link!("kernel32.dll" "system" fn OutputDebugStringW(lpoutputstring : windows_core::PCWSTR));
     unsafe { OutputDebugStringW(lpoutputstring.param().abi()) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut super::minwinbase::DEBUG_EVENT, dwmilliseconds: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn WaitForDebugEvent(lpdebugevent : *mut super::minwinbase::DEBUG_EVENT, dwmilliseconds : u32) -> windows_core::BOOL);
     unsafe { WaitForDebugEvent(lpdebugevent as _, dwmilliseconds) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut super::minwinbase::DEBUG_EVENT, dwmilliseconds: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn WaitForDebugEventEx(lpdebugevent : *mut super::minwinbase::DEBUG_EVENT, dwmilliseconds : u32) -> windows_core::BOOL);

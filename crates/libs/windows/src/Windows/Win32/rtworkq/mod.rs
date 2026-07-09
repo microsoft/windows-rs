@@ -41,7 +41,7 @@ where
     windows_core::link!("rtworkq.dll" "system" fn RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid : u32, donecallback : *mut core::ffi::c_void, donestate : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid, donecallback.param().abi(), donestate.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RtwqCancelDeadline(prequest: super::winnt::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("rtworkq.dll" "system" fn RtwqCancelDeadline(prequest : super::winnt::HANDLE) -> windows_core::HRESULT);
@@ -105,7 +105,7 @@ where
     windows_core::link!("rtworkq.dll" "system" fn RtwqInvokeCallback(result : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { RtwqInvokeCallback(result.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RtwqJoinWorkQueue(workqueueid: u32, hfile: super::winnt::HANDLE) -> windows_core::Result<super::winnt::HANDLE> {
     windows_core::link!("rtworkq.dll" "system" fn RtwqJoinWorkQueue(workqueueid : u32, hfile : super::winnt::HANDLE, out : *mut super::winnt::HANDLE) -> windows_core::HRESULT);
@@ -132,7 +132,7 @@ pub unsafe fn RtwqLockWorkQueue(workqueueid: u32) -> windows_core::HRESULT {
     windows_core::link!("rtworkq.dll" "system" fn RtwqLockWorkQueue(workqueueid : u32) -> windows_core::HRESULT);
     unsafe { RtwqLockWorkQueue(workqueueid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RtwqPutWaitingWorkItem<P2>(hevent: super::winnt::HANDLE, lpriority: i32, result: P2, key: Option<*mut RTWQWORKITEM_KEY>) -> windows_core::HRESULT
 where
@@ -178,7 +178,7 @@ where
     windows_core::link!("rtworkq.dll" "system" fn RtwqScheduleWorkItem(result : *mut core::ffi::c_void, timeout : i64, key : *mut RTWQWORKITEM_KEY) -> windows_core::HRESULT);
     unsafe { RtwqScheduleWorkItem(result.param().abi(), timeout, key.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RtwqSetDeadline(workqueueid: u32, deadlineinhns: i64) -> windows_core::Result<super::winnt::HANDLE> {
     windows_core::link!("rtworkq.dll" "system" fn RtwqSetDeadline(workqueueid : u32, deadlineinhns : i64, prequest : *mut super::winnt::HANDLE) -> windows_core::HRESULT);
@@ -187,7 +187,7 @@ pub unsafe fn RtwqSetDeadline(workqueueid: u32, deadlineinhns: i64) -> windows_c
         RtwqSetDeadline(workqueueid, deadlineinhns, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RtwqSetDeadline2(workqueueid: u32, deadlineinhns: i64, predeadlineinhns: i64) -> windows_core::Result<super::winnt::HANDLE> {
     windows_core::link!("rtworkq.dll" "system" fn RtwqSetDeadline2(workqueueid : u32, deadlineinhns : i64, predeadlineinhns : i64, prequest : *mut super::winnt::HANDLE) -> windows_core::HRESULT);
@@ -211,7 +211,7 @@ pub unsafe fn RtwqStartup() -> windows_core::HRESULT {
     windows_core::link!("rtworkq.dll" "system" fn RtwqStartup() -> windows_core::HRESULT);
     unsafe { RtwqStartup() }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RtwqUnjoinWorkQueue(workqueueid: u32, hfile: super::winnt::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("rtworkq.dll" "system" fn RtwqUnjoinWorkQueue(workqueueid : u32, hfile : super::winnt::HANDLE) -> windows_core::HRESULT);
@@ -448,7 +448,7 @@ impl IRtwqPlatformEvents_Vtbl {
 }
 impl windows_core::RuntimeName for IRtwqPlatformEvents {}
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 pub struct RTWQASYNCRESULT {
     pub Base: core::mem::ManuallyDrop<Option<IRtwqAsyncResult>>,
     pub overlapped: super::minwinbase::OVERLAPPED,
@@ -457,13 +457,13 @@ pub struct RTWQASYNCRESULT {
     pub dwBytesTransferred: u32,
     pub hEvent: super::winnt::HANDLE,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 impl Clone for RTWQASYNCRESULT {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 impl Default for RTWQASYNCRESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

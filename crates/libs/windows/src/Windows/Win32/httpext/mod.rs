@@ -3,14 +3,14 @@ pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> windows_core::
     windows_core::link!("rpcproxy.dll" "system" fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> windows_core::BOOL);
     unsafe { GetExtensionVersion(pver as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
     windows_core::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
     unsafe { HttpExtensionProc(pecb) }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CERT_CONTEXT_EX {
     pub CertContext: super::wincrypt::CERT_CONTEXT,
@@ -18,7 +18,7 @@ pub struct CERT_CONTEXT_EX {
     pub dwCertificateFlags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
@@ -39,7 +39,7 @@ pub struct EXTENSION_CONTROL_BLOCK {
     pub ReadClient: *mut u8,
     pub ServerSupportFunction: *mut u8,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for EXTENSION_CONTROL_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -75,7 +75,7 @@ impl Default for HSE_CUSTOM_ERROR_INFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pszUrl: windows_core::PWSTR,
@@ -86,7 +86,7 @@ pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub dwExecUrlFlags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
     pub hImpersonationToken: super::winnt::HANDLE,
@@ -109,7 +109,7 @@ pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: u32 = 128;
 pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: u32 = 4;
 pub const HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE: u32 = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HSE_EXEC_URL_INFO {
     pub pszUrl: windows_core::PSTR,
@@ -129,7 +129,7 @@ pub struct HSE_EXEC_URL_STATUS {
     pub dwWin32Error: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HSE_EXEC_URL_USER_INFO {
     pub hImpersonationToken: super::winnt::HANDLE,
@@ -213,7 +213,7 @@ pub const HSE_STATUS_SUCCESS_AND_KEEP_CONN: u32 = 2;
 pub const HSE_TERM_ADVISORY_UNLOAD: u32 = 1;
 pub const HSE_TERM_MUST_UNLOAD: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug)]
 pub struct HSE_TF_INFO {
     pub pfnHseIO: PFN_HSE_IO_COMPLETION,
@@ -228,7 +228,7 @@ pub struct HSE_TF_INFO {
     pub TailLength: u32,
     pub dwFlags: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for HSE_TF_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -315,17 +315,17 @@ impl Default for HSE_VERSION_INFO {
 }
 pub const HSE_VERSION_MAJOR: u32 = 8;
 pub const HSE_VERSION_MINOR: u32 = 0;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPEXTENSION_CONTROL_BLOCK(pub *mut EXTENSION_CONTROL_BLOCK);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPEXTENSION_CONTROL_BLOCK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPEXTENSION_CONTROL_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -344,33 +344,33 @@ impl Default for LPHSE_CUSTOM_ERROR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPHSE_EXEC_UNICODE_URL_INFO(pub *mut HSE_EXEC_UNICODE_URL_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPHSE_EXEC_UNICODE_URL_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPHSE_EXEC_UNICODE_URL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPHSE_EXEC_UNICODE_URL_USER_INFO(pub *mut HSE_EXEC_UNICODE_URL_USER_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPHSE_EXEC_UNICODE_URL_USER_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPHSE_EXEC_UNICODE_URL_USER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -389,17 +389,17 @@ impl Default for LPHSE_EXEC_URL_ENTITY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPHSE_EXEC_URL_INFO(pub *mut HSE_EXEC_URL_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPHSE_EXEC_URL_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPHSE_EXEC_URL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -418,17 +418,17 @@ impl Default for LPHSE_EXEC_URL_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPHSE_EXEC_URL_USER_INFO(pub *mut HSE_EXEC_URL_USER_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPHSE_EXEC_URL_USER_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPHSE_EXEC_URL_USER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -460,17 +460,17 @@ impl Default for LPHSE_SEND_HEADER_EX_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPHSE_TF_INFO(pub *mut HSE_TF_INFO);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl LPHSE_TF_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for LPHSE_TF_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -544,8 +544,8 @@ impl Default for LPHSE_VERSION_INFO {
 pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> windows_core::BOOL>;
 pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = Option<unsafe extern "system" fn(pszurl: *mut u16) -> windows_core::HRESULT>;
 pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = Option<unsafe extern "system" fn(pszprotocolmanagerdll: windows_core::PCWSTR, pszprotocolmanagerdllinitfunction: windows_core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_HSE_IO_COMPLETION = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut core::ffi::c_void, cbio: u32, dwerror: u32)>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_HTTPEXTENSIONPROC = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
 pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: u32) -> windows_core::BOOL>;

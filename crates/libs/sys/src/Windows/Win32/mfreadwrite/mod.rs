@@ -1,12 +1,12 @@
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSinkWriterFromMediaSink(pmediasink : *mut core::ffi::c_void, pattributes : *mut core::ffi::c_void, ppsinkwriter : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSinkWriterFromURL(pwszoutputurl : windows_sys::core::PCWSTR, pbytestream : *mut core::ffi::c_void, pattributes : *mut core::ffi::c_void, ppsinkwriter : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromByteStream(pbytestream : *mut core::ffi::c_void, pattributes : *mut core::ffi::c_void, ppsourcereader : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromMediaSource(pmediasource : *mut core::ffi::c_void, pattributes : *mut core::ffi::c_void, ppsourcereader : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromURL(pwszurl : windows_sys::core::PCWSTR, pattributes : *mut core::ffi::c_void, ppsourcereader : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const MF_SINK_WRITER_ALL_STREAMS: i32 = -2;
 pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: i32 = -1;

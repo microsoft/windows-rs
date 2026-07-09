@@ -504,8 +504,8 @@ are therefore still frozen against the old win32metadata under
 
 **Approach (in progress).** Keep the canonical winmd flat; synthesise a header-based
 namespace partition **only** at packaging time. One namespace per defining header = per
-`.rdl` stem (`wdm.rdl` → `Windows.Wdk.wdm` → feature `Wdk_wdm`; `bcrypt.rdl` →
-`Windows.Win32.bcrypt` → `Win32_bcrypt`). Mechanical, source-derived, no curated editorial
+`.rdl` stem (`wdm.rdl` → `Windows.Wdk.wdm` → feature `wdm`; `bcrypt.rdl` →
+`Windows.Win32.bcrypt` → `bcrypt`). Mechanical, source-derived, no curated editorial
 grouping to maintain. This is a large, deliberate breaking change to feature names, but the
 in-house metadata has not shipped so no released consumer breaks. There is **no** preserved
 `Win32_Foundation` special case — the partition is purely metadata-derived.
@@ -528,7 +528,7 @@ in-house metadata has not shipped so no released consumer breaks. There is **no*
 
 **Remaining after the winmd remap works:** migrate the in-repo consumers (samples/tests) from
 the old editorial feature names (`Win32_System_WinRT`, `Win32_Graphics_Direct2D`, …) to the
-header-based names (`Win32_winnt`, `Win32_d2d1`, …), repoint `tool_features` at the remapped
+header-based names (`winnt`, `d2d`, …), repoint `tool_features` at the remapped
 metadata, retire `crates/tools/package/reference/*.winmd` (and the reference-only clang
 normalisations gated on it, per [Type remapping](#type-remapping--one-canon-surface)), and
 address the metadata-shape differences the switch surfaces (see "Metadata-shape fallout").
@@ -594,7 +594,14 @@ left open as a modelling question:
    when the backing type is a primitive; nesting one named handle within another seems wrong.
    `--minimal`/`--sys` mode emits these as bare `pub type … = …` aliases instead. The default-mode
    modelling should probably be reconsidered and made consistent with minimal/sys mode. This is
-   cosmetic/API-shape only — it does **not** block compilation now that (2) is fixed.
+   cosmetic/API-shape only — it does **not** block compilation now that (2) is fixed. A second
+   manifestation showed up migrating `windows_task_dialog`: a header that pairs a scalar typedef with
+   a separate constant enum (`typedef int TASKDIALOG_FLAGS;` + `enum _TASKDIALOG_FLAGS { TDF_… }`)
+   yields a newtype `struct TASKDIALOG_FLAGS(pub i32)` for the field type while the `TDF_*` constants
+   are bare `_TASKDIALOG_FLAGS` (`= i32`) integers, so combining flags forces the wrap
+   `TASKDIALOG_FLAGS(TDF_A | TDF_B)`. Making scalar typedefs bare aliases in `--package` mode (to
+   match `--minimal`/`--sys`) would remove the wrap here too; the JET_GRBIT-style constants noted in
+   item 3 are the coupled blocker (their values are constructed as `TYPE(value)` tuple structs).
 2. *(fixed)* `write_cpp_handle` (`crates/libs/bindgen/src/types/cpp_handle.rs`) emitted only
    `#arches` and never a per-item `#[cfg(feature = …)]`, so a handle referencing a type from
    another header namespace was not gated on that header's feature — under a partial feature set
@@ -649,19 +656,22 @@ integer supports `|`/`&`/`!`/`|=`/`&=` natively. Regenerated goldens: `enum_defa
 `derive_enum`, `derive_multiple`, `enum_name_conflict`, `modules` in
 `crates/tests/libs/bindgen/expected/`.
 
-**To investigate before concluding the PR: redundant `Win32_`/`Wdk_` feature-name prefix.**
-Because every feature now derives from a unique source-header name, the `Win32_`/`Wdk_` preamble
-carries no disambiguating information — there is no `Win32_bcrypt` vs `Wdk_bcrypt` collision to
-resolve, so `bcrypt`/`wdm` would be unambiguous feature names on their own. The prefix comes from
-`package_writer.rs` joining the namespace components after `Windows.` with `_`
-(`Windows.Win32.bcrypt` → `Win32_bcrypt`). Worth weighing before shipping: dropping the prefix
-(feature = bare header stem) is terser and matches the "flat, global" reality of the Win32 surface,
-but (a) `windows` and `windows-sys` share a feature namespace with the WinRT umbrellas (`Foundation`,
-`Networking`, …) and Win32 headers could in principle collide with a WinRT top-level name, and
-(b) the `Win32`/`Wdk` umbrella features (enable-everything toggles) and the `Wdk → Win32` dependency
-edge rely on the two-level dot structure, so the parent-derivation in `package_writer.rs` would need
-to key off something other than the stripped prefix. Decide whether to keep the prefix for namespace
-hygiene/umbrellas or drop it for ergonomics.
+**Flat Win32/WDK feature names (no `Win32_`/`Wdk_` prefix).** Because every Win32/WDK feature
+derives from a globally unique source-header stem, the `Win32_`/`Wdk_` preamble carried no
+disambiguating information — there is no `Win32_bcrypt` vs `Wdk_bcrypt` collision to resolve, so the
+bare stem is unambiguous. Feature names are therefore just the header stem: `Windows.Win32.bcrypt`
+→ feature `bcrypt`, `Windows.Wdk.wdm` → `wdm` (was `Win32_bcrypt` / `Wdk_wdm`). The `Win32`/`Wdk`
+umbrella features and the hierarchical WinRT namespaces are unchanged: WinRT keeps its full dotted
+path joined with `_` (`Windows.Foundation.Collections` → `Foundation_Collections`), and each header
+still depends on its umbrella (`bcrypt = ["Win32"]`, `wdm = ["Wdk"]`, `Wdk = ["Win32"]`). Verified
+collision-free: no Win32 stem equals a Wdk stem, and none collides (even case-insensitively) with a
+WinRT feature name — Win32/WDK stems are lowercase header names, WinRT features are PascalCase dotted
+paths. Implementation: a single `namespace_feature(namespace)` helper
+(`crates/libs/bindgen/src/lib.rs`) strips the `Windows.Win32.`/`Windows.Wdk.` prefix and returns the
+stem, else falls back to the post-`Windows.` dotted join; `TypeTree::feature`, the per-item
+cross-namespace `Cfg::write` gate, and the feature-graph dependency derivation in
+`package_writer.rs` all route through it so module gates, item `cfg`s, and Cargo features stay
+consistent.
 
 **Sample ergonomics: unannotated `_COM_Outptr_` factory functions.** Faithful metadata surfaces a
 minor call-site wart in `windows_direct2d`: `D2D1CreateFactory` (d2d1.h) annotates neither its

@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyBySid(psid: super::winnt::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::winnt::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
     unsafe { AuditComputeEffectivePolicyBySid(psid, core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyByToken(htokenhandle: super::winnt::HANDLE, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyByToken(htokenhandle : super::winnt::HANDLE, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
@@ -15,7 +15,7 @@ pub unsafe fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut windows
     windows_core::link!("advapi32.dll" "system" fn AuditEnumerateCategories(ppauditcategoriesarray : *mut *mut windows_core::GUID, pdwcountreturned : *mut u32) -> bool);
     unsafe { AuditEnumerateCategories(ppauditcategoriesarray as _, pdwcountreturned as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut PPOLICY_AUDIT_SID_ARRAY) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditEnumeratePerUserPolicy(ppauditsidarray : *mut PPOLICY_AUDIT_SID_ARRAY) -> bool);
@@ -61,7 +61,7 @@ pub unsafe fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const windows_
     windows_core::link!("advapi32.dll" "system" fn AuditLookupSubCategoryNameW(pauditsubcategoryguid : *const windows_core::GUID, ppszsubcategoryname : *mut windows_core::PWSTR) -> bool);
     unsafe { AuditLookupSubCategoryNameW(pauditsubcategoryguid, ppszsubcategoryname as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditQueryGlobalSaclA<P0>(objecttypename: P0, acl: *mut super::winnt::PACL) -> bool
 where
@@ -70,7 +70,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn AuditQueryGlobalSaclA(objecttypename : windows_core::PCSTR, acl : *mut super::winnt::PACL) -> bool);
     unsafe { AuditQueryGlobalSaclA(objecttypename.param().abi(), acl as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditQueryGlobalSaclW<P0>(objecttypename: P0, acl: *mut super::winnt::PACL) -> bool
 where
@@ -79,13 +79,13 @@ where
     windows_core::link!("advapi32.dll" "system" fn AuditQueryGlobalSaclW(objecttypename : windows_core::PCWSTR, acl : *mut super::winnt::PACL) -> bool);
     unsafe { AuditQueryGlobalSaclW(objecttypename.param().abi(), acl as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditQueryPerUserPolicy(psid: super::winnt::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::winnt::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
     unsafe { AuditQueryPerUserPolicy(psid, core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditQuerySecurity(securityinformation: super::winnt::SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::winnt::PSECURITY_DESCRIPTOR) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditQuerySecurity(securityinformation : super::winnt::SECURITY_INFORMATION, ppsecuritydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> bool);
@@ -96,7 +96,7 @@ pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[windows_core::GUID], p
     windows_core::link!("advapi32.dll" "system" fn AuditQuerySystemPolicy(psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
     unsafe { AuditQuerySystemPolicy(core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditSetGlobalSaclA<P0>(objecttypename: P0, acl: Option<*const super::winnt::ACL>) -> bool
 where
@@ -105,7 +105,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn AuditSetGlobalSaclA(objecttypename : windows_core::PCSTR, acl : *const super::winnt::ACL) -> bool);
     unsafe { AuditSetGlobalSaclA(objecttypename.param().abi(), acl.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditSetGlobalSaclW<P0>(objecttypename: P0, acl: Option<*const super::winnt::ACL>) -> bool
 where
@@ -114,13 +114,13 @@ where
     windows_core::link!("advapi32.dll" "system" fn AuditSetGlobalSaclW(objecttypename : windows_core::PCWSTR, acl : *const super::winnt::ACL) -> bool);
     unsafe { AuditSetGlobalSaclW(objecttypename.param().abi(), acl.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditSetPerUserPolicy(psid: super::winnt::PSID, pauditpolicy: &[PCAUDIT_POLICY_INFORMATION]) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditSetPerUserPolicy(psid : super::winnt::PSID, pauditpolicy : PCAUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> bool);
     unsafe { AuditSetPerUserPolicy(psid, core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditSetSecurity(securityinformation: super::winnt::SECURITY_INFORMATION, psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditSetSecurity(securityinformation : super::winnt::SECURITY_INFORMATION, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR) -> bool);
@@ -131,271 +131,271 @@ pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[PCAUDIT_POLICY_INFORMATION]) 
     windows_core::link!("advapi32.dll" "system" fn AuditSetSystemPolicy(pauditpolicy : PCAUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> bool);
     unsafe { AuditSetSystemPolicy(core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len().try_into().unwrap()) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaAddAccountRights(policyhandle: LSA_HANDLE, accountsid: super::winnt::PSID, userrights: &[super::lsalookup::LSA_UNICODE_STRING]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaAddAccountRights(policyhandle : LSA_HANDLE, accountsid : super::winnt::PSID, userrights : *const super::lsalookup::LSA_UNICODE_STRING, countofrights : u32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaAddAccountRights(policyhandle, accountsid, core::mem::transmute(userrights.as_ptr()), userrights.len().try_into().unwrap()) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaCallAuthenticationPackage(lsahandle: super::winnt::HANDLE, authenticationpackage: u32, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: Option<*mut u32>, protocolstatus: Option<*mut i32>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("secur32.dll" "system" fn LsaCallAuthenticationPackage(lsahandle : super::winnt::HANDLE, authenticationpackage : u32, protocolsubmitbuffer : *const core::ffi::c_void, submitbufferlength : u32, protocolreturnbuffer : *mut *mut core::ffi::c_void, returnbufferlength : *mut u32, protocolstatus : *mut i32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaCallAuthenticationPackage(lsahandle, authenticationpackage, protocolsubmitbuffer, submitbufferlength, protocolreturnbuffer as _, returnbufferlength.unwrap_or(core::mem::zeroed()) as _, protocolstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn LsaClose(objecthandle: LSA_HANDLE) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaClose(objecthandle : LSA_HANDLE) -> super::bcrypt::NTSTATUS);
     unsafe { LsaClose(objecthandle) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaConnectUntrusted(lsahandle: *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
     windows_core::link!("secur32.dll" "system" fn LsaConnectUntrusted(lsahandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
     unsafe { LsaConnectUntrusted(lsahandle as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaCreateTrustedDomainEx(policyhandle: LSA_HANDLE, trusteddomaininformation: *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation: *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess: super::winnt::ACCESS_MASK, trusteddomainhandle: *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaCreateTrustedDomainEx(policyhandle : LSA_HANDLE, trusteddomaininformation : *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation : *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess : super::winnt::ACCESS_MASK, trusteddomainhandle : *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaCreateTrustedDomainEx(policyhandle, trusteddomaininformation, authenticationinformation, desiredaccess, trusteddomainhandle as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaDeleteTrustedDomain(policyhandle: LSA_HANDLE, trusteddomainsid: super::winnt::PSID) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaDeleteTrustedDomain(policyhandle : LSA_HANDLE, trusteddomainsid : super::winnt::PSID) -> super::bcrypt::NTSTATUS);
     unsafe { LsaDeleteTrustedDomain(policyhandle, trusteddomainsid) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaDeregisterLogonProcess(lsahandle: super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
     windows_core::link!("secur32.dll" "system" fn LsaDeregisterLogonProcess(lsahandle : super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
     unsafe { LsaDeregisterLogonProcess(lsahandle) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaEnumerateAccountRights(policyhandle: LSA_HANDLE, accountsid: super::winnt::PSID, userrights: *mut super::lsalookup::PLSA_UNICODE_STRING, countofrights: *mut u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaEnumerateAccountRights(policyhandle : LSA_HANDLE, accountsid : super::winnt::PSID, userrights : *mut super::lsalookup::PLSA_UNICODE_STRING, countofrights : *mut u32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaEnumerateAccountRights(policyhandle, accountsid, userrights as _, countofrights as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[inline]
 pub unsafe fn LsaEnumerateAccountsWithUserRight(policyhandle: LSA_HANDLE, userright: Option<*const super::lsalookup::LSA_UNICODE_STRING>, buffer: *mut *mut core::ffi::c_void, countreturned: *mut u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaEnumerateAccountsWithUserRight(policyhandle : LSA_HANDLE, userright : *const super::lsalookup::LSA_UNICODE_STRING, buffer : *mut *mut core::ffi::c_void, countreturned : *mut u32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaEnumerateAccountsWithUserRight(policyhandle, userright.unwrap_or(core::mem::zeroed()) as _, buffer as _, countreturned as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaEnumerateLogonSessions(logonsessioncount: *mut u32, logonsessionlist: *mut super::winnt::PLUID) -> super::bcrypt::NTSTATUS {
     windows_core::link!("secur32.dll" "system" fn LsaEnumerateLogonSessions(logonsessioncount : *mut u32, logonsessionlist : *mut super::winnt::PLUID) -> super::bcrypt::NTSTATUS);
     unsafe { LsaEnumerateLogonSessions(logonsessioncount as _, logonsessionlist as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn LsaEnumerateTrustedDomains(policyhandle: LSA_HANDLE, enumerationcontext: *mut u32, buffer: *mut *mut core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaEnumerateTrustedDomains(policyhandle : LSA_HANDLE, enumerationcontext : *mut u32, buffer : *mut *mut core::ffi::c_void, preferedmaximumlength : u32, countreturned : *mut u32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaEnumerateTrustedDomains(policyhandle, enumerationcontext as _, buffer as _, preferedmaximumlength, countreturned as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn LsaEnumerateTrustedDomainsEx(policyhandle: LSA_HANDLE, enumerationcontext: *mut u32, buffer: *mut *mut core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaEnumerateTrustedDomainsEx(policyhandle : LSA_HANDLE, enumerationcontext : *mut u32, buffer : *mut *mut core::ffi::c_void, preferedmaximumlength : u32, countreturned : *mut u32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaEnumerateTrustedDomainsEx(policyhandle, enumerationcontext as _, buffer as _, preferedmaximumlength, countreturned as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn LsaFreeMemory(buffer: Option<*const core::ffi::c_void>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaFreeMemory(buffer : *const core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaFreeMemory(buffer.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn LsaFreeReturnBuffer(buffer: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("secur32.dll" "system" fn LsaFreeReturnBuffer(buffer : *const core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaFreeReturnBuffer(buffer) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaGetAppliedCAPIDs(systemname: Option<*const super::lsalookup::LSA_UNICODE_STRING>, capids: *mut *mut super::winnt::PSID, capidcount: *mut u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaGetAppliedCAPIDs(systemname : *const super::lsalookup::LSA_UNICODE_STRING, capids : *mut *mut super::winnt::PSID, capidcount : *mut u32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaGetAppliedCAPIDs(systemname.unwrap_or(core::mem::zeroed()) as _, capids as _, capidcount as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaGetLogonSessionData(logonid: *const super::winnt::LUID, pplogonsessiondata: *mut PSECURITY_LOGON_SESSION_DATA) -> super::bcrypt::NTSTATUS {
     windows_core::link!("secur32.dll" "system" fn LsaGetLogonSessionData(logonid : *const super::winnt::LUID, pplogonsessiondata : *mut PSECURITY_LOGON_SESSION_DATA) -> super::bcrypt::NTSTATUS);
     unsafe { LsaGetLogonSessionData(logonid, pplogonsessiondata as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaLogonUser(lsahandle: super::winnt::HANDLE, originname: *const super::lsalookup::LSA_STRING, logontype: SECURITY_LOGON_TYPE, authenticationpackage: u32, authenticationinformation: *const core::ffi::c_void, authenticationinformationlength: u32, localgroups: Option<*const super::winnt::TOKEN_GROUPS>, sourcecontext: *const super::winnt::TOKEN_SOURCE, profilebuffer: *mut *mut core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::winnt::LUID, token: *mut super::winnt::HANDLE, quotas: *mut super::winnt::QUOTA_LIMITS, substatus: *mut i32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("secur32.dll" "system" fn LsaLogonUser(lsahandle : super::winnt::HANDLE, originname : *const super::lsalookup::LSA_STRING, logontype : SECURITY_LOGON_TYPE, authenticationpackage : u32, authenticationinformation : *const core::ffi::c_void, authenticationinformationlength : u32, localgroups : *const super::winnt::TOKEN_GROUPS, sourcecontext : *const super::winnt::TOKEN_SOURCE, profilebuffer : *mut *mut core::ffi::c_void, profilebufferlength : *mut u32, logonid : *mut super::winnt::LUID, token : *mut super::winnt::HANDLE, quotas : *mut super::winnt::QUOTA_LIMITS, substatus : *mut i32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaLogonUser(lsahandle, originname, logontype, authenticationpackage, authenticationinformation, authenticationinformationlength, localgroups.unwrap_or(core::mem::zeroed()) as _, sourcecontext, profilebuffer as _, profilebufferlength as _, logonid as _, token as _, quotas as _, substatus as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaLookupAuthenticationPackage(lsahandle: super::winnt::HANDLE, packagename: *const super::lsalookup::LSA_STRING, authenticationpackage: *mut u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("secur32.dll" "system" fn LsaLookupAuthenticationPackage(lsahandle : super::winnt::HANDLE, packagename : *const super::lsalookup::LSA_STRING, authenticationpackage : *mut u32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaLookupAuthenticationPackage(lsahandle, packagename, authenticationpackage as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaLookupNames(policyhandle: LSA_HANDLE, count: u32, names: *const super::lsalookup::LSA_UNICODE_STRING, referenceddomains: *mut super::lsalookup::PLSA_REFERENCED_DOMAIN_LIST, sids: *mut PLSA_TRANSLATED_SID) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaLookupNames(policyhandle : LSA_HANDLE, count : u32, names : *const super::lsalookup::LSA_UNICODE_STRING, referenceddomains : *mut super::lsalookup::PLSA_REFERENCED_DOMAIN_LIST, sids : *mut PLSA_TRANSLATED_SID) -> super::bcrypt::NTSTATUS);
     unsafe { LsaLookupNames(policyhandle, count, names, referenceddomains as _, sids as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaLookupNames2(policyhandle: LSA_HANDLE, flags: u32, count: u32, names: *const super::lsalookup::LSA_UNICODE_STRING, referenceddomains: *mut super::lsalookup::PLSA_REFERENCED_DOMAIN_LIST, sids: *mut super::lsalookup::PLSA_TRANSLATED_SID2) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaLookupNames2(policyhandle : LSA_HANDLE, flags : u32, count : u32, names : *const super::lsalookup::LSA_UNICODE_STRING, referenceddomains : *mut super::lsalookup::PLSA_REFERENCED_DOMAIN_LIST, sids : *mut super::lsalookup::PLSA_TRANSLATED_SID2) -> super::bcrypt::NTSTATUS);
     unsafe { LsaLookupNames2(policyhandle, flags, count, names, referenceddomains as _, sids as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaLookupSids(policyhandle: LSA_HANDLE, count: u32, sids: *const super::winnt::PSID, referenceddomains: *mut super::lsalookup::PLSA_REFERENCED_DOMAIN_LIST, names: *mut super::lsalookup::PLSA_TRANSLATED_NAME) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaLookupSids(policyhandle : LSA_HANDLE, count : u32, sids : *const super::winnt::PSID, referenceddomains : *mut super::lsalookup::PLSA_REFERENCED_DOMAIN_LIST, names : *mut super::lsalookup::PLSA_TRANSLATED_NAME) -> super::bcrypt::NTSTATUS);
     unsafe { LsaLookupSids(policyhandle, count, sids, referenceddomains as _, names as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaLookupSids2(policyhandle: LSA_HANDLE, lookupoptions: u32, count: u32, sids: *const super::winnt::PSID, referenceddomains: *mut super::lsalookup::PLSA_REFERENCED_DOMAIN_LIST, names: *mut super::lsalookup::PLSA_TRANSLATED_NAME) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaLookupSids2(policyhandle : LSA_HANDLE, lookupoptions : u32, count : u32, sids : *const super::winnt::PSID, referenceddomains : *mut super::lsalookup::PLSA_REFERENCED_DOMAIN_LIST, names : *mut super::lsalookup::PLSA_TRANSLATED_NAME) -> super::bcrypt::NTSTATUS);
     unsafe { LsaLookupSids2(policyhandle, lookupoptions, count, sids, referenceddomains as _, names as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn LsaNtStatusToWinError(status: super::bcrypt::NTSTATUS) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn LsaNtStatusToWinError(status : super::bcrypt::NTSTATUS) -> u32);
     unsafe { LsaNtStatusToWinError(status) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaOpenPolicy(systemname: Option<*const super::lsalookup::LSA_UNICODE_STRING>, objectattributes: *const super::lsalookup::LSA_OBJECT_ATTRIBUTES, desiredaccess: super::winnt::ACCESS_MASK, policyhandle: *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaOpenPolicy(systemname : *const super::lsalookup::LSA_UNICODE_STRING, objectattributes : *const super::lsalookup::LSA_OBJECT_ATTRIBUTES, desiredaccess : super::winnt::ACCESS_MASK, policyhandle : *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaOpenPolicy(systemname.unwrap_or(core::mem::zeroed()) as _, objectattributes, desiredaccess, policyhandle as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaOpenTrustedDomainByName(policyhandle: LSA_HANDLE, trusteddomainname: *const super::lsalookup::LSA_UNICODE_STRING, desiredaccess: super::winnt::ACCESS_MASK, trusteddomainhandle: *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaOpenTrustedDomainByName(policyhandle : LSA_HANDLE, trusteddomainname : *const super::lsalookup::LSA_UNICODE_STRING, desiredaccess : super::winnt::ACCESS_MASK, trusteddomainhandle : *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaOpenTrustedDomainByName(policyhandle, trusteddomainname, desiredaccess, trusteddomainhandle as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaQueryCAPs(capids: Option<&[super::winnt::PSID]>, caps: *mut PCENTRAL_ACCESS_POLICY, capcount: *mut u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaQueryCAPs(capids : *const super::winnt::PSID, capidcount : u32, caps : *mut PCENTRAL_ACCESS_POLICY, capcount : *mut u32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaQueryCAPs(core::mem::transmute(capids.map_or(core::ptr::null(), |slice| slice.as_ptr())), capids.map_or(0, |slice| slice.len().try_into().unwrap()), caps as _, capcount as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn LsaQueryDomainInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaQueryDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaQueryDomainInformationPolicy(policyhandle, informationclass, buffer as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaQueryForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: *const super::lsalookup::LSA_UNICODE_STRING, foresttrustinfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaQueryForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const super::lsalookup::LSA_UNICODE_STRING, foresttrustinfo : *mut PLSA_FOREST_TRUST_INFORMATION) -> super::bcrypt::NTSTATUS);
     unsafe { LsaQueryForestTrustInformation(policyhandle, trusteddomainname, foresttrustinfo as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaQueryForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: *const super::lsalookup::LSA_UNICODE_STRING, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: *mut PLSA_FOREST_TRUST_INFORMATION2) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaQueryForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const super::lsalookup::LSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *mut PLSA_FOREST_TRUST_INFORMATION2) -> super::bcrypt::NTSTATUS);
     unsafe { LsaQueryForestTrustInformation2(policyhandle, trusteddomainname, highestrecordtype, foresttrustinfo as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn LsaQueryInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_INFORMATION_CLASS, buffer: *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaQueryInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaQueryInformationPolicy(policyhandle, informationclass, buffer as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaQueryTrustedDomainInfo(policyhandle: LSA_HANDLE, trusteddomainsid: super::winnt::PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfo(policyhandle : LSA_HANDLE, trusteddomainsid : super::winnt::PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaQueryTrustedDomainInfo(policyhandle, trusteddomainsid, informationclass, buffer as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[inline]
 pub unsafe fn LsaQueryTrustedDomainInfoByName(policyhandle: LSA_HANDLE, trusteddomainname: *const super::lsalookup::LSA_UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfoByName(policyhandle : LSA_HANDLE, trusteddomainname : *const super::lsalookup::LSA_UNICODE_STRING, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaQueryTrustedDomainInfoByName(policyhandle, trusteddomainname, informationclass, buffer as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaRegisterLogonProcess(logonprocessname: *const super::lsalookup::LSA_STRING, lsahandle: *mut super::winnt::HANDLE, securitymode: *mut u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("secur32.dll" "system" fn LsaRegisterLogonProcess(logonprocessname : *const super::lsalookup::LSA_STRING, lsahandle : *mut super::winnt::HANDLE, securitymode : *mut u32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaRegisterLogonProcess(logonprocessname, lsahandle as _, securitymode as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
     windows_core::link!("secur32.dll" "system" fn LsaRegisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
     unsafe { LsaRegisterPolicyChangeNotification(informationclass, notificationeventhandle) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: super::winnt::PSID, allrights: bool, userrights: Option<&[super::lsalookup::LSA_UNICODE_STRING]>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::winnt::PSID, allrights : bool, userrights : *const super::lsalookup::LSA_UNICODE_STRING, countofrights : u32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaRemoveAccountRights(policyhandle, accountsid, allrights, core::mem::transmute(userrights.map_or(core::ptr::null(), |slice| slice.as_ptr())), userrights.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[inline]
 pub unsafe fn LsaRetrievePrivateData(policyhandle: LSA_HANDLE, keyname: *const super::lsalookup::LSA_UNICODE_STRING, privatedata: *mut super::lsalookup::PLSA_UNICODE_STRING) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaRetrievePrivateData(policyhandle : LSA_HANDLE, keyname : *const super::lsalookup::LSA_UNICODE_STRING, privatedata : *mut super::lsalookup::PLSA_UNICODE_STRING) -> super::bcrypt::NTSTATUS);
     unsafe { LsaRetrievePrivateData(policyhandle, keyname, privatedata as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[inline]
 pub unsafe fn LsaSetCAPs(capdns: Option<&[super::lsalookup::LSA_UNICODE_STRING]>, flags: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaSetCAPs(capdns : *const super::lsalookup::LSA_UNICODE_STRING, capdncount : u32, flags : u32) -> super::bcrypt::NTSTATUS);
     unsafe { LsaSetCAPs(core::mem::transmute(capdns.map_or(core::ptr::null(), |slice| slice.as_ptr())), capdns.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn LsaSetDomainInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: Option<*const core::ffi::c_void>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaSetDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaSetDomainInformationPolicy(policyhandle, informationclass, buffer.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaSetForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: *const super::lsalookup::LSA_UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: bool, collisioninfo: *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const super::lsalookup::LSA_UNICODE_STRING, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION, checkonly : bool, collisioninfo : *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::bcrypt::NTSTATUS);
     unsafe { LsaSetForestTrustInformation(policyhandle, trusteddomainname, foresttrustinfo, checkonly, collisioninfo as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaSetForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: *const super::lsalookup::LSA_UNICODE_STRING, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION2, checkonly: bool, collisioninfo: *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const super::lsalookup::LSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION2, checkonly : bool, collisioninfo : *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::bcrypt::NTSTATUS);
     unsafe { LsaSetForestTrustInformation2(policyhandle, trusteddomainname, highestrecordtype, foresttrustinfo, checkonly, collisioninfo as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn LsaSetInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_INFORMATION_CLASS, buffer: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaSetInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaSetInformationPolicy(policyhandle, informationclass, buffer) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[inline]
 pub unsafe fn LsaSetTrustedDomainInfoByName(policyhandle: LSA_HANDLE, trusteddomainname: *const super::lsalookup::LSA_UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInfoByName(policyhandle : LSA_HANDLE, trusteddomainname : *const super::lsalookup::LSA_UNICODE_STRING, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaSetTrustedDomainInfoByName(policyhandle, trusteddomainname, informationclass, buffer) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaSetTrustedDomainInformation(policyhandle: LSA_HANDLE, trusteddomainsid: super::winnt::PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInformation(policyhandle : LSA_HANDLE, trusteddomainsid : super::winnt::PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> super::bcrypt::NTSTATUS);
     unsafe { LsaSetTrustedDomainInformation(policyhandle, trusteddomainsid, informationclass, buffer) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[inline]
 pub unsafe fn LsaStorePrivateData(policyhandle: LSA_HANDLE, keyname: *const super::lsalookup::LSA_UNICODE_STRING, privatedata: Option<*const super::lsalookup::LSA_UNICODE_STRING>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaStorePrivateData(policyhandle : LSA_HANDLE, keyname : *const super::lsalookup::LSA_UNICODE_STRING, privatedata : *const super::lsalookup::LSA_UNICODE_STRING) -> super::bcrypt::NTSTATUS);
     unsafe { LsaStorePrivateData(policyhandle, keyname, privatedata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
 pub unsafe fn LsaUnregisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
     windows_core::link!("secur32.dll" "system" fn LsaUnregisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
@@ -406,13 +406,13 @@ pub unsafe fn SystemFunction036(randombuffer: *mut core::ffi::c_void, randombuff
     windows_core::link!("advapi32.dll" "C" fn SystemFunction036(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> bool);
     unsafe { SystemFunction036(randombuffer as _, randombufferlength) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn SystemFunction040(memory: *mut core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "C" fn SystemFunction040(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::bcrypt::NTSTATUS);
     unsafe { SystemFunction040(memory as _, memorysize, optionflags) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn SystemFunction041(memory: *mut core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "C" fn SystemFunction041(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::bcrypt::NTSTATUS);
@@ -529,7 +529,7 @@ pub const Audit_System_SecurityStateChange: windows_core::GUID = windows_core::G
 pub const Audit_System_SecuritySubsystemExtension: windows_core::GUID = windows_core::GUID::from_u128(0x0cce9211_69ae_11d9_bed3_505054503030);
 pub const Batch: SECURITY_LOGON_TYPE = 4;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CENTRAL_ACCESS_POLICY {
     pub CAPID: super::winnt::PSID,
@@ -540,14 +540,14 @@ pub struct CENTRAL_ACCESS_POLICY {
     pub CAPECount: u32,
     pub CAPEs: *mut PCENTRAL_ACCESS_POLICY_ENTRY,
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for CENTRAL_ACCESS_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CENTRAL_ACCESS_POLICY_ENTRY {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
@@ -601,7 +601,7 @@ pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = 1;
 pub const Interactive: SECURITY_LOGON_TYPE = 2;
 pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDC_PROXY_CACHE_ENTRY_DATA {
     pub SinceLastUsed: u64,
@@ -617,7 +617,7 @@ pub struct KDC_PROXY_CACHE_ENTRY_DATA {
 pub const KERBEROS_REVISION: u32 = 6;
 pub const KERBEROS_VERSION: u32 = 5;
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -627,7 +627,7 @@ pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub DcFlags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -636,7 +636,7 @@ pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     pub AddressType: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -647,21 +647,21 @@ pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub Flags: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST_EX {
     pub Credentials: KERB_ADD_CREDENTIALS_REQUEST,
     pub PrincipalNameCount: u32,
     pub PrincipalNames: [UNICODE_STRING; 1],
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for KERB_ADD_CREDENTIALS_REQUEST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_AUTH_DATA {
     pub Type: u32,
@@ -669,7 +669,7 @@ pub struct KERB_AUTH_DATA {
     pub Data: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_BINDING_CACHE_ENTRY_DATA {
     pub DiscoveryTime: u64,
@@ -695,7 +695,7 @@ pub struct KERB_CERTIFICATE_INFO {
 }
 pub type KERB_CERTIFICATE_INFO_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CERTIFICATE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -709,7 +709,7 @@ pub struct KERB_CERTIFICATE_LOGON {
 pub const KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES: u32 = 1;
 pub const KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CERTIFICATE_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -724,7 +724,7 @@ pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_FAIL_IF_NT_AUTH_POLICY_REQUIRED: u32 = 4;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_IDENTIFY: u32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CERTIFICATE_UNLOCK_LOGON {
     pub Logon: KERB_CERTIFICATE_LOGON,
@@ -737,7 +737,7 @@ pub struct KERB_CHANGEMACHINEPASSWORD_REQUEST {
     pub ForcePasswordChange: bool,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CHANGEPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -772,7 +772,7 @@ pub const KERB_CHECKSUM_SHA256: i32 = -139;
 pub const KERB_CHECKSUM_SHA384: i32 = -140;
 pub const KERB_CHECKSUM_SHA512: i32 = -141;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -790,7 +790,7 @@ pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
 }
 pub const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -810,7 +810,7 @@ impl Default for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CRYPTO_KEY {
     pub KeyType: i32,
@@ -826,7 +826,7 @@ pub struct KERB_CRYPTO_KEY32 {
 }
 pub const KERB_DECRYPT_FLAG_DEFAULT_KEY: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_DECRYPT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -892,21 +892,21 @@ pub const KERB_ETYPE_RSA_PUB_MD5: u32 = 11;
 pub const KERB_ETYPE_RSA_PUB_SHA1: u32 = 12;
 pub const KERB_ETYPE_RSA_SHA1_CMS: u32 = 11;
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_EXTERNAL_NAME {
     pub NameType: i16,
     pub NameCount: u16,
     pub Names: [UNICODE_STRING; 1],
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for KERB_EXTERNAL_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_EXTERNAL_TICKET {
     pub ServiceName: PKERB_EXTERNAL_NAME,
@@ -927,7 +927,7 @@ pub struct KERB_EXTERNAL_TICKET {
     pub EncodedTicket: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_INTERACTIVE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -936,7 +936,7 @@ pub struct KERB_INTERACTIVE_LOGON {
     pub Password: UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_INTERACTIVE_PROFILE {
     pub MessageType: KERB_PROFILE_BUFFER_TYPE,
@@ -957,7 +957,7 @@ pub struct KERB_INTERACTIVE_PROFILE {
     pub UserFlags: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_INTERACTIVE_UNLOCK_LOGON {
     pub Logon: KERB_INTERACTIVE_LOGON,
@@ -967,7 +967,7 @@ pub const KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET: u32 = 1;
 pub const KERB_LOGON_FLAG_REDIRECTED: u32 = 2;
 pub type KERB_LOGON_SUBMIT_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_NET_ADDRESS {
     pub Family: u32,
@@ -975,13 +975,13 @@ pub struct KERB_NET_ADDRESS {
     pub Address: super::winnt::PCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_NET_ADDRESSES {
     pub Number: u32,
     pub Addresses: [KERB_NET_ADDRESS; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for KERB_NET_ADDRESSES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -996,7 +996,7 @@ pub struct KERB_PURGE_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1010,7 +1010,7 @@ pub struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
     pub CountOfPurged: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1019,7 +1019,7 @@ pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
     pub TicketTemplate: KERB_TICKET_CACHE_INFO_EX,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_PURGE_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1033,7 +1033,7 @@ pub struct KERB_QUERY_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_BINDING_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1041,7 +1041,7 @@ pub struct KERB_QUERY_BINDING_CACHE_RESPONSE {
     pub Entries: PKERB_BINDING_CACHE_ENTRY_DATA,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1058,7 +1058,7 @@ pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
 }
 pub const KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE_FLAG_DAC_DISABLED: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1066,7 +1066,7 @@ pub struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1074,7 +1074,7 @@ pub struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     pub Entries: PKDC_PROXY_CACHE_ENTRY_DATA,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1082,7 +1082,7 @@ pub struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1090,63 +1090,63 @@ pub struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     pub Creds: PKERB_S4U2PROXY_CRED,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX2; 1],
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX3; 1],
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX; 1],
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO; 1],
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for KERB_QUERY_TKT_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1169,7 +1169,7 @@ pub struct KERB_REFRESH_POLICY_RESPONSE {
 pub const KERB_REFRESH_SCCRED_GETTGT: u32 = 1;
 pub const KERB_REFRESH_SCCRED_RELEASE: u32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_REFRESH_SCCRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1182,7 +1182,7 @@ pub const KERB_REQUEST_CRED_LOCAL_ACCOUNT: u32 = 8;
 pub const KERB_REQUEST_REMOVE_CREDENTIAL: u32 = 4;
 pub const KERB_REQUEST_REPLACE_CREDENTIAL: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1192,7 +1192,7 @@ pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
     pub Password: UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_RETRIEVE_KEY_TAB_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1208,7 +1208,7 @@ pub const KERB_RETRIEVE_TICKET_USE_CACHE_ONLY: u32 = 2;
 pub const KERB_RETRIEVE_TICKET_USE_CREDHANDLE: u32 = 4;
 pub const KERB_RETRIEVE_TICKET_WITH_SEC_CRED: u32 = 16;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_RETRIEVE_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1220,13 +1220,13 @@ pub struct KERB_RETRIEVE_TKT_REQUEST {
     pub CredentialsHandle: super::sspi::SecHandle,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_RETRIEVE_TKT_RESPONSE {
     pub Ticket: KERB_EXTERNAL_TICKET,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     pub ServerName: UNICODE_STRING,
@@ -1236,7 +1236,7 @@ pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
 }
 pub const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_S4U2PROXY_CRED {
     pub UserName: UNICODE_STRING,
@@ -1249,7 +1249,7 @@ pub struct KERB_S4U2PROXY_CRED {
 }
 pub const KERB_S4U2PROXY_CRED_FLAG_NEGATIVE: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -1260,7 +1260,7 @@ pub struct KERB_S4U_LOGON {
 pub const KERB_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2;
 pub const KERB_S4U_LOGON_FLAG_IDENTIFY: u32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1277,7 +1277,7 @@ pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub KdcAddressType: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_SETPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1291,7 +1291,7 @@ pub struct KERB_SETPASSWORD_REQUEST {
 pub const KERB_SETPASS_USE_CREDHANDLE: u32 = 2;
 pub const KERB_SETPASS_USE_LOGONID: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_SMART_CARD_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -1300,7 +1300,7 @@ pub struct KERB_SMART_CARD_LOGON {
     pub CspData: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_SMART_CARD_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
@@ -1308,14 +1308,14 @@ pub struct KERB_SMART_CARD_PROFILE {
     pub CertificateData: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_SMART_CARD_UNLOCK_LOGON {
     pub Logon: KERB_SMART_CARD_LOGON,
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_SUBMIT_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1326,7 +1326,7 @@ pub struct KERB_SUBMIT_TKT_REQUEST {
     pub KerbCredOffset: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO {
     pub ServerName: UNICODE_STRING,
@@ -1338,7 +1338,7 @@ pub struct KERB_TICKET_CACHE_INFO {
     pub TicketFlags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX {
     pub ClientName: UNICODE_STRING,
@@ -1352,7 +1352,7 @@ pub struct KERB_TICKET_CACHE_INFO_EX {
     pub TicketFlags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub ClientName: UNICODE_STRING,
@@ -1368,7 +1368,7 @@ pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub BranchId: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX3 {
     pub ClientName: UNICODE_STRING,
@@ -1402,7 +1402,7 @@ pub const KERB_TICKET_FLAGS_renewable: u32 = 8388608;
 pub const KERB_TICKET_FLAGS_reserved: u32 = 2147483648;
 pub const KERB_TICKET_FLAGS_reserved1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -1413,14 +1413,14 @@ pub struct KERB_TICKET_LOGON {
     pub TicketGrantingTicket: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
     pub SessionKey: KERB_CRYPTO_KEY,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_UNLOCK_LOGON {
     pub Logon: KERB_TICKET_LOGON,
@@ -1428,7 +1428,7 @@ pub struct KERB_TICKET_UNLOCK_LOGON {
 }
 pub const KERB_TRANSFER_CRED_CLEANUP_CREDENTIALS: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TRANSFER_CRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1541,7 +1541,7 @@ pub const LSAD_AES_SALT_SIZE: u32 = 16;
 pub const LSASETCAPS_RELOAD_FLAG: u32 = 1;
 pub const LSASETCAPS_VALID_FLAG_MASK: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_AUTH_INFORMATION {
     pub LastUpdateTime: i64,
@@ -1553,33 +1553,33 @@ pub struct LSA_AUTH_INFORMATION {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LSA_ENUMERATION_HANDLE(pub u32);
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_ENUMERATION_INFORMATION {
     pub Sid: super::winnt::PSID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_FOREST_TRUST_BINARY_DATA {
     pub Length: u32,
     pub Buffer: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_COLLISION_INFORMATION {
     pub RecordCount: u32,
     pub Entries: *mut PLSA_FOREST_TRUST_COLLISION_RECORD,
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for LSA_FOREST_TRUST_COLLISION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_FOREST_TRUST_COLLISION_RECORD {
     pub Index: u32,
@@ -1589,7 +1589,7 @@ pub struct LSA_FOREST_TRUST_COLLISION_RECORD {
 }
 pub type LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
     pub Sid: super::winnt::PSID,
@@ -1597,33 +1597,33 @@ pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
     pub NetbiosName: super::lsalookup::LSA_UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_INFORMATION {
     pub RecordCount: u32,
     pub Entries: *mut PLSA_FOREST_TRUST_RECORD,
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for LSA_FOREST_TRUST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_INFORMATION2 {
     pub RecordCount: u32,
     pub Entries: *mut PLSA_FOREST_TRUST_RECORD2,
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for LSA_FOREST_TRUST_INFORMATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct LSA_FOREST_TRUST_RECORD {
     pub Flags: u32,
@@ -1631,28 +1631,28 @@ pub struct LSA_FOREST_TRUST_RECORD {
     pub Time: i64,
     pub ForestTrustData: LSA_FOREST_TRUST_RECORD_0,
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for LSA_FOREST_TRUST_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union LSA_FOREST_TRUST_RECORD_0 {
     pub TopLevelName: super::lsalookup::LSA_UNICODE_STRING,
     pub DomainInfo: LSA_FOREST_TRUST_DOMAIN_INFO,
     pub Data: LSA_FOREST_TRUST_BINARY_DATA,
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for LSA_FOREST_TRUST_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct LSA_FOREST_TRUST_RECORD2 {
     pub Flags: u32,
@@ -1660,14 +1660,14 @@ pub struct LSA_FOREST_TRUST_RECORD2 {
     pub Time: i64,
     pub ForestTrustData: LSA_FOREST_TRUST_RECORD2_0,
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for LSA_FOREST_TRUST_RECORD2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union LSA_FOREST_TRUST_RECORD2_0 {
     pub TopLevelName: super::lsalookup::LSA_UNICODE_STRING,
@@ -1675,7 +1675,7 @@ pub union LSA_FOREST_TRUST_RECORD2_0 {
     pub BinaryData: LSA_FOREST_TRUST_BINARY_DATA,
     pub ScannerInfo: LSA_FOREST_TRUST_SCANNER_INFO,
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for LSA_FOREST_TRUST_RECORD2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1683,7 +1683,7 @@ impl Default for LSA_FOREST_TRUST_RECORD2_0 {
 }
 pub type LSA_FOREST_TRUST_RECORD_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_FOREST_TRUST_SCANNER_INFO {
     pub DomainSid: super::winnt::PSID,
@@ -1728,7 +1728,7 @@ pub const LSA_TLN_DISABLED_ADMIN: u32 = 2;
 pub const LSA_TLN_DISABLED_CONFLICT: u32 = 4;
 pub const LSA_TLN_DISABLED_NEW: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_TRANSLATED_SID {
     pub Use: super::winnt::SID_NAME_USE,
@@ -1757,7 +1757,7 @@ pub struct MSV1_0_AV_PAIR {
 }
 pub const MSV1_0_CHALLENGE_LENGTH: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -1805,7 +1805,7 @@ pub const MSV1_0_CRED_VERSION_V3: u32 = 4;
 pub const MSV1_0_DISABLE_PERSONAL_FALLBACK: u32 = 4096;
 pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: u32 = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_INTERACTIVE_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
@@ -1814,7 +1814,7 @@ pub struct MSV1_0_INTERACTIVE_LOGON {
     pub Password: UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_INTERACTIVE_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
@@ -1849,7 +1849,7 @@ impl Default for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
 }
 pub const MSV1_0_LANMAN_SESSION_KEY_LENGTH: u32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSV1_0_LM20_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
@@ -1861,14 +1861,14 @@ pub struct MSV1_0_LM20_LOGON {
     pub CaseInsensitiveChallengeResponse: STRING,
     pub ParameterControl: u32,
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for MSV1_0_LM20_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSV1_0_LM20_LOGON_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
@@ -1881,7 +1881,7 @@ pub struct MSV1_0_LM20_LOGON_PROFILE {
     pub LogonServer: UNICODE_STRING,
     pub UserParameters: UNICODE_STRING,
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for MSV1_0_LM20_LOGON_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1916,7 +1916,7 @@ pub const MSV1_0_OWF_PASSWORD_LENGTH: u32 = 16;
 pub const MSV1_0_PACKAGE_NAME: windows_core::PCSTR = windows_core::s!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
 pub const MSV1_0_PACKAGE_NAMEW: windows_core::PCWSTR = windows_core::w!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_PASSTHROUGH_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -1927,7 +1927,7 @@ pub struct MSV1_0_PASSTHROUGH_REQUEST {
     pub Pad: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_PASSTHROUGH_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -1957,7 +1957,7 @@ pub const MSV1_0_RETURN_PROFILE_PATH: u32 = 512;
 pub const MSV1_0_RETURN_USER_PARAMETERS: u32 = 8;
 pub const MSV1_0_S4U2SELF: u32 = 131072;
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_S4U_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
@@ -1976,7 +1976,7 @@ pub const MSV1_0_SUBAUTHENTICATION_FLAGS: u32 = 4278190080;
 pub const MSV1_0_SUBAUTHENTICATION_KEY: windows_core::PCSTR = windows_core::s!("SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0");
 pub const MSV1_0_SUBAUTHENTICATION_VALUE: windows_core::PCSTR = windows_core::s!("Auth");
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSV1_0_SUBAUTH_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
@@ -1989,14 +1989,14 @@ pub struct MSV1_0_SUBAUTH_LOGON {
     pub ParameterControl: u32,
     pub SubAuthPackageId: u32,
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for MSV1_0_SUBAUTH_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_SUBAUTH_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -2005,7 +2005,7 @@ pub struct MSV1_0_SUBAUTH_REQUEST {
     pub SubAuthSubmitBuffer: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_SUBAUTH_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -2108,7 +2108,7 @@ pub const MsvAvRestrictions: MSV1_0_AVID = 8;
 pub const MsvAvTargetName: MSV1_0_AVID = 9;
 pub const MsvAvTimestamp: MSV1_0_AVID = 7;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NEGOTIATE_CALLER_NAME_REQUEST {
     pub MessageType: u32,
@@ -2168,65 +2168,65 @@ impl Default for PAUDIT_POLICY_INFORMATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PCAUDIT_POLICY_INFORMATION(pub PAUDIT_POLICY_INFORMATION);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCCENTRAL_ACCESS_POLICY(pub *const CENTRAL_ACCESS_POLICY);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PCCENTRAL_ACCESS_POLICY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PCCENTRAL_ACCESS_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCCENTRAL_ACCESS_POLICY_ENTRY(pub *const CENTRAL_ACCESS_POLICY_ENTRY);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PCCENTRAL_ACCESS_POLICY_ENTRY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PCCENTRAL_ACCESS_POLICY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCENTRAL_ACCESS_POLICY(pub *mut CENTRAL_ACCESS_POLICY);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PCENTRAL_ACCESS_POLICY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PCENTRAL_ACCESS_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCENTRAL_ACCESS_POLICY_ENTRY(pub *mut CENTRAL_ACCESS_POLICY_ENTRY);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PCENTRAL_ACCESS_POLICY_ENTRY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PCENTRAL_ACCESS_POLICY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2251,113 +2251,113 @@ pub const PER_USER_AUDIT_NONE: u32 = 16;
 pub const PER_USER_AUDIT_SUCCESS_EXCLUDE: u32 = 2;
 pub const PER_USER_AUDIT_SUCCESS_INCLUDE: u32 = 1;
 pub const PER_USER_POLICY_UNCHANGED: u32 = 0;
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKDC_PROXY_CACHE_ENTRY_DATA(pub *mut KDC_PROXY_CACHE_ENTRY_DATA);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PKDC_PROXY_CACHE_ENTRY_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PKDC_PROXY_CACHE_ENTRY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST(pub *mut KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_ADD_BINDING_CACHE_ENTRY_REQUEST(pub *mut KERB_ADD_BINDING_CACHE_ENTRY_REQUEST);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_ADD_CREDENTIALS_REQUEST(pub *mut KERB_ADD_CREDENTIALS_REQUEST);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PKERB_ADD_CREDENTIALS_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PKERB_ADD_CREDENTIALS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_ADD_CREDENTIALS_REQUEST_EX(pub *mut KERB_ADD_CREDENTIALS_REQUEST_EX);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PKERB_ADD_CREDENTIALS_REQUEST_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PKERB_ADD_CREDENTIALS_REQUEST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_AUTH_DATA(pub *mut KERB_AUTH_DATA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PKERB_AUTH_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PKERB_AUTH_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_BINDING_CACHE_ENTRY_DATA(pub *mut KERB_BINDING_CACHE_ENTRY_DATA);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_BINDING_CACHE_ENTRY_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_BINDING_CACHE_ENTRY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2402,49 +2402,49 @@ impl Default for PKERB_CERTIFICATE_INFO_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_CERTIFICATE_LOGON(pub *mut KERB_CERTIFICATE_LOGON);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl PKERB_CERTIFICATE_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl Default for PKERB_CERTIFICATE_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_CERTIFICATE_S4U_LOGON(pub *mut KERB_CERTIFICATE_S4U_LOGON);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl PKERB_CERTIFICATE_S4U_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl Default for PKERB_CERTIFICATE_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_CERTIFICATE_UNLOCK_LOGON(pub *mut KERB_CERTIFICATE_UNLOCK_LOGON);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PKERB_CERTIFICATE_UNLOCK_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PKERB_CERTIFICATE_UNLOCK_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2463,33 +2463,33 @@ impl Default for PKERB_CHANGEMACHINEPASSWORD_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_CHANGEPASSWORD_REQUEST(pub *mut KERB_CHANGEPASSWORD_REQUEST);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_CHANGEPASSWORD_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_CHANGEPASSWORD_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST(pub *mut KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2521,17 +2521,17 @@ impl Default for PKERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_CLOUD_KERBEROS_DEBUG_REQUEST(pub *mut KERB_CLOUD_KERBEROS_DEBUG_REQUEST);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKERB_CLOUD_KERBEROS_DEBUG_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKERB_CLOUD_KERBEROS_DEBUG_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2550,17 +2550,17 @@ impl Default for PKERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_CRYPTO_KEY(pub *mut KERB_CRYPTO_KEY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PKERB_CRYPTO_KEY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PKERB_CRYPTO_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2579,17 +2579,17 @@ impl Default for PKERB_CRYPTO_KEY32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_DECRYPT_REQUEST(pub *mut KERB_DECRYPT_REQUEST);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl PKERB_DECRYPT_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for PKERB_DECRYPT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2608,81 +2608,81 @@ impl Default for PKERB_DECRYPT_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_EXTERNAL_NAME(pub *mut KERB_EXTERNAL_NAME);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_EXTERNAL_NAME {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_EXTERNAL_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_EXTERNAL_TICKET(pub *mut KERB_EXTERNAL_TICKET);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl PKERB_EXTERNAL_TICKET {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl Default for PKERB_EXTERNAL_TICKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_INTERACTIVE_LOGON(pub *mut KERB_INTERACTIVE_LOGON);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_INTERACTIVE_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_INTERACTIVE_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_INTERACTIVE_PROFILE(pub *mut KERB_INTERACTIVE_PROFILE);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_INTERACTIVE_PROFILE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_INTERACTIVE_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_INTERACTIVE_UNLOCK_LOGON(pub *mut KERB_INTERACTIVE_UNLOCK_LOGON);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PKERB_INTERACTIVE_UNLOCK_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PKERB_INTERACTIVE_UNLOCK_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2701,33 +2701,33 @@ impl Default for PKERB_LOGON_SUBMIT_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_NET_ADDRESS(pub *mut KERB_NET_ADDRESS);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKERB_NET_ADDRESS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKERB_NET_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_NET_ADDRESSES(pub *mut KERB_NET_ADDRESSES);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKERB_NET_ADDRESSES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKERB_NET_ADDRESSES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2772,17 +2772,17 @@ impl Default for PKERB_PURGE_BINDING_CACHE_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_PURGE_KDC_PROXY_CACHE_REQUEST(pub *mut KERB_PURGE_KDC_PROXY_CACHE_REQUEST);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKERB_PURGE_KDC_PROXY_CACHE_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKERB_PURGE_KDC_PROXY_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2801,33 +2801,33 @@ impl Default for PKERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_PURGE_TKT_CACHE_EX_REQUEST(pub *mut KERB_PURGE_TKT_CACHE_EX_REQUEST);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PKERB_PURGE_TKT_CACHE_EX_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PKERB_PURGE_TKT_CACHE_EX_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_PURGE_TKT_CACHE_REQUEST(pub *mut KERB_PURGE_TKT_CACHE_REQUEST);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PKERB_PURGE_TKT_CACHE_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PKERB_PURGE_TKT_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2846,33 +2846,33 @@ impl Default for PKERB_QUERY_BINDING_CACHE_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_QUERY_BINDING_CACHE_RESPONSE(pub *mut KERB_QUERY_BINDING_CACHE_RESPONSE);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_QUERY_BINDING_CACHE_RESPONSE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_QUERY_BINDING_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST(pub *mut KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2891,145 +2891,145 @@ impl Default for PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_QUERY_KDC_PROXY_CACHE_REQUEST(pub *mut KERB_QUERY_KDC_PROXY_CACHE_REQUEST);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_QUERY_KDC_PROXY_CACHE_RESPONSE(pub *mut KERB_QUERY_KDC_PROXY_CACHE_RESPONSE);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PKERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PKERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_QUERY_S4U2PROXY_CACHE_REQUEST(pub *mut KERB_QUERY_S4U2PROXY_CACHE_REQUEST);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_QUERY_S4U2PROXY_CACHE_RESPONSE(pub *mut KERB_QUERY_S4U2PROXY_CACHE_RESPONSE);
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 impl PKERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 impl Default for PKERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_QUERY_TKT_CACHE_EX2_RESPONSE(pub *mut KERB_QUERY_TKT_CACHE_EX2_RESPONSE);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_QUERY_TKT_CACHE_EX3_RESPONSE(pub *mut KERB_QUERY_TKT_CACHE_EX3_RESPONSE);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_QUERY_TKT_CACHE_EX_RESPONSE(pub *mut KERB_QUERY_TKT_CACHE_EX_RESPONSE);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_QUERY_TKT_CACHE_EX_RESPONSE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_QUERY_TKT_CACHE_EX_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_QUERY_TKT_CACHE_REQUEST(pub *mut KERB_QUERY_TKT_CACHE_REQUEST);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKERB_QUERY_TKT_CACHE_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKERB_QUERY_TKT_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_QUERY_TKT_CACHE_RESPONSE(pub *mut KERB_QUERY_TKT_CACHE_RESPONSE);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_QUERY_TKT_CACHE_RESPONSE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_QUERY_TKT_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3061,360 +3061,360 @@ impl Default for PKERB_REFRESH_POLICY_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_REFRESH_SCCRED_REQUEST(pub *mut KERB_REFRESH_SCCRED_REQUEST);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PKERB_REFRESH_SCCRED_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PKERB_REFRESH_SCCRED_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_RETRIEVE_KEY_TAB_REQUEST(pub *mut KERB_RETRIEVE_KEY_TAB_REQUEST);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_RETRIEVE_KEY_TAB_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_RETRIEVE_KEY_TAB_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_RETRIEVE_KEY_TAB_RESPONSE(pub *mut KERB_RETRIEVE_KEY_TAB_RESPONSE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PKERB_RETRIEVE_KEY_TAB_RESPONSE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PKERB_RETRIEVE_KEY_TAB_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_RETRIEVE_TKT_REQUEST(pub *mut KERB_RETRIEVE_TKT_REQUEST);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 impl PKERB_RETRIEVE_TKT_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 impl Default for PKERB_RETRIEVE_TKT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_RETRIEVE_TKT_RESPONSE(pub *mut KERB_RETRIEVE_TKT_RESPONSE);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl PKERB_RETRIEVE_TKT_RESPONSE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl Default for PKERB_RETRIEVE_TKT_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_S4U2PROXY_CACHE_ENTRY_INFO(pub *mut KERB_S4U2PROXY_CACHE_ENTRY_INFO);
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 impl PKERB_S4U2PROXY_CACHE_ENTRY_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 impl Default for PKERB_S4U2PROXY_CACHE_ENTRY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_S4U2PROXY_CRED(pub *mut KERB_S4U2PROXY_CRED);
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 impl PKERB_S4U2PROXY_CRED {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 impl Default for PKERB_S4U2PROXY_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_S4U_LOGON(pub *mut KERB_S4U_LOGON);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_S4U_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_SETPASSWORD_EX_REQUEST(pub *mut KERB_SETPASSWORD_EX_REQUEST);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 impl PKERB_SETPASSWORD_EX_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 impl Default for PKERB_SETPASSWORD_EX_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_SETPASSWORD_REQUEST(pub *mut KERB_SETPASSWORD_REQUEST);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 impl PKERB_SETPASSWORD_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_sspi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
 impl Default for PKERB_SETPASSWORD_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_SMART_CARD_LOGON(pub *mut KERB_SMART_CARD_LOGON);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl PKERB_SMART_CARD_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl Default for PKERB_SMART_CARD_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_SMART_CARD_PROFILE(pub *mut KERB_SMART_CARD_PROFILE);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl PKERB_SMART_CARD_PROFILE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl Default for PKERB_SMART_CARD_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_SMART_CARD_UNLOCK_LOGON(pub *mut KERB_SMART_CARD_UNLOCK_LOGON);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PKERB_SMART_CARD_UNLOCK_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PKERB_SMART_CARD_UNLOCK_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_SUBMIT_TKT_REQUEST(pub *mut KERB_SUBMIT_TKT_REQUEST);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKERB_SUBMIT_TKT_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKERB_SUBMIT_TKT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_TICKET_CACHE_INFO(pub *mut KERB_TICKET_CACHE_INFO);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_TICKET_CACHE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_TICKET_CACHE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_TICKET_CACHE_INFO_EX(pub *mut KERB_TICKET_CACHE_INFO_EX);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_TICKET_CACHE_INFO_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_TICKET_CACHE_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_TICKET_CACHE_INFO_EX2(pub *mut KERB_TICKET_CACHE_INFO_EX2);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_TICKET_CACHE_INFO_EX2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_TICKET_CACHE_INFO_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_TICKET_CACHE_INFO_EX3(pub *mut KERB_TICKET_CACHE_INFO_EX3);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PKERB_TICKET_CACHE_INFO_EX3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PKERB_TICKET_CACHE_INFO_EX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_TICKET_LOGON(pub *mut KERB_TICKET_LOGON);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PKERB_TICKET_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PKERB_TICKET_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_TICKET_PROFILE(pub *mut KERB_TICKET_PROFILE);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl PKERB_TICKET_PROFILE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl Default for PKERB_TICKET_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_TICKET_UNLOCK_LOGON(pub *mut KERB_TICKET_UNLOCK_LOGON);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl PKERB_TICKET_UNLOCK_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for PKERB_TICKET_UNLOCK_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKERB_TRANSFER_CRED_REQUEST(pub *mut KERB_TRANSFER_CRED_REQUEST);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PKERB_TRANSFER_CRED_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PKERB_TRANSFER_CRED_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PKU2U_CERTIFICATE_S4U_LOGON {
     pub MessageType: PKU2U_LOGON_SUBMIT_TYPE,
@@ -3443,17 +3443,17 @@ pub const PKU2U_CREDUI_CONTEXT_VERSION: u32 = 1414677827;
 pub type PKU2U_LOGON_SUBMIT_TYPE = i32;
 pub const PKU2U_PACKAGE_NAME: windows_core::PCWSTR = windows_core::w!("pku2u");
 pub const PKU2U_PACKAGE_NAME_A: windows_core::PCSTR = windows_core::s!("pku2u");
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_AUTH_INFORMATION(pub *mut LSA_AUTH_INFORMATION);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PLSA_AUTH_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PLSA_AUTH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3472,161 +3472,161 @@ impl Default for PLSA_ENUMERATION_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_ENUMERATION_INFORMATION(pub *mut LSA_ENUMERATION_INFORMATION);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PLSA_ENUMERATION_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PLSA_ENUMERATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_FOREST_TRUST_BINARY_DATA(pub *mut LSA_FOREST_TRUST_BINARY_DATA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PLSA_FOREST_TRUST_BINARY_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PLSA_FOREST_TRUST_BINARY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_FOREST_TRUST_COLLISION_INFORMATION(pub *mut LSA_FOREST_TRUST_COLLISION_INFORMATION);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PLSA_FOREST_TRUST_COLLISION_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PLSA_FOREST_TRUST_COLLISION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_FOREST_TRUST_COLLISION_RECORD(pub *mut LSA_FOREST_TRUST_COLLISION_RECORD);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PLSA_FOREST_TRUST_COLLISION_RECORD {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PLSA_FOREST_TRUST_COLLISION_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_FOREST_TRUST_DOMAIN_INFO(pub *mut LSA_FOREST_TRUST_DOMAIN_INFO);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PLSA_FOREST_TRUST_DOMAIN_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PLSA_FOREST_TRUST_DOMAIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_FOREST_TRUST_INFORMATION(pub *mut LSA_FOREST_TRUST_INFORMATION);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PLSA_FOREST_TRUST_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PLSA_FOREST_TRUST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_FOREST_TRUST_INFORMATION2(pub *mut LSA_FOREST_TRUST_INFORMATION2);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PLSA_FOREST_TRUST_INFORMATION2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PLSA_FOREST_TRUST_INFORMATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_FOREST_TRUST_RECORD(pub *mut LSA_FOREST_TRUST_RECORD);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PLSA_FOREST_TRUST_RECORD {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PLSA_FOREST_TRUST_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_FOREST_TRUST_RECORD2(pub *mut LSA_FOREST_TRUST_RECORD2);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PLSA_FOREST_TRUST_RECORD2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PLSA_FOREST_TRUST_RECORD2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_FOREST_TRUST_SCANNER_INFO(pub *mut LSA_FOREST_TRUST_SCANNER_INFO);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PLSA_FOREST_TRUST_SCANNER_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PLSA_FOREST_TRUST_SCANNER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3671,17 +3671,17 @@ impl Default for PLSA_OPERATIONAL_MODE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_TRANSLATED_SID(pub *mut LSA_TRANSLATED_SID);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PLSA_TRANSLATED_SID {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PLSA_TRANSLATED_SID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3700,17 +3700,17 @@ impl Default for PMSV1_0_AV_PAIR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMSV1_0_CHANGEPASSWORD_REQUEST(pub *mut MSV1_0_CHANGEPASSWORD_REQUEST);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PMSV1_0_CHANGEPASSWORD_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PMSV1_0_CHANGEPASSWORD_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3742,33 +3742,33 @@ impl Default for PMSV1_0_CREDENTIAL_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMSV1_0_INTERACTIVE_LOGON(pub *mut MSV1_0_INTERACTIVE_LOGON);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PMSV1_0_INTERACTIVE_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PMSV1_0_INTERACTIVE_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMSV1_0_INTERACTIVE_PROFILE(pub *mut MSV1_0_INTERACTIVE_PROFILE);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PMSV1_0_INTERACTIVE_PROFILE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PMSV1_0_INTERACTIVE_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3787,33 +3787,33 @@ impl Default for PMSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMSV1_0_LM20_LOGON(pub *mut MSV1_0_LM20_LOGON);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PMSV1_0_LM20_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PMSV1_0_LM20_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMSV1_0_LM20_LOGON_PROFILE(pub *mut MSV1_0_LM20_LOGON_PROFILE);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PMSV1_0_LM20_LOGON_PROFILE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PMSV1_0_LM20_LOGON_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3845,33 +3845,33 @@ impl Default for PMSV1_0_NTLM3_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMSV1_0_PASSTHROUGH_REQUEST(pub *mut MSV1_0_PASSTHROUGH_REQUEST);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl PMSV1_0_PASSTHROUGH_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl Default for PMSV1_0_PASSTHROUGH_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMSV1_0_PASSTHROUGH_RESPONSE(pub *mut MSV1_0_PASSTHROUGH_RESPONSE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PMSV1_0_PASSTHROUGH_RESPONSE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PMSV1_0_PASSTHROUGH_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3916,65 +3916,65 @@ impl Default for PMSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMSV1_0_S4U_LOGON(pub *mut MSV1_0_S4U_LOGON);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PMSV1_0_S4U_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PMSV1_0_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMSV1_0_SUBAUTH_LOGON(pub *mut MSV1_0_SUBAUTH_LOGON);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PMSV1_0_SUBAUTH_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PMSV1_0_SUBAUTH_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMSV1_0_SUBAUTH_REQUEST(pub *mut MSV1_0_SUBAUTH_REQUEST);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PMSV1_0_SUBAUTH_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PMSV1_0_SUBAUTH_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMSV1_0_SUBAUTH_RESPONSE(pub *mut MSV1_0_SUBAUTH_RESPONSE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PMSV1_0_SUBAUTH_RESPONSE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PMSV1_0_SUBAUTH_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4019,17 +4019,17 @@ impl Default for PMSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNEGOTIATE_CALLER_NAME_REQUEST(pub *mut NEGOTIATE_CALLER_NAME_REQUEST);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PNEGOTIATE_CALLER_NAME_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PNEGOTIATE_CALLER_NAME_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4120,13 +4120,13 @@ pub struct POLICY_AUDIT_LOG_INFO {
     pub NextAuditRecordId: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POLICY_AUDIT_SID_ARRAY {
     pub UsersCount: u32,
     pub UserSidArray: *mut super::winnt::PSID,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for POLICY_AUDIT_SID_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4142,13 +4142,13 @@ pub const POLICY_CREATE_ACCOUNT: u32 = 16;
 pub const POLICY_CREATE_PRIVILEGE: u32 = 64;
 pub const POLICY_CREATE_SECRET: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_DEFAULT_QUOTA_INFO {
     pub QuotaLimits: super::winnt::QUOTA_LIMITS,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_DOMAIN_EFS_INFO {
     pub InfoLength: u32,
@@ -4177,14 +4177,14 @@ pub struct POLICY_LSA_SERVER_ROLE_INFO {
     pub LsaServerRole: POLICY_LSA_SERVER_ROLE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_MACHINE_ACCT_INFO {
     pub Rid: u32,
     pub Sid: super::winnt::PSID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_MACHINE_ACCT_INFO2 {
     pub Rid: u32,
@@ -4200,13 +4200,13 @@ pub struct POLICY_MODIFICATION_INFO {
 pub const POLICY_NOTIFICATION: u32 = 4096;
 pub type POLICY_NOTIFICATION_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_PD_ACCOUNT_INFO {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_PRIMARY_DOMAIN_INFO {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
@@ -4214,7 +4214,7 @@ pub struct POLICY_PRIMARY_DOMAIN_INFO {
 }
 pub const POLICY_READ: u32 = 131078;
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_REPLICA_SOURCE_INFO {
     pub ReplicaSource: super::lsalookup::LSA_UNICODE_STRING,
@@ -4227,17 +4227,17 @@ pub const POLICY_TRUST_ADMIN: u32 = 8;
 pub const POLICY_VIEW_AUDIT_INFORMATION: u32 = 2;
 pub const POLICY_VIEW_LOCAL_INFORMATION: u32 = 1;
 pub const POLICY_WRITE: u32 = 133112;
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPKU2U_CERTIFICATE_S4U_LOGON(pub *mut PKU2U_CERTIFICATE_S4U_LOGON);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl PPKU2U_CERTIFICATE_S4U_LOGON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 impl Default for PPKU2U_CERTIFICATE_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4373,17 +4373,17 @@ impl Default for PPOLICY_AUDIT_LOG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPOLICY_AUDIT_SID_ARRAY(pub *mut POLICY_AUDIT_SID_ARRAY);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PPOLICY_AUDIT_SID_ARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PPOLICY_AUDIT_SID_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4402,33 +4402,33 @@ impl Default for PPOLICY_AUDIT_SUBCATEGORIES_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPOLICY_DEFAULT_QUOTA_INFO(pub *mut POLICY_DEFAULT_QUOTA_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PPOLICY_DEFAULT_QUOTA_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PPOLICY_DEFAULT_QUOTA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPOLICY_DOMAIN_EFS_INFO(pub *mut POLICY_DOMAIN_EFS_INFO);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PPOLICY_DOMAIN_EFS_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PPOLICY_DOMAIN_EFS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4499,33 +4499,33 @@ impl Default for PPOLICY_LSA_SERVER_ROLE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPOLICY_MACHINE_ACCT_INFO(pub *mut POLICY_MACHINE_ACCT_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PPOLICY_MACHINE_ACCT_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PPOLICY_MACHINE_ACCT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPOLICY_MACHINE_ACCT_INFO2(pub *mut POLICY_MACHINE_ACCT_INFO2);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PPOLICY_MACHINE_ACCT_INFO2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PPOLICY_MACHINE_ACCT_INFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4557,70 +4557,70 @@ impl Default for PPOLICY_NOTIFICATION_INFORMATION_CLASS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPOLICY_PD_ACCOUNT_INFO(pub *mut POLICY_PD_ACCOUNT_INFO);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PPOLICY_PD_ACCOUNT_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PPOLICY_PD_ACCOUNT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPOLICY_PRIMARY_DOMAIN_INFO(pub *mut POLICY_PRIMARY_DOMAIN_INFO);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PPOLICY_PRIMARY_DOMAIN_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PPOLICY_PRIMARY_DOMAIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPOLICY_REPLICA_SOURCE_INFO(pub *mut POLICY_REPLICA_SOURCE_INFO);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PPOLICY_REPLICA_SOURCE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PPOLICY_REPLICA_SOURCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type PSAM_INIT_NOTIFICATION_ROUTINE = Option<unsafe extern "system" fn() -> bool>;
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 pub type PSAM_PASSWORD_FILTER_ROUTINE = Option<unsafe extern "system" fn(accountname: *const super::lsalookup::LSA_UNICODE_STRING, fullname: *const super::lsalookup::LSA_UNICODE_STRING, password: *const super::lsalookup::LSA_UNICODE_STRING, setoperation: bool) -> bool>;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_lsalookup"))]
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 pub type PSAM_PASSWORD_NOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(username: *mut super::lsalookup::LSA_UNICODE_STRING, relativeid: u32, newpassword: *mut super::lsalookup::LSA_UNICODE_STRING) -> super::bcrypt::NTSTATUS>;
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSECURITY_LOGON_SESSION_DATA(pub *mut SECURITY_LOGON_SESSION_DATA);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PSECURITY_LOGON_SESSION_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PSECURITY_LOGON_SESSION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4639,49 +4639,49 @@ impl Default for PSECURITY_LOGON_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSE_ADT_ACCESS_REASON(pub *mut SE_ADT_ACCESS_REASON);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PSE_ADT_ACCESS_REASON {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PSE_ADT_ACCESS_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSE_ADT_CLAIMS(pub *mut SE_ADT_CLAIMS);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PSE_ADT_CLAIMS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PSE_ADT_CLAIMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSE_ADT_OBJECT_TYPE(pub *mut SE_ADT_OBJECT_TYPE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PSE_ADT_OBJECT_TYPE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PSE_ADT_OBJECT_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4739,133 +4739,133 @@ impl Default for PSE_ADT_PARAMETER_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSTRING(pub *mut super::lsalookup::LSA_STRING);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PSTRING {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PSTRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTRUSTED_CONTROLLERS_INFO(pub *mut TRUSTED_CONTROLLERS_INFO);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PTRUSTED_CONTROLLERS_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PTRUSTED_CONTROLLERS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTRUSTED_DOMAIN_AUTH_INFORMATION(pub *mut TRUSTED_DOMAIN_AUTH_INFORMATION);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PTRUSTED_DOMAIN_AUTH_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PTRUSTED_DOMAIN_AUTH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTRUSTED_DOMAIN_FULL_INFORMATION(pub *mut TRUSTED_DOMAIN_FULL_INFORMATION);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PTRUSTED_DOMAIN_FULL_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PTRUSTED_DOMAIN_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTRUSTED_DOMAIN_FULL_INFORMATION2(pub *mut TRUSTED_DOMAIN_FULL_INFORMATION2);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PTRUSTED_DOMAIN_FULL_INFORMATION2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PTRUSTED_DOMAIN_FULL_INFORMATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PTRUSTED_DOMAIN_INFORMATION_BASIC(pub super::lsalookup::PLSA_TRUST_INFORMATION);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTRUSTED_DOMAIN_INFORMATION_EX(pub *mut TRUSTED_DOMAIN_INFORMATION_EX);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl PTRUSTED_DOMAIN_INFORMATION_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 impl Default for PTRUSTED_DOMAIN_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTRUSTED_DOMAIN_INFORMATION_EX2(pub *mut TRUSTED_DOMAIN_INFORMATION_EX2);
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl PTRUSTED_DOMAIN_INFORMATION_EX2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 impl Default for PTRUSTED_DOMAIN_INFORMATION_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTRUSTED_DOMAIN_NAME_INFO(pub *mut TRUSTED_DOMAIN_NAME_INFO);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PTRUSTED_DOMAIN_NAME_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PTRUSTED_DOMAIN_NAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4897,17 +4897,17 @@ impl Default for PTRUSTED_INFORMATION_CLASS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTRUSTED_PASSWORD_INFO(pub *mut TRUSTED_PASSWORD_INFO);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PTRUSTED_PASSWORD_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PTRUSTED_PASSWORD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4926,17 +4926,17 @@ impl Default for PTRUSTED_POSIX_OFFSET_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUNICODE_STRING(pub *mut super::lsalookup::LSA_UNICODE_STRING);
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl PUNICODE_STRING {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 impl Default for PUNICODE_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4983,7 +4983,7 @@ pub const SAM_INIT_NOTIFICATION_ROUTINE: windows_core::PCSTR = windows_core::s!(
 pub const SAM_PASSWORD_CHANGE_NOTIFY_ROUTINE: windows_core::PCSTR = windows_core::s!("PasswordChangeNotify");
 pub const SAM_PASSWORD_FILTER_ROUTINE: windows_core::PCSTR = windows_core::s!("PasswordFilter");
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURITY_LOGON_SESSION_DATA {
     pub Size: u32,
@@ -5012,7 +5012,7 @@ pub struct SECURITY_LOGON_SESSION_DATA {
 }
 pub type SECURITY_LOGON_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SE_ADT_ACCESS_REASON {
     pub AccessMask: super::winnt::ACCESS_MASK,
@@ -5021,14 +5021,14 @@ pub struct SE_ADT_ACCESS_REASON {
     pub AccessGranted: u32,
     pub SecurityDescriptor: super::winnt::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SE_ADT_ACCESS_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SE_ADT_CLAIMS {
     pub Length: u32,
@@ -5036,7 +5036,7 @@ pub struct SE_ADT_CLAIMS {
 }
 pub const SE_ADT_OBJECT_ONLY: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SE_ADT_OBJECT_TYPE {
     pub ObjectType: windows_core::GUID,
@@ -5101,7 +5101,7 @@ pub const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: u32 = 16;
 pub const SE_MAX_AUDIT_PARAMETERS: u32 = 32;
 pub const SE_MAX_GENERIC_AUDIT_PARAMETERS: u32 = 28;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STRING {
     pub Length: u16,
@@ -5146,14 +5146,14 @@ pub const SeAdtParmTypeUlongNoConv: SE_ADT_PARAMETER_TYPE = 27;
 pub const SeAdtParmTypeUserAccountControl: SE_ADT_PARAMETER_TYPE = 19;
 pub const Service: SECURITY_LOGON_TYPE = 5;
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_CONTROLLERS_INFO {
     pub Entries: u32,
     pub Names: super::lsalookup::PLSA_UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_DOMAIN_AUTH_INFORMATION {
     pub IncomingAuthInfos: u32,
@@ -5164,7 +5164,7 @@ pub struct TRUSTED_DOMAIN_AUTH_INFORMATION {
     pub OutgoingPreviousAuthenticationInformation: PLSA_AUTH_INFORMATION,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION {
     pub Information: TRUSTED_DOMAIN_INFORMATION_EX,
@@ -5172,17 +5172,17 @@ pub struct TRUSTED_DOMAIN_FULL_INFORMATION {
     pub AuthInformation: TRUSTED_DOMAIN_AUTH_INFORMATION,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION2 {
     pub Information: TRUSTED_DOMAIN_INFORMATION_EX2,
     pub PosixOffset: TRUSTED_POSIX_OFFSET_INFO,
     pub AuthInformation: TRUSTED_DOMAIN_AUTH_INFORMATION,
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 pub type TRUSTED_DOMAIN_INFORMATION_BASIC = super::lsalookup::LSA_TRUST_INFORMATION;
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_DOMAIN_INFORMATION_EX {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
@@ -5193,7 +5193,7 @@ pub struct TRUSTED_DOMAIN_INFORMATION_EX {
     pub TrustAttributes: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_DOMAIN_INFORMATION_EX2 {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
@@ -5206,7 +5206,7 @@ pub struct TRUSTED_DOMAIN_INFORMATION_EX2 {
     pub ForestTrustInfo: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_DOMAIN_NAME_INFO {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
@@ -5218,7 +5218,7 @@ pub struct TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
 }
 pub type TRUSTED_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_lsalookup")]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_PASSWORD_INFO {
     pub Password: super::lsalookup::LSA_UNICODE_STRING,

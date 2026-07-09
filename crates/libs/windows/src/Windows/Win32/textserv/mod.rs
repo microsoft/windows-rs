@@ -1,13 +1,13 @@
 pub const CARET_CUSTOM: CARET_FLAGS = 1;
 pub type CARET_FLAGS = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union CARET_INFO {
     pub hbitmap: super::windef::HBITMAP,
     pub caretFlags: CARET_FLAGS,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for CARET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -37,7 +37,7 @@ pub const CN_TEXTCHANGED: CHANGETYPE = 1;
 windows_core::imp::define_interface!(IRichEditUiaInformation, IRichEditUiaInformation_Vtbl, 0x23969a9d_8546_4032_a1bb_73750cbf3333);
 windows_core::imp::interface_hierarchy!(IRichEditUiaInformation, windows_core::IUnknown);
 impl IRichEditUiaInformation {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn GetBoundaryRectangle(&self, puiarect: *mut super::uiautomationcore::UiaRect) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBoundaryRectangle)(windows_core::Interface::as_raw(self), puiarect as _) }
     }
@@ -49,18 +49,18 @@ impl IRichEditUiaInformation {
 #[doc(hidden)]
 pub struct IRichEditUiaInformation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub GetBoundaryRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::UiaRect) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     GetBoundaryRectangle: usize,
     pub IsVisible: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IRichEditUiaInformation_Impl: windows_core::IUnknownImpl {
     fn GetBoundaryRectangle(&self, puiarect: *mut super::uiautomationcore::UiaRect) -> windows_core::Result<()>;
     fn IsVisible(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IRichEditUiaInformation_Vtbl {
     pub const fn new<Identity: IRichEditUiaInformation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBoundaryRectangle<Identity: IRichEditUiaInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puiarect: *mut super::uiautomationcore::UiaRect) -> windows_core::HRESULT {
@@ -85,12 +85,12 @@ impl IRichEditUiaInformation_Vtbl {
         iid == &<IRichEditUiaInformation as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IRichEditUiaInformation {}
 windows_core::imp::define_interface!(IRicheditUiaOverrides, IRicheditUiaOverrides_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IRicheditUiaOverrides, windows_core::IUnknown);
 impl IRicheditUiaOverrides {
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPropertyOverrideValue(&self, propertyid: super::uiautomationcore::PROPERTYID) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -102,16 +102,16 @@ impl IRicheditUiaOverrides {
 #[doc(hidden)]
 pub struct IRicheditUiaOverrides_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPropertyOverrideValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PROPERTYID, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     GetPropertyOverrideValue: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRicheditUiaOverrides_Impl: windows_core::IUnknownImpl {
     fn GetPropertyOverrideValue(&self, propertyid: super::uiautomationcore::PROPERTYID) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl IRicheditUiaOverrides_Vtbl {
     pub const fn new<Identity: IRicheditUiaOverrides_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertyOverrideValue<Identity: IRicheditUiaOverrides_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: super::uiautomationcore::PROPERTYID, pretvalue: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -132,12 +132,12 @@ impl IRicheditUiaOverrides_Vtbl {
         iid == &<IRicheditUiaOverrides as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRicheditUiaOverrides {}
 windows_core::imp::define_interface!(IRicheditWindowlessAccessibility, IRicheditWindowlessAccessibility_Vtbl, 0x983e572d_20cd_460b_9104_83111592dd10);
 windows_core::imp::interface_hierarchy!(IRicheditWindowlessAccessibility, windows_core::IUnknown);
 impl IRicheditWindowlessAccessibility {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CreateProvider<P0>(&self, psite: P0) -> windows_core::Result<super::uiautomationcore::IRawElementProviderSimple>
     where
         P0: windows_core::Param<super::uiautomationcore::IRawElementProviderWindowlessSite>,
@@ -152,16 +152,16 @@ impl IRicheditWindowlessAccessibility {
 #[doc(hidden)]
 pub struct IRicheditWindowlessAccessibility_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CreateProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CreateProvider: usize,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IRicheditWindowlessAccessibility_Impl: windows_core::IUnknownImpl {
     fn CreateProvider(&self, psite: windows_core::Ref<super::uiautomationcore::IRawElementProviderWindowlessSite>) -> windows_core::Result<super::uiautomationcore::IRawElementProviderSimple>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IRicheditWindowlessAccessibility_Vtbl {
     pub const fn new<Identity: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateProvider<Identity: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psite: *mut core::ffi::c_void, ppprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -182,16 +182,16 @@ impl IRicheditWindowlessAccessibility_Vtbl {
         iid == &<IRicheditWindowlessAccessibility as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IRicheditWindowlessAccessibility {}
 windows_core::imp::define_interface!(ITextHost, ITextHost_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(ITextHost, windows_core::IUnknown);
 impl ITextHost {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxGetDC(&self) -> super::windef::HDC {
         unsafe { (windows_core::Interface::vtable(self).TxGetDC)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxReleaseDC(&self, hdc: super::windef::HDC) -> i32 {
         unsafe { (windows_core::Interface::vtable(self).TxReleaseDC)(windows_core::Interface::as_raw(self), hdc) }
     }
@@ -207,7 +207,7 @@ impl ITextHost {
     pub unsafe fn TxSetScrollPos(&self, fnbar: i32, npos: i32, fredraw: bool) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxSetScrollPos)(windows_core::Interface::as_raw(self), fnbar, npos, fredraw.into()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxInvalidateRect(&self, prc: *const super::windef::RECT, fmode: bool) {
         unsafe {
             (windows_core::Interface::vtable(self).TxInvalidateRect)(windows_core::Interface::as_raw(self), prc, fmode.into());
@@ -218,7 +218,7 @@ impl ITextHost {
             (windows_core::Interface::vtable(self).TxViewChange)(windows_core::Interface::as_raw(self), fupdate.into());
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxCreateCaret(&self, hbmp: super::windef::HBITMAP, xwidth: i32, yheight: i32) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxCreateCaret)(windows_core::Interface::as_raw(self), hbmp, xwidth, yheight) }
     }
@@ -236,7 +236,7 @@ impl ITextHost {
             (windows_core::Interface::vtable(self).TxKillTimer)(windows_core::Interface::as_raw(self), idtimer);
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+    #[cfg(all(feature = "minwindef", feature = "windef"))]
     pub unsafe fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: *const super::windef::RECT, lprcclip: *const super::windef::RECT, hrgnupdate: super::minwindef::HRGN, lprcupdate: *mut super::windef::RECT, fuscroll: u32) {
         unsafe {
             (windows_core::Interface::vtable(self).TxScrollWindowEx)(windows_core::Interface::as_raw(self), dx, dy, lprcscroll, lprcclip, hrgnupdate, lprcupdate as _, fuscroll);
@@ -252,17 +252,17 @@ impl ITextHost {
             (windows_core::Interface::vtable(self).TxSetFocus)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxSetCursor(&self, hcur: super::windef::HCURSOR, ftext: bool) {
         unsafe {
             (windows_core::Interface::vtable(self).TxSetCursor)(windows_core::Interface::as_raw(self), hcur, ftext.into());
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxScreenToClient(&self, lppt: *mut super::windef::POINT) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxScreenToClient)(windows_core::Interface::as_raw(self), lppt as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxClientToScreen(&self, lppt: *mut super::windef::POINT) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxClientToScreen)(windows_core::Interface::as_raw(self), lppt as _) }
     }
@@ -275,35 +275,35 @@ impl ITextHost {
     pub unsafe fn TxDeactivate(&self, lnewstate: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxDeactivate)(windows_core::Interface::as_raw(self), lnewstate) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxGetClientRect(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TxGetClientRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxGetViewInset(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TxGetViewInset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_richedit", feature = "Win32_windef"))]
+    #[cfg(all(feature = "richedit", feature = "windef"))]
     pub unsafe fn TxGetCharFormat(&self) -> windows_core::Result<*mut super::richedit::CHARFORMATW> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TxGetCharFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_richedit")]
+    #[cfg(feature = "richedit")]
     pub unsafe fn TxGetParaFormat(&self) -> windows_core::Result<*mut super::richedit::PARAFORMAT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TxGetParaFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxGetSysColor(&self, nindex: i32) -> super::windef::COLORREF {
         unsafe { (windows_core::Interface::vtable(self).TxGetSysColor)(windows_core::Interface::as_raw(self), nindex) }
     }
@@ -325,7 +325,7 @@ impl ITextHost {
             (windows_core::Interface::vtable(self).TxGetScrollBars)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn TxGetPasswordChar(&self) -> windows_core::Result<super::winnt::TCHAR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -338,18 +338,18 @@ impl ITextHost {
             (windows_core::Interface::vtable(self).TxGetAcceleratorPos)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxGetExtent(&self) -> windows_core::Result<super::windef::SIZE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TxGetExtent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_richedit", feature = "Win32_windef"))]
+    #[cfg(all(feature = "richedit", feature = "windef"))]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: *const super::richedit::CHARFORMATW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnTxCharFormatChange)(windows_core::Interface::as_raw(self), pcf) }
     }
-    #[cfg(feature = "Win32_richedit")]
+    #[cfg(feature = "richedit")]
     pub unsafe fn OnTxParaFormatChange(&self, ppf: *const super::richedit::PARAFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnTxParaFormatChange)(windows_core::Interface::as_raw(self), ppf) }
     }
@@ -362,11 +362,11 @@ impl ITextHost {
     pub unsafe fn TxNotify(&self, inotify: u32, pv: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxNotify)(windows_core::Interface::as_raw(self), inotify, pv as _) }
     }
-    #[cfg(feature = "Win32_imm")]
+    #[cfg(feature = "imm")]
     pub unsafe fn TxImmGetContext(&self) -> super::imm::HIMC {
         unsafe { (windows_core::Interface::vtable(self).TxImmGetContext)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_imm")]
+    #[cfg(feature = "imm")]
     pub unsafe fn TxImmReleaseContext(&self, himc: super::imm::HIMC) {
         unsafe {
             (windows_core::Interface::vtable(self).TxImmReleaseContext)(windows_core::Interface::as_raw(self), himc);
@@ -383,104 +383,104 @@ impl ITextHost {
 #[doc(hidden)]
 pub struct ITextHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxGetDC: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::windef::HDC,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxGetDC: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC) -> i32,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxReleaseDC: usize,
     pub TxShowScrollBar: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::BOOL) -> windows_core::BOOL,
     pub TxEnableScrollBar: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::BOOL,
     pub TxSetScrollRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, windows_core::BOOL) -> windows_core::BOOL,
     pub TxSetScrollPos: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, windows_core::BOOL) -> windows_core::BOOL,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxInvalidateRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::RECT, windows_core::BOOL),
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxInvalidateRect: usize,
     pub TxViewChange: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxCreateCaret: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HBITMAP, i32, i32) -> windows_core::BOOL,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxCreateCaret: usize,
     pub TxShowCaret: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::BOOL,
     pub TxSetCaretPos: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::BOOL,
     pub TxSetTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
     pub TxKillTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+    #[cfg(all(feature = "minwindef", feature = "windef"))]
     pub TxScrollWindowEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *const super::windef::RECT, *const super::windef::RECT, super::minwindef::HRGN, *mut super::windef::RECT, u32),
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "minwindef", feature = "windef")))]
     TxScrollWindowEx: usize,
     pub TxSetCapture: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
     pub TxSetFocus: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxSetCursor: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HCURSOR, windows_core::BOOL),
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxSetCursor: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxScreenToClient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::POINT) -> windows_core::BOOL,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxScreenToClient: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxClientToScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::POINT) -> windows_core::BOOL,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxClientToScreen: usize,
     pub TxActivate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub TxDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxGetClientRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxGetClientRect: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxGetViewInset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxGetViewInset: usize,
-    #[cfg(all(feature = "Win32_richedit", feature = "Win32_windef"))]
+    #[cfg(all(feature = "richedit", feature = "windef"))]
     pub TxGetCharFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::richedit::CHARFORMATW) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_richedit", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "richedit", feature = "windef")))]
     TxGetCharFormat: usize,
-    #[cfg(feature = "Win32_richedit")]
+    #[cfg(feature = "richedit")]
     pub TxGetParaFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::richedit::PARAFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_richedit"))]
+    #[cfg(not(feature = "richedit"))]
     TxGetParaFormat: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxGetSysColor: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> super::windef::COLORREF,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxGetSysColor: usize,
     pub TxGetBackStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TXTBACKSTYLE) -> windows_core::HRESULT,
     pub TxGetMaxLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub TxGetScrollBars: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub TxGetPasswordChar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::TCHAR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     TxGetPasswordChar: usize,
     pub TxGetAcceleratorPos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxGetExtent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::SIZE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxGetExtent: usize,
-    #[cfg(all(feature = "Win32_richedit", feature = "Win32_windef"))]
+    #[cfg(all(feature = "richedit", feature = "windef"))]
     pub OnTxCharFormatChange: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::richedit::CHARFORMATW) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_richedit", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "richedit", feature = "windef")))]
     OnTxCharFormatChange: usize,
-    #[cfg(feature = "Win32_richedit")]
+    #[cfg(feature = "richedit")]
     pub OnTxParaFormatChange: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::richedit::PARAFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_richedit"))]
+    #[cfg(not(feature = "richedit"))]
     OnTxParaFormatChange: usize,
     pub TxGetPropertyBits: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub TxNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_imm")]
+    #[cfg(feature = "imm")]
     pub TxImmGetContext: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::imm::HIMC,
-    #[cfg(not(feature = "Win32_imm"))]
+    #[cfg(not(feature = "imm"))]
     TxImmGetContext: usize,
-    #[cfg(feature = "Win32_imm")]
+    #[cfg(feature = "imm")]
     pub TxImmReleaseContext: unsafe extern "system" fn(*mut core::ffi::c_void, super::imm::HIMC),
-    #[cfg(not(feature = "Win32_imm"))]
+    #[cfg(not(feature = "imm"))]
     TxImmReleaseContext: usize,
     pub TxGetSelectionBarWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_imm", feature = "Win32_minwindef", feature = "Win32_richedit", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "imm", feature = "minwindef", feature = "richedit", feature = "windef", feature = "winnt"))]
 pub trait ITextHost_Impl: windows_core::IUnknownImpl {
     fn TxGetDC(&self) -> super::windef::HDC;
     fn TxReleaseDC(&self, hdc: super::windef::HDC) -> i32;
@@ -522,7 +522,7 @@ pub trait ITextHost_Impl: windows_core::IUnknownImpl {
     fn TxImmReleaseContext(&self, himc: super::imm::HIMC);
     fn TxGetSelectionBarWidth(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_imm", feature = "Win32_minwindef", feature = "Win32_richedit", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "imm", feature = "minwindef", feature = "richedit", feature = "windef", feature = "winnt"))]
 impl ITextHost_Vtbl {
     pub const fn new<Identity: ITextHost_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TxGetDC<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::windef::HDC {
@@ -884,7 +884,7 @@ impl ITextHost_Vtbl {
         iid == &<ITextHost as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_imm", feature = "Win32_minwindef", feature = "Win32_richedit", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "imm", feature = "minwindef", feature = "richedit", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for ITextHost {}
 windows_core::imp::define_interface!(ITextHost2, ITextHost2_Vtbl, 0);
 impl core::ops::Deref for ITextHost2 {
@@ -898,7 +898,7 @@ impl ITextHost2 {
     pub unsafe fn TxIsDoubleClickPending(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxIsDoubleClickPending)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxGetWindow(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -908,7 +908,7 @@ impl ITextHost2 {
     pub unsafe fn TxSetForegroundWindow(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxSetForegroundWindow)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxGetPalette(&self) -> super::windef::HPALETTE {
         unsafe { (windows_core::Interface::vtable(self).TxGetPalette)(windows_core::Interface::as_raw(self)) }
     }
@@ -918,7 +918,7 @@ impl ITextHost2 {
             (windows_core::Interface::vtable(self).TxGetEastAsianFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxSetCursor2(&self, hcur: super::windef::HCURSOR, btext: bool) -> super::windef::HCURSOR {
         unsafe { (windows_core::Interface::vtable(self).TxSetCursor2)(windows_core::Interface::as_raw(self), hcur, btext.into()) }
     }
@@ -936,7 +936,7 @@ impl ITextHost2 {
     pub unsafe fn TxGetWindowStyles(&self, pdwstyle: *mut u32, pdwexstyle: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxGetWindowStyles)(windows_core::Interface::as_raw(self), pdwstyle as _, pdwexstyle as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn TxShowDropCaret(&self, fshow: bool, hdc: super::windef::HDC, prc: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxShowDropCaret)(windows_core::Interface::as_raw(self), fshow.into(), hdc, prc) }
     }
@@ -955,31 +955,31 @@ impl ITextHost2 {
 pub struct ITextHost2_Vtbl {
     pub base__: ITextHost_Vtbl,
     pub TxIsDoubleClickPending: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxGetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxGetWindow: usize,
     pub TxSetForegroundWindow: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxGetPalette: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::windef::HPALETTE,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxGetPalette: usize,
     pub TxGetEastAsianFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxSetCursor2: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HCURSOR, windows_core::BOOL) -> super::windef::HCURSOR,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxSetCursor2: usize,
     pub TxFreeTextServicesNotification: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub TxGetEditStyle: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub TxGetWindowStyles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub TxShowDropCaret: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, super::windef::HDC, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     TxShowDropCaret: usize,
     pub TxDestroyCaret: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TxGetHorzExtent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_imm", feature = "Win32_minwindef", feature = "Win32_richedit", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "imm", feature = "minwindef", feature = "richedit", feature = "windef", feature = "winnt"))]
 pub trait ITextHost2_Impl: ITextHost_Impl {
     fn TxIsDoubleClickPending(&self) -> windows_core::BOOL;
     fn TxGetWindow(&self) -> windows_core::Result<super::windef::HWND>;
@@ -994,7 +994,7 @@ pub trait ITextHost2_Impl: ITextHost_Impl {
     fn TxDestroyCaret(&self) -> windows_core::Result<()>;
     fn TxGetHorzExtent(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_imm", feature = "Win32_minwindef", feature = "Win32_richedit", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "imm", feature = "minwindef", feature = "richedit", feature = "windef", feature = "winnt"))]
 impl ITextHost2_Vtbl {
     pub const fn new<Identity: ITextHost2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TxIsDoubleClickPending<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -1113,19 +1113,19 @@ impl ITextHost2_Vtbl {
         iid == &<ITextHost2 as windows_core::Interface>::IID || iid == &<ITextHost as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_imm", feature = "Win32_minwindef", feature = "Win32_richedit", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "imm", feature = "minwindef", feature = "richedit", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for ITextHost2 {}
 windows_core::imp::define_interface!(ITextServices, ITextServices_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(ITextServices, windows_core::IUnknown);
 impl ITextServices {
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn TxSendMessage(&self, msg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<super::minwindef::LRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TxSendMessage)(windows_core::Interface::as_raw(self), msg, wparam, lparam, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub unsafe fn TxDraw(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::objidl::DVTARGETDEVICE, hdcdraw: super::windef::HDC, hictargetdev: super::windef::HDC, lprcbounds: *const super::windef::RECTL, lprcwbounds: *const super::windef::RECTL, lprcupdate: *mut super::windef::RECT, pfncontinue: *mut u8, dwcontinue: u32, lviewid: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxDraw)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect as _, ptd as _, hdcdraw, hictargetdev, lprcbounds, lprcwbounds, lprcupdate as _, pfncontinue as _, dwcontinue, lviewid) }
     }
@@ -1135,15 +1135,15 @@ impl ITextServices {
     pub unsafe fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxGetVScroll)(windows_core::Interface::as_raw(self), plmin as _, plmax as _, plpos as _, plpage as _, pfenabled as _) }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub unsafe fn OnTxSetCursor(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::objidl::DVTARGETDEVICE, hdcdraw: super::windef::HDC, hictargetdev: super::windef::HDC, lprcclient: *const super::windef::RECT, x: i32, y: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnTxSetCursor)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect as _, ptd as _, hdcdraw, hictargetdev, lprcclient, x, y) }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub unsafe fn TxQueryHitPoint(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::objidl::DVTARGETDEVICE, hdcdraw: super::windef::HDC, hictargetdev: super::windef::HDC, lprcclient: *const super::windef::RECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxQueryHitPoint)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect as _, ptd as _, hdcdraw, hictargetdev, lprcclient, x, y, phitresult as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn OnTxInPlaceActivate(&self, prcclient: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnTxInPlaceActivate)(windows_core::Interface::as_raw(self), prcclient) }
     }
@@ -1180,11 +1180,11 @@ impl ITextServices {
             (windows_core::Interface::vtable(self).TxGetBaseLinePos)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub unsafe fn TxGetNaturalSize(&self, dwaspect: u32, hdcdraw: super::windef::HDC, hictargetdev: super::windef::HDC, ptd: *mut super::objidl::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::windef::SIZEL, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxGetNaturalSize)(windows_core::Interface::as_raw(self), dwaspect, hdcdraw, hictargetdev, ptd as _, dwmode, psizelextent, pwidth as _, pheight as _) }
     }
-    #[cfg(feature = "Win32_oleidl")]
+    #[cfg(feature = "oleidl")]
     pub unsafe fn TxGetDropTarget(&self) -> windows_core::Result<super::oleidl::IDropTarget> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1202,27 +1202,27 @@ impl ITextServices {
 #[doc(hidden)]
 pub struct ITextServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub TxSendMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut super::minwindef::LRESULT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     TxSendMessage: usize,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub TxDraw: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *mut core::ffi::c_void, *mut super::objidl::DVTARGETDEVICE, super::windef::HDC, super::windef::HDC, *const super::windef::RECTL, *const super::windef::RECTL, *mut super::windef::RECT, *mut u8, u32, i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "objidl", feature = "windef")))]
     TxDraw: usize,
     pub TxGetHScroll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub TxGetVScroll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub OnTxSetCursor: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *mut core::ffi::c_void, *mut super::objidl::DVTARGETDEVICE, super::windef::HDC, super::windef::HDC, *const super::windef::RECT, i32, i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "objidl", feature = "windef")))]
     OnTxSetCursor: usize,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub TxQueryHitPoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *mut core::ffi::c_void, *mut super::objidl::DVTARGETDEVICE, super::windef::HDC, super::windef::HDC, *const super::windef::RECT, i32, i32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "objidl", feature = "windef")))]
     TxQueryHitPoint: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub OnTxInPlaceActivate: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     OnTxInPlaceActivate: usize,
     pub OnTxInPlaceDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnTxUIActivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1231,18 +1231,18 @@ pub struct ITextServices_Vtbl {
     pub TxSetText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub TxGetCurTargetX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub TxGetBaseLinePos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub TxGetNaturalSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::windef::HDC, super::windef::HDC, *mut super::objidl::DVTARGETDEVICE, u32, *const super::windef::SIZEL, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "objidl", feature = "windef")))]
     TxGetNaturalSize: usize,
-    #[cfg(feature = "Win32_oleidl")]
+    #[cfg(feature = "oleidl")]
     pub TxGetDropTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oleidl"))]
+    #[cfg(not(feature = "oleidl"))]
     TxGetDropTarget: usize,
     pub OnTxPropertyBitsChange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub TxGetCachedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "windef"))]
 pub trait ITextServices_Impl: windows_core::IUnknownImpl {
     fn TxSendMessage(&self, msg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<super::minwindef::LRESULT>;
     fn TxDraw(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::objidl::DVTARGETDEVICE, hdcdraw: super::windef::HDC, hictargetdev: super::windef::HDC, lprcbounds: *const super::windef::RECTL, lprcwbounds: *const super::windef::RECTL, lprcupdate: *mut super::windef::RECT, pfncontinue: *mut u8, dwcontinue: u32, lviewid: i32) -> windows_core::Result<()>;
@@ -1263,7 +1263,7 @@ pub trait ITextServices_Impl: windows_core::IUnknownImpl {
     fn OnTxPropertyBitsChange(&self, dwmask: u32, dwbits: u32) -> windows_core::Result<()>;
     fn TxGetCachedSize(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "windef"))]
 impl ITextServices_Vtbl {
     pub const fn new<Identity: ITextServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TxSendMessage<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM, plresult: *mut super::minwindef::LRESULT) -> windows_core::HRESULT {
@@ -1430,7 +1430,7 @@ impl ITextServices_Vtbl {
         iid == &<ITextServices as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "windef"))]
 impl windows_core::RuntimeName for ITextServices {}
 windows_core::imp::define_interface!(ITextServices2, ITextServices2_Vtbl, 0);
 impl core::ops::Deref for ITextServices2 {
@@ -1441,11 +1441,11 @@ impl core::ops::Deref for ITextServices2 {
 }
 windows_core::imp::interface_hierarchy!(ITextServices2, windows_core::IUnknown, ITextServices);
 impl ITextServices2 {
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub unsafe fn TxGetNaturalSize2(&self, dwaspect: u32, hdcdraw: super::windef::HDC, hictargetdev: super::windef::HDC, ptd: *mut super::objidl::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::windef::SIZEL, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxGetNaturalSize2)(windows_core::Interface::as_raw(self), dwaspect, hdcdraw, hictargetdev, ptd as _, dwmode, psizelextent, pwidth as _, pheight as _, pascent as _) }
     }
-    #[cfg(all(feature = "Win32_d2d", feature = "Win32_windef"))]
+    #[cfg(all(feature = "d2d", feature = "windef"))]
     pub unsafe fn TxDrawD2D<P0>(&self, prendertarget: P0, lprcbounds: *const super::windef::RECTL, lprcupdate: *mut super::windef::RECT, lviewid: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::d2d::ID2D1RenderTarget>,
@@ -1457,21 +1457,21 @@ impl ITextServices2 {
 #[doc(hidden)]
 pub struct ITextServices2_Vtbl {
     pub base__: ITextServices_Vtbl,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "objidl", feature = "windef"))]
     pub TxGetNaturalSize2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::windef::HDC, super::windef::HDC, *mut super::objidl::DVTARGETDEVICE, u32, *const super::windef::SIZEL, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "objidl", feature = "windef")))]
     TxGetNaturalSize2: usize,
-    #[cfg(all(feature = "Win32_d2d", feature = "Win32_windef"))]
+    #[cfg(all(feature = "d2d", feature = "windef"))]
     pub TxDrawD2D: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::windef::RECTL, *mut super::windef::RECT, i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2d", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "d2d", feature = "windef")))]
     TxDrawD2D: usize,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "windef"))]
 pub trait ITextServices2_Impl: ITextServices_Impl {
     fn TxGetNaturalSize2(&self, dwaspect: u32, hdcdraw: super::windef::HDC, hictargetdev: super::windef::HDC, ptd: *mut super::objidl::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::windef::SIZEL, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> windows_core::Result<()>;
     fn TxDrawD2D(&self, prendertarget: windows_core::Ref<super::d2d::ID2D1RenderTarget>, lprcbounds: *const super::windef::RECTL, lprcupdate: *mut super::windef::RECT, lviewid: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "windef"))]
 impl ITextServices2_Vtbl {
     pub const fn new<Identity: ITextServices2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TxGetNaturalSize2<Identity: ITextServices2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, hdcdraw: super::windef::HDC, hictargetdev: super::windef::HDC, ptd: *mut super::objidl::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::windef::SIZEL, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> windows_core::HRESULT {
@@ -1496,7 +1496,7 @@ impl ITextServices2_Vtbl {
         iid == &<ITextServices2 as windows_core::Interface>::IID || iid == &<ITextServices as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "windef"))]
 impl windows_core::RuntimeName for ITextServices2 {}
 pub type PCreateTextServices = Option<unsafe extern "system" fn(punkouter: windows_core::Ref<windows_core::IUnknown>, pitexthost: windows_core::Ref<ITextHost>, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT>;
 pub type PShutdownTextServices = Option<unsafe extern "system" fn(ptextservices: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT>;

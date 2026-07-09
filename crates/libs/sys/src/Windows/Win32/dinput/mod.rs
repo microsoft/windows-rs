@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("dinput8.dll" "system" fn DirectInput8Create(hinst : super::minwindef::HINSTANCE, dwversion : u32, riidltf : *const windows_sys::core::GUID, ppvout : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const CLSID_DirectInput: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25e609e0_b259_11cf_bfc7_444553540000);
 pub const CLSID_DirectInput8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25e609e4_b259_11cf_bfc7_444553540000);
@@ -113,10 +113,10 @@ impl Default for DIACTIONA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DIACTIONFORMAT = DIACTIONFORMATA;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DIACTIONFORMATA {
     pub dwSize: u32,
@@ -134,14 +134,14 @@ pub struct DIACTIONFORMATA {
     pub dwCRC: u32,
     pub tszActionMap: [i8; 260],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DIACTIONFORMATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DIACTIONFORMATW {
     pub dwSize: u32,
@@ -159,7 +159,7 @@ pub struct DIACTIONFORMATW {
     pub dwCRC: u32,
     pub tszActionMap: [u16; 260],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DIACTIONFORMATW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1034,7 +1034,7 @@ pub const DIBUTTON_TPS_VIEW: u32 = 167789574;
 pub const DICD_DEFAULT: u32 = 0;
 pub const DICD_EDIT: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 #[derive(Clone, Copy, Default)]
 pub struct DICOLORSET {
     pub dwSize: u32,
@@ -1057,10 +1057,10 @@ pub struct DICONDITION {
     pub dwNegativeSaturation: u32,
     pub lDeadBand: i32,
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub type DICONFIGUREDEVICESPARAMS = DICONFIGUREDEVICESPARAMSA;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DICONFIGUREDEVICESPARAMSA {
     pub dwSize: u32,
@@ -1072,14 +1072,14 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub dics: DICOLORSET,
     pub lpUnkDDSTarget: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl Default for DICONFIGUREDEVICESPARAMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DICONFIGUREDEVICESPARAMSW {
     pub dwSize: u32,
@@ -1091,7 +1091,7 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub dics: DICOLORSET,
     pub lpUnkDDSTarget: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl Default for DICONFIGUREDEVICESPARAMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1103,7 +1103,7 @@ pub struct DICONSTANTFORCE {
     pub lMagnitude: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DICUSTOMFORCE {
     pub cChannels: u32,
@@ -1111,7 +1111,7 @@ pub struct DICUSTOMFORCE {
     pub cSamples: u32,
     pub rglForceData: super::minwindef::LPLONG,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DICUSTOMFORCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1182,10 +1182,10 @@ pub struct DIDEVCAPS_DX3 {
     pub dwButtons: u32,
     pub dwPOVs: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type DIDEVICEIMAGEINFO = DIDEVICEIMAGEINFOA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEIMAGEINFOA {
     pub tszImagePath: [i8; 260],
@@ -1198,16 +1198,16 @@ pub struct DIDEVICEIMAGEINFOA {
     pub rcCalloutRect: super::windef::RECT,
     pub dwTextAlign: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DIDEVICEIMAGEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type DIDEVICEIMAGEINFOHEADER = DIDEVICEIMAGEINFOHEADERA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwSize: u32,
@@ -1220,14 +1220,14 @@ pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwBufferUsed: u32,
     pub lprgImageInfoArray: LPDIDEVICEIMAGEINFOA,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DIDEVICEIMAGEINFOHEADERA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwSize: u32,
@@ -1240,14 +1240,14 @@ pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwBufferUsed: u32,
     pub lprgImageInfoArray: LPDIDEVICEIMAGEINFOW,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DIDEVICEIMAGEINFOHEADERW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEIMAGEINFOW {
     pub tszImagePath: [u16; 260],
@@ -1260,7 +1260,7 @@ pub struct DIDEVICEIMAGEINFOW {
     pub rcCalloutRect: super::windef::RECT,
     pub dwTextAlign: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DIDEVICEIMAGEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1485,7 +1485,7 @@ pub const DIEDFL_INCLUDEALIASES: u32 = 65536;
 pub const DIEDFL_INCLUDEHIDDEN: u32 = 262144;
 pub const DIEDFL_INCLUDEPHANTOMS: u32 = 131072;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DIEFFECT {
     pub dwSize: u32,
@@ -1503,7 +1503,7 @@ pub struct DIEFFECT {
     pub lpvTypeSpecificParams: *mut core::ffi::c_void,
     pub dwStartDelay: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DIEFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1541,7 +1541,7 @@ impl Default for DIEFFECTINFOW {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DIEFFECT_DX5 {
     pub dwSize: u32,
@@ -1558,13 +1558,13 @@ pub struct DIEFFECT_DX5 {
     pub cbTypeSpecificParams: u32,
     pub lpvTypeSpecificParams: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DIEFFECT_DX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DIEFFECT_DX6 = DIEFFECT;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1666,7 +1666,7 @@ pub const DIFEF_DEFAULT: u32 = 0;
 pub const DIFEF_INCLUDENONSTANDARD: u32 = 1;
 pub const DIFEF_MODIFYIFNEEDED: u32 = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DIFILEEFFECT {
     pub dwSize: u32,
@@ -1674,7 +1674,7 @@ pub struct DIFILEEFFECT {
     pub lpDiEffect: LPCDIEFFECT,
     pub szFriendlyName: [i8; 260],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DIFILEEFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2423,37 +2423,37 @@ pub const JOY_PASSDRIVERDATA: u32 = 268435456;
 pub const JOY_US_VOLATILE: u32 = 8;
 pub type LPCDIACTION = LPCDIACTIONA;
 pub type LPCDIACTIONA = *const DIACTIONA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPCDIACTIONFORMAT = LPCDIACTIONFORMATA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPCDIACTIONFORMATA = *const DIACTIONFORMATA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPCDIACTIONFORMATW = *const DIACTIONFORMATW;
 pub type LPCDIACTIONW = *const DIACTIONW;
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 pub type LPCDICOLORSET = *const DICOLORSET;
 pub type LPCDICONDITION = *const DICONDITION;
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub type LPCDICONFIGUREDEVICESPARAMS = LPCDICONFIGUREDEVICESPARAMSA;
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub type LPCDICONFIGUREDEVICESPARAMSA = *const DICONFIGUREDEVICESPARAMSA;
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub type LPCDICONFIGUREDEVICESPARAMSW = *const DICONFIGUREDEVICESPARAMSW;
 pub type LPCDICONSTANTFORCE = *const DICONSTANTFORCE;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPCDICUSTOMFORCE = *const DICUSTOMFORCE;
 pub type LPCDIDATAFORMAT = *const DIDATAFORMAT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCDIDEVICEIMAGEINFO = LPCDIDEVICEIMAGEINFOA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCDIDEVICEIMAGEINFOA = *const DIDEVICEIMAGEINFOA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCDIDEVICEIMAGEINFOHEADER = LPCDIDEVICEIMAGEINFOHEADERA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCDIDEVICEIMAGEINFOHEADERA = *const DIDEVICEIMAGEINFOHEADERA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCDIDEVICEIMAGEINFOHEADERW = *const DIDEVICEIMAGEINFOHEADERW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCDIDEVICEIMAGEINFOW = *const DIDEVICEIMAGEINFOW;
 pub type LPCDIDEVICEINSTANCE = LPCDIDEVICEINSTANCEA;
 pub type LPCDIDEVICEINSTANCEA = *const DIDEVICEINSTANCEA;
@@ -2469,15 +2469,15 @@ pub type LPCDIDEVICEOBJECTINSTANCEW = *const DIDEVICEOBJECTINSTANCEW;
 pub type LPCDIDEVICEOBJECTINSTANCE_DX3 = *const DIDEVICEOBJECTINSTANCE_DX3;
 pub type LPCDIDEVICEOBJECTINSTANCE_DX3A = *const DIDEVICEOBJECTINSTANCE_DX3A;
 pub type LPCDIDEVICEOBJECTINSTANCE_DX3W = *const DIDEVICEOBJECTINSTANCE_DX3W;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPCDIEFFECT = *const DIEFFECT;
 pub type LPCDIEFFECTINFO = *const DIEFFECTINFO;
 pub type LPCDIEFFECTINFOA = *const DIEFFECTINFOA;
 pub type LPCDIEFFECTINFOW = *const DIEFFECTINFOW;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPCDIEFFECT_DX5 = *const DIEFFECT_DX5;
 pub type LPCDIENVELOPE = *const DIENVELOPE;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPCDIFILEEFFECT = *const DIFILEEFFECT;
 pub type LPCDIOBJECTDATAFORMAT = *const DIOBJECTDATAFORMAT;
 pub type LPCDIPERIODIC = *const DIPERIODIC;
@@ -2493,40 +2493,40 @@ pub type LPCDIPROPSTRING = *const DIPROPSTRING;
 pub type LPCDIRAMPFORCE = *const DIRAMPFORCE;
 pub type LPDIACTION = LPDIACTIONA;
 pub type LPDIACTIONA = *mut DIACTIONA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPDIACTIONFORMAT = LPDIACTIONFORMATA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPDIACTIONFORMATA = *mut DIACTIONFORMATA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPDIACTIONFORMATW = *mut DIACTIONFORMATW;
 pub type LPDIACTIONW = *mut DIACTIONW;
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 pub type LPDICOLORSET = *mut DICOLORSET;
 pub type LPDICONDITION = *mut DICONDITION;
 pub type LPDICONFIGUREDEVICESCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub type LPDICONFIGUREDEVICESPARAMS = LPDICONFIGUREDEVICESPARAMSA;
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub type LPDICONFIGUREDEVICESPARAMSA = *mut DICONFIGUREDEVICESPARAMSA;
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub type LPDICONFIGUREDEVICESPARAMSW = *mut DICONFIGUREDEVICESPARAMSW;
 pub type LPDICONSTANTFORCE = *mut DICONSTANTFORCE;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPDICUSTOMFORCE = *mut DICUSTOMFORCE;
 pub type LPDIDATAFORMAT = *mut DIDATAFORMAT;
 pub type LPDIDEVCAPS = *mut DIDEVCAPS;
 pub type LPDIDEVCAPS_DX3 = *mut DIDEVCAPS_DX3;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIDEVICEIMAGEINFO = LPDIDEVICEIMAGEINFOA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIDEVICEIMAGEINFOA = *mut DIDEVICEIMAGEINFOA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIDEVICEIMAGEINFOHEADER = LPDIDEVICEIMAGEINFOHEADERA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIDEVICEIMAGEINFOHEADERA = *mut DIDEVICEIMAGEINFOHEADERA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIDEVICEIMAGEINFOHEADERW = *mut DIDEVICEIMAGEINFOHEADERW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIDEVICEIMAGEINFOW = *mut DIDEVICEIMAGEINFOW;
 pub type LPDIDEVICEINSTANCE = LPDIDEVICEINSTANCEA;
 pub type LPDIDEVICEINSTANCEA = *mut DIDEVICEINSTANCEA;
@@ -2542,14 +2542,14 @@ pub type LPDIDEVICEOBJECTINSTANCEW = *mut DIDEVICEOBJECTINSTANCEW;
 pub type LPDIDEVICEOBJECTINSTANCE_DX3 = LPDIDEVICEOBJECTINSTANCE_DX3A;
 pub type LPDIDEVICEOBJECTINSTANCE_DX3A = *mut DIDEVICEOBJECTINSTANCE_DX3A;
 pub type LPDIDEVICEOBJECTINSTANCE_DX3W = *mut DIDEVICEOBJECTINSTANCE_DX3W;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPDIEFFECT = *mut DIEFFECT;
 pub type LPDIEFFECTINFO = LPDIEFFECTINFOA;
 pub type LPDIEFFECTINFOA = *mut DIEFFECTINFOA;
 pub type LPDIEFFECTINFOW = *mut DIEFFECTINFOW;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPDIEFFECT_DX5 = *mut DIEFFECT_DX5;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPDIEFFECT_DX6 = LPDIEFFECT;
 pub type LPDIEFFESCAPE = *mut DIEFFESCAPE;
 pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
@@ -2561,10 +2561,10 @@ pub type LPDIENUMDEVICESCALLBACKA = Option<unsafe extern "system" fn(param0: *co
 pub type LPDIENUMDEVICESCALLBACKW = Option<unsafe extern "system" fn(param0: *const DIDEVICEINSTANCEW, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type LPDIENUMEFFECTSCALLBACKA = Option<unsafe extern "system" fn(param0: *const DIEFFECTINFOA, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type LPDIENUMEFFECTSCALLBACKW = Option<unsafe extern "system" fn(param0: *const DIEFFECTINFOW, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPDIENUMEFFECTSINFILECALLBACK = Option<unsafe extern "system" fn(param0: *const DIFILEEFFECT, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type LPDIENVELOPE = *mut DIENVELOPE;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPDIFILEEFFECT = *mut DIFILEEFFECT;
 pub type LPDIJOYSTATE = *mut DIJOYSTATE;
 pub type LPDIJOYSTATE2 = *mut DIJOYSTATE2;
@@ -2582,7 +2582,7 @@ pub type LPDIPROPPOINTER = *mut DIPROPPOINTER;
 pub type LPDIPROPRANGE = *mut DIPROPRANGE;
 pub type LPDIPROPSTRING = *mut DIPROPSTRING;
 pub type LPDIRAMPFORCE = *mut DIRAMPFORCE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPFNSHOWJOYCPL = Option<unsafe extern "system" fn(hwnd: super::windef::HWND)>;
 pub const MAXCPOINTSNUM: u32 = 8;
 pub type PCPOINT = *mut CPOINT;

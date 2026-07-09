@@ -1,377 +1,377 @@
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutAdd0(enginehandle : super::winnt::HANDLE, callout : *const super::fwpmtypes::FWPM_CALLOUT0, sd : super::winnt::PSECURITY_DESCRIPTOR, id : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::fwpmtypes::FWPM_CALLOUT_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutDeleteById0(enginehandle : super::winnt::HANDLE, id : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutDeleteByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_CALLOUT0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetById0(enginehandle : super::winnt::HANDLE, id : u32, callout : *mut *mut super::fwpmtypes::FWPM_CALLOUT0) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, callout : *mut *mut super::fwpmtypes::FWPM_CALLOUT0) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutSetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutSubscribeChanges0(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_CALLOUT_SUBSCRIPTION0, callback : FWPM_CALLOUT_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutSubscriptionsGet0(enginehandle : super::winnt::HANDLE, entries : *mut *mut *mut super::fwpmtypes::FWPM_CALLOUT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmCalloutUnsubscribeChanges0(enginehandle : super::winnt::HANDLE, changehandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmConnectionCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::fwpmtypes::FWPM_CONNECTION_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmConnectionDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmConnectionEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_CONNECTION0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmConnectionGetById0(enginehandle : super::winnt::HANDLE, id : u64, connection : *mut *mut super::fwpmtypes::FWPM_CONNECTION0) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmConnectionGetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmConnectionPolicyAdd0(enginehandle : super::winnt::HANDLE, connectionpolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT3, ipversion : super::fwptypes::FWP_IP_VERSION, weight : u64, numfilterconditions : u32, filterconditions : *const super::fwpmtypes::FWPM_FILTER_CONDITION0, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmConnectionPolicyDeleteByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmConnectionSetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmConnectionSubscribe0(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_CONNECTION_SUBSCRIPTION0, callback : FWPM_CONNECTION_CALLBACK0, context : *const core::ffi::c_void, eventshandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmConnectionUnsubscribe0(enginehandle : super::winnt::HANDLE, eventshandle : super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmDynamicKeywordSubscribe0(flags : u32, callback : FWPM_DYNAMIC_KEYWORD_CALLBACK0, context : *const core::ffi::c_void, subscriptionhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmDynamicKeywordUnsubscribe0(subscriptionhandle : super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineClose0(enginehandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineGetOption0(enginehandle : super::winnt::HANDLE, option : super::fwpmtypes::FWPM_ENGINE_OPTION, value : *mut *mut super::fwptypes::FWP_VALUE0) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineGetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_rpc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "rpc", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineOpen0(servername : *const u16, authnservice : u32, authidentity : *const super::rpc::SEC_WINNT_AUTH_IDENTITY_W, session : *const super::fwpmtypes::FWPM_SESSION0, enginehandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineSetOption0(enginehandle : super::winnt::HANDLE, option : super::fwpmtypes::FWPM_ENGINE_OPTION, newvalue : *const super::fwptypes::FWP_VALUE0) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineSetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterAdd0(enginehandle : super::winnt::HANDLE, filter : *const super::fwpmtypes::FWPM_FILTER0, sd : super::winnt::PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::fwpmtypes::FWPM_FILTER_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterDeleteById0(enginehandle : super::winnt::HANDLE, id : u64) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterDeleteByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_FILTER0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterGetById0(enginehandle : super::winnt::HANDLE, id : u64, filter : *mut *mut super::fwpmtypes::FWPM_FILTER0) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterGetByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, filter : *mut *mut super::fwpmtypes::FWPM_FILTER0) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterGetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterSetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterSubscribeChanges0(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_FILTER_SUBSCRIPTION0, callback : FWPM_FILTER_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterSubscriptionsGet0(enginehandle : super::winnt::HANDLE, entries : *mut *mut *mut super::fwpmtypes::FWPM_FILTER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFilterUnsubscribeChanges0(enginehandle : super::winnt::HANDLE, changehandle : super::winnt::HANDLE) -> u32);
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmFreeMemory0(p : *mut *mut core::ffi::c_void));
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmGetAppIdFromFileName0(filename : windows_sys::core::PCWSTR, appid : *mut *mut super::fwptypes::FWP_BYTE_BLOB) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd0(enginehandle : super::winnt::HANDLE, flags : u32, mainmodepolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT0, tunnelpolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT0, numfilterconditions : u32, filterconditions : *const super::fwpmtypes::FWPM_FILTER_CONDITION0, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd1(enginehandle : super::winnt::HANDLE, flags : u32, mainmodepolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT1, tunnelpolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT1, numfilterconditions : u32, filterconditions : *const super::fwpmtypes::FWPM_FILTER_CONDITION0, keymodkey : *const windows_sys::core::GUID, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd2(enginehandle : super::winnt::HANDLE, flags : u32, mainmodepolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT2, tunnelpolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT2, numfilterconditions : u32, filterconditions : *const super::fwpmtypes::FWPM_FILTER_CONDITION0, keymodkey : *const windows_sys::core::GUID, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd3(enginehandle : super::winnt::HANDLE, flags : u32, mainmodepolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT3, tunnelpolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT3, numfilterconditions : u32, filterconditions : *const super::fwpmtypes::FWPM_FILTER_CONDITION0, keymodkey : *const windows_sys::core::GUID, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelDeleteByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmLayerCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::fwpmtypes::FWPM_LAYER_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmLayerDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmLayerEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_LAYER0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmLayerGetById0(enginehandle : super::winnt::HANDLE, id : u16, layer : *mut *mut super::fwpmtypes::FWPM_LAYER0) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmLayerGetByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, layer : *mut *mut super::fwpmtypes::FWPM_LAYER0) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmLayerGetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmLayerSetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::fwpmtypes::FWPM_NET_EVENT_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_NET_EVENT0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum1(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_NET_EVENT1, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum2(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_NET_EVENT2, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum3(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_NET_EVENT3, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum4(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_NET_EVENT4, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum5(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_NET_EVENT5, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe0(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK0, context : *const core::ffi::c_void, eventshandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe1(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK1, context : *const core::ffi::c_void, eventshandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe2(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK2, context : *const core::ffi::c_void, eventshandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe3(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK3, context : *const core::ffi::c_void, eventshandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe4(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK4, context : *const core::ffi::c_void, eventshandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscriptionsGet0(enginehandle : super::winnt::HANDLE, entries : *mut *mut *mut super::fwpmtypes::FWPM_NET_EVENT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventUnsubscribe0(enginehandle : super::winnt::HANDLE, eventshandle : super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventsGetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmNetEventsSetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderAdd0(enginehandle : super::winnt::HANDLE, provider : *const super::fwpmtypes::FWPM_PROVIDER0, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd0(enginehandle : super::winnt::HANDLE, providercontext : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT0, sd : super::winnt::PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd1(enginehandle : super::winnt::HANDLE, providercontext : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT1, sd : super::winnt::PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd2(enginehandle : super::winnt::HANDLE, providercontext : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT2, sd : super::winnt::PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd3(enginehandle : super::winnt::HANDLE, providercontext : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT3, sd : super::winnt::PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDeleteById0(enginehandle : super::winnt::HANDLE, id : u64) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDeleteByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum1(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT1, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum2(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT2, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum3(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT3, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById0(enginehandle : super::winnt::HANDLE, id : u64, providercontext : *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT0) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById1(enginehandle : super::winnt::HANDLE, id : u64, providercontext : *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT1) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById2(enginehandle : super::winnt::HANDLE, id : u64, providercontext : *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT2) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById3(enginehandle : super::winnt::HANDLE, id : u64, providercontext : *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT3) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, providercontext : *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT0) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey1(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, providercontext : *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT1) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey2(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, providercontext : *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT2) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey3(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, providercontext : *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT3) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSubscribeChanges0(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback : FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSubscriptionsGet0(enginehandle : super::winnt::HANDLE, entries : *mut *mut *mut super::fwpmtypes::FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderContextUnsubscribeChanges0(enginehandle : super::winnt::HANDLE, changehandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::fwpmtypes::FWPM_PROVIDER_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderDeleteByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_PROVIDER0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderGetByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, provider : *mut *mut super::fwpmtypes::FWPM_PROVIDER0) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderGetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderSetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderSubscribeChanges0(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_PROVIDER_SUBSCRIPTION0, callback : FWPM_PROVIDER_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderSubscriptionsGet0(enginehandle : super::winnt::HANDLE, entries : *mut *mut *mut super::fwpmtypes::FWPM_PROVIDER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmProviderUnsubscribeChanges0(enginehandle : super::winnt::HANDLE, changehandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSessionCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::fwpmtypes::FWPM_SESSION_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSessionDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSessionEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_SESSION0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerAdd0(enginehandle : super::winnt::HANDLE, sublayer : *const super::fwpmtypes::FWPM_SUBLAYER0, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::fwpmtypes::FWPM_SUBLAYER_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDeleteByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::fwpmtypes::FWPM_SUBLAYER0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerGetByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, sublayer : *mut *mut super::fwpmtypes::FWPM_SUBLAYER0) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, key : *const windows_sys::core::GUID, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSubscribeChanges0(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_SUBLAYER_SUBSCRIPTION0, callback : FWPM_SUBLAYER_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSubscriptionsGet0(enginehandle : super::winnt::HANDLE, entries : *mut *mut *mut super::fwpmtypes::FWPM_SUBLAYER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerUnsubscribeChanges0(enginehandle : super::winnt::HANDLE, changehandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsGet0(enginehandle : super::winnt::HANDLE, sysports : *mut *mut super::fwpmtypes::FWPM_SYSTEM_PORTS0) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsSubscribe0(enginehandle : super::winnt::HANDLE, reserved : *const core::ffi::c_void, callback : FWPM_SYSTEM_PORTS_CALLBACK0, context : *const core::ffi::c_void, sysportshandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsUnsubscribe0(enginehandle : super::winnt::HANDLE, sysportshandle : super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmTransactionAbort0(enginehandle : super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmTransactionBegin0(enginehandle : super::winnt::HANDLE, flags : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmTransactionCommit0(enginehandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventSubscribe0(enginehandle : super::winnt::HANDLE, subscription : *const super::fwpmtypes::FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback : FWPM_VSWITCH_EVENT_CALLBACK0, context : *const core::ffi::c_void, subscriptionhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventUnsubscribe0(enginehandle : super::winnt::HANDLE, subscriptionhandle : super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventsSetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecDospGetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecDospGetStatistics0(enginehandle : super::winnt::HANDLE, idpstatistics : *mut super::ipsectypes::IPSEC_DOSP_STATISTICS0) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecDospSetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecDospStateCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::ipsectypes::IPSEC_DOSP_STATE_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecDospStateDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecDospStateEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::ipsectypes::IPSEC_DOSP_STATE0, numentries : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecGetStatistics0(enginehandle : super::winnt::HANDLE, ipsecstatistics : *mut super::ipsectypes::IPSEC_STATISTICS0) -> u32);
-#[cfg(all(feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecGetStatistics1(enginehandle : super::winnt::HANDLE, ipsecstatistics : *mut super::ipsectypes::IPSEC_STATISTICS1) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerAddAndRegister0(enginehandle : super::winnt::HANDLE, keymanager : *const super::ipsectypes::IPSEC_KEY_MANAGER0, keymanagercallbacks : *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, reserved : *const core::ffi::c_void, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerSetSecurityInfoByKey0(enginehandle : super::winnt::HANDLE, reserved : *const core::ffi::c_void, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerUnregisterAndDelete0(enginehandle : super::winnt::HANDLE, keymgmthandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecKeyManagersGet0(enginehandle : super::winnt::HANDLE, entries : *mut *mut *mut super::ipsectypes::IPSEC_KEY_MANAGER0, numentries : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddInbound0(enginehandle : super::winnt::HANDLE, id : u64, inboundbundle : *const super::ipsectypes::IPSEC_SA_BUNDLE0) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddInbound1(enginehandle : super::winnt::HANDLE, id : u64, inboundbundle : *const super::ipsectypes::IPSEC_SA_BUNDLE1) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddOutbound0(enginehandle : super::winnt::HANDLE, id : u64, outboundbundle : *const super::ipsectypes::IPSEC_SA_BUNDLE0) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddOutbound1(enginehandle : super::winnt::HANDLE, id : u64, outboundbundle : *const super::ipsectypes::IPSEC_SA_BUNDLE1) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreate0(enginehandle : super::winnt::HANDLE, outboundtraffic : *const super::ipsectypes::IPSEC_TRAFFIC0, inboundfilterid : *mut u64, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreate1(enginehandle : super::winnt::HANDLE, outboundtraffic : *const super::ipsectypes::IPSEC_TRAFFIC1, virtualiftunnelinfo : *const super::fwptypes::IPSEC_VIRTUAL_IF_TUNNEL_INFO0, inboundfilterid : *mut u64, id : *mut u64) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::ipsectypes::IPSEC_SA_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextDeleteById0(enginehandle : super::winnt::HANDLE, id : u64) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::ipsectypes::IPSEC_SA_CONTEXT0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextEnum1(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::ipsectypes::IPSEC_SA_CONTEXT1, numentriesreturned : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextExpire0(enginehandle : super::winnt::HANDLE, id : u64) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetById0(enginehandle : super::winnt::HANDLE, id : u64, sacontext : *mut *mut super::ipsectypes::IPSEC_SA_CONTEXT0) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetById1(enginehandle : super::winnt::HANDLE, id : u64, sacontext : *mut *mut super::ipsectypes::IPSEC_SA_CONTEXT1) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetSpi0(enginehandle : super::winnt::HANDLE, id : u64, getspi : *const super::ipsectypes::IPSEC_GETSPI0, inboundspi : *mut super::ipsectypes::IPSEC_SA_SPI) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetSpi1(enginehandle : super::winnt::HANDLE, id : u64, getspi : *const super::ipsectypes::IPSEC_GETSPI1, inboundspi : *mut super::ipsectypes::IPSEC_SA_SPI) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextSetSpi0(enginehandle : super::winnt::HANDLE, id : u64, getspi : *const super::ipsectypes::IPSEC_GETSPI1, inboundspi : super::ipsectypes::IPSEC_SA_SPI) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextSubscribe0(enginehandle : super::winnt::HANDLE, subscription : *const super::ipsectypes::IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback : IPSEC_SA_CONTEXT_CALLBACK0, context : *const core::ffi::c_void, eventshandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextSubscriptionsGet0(enginehandle : super::winnt::HANDLE, entries : *mut *mut *mut super::ipsectypes::IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextUnsubscribe0(enginehandle : super::winnt::HANDLE, eventshandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaContextUpdate0(enginehandle : super::winnt::HANDLE, flags : u64, newvalues : *const super::ipsectypes::IPSEC_SA_CONTEXT1) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::ipsectypes::IPSEC_SA_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaDbGetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaDbSetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::ipsectypes::IPSEC_SA_DETAILS0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IPsecSaEnum1(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::ipsectypes::IPSEC_SA_DETAILS1, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "iketypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextGetStatistics0(enginehandle : super::winnt::HANDLE, ikeextstatistics : *mut super::iketypes::IKEEXT_STATISTICS0) -> u32);
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "iketypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextGetStatistics1(enginehandle : super::winnt::HANDLE, ikeextstatistics : *mut super::iketypes::IKEEXT_STATISTICS1) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextSaCreateEnumHandle0(enginehandle : super::winnt::HANDLE, enumtemplate : *const super::iketypes::IKEEXT_SA_ENUM_TEMPLATE0, enumhandle : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextSaDbGetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextSaDbSetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *const super::winnt::SID, sidgroup : *const super::winnt::SID, dacl : *const super::winnt::ACL, sacl : *const super::winnt::ACL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextSaDeleteById0(enginehandle : super::winnt::HANDLE, id : u64) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextSaDestroyEnumHandle0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextSaEnum0(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::iketypes::IKEEXT_SA_DETAILS0, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextSaEnum1(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::iketypes::IKEEXT_SA_DETAILS1, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextSaEnum2(enginehandle : super::winnt::HANDLE, enumhandle : super::winnt::HANDLE, numentriesrequested : u32, entries : *mut *mut *mut super::iketypes::IKEEXT_SA_DETAILS2, numentriesreturned : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextSaGetById0(enginehandle : super::winnt::HANDLE, id : u64, sa : *mut *mut super::iketypes::IKEEXT_SA_DETAILS0) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextSaGetById1(enginehandle : super::winnt::HANDLE, id : u64, salookupcontext : *const windows_sys::core::GUID, sa : *mut *mut super::iketypes::IKEEXT_SA_DETAILS1) -> u32);
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn IkeextSaGetById2(enginehandle : super::winnt::HANDLE, id : u64, salookupcontext : *const windows_sys::core::GUID, sa : *mut *mut super::iketypes::IKEEXT_SA_DETAILS2) -> u32);
 pub const FWPM_ACTRL_ADD: u32 = 1;
 pub const FWPM_ACTRL_ADD_LINK: u32 = 2;
@@ -390,7 +390,7 @@ pub const FWPM_CALLOUT_BUILT_IN_RESERVED_1: windows_sys::core::GUID = windows_sy
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef9661b6_7c5e_48fd_a130_96678ceacc41);
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x18729c7a_2f62_4be0_966f_974b21b86df1);
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6c3fb801_daff_40e9_91e6_f7ff7e52f7d9);
-#[cfg(feature = "Win32_fwpmtypes")]
+#[cfg(feature = "fwpmtypes")]
 pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const super::fwpmtypes::FWPM_CALLOUT_CHANGE0)>;
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33486ab5_6d5e_4e65_a00b_a7afed0ba9a1);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x079b1010_f1c5_4fcd_ae05_da41107abd0b);
@@ -577,7 +577,7 @@ pub const FWPM_CONDITION_VSWITCH_SOURCE_INTERFACE_ID: windows_sys::core::GUID = 
 pub const FWPM_CONDITION_VSWITCH_SOURCE_INTERFACE_TYPE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6b040a2_edaf_4c36_908b_f2f58ae43807);
 pub const FWPM_CONDITION_VSWITCH_SOURCE_VM_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c2a9ec2_9fc6_42bc_bdd8_406d4da0be64);
 pub const FWPM_CONDITION_VSWITCH_TENANT_NETWORK_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc04843c_79e6_4e44_a025_65b9bb0f9f94);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef"))]
 pub type FWPM_CONNECTION_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, eventtype: super::fwpmtypes::FWPM_CONNECTION_EVENT_TYPE, connection: *const super::fwpmtypes::FWPM_CONNECTION0)>;
 pub const FWPM_CONTEXT_ALE_ALLOW_AUTH_FW: u32 = 32;
 pub const FWPM_CONTEXT_ALE_SET_CONNECTION_ALLOW_FIRST_INBOUND_PKT_UNENCRYPTED: u32 = 16;
@@ -596,7 +596,7 @@ pub const FWPM_CONTEXT_RPC_AUDIT_ENABLED: u32 = 1;
 pub const FWPM_CONTEXT_TCP_CHIMNEY_OFFLOAD_DISABLE: u32 = 2;
 pub const FWPM_CONTEXT_TCP_CHIMNEY_OFFLOAD_ENABLE: u32 = 1;
 pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = Option<unsafe extern "system" fn(notification: *mut core::ffi::c_void, context: *mut core::ffi::c_void)>;
-#[cfg(feature = "Win32_fwpmtypes")]
+#[cfg(feature = "fwpmtypes")]
 pub type FWPM_FILTER_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const super::fwpmtypes::FWPM_FILTER_CHANGE0)>;
 pub const FWPM_GENERIC_ALL: u32 = 985087;
 pub const FWPM_GENERIC_EXECUTE: u32 = 131616;
@@ -702,23 +702,23 @@ pub const FWPM_LAYER_STREAM_V4: windows_sys::core::GUID = windows_sys::core::GUI
 pub const FWPM_LAYER_STREAM_V4_DISCARD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25c4c2c2_25ff_4352_82f9_c54a4a4726dc);
 pub const FWPM_LAYER_STREAM_V6: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x47c9137a_7ec4_46b3_b6e4_48e926b1eda4);
 pub const FWPM_LAYER_STREAM_V6_DISCARD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x10a59fc7_b628_4c41_9eb8_cf37d55103cf);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 pub type FWPM_NET_EVENT_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, event: *const super::fwpmtypes::FWPM_NET_EVENT1)>;
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 pub type FWPM_NET_EVENT_CALLBACK1 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, event: *const super::fwpmtypes::FWPM_NET_EVENT2)>;
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 pub type FWPM_NET_EVENT_CALLBACK2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, event: *const super::fwpmtypes::FWPM_NET_EVENT3)>;
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 pub type FWPM_NET_EVENT_CALLBACK3 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, event: *const super::fwpmtypes::FWPM_NET_EVENT4)>;
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 pub type FWPM_NET_EVENT_CALLBACK4 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, event: *const super::fwpmtypes::FWPM_NET_EVENT5)>;
 pub const FWPM_NOTIFY_ADDRESSES_ALL: u32 = 3;
 pub const FWPM_NOTIFY_ADDRESSES_AUTO_RESOLVE: u32 = 1;
 pub const FWPM_NOTIFY_ADDRESSES_NON_AUTO_RESOLVE: u32 = 2;
 pub const FWPM_NOTIFY_GRANULAR: u32 = 4;
-#[cfg(feature = "Win32_fwpmtypes")]
+#[cfg(feature = "fwpmtypes")]
 pub type FWPM_PROVIDER_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const super::fwpmtypes::FWPM_PROVIDER_CHANGE0)>;
-#[cfg(feature = "Win32_fwpmtypes")]
+#[cfg(feature = "fwpmtypes")]
 pub type FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT_CHANGE0)>;
 pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_AUTHIP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb25ea800_0d02_46ed_92bd_7fa84bb73e9d);
 pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_IPSEC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c2d4144_f8e0_42c0_94ce_7ccfc63b2f9b);
@@ -731,7 +731,7 @@ pub const FWPM_PROVIDER_MPSSVC_WF: windows_sys::core::GUID = windows_sys::core::
 pub const FWPM_PROVIDER_MPSSVC_WSH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b153735_1049_4480_aab4_d1b9bdc03710);
 pub const FWPM_PROVIDER_TCP_CHIMNEY_OFFLOAD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x896aa19e_9a34_4bcb_ae79_beb9127c84b9);
 pub const FWPM_PROVIDER_TCP_TEMPLATES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x76cfcd30_3394_432d_bed3_441ae50e63c3);
-#[cfg(feature = "Win32_fwpmtypes")]
+#[cfg(feature = "fwpmtypes")]
 pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const super::fwpmtypes::FWPM_SUBLAYER_CHANGE0)>;
 pub const FWPM_SUBLAYER_INSPECTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x877519e1_e6a9_41a5_81b4_8c4f118e4a60);
 pub const FWPM_SUBLAYER_IPSEC_DOSP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe076d572_5d3d_48ef_802b_909eddb098bd);
@@ -751,19 +751,19 @@ pub const FWPM_SUBLAYER_TCP_CHIMNEY_OFFLOAD: windows_sys::core::GUID = windows_s
 pub const FWPM_SUBLAYER_TCP_TEMPLATES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x24421dcf_0ac5_4caa_9e14_50f6e3636af0);
 pub const FWPM_SUBLAYER_TEREDO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba69dc66_5176_4979_9c89_26a7b46a8327);
 pub const FWPM_SUBLAYER_UNIVERSAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeebecc03_ced4_4380_819a_2734397b2b74);
-#[cfg(feature = "Win32_fwpmtypes")]
+#[cfg(feature = "fwpmtypes")]
 pub type FWPM_SYSTEM_PORTS_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, sysports: *const super::fwpmtypes::FWPM_SYSTEM_PORTS0)>;
 pub const FWPM_TUNNEL_FLAG_ENABLE_VIRTUAL_IF_TUNNELING: u32 = 2;
 pub const FWPM_TUNNEL_FLAG_POINT_TO_POINT: u32 = 1;
 pub const FWPM_TUNNEL_FLAG_RESERVED0: u32 = 4;
 pub const FWPM_TXN_READ_ONLY: u32 = 1;
-#[cfg(feature = "Win32_fwpmtypes")]
+#[cfg(feature = "fwpmtypes")]
 pub type FWPM_VSWITCH_EVENT_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, vswitchevent: *const super::fwpmtypes::FWPM_VSWITCH_EVENT0) -> u32>;
 pub const FWPM_WEIGHT_RANGE_IKE_EXEMPTIONS: u32 = 12;
 pub const FWPM_WEIGHT_RANGE_IPSEC: u32 = 0;
 pub const FWPM_WEIGHT_RANGE_MAX: u32 = 15;
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub reserved: windows_sys::core::GUID,
@@ -772,18 +772,18 @@ pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub keyDictation: IPSEC_KEY_MANAGER_DICTATE_KEY0,
     pub keyNotify: IPSEC_KEY_MANAGER_NOTIFY_KEY0,
 }
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 pub type IPSEC_KEY_MANAGER_DICTATE_KEY0 = Option<unsafe extern "system" fn(inboundsadetails: *mut super::ipsectypes::IPSEC_SA_DETAILS1, outboundsadetails: *mut super::ipsectypes::IPSEC_SA_DETAILS1, keyingmodulegenkey: *mut windows_sys::core::BOOL) -> u32>;
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes"))]
 pub type IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = Option<unsafe extern "system" fn(iketraffic: *const super::iketypes::IKEEXT_TRAFFIC0, willdictatekey: *mut windows_sys::core::BOOL, weight: *mut u32)>;
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "ipsectypes", feature = "winnt"))]
 pub type IPSEC_KEY_MANAGER_NOTIFY_KEY0 = Option<unsafe extern "system" fn(inboundsa: *const super::ipsectypes::IPSEC_SA_DETAILS1, outboundsa: *const super::ipsectypes::IPSEC_SA_DETAILS1)>;
 pub const IPSEC_SA_BUNDLE_UPDATE_FLAGS: u32 = 4;
 pub const IPSEC_SA_BUNDLE_UPDATE_KEY_MODULE_STATE: u32 = 16;
 pub const IPSEC_SA_BUNDLE_UPDATE_MM_SA_ID: u32 = 64;
 pub const IPSEC_SA_BUNDLE_UPDATE_NAP_CONTEXT: u32 = 8;
 pub const IPSEC_SA_BUNDLE_UPDATE_PEER_V4_PRIVATE_ADDRESS: u32 = 32;
-#[cfg(feature = "Win32_ipsectypes")]
+#[cfg(feature = "ipsectypes")]
 pub type IPSEC_SA_CONTEXT_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const super::ipsectypes::IPSEC_SA_CONTEXT_CHANGE0)>;
 pub const IPSEC_SA_DETAILS_UPDATE_TRAFFIC: u32 = 1;
 pub const IPSEC_SA_DETAILS_UPDATE_UDP_ENCAPSULATION: u32 = 2;

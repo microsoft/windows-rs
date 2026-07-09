@@ -49,27 +49,27 @@ pub struct MIB_IFSTATUS {
     pub bMHbeatAlive: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPDESTROW {
     pub ForwardRow: super::ipmib::MIB_IPFORWARDROW,
     pub dwForwardPreference: u32,
     pub dwForwardViewSet: u32,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 impl Default for MIB_IPDESTROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPDESTTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPDESTROW; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 impl Default for MIB_IPDESTTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -198,33 +198,33 @@ impl Default for PMIB_IFSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPDESTROW(pub *mut MIB_IPDESTROW);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 impl PMIB_IPDESTROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 impl Default for PMIB_IPDESTROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPDESTTABLE(pub *mut MIB_IPDESTTABLE);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 impl PMIB_IPDESTTABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipmib", feature = "Win32_nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
 impl Default for PMIB_IPDESTTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -335,17 +335,17 @@ impl Default for PMIB_ROUTESTATE {
     }
 }
 pub const PROXY_ARP: u32 = 22;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTCPIP_OWNER_MODULE_BASIC_INFO(pub *mut TCPIP_OWNER_MODULE_BASIC_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PTCPIP_OWNER_MODULE_BASIC_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PTCPIP_OWNER_MODULE_BASIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -413,7 +413,7 @@ pub type SCOPE_NAME_BUFFER = [SN_CHAR; 256];
 pub struct SN_CHAR(pub u16);
 pub const TCP6_STATS: u32 = 38;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCPIP_OWNER_MODULE_BASIC_INFO {
     pub pModuleName: super::winnt::PWCHAR,

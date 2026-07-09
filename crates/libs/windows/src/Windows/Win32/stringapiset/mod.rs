@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnls"))]
+#[cfg(all(feature = "minwindef", feature = "winnls"))]
 #[inline]
 pub unsafe fn CompareStringEx<P0>(lplocalename: P0, dwcmpflags: u32, lpstring1: *const u16, cchcount1: i32, lpstring2: *const u16, cchcount2: i32, lpversioninformation: Option<*const super::winnls::NLSVERSIONINFO>, lpreserved: Option<*const core::ffi::c_void>, lparam: Option<super::minwindef::LPARAM>) -> i32
 where
@@ -12,7 +12,7 @@ pub unsafe fn CompareStringOrdinal(lpstring1: *const u16, cchcount1: i32, lpstri
     windows_core::link!("kernel32.dll" "system" fn CompareStringOrdinal(lpstring1 : *const u16, cchcount1 : i32, lpstring2 : *const u16, cchcount2 : i32, bignorecase : windows_core::BOOL) -> i32);
     unsafe { CompareStringOrdinal(lpstring1, cchcount1, lpstring2, cchcount2, bignorecase.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CompareStringW(locale: super::winnt::LCID, dwcmpflags: u32, lpstring1: *const u16, cchcount1: i32, lpstring2: *const u16, cchcount2: i32) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn CompareStringW(locale : super::winnt::LCID, dwcmpflags : u32, lpstring1 : *const u16, cchcount1 : i32, lpstring2 : *const u16, cchcount2 : i32) -> i32);
@@ -23,7 +23,7 @@ pub unsafe fn FoldStringW(dwmapflags: u32, lpsrcstr: *const u16, cchsrc: i32, lp
     windows_core::link!("kernel32.dll" "system" fn FoldStringW(dwmapflags : u32, lpsrcstr : *const u16, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32) -> i32);
     unsafe { FoldStringW(dwmapflags, lpsrcstr, cchsrc, core::mem::transmute(lpdeststr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetStringTypeExW(locale: super::winnt::LCID, dwinfotype: u32, lpsrcstr: *const u16, lpchartype: &mut [u16]) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetStringTypeExW(locale : super::winnt::LCID, dwinfotype : u32, lpsrcstr : *const u16, cchsrc : i32, lpchartype : *mut u16) -> windows_core::BOOL);

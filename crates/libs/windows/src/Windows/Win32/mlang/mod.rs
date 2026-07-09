@@ -87,7 +87,7 @@ impl IEnumRfc1766 {
     pub unsafe fn Clone(&self, ppenum: Option<*const Option<Self>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppenum.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -103,21 +103,21 @@ impl IEnumRfc1766 {
 pub struct IEnumRfc1766_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut RFC1766INFO, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     Next: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IEnumRfc1766_Impl: windows_core::IUnknownImpl {
     fn Clone(&self, ppenum: *const Option<IEnumRfc1766>) -> windows_core::Result<()>;
     fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IEnumRfc1766_Vtbl {
     pub const fn new<Identity: IEnumRfc1766_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Clone<Identity: IEnumRfc1766_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -156,7 +156,7 @@ impl IEnumRfc1766_Vtbl {
         iid == &<IEnumRfc1766 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IEnumRfc1766 {}
 windows_core::imp::define_interface!(IEnumScript, IEnumScript_Vtbl, 0xae5f1430_388b_11d2_8380_00c04f8f5da1);
 windows_core::imp::interface_hierarchy!(IEnumScript, windows_core::IUnknown);
@@ -467,15 +467,15 @@ impl core::ops::Deref for IMLangFontLink {
 }
 windows_core::imp::interface_hierarchy!(IMLangFontLink, windows_core::IUnknown, IMLangCodePages);
 impl IMLangFontLink {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetFontCodePages(&self, hdc: super::windef::HDC, hfont: super::windef::HFONT, pdwcodepages: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFontCodePages)(windows_core::Interface::as_raw(self), hdc, hfont, pdwcodepages.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn MapFont(&self, hdc: super::windef::HDC, dwcodepages: u32, hsrcfont: super::windef::HFONT, phdestfont: Option<*mut super::windef::HFONT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MapFont)(windows_core::Interface::as_raw(self), hdc, dwcodepages, hsrcfont, phdestfont.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ReleaseFont(&self, hfont: super::windef::HFONT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseFont)(windows_core::Interface::as_raw(self), hfont) }
     }
@@ -487,28 +487,28 @@ impl IMLangFontLink {
 #[doc(hidden)]
 pub struct IMLangFontLink_Vtbl {
     pub base__: IMLangCodePages_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetFontCodePages: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC, super::windef::HFONT, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetFontCodePages: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub MapFont: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC, u32, super::windef::HFONT, *mut super::windef::HFONT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     MapFont: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ReleaseFont: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HFONT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ReleaseFont: usize,
     pub ResetFontMapping: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IMLangFontLink_Impl: IMLangCodePages_Impl {
     fn GetFontCodePages(&self, hdc: super::windef::HDC, hfont: super::windef::HFONT, pdwcodepages: *mut u32) -> windows_core::Result<()>;
     fn MapFont(&self, hdc: super::windef::HDC, dwcodepages: u32, hsrcfont: super::windef::HFONT, phdestfont: *mut super::windef::HFONT) -> windows_core::Result<()>;
     fn ReleaseFont(&self, hfont: super::windef::HFONT) -> windows_core::Result<()>;
     fn ResetFontMapping(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IMLangFontLink_Vtbl {
     pub const fn new<Identity: IMLangFontLink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFontCodePages<Identity: IMLangFontLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::windef::HDC, hfont: super::windef::HFONT, pdwcodepages: *mut u32) -> windows_core::HRESULT {
@@ -547,7 +547,7 @@ impl IMLangFontLink_Vtbl {
         iid == &<IMLangFontLink as windows_core::Interface>::IID || iid == &<IMLangCodePages as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IMLangFontLink {}
 windows_core::imp::define_interface!(IMLangFontLink2, IMLangFontLink2_Vtbl, 0xdccfc162_2b38_11d2_b7ec_00c04f8f5d9a);
 impl core::ops::Deref for IMLangFontLink2 {
@@ -558,22 +558,22 @@ impl core::ops::Deref for IMLangFontLink2 {
 }
 windows_core::imp::interface_hierarchy!(IMLangFontLink2, windows_core::IUnknown, IMLangCodePages);
 impl IMLangFontLink2 {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetFontCodePages(&self, hdc: super::windef::HDC, hfont: super::windef::HFONT, pdwcodepages: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFontCodePages)(windows_core::Interface::as_raw(self), hdc, hfont, pdwcodepages.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ReleaseFont(&self, hfont: super::windef::HFONT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseFont)(windows_core::Interface::as_raw(self), hfont) }
     }
     pub unsafe fn ResetFontMapping(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetFontMapping)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn MapFont(&self, hdc: super::windef::HDC, dwcodepages: u32, chsrc: u16, pfont: Option<*mut super::windef::HFONT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MapFont)(windows_core::Interface::as_raw(self), hdc, dwcodepages, chsrc, pfont.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetFontUnicodeRanges(&self, hdc: super::windef::HDC, puiranges: *const u32, puranges: Option<*mut UNICODERANGE>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFontUnicodeRanges)(windows_core::Interface::as_raw(self), hdc, puiranges, puranges.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -591,27 +591,27 @@ impl IMLangFontLink2 {
 #[doc(hidden)]
 pub struct IMLangFontLink2_Vtbl {
     pub base__: IMLangCodePages_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetFontCodePages: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC, super::windef::HFONT, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetFontCodePages: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ReleaseFont: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HFONT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ReleaseFont: usize,
     pub ResetFontMapping: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub MapFont: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC, u32, u16, *mut super::windef::HFONT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     MapFont: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetFontUnicodeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC, *const u32, *mut UNICODERANGE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetFontUnicodeRanges: usize,
     pub GetScriptFontInfo: unsafe extern "system" fn(*mut core::ffi::c_void, SCRIPT_ID, u32, *mut u32, *mut SCRIPTFONTINFO) -> windows_core::HRESULT,
     pub CodePageToScriptID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SCRIPT_ID) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IMLangFontLink2_Impl: IMLangCodePages_Impl {
     fn GetFontCodePages(&self, hdc: super::windef::HDC, hfont: super::windef::HFONT, pdwcodepages: *mut u32) -> windows_core::Result<()>;
     fn ReleaseFont(&self, hfont: super::windef::HFONT) -> windows_core::Result<()>;
@@ -621,7 +621,7 @@ pub trait IMLangFontLink2_Impl: IMLangCodePages_Impl {
     fn GetScriptFontInfo(&self, sid: SCRIPT_ID, dwflags: u32, puifonts: *mut u32, pscriptfont: *mut SCRIPTFONTINFO) -> windows_core::Result<()>;
     fn CodePageToScriptID(&self, uicodepage: u32) -> windows_core::Result<SCRIPT_ID>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IMLangFontLink2_Vtbl {
     pub const fn new<Identity: IMLangFontLink2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFontCodePages<Identity: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::windef::HDC, hfont: super::windef::HFONT, pdwcodepages: *mut u32) -> windows_core::HRESULT {
@@ -687,7 +687,7 @@ impl IMLangFontLink2_Vtbl {
         iid == &<IMLangFontLink2 as windows_core::Interface>::IID || iid == &<IMLangCodePages as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IMLangFontLink2 {}
 windows_core::imp::define_interface!(IMLangLineBreakConsole, IMLangLineBreakConsole_Vtbl, 0xf5be2ee1_bfd7_11d0_b188_00aa0038c969);
 windows_core::imp::interface_hierarchy!(IMLangLineBreakConsole, windows_core::IUnknown);
@@ -698,11 +698,11 @@ impl IMLangLineBreakConsole {
     {
         unsafe { (windows_core::Interface::vtable(self).BreakLineML)(windows_core::Interface::as_raw(self), psrcmlstr.param().abi(), lsrcpos, lsrclen, cmincolumns, cmaxcolumns, pllinelen.unwrap_or(core::mem::zeroed()) as _, plskiplen.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn BreakLineW(&self, locale: super::winnt::LCID, pszsrc: &[u16], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BreakLineW)(windows_core::Interface::as_raw(self), locale, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn BreakLineA(&self, locale: super::winnt::LCID, ucodepage: u32, pszsrc: &[i8], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BreakLineA)(windows_core::Interface::as_raw(self), locale, ucodepage, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -712,22 +712,22 @@ impl IMLangLineBreakConsole {
 pub struct IMLangLineBreakConsole_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BreakLineML: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, i32, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub BreakLineW: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LCID, *const u16, i32, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     BreakLineW: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub BreakLineA: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LCID, u32, *const i8, i32, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     BreakLineA: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IMLangLineBreakConsole_Impl: windows_core::IUnknownImpl {
     fn BreakLineML(&self, psrcmlstr: windows_core::Ref<IMLangString>, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> windows_core::Result<()>;
     fn BreakLineW(&self, locale: super::winnt::LCID, pszsrc: *const u16, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> windows_core::Result<()>;
     fn BreakLineA(&self, locale: super::winnt::LCID, ucodepage: u32, pszsrc: *const i8, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IMLangLineBreakConsole_Vtbl {
     pub const fn new<Identity: IMLangLineBreakConsole_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BreakLineML<Identity: IMLangLineBreakConsole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrcmlstr: *mut core::ffi::c_void, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> windows_core::HRESULT {
@@ -759,7 +759,7 @@ impl IMLangLineBreakConsole_Vtbl {
         iid == &<IMLangLineBreakConsole as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IMLangLineBreakConsole {}
 windows_core::imp::define_interface!(IMLangString, IMLangString_Vtbl, 0xc04d65ce_b70d_11d0_b188_00aa0038c969);
 windows_core::imp::interface_hierarchy!(IMLangString, windows_core::IUnknown);
@@ -867,11 +867,11 @@ impl IMLangStringAStr {
     pub unsafe fn UnlockAStr(&self, pszsrc: &[u8], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnlockAStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::winnt::LCID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLocale)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, locale) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: Option<*mut super::winnt::LCID>, pllocalepos: Option<*mut i32>, pllocalelen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, plocale.unwrap_or(core::mem::zeroed()) as _, pllocalepos.unwrap_or(core::mem::zeroed()) as _, pllocalelen.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -886,16 +886,16 @@ pub struct IMLangStringAStr_Vtbl {
     pub GetStrBufA: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut u32, *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub LockAStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, u32, i32, *mut u32, *mut windows_core::PSTR, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub UnlockAStr: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetLocale: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, super::winnt::LCID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetLocale: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetLocale: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut super::winnt::LCID, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetLocale: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IMLangStringAStr_Impl: IMLangString_Impl {
     fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
     fn SetStrBufA(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: windows_core::Ref<IMLangStringBufA>, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
@@ -906,7 +906,7 @@ pub trait IMLangStringAStr_Impl: IMLangString_Impl {
     fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::winnt::LCID) -> windows_core::Result<()>;
     fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut super::winnt::LCID, pllocalepos: *mut i32, pllocalelen: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IMLangStringAStr_Vtbl {
     pub const fn new<Identity: IMLangStringAStr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetAStr<Identity: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
@@ -973,7 +973,7 @@ impl IMLangStringAStr_Vtbl {
         iid == &<IMLangStringAStr as windows_core::Interface>::IID || iid == &<IMLangString as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IMLangStringAStr {}
 windows_core::imp::define_interface!(IMLangStringBufA, IMLangStringBufA_Vtbl, 0xd24acd23_ba72_11d0_b188_00aa0038c969);
 windows_core::imp::interface_hierarchy!(IMLangStringBufA, windows_core::IUnknown);
@@ -1169,11 +1169,11 @@ impl IMLangStringWStr {
     pub unsafe fn UnlockWStr(&self, pszsrc: &[u16], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnlockWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::winnt::LCID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLocale)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, locale) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: Option<*mut super::winnt::LCID>, pllocalepos: Option<*mut i32>, pllocalelen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, plocale.unwrap_or(core::mem::zeroed()) as _, pllocalepos.unwrap_or(core::mem::zeroed()) as _, pllocalelen.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -1188,16 +1188,16 @@ pub struct IMLangStringWStr_Vtbl {
     pub GetStrBufW: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub LockWStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, *mut windows_core::PWSTR, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub UnlockWStr: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetLocale: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, super::winnt::LCID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetLocale: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetLocale: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut super::winnt::LCID, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetLocale: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IMLangStringWStr_Impl: IMLangString_Impl {
     fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &windows_core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
     fn SetStrBufW(&self, ldestpos: i32, ldestlen: i32, psrcbuf: windows_core::Ref<IMLangStringBufW>, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
@@ -1208,7 +1208,7 @@ pub trait IMLangStringWStr_Impl: IMLangString_Impl {
     fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::winnt::LCID) -> windows_core::Result<()>;
     fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut super::winnt::LCID, pllocalepos: *mut i32, pllocalelen: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IMLangStringWStr_Vtbl {
     pub const fn new<Identity: IMLangStringWStr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetWStr<Identity: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldestpos: i32, ldestlen: i32, pszsrc: windows_core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
@@ -1275,7 +1275,7 @@ impl IMLangStringWStr_Vtbl {
         iid == &<IMLangStringWStr as windows_core::Interface>::IID || iid == &<IMLangString as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IMLangStringWStr {}
 windows_core::imp::define_interface!(IMultiLanguage, IMultiLanguage_Vtbl, 0x275c23e1_3747_11d0_9fea_00aa003f8646);
 windows_core::imp::interface_hierarchy!(IMultiLanguage, windows_core::IUnknown);
@@ -1319,14 +1319,14 @@ impl IMultiLanguage {
     pub unsafe fn ConvertStringReset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ConvertStringReset)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetRfc1766FromLcid(&self, locale: super::winnt::LCID) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRfc1766FromLcid)(windows_core::Interface::as_raw(self), locale, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetLcidFromRfc1766(&self, plocale: *mut super::winnt::LCID, bstrrfc1766: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLcidFromRfc1766)(windows_core::Interface::as_raw(self), plocale as _, core::mem::transmute_copy(bstrrfc1766)) }
     }
@@ -1336,7 +1336,7 @@ impl IMultiLanguage {
             (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetRfc1766Info(&self, locale: super::winnt::LCID, prfc1766info: *mut RFC1766INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRfc1766Info)(windows_core::Interface::as_raw(self), locale, prfc1766info as _) }
     }
@@ -1361,22 +1361,22 @@ pub struct IMultiLanguage_Vtbl {
     pub ConvertStringToUnicode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *const i8, *mut u32, *mut u16, *mut u32) -> windows_core::HRESULT,
     pub ConvertStringFromUnicode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *const u16, *mut u32, *mut i8, *mut u32) -> windows_core::HRESULT,
     pub ConvertStringReset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetRfc1766FromLcid: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LCID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetRfc1766FromLcid: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetLcidFromRfc1766: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::LCID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetLcidFromRfc1766: usize,
     pub EnumRfc1766: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetRfc1766Info: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LCID, *mut RFC1766INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetRfc1766Info: usize,
     pub CreateConvertCharset: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IMultiLanguage_Impl: windows_core::IUnknownImpl {
     fn GetNumberOfCodePageInfo(&self) -> windows_core::Result<u32>;
     fn GetCodePageInfo(&self, uicodepage: u32, pcodepageinfo: *mut MIMECPINFO) -> windows_core::Result<()>;
@@ -1394,7 +1394,7 @@ pub trait IMultiLanguage_Impl: windows_core::IUnknownImpl {
     fn GetRfc1766Info(&self, locale: super::winnt::LCID, prfc1766info: *mut RFC1766INFO) -> windows_core::Result<()>;
     fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> windows_core::Result<IMLangConvertCharset>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IMultiLanguage_Vtbl {
     pub const fn new<Identity: IMultiLanguage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNumberOfCodePageInfo<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccodepage: *mut u32) -> windows_core::HRESULT {
@@ -1546,7 +1546,7 @@ impl IMultiLanguage_Vtbl {
         iid == &<IMultiLanguage as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IMultiLanguage {}
 windows_core::imp::define_interface!(IMultiLanguage2, IMultiLanguage2_Vtbl, 0xdccfc164_2b38_11d2_b7ec_00c04f8f5d9a);
 windows_core::imp::interface_hierarchy!(IMultiLanguage2, windows_core::IUnknown);
@@ -1557,7 +1557,7 @@ impl IMultiLanguage2 {
             (windows_core::Interface::vtable(self).GetNumberOfCodePageInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, langid: super::winnt::LANGID, pcodepageinfo: *mut MIMECPINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCodePageInfo)(windows_core::Interface::as_raw(self), uicodepage, langid, pcodepageinfo as _) }
     }
@@ -1567,7 +1567,7 @@ impl IMultiLanguage2 {
             (windows_core::Interface::vtable(self).GetFamilyCodePage)(windows_core::Interface::as_raw(self), uicodepage, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn EnumCodePages(&self, grfflags: u32, langid: super::winnt::LANGID) -> windows_core::Result<IEnumCodePage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1592,25 +1592,25 @@ impl IMultiLanguage2 {
     pub unsafe fn ConvertStringReset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ConvertStringReset)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetRfc1766FromLcid(&self, locale: super::winnt::LCID) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRfc1766FromLcid)(windows_core::Interface::as_raw(self), locale, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetLcidFromRfc1766(&self, plocale: *mut super::winnt::LCID, bstrrfc1766: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLcidFromRfc1766)(windows_core::Interface::as_raw(self), plocale as _, core::mem::transmute_copy(bstrrfc1766)) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn EnumRfc1766(&self, langid: super::winnt::LANGID) -> windows_core::Result<IEnumRfc1766> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), langid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetRfc1766Info(&self, locale: super::winnt::LCID, langid: super::winnt::LANGID, prfc1766info: *mut RFC1766INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRfc1766Info)(windows_core::Interface::as_raw(self), locale, langid, prfc1766info as _) }
     }
@@ -1620,7 +1620,7 @@ impl IMultiLanguage2 {
             (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn ConvertStringInIStream<P5, P6>(&self, pdwmode: Option<*mut u32>, dwflag: u32, lpfallback: Option<*const u16>, dwsrcencoding: u32, dwdstencoding: u32, pstmin: P5, pstmout: P6) -> windows_core::HRESULT
     where
         P5: windows_core::Param<super::objidlbase::IStream>,
@@ -1634,7 +1634,7 @@ impl IMultiLanguage2 {
     pub unsafe fn ConvertStringFromUnicodeEx(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: *const u16, pcsrcsize: Option<*mut u32>, pdststr: *mut i8, pcdstsize: Option<*mut u32>, dwflag: u32, lpfallback: Option<*const u16>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ConvertStringFromUnicodeEx)(windows_core::Interface::as_raw(self), pdwmode.unwrap_or(core::mem::zeroed()) as _, dwencoding, psrcstr, pcsrcsize.unwrap_or(core::mem::zeroed()) as _, pdststr as _, pcdstsize.unwrap_or(core::mem::zeroed()) as _, dwflag, lpfallback.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn DetectCodepageInIStream<P2>(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: P2, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<super::objidlbase::IStream>,
@@ -1644,11 +1644,11 @@ impl IMultiLanguage2 {
     pub unsafe fn DetectInputCodepage(&self, dwflag: u32, dwprefwincodepage: u32, psrcstr: *const i8, pcsrcsize: *mut i32, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DetectInputCodepage)(windows_core::Interface::as_raw(self), dwflag, dwprefwincodepage, psrcstr, pcsrcsize as _, lpencoding as _, pnscores as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ValidateCodePage(&self, uicodepage: u32, hwnd: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ValidateCodePage)(windows_core::Interface::as_raw(self), uicodepage, hwnd) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetCodePageDescription(&self, uicodepage: u32, lcid: super::winnt::LCID, lpwidecharstr: &mut [u16]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCodePageDescription)(windows_core::Interface::as_raw(self), uicodepage, lcid, core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap()) }
     }
@@ -1664,14 +1664,14 @@ impl IMultiLanguage2 {
             (windows_core::Interface::vtable(self).GetNumberOfScripts)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn EnumScripts(&self, dwflags: u32, langid: super::winnt::LANGID) -> windows_core::Result<IEnumScript> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumScripts)(windows_core::Interface::as_raw(self), dwflags, langid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ValidateCodePageEx(&self, uicodepage: u32, hwnd: super::windef::HWND, dwfiodcontrol: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ValidateCodePageEx)(windows_core::Interface::as_raw(self), uicodepage, hwnd, dwfiodcontrol) }
     }
@@ -1681,14 +1681,14 @@ impl IMultiLanguage2 {
 pub struct IMultiLanguage2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberOfCodePageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetCodePageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::LANGID, *mut MIMECPINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetCodePageInfo: usize,
     pub GetFamilyCodePage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub EnumCodePages: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::LANGID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     EnumCodePages: usize,
     pub GetCharsetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut MIMECSETINFO) -> windows_core::HRESULT,
     pub IsConvertible: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -1696,55 +1696,55 @@ pub struct IMultiLanguage2_Vtbl {
     pub ConvertStringToUnicode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *const i8, *mut u32, *mut u16, *mut u32) -> windows_core::HRESULT,
     pub ConvertStringFromUnicode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *const u16, *mut u32, *mut i8, *mut u32) -> windows_core::HRESULT,
     pub ConvertStringReset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetRfc1766FromLcid: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LCID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetRfc1766FromLcid: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetLcidFromRfc1766: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::LCID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetLcidFromRfc1766: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub EnumRfc1766: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LANGID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     EnumRfc1766: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetRfc1766Info: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LCID, super::winnt::LANGID, *mut RFC1766INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetRfc1766Info: usize,
     pub CreateConvertCharset: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub ConvertStringInIStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *const u16, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     ConvertStringInIStream: usize,
     pub ConvertStringToUnicodeEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *const i8, *mut u32, *mut u16, *mut u32, u32, *const u16) -> windows_core::HRESULT,
     pub ConvertStringFromUnicodeEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *const u16, *mut u32, *mut i8, *mut u32, u32, *const u16) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub DetectCodepageInIStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, *mut DetectEncodingInfo, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     DetectCodepageInIStream: usize,
     pub DetectInputCodepage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const i8, *mut i32, *mut DetectEncodingInfo, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ValidateCodePage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ValidateCodePage: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetCodePageDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::LCID, windows_core::PWSTR, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetCodePageDescription: usize,
     pub IsCodePageInstallable: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetMimeDBSource: unsafe extern "system" fn(*mut core::ffi::c_void, MIMECONTF) -> windows_core::HRESULT,
     pub GetNumberOfScripts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub EnumScripts: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::LANGID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     EnumScripts: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ValidateCodePageEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ValidateCodePageEx: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt"))]
 pub trait IMultiLanguage2_Impl: windows_core::IUnknownImpl {
     fn GetNumberOfCodePageInfo(&self) -> windows_core::Result<u32>;
     fn GetCodePageInfo(&self, uicodepage: u32, langid: super::winnt::LANGID, pcodepageinfo: *mut MIMECPINFO) -> windows_core::Result<()>;
@@ -1774,7 +1774,7 @@ pub trait IMultiLanguage2_Impl: windows_core::IUnknownImpl {
     fn EnumScripts(&self, dwflags: u32, langid: super::winnt::LANGID) -> windows_core::Result<IEnumScript>;
     fn ValidateCodePageEx(&self, uicodepage: u32, hwnd: super::windef::HWND, dwfiodcontrol: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt"))]
 impl IMultiLanguage2_Vtbl {
     pub const fn new<Identity: IMultiLanguage2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNumberOfCodePageInfo<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccodepage: *mut u32) -> windows_core::HRESULT {
@@ -2022,7 +2022,7 @@ impl IMultiLanguage2_Vtbl {
         iid == &<IMultiLanguage2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IMultiLanguage2 {}
 windows_core::imp::define_interface!(IMultiLanguage3, IMultiLanguage3_Vtbl, 0x4e5868ab_b157_4623_9acc_6a1d9caebe04);
 impl core::ops::Deref for IMultiLanguage3 {
@@ -2039,7 +2039,7 @@ impl IMultiLanguage3 {
     {
         unsafe { (windows_core::Interface::vtable(self).DetectOutboundCodePage)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap(), core::mem::transmute(puipreferredcodepages.map_or(core::ptr::null(), |slice| slice.as_ptr())), puipreferredcodepages.map_or(0, |slice| slice.len().try_into().unwrap()), puidetectedcodepages as _, pndetectedcodepages as _, lpspecialchar.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn DetectOutboundCodePageInIStream<P1, P6>(&self, dwflags: u32, pstrin: P1, puipreferredcodepages: Option<&[u32]>, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: P6) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidlbase::IStream>,
@@ -2053,17 +2053,17 @@ impl IMultiLanguage3 {
 pub struct IMultiLanguage3_Vtbl {
     pub base__: IMultiLanguage2_Vtbl,
     pub DetectOutboundCodePage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, *const u32, u32, *mut u32, *mut u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub DetectOutboundCodePageInIStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *const u32, u32, *mut u32, *mut u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     DetectOutboundCodePageInIStream: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt"))]
 pub trait IMultiLanguage3_Impl: IMultiLanguage2_Impl {
     fn DetectOutboundCodePage(&self, dwflags: u32, lpwidecharstr: &windows_core::PCWSTR, cchwidechar: u32, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn DetectOutboundCodePageInIStream(&self, dwflags: u32, pstrin: windows_core::Ref<super::objidlbase::IStream>, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt"))]
 impl IMultiLanguage3_Vtbl {
     pub const fn new<Identity: IMultiLanguage3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DetectOutboundCodePage<Identity: IMultiLanguage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, lpwidecharstr: windows_core::PCWSTR, cchwidechar: u32, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -2088,7 +2088,7 @@ impl IMultiLanguage3_Vtbl {
         iid == &<IMultiLanguage3 as windows_core::Interface>::IID || iid == &<IMultiLanguage2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IMultiLanguage3 {}
 pub const MAX_LOCALE_NAME: u32 = 32;
 pub const MAX_MIMECP_NAME: u32 = 64;
@@ -2194,17 +2194,17 @@ impl Default for PMIMECSETINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRFC1766INFO(pub *mut RFC1766INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PRFC1766INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PRFC1766INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2237,14 +2237,14 @@ impl Default for PSCRIPTINFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RFC1766INFO {
     pub lcid: super::winnt::LCID,
     pub wszRfc1766: [u16; 6],
     pub wszLocaleName: [u16; 32],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for RFC1766INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

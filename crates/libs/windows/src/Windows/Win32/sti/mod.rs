@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn StiCreateInstanceW<P3>(hinst: super::minwindef::HINSTANCE, dwver: u32, ppsti: *mut Option<IStillImageW>, punkouter: P3) -> windows_core::HRESULT
 where
@@ -28,7 +28,7 @@ impl IStiDevice {
     pub unsafe fn Release(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize<P1>(&self, hinst: super::minwindef::HINSTANCE, pwszdevicename: P1, dwversion: u32, dwmode: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -62,23 +62,23 @@ impl IStiDevice {
     pub unsafe fn UnLockDevice(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnLockDevice)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
     pub unsafe fn RawReadData(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: Option<*const super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RawReadData)(windows_core::Interface::as_raw(self), lpbuffer as _, lpdwnumberofbytes as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
     pub unsafe fn RawWriteData(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: Option<*const super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RawWriteData)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, lpoverlapped.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
     pub unsafe fn RawReadCommand(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: Option<*const super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RawReadCommand)(windows_core::Interface::as_raw(self), lpbuffer as _, lpdwnumberofbytes as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
     pub unsafe fn RawWriteCommand(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: Option<*const super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RawWriteCommand)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, lpoverlapped.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "windef", feature = "winnt"))]
     pub unsafe fn Subscribe(&self, lpsubsribe: *mut STISUBSCRIBE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Subscribe)(windows_core::Interface::as_raw(self), lpsubsribe as _) }
     }
@@ -99,9 +99,9 @@ pub struct IStiDevice_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STI_DEV_CAPS) -> windows_core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STI_DEVICE_STATUS) -> windows_core::HRESULT,
@@ -111,31 +111,31 @@ pub struct IStiDevice_Vtbl {
     pub GetLastError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub LockDevice: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub UnLockDevice: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
     pub RawReadData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *const super::minwinbase::OVERLAPPED) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwinbase", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
     RawReadData: usize,
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
     pub RawWriteData: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *const super::minwinbase::OVERLAPPED) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwinbase", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
     RawWriteData: usize,
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
     pub RawReadCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *const super::minwinbase::OVERLAPPED) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwinbase", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
     RawReadCommand: usize,
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
     pub RawWriteCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *const super::minwinbase::OVERLAPPED) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwinbase", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
     RawWriteCommand: usize,
-    #[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "windef", feature = "winnt"))]
     pub Subscribe: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STISUBSCRIBE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_windef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "windef", feature = "winnt")))]
     Subscribe: usize,
     pub GetLastNotificationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STINOTIFY) -> windows_core::HRESULT,
     pub UnSubscribe: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLastErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STI_ERROR_INFO) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IStiDevice_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -158,7 +158,7 @@ pub trait IStiDevice_Impl: windows_core::IUnknownImpl {
     fn UnSubscribe(&self) -> windows_core::Result<()>;
     fn GetLastErrorInfo(&self, plasterrorinfo: *mut STI_ERROR_INFO) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IStiDevice_Vtbl {
     pub const fn new<Identity: IStiDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -315,7 +315,7 @@ impl IStiDevice_Vtbl {
         iid == &<IStiDevice as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IStiDevice {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -332,7 +332,7 @@ impl IStillImageW {
     pub unsafe fn Release(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, hinst: super::minwindef::HINSTANCE, dwversion: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hinst, dwversion) }
     }
@@ -403,9 +403,9 @@ pub struct IStillImageW_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
     pub GetDeviceList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -418,7 +418,7 @@ pub struct IStillImageW_Vtbl {
     pub RefreshDeviceBus: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub WriteToErrorLog: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IStillImageW_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -435,7 +435,7 @@ pub trait IStillImageW_Impl: windows_core::IUnknownImpl {
     fn RefreshDeviceBus(&self, pwszdevicename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn WriteToErrorLog(&self, dwmessagetype: u32, pszmessage: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IStillImageW_Vtbl {
     pub const fn new<Identity: IStillImageW_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -550,7 +550,7 @@ impl IStillImageW_Vtbl {
         iid == &<IStillImageW as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IStillImageW {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -568,17 +568,17 @@ impl Default for LPSTINOTIFY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPSTISUBSCRIBE(pub *mut STISUBSCRIBE);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl LPSTISUBSCRIBE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for LPSTISUBSCRIBE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -710,7 +710,7 @@ impl Default for STINOTIFY {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STISUBSCRIBE {
     pub dwSize: u32,

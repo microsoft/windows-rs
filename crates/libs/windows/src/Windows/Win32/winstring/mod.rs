@@ -22,7 +22,7 @@ pub unsafe fn WindowsCreateString(sourcestring: Option<&[u16]>) -> windows_core:
         WindowsCreateString(core::mem::transmute(sourcestring.map_or(core::ptr::null(), |slice| slice.as_ptr())), sourcestring.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(feature = "Win32_hstring")]
+#[cfg(feature = "hstring")]
 #[inline]
 pub unsafe fn WindowsCreateStringReference<P0>(sourcestring: P0, length: u32, hstringheader: *mut super::hstring::HSTRING_HEADER, string: *mut windows_core::HSTRING) -> windows_core::HRESULT
 where
@@ -36,7 +36,7 @@ pub unsafe fn WindowsDeleteString(string: &windows_core::HSTRING) -> windows_cor
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteString(string : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { WindowsDeleteString(core::mem::transmute_copy(string)) }
 }
-#[cfg(feature = "Win32_hstring")]
+#[cfg(feature = "hstring")]
 #[inline]
 pub unsafe fn WindowsDeleteStringBuffer(bufferhandle: Option<super::hstring::HSTRING_BUFFER>) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteStringBuffer(bufferhandle : super::hstring::HSTRING_BUFFER) -> windows_core::HRESULT);
@@ -75,13 +75,13 @@ pub unsafe fn WindowsIsStringEmpty(string: &windows_core::HSTRING) -> windows_co
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsIsStringEmpty(string : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { WindowsIsStringEmpty(core::mem::transmute_copy(string)) }
 }
-#[cfg(feature = "Win32_hstring")]
+#[cfg(feature = "hstring")]
 #[inline]
 pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut u16, bufferhandle: *mut super::hstring::HSTRING_BUFFER) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsPreallocateStringBuffer(length : u32, charbuffer : *mut *mut u16, bufferhandle : *mut super::hstring::HSTRING_BUFFER) -> windows_core::HRESULT);
     unsafe { WindowsPreallocateStringBuffer(length, charbuffer as _, bufferhandle as _) }
 }
-#[cfg(feature = "Win32_hstring")]
+#[cfg(feature = "hstring")]
 #[inline]
 pub unsafe fn WindowsPromoteStringBuffer(bufferhandle: super::hstring::HSTRING_BUFFER) -> windows_core::Result<windows_core::HSTRING> {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsPromoteStringBuffer(bufferhandle : super::hstring::HSTRING_BUFFER, string : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);

@@ -1,15 +1,15 @@
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemDateTime, ISWbemDateTime_Vtbl, 0x5e97458a_cf77_11d3_b38f_00105a1f473a);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemDateTime {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemDateTime, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemDateTime {
     pub unsafe fn Value(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -29,14 +29,14 @@ impl ISWbemDateTime {
     pub unsafe fn SetYear(&self, iyear: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetYear)(windows_core::Interface::as_raw(self), iyear) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn YearSpecified(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).YearSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetYearSpecified(&self, byearspecified: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetYearSpecified)(windows_core::Interface::as_raw(self), byearspecified) }
     }
@@ -49,14 +49,14 @@ impl ISWbemDateTime {
     pub unsafe fn SetMonth(&self, imonth: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMonth)(windows_core::Interface::as_raw(self), imonth) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn MonthSpecified(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MonthSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetMonthSpecified(&self, bmonthspecified: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMonthSpecified)(windows_core::Interface::as_raw(self), bmonthspecified) }
     }
@@ -69,14 +69,14 @@ impl ISWbemDateTime {
     pub unsafe fn SetDay(&self, iday: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDay)(windows_core::Interface::as_raw(self), iday) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn DaySpecified(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DaySpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetDaySpecified(&self, bdayspecified: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDaySpecified)(windows_core::Interface::as_raw(self), bdayspecified) }
     }
@@ -89,14 +89,14 @@ impl ISWbemDateTime {
     pub unsafe fn SetHours(&self, ihours: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHours)(windows_core::Interface::as_raw(self), ihours) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn HoursSpecified(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HoursSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetHoursSpecified(&self, bhoursspecified: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHoursSpecified)(windows_core::Interface::as_raw(self), bhoursspecified) }
     }
@@ -109,14 +109,14 @@ impl ISWbemDateTime {
     pub unsafe fn SetMinutes(&self, iminutes: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMinutes)(windows_core::Interface::as_raw(self), iminutes) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn MinutesSpecified(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinutesSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetMinutesSpecified(&self, bminutesspecified: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMinutesSpecified)(windows_core::Interface::as_raw(self), bminutesspecified) }
     }
@@ -129,14 +129,14 @@ impl ISWbemDateTime {
     pub unsafe fn SetSeconds(&self, iseconds: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSeconds)(windows_core::Interface::as_raw(self), iseconds) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SecondsSpecified(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SecondsSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetSecondsSpecified(&self, bsecondsspecified: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSecondsSpecified)(windows_core::Interface::as_raw(self), bsecondsspecified) }
     }
@@ -149,14 +149,14 @@ impl ISWbemDateTime {
     pub unsafe fn SetMicroseconds(&self, imicroseconds: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMicroseconds)(windows_core::Interface::as_raw(self), imicroseconds) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn MicrosecondsSpecified(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MicrosecondsSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetMicrosecondsSpecified(&self, bmicrosecondsspecified: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMicrosecondsSpecified)(windows_core::Interface::as_raw(self), bmicrosecondsspecified) }
     }
@@ -169,52 +169,52 @@ impl ISWbemDateTime {
     pub unsafe fn SetUTC(&self, iutc: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUTC)(windows_core::Interface::as_raw(self), iutc) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn UTCSpecified(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UTCSpecified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetUTCSpecified(&self, butcspecified: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUTCSpecified)(windows_core::Interface::as_raw(self), butcspecified) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsInterval(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetIsInterval(&self, bisinterval: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetIsInterval)(windows_core::Interface::as_raw(self), bisinterval) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetVarDate(&self, bislocal: super::wtypes::VARIANT_BOOL) -> windows_core::Result<f64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVarDate)(windows_core::Interface::as_raw(self), bislocal, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetVarDate(&self, dvardate: f64, bislocal: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVarDate)(windows_core::Interface::as_raw(self), dvardate, bislocal) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetFileTime(&self, bislocal: super::wtypes::VARIANT_BOOL) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileTime)(windows_core::Interface::as_raw(self), bislocal, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetFileTime(&self, strfiletime: &windows_core::BSTR, bislocal: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFileTime)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfiletime), bislocal) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemDateTime_Vtbl {
@@ -223,110 +223,110 @@ pub struct ISWbemDateTime_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Year: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetYear: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub YearSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     YearSpecified: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetYearSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetYearSpecified: usize,
     pub Month: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetMonth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub MonthSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     MonthSpecified: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetMonthSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetMonthSpecified: usize,
     pub Day: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetDay: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub DaySpecified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     DaySpecified: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetDaySpecified: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetDaySpecified: usize,
     pub Hours: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetHours: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub HoursSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     HoursSpecified: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetHoursSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetHoursSpecified: usize,
     pub Minutes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetMinutes: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub MinutesSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     MinutesSpecified: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetMinutesSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetMinutesSpecified: usize,
     pub Seconds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetSeconds: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SecondsSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SecondsSpecified: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetSecondsSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetSecondsSpecified: usize,
     pub Microseconds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetMicroseconds: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub MicrosecondsSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     MicrosecondsSpecified: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetMicrosecondsSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetMicrosecondsSpecified: usize,
     pub UTC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetUTC: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub UTCSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     UTCSpecified: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetUTCSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetUTCSpecified: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsInterval: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetIsInterval: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetIsInterval: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetVarDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, *mut f64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetVarDate: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetVarDate: unsafe extern "system" fn(*mut core::ffi::c_void, f64, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetVarDate: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetFileTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetFileTime: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetFileTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetFileTime: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemDateTime_Impl: super::oaidl::IDispatch_Impl {
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetValue(&self, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -369,7 +369,7 @@ pub trait ISWbemDateTime_Impl: super::oaidl::IDispatch_Impl {
     fn GetFileTime(&self, bislocal: super::wtypes::VARIANT_BOOL) -> windows_core::Result<windows_core::BSTR>;
     fn SetFileTime(&self, strfiletime: &windows_core::BSTR, bislocal: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemDateTime_Vtbl {
     pub const fn new<Identity: ISWbemDateTime_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Value<Identity: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -780,20 +780,20 @@ impl ISWbemDateTime_Vtbl {
         iid == &<ISWbemDateTime as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemDateTime {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemEventSource, ISWbemEventSource_Vtbl, 0x27d54d92_0ebe_11d2_8b22_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemEventSource {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemEventSource, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemEventSource {
     pub unsafe fn NextEvent(&self, itimeoutms: i32) -> windows_core::Result<ISWbemObject> {
         unsafe {
@@ -808,7 +808,7 @@ impl ISWbemEventSource {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemEventSource_Vtbl {
@@ -816,12 +816,12 @@ pub struct ISWbemEventSource_Vtbl {
     pub NextEvent: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Security_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemEventSource_Impl: super::oaidl::IDispatch_Impl {
     fn NextEvent(&self, itimeoutms: i32) -> windows_core::Result<ISWbemObject>;
     fn Security_(&self) -> windows_core::Result<ISWbemSecurity>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemEventSource_Vtbl {
     pub const fn new<Identity: ISWbemEventSource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NextEvent<Identity: ISWbemEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itimeoutms: i32, objwbemobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -858,28 +858,28 @@ impl ISWbemEventSource_Vtbl {
         iid == &<ISWbemEventSource as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemEventSource {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemLastError, ISWbemLastError_Vtbl, 0xd962db84_d4bb_11d1_8b09_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemLastError {
     type Target = ISWbemObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemLastError, windows_core::IUnknown, super::oaidl::IDispatch, ISWbemObject);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemLastError_Vtbl {
     pub base__: ISWbemObject_Vtbl,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemLastError_Impl: ISWbemObject_Impl {}
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemLastError_Vtbl {
     pub const fn new<Identity: ISWbemLastError_Impl, const OFFSET: isize>() -> Self {
         Self { base__: ISWbemObject_Vtbl::new::<Identity, OFFSET>() }
@@ -888,20 +888,20 @@ impl ISWbemLastError_Vtbl {
         iid == &<ISWbemLastError as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ISWbemObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemLastError {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemLocator, ISWbemLocator_Vtbl, 0x76a6415b_cb41_11d1_8b02_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemLocator {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemLocator, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemLocator {
     pub unsafe fn ConnectServer<P7>(&self, strserver: &windows_core::BSTR, strnamespace: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, strauthority: &windows_core::BSTR, isecurityflags: i32, objwbemnamedvalueset: P7) -> windows_core::Result<ISWbemServices>
     where
@@ -919,7 +919,7 @@ impl ISWbemLocator {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemLocator_Vtbl {
@@ -927,12 +927,12 @@ pub struct ISWbemLocator_Vtbl {
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Security_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemLocator_Impl: super::oaidl::IDispatch_Impl {
     fn ConnectServer(&self, strserver: &windows_core::BSTR, strnamespace: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, strauthority: &windows_core::BSTR, isecurityflags: i32, objwbemnamedvalueset: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<ISWbemServices>;
     fn Security_(&self) -> windows_core::Result<ISWbemSecurity>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemLocator_Vtbl {
     pub const fn new<Identity: ISWbemLocator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConnectServer<Identity: ISWbemLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserver: *mut core::ffi::c_void, strnamespace: *mut core::ffi::c_void, struser: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void, strlocale: *mut core::ffi::c_void, strauthority: *mut core::ffi::c_void, isecurityflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemservices: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -969,20 +969,20 @@ impl ISWbemLocator_Vtbl {
         iid == &<ISWbemLocator as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemLocator {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemMethod, ISWbemMethod_Vtbl, 0x422e8e90_d955_11d1_8b09_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemMethod {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemMethod, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemMethod {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1015,7 +1015,7 @@ impl ISWbemMethod {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemMethod_Vtbl {
@@ -1026,7 +1026,7 @@ pub struct ISWbemMethod_Vtbl {
     pub OutParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Qualifiers_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemMethod_Impl: super::oaidl::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Origin(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1034,7 +1034,7 @@ pub trait ISWbemMethod_Impl: super::oaidl::IDispatch_Impl {
     fn OutParameters(&self) -> windows_core::Result<ISWbemObject>;
     fn Qualifiers_(&self) -> windows_core::Result<ISWbemQualifierSet>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemMethod_Vtbl {
     pub const fn new<Identity: ISWbemMethod_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: ISWbemMethod_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1110,20 +1110,20 @@ impl ISWbemMethod_Vtbl {
         iid == &<ISWbemMethod as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemMethod {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemMethodSet, ISWbemMethodSet_Vtbl, 0xc93ba292_d955_11d1_8b09_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemMethodSet {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemMethodSet, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemMethodSet {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -1144,7 +1144,7 @@ impl ISWbemMethodSet {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemMethodSet_Vtbl {
@@ -1153,13 +1153,13 @@ pub struct ISWbemMethodSet_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemMethodSet_Impl: super::oaidl::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, strname: &windows_core::BSTR, iflags: i32) -> windows_core::Result<ISWbemMethod>;
     fn Count(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemMethodSet_Vtbl {
     pub const fn new<Identity: ISWbemMethodSet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: ISWbemMethodSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1209,29 +1209,29 @@ impl ISWbemMethodSet_Vtbl {
         iid == &<ISWbemMethodSet as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemMethodSet {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemNamedValue, ISWbemNamedValue_Vtbl, 0x76a64164_cb41_11d1_8b02_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemNamedValue {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemNamedValue, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemNamedValue {
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Value(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, varvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(varvalue)) }
     }
@@ -1242,28 +1242,28 @@ impl ISWbemNamedValue {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemNamedValue_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Value: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemNamedValue_Impl: super::oaidl::IDispatch_Impl {
     fn Value(&self) -> windows_core::Result<super::oaidl::VARIANT>;
     fn SetValue(&self, varvalue: *const super::oaidl::VARIANT) -> windows_core::Result<()>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemNamedValue_Vtbl {
     pub const fn new<Identity: ISWbemNamedValue_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Value<Identity: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -1307,20 +1307,20 @@ impl ISWbemNamedValue_Vtbl {
         iid == &<ISWbemNamedValue as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemNamedValue {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemNamedValueSet, ISWbemNamedValueSet_Vtbl, 0xcf2376ea_ce8c_11d1_8b05_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemNamedValueSet {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemNamedValueSet, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemNamedValueSet {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -1340,7 +1340,7 @@ impl ISWbemNamedValueSet {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Add(&self, strname: &windows_core::BSTR, varvalue: *const super::oaidl::VARIANT, iflags: i32) -> windows_core::Result<ISWbemNamedValue> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1360,7 +1360,7 @@ impl ISWbemNamedValueSet {
         unsafe { (windows_core::Interface::vtable(self).DeleteAll)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemNamedValueSet_Vtbl {
@@ -1368,15 +1368,15 @@ pub struct ISWbemNamedValueSet_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::VARIANT, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Add: usize,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemNamedValueSet_Impl: super::oaidl::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, strname: &windows_core::BSTR, iflags: i32) -> windows_core::Result<ISWbemNamedValue>;
@@ -1386,7 +1386,7 @@ pub trait ISWbemNamedValueSet_Impl: super::oaidl::IDispatch_Impl {
     fn Clone(&self) -> windows_core::Result<ISWbemNamedValueSet>;
     fn DeleteAll(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemNamedValueSet_Vtbl {
     pub const fn new<Identity: ISWbemNamedValueSet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1476,20 +1476,20 @@ impl ISWbemNamedValueSet_Vtbl {
         iid == &<ISWbemNamedValueSet as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemNamedValueSet {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemObject, ISWbemObject_Vtbl, 0x76a6415a_cb41_11d1_8b02_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemObject {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemObject, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemObject {
     pub unsafe fn Put_<P1>(&self, iflags: i32, objwbemnamedvalueset: P1) -> windows_core::Result<ISWbemObjectPath>
     where
@@ -1556,7 +1556,7 @@ impl ISWbemObject {
     {
         unsafe { (windows_core::Interface::vtable(self).SubclassesAsync_)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), iflags, objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Associators_<P9>(&self, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::wtypes::VARIANT_BOOL, bschemaonly: super::wtypes::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P9) -> windows_core::Result<ISWbemObjectSet>
     where
         P9: windows_core::Param<super::oaidl::IDispatch>,
@@ -1566,7 +1566,7 @@ impl ISWbemObject {
             (windows_core::Interface::vtable(self).Associators_)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strassocclass), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strresultrole), core::mem::transmute_copy(strrole), bclassesonly, bschemaonly, core::mem::transmute_copy(strrequiredassocqualifier), core::mem::transmute_copy(strrequiredqualifier), iflags, objwbemnamedvalueset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AssociatorsAsync_<P0, P10, P11>(&self, objwbemsink: P0, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::wtypes::VARIANT_BOOL, bschemaonly: super::wtypes::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P10, objwbemasynccontext: P11) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -1575,7 +1575,7 @@ impl ISWbemObject {
     {
         unsafe { (windows_core::Interface::vtable(self).AssociatorsAsync_)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), core::mem::transmute_copy(strassocclass), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strresultrole), core::mem::transmute_copy(strrole), bclassesonly, bschemaonly, core::mem::transmute_copy(strrequiredassocqualifier), core::mem::transmute_copy(strrequiredqualifier), iflags, objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn References_<P6>(&self, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::wtypes::VARIANT_BOOL, bschemaonly: super::wtypes::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P6) -> windows_core::Result<ISWbemObjectSet>
     where
         P6: windows_core::Param<super::oaidl::IDispatch>,
@@ -1585,7 +1585,7 @@ impl ISWbemObject {
             (windows_core::Interface::vtable(self).References_)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strrole), bclassesonly, bschemaonly, core::mem::transmute_copy(strrequiredqualifier), iflags, objwbemnamedvalueset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ReferencesAsync_<P0, P7, P8>(&self, objwbemsink: P0, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::wtypes::VARIANT_BOOL, bschemaonly: super::wtypes::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P7, objwbemasynccontext: P8) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -1637,7 +1637,7 @@ impl ISWbemObject {
             (windows_core::Interface::vtable(self).SpawnInstance_)(windows_core::Interface::as_raw(self), iflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn CompareTo_<P0>(&self, objwbemobject: P0, iflags: i32) -> windows_core::Result<super::wtypes::VARIANT_BOOL>
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -1665,7 +1665,7 @@ impl ISWbemObject {
             (windows_core::Interface::vtable(self).Methods_)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Derivation_(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1685,7 +1685,7 @@ impl ISWbemObject {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemObject_Vtbl {
@@ -1698,21 +1698,21 @@ pub struct ISWbemObject_Vtbl {
     pub InstancesAsync_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Subclasses_: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SubclassesAsync_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Associators_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Associators_: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AssociatorsAsync_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AssociatorsAsync_: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub References_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     References_: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ReferencesAsync_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ReferencesAsync_: usize,
     pub ExecMethod_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExecMethodAsync_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1720,21 +1720,21 @@ pub struct ISWbemObject_Vtbl {
     pub GetObjectText_: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SpawnDerivedClass_: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SpawnInstance_: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub CompareTo_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     CompareTo_: usize,
     pub Qualifiers_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Methods_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Derivation_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Derivation_: usize,
     pub Path_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Security_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemObject_Impl: super::oaidl::IDispatch_Impl {
     fn Put_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<ISWbemObjectPath>;
     fn PutAsync_(&self, objwbemsink: windows_core::Ref<super::oaidl::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::oaidl::IDispatch>, objwbemasynccontext: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<()>;
@@ -1762,7 +1762,7 @@ pub trait ISWbemObject_Impl: super::oaidl::IDispatch_Impl {
     fn Path_(&self) -> windows_core::Result<ISWbemObjectPath>;
     fn Security_(&self) -> windows_core::Result<ISWbemSecurity>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemObject_Vtbl {
     pub const fn new<Identity: ISWbemObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Put_<Identity: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectpath: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2065,20 +2065,20 @@ impl ISWbemObject_Vtbl {
         iid == &<ISWbemObject as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemObject {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemObjectEx, ISWbemObjectEx_Vtbl, 0x269ad56a_8a67_4129_bc8c_0506dcfe9880);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemObjectEx {
     type Target = ISWbemObject;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemObjectEx, windows_core::IUnknown, super::oaidl::IDispatch, ISWbemObject);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemObjectEx {
     pub unsafe fn Refresh_<P1>(&self, iflags: i32, objwbemnamedvalueset: P1) -> windows_core::HRESULT
     where
@@ -2108,7 +2108,7 @@ impl ISWbemObjectEx {
         unsafe { (windows_core::Interface::vtable(self).SetFromText_)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstext), iobjecttextformat, iflags, objwbemnamedvalueset.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemObjectEx_Vtbl {
@@ -2118,14 +2118,14 @@ pub struct ISWbemObjectEx_Vtbl {
     pub GetText_: unsafe extern "system" fn(*mut core::ffi::c_void, WbemObjectTextFormatEnum, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFromText_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WbemObjectTextFormatEnum, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemObjectEx_Impl: ISWbemObject_Impl {
     fn Refresh_(&self, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<()>;
     fn SystemProperties_(&self) -> windows_core::Result<ISWbemPropertySet>;
     fn GetText_(&self, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<windows_core::BSTR>;
     fn SetFromText_(&self, bstext: &windows_core::BSTR, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemObjectEx_Vtbl {
     pub const fn new<Identity: ISWbemObjectEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Refresh_<Identity: ISWbemObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2176,20 +2176,20 @@ impl ISWbemObjectEx_Vtbl {
         iid == &<ISWbemObjectEx as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ISWbemObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemObjectEx {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemObjectPath, ISWbemObjectPath_Vtbl, 0x5791bc27_ce9c_11d1_97bf_0000f81e849c);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemObjectPath {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemObjectPath, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemObjectPath {
     pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -2251,7 +2251,7 @@ impl ISWbemObjectPath {
     pub unsafe fn SetClass(&self, strclass: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClass)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strclass)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsClass(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2261,7 +2261,7 @@ impl ISWbemObjectPath {
     pub unsafe fn SetAsClass(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAsClass)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsSingleton(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2302,7 +2302,7 @@ impl ISWbemObjectPath {
         unsafe { (windows_core::Interface::vtable(self).SetAuthority)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strauthority)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemObjectPath_Vtbl {
@@ -2320,14 +2320,14 @@ pub struct ISWbemObjectPath_Vtbl {
     pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Class: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsClass: usize,
     pub SetAsClass: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsSingleton: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsSingleton: usize,
     pub SetAsSingleton: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Keys: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2337,7 +2337,7 @@ pub struct ISWbemObjectPath_Vtbl {
     pub Authority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAuthority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemObjectPath_Impl: super::oaidl::IDispatch_Impl {
     fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetPath(&self, strpath: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2363,7 +2363,7 @@ pub trait ISWbemObjectPath_Impl: super::oaidl::IDispatch_Impl {
     fn Authority(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetAuthority(&self, strauthority: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemObjectPath_Vtbl {
     pub const fn new<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Path<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpath: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2613,20 +2613,20 @@ impl ISWbemObjectPath_Vtbl {
         iid == &<ISWbemObjectPath as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemObjectPath {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemObjectSet, ISWbemObjectSet_Vtbl, 0x76a6415f_cb41_11d1_8b02_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemObjectSet {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemObjectSet, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemObjectSet {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -2659,7 +2659,7 @@ impl ISWbemObjectSet {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemObjectSet_Vtbl {
@@ -2670,7 +2670,7 @@ pub struct ISWbemObjectSet_Vtbl {
     pub Security_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ItemIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemObjectSet_Impl: super::oaidl::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, strobjectpath: &windows_core::BSTR, iflags: i32) -> windows_core::Result<ISWbemObject>;
@@ -2678,7 +2678,7 @@ pub trait ISWbemObjectSet_Impl: super::oaidl::IDispatch_Impl {
     fn Security_(&self) -> windows_core::Result<ISWbemSecurity>;
     fn ItemIndex(&self, lindex: i32) -> windows_core::Result<ISWbemObject>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemObjectSet_Vtbl {
     pub const fn new<Identity: ISWbemObjectSet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: ISWbemObjectSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2754,29 +2754,29 @@ impl ISWbemObjectSet_Vtbl {
         iid == &<ISWbemObjectSet as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemObjectSet {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemPrivilege, ISWbemPrivilege_Vtbl, 0x26ee67bd_5804_11d2_8b4a_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemPrivilege {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemPrivilege, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemPrivilege {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetIsEnabled(&self, bisenabled: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetIsEnabled)(windows_core::Interface::as_raw(self), bisenabled) }
     }
@@ -2799,24 +2799,24 @@ impl ISWbemPrivilege {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemPrivilege_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsEnabled: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetIsEnabled: usize,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Identifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WbemPrivilegeEnum) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemPrivilege_Impl: super::oaidl::IDispatch_Impl {
     fn IsEnabled(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetIsEnabled(&self, bisenabled: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -2824,7 +2824,7 @@ pub trait ISWbemPrivilege_Impl: super::oaidl::IDispatch_Impl {
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Identifier(&self) -> windows_core::Result<WbemPrivilegeEnum>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemPrivilege_Vtbl {
     pub const fn new<Identity: ISWbemPrivilege_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsEnabled<Identity: ISWbemPrivilege_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bisenabled: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2894,20 +2894,20 @@ impl ISWbemPrivilege_Vtbl {
         iid == &<ISWbemPrivilege as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemPrivilege {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemPrivilegeSet, ISWbemPrivilegeSet_Vtbl, 0x26ee67bf_5804_11d2_8b4a_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemPrivilegeSet {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemPrivilegeSet, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemPrivilegeSet {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -2927,7 +2927,7 @@ impl ISWbemPrivilegeSet {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Add(&self, iprivilege: WbemPrivilegeEnum, bisenabled: super::wtypes::VARIANT_BOOL) -> windows_core::Result<ISWbemPrivilege> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2940,7 +2940,7 @@ impl ISWbemPrivilegeSet {
     pub unsafe fn DeleteAll(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteAll)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AddAsString(&self, strprivilege: &windows_core::BSTR, bisenabled: super::wtypes::VARIANT_BOOL) -> windows_core::Result<ISWbemPrivilege> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2948,7 +2948,7 @@ impl ISWbemPrivilegeSet {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemPrivilegeSet_Vtbl {
@@ -2956,18 +2956,18 @@ pub struct ISWbemPrivilegeSet_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, WbemPrivilegeEnum, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, WbemPrivilegeEnum, super::wtypes::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Add: usize,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, WbemPrivilegeEnum) -> windows_core::HRESULT,
     pub DeleteAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AddAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AddAsString: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemPrivilegeSet_Impl: super::oaidl::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, iprivilege: WbemPrivilegeEnum) -> windows_core::Result<ISWbemPrivilege>;
@@ -2977,7 +2977,7 @@ pub trait ISWbemPrivilegeSet_Impl: super::oaidl::IDispatch_Impl {
     fn DeleteAll(&self) -> windows_core::Result<()>;
     fn AddAsString(&self, strprivilege: &windows_core::BSTR, bisenabled: super::wtypes::VARIANT_BOOL) -> windows_core::Result<ISWbemPrivilege>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemPrivilegeSet_Vtbl {
     pub const fn new<Identity: ISWbemPrivilegeSet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: ISWbemPrivilegeSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3067,29 +3067,29 @@ impl ISWbemPrivilegeSet_Vtbl {
         iid == &<ISWbemPrivilegeSet as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemPrivilegeSet {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemProperty, ISWbemProperty_Vtbl, 0x1a388f98_d4ba_11d1_8b09_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemProperty {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemProperty, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemProperty {
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Value(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, varvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(varvalue)) }
     }
@@ -3099,7 +3099,7 @@ impl ISWbemProperty {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsLocal(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3124,7 +3124,7 @@ impl ISWbemProperty {
             (windows_core::Interface::vtable(self).Qualifiers_)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsArray(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3132,33 +3132,33 @@ impl ISWbemProperty {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemProperty_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Value: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsLocal: usize,
     pub Origin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CIMType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WbemCimtypeEnum) -> windows_core::HRESULT,
     pub Qualifiers_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsArray: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemProperty_Impl: super::oaidl::IDispatch_Impl {
     fn Value(&self) -> windows_core::Result<super::oaidl::VARIANT>;
     fn SetValue(&self, varvalue: *const super::oaidl::VARIANT) -> windows_core::Result<()>;
@@ -3169,7 +3169,7 @@ pub trait ISWbemProperty_Impl: super::oaidl::IDispatch_Impl {
     fn Qualifiers_(&self) -> windows_core::Result<ISWbemQualifierSet>;
     fn IsArray(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemProperty_Vtbl {
     pub const fn new<Identity: ISWbemProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Value<Identity: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -3278,20 +3278,20 @@ impl ISWbemProperty_Vtbl {
         iid == &<ISWbemProperty as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemProperty {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemPropertySet, ISWbemPropertySet_Vtbl, 0xdea0a7b2_d4ba_11d1_8b09_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemPropertySet {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemPropertySet, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemPropertySet {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -3311,7 +3311,7 @@ impl ISWbemPropertySet {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Add(&self, strname: &windows_core::BSTR, icimtype: WbemCimtypeEnum, bisarray: super::wtypes::VARIANT_BOOL, iflags: i32) -> windows_core::Result<ISWbemProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3322,7 +3322,7 @@ impl ISWbemPropertySet {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), iflags) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemPropertySet_Vtbl {
@@ -3330,13 +3330,13 @@ pub struct ISWbemPropertySet_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WbemCimtypeEnum, super::wtypes::VARIANT_BOOL, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Add: usize,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemPropertySet_Impl: super::oaidl::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, strname: &windows_core::BSTR, iflags: i32) -> windows_core::Result<ISWbemProperty>;
@@ -3344,7 +3344,7 @@ pub trait ISWbemPropertySet_Impl: super::oaidl::IDispatch_Impl {
     fn Add(&self, strname: &windows_core::BSTR, icimtype: WbemCimtypeEnum, bisarray: super::wtypes::VARIANT_BOOL, iflags: i32) -> windows_core::Result<ISWbemProperty>;
     fn Remove(&self, strname: &windows_core::BSTR, iflags: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemPropertySet_Vtbl {
     pub const fn new<Identity: ISWbemPropertySet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3414,29 +3414,29 @@ impl ISWbemPropertySet_Vtbl {
         iid == &<ISWbemPropertySet as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemPropertySet {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemQualifier, ISWbemQualifier_Vtbl, 0x79b05932_d3b7_11d1_8b06_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemQualifier {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemQualifier, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemQualifier {
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Value(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, varvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(varvalue)) }
     }
@@ -3446,47 +3446,47 @@ impl ISWbemQualifier {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsLocal(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsLocal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn PropagatesToSubclass(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropagatesToSubclass)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetPropagatesToSubclass(&self, bpropagatestosubclass: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPropagatesToSubclass)(windows_core::Interface::as_raw(self), bpropagatestosubclass) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn PropagatesToInstance(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropagatesToInstance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetPropagatesToInstance(&self, bpropagatestoinstance: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPropagatesToInstance)(windows_core::Interface::as_raw(self), bpropagatestoinstance) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsOverridable(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsOverridable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetIsOverridable(&self, bisoverridable: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetIsOverridable)(windows_core::Interface::as_raw(self), bisoverridable) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsAmended(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3494,54 +3494,54 @@ impl ISWbemQualifier {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemQualifier_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Value: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsLocal: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub PropagatesToSubclass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     PropagatesToSubclass: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetPropagatesToSubclass: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetPropagatesToSubclass: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub PropagatesToInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     PropagatesToInstance: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetPropagatesToInstance: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetPropagatesToInstance: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsOverridable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsOverridable: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetIsOverridable: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetIsOverridable: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsAmended: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsAmended: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemQualifier_Impl: super::oaidl::IDispatch_Impl {
     fn Value(&self) -> windows_core::Result<super::oaidl::VARIANT>;
     fn SetValue(&self, varvalue: *const super::oaidl::VARIANT) -> windows_core::Result<()>;
@@ -3555,7 +3555,7 @@ pub trait ISWbemQualifier_Impl: super::oaidl::IDispatch_Impl {
     fn SetIsOverridable(&self, bisoverridable: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
     fn IsAmended(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemQualifier_Vtbl {
     pub const fn new<Identity: ISWbemQualifier_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Value<Identity: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -3685,20 +3685,20 @@ impl ISWbemQualifier_Vtbl {
         iid == &<ISWbemQualifier as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemQualifier {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemQualifierSet, ISWbemQualifierSet_Vtbl, 0x9b16ed16_d3df_11d1_8b08_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemQualifierSet {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemQualifierSet, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemQualifierSet {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -3718,7 +3718,7 @@ impl ISWbemQualifierSet {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Add(&self, strname: &windows_core::BSTR, varval: *const super::oaidl::VARIANT, bpropagatestosubclass: super::wtypes::VARIANT_BOOL, bpropagatestoinstance: super::wtypes::VARIANT_BOOL, bisoverridable: super::wtypes::VARIANT_BOOL, iflags: i32) -> windows_core::Result<ISWbemQualifier> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3729,7 +3729,7 @@ impl ISWbemQualifierSet {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), iflags) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemQualifierSet_Vtbl {
@@ -3737,13 +3737,13 @@ pub struct ISWbemQualifierSet_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::VARIANT, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Add: usize,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemQualifierSet_Impl: super::oaidl::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, name: &windows_core::BSTR, iflags: i32) -> windows_core::Result<ISWbemQualifier>;
@@ -3751,7 +3751,7 @@ pub trait ISWbemQualifierSet_Impl: super::oaidl::IDispatch_Impl {
     fn Add(&self, strname: &windows_core::BSTR, varval: *const super::oaidl::VARIANT, bpropagatestosubclass: super::wtypes::VARIANT_BOOL, bpropagatestoinstance: super::wtypes::VARIANT_BOOL, bisoverridable: super::wtypes::VARIANT_BOOL, iflags: i32) -> windows_core::Result<ISWbemQualifier>;
     fn Remove(&self, strname: &windows_core::BSTR, iflags: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemQualifierSet_Vtbl {
     pub const fn new<Identity: ISWbemQualifierSet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3821,20 +3821,20 @@ impl ISWbemQualifierSet_Vtbl {
         iid == &<ISWbemQualifierSet as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemQualifierSet {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemRefreshableItem, ISWbemRefreshableItem_Vtbl, 0x5ad4bf92_daab_11d3_b38f_00105a1f473a);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemRefreshableItem {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemRefreshableItem, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemRefreshableItem {
     pub unsafe fn Index(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -3848,7 +3848,7 @@ impl ISWbemRefreshableItem {
             (windows_core::Interface::vtable(self).Refresher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsSet(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3871,22 +3871,22 @@ impl ISWbemRefreshableItem {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), iflags) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemRefreshableItem_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Refresher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsSet: usize,
     pub Object: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ObjectSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemRefreshableItem_Impl: super::oaidl::IDispatch_Impl {
     fn Index(&self) -> windows_core::Result<i32>;
     fn Refresher(&self) -> windows_core::Result<ISWbemRefresher>;
@@ -3895,7 +3895,7 @@ pub trait ISWbemRefreshableItem_Impl: super::oaidl::IDispatch_Impl {
     fn ObjectSet(&self) -> windows_core::Result<ISWbemObjectSet>;
     fn Remove(&self, iflags: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemRefreshableItem_Vtbl {
     pub const fn new<Identity: ISWbemRefreshableItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Index<Identity: ISWbemRefreshableItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iindex: *mut i32) -> windows_core::HRESULT {
@@ -3978,20 +3978,20 @@ impl ISWbemRefreshableItem_Vtbl {
         iid == &<ISWbemRefreshableItem as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemRefreshableItem {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemRefresher, ISWbemRefresher_Vtbl, 0x14d8250e_d9c2_11d3_b38f_00105a1f473a);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemRefresher {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemRefresher, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemRefresher {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -4037,14 +4037,14 @@ impl ISWbemRefresher {
     pub unsafe fn Refresh(&self, iflags: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self), iflags) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AutoReconnect(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoReconnect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetAutoReconnect(&self, bcount: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAutoReconnect)(windows_core::Interface::as_raw(self), bcount) }
     }
@@ -4052,7 +4052,7 @@ impl ISWbemRefresher {
         unsafe { (windows_core::Interface::vtable(self).DeleteAll)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemRefresher_Vtbl {
@@ -4064,17 +4064,17 @@ pub struct ISWbemRefresher_Vtbl {
     pub AddEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AutoReconnect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AutoReconnect: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetAutoReconnect: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetAutoReconnect: usize,
     pub DeleteAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemRefresher_Impl: super::oaidl::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, iindex: i32) -> windows_core::Result<ISWbemRefreshableItem>;
@@ -4087,7 +4087,7 @@ pub trait ISWbemRefresher_Impl: super::oaidl::IDispatch_Impl {
     fn SetAutoReconnect(&self, bcount: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
     fn DeleteAll(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemRefresher_Vtbl {
     pub const fn new<Identity: ISWbemRefresher_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4204,20 +4204,20 @@ impl ISWbemRefresher_Vtbl {
         iid == &<ISWbemRefresher as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemRefresher {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemSecurity, ISWbemSecurity_Vtbl, 0xb54d66e6_2287_11d2_8b33_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemSecurity {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemSecurity, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemSecurity {
     pub unsafe fn ImpersonationLevel(&self) -> windows_core::Result<WbemImpersonationLevelEnum> {
         unsafe {
@@ -4244,7 +4244,7 @@ impl ISWbemSecurity {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemSecurity_Vtbl {
@@ -4255,7 +4255,7 @@ pub struct ISWbemSecurity_Vtbl {
     pub SetAuthenticationLevel: unsafe extern "system" fn(*mut core::ffi::c_void, WbemAuthenticationLevelEnum) -> windows_core::HRESULT,
     pub Privileges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemSecurity_Impl: super::oaidl::IDispatch_Impl {
     fn ImpersonationLevel(&self) -> windows_core::Result<WbemImpersonationLevelEnum>;
     fn SetImpersonationLevel(&self, iimpersonationlevel: WbemImpersonationLevelEnum) -> windows_core::Result<()>;
@@ -4263,7 +4263,7 @@ pub trait ISWbemSecurity_Impl: super::oaidl::IDispatch_Impl {
     fn SetAuthenticationLevel(&self, iauthenticationlevel: WbemAuthenticationLevelEnum) -> windows_core::Result<()>;
     fn Privileges(&self) -> windows_core::Result<ISWbemPrivilegeSet>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemSecurity_Vtbl {
     pub const fn new<Identity: ISWbemSecurity_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ImpersonationLevel<Identity: ISWbemSecurity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iimpersonationlevel: *mut WbemImpersonationLevelEnum) -> windows_core::HRESULT {
@@ -4327,20 +4327,20 @@ impl ISWbemSecurity_Vtbl {
         iid == &<ISWbemSecurity as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemSecurity {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemServices, ISWbemServices_Vtbl, 0x76a6415c_cb41_11d1_8b02_00600806d9b6);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemServices {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemServices, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemServices {
     pub unsafe fn Get<P2>(&self, strobjectpath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P2) -> windows_core::Result<ISWbemObject>
     where
@@ -4424,7 +4424,7 @@ impl ISWbemServices {
     {
         unsafe { (windows_core::Interface::vtable(self).ExecQueryAsync)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), core::mem::transmute_copy(strquery), core::mem::transmute_copy(strquerylanguage), lflags, objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AssociatorsOf<P10>(&self, strobjectpath: &windows_core::BSTR, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::wtypes::VARIANT_BOOL, bschemaonly: super::wtypes::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P10) -> windows_core::Result<ISWbemObjectSet>
     where
         P10: windows_core::Param<super::oaidl::IDispatch>,
@@ -4434,7 +4434,7 @@ impl ISWbemServices {
             (windows_core::Interface::vtable(self).AssociatorsOf)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute_copy(strassocclass), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strresultrole), core::mem::transmute_copy(strrole), bclassesonly, bschemaonly, core::mem::transmute_copy(strrequiredassocqualifier), core::mem::transmute_copy(strrequiredqualifier), iflags, objwbemnamedvalueset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AssociatorsOfAsync<P0, P11, P12>(&self, objwbemsink: P0, strobjectpath: &windows_core::BSTR, strassocclass: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strresultrole: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::wtypes::VARIANT_BOOL, bschemaonly: super::wtypes::VARIANT_BOOL, strrequiredassocqualifier: &windows_core::BSTR, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P11, objwbemasynccontext: P12) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -4443,7 +4443,7 @@ impl ISWbemServices {
     {
         unsafe { (windows_core::Interface::vtable(self).AssociatorsOfAsync)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), core::mem::transmute_copy(strobjectpath), core::mem::transmute_copy(strassocclass), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strresultrole), core::mem::transmute_copy(strrole), bclassesonly, bschemaonly, core::mem::transmute_copy(strrequiredassocqualifier), core::mem::transmute_copy(strrequiredqualifier), iflags, objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ReferencesTo<P7>(&self, strobjectpath: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::wtypes::VARIANT_BOOL, bschemaonly: super::wtypes::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P7) -> windows_core::Result<ISWbemObjectSet>
     where
         P7: windows_core::Param<super::oaidl::IDispatch>,
@@ -4453,7 +4453,7 @@ impl ISWbemServices {
             (windows_core::Interface::vtable(self).ReferencesTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strobjectpath), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strrole), bclassesonly, bschemaonly, core::mem::transmute_copy(strrequiredqualifier), iflags, objwbemnamedvalueset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ReferencesToAsync<P0, P8, P9>(&self, objwbemsink: P0, strobjectpath: &windows_core::BSTR, strresultclass: &windows_core::BSTR, strrole: &windows_core::BSTR, bclassesonly: super::wtypes::VARIANT_BOOL, bschemaonly: super::wtypes::VARIANT_BOOL, strrequiredqualifier: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: P8, objwbemasynccontext: P9) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::oaidl::IDispatch>,
@@ -4505,7 +4505,7 @@ impl ISWbemServices {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemServices_Vtbl {
@@ -4520,21 +4520,21 @@ pub struct ISWbemServices_Vtbl {
     pub SubclassesOfAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExecQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExecQueryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AssociatorsOf: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AssociatorsOf: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AssociatorsOfAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AssociatorsOfAsync: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ReferencesTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ReferencesTo: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ReferencesToAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ReferencesToAsync: usize,
     pub ExecNotificationQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExecNotificationQueryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4542,7 +4542,7 @@ pub struct ISWbemServices_Vtbl {
     pub ExecMethodAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Security_: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemServices_Impl: super::oaidl::IDispatch_Impl {
     fn Get(&self, strobjectpath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<ISWbemObject>;
     fn GetAsync(&self, objwbemsink: windows_core::Ref<super::oaidl::IDispatch>, strobjectpath: &windows_core::BSTR, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::oaidl::IDispatch>, objwbemasynccontext: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<()>;
@@ -4564,7 +4564,7 @@ pub trait ISWbemServices_Impl: super::oaidl::IDispatch_Impl {
     fn ExecMethodAsync(&self, objwbemsink: windows_core::Ref<super::oaidl::IDispatch>, strobjectpath: &windows_core::BSTR, strmethodname: &windows_core::BSTR, objwbeminparameters: windows_core::Ref<super::oaidl::IDispatch>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::oaidl::IDispatch>, objwbemasynccontext: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<()>;
     fn Security_(&self) -> windows_core::Result<ISWbemSecurity>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemServices_Vtbl {
     pub const fn new<Identity: ISWbemServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Get<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4778,20 +4778,20 @@ impl ISWbemServices_Vtbl {
         iid == &<ISWbemServices as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemServices {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemServicesEx, ISWbemServicesEx_Vtbl, 0xd2f68443_85dc_427e_91d8_366554cc754c);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemServicesEx {
     type Target = ISWbemServices;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemServicesEx, windows_core::IUnknown, super::oaidl::IDispatch, ISWbemServices);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemServicesEx {
     pub unsafe fn Put<P0, P2>(&self, objwbemobject: P0, iflags: i32, objwbemnamedvalueset: P2) -> windows_core::Result<ISWbemObjectPath>
     where
@@ -4813,7 +4813,7 @@ impl ISWbemServicesEx {
         unsafe { (windows_core::Interface::vtable(self).PutAsync)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), objwbemobject.param().abi(), iflags, objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemServicesEx_Vtbl {
@@ -4821,12 +4821,12 @@ pub struct ISWbemServicesEx_Vtbl {
     pub Put: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PutAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemServicesEx_Impl: ISWbemServices_Impl {
     fn Put(&self, objwbemobject: windows_core::Ref<ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<ISWbemObjectPath>;
     fn PutAsync(&self, objwbemsink: windows_core::Ref<ISWbemSink>, objwbemobject: windows_core::Ref<ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: windows_core::Ref<super::oaidl::IDispatch>, objwbemasynccontext: windows_core::Ref<super::oaidl::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemServicesEx_Vtbl {
     pub const fn new<Identity: ISWbemServicesEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Put<Identity: ISWbemServicesEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemobject: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectpath: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4853,37 +4853,37 @@ impl ISWbemServicesEx_Vtbl {
         iid == &<ISWbemServicesEx as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ISWbemServices as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemServicesEx {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemSink, ISWbemSink_Vtbl, 0x75718c9f_f029_11d1_a1ac_00c04fb6c223);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemSink {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemSink, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISWbemSink {
     pub unsafe fn Cancel(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemSink_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemSink_Impl: super::oaidl::IDispatch_Impl {
     fn Cancel(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemSink_Vtbl {
     pub const fn new<Identity: ISWbemSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Cancel<Identity: ISWbemSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4898,28 +4898,28 @@ impl ISWbemSink_Vtbl {
         iid == &<ISWbemSink as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemSink {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISWbemSinkEvents, ISWbemSinkEvents_Vtbl, 0x75718ca0_f029_11d1_a1ac_00c04fb6c223);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISWbemSinkEvents {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISWbemSinkEvents, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISWbemSinkEvents_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISWbemSinkEvents_Impl: super::oaidl::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISWbemSinkEvents_Vtbl {
     pub const fn new<Identity: ISWbemSinkEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::oaidl::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -4928,7 +4928,7 @@ impl ISWbemSinkEvents_Vtbl {
         iid == &<ISWbemSinkEvents as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISWbemSinkEvents {}
 pub const SWbemDateTime: windows_core::GUID = windows_core::GUID::from_u128(0x47dfbe54_cf76_11d3_b38f_00105a1f473a);
 pub const SWbemEventSource: windows_core::GUID = windows_core::GUID::from_u128(0x04b83d58_21ae_11d2_8b33_00600806d9b6);

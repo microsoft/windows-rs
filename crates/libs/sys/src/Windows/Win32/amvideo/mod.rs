@@ -23,7 +23,7 @@ pub const AM_PROPERTY_FRAMESTEP_CANSTEP: AM_PROPERTY_FRAMESTEP = 3;
 pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = 4;
 pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef"))]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct ANALOGVIDEOINFO {
     pub rcSource: super::windef::RECT,
@@ -34,7 +34,7 @@ pub struct ANALOGVIDEOINFO {
 }
 pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140;
 #[repr(C)]
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct MPEG1VIDEOINFO {
     pub hdr: VIDEOINFOHEADER,
@@ -42,7 +42,7 @@ pub struct MPEG1VIDEOINFO {
     pub cbSequenceHeader: u32,
     pub bSequenceHeader: [u8; 1],
 }
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for MPEG1VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -50,20 +50,20 @@ impl Default for MPEG1VIDEOINFO {
 }
 pub const SIZE_PREHEADER: u32 = 48;
 #[repr(C)]
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[derive(Clone, Copy)]
 pub struct TRUECOLORINFO {
     pub dwBitMasks: [u32; 3],
     pub bmiColors: [super::wingdi::RGBQUAD; 256],
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 impl Default for TRUECOLORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct VIDEOINFO {
     pub rcSource: super::windef::RECT,
@@ -74,28 +74,28 @@ pub struct VIDEOINFO {
     pub bmiHeader: super::wingdi::BITMAPINFOHEADER,
     pub Anonymous: VIDEOINFO_0,
 }
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub union VIDEOINFO_0 {
     pub bmiColors: [super::wingdi::RGBQUAD; 256],
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: TRUECOLORINFO,
 }
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Default)]
 pub struct VIDEOINFOHEADER {
     pub rcSource: super::windef::RECT,

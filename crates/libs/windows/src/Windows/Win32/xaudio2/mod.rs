@@ -37,7 +37,7 @@ impl IXAudio2 {
             (windows_core::Interface::vtable(self).UnregisterForCallbacks)(windows_core::Interface::as_raw(self), pcallback.param().abi());
         }
     }
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub unsafe fn CreateSourceVoice<P4>(&self, ppsourcevoice: *mut Option<IXAudio2SourceVoice>, psourceformat: *const super::mmeapi::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: P4, psendlist: Option<*const XAUDIO2_VOICE_SENDS>, peffectchain: Option<*const XAUDIO2_EFFECT_CHAIN>) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IXAudio2VoiceCallback>,
@@ -47,7 +47,7 @@ impl IXAudio2 {
     pub unsafe fn CreateSubmixVoice(&self, ppsubmixvoice: *mut Option<IXAudio2SubmixVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: Option<*const XAUDIO2_VOICE_SENDS>, peffectchain: Option<*const XAUDIO2_EFFECT_CHAIN>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateSubmixVoice)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsubmixvoice), inputchannels, inputsamplerate, flags, processingstage, psendlist.unwrap_or(core::mem::zeroed()) as _, peffectchain.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_audiosessiontypes")]
+    #[cfg(feature = "audiosessiontypes")]
     pub unsafe fn CreateMasteringVoice<P4>(&self, ppmasteringvoice: *mut Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: P4, peffectchain: Option<*const XAUDIO2_EFFECT_CHAIN>, streamcategory: super::audiosessiontypes::AUDIO_STREAM_CATEGORY) -> windows_core::HRESULT
     where
         P4: windows_core::Param<windows_core::PCWSTR>,
@@ -85,14 +85,14 @@ pub struct IXAudio2_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub RegisterForCallbacks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnregisterForCallbacks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub CreateSourceVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *const super::mmeapi::WAVEFORMATEX, u32, f32, *mut core::ffi::c_void, *const XAUDIO2_VOICE_SENDS, *const XAUDIO2_EFFECT_CHAIN) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mmeapi"))]
+    #[cfg(not(feature = "mmeapi"))]
     CreateSourceVoice: usize,
     pub CreateSubmixVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, u32, u32, u32, *const XAUDIO2_VOICE_SENDS, *const XAUDIO2_EFFECT_CHAIN) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_audiosessiontypes")]
+    #[cfg(feature = "audiosessiontypes")]
     pub CreateMasteringVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, u32, u32, windows_core::PCWSTR, *const XAUDIO2_EFFECT_CHAIN, super::audiosessiontypes::AUDIO_STREAM_CATEGORY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_audiosessiontypes"))]
+    #[cfg(not(feature = "audiosessiontypes"))]
     CreateMasteringVoice: usize,
     pub StartEngine: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopEngine: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -100,7 +100,7 @@ pub struct IXAudio2_Vtbl {
     pub GetPerformanceData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XAUDIO2_PERFORMANCE_DATA),
     pub SetDebugConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *const XAUDIO2_DEBUG_CONFIGURATION, *const core::ffi::c_void),
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi"))]
 pub trait IXAudio2_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -116,7 +116,7 @@ pub trait IXAudio2_Impl: windows_core::IUnknownImpl {
     fn GetPerformanceData(&self, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA);
     fn SetDebugConfiguration(&self, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const core::ffi::c_void);
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi"))]
 impl IXAudio2_Vtbl {
     pub const fn new<Identity: IXAudio2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -218,7 +218,7 @@ impl IXAudio2_Vtbl {
         iid == &<IXAudio2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi"))]
 impl windows_core::RuntimeName for IXAudio2 {}
 windows_core::imp::define_interface!(IXAudio2EngineCallback, IXAudio2EngineCallback_Vtbl);
 impl IXAudio2EngineCallback {

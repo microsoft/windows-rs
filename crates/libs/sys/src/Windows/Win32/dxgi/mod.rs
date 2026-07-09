@@ -13,7 +13,7 @@ pub struct D3DCOLORVALUE {
     pub a: f32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGI_ADAPTER_DESC {
     pub Description: [u16; 128],
@@ -26,14 +26,14 @@ pub struct DXGI_ADAPTER_DESC {
     pub SharedSystemMemory: usize,
     pub AdapterLuid: super::winnt::LUID,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DXGI_ADAPTER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGI_ADAPTER_DESC1 {
     pub Description: [u16; 128],
@@ -47,14 +47,14 @@ pub struct DXGI_ADAPTER_DESC1 {
     pub AdapterLuid: super::winnt::LUID,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DXGI_ADAPTER_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGI_ADAPTER_DESC2 {
     pub Description: [u16; 128],
@@ -70,14 +70,14 @@ pub struct DXGI_ADAPTER_DESC2 {
     pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DXGI_ADAPTER_DESC2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGI_ADAPTER_DESC3 {
     pub Description: [u16; 128],
@@ -93,7 +93,7 @@ pub struct DXGI_ADAPTER_DESC3 {
     pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DXGI_ADAPTER_DESC3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -591,7 +591,7 @@ pub struct DXGI_OUTDUPL_DESC {
 }
 pub type DXGI_OUTDUPL_FLAG = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_OUTDUPL_FRAME_INFO {
     pub LastPresentTime: i64,
@@ -604,21 +604,21 @@ pub struct DXGI_OUTDUPL_FRAME_INFO {
     pub PointerShapeBufferSize: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_OUTDUPL_MOVE_RECT {
     pub SourcePoint: super::windef::POINT,
     pub DestinationRect: super::windef::RECT,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_OUTDUPL_POINTER_POSITION {
     pub Position: super::windef::POINT,
     pub Visible: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     pub Type: u32,
@@ -632,7 +632,7 @@ pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_COLOR: DXGI_OUTDUPL_POINTER_SHAPE_TYPE
 pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR: DXGI_OUTDUPL_POINTER_SHAPE_TYPE = 4;
 pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: DXGI_OUTDUPL_POINTER_SHAPE_TYPE = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DXGI_OUTPUT_DESC {
     pub DeviceName: [u16; 32],
@@ -641,14 +641,14 @@ pub struct DXGI_OUTPUT_DESC {
     pub Rotation: DXGI_MODE_ROTATION,
     pub Monitor: super::windef::HMONITOR,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DXGI_OUTPUT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DXGI_OUTPUT_DESC1 {
     pub DeviceName: [u16; 32],
@@ -666,7 +666,7 @@ pub struct DXGI_OUTPUT_DESC1 {
     pub MaxLuminance: f32,
     pub MaxFullFrameLuminance: f32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DXGI_OUTPUT_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -681,7 +681,7 @@ pub const DXGI_PRESENT_ALLOW_TEARING: u32 = 512;
 pub const DXGI_PRESENT_DO_NOT_SEQUENCE: u32 = 2;
 pub const DXGI_PRESENT_DO_NOT_WAIT: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DXGI_PRESENT_PARAMETERS {
     pub DirtyRectsCount: u32,
@@ -689,7 +689,7 @@ pub struct DXGI_PRESENT_PARAMETERS {
     pub pScrollRect: *mut super::windef::RECT,
     pub pScrollOffset: *mut super::windef::POINT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DXGI_PRESENT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -747,12 +747,12 @@ pub const DXGI_SCALING_ASPECT_RATIO_STRETCH: DXGI_SCALING = 2;
 pub const DXGI_SCALING_NONE: DXGI_SCALING = 1;
 pub const DXGI_SCALING_STRETCH: DXGI_SCALING = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGI_SHARED_RESOURCE {
     pub Handle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DXGI_SHARED_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -773,7 +773,7 @@ pub type DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = i32;
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_OVERLAY_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = 2;
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DXGI_SWAP_CHAIN_DESC {
     pub BufferDesc: DXGI_MODE_DESC,
@@ -785,7 +785,7 @@ pub struct DXGI_SWAP_CHAIN_DESC {
     pub SwapEffect: DXGI_SWAP_EFFECT,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DXGI_SWAP_CHAIN_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

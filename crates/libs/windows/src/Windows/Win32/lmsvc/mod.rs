@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetServiceControl<P0, P1>(servername: P0, service: P1, opcode: u32, arg: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -8,7 +8,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServiceControl(servername : windows_core::PCWSTR, service : windows_core::PCWSTR, opcode : u32, arg : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
     unsafe { NetServiceControl(servername.param().abi(), service.param().abi(), opcode, arg, bufptr as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetServiceEnum<P0>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
 where
@@ -17,7 +17,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServiceEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     unsafe { NetServiceEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetServiceGetInfo<P0, P1>(servername: P0, service: P1, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -27,7 +27,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServiceGetInfo(servername : windows_core::PCWSTR, service : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
     unsafe { NetServiceGetInfo(servername.param().abi(), service.param().abi(), level, bufptr as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetServiceInstall<P0, P1>(servername: P0, service: P1, argv: &[windows_core::PCWSTR], bufptr: *mut super::minwindef::LPBYTE) -> u32
 where

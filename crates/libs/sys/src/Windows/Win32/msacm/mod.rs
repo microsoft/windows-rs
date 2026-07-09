@@ -1,85 +1,85 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmDriverAddA(phadid : *mut HACMDRIVERID, hinstmodule : super::minwindef::HINSTANCE, lparam : super::minwindef::LPARAM, dwpriority : u32, fdwadd : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmDriverAddW(phadid : *mut HACMDRIVERID, hinstmodule : super::minwindef::HINSTANCE, lparam : super::minwindef::LPARAM, dwpriority : u32, fdwadd : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmDriverClose(had : HACMDRIVER, fdwclose : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmiscapi", feature = "Win32_mmsyscom", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmiscapi", feature = "mmsyscom", feature = "windef"))]
 windows_link::link!("msacm32.dll" "system" fn acmDriverDetailsA(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSA, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmiscapi", feature = "Win32_mmsyscom", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmiscapi", feature = "mmsyscom", feature = "windef"))]
 windows_link::link!("msacm32.dll" "system" fn acmDriverDetailsW(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSW, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmDriverEnum(fncallback : ACMDRIVERENUMCB, dwinstance : usize, fdwenum : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmDriverID(hao : HACMOBJ, phadid : *mut HACMDRIVERID, fdwdriverid : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("msacm32.dll" "system" fn acmDriverMessage(had : HACMDRIVER, umsg : u32, lparam1 : super::minwindef::LPARAM, lparam2 : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmDriverOpen(phad : *mut HACMDRIVER, hadid : HACMDRIVERID, fdwopen : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmDriverPriority(hadid : HACMDRIVERID, dwpriority : u32, fdwpriority : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmDriverRemove(hadid : HACMDRIVERID, fdwremove : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmreg", feature = "Win32_mmsyscom", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "mmsyscom", feature = "windef"))]
 windows_link::link!("msacm32.dll" "system" fn acmFilterChooseA(pafltrc : *mut ACMFILTERCHOOSEA) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmreg", feature = "Win32_mmsyscom", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "mmsyscom", feature = "windef"))]
 windows_link::link!("msacm32.dll" "system" fn acmFilterChooseW(pafltrc : *mut ACMFILTERCHOOSEW) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmreg", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "mmreg", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmFilterDetailsA(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSA, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmreg", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "mmreg", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmFilterDetailsW(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSW, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmreg", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "mmreg", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmFilterEnumA(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSA, fncallback : ACMFILTERENUMCBA, dwinstance : usize, fdwenum : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmreg", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "mmreg", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmFilterEnumW(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSW, fncallback : ACMFILTERENUMCBW, dwinstance : usize, fdwenum : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmFilterTagDetailsA(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSA, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmFilterTagDetailsW(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSW, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmFilterTagEnumA(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSA, fncallback : ACMFILTERTAGENUMCBA, dwinstance : usize, fdwenum : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmFilterTagEnumW(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSW, fncallback : ACMFILTERTAGENUMCBW, dwinstance : usize, fdwenum : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_mmsyscom", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "mmsyscom", feature = "windef"))]
 windows_link::link!("msacm32.dll" "system" fn acmFormatChooseA(pafmtc : *mut ACMFORMATCHOOSEA) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_mmsyscom", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "mmsyscom", feature = "windef"))]
 windows_link::link!("msacm32.dll" "system" fn acmFormatChooseW(pafmtc : *mut ACMFORMATCHOOSEW) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmeapi", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "mmeapi", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmFormatDetailsA(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSA, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmeapi", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "mmeapi", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmFormatDetailsW(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSW, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmeapi", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "mmeapi", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmFormatEnumA(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSA, fncallback : ACMFORMATENUMCBA, dwinstance : usize, fdwenum : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmeapi", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "mmeapi", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmFormatEnumW(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSW, fncallback : ACMFORMATENUMCBW, dwinstance : usize, fdwenum : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmeapi", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "mmeapi", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmFormatSuggest(had : HACMDRIVER, pwfxsrc : *mut super::mmeapi::WAVEFORMATEX, pwfxdst : *mut super::mmeapi::WAVEFORMATEX, cbwfxdst : u32, fdwsuggest : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmFormatTagDetailsA(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSA, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmFormatTagDetailsW(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSW, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmFormatTagEnumA(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSA, fncallback : ACMFORMATTAGENUMCBA, dwinstance : usize, fdwenum : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmFormatTagEnumW(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSW, fncallback : ACMFORMATTAGENUMCBW, dwinstance : usize, fdwenum : u32) -> super::mmsyscom::MMRESULT);
 windows_link::link!("msacm32.dll" "system" fn acmGetVersion() -> u32);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmMetrics(hao : HACMOBJ, umetric : u32, pmetric : *mut core::ffi::c_void) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmStreamClose(has : HACMSTREAM, fdwclose : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmStreamConvert(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwconvert : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmStreamMessage(has : HACMSTREAM, umsg : u32, lparam1 : super::minwindef::LPARAM, lparam2 : super::minwindef::LPARAM) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_mmeapi", feature = "Win32_mmreg", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "mmeapi", feature = "mmreg", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmStreamOpen(phas : *mut HACMSTREAM, had : HACMDRIVER, pwfxsrc : *mut super::mmeapi::WAVEFORMATEX, pwfxdst : *mut super::mmeapi::WAVEFORMATEX, pwfltr : *mut super::mmreg::WAVEFILTER, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmStreamPrepareHeader(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwprepare : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmStreamReset(has : HACMSTREAM, fdwreset : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("msacm32.dll" "system" fn acmStreamSize(has : HACMSTREAM, cbinput : u32, pdwoutputbytes : *mut u32, fdwsize : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmsyscom"))]
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("msacm32.dll" "system" fn acmStreamUnprepareHeader(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwunprepare : u32) -> super::mmsyscom::MMRESULT);
 pub const ACMDM_BASE: u32 = 24576;
 pub const ACMDM_DRIVER_ABOUT: u32 = 24587;
@@ -87,7 +87,7 @@ pub const ACMDM_RESERVED_HIGH: u32 = 28671;
 pub const ACMDM_RESERVED_LOW: u32 = 24576;
 pub const ACMDM_USER: u32 = 16384;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_mmiscapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmiscapi", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct ACMDRIVERDETAILSA {
     pub cbStruct: u32,
@@ -107,14 +107,14 @@ pub struct ACMDRIVERDETAILSA {
     pub szLicensing: [i8; 128],
     pub szFeatures: [i8; 512],
 }
-#[cfg(all(feature = "Win32_mmiscapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmiscapi", feature = "windef"))]
 impl Default for ACMDRIVERDETAILSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_mmiscapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmiscapi", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct ACMDRIVERDETAILSW {
     pub cbStruct: u32,
@@ -134,7 +134,7 @@ pub struct ACMDRIVERDETAILSW {
     pub szLicensing: [u16; 128],
     pub szFeatures: [u16; 512],
 }
-#[cfg(all(feature = "Win32_mmiscapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmiscapi", feature = "windef"))]
 impl Default for ACMDRIVERDETAILSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -155,7 +155,7 @@ pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: u32 = 4;
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: u32 = 8;
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: u32 = 1073741824;
 pub type ACMDRIVERENUMCB = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type ACMDRIVERPROC = Option<unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::minwindef::LPARAM, param4: super::minwindef::LPARAM) -> super::minwindef::LRESULT>;
 pub const ACMERR_BASE: u32 = 512;
 pub const ACMERR_BUSY: u32 = 513;
@@ -163,7 +163,7 @@ pub const ACMERR_CANCELED: u32 = 515;
 pub const ACMERR_NOTPOSSIBLE: u32 = 512;
 pub const ACMERR_UNPREPARED: u32 = 514;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmreg", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERCHOOSEA {
     pub cbStruct: u32,
@@ -183,18 +183,18 @@ pub struct ACMFILTERCHOOSEA {
     pub lCustData: super::minwindef::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmreg", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
 impl Default for ACMFILTERCHOOSEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type ACMFILTERCHOOSEHOOKPROCA = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type ACMFILTERCHOOSEHOOKPROCW = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> u32>;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmreg", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERCHOOSEW {
     pub cbStruct: u32,
@@ -214,7 +214,7 @@ pub struct ACMFILTERCHOOSEW {
     pub lCustData: super::minwindef::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmreg", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
 impl Default for ACMFILTERCHOOSEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -227,7 +227,7 @@ pub const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: u32 = 32;
 pub const ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT: u32 = 64;
 pub const ACMFILTERCHOOSE_STYLEF_SHOWHELP: u32 = 4;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmreg")]
+#[cfg(feature = "mmreg")]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERDETAILSA {
     pub cbStruct: u32,
@@ -238,14 +238,14 @@ pub struct ACMFILTERDETAILSA {
     pub cbwfltr: u32,
     pub szFilter: [i8; 128],
 }
-#[cfg(feature = "Win32_mmreg")]
+#[cfg(feature = "mmreg")]
 impl Default for ACMFILTERDETAILSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmreg")]
+#[cfg(feature = "mmreg")]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERDETAILSW {
     pub cbStruct: u32,
@@ -256,16 +256,16 @@ pub struct ACMFILTERDETAILSW {
     pub cbwfltr: u32,
     pub szFilter: [u16; 128],
 }
-#[cfg(feature = "Win32_mmreg")]
+#[cfg(feature = "mmreg")]
 impl Default for ACMFILTERDETAILSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128;
-#[cfg(feature = "Win32_mmreg")]
+#[cfg(feature = "mmreg")]
 pub type ACMFILTERENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_mmreg")]
+#[cfg(feature = "mmreg")]
 pub type ACMFILTERENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -303,7 +303,7 @@ pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48;
 pub type ACMFILTERTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 pub type ACMFILTERTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATCHOOSEA {
     pub cbStruct: u32,
@@ -323,18 +323,18 @@ pub struct ACMFORMATCHOOSEA {
     pub lCustData: super::minwindef::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
 impl Default for ACMFORMATCHOOSEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type ACMFORMATCHOOSEHOOKPROCA = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type ACMFORMATCHOOSEHOOKPROCW = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> u32>;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATCHOOSEW {
     pub cbStruct: u32,
@@ -354,7 +354,7 @@ pub struct ACMFORMATCHOOSEW {
     pub lCustData: super::minwindef::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
 impl Default for ACMFORMATCHOOSEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -367,7 +367,7 @@ pub const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: u32 = 32;
 pub const ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: u32 = 64;
 pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: u32 = 4;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATDETAILSA {
     pub cbStruct: u32,
@@ -378,14 +378,14 @@ pub struct ACMFORMATDETAILSA {
     pub cbwfx: u32,
     pub szFormat: [i8; 128],
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl Default for ACMFORMATDETAILSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATDETAILSW {
     pub cbStruct: u32,
@@ -396,16 +396,16 @@ pub struct ACMFORMATDETAILSW {
     pub cbwfx: u32,
     pub szFormat: [u16; 128],
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl Default for ACMFORMATDETAILSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type ACMFORMATENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type ACMFORMATENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -450,7 +450,7 @@ pub const ACMHELPMSGSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("a
 pub const ACMHELPMSGSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_help");
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct ACMSTREAMHEADER {
     pub cbStruct: u32,
@@ -467,7 +467,7 @@ pub struct ACMSTREAMHEADER {
     pub dwReservedDriver: [u32; 10],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for ACMSTREAMHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -475,7 +475,7 @@ impl Default for ACMSTREAMHEADER {
 }
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct ACMSTREAMHEADER {
     pub cbStruct: u32,
@@ -492,7 +492,7 @@ pub struct ACMSTREAMHEADER {
     pub dwReservedDriver: [u32; 15],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for ACMSTREAMHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -586,33 +586,33 @@ pub type HACMDRIVER = *mut core::ffi::c_void;
 pub type HACMDRIVERID = *mut core::ffi::c_void;
 pub type HACMOBJ = *mut core::ffi::c_void;
 pub type HACMSTREAM = *mut core::ffi::c_void;
-#[cfg(all(feature = "Win32_mmiscapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmiscapi", feature = "windef"))]
 pub type LPACMDRIVERDETAILSA = *mut ACMDRIVERDETAILSA;
-#[cfg(all(feature = "Win32_mmiscapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmiscapi", feature = "windef"))]
 pub type LPACMDRIVERDETAILSW = *mut ACMDRIVERDETAILSW;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPACMDRIVERPROC = *mut ACMDRIVERPROC;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmreg", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
 pub type LPACMFILTERCHOOSEA = *mut ACMFILTERCHOOSEA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmreg", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
 pub type LPACMFILTERCHOOSEW = *mut ACMFILTERCHOOSEW;
-#[cfg(feature = "Win32_mmreg")]
+#[cfg(feature = "mmreg")]
 pub type LPACMFILTERDETAILSA = *mut ACMFILTERDETAILSA;
-#[cfg(feature = "Win32_mmreg")]
+#[cfg(feature = "mmreg")]
 pub type LPACMFILTERDETAILSW = *mut ACMFILTERDETAILSW;
 pub type LPACMFILTERTAGDETAILSA = *mut ACMFILTERTAGDETAILSA;
 pub type LPACMFILTERTAGDETAILSW = *mut ACMFILTERTAGDETAILSW;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
 pub type LPACMFORMATCHOOSEA = *mut ACMFORMATCHOOSEA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
 pub type LPACMFORMATCHOOSEW = *mut ACMFORMATCHOOSEW;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPACMFORMATDETAILSA = *mut ACMFORMATDETAILSA;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPACMFORMATDETAILSW = *mut ACMFORMATDETAILSW;
 pub type LPACMFORMATTAGDETAILSA = *mut ACMFORMATTAGDETAILSA;
 pub type LPACMFORMATTAGDETAILSW = *mut ACMFORMATTAGDETAILSW;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPACMSTREAMHEADER = *mut ACMSTREAMHEADER;
 pub type LPHACMDRIVER = *mut HACMDRIVER;
 pub type LPHACMDRIVERID = *mut HACMDRIVERID;
@@ -623,31 +623,31 @@ pub const MM_ACM_DONE: u32 = 982;
 pub const MM_ACM_FILTERCHOOSE: u32 = 32768;
 pub const MM_ACM_FORMATCHOOSE: u32 = 32768;
 pub const MM_ACM_OPEN: u32 = 980;
-#[cfg(all(feature = "Win32_mmiscapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmiscapi", feature = "windef"))]
 pub type PACMDRIVERDETAILSA = *mut ACMDRIVERDETAILSA;
-#[cfg(all(feature = "Win32_mmiscapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmiscapi", feature = "windef"))]
 pub type PACMDRIVERDETAILSW = *mut ACMDRIVERDETAILSW;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmreg", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
 pub type PACMFILTERCHOOSEA = *mut ACMFILTERCHOOSEA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmreg", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
 pub type PACMFILTERCHOOSEW = *mut ACMFILTERCHOOSEW;
-#[cfg(feature = "Win32_mmreg")]
+#[cfg(feature = "mmreg")]
 pub type PACMFILTERDETAILSA = *mut ACMFILTERDETAILSA;
-#[cfg(feature = "Win32_mmreg")]
+#[cfg(feature = "mmreg")]
 pub type PACMFILTERDETAILSW = *mut ACMFILTERDETAILSW;
 pub type PACMFILTERTAGDETAILSA = *mut ACMFILTERTAGDETAILSA;
 pub type PACMFILTERTAGDETAILSW = *mut ACMFILTERTAGDETAILSW;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
 pub type PACMFORMATCHOOSEA = *mut ACMFORMATCHOOSEA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
 pub type PACMFORMATCHOOSEW = *mut ACMFORMATCHOOSEW;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PACMFORMATDETAILSA = *mut ACMFORMATDETAILSA;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type PACMFORMATDETAILSW = *mut ACMFORMATDETAILSW;
 pub type PACMFORMATTAGDETAILSA = *mut ACMFORMATTAGDETAILSA;
 pub type PACMFORMATTAGDETAILSW = *mut ACMFORMATTAGDETAILSW;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PACMSTREAMHEADER = *mut ACMSTREAMHEADER;
 pub type PHACMDRIVER = *mut HACMDRIVER;
 pub type PHACMDRIVERID = *mut HACMDRIVERID;

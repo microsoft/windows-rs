@@ -26,7 +26,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetMessageNameDel(servername : windows_core::PCWSTR, msgname : windows_core::PCWSTR) -> u32);
     unsafe { NetMessageNameDel(servername.param().abi(), msgname.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetMessageNameEnum<P0>(servername: P0, level: u32, bufptr: *const super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32
 where
@@ -35,7 +35,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetMessageNameEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *const super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     unsafe { NetMessageNameEnum(servername.param().abi(), level, bufptr, prefmaxlen, entriesread as _, totalentries as _, resume_handle as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetMessageNameGetInfo<P0, P1>(servername: P0, msgname: P1, level: u32, bufptr: *const super::minwindef::LPBYTE) -> u32
 where

@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 #[inline]
 pub unsafe fn DMOEnum(guidcategory: *const windows_core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> windows_core::Result<super::mediaobj::IEnumDMO> {
     windows_core::link!("msdmo.dll" "system" fn DMOEnum(guidcategory : *const windows_core::GUID, dwflags : u32, cintypes : u32, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : u32, pouttypes : *const DMO_PARTIAL_MEDIATYPE, ppenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);

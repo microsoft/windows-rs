@@ -2,7 +2,7 @@ pub type BINDSPEED = i32;
 pub const BINDSPEED_IMMEDIATE: BINDSPEED = 3;
 pub const BINDSPEED_INDEFINITE: BINDSPEED = 1;
 pub const BINDSPEED_MODERATE: BINDSPEED = 2;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type BORDERWIDTHS = super::windef::RECT;
 pub const DD_DEFDRAGDELAY: u32 = 200;
 pub const DD_DEFDRAGMINDIST: u32 = 2;
@@ -19,19 +19,19 @@ pub const DROPEFFECT_MOVE: u32 = 2;
 pub const DROPEFFECT_NEWTARGET: u32 = 1073741824;
 pub const DROPEFFECT_NONE: u32 = 0;
 pub const DROPEFFECT_SCROLL: u32 = 2147483648;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type HOLEMENU = super::minwindef::HGLOBAL;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LINKSRCDESCRIPTOR = OBJECTDESCRIPTOR;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPBORDERWIDTHS = super::windef::LPRECT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCBORDERWIDTHS = super::windef::LPCRECT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPLINKSRCDESCRIPTOR = *mut OBJECTDESCRIPTOR;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPOBJECTDESCRIPTOR = *mut OBJECTDESCRIPTOR;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPOLEINPLACEFRAMEINFO = *mut OLEINPLACEFRAMEINFO;
 pub type LPOLEMENUGROUPWIDTHS = *mut OLEMENUGROUPWIDTHS;
 pub type LPOLERENDER = *mut OLERENDER;
@@ -39,7 +39,7 @@ pub type LPOLEUPDATE = *mut OLEUPDATE;
 pub type LPOLEVERB = *mut OLEVERB;
 pub const MK_ALT: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct OBJECTDESCRIPTOR {
     pub cbSize: u32,
@@ -67,7 +67,7 @@ pub const OLEGETMONIKER_ONLYIFTHERE: OLEGETMONIKER = 1;
 pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = 4;
 pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct OLEINPLACEFRAMEINFO {
     pub cb: u32,
@@ -76,7 +76,7 @@ pub struct OLEINPLACEFRAMEINFO {
     pub haccel: super::windef::HACCEL,
     pub cAccelEntries: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for OLEINPLACEFRAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -145,9 +145,9 @@ pub type OLEWHICHMK = i32;
 pub const OLEWHICHMK_CONTAINER: OLEWHICHMK = 1;
 pub const OLEWHICHMK_OBJFULL: OLEWHICHMK = 3;
 pub const OLEWHICHMK_OBJREL: OLEWHICHMK = 2;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PLINKSRCDESCRIPTOR = *mut OBJECTDESCRIPTOR;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type POBJECTDESCRIPTOR = *mut OBJECTDESCRIPTOR;
 pub type POLEUPDATE = *mut OLEUPDATE;
 pub const UPDFCACHE_ALL: u32 = 2147483647;

@@ -1,8 +1,8 @@
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 windows_link::link!("shell32.dll" "system" fn SHAddDefaultPropertiesByExt(pszext : windows_sys::core::PCWSTR, ppropstore : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 windows_link::link!("shell32.dll" "system" fn SHCreateDefaultPropertiesOp(psi : *mut core::ffi::c_void, ppfileop : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHSetDefaultProperties(hwnd : super::windef::HWND, psi : *mut core::ffi::c_void, dwfileopflags : u32, pfops : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const ACDD_VISIBLE: u32 = 1;
 pub const AccessibilityDockingService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402);
@@ -48,7 +48,7 @@ pub const InternetPrintOrdering: windows_sys::core::GUID = windows_sys::core::GU
 pub type LPVIEWSETTINGS = *mut i8;
 pub const MergedCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
 #[repr(C)]
-#[cfg(all(feature = "Win32_commctrl", feature = "Win32_shobjidl_core"))]
+#[cfg(all(feature = "commctrl", feature = "shobjidl_core"))]
 #[derive(Clone, Copy)]
 pub struct NSTCCUSTOMDRAW {
     pub psi: *mut core::ffi::c_void,
@@ -60,7 +60,7 @@ pub struct NSTCCUSTOMDRAW {
     pub iLevel: i32,
     pub iIndent: i32,
 }
-#[cfg(all(feature = "Win32_commctrl", feature = "Win32_shobjidl_core"))]
+#[cfg(all(feature = "commctrl", feature = "shobjidl_core"))]
 impl Default for NSTCCUSTOMDRAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

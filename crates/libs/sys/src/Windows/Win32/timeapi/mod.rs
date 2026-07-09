@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn timeBeginPeriod(uperiod : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn timeEndPeriod(uperiod : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn timeGetDevCaps(ptc : *mut TIMECAPS, cbtc : u32) -> super::mmsyscom::MMRESULT);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn timeGetSystemTime(pmmt : *mut super::mmsyscom::MMTIME, cbmmt : u32) -> super::mmsyscom::MMRESULT);
 windows_link::link!("winmm.dll" "system" fn timeGetTime() -> u32);
 pub type LPTIMECAPS = *mut TIMECAPS;

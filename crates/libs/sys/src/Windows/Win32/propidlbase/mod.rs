@@ -1,11 +1,11 @@
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct CABOOL {
     pub cElems: u32,
     pub pElems: *mut super::wtypes::VARIANT_BOOL,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for CABOOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23,13 +23,13 @@ impl Default for CABSTR {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct CABSTRBLOB {
     pub cElems: u32,
     pub pElems: *mut super::wtypes::BSTRBLOB,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for CABSTRBLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -47,13 +47,13 @@ impl Default for CAC {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct CACLIPDATA {
     pub cElems: u32,
     pub pElems: *mut super::wtypes::CLIPDATA,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for CACLIPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -71,13 +71,13 @@ impl Default for CACLSID {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct CACY {
     pub cElems: u32,
     pub pElems: *mut super::wtypes::CY,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for CACY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -106,13 +106,13 @@ impl Default for CADBL {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CAFILETIME {
     pub cElems: u32,
     pub pElems: *mut super::minwindef::FILETIME,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CAFILETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -185,26 +185,26 @@ impl Default for CALPWSTR {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct CAPROPVARIANT {
     pub cElems: u32,
     pub pElems: *mut PROPVARIANT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for CAPROPVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy)]
 pub struct CASCODE {
     pub cElems: u32,
     pub pElems: *mut super::wtypesbase::SCODE,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for CASCODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -254,9 +254,9 @@ impl Default for CAUL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPPROPVARIANT = *mut PROPVARIANT;
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub type LPVERSIONEDSTREAM = *mut VERSIONEDSTREAM;
 pub const PID_BEHAVIOR: u32 = 2147483651;
 pub const PID_CODEPAGE: u32 = 1;
@@ -277,58 +277,58 @@ pub const PROPSETFLAG_UNBUFFERED: u32 = 4;
 pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295;
 pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct PROPSPEC {
     pub ulKind: u32,
     pub Anonymous: PROPSPEC_0,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for PROPSPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub union PROPSPEC_0 {
     pub propid: super::wtypes::PROPID,
     pub lpwstr: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for PROPSPEC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct PROPVARIANT {
     pub Anonymous: PROPVARIANT_0,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union PROPVARIANT_0 {
     pub Anonymous: PROPVARIANT_0_0,
     pub decVal: super::wtypes::DECIMAL,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPVARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct PROPVARIANT_0_0 {
     pub vt: super::wtypes::VARTYPE,
@@ -337,14 +337,14 @@ pub struct PROPVARIANT_0_0 {
     pub wReserved3: PROPVAR_PAD3,
     pub Anonymous: PROPVARIANT_0_0_0,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPVARIANT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union PROPVARIANT_0_0_0 {
     pub cVal: i8,
@@ -421,7 +421,7 @@ pub union PROPVARIANT_0_0_0 {
     pub pparray: *mut super::oaidl::LPSAFEARRAY,
     pub pvarVal: *mut PROPVARIANT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPVARIANT_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -434,7 +434,7 @@ pub const PRSPEC_INVALID: u32 = 4294967295;
 pub const PRSPEC_LPWSTR: u32 = 0;
 pub const PRSPEC_PROPID: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct STATPROPSETSTG {
     pub fmtid: windows_sys::core::GUID,
@@ -446,27 +446,27 @@ pub struct STATPROPSETSTG {
     pub dwOSVersion: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct STATPROPSTG {
     pub lpwstrName: windows_sys::core::PWSTR,
     pub propid: super::wtypes::PROPID,
     pub vt: super::wtypes::VARTYPE,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for STATPROPSTG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Copy)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: windows_sys::core::GUID,
     pub pStream: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for VERSIONEDSTREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

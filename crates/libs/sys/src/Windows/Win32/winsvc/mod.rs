@@ -20,10 +20,10 @@ windows_link::link!("advapi32.dll" "system" fn GetServiceDisplayNameA(hscmanager
 windows_link::link!("advapi32.dll" "system" fn GetServiceDisplayNameW(hscmanager : SC_HANDLE, lpservicename : windows_sys::core::PCWSTR, lpdisplayname : windows_sys::core::PWSTR, lpcchbuffer : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn GetServiceKeyNameA(hscmanager : SC_HANDLE, lpdisplayname : windows_sys::core::PCSTR, lpservicename : windows_sys::core::PSTR, lpcchbuffer : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn GetServiceKeyNameW(hscmanager : SC_HANDLE, lpdisplayname : windows_sys::core::PCWSTR, lpservicename : windows_sys::core::PWSTR, lpcchbuffer : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("api-ms-win-service-core-l1-1-3.dll" "system" fn GetServiceRegistryStateKey(servicestatushandle : SERVICE_STATUS_HANDLE, statetype : SERVICE_REGISTRY_STATE_TYPE, accessmask : u32, servicestatekey : *mut super::minwindef::HKEY) -> u32);
 windows_link::link!("api-ms-win-service-core-l1-1-5.dll" "system" fn GetSharedServiceDirectory(servicehandle : SC_HANDLE, directorytype : SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer : *mut u16, pathbufferlength : u32, requiredbufferlength : *mut u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("api-ms-win-service-core-l1-1-5.dll" "system" fn GetSharedServiceRegistryStateKey(servicehandle : SC_HANDLE, statetype : SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask : u32, servicestatekey : *mut super::minwindef::HKEY) -> u32);
 windows_link::link!("advapi32.dll" "system" fn LockServiceDatabase(hscmanager : SC_HANDLE) -> SC_LOCK);
 windows_link::link!("advapi32.dll" "system" fn NotifyBootConfigStatus(bootacceptable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
@@ -40,7 +40,7 @@ windows_link::link!("advapi32.dll" "system" fn QueryServiceConfigW(hservice : SC
 windows_link::link!("advapi32.dll" "system" fn QueryServiceDynamicInformation(hservicestatus : SERVICE_STATUS_HANDLE, dwinfolevel : u32, ppdynamicinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn QueryServiceLockStatusA(hscmanager : SC_HANDLE, lplockstatus : *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn QueryServiceLockStatusW(hscmanager : SC_HANDLE, lplockstatus : *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("advapi32.dll" "system" fn QueryServiceObjectSecurity(hservice : SC_HANDLE, dwsecurityinformation : super::winnt::SECURITY_INFORMATION, lpsecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn QueryServiceStatus(hservice : SC_HANDLE, lpservicestatus : *mut SERVICE_STATUS) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn QueryServiceStatusEx(hservice : SC_HANDLE, infolevel : SC_STATUS_TYPE, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_sys::core::BOOL);
@@ -48,7 +48,7 @@ windows_link::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerA(lpser
 windows_link::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExA(lpservicename : windows_sys::core::PCSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : *const core::ffi::c_void) -> SERVICE_STATUS_HANDLE);
 windows_link::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExW(lpservicename : windows_sys::core::PCWSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : *const core::ffi::c_void) -> SERVICE_STATUS_HANDLE);
 windows_link::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerW(lpservicename : windows_sys::core::PCWSTR, lphandlerproc : LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("advapi32.dll" "system" fn SetServiceObjectSecurity(hservice : SC_HANDLE, dwsecurityinformation : super::winnt::SECURITY_INFORMATION, lpsecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn SetServiceStatus(hservicestatus : SERVICE_STATUS_HANDLE, lpservicestatus : *const SERVICE_STATUS) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn StartServiceA(hservice : SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
@@ -56,7 +56,7 @@ windows_link::link!("advapi32.dll" "system" fn StartServiceCtrlDispatcherA(lpser
 windows_link::link!("advapi32.dll" "system" fn StartServiceCtrlDispatcherW(lpservicestarttable : *const SERVICE_TABLE_ENTRYW) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn StartServiceW(hservice : SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn UnlockServiceDatabase(sclock : SC_LOCK) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("advapi32.dll" "system" fn WaitServiceState(hservice : SC_HANDLE, dwnotify : u32, dwtimeout : u32, hcancelevent : super::winnt::HANDLE) -> u32);
 pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2d7a2816_0c5e_45fc_9ce7_570e5ecde9c9);
 pub const DOMAIN_JOIN_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ce20aba_9851_4421_9430_1ddeb766e809);
@@ -175,11 +175,11 @@ pub type PSERVICE_NOTIFY_2A = *mut SERVICE_NOTIFY_2A;
 pub type PSERVICE_NOTIFY_2W = *mut SERVICE_NOTIFY_2W;
 pub type PSERVICE_START_REASON = *mut SERVICE_START_REASON;
 pub type PSERVICE_TIMECHANGE_INFO = *mut SERVICE_TIMECHANGE_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PSERVICE_TRIGGER = *mut SERVICE_TRIGGER;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PSERVICE_TRIGGER_INFO = *mut SERVICE_TRIGGER_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM = *mut SERVICE_TRIGGER_SPECIFIC_DATA_ITEM;
 pub type QUERY_SERVICE_CONFIG = QUERY_SERVICE_CONFIGA;
 #[repr(C)]
@@ -461,7 +461,7 @@ pub struct SERVICE_LAUNCH_PROTECTED_INFO {
 pub const SERVICE_LAUNCH_PROTECTED_NONE: u32 = 0;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: u32 = 2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type SERVICE_MAIN_FUNCTIONA = Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::winnt::LPTSTR)>;
 pub type SERVICE_MAIN_FUNCTIONW = Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut windows_sys::core::PWSTR)>;
 pub type SERVICE_NOTIFY = SERVICE_NOTIFYA;
@@ -692,7 +692,7 @@ pub struct SERVICE_TIMECHANGE_INFO {
     pub liOldTime: i64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct SERVICE_TRIGGER {
     pub dwTriggerType: u32,
@@ -701,7 +701,7 @@ pub struct SERVICE_TRIGGER {
     pub cDataItems: u32,
     pub pDataItems: PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for SERVICE_TRIGGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -725,28 +725,28 @@ pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ANY: u32 = 4;
 pub const SERVICE_TRIGGER_DATA_TYPE_LEVEL: u32 = 3;
 pub const SERVICE_TRIGGER_DATA_TYPE_STRING: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct SERVICE_TRIGGER_INFO {
     pub cTriggers: u32,
     pub pTriggers: PSERVICE_TRIGGER,
     pub pReserved: super::minwindef::PBYTE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for SERVICE_TRIGGER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     pub dwDataType: u32,
     pub cbData: u32,
     pub pData: super::minwindef::PBYTE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

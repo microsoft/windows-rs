@@ -1,5 +1,5 @@
 windows_link::link!("dxva2.dll" "system" fn DXVA2CreateDirect3DDeviceManager9(presettoken : *mut u32, ppdevicemanager : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_d3d9")]
+#[cfg(feature = "d3d9")]
 windows_link::link!("dxva2.dll" "system" fn DXVA2CreateVideoService(pdd : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppservice : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -323,7 +323,7 @@ pub const DXVA2_VideoChromaSubsampling_Vertically_AlignedChromaPlanes: DXVA2_Vid
 pub const DXVA2_VideoChromaSubsampling_Vertically_Cosited: DXVA2_VideoChromaSubSampling = 2;
 pub const DXVA2_VideoDecoderRenderTarget: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_d3d9")]
+#[cfg(feature = "d3d9")]
 #[derive(Clone, Copy)]
 pub struct DXVA2_VideoDesc {
     pub SampleWidth: u32,
@@ -335,7 +335,7 @@ pub struct DXVA2_VideoDesc {
     pub UABProtectionLevel: u32,
     pub Reserved: u32,
 }
-#[cfg(feature = "Win32_d3d9")]
+#[cfg(feature = "d3d9")]
 impl Default for DXVA2_VideoDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -363,7 +363,7 @@ pub const DXVA2_VideoProcBobDevice: windows_sys::core::GUID = windows_sys::core:
 pub const DXVA2_VideoProcProgressiveDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5a54a0c9_c7ec_4bd9_8ede_f3c75dc4393b);
 pub const DXVA2_VideoProcSoftwareDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4553d47f_ee7e_4e3f_9475_dbf1376c4810);
 #[repr(C)]
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef"))]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DXVA2_VideoProcessBltParams {
     pub TargetFrame: super::mediaobj::REFERENCE_TIME,
@@ -380,7 +380,7 @@ pub struct DXVA2_VideoProcessBltParams {
     pub DetailFilterChroma: DXVA2_FilterValues,
     pub DestData: u32,
 }
-#[cfg(all(feature = "Win32_mediaobj", feature = "Win32_windef"))]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for DXVA2_VideoProcessBltParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -405,7 +405,7 @@ pub const DXVA2_VideoProcess_SubStreamsExtended: i32 = 64;
 pub const DXVA2_VideoProcess_YUV2RGB: i32 = 1;
 pub const DXVA2_VideoProcess_YUV2RGBExtended: i32 = 128;
 #[repr(C)]
-#[cfg(feature = "Win32_d3d9")]
+#[cfg(feature = "d3d9")]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_VideoProcessorCaps {
     pub DeviceCaps: u32,
@@ -421,7 +421,7 @@ pub struct DXVA2_VideoProcessorCaps {
 }
 pub const DXVA2_VideoProcessorRenderTarget: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_d3d9", feature = "Win32_mediaobj", feature = "Win32_windef"))]
+#[cfg(all(feature = "d3d9", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DXVA2_VideoSample {
     pub Start: super::mediaobj::REFERENCE_TIME,
@@ -434,7 +434,7 @@ pub struct DXVA2_VideoSample {
     pub PlanarAlpha: DXVA2_Fixed32,
     pub SampleData: u32,
 }
-#[cfg(all(feature = "Win32_d3d9", feature = "Win32_mediaobj", feature = "Win32_windef"))]
+#[cfg(all(feature = "d3d9", feature = "mediaobj", feature = "windef"))]
 impl Default for DXVA2_VideoSample {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

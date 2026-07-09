@@ -24,7 +24,7 @@ pub struct HID_DRIVER_CONFIG {
 }
 pub const HID_REVISION: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HID_XFER_PACKET {
     pub reportBuffer: super::minwindef::PUCHAR,
@@ -83,17 +83,17 @@ impl Default for PHID_DRIVER_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHID_XFER_PACKET(pub *mut HID_XFER_PACKET);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PHID_XFER_PACKET {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PHID_XFER_PACKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

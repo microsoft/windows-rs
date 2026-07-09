@@ -46,20 +46,20 @@ pub const ADSTYPE_TYPEDNAME: ADSTYPEENUM = 19;
 pub const ADSTYPE_UNKNOWN: ADSTYPEENUM = 26;
 pub const ADSTYPE_UTC_TIME: ADSTYPEENUM = 9;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub struct ADSVALUE {
     pub dwType: ADSTYPE,
     pub Anonymous: ADSVALUE_0,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 impl Default for ADSVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub union ADSVALUE_0 {
     pub DNString: ADS_DN_STRING,
@@ -90,7 +90,7 @@ pub union ADSVALUE_0 {
     pub pDNWithBinary: PADS_DN_WITH_BINARY,
     pub pDNWithString: PADS_DN_WITH_STRING,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 impl Default for ADSVALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -138,7 +138,7 @@ impl Default for ADS_ATTR_DEF {
 }
 pub const ADS_ATTR_DELETE: u32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub struct ADS_ATTR_INFO {
     pub pszAttrName: windows_sys::core::PWSTR,
@@ -147,7 +147,7 @@ pub struct ADS_ATTR_INFO {
     pub pADsValues: PADSVALUE,
     pub dwNumValues: u32,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 impl Default for ADS_ATTR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -216,14 +216,14 @@ pub const ADS_DISPLAY_FULL: ADS_DISPLAY_ENUM = 1;
 pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = 2;
 pub type ADS_DN_STRING = windows_sys::core::PWSTR;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct ADS_DN_WITH_BINARY {
     pub dwLength: u32,
     pub lpBinaryValue: super::minwindef::LPBYTE,
     pub pszDNString: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for ADS_DN_WITH_BINARY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -262,14 +262,14 @@ pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215;
 pub const ADS_EXT_MINEXTDISPID: u32 = 1;
 pub const ADS_FAST_BIND: ADS_AUTHENTICATION_ENUM = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct ADS_FAXNUMBER {
     pub TelephoneNumber: windows_sys::core::PWSTR,
     pub NumberOfBits: u32,
     pub Parameters: super::minwindef::LPBYTE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for ADS_FAXNUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -341,13 +341,13 @@ impl Default for ADS_NETADDRESS {
 pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 16;
 pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = 1024;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct ADS_NT_SECURITY_DESCRIPTOR {
     pub dwLength: u32,
     pub lpValue: super::minwindef::LPBYTE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for ADS_NT_SECURITY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -382,13 +382,13 @@ impl Default for ADS_OCTET_LIST {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct ADS_OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: super::minwindef::LPBYTE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for ADS_OCTET_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -443,13 +443,13 @@ pub const ADS_PROPERTY_DELETE: ADS_PROPERTY_OPERATION_ENUM = 4;
 pub type ADS_PROPERTY_OPERATION_ENUM = i32;
 pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct ADS_PROV_SPECIFIC {
     pub dwLength: u32,
     pub lpValue: super::minwindef::LPBYTE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for ADS_PROV_SPECIFIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -526,14 +526,14 @@ pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = 17;
 pub type ADS_SEARCHPREF_ENUM = i32;
 pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = 18;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub struct ADS_SEARCHPREF_INFO {
     pub dwSearchPref: ADS_SEARCHPREF,
     pub vValue: ADSVALUE,
     pub dwStatus: ADS_STATUS,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 impl Default for ADS_SEARCHPREF_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -550,7 +550,7 @@ pub const ADS_SEARCHPREF_TIME_LIMIT: ADS_SEARCHPREF_ENUM = 3;
 pub const ADS_SEARCHPREF_TOMBSTONE: ADS_SEARCHPREF_ENUM = 13;
 pub const ADS_SEARCHPREF_VLV: ADS_SEARCHPREF_ENUM = 14;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ADS_SEARCH_COLUMN {
     pub pszAttrName: windows_sys::core::PWSTR,
@@ -559,13 +559,13 @@ pub struct ADS_SEARCH_COLUMN {
     pub dwNumValues: u32,
     pub hReserved: super::winnt::HANDLE,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 impl Default for ADS_SEARCH_COLUMN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type ADS_SEARCH_HANDLE = super::winnt::HANDLE;
 pub const ADS_SECURE_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 1;
 pub const ADS_SECURITY_INFO_DACL: ADS_SECURITY_INFO_ENUM = 4;
@@ -652,10 +652,10 @@ pub const ADS_USE_ENCRYPTION: ADS_AUTHENTICATION_ENUM = 2;
 pub const ADS_USE_SEALING: ADS_AUTHENTICATION_ENUM = 128;
 pub const ADS_USE_SIGNING: ADS_AUTHENTICATION_ENUM = 64;
 pub const ADS_USE_SSL: ADS_AUTHENTICATION_ENUM = 2;
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 pub type ADS_UTC_TIME = super::minwinbase::SYSTEMTIME;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct ADS_VLV {
     pub dwBeforeCount: u32,
@@ -666,7 +666,7 @@ pub struct ADS_VLV {
     pub dwContextIDLength: u32,
     pub lpContextID: super::minwindef::LPBYTE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for ADS_VLV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -684,19 +684,19 @@ pub const DNWithString: windows_sys::core::GUID = windows_sys::core::GUID::from_
 pub const Email: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
 pub const FaxNumber: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
 pub const Hold: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 pub type LPADSVALUE = *mut ADSVALUE;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 pub type LPADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
 pub type LPNDS_BOOLEAN = *mut u32;
 pub const LargeInteger: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
 pub const NameTranslate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
 pub const NetAddress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
 pub const OctetList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1241400f_4680_11d1_a3b4_00c04fb950dc);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 pub type PADSVALUE = *mut ADSVALUE;
 pub type PADS_ATTR_DEF = *mut ADS_ATTR_DEF;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 pub type PADS_ATTR_INFO = *mut ADS_ATTR_INFO;
 pub type PADS_BACKLINK = *mut ADS_BACKLINK;
 pub type PADS_CASEIGNORE_LIST = *mut ADS_CASEIGNORE_LIST;
@@ -704,43 +704,43 @@ pub type PADS_CASE_EXACT_STRING = *mut windows_sys::core::PWSTR;
 pub type PADS_CASE_IGNORE_STRING = *mut windows_sys::core::PWSTR;
 pub type PADS_CLASS_DEF = *mut ADS_CLASS_DEF;
 pub type PADS_DN_STRING = *mut windows_sys::core::PWSTR;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PADS_DN_WITH_BINARY = *mut ADS_DN_WITH_BINARY;
 pub type PADS_DN_WITH_STRING = *mut ADS_DN_WITH_STRING;
 pub type PADS_EMAIL = *mut ADS_EMAIL;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PADS_FAXNUMBER = *mut ADS_FAXNUMBER;
 pub type PADS_HOLD = *mut ADS_HOLD;
 pub type PADS_INTEGER = *mut u32;
 pub type PADS_LARGE_INTEGER = *mut i64;
 pub type PADS_NETADDRESS = *mut ADS_NETADDRESS;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PADS_NT_SECURITY_DESCRIPTOR = *mut ADS_NT_SECURITY_DESCRIPTOR;
 pub type PADS_NUMERIC_STRING = *mut windows_sys::core::PWSTR;
 pub type PADS_OBJECT_CLASS = *mut windows_sys::core::PWSTR;
 pub type PADS_OBJECT_INFO = *mut ADS_OBJECT_INFO;
 pub type PADS_OCTET_LIST = *mut ADS_OCTET_LIST;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PADS_OCTET_STRING = *mut ADS_OCTET_STRING;
 pub type PADS_PATH = *mut ADS_PATH;
 pub type PADS_POSTALADDRESS = *mut ADS_POSTALADDRESS;
 pub type PADS_PRINTABLE_STRING = *mut windows_sys::core::PWSTR;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PADS_PROV_SPECIFIC = *mut ADS_PROV_SPECIFIC;
 pub type PADS_REPLICAPOINTER = *mut ADS_REPLICAPOINTER;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 pub type PADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type PADS_SEARCH_COLUMN = *mut ADS_SEARCH_COLUMN;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PADS_SEARCH_HANDLE = *mut super::winnt::HANDLE;
 pub type PADS_SORTKEY = *mut ADS_SORTKEY;
 pub type PADS_STATUS = *mut ADS_STATUSENUM;
 pub type PADS_TIMESTAMP = *mut ADS_TIMESTAMP;
 pub type PADS_TYPEDNAME = *mut ADS_TYPEDNAME;
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 pub type PADS_UTC_TIME = *mut super::minwinbase::SYSTEMTIME;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PADS_VLV = *mut ADS_VLV;
 pub const Path: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2538919_4080_11d1_a3ac_00c04fb950dc);
 pub const Pathname: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x080d0d78_f421_11d0_a36e_00c04fb950dc);

@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn I_NetLogonControl2<P0>(servername: P0, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -24,7 +24,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetAccessDel(servername : windows_core::PCWSTR, resource : windows_core::PCWSTR) -> u32);
     unsafe { NetAccessDel(servername.param().abi(), resource.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetAccessEnum<P0, P1>(servername: P0, basepath: P1, recursive: u32, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
 where
@@ -34,7 +34,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetAccessEnum(servername : windows_core::PCWSTR, basepath : windows_core::PCWSTR, recursive : u32, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     unsafe { NetAccessEnum(servername.param().abi(), basepath.param().abi(), recursive, level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetAccessGetInfo<P0, P1>(servername: P0, resource: P1, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -63,7 +63,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetAccessSetInfo(servername : windows_core::PCWSTR, resource : windows_core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     unsafe { NetAccessSetInfo(servername.param().abi(), resource.param().abi(), level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn NetAddServiceAccount<P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: u32) -> super::bcrypt::NTSTATUS
 where
@@ -74,7 +74,7 @@ where
     windows_core::link!("netapi32.dll" "C" fn NetAddServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, password : windows_core::PCWSTR, flags : u32) -> super::bcrypt::NTSTATUS);
     unsafe { NetAddServiceAccount(servername.param().abi(), accountname.param().abi(), password.param().abi(), flags) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
 pub unsafe fn NetEnumerateServiceAccounts<P0>(servername: P0, flags: u32, accountscount: *mut u32, accounts: *mut super::winnt::PZPWSTR) -> super::bcrypt::NTSTATUS
 where
@@ -83,7 +83,7 @@ where
     windows_core::link!("netapi32.dll" "C" fn NetEnumerateServiceAccounts(servername : windows_core::PCWSTR, flags : u32, accountscount : *mut u32, accounts : *mut super::winnt::PZPWSTR) -> super::bcrypt::NTSTATUS);
     unsafe { NetEnumerateServiceAccounts(servername.param().abi(), flags, accountscount as _, accounts as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetGetAnyDCName<P0, P1>(servername: P0, domainname: P1, buffer: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -93,7 +93,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetGetAnyDCName(servername : windows_core::PCWSTR, domainname : windows_core::PCWSTR, buffer : *mut super::minwindef::LPBYTE) -> u32);
     unsafe { NetGetAnyDCName(servername.param().abi(), domainname.param().abi(), buffer as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetGetDCName<P0, P1>(servername: P0, domainname: P1, buffer: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -149,7 +149,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetGroupDelUser(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, username : windows_core::PCWSTR) -> u32);
     unsafe { NetGroupDelUser(servername.param().abi(), groupname.param().abi(), username.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetGroupEnum<P0>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut usize>) -> u32
 where
@@ -158,7 +158,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetGroupEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut usize) -> u32);
     unsafe { NetGroupEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetGroupGetInfo<P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -168,7 +168,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetGroupGetInfo(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
     unsafe { NetGroupGetInfo(servername.param().abi(), groupname.param().abi(), level, bufptr as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetGroupGetUsers<P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: Option<*mut usize>) -> u32
 where
@@ -196,7 +196,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetGroupSetUsers(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
     unsafe { NetGroupSetUsers(servername.param().abi(), groupname.param().abi(), level, buf, totalentries) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn NetIsServiceAccount<P0, P1>(servername: P0, accountname: P1, isservice: *mut windows_core::BOOL) -> super::bcrypt::NTSTATUS
 where
@@ -206,7 +206,7 @@ where
     windows_core::link!("netapi32.dll" "C" fn NetIsServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL) -> super::bcrypt::NTSTATUS);
     unsafe { NetIsServiceAccount(servername.param().abi(), accountname.param().abi(), isservice as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn NetIsServiceAccount2<P0, P1>(servername: P0, accountname: P1, isservice: *mut windows_core::BOOL, accounttype: *mut MSA_INFO_ACCOUNT_TYPE) -> super::bcrypt::NTSTATUS
 where
@@ -224,7 +224,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetLocalGroupAdd(servername : windows_core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     unsafe { NetLocalGroupAdd(servername.param().abi(), level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn NetLocalGroupAddMember<P0, P1>(servername: P0, groupname: P1, membersid: super::winnt::PSID) -> u32
 where
@@ -252,7 +252,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetLocalGroupDel(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR) -> u32);
     unsafe { NetLocalGroupDel(servername.param().abi(), groupname.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn NetLocalGroupDelMember<P0, P1>(servername: P0, groupname: P1, membersid: super::winnt::PSID) -> u32
 where
@@ -271,7 +271,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetLocalGroupDelMembers(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
     unsafe { NetLocalGroupDelMembers(servername.param().abi(), groupname.param().abi(), level, buf, totalentries) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetLocalGroupEnum<P0>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: Option<*mut usize>) -> u32
 where
@@ -280,7 +280,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetLocalGroupEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut usize) -> u32);
     unsafe { NetLocalGroupEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetLocalGroupGetInfo<P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -290,7 +290,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetLocalGroupGetInfo(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
     unsafe { NetLocalGroupGetInfo(servername.param().abi(), groupname.param().abi(), level, bufptr as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetLocalGroupGetMembers<P0, P1>(servername: P0, localgroupname: P1, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: Option<*mut usize>) -> u32
 where
@@ -326,7 +326,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetQueryDisplayInformation(servername : windows_core::PCWSTR, level : u32, index : u32, entriesrequested : u32, preferredmaximumlength : u32, returnedentrycount : *mut u32, sortedbuffer : *mut *mut core::ffi::c_void) -> u32);
     unsafe { NetQueryDisplayInformation(servername.param().abi(), level, index, entriesrequested, preferredmaximumlength, returnedentrycount as _, sortedbuffer as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
 #[inline]
 pub unsafe fn NetQueryServiceAccount<P0, P1>(servername: P0, accountname: P1, infolevel: u32, buffer: *mut super::minwindef::PBYTE) -> super::bcrypt::NTSTATUS
 where
@@ -336,7 +336,7 @@ where
     windows_core::link!("netapi32.dll" "C" fn NetQueryServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, infolevel : u32, buffer : *mut super::minwindef::PBYTE) -> super::bcrypt::NTSTATUS);
     unsafe { NetQueryServiceAccount(servername.param().abi(), accountname.param().abi(), infolevel, buffer as _) }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn NetRemoveServiceAccount<P0, P1>(servername: P0, accountname: P1, flags: u32) -> super::bcrypt::NTSTATUS
 where
@@ -374,7 +374,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetUserDel(servername : windows_core::PCWSTR, username : windows_core::PCWSTR) -> u32);
     unsafe { NetUserDel(servername.param().abi(), username.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetUserEnum<P0>(servername: P0, level: u32, filter: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
 where
@@ -383,7 +383,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetUserEnum(servername : windows_core::PCWSTR, level : u32, filter : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     unsafe { NetUserEnum(servername.param().abi(), level, filter, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetUserGetGroups<P0, P1>(servername: P0, username: P1, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32
 where
@@ -393,7 +393,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetUserGetGroups(servername : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32) -> u32);
     unsafe { NetUserGetGroups(servername.param().abi(), username.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetUserGetInfo<P0, P1>(servername: P0, username: P1, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -403,7 +403,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetUserGetInfo(servername : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
     unsafe { NetUserGetInfo(servername.param().abi(), username.param().abi(), level, bufptr as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetUserGetLocalGroups<P0, P1>(servername: P0, username: P1, level: u32, flags: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32
 where
@@ -413,7 +413,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetUserGetLocalGroups(servername : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, flags : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32) -> u32);
     unsafe { NetUserGetLocalGroups(servername.param().abi(), username.param().abi(), level, flags, bufptr as _, prefmaxlen, entriesread as _, totalentries as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetUserModalsGet<P0>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -570,7 +570,7 @@ pub struct GROUP_INFO_2 {
     pub grpi2_attributes: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GROUP_INFO_3 {
     pub grpi3_name: windows_core::PWSTR,
@@ -615,13 +615,13 @@ pub struct LOCALGROUP_INFO_1002 {
     pub lgrpi1002_comment: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_0 {
     pub lgrmi0_sid: super::winnt::PSID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_1 {
     pub lgrmi1_sid: super::winnt::PSID,
@@ -629,7 +629,7 @@ pub struct LOCALGROUP_MEMBERS_INFO_1 {
     pub lgrmi1_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_2 {
     pub lgrmi2_sid: super::winnt::PSID,
@@ -816,49 +816,49 @@ impl Default for LPLOCALGROUP_INFO_1002 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPLOCALGROUP_MEMBERS_INFO_0(pub *mut LOCALGROUP_MEMBERS_INFO_0);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPLOCALGROUP_MEMBERS_INFO_0 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPLOCALGROUP_MEMBERS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPLOCALGROUP_MEMBERS_INFO_1(pub *mut LOCALGROUP_MEMBERS_INFO_1);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPLOCALGROUP_MEMBERS_INFO_1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPLOCALGROUP_MEMBERS_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPLOCALGROUP_MEMBERS_INFO_2(pub *mut LOCALGROUP_MEMBERS_INFO_2);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPLOCALGROUP_MEMBERS_INFO_2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPLOCALGROUP_MEMBERS_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1124,17 +1124,17 @@ impl Default for LPUSER_INFO_1018 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPUSER_INFO_1020(pub *mut USER_INFO_1020);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPUSER_INFO_1020 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPUSER_INFO_1020 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1218,33 +1218,33 @@ impl Default for LPUSER_INFO_1053 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPUSER_INFO_11(pub *mut USER_INFO_11);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPUSER_INFO_11 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPUSER_INFO_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPUSER_INFO_2(pub *mut USER_INFO_2);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPUSER_INFO_2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPUSER_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1276,81 +1276,81 @@ impl Default for LPUSER_INFO_21 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPUSER_INFO_22(pub *mut USER_INFO_22);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPUSER_INFO_22 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPUSER_INFO_22 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPUSER_INFO_23(pub *mut USER_INFO_23);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPUSER_INFO_23 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPUSER_INFO_23 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPUSER_INFO_24(pub *mut USER_INFO_24);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPUSER_INFO_24 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPUSER_INFO_24 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPUSER_INFO_3(pub *mut USER_INFO_3);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPUSER_INFO_3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPUSER_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPUSER_INFO_4(pub *mut USER_INFO_4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl LPUSER_INFO_4 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for LPUSER_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1473,17 +1473,17 @@ impl Default for LPUSER_MODALS_INFO_1007 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPUSER_MODALS_INFO_2(pub *mut USER_MODALS_INFO_2);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPUSER_MODALS_INFO_2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPUSER_MODALS_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1634,7 +1634,7 @@ pub struct NET_DISPLAY_USER {
     pub usri1_next_index: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
@@ -1644,14 +1644,14 @@ pub const NET_VALIDATE_BAD_PASSWORD_COUNT: u32 = 8;
 pub const NET_VALIDATE_BAD_PASSWORD_TIME: u32 = 2;
 pub const NET_VALIDATE_LOCKOUT_TIME: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NET_VALIDATE_OUTPUT_ARG {
     pub ChangedPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub ValidationStatus: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
@@ -1661,7 +1661,7 @@ pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub PasswordMatch: bool,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NET_VALIDATE_PASSWORD_HASH {
     pub Length: u32,
@@ -1671,7 +1671,7 @@ pub const NET_VALIDATE_PASSWORD_HISTORY: u32 = 32;
 pub const NET_VALIDATE_PASSWORD_HISTORY_LENGTH: u32 = 16;
 pub const NET_VALIDATE_PASSWORD_LAST_SET: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
@@ -1683,7 +1683,7 @@ pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
 }
 pub type NET_VALIDATE_PASSWORD_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NET_VALIDATE_PERSISTED_FIELDS {
     pub PresentFields: u32,
@@ -1818,17 +1818,17 @@ impl Default for PGROUP_INFO_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PGROUP_INFO_3(pub *mut GROUP_INFO_3);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PGROUP_INFO_3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PGROUP_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1899,49 +1899,49 @@ impl Default for PLOCALGROUP_INFO_1002 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLOCALGROUP_MEMBERS_INFO_0(pub *mut LOCALGROUP_MEMBERS_INFO_0);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PLOCALGROUP_MEMBERS_INFO_0 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PLOCALGROUP_MEMBERS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLOCALGROUP_MEMBERS_INFO_1(pub *mut LOCALGROUP_MEMBERS_INFO_1);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PLOCALGROUP_MEMBERS_INFO_1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PLOCALGROUP_MEMBERS_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLOCALGROUP_MEMBERS_INFO_2(pub *mut LOCALGROUP_MEMBERS_INFO_2);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PLOCALGROUP_MEMBERS_INFO_2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PLOCALGROUP_MEMBERS_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2129,81 +2129,81 @@ impl Default for PNET_DISPLAY_USER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNET_VALIDATE_AUTHENTICATION_INPUT_ARG(pub *mut NET_VALIDATE_AUTHENTICATION_INPUT_ARG);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PNET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PNET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNET_VALIDATE_OUTPUT_ARG(pub *mut NET_VALIDATE_OUTPUT_ARG);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PNET_VALIDATE_OUTPUT_ARG {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PNET_VALIDATE_OUTPUT_ARG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG(pub *mut NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PNET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PNET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNET_VALIDATE_PASSWORD_HASH(pub *mut NET_VALIDATE_PASSWORD_HASH);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PNET_VALIDATE_PASSWORD_HASH {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PNET_VALIDATE_PASSWORD_HASH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNET_VALIDATE_PASSWORD_RESET_INPUT_ARG(pub *mut NET_VALIDATE_PASSWORD_RESET_INPUT_ARG);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PNET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PNET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2222,17 +2222,17 @@ impl Default for PNET_VALIDATE_PASSWORD_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNET_VALIDATE_PERSISTED_FIELDS(pub *mut NET_VALIDATE_PERSISTED_FIELDS);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PNET_VALIDATE_PERSISTED_FIELDS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PNET_VALIDATE_PERSISTED_FIELDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2446,17 +2446,17 @@ impl Default for PUSER_INFO_1018 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSER_INFO_1020(pub *mut USER_INFO_1020);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PUSER_INFO_1020 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PUSER_INFO_1020 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2540,33 +2540,33 @@ impl Default for PUSER_INFO_1053 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSER_INFO_11(pub *mut USER_INFO_11);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PUSER_INFO_11 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PUSER_INFO_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSER_INFO_2(pub *mut USER_INFO_2);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PUSER_INFO_2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PUSER_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2598,81 +2598,81 @@ impl Default for PUSER_INFO_21 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSER_INFO_22(pub *mut USER_INFO_22);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PUSER_INFO_22 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PUSER_INFO_22 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSER_INFO_23(pub *mut USER_INFO_23);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PUSER_INFO_23 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PUSER_INFO_23 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSER_INFO_24(pub *mut USER_INFO_24);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PUSER_INFO_24 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PUSER_INFO_24 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSER_INFO_3(pub *mut USER_INFO_3);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PUSER_INFO_3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PUSER_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSER_INFO_4(pub *mut USER_INFO_4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl PUSER_INFO_4 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for PUSER_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2795,17 +2795,17 @@ impl Default for PUSER_MODALS_INFO_1007 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSER_MODALS_INFO_2(pub *mut USER_MODALS_INFO_2);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PUSER_MODALS_INFO_2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PUSER_MODALS_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2973,7 +2973,7 @@ pub struct USER_INFO_1018 {
     pub usri1018_max_storage: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USER_INFO_1020 {
     pub usri1020_units_per_week: u32,
@@ -3010,7 +3010,7 @@ pub struct USER_INFO_1053 {
     pub usri1053_home_dir_drive: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USER_INFO_11 {
     pub usri11_name: windows_core::PWSTR,
@@ -3035,7 +3035,7 @@ pub struct USER_INFO_11 {
     pub usri11_code_page: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USER_INFO_2 {
     pub usri2_name: windows_core::PWSTR,
@@ -3083,7 +3083,7 @@ impl Default for USER_INFO_21 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USER_INFO_22 {
     pub usri22_name: windows_core::PWSTR,
@@ -3111,14 +3111,14 @@ pub struct USER_INFO_22 {
     pub usri22_country_code: u32,
     pub usri22_code_page: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for USER_INFO_22 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USER_INFO_23 {
     pub usri23_name: windows_core::PWSTR,
@@ -3128,7 +3128,7 @@ pub struct USER_INFO_23 {
     pub usri23_user_sid: super::winnt::PSID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USER_INFO_24 {
     pub usri24_internet_identity: windows_core::BOOL,
@@ -3138,7 +3138,7 @@ pub struct USER_INFO_24 {
     pub usri24_user_sid: super::winnt::PSID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USER_INFO_3 {
     pub usri3_name: windows_core::PWSTR,
@@ -3172,7 +3172,7 @@ pub struct USER_INFO_3 {
     pub usri3_password_expired: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USER_INFO_4 {
     pub usri4_name: windows_core::PWSTR,
@@ -3267,7 +3267,7 @@ pub struct USER_MODALS_INFO_1007 {
     pub usrmod1007_primary: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USER_MODALS_INFO_2 {
     pub usrmod2_domain_name: windows_core::PWSTR,

@@ -176,9 +176,9 @@ pub const EnrollmentUserInteractionRequired: X509CertificateTemplateEnrollmentFl
 pub const ExportCAs: X509EnrollmentPolicyExportFlags = 4;
 pub const ExportOIDs: X509EnrollmentPolicyExportFlags = 2;
 pub const ExportTemplates: X509EnrollmentPolicyExportFlags = 1;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef"))]
 pub type FNIMPORTPFXTOPROVIDER = Option<unsafe extern "system" fn(hwndparent: super::windef::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: windows_core::PCWSTR, pwszprovidername: windows_core::PCWSTR, pwszreadername: windows_core::PCWSTR, pwszcontainernameprefix: windows_core::PCWSTR, pwszpin: windows_core::PCWSTR, pwszfriendlyname: windows_core::PCWSTR, pccertout: *mut u32, prgpcertout: *mut *mut super::wincrypt::PCCERT_CONTEXT) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type FNIMPORTPFXTOPROVIDERFREEDATA = Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const super::wincrypt::PCCERT_CONTEXT)>;
 pub const GeneralCA: X509CertificateTemplateGeneralFlag = 128;
 pub const GeneralCrossCA: X509CertificateTemplateGeneralFlag = 2048;
@@ -186,18 +186,18 @@ pub const GeneralDefault: X509CertificateTemplateGeneralFlag = 65536;
 pub const GeneralDonotPersist: X509CertificateTemplateGeneralFlag = 4096;
 pub const GeneralMachineType: X509CertificateTemplateGeneralFlag = 64;
 pub const GeneralModified: X509CertificateTemplateGeneralFlag = 131072;
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IAlternativeName, IAlternativeName_Vtbl, 0x728ab313_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IAlternativeName {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IAlternativeName, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IAlternativeName {
     pub unsafe fn InitializeFromString(&self, r#type: AlternativeNameType, strvalue: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromString)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute_copy(strvalue)) }
@@ -205,7 +205,7 @@ impl IAlternativeName {
     pub unsafe fn InitializeFromRawData(&self, r#type: AlternativeNameType, encoding: EncodingType, strrawdata: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromRawData)(windows_core::Interface::as_raw(self), r#type, encoding, core::mem::transmute_copy(strrawdata)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn InitializeFromOtherName<P0>(&self, pobjectid: P0, encoding: EncodingType, strrawdata: &windows_core::BSTR, tobewrapped: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IObjectId>,
@@ -237,23 +237,23 @@ impl IAlternativeName {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlternativeName_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub InitializeFromString: unsafe extern "system" fn(*mut core::ffi::c_void, AlternativeNameType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InitializeFromRawData: unsafe extern "system" fn(*mut core::ffi::c_void, AlternativeNameType, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub InitializeFromOtherName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     InitializeFromOtherName: usize,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AlternativeNameType) -> windows_core::HRESULT,
     pub StrValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RawData: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAlternativeName_Impl: super::oaidl::IDispatch_Impl {
     fn InitializeFromString(&self, r#type: AlternativeNameType, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromRawData(&self, r#type: AlternativeNameType, encoding: EncodingType, strrawdata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -263,7 +263,7 @@ pub trait IAlternativeName_Impl: super::oaidl::IDispatch_Impl {
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAlternativeName_Vtbl {
     pub const fn new<Identity: IAlternativeName_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromString<Identity: IAlternativeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: AlternativeNameType, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -347,20 +347,20 @@ impl IAlternativeName_Vtbl {
         iid == &<IAlternativeName as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAlternativeName {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IAlternativeNames, IAlternativeNames_Vtbl, 0x728ab314_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IAlternativeNames {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IAlternativeNames, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IAlternativeNames {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<IAlternativeName> {
         unsafe {
@@ -393,7 +393,7 @@ impl IAlternativeNames {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlternativeNames_Vtbl {
@@ -405,7 +405,7 @@ pub struct IAlternativeNames_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAlternativeNames_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<IAlternativeName>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -414,7 +414,7 @@ pub trait IAlternativeNames_Impl: super::oaidl::IDispatch_Impl {
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAlternativeNames_Vtbl {
     pub const fn new<Identity: IAlternativeNames_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -485,20 +485,20 @@ impl IAlternativeNames_Vtbl {
         iid == &<IAlternativeNames as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAlternativeNames {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IBinaryConverter, IBinaryConverter_Vtbl, 0x728ab302_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IBinaryConverter {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IBinaryConverter, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IBinaryConverter {
     pub unsafe fn StringToString(&self, strencodedin: &windows_core::BSTR, encodingin: EncodingType, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -506,14 +506,14 @@ impl IBinaryConverter {
             (windows_core::Interface::vtable(self).StringToString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strencodedin), encodingin, encoding, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const super::oaidl::VARIANT, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VariantByteArrayToString)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarbytearray), encoding, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn StringToVariantByteArray(&self, strencoded: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -521,28 +521,28 @@ impl IBinaryConverter {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBinaryConverter_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub StringToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub VariantByteArrayToString: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     VariantByteArrayToString: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub StringToVariantByteArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     StringToVariantByteArray: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBinaryConverter_Impl: super::oaidl::IDispatch_Impl {
     fn StringToString(&self, strencodedin: &windows_core::BSTR, encodingin: EncodingType, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn VariantByteArrayToString(&self, pvarbytearray: *const super::oaidl::VARIANT, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn StringToVariantByteArray(&self, strencoded: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBinaryConverter_Vtbl {
     pub const fn new<Identity: IBinaryConverter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StringToString<Identity: IBinaryConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodedin: *mut core::ffi::c_void, encodingin: EncodingType, encoding: EncodingType, pstrencoded: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -592,29 +592,29 @@ impl IBinaryConverter_Vtbl {
         iid == &<IBinaryConverter as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBinaryConverter {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IBinaryConverter2, IBinaryConverter2_Vtbl, 0x8d7928b4_4e17_428d_9a17_728df00d1b2b);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IBinaryConverter2 {
     type Target = IBinaryConverter;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IBinaryConverter2, windows_core::IUnknown, super::oaidl::IDispatch, IBinaryConverter);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IBinaryConverter2 {
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn StringArrayToVariantArray(&self, pvarstringarray: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StringArrayToVariantArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarstringarray), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn VariantArrayToStringArray(&self, pvarvariantarray: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -622,26 +622,26 @@ impl IBinaryConverter2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBinaryConverter2_Vtbl {
     pub base__: IBinaryConverter_Vtbl,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub StringArrayToVariantArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     StringArrayToVariantArray: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub VariantArrayToStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::VARIANT, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     VariantArrayToStringArray: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBinaryConverter2_Impl: IBinaryConverter_Impl {
     fn StringArrayToVariantArray(&self, pvarstringarray: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::VARIANT>;
     fn VariantArrayToStringArray(&self, pvarvariantarray: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBinaryConverter2_Vtbl {
     pub const fn new<Identity: IBinaryConverter2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StringArrayToVariantArray<Identity: IBinaryConverter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarstringarray: *const super::oaidl::VARIANT, pvarvariantarray: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -678,20 +678,20 @@ impl IBinaryConverter2_Vtbl {
         iid == &<IBinaryConverter2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IBinaryConverter as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBinaryConverter2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertProperties, ICertProperties_Vtbl, 0x728ab32f_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertProperties {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertProperties, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertProperties {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICertProperty> {
         unsafe {
@@ -723,12 +723,12 @@ impl ICertProperties {
     pub unsafe fn Clear(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn InitializeFromCertificate(&self, machinecontext: super::wtypes::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromCertificate)(windows_core::Interface::as_raw(self), machinecontext, encoding, core::mem::transmute_copy(strcertificate)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertProperties_Vtbl {
@@ -739,12 +739,12 @@ pub struct ICertProperties_Vtbl {
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub InitializeFromCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     InitializeFromCertificate: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertProperties_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICertProperty>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -754,7 +754,7 @@ pub trait ICertProperties_Impl: super::oaidl::IDispatch_Impl {
     fn Clear(&self) -> windows_core::Result<()>;
     fn InitializeFromCertificate(&self, machinecontext: super::wtypes::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertProperties_Vtbl {
     pub const fn new<Identity: ICertProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: ICertProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -832,22 +832,22 @@ impl ICertProperties_Vtbl {
         iid == &<ICertProperties as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertProperties {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertProperty, ICertProperty_Vtbl, 0x728ab32e_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertProperty {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertProperty, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertProperty {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn InitializeFromCertificate(&self, machinecontext: super::wtypes::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromCertificate)(windows_core::Interface::as_raw(self), machinecontext, encoding, core::mem::transmute_copy(strcertificate)) }
     }
@@ -869,38 +869,38 @@ impl ICertProperty {
             (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), encoding, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn RemoveFromCertificate(&self, machinecontext: super::wtypes::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveFromCertificate)(windows_core::Interface::as_raw(self), machinecontext, encoding, core::mem::transmute_copy(strcertificate)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetValueOnCertificate(&self, machinecontext: super::wtypes::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValueOnCertificate)(windows_core::Interface::as_raw(self), machinecontext, encoding, core::mem::transmute_copy(strcertificate)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertProperty_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub InitializeFromCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     InitializeFromCertificate: usize,
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PropertyId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CERTENROLL_PROPERTYID) -> windows_core::HRESULT,
     pub SetPropertyId: unsafe extern "system" fn(*mut core::ffi::c_void, CERTENROLL_PROPERTYID) -> windows_core::HRESULT,
     pub RawData: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub RemoveFromCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     RemoveFromCertificate: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetValueOnCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetValueOnCertificate: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertProperty_Impl: super::oaidl::IDispatch_Impl {
     fn InitializeFromCertificate(&self, machinecontext: super::wtypes::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -910,7 +910,7 @@ pub trait ICertProperty_Impl: super::oaidl::IDispatch_Impl {
     fn RemoveFromCertificate(&self, machinecontext: super::wtypes::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetValueOnCertificate(&self, machinecontext: super::wtypes::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertProperty_Vtbl {
     pub const fn new<Identity: ICertProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromCertificate<Identity: ICertProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinecontext: super::wtypes::VARIANT_BOOL, encoding: EncodingType, strcertificate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -982,26 +982,26 @@ impl ICertProperty_Vtbl {
         iid == &<ICertProperty as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertProperty {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertyArchived, ICertPropertyArchived_Vtbl, 0x728ab337_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertyArchived {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertyArchived, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertyArchived {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Initialize(&self, archivedvalue: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), archivedvalue) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Archived(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1009,26 +1009,26 @@ impl ICertPropertyArchived {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyArchived_Vtbl {
     pub base__: ICertProperty_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Initialize: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Archived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Archived: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyArchived_Impl: ICertProperty_Impl {
     fn Initialize(&self, archivedvalue: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Archived(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyArchived_Vtbl {
     pub const fn new<Identity: ICertPropertyArchived_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyArchived_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, archivedvalue: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1055,20 +1055,20 @@ impl ICertPropertyArchived_Vtbl {
         iid == &<ICertPropertyArchived as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertyArchived {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertyArchivedKeyHash, ICertPropertyArchivedKeyHash_Vtbl, 0x728ab33b_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertyArchivedKeyHash {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertyArchivedKeyHash, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertyArchivedKeyHash {
     pub unsafe fn Initialize(&self, encoding: EncodingType, strarchivedkeyhashvalue: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(strarchivedkeyhashvalue)) }
@@ -1080,7 +1080,7 @@ impl ICertPropertyArchivedKeyHash {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyArchivedKeyHash_Vtbl {
@@ -1088,12 +1088,12 @@ pub struct ICertPropertyArchivedKeyHash_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ArchivedKeyHash: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyArchivedKeyHash_Impl: ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strarchivedkeyhashvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ArchivedKeyHash(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyArchivedKeyHash_Vtbl {
     pub const fn new<Identity: ICertPropertyArchivedKeyHash_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyArchivedKeyHash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strarchivedkeyhashvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1124,20 +1124,20 @@ impl ICertPropertyArchivedKeyHash_Vtbl {
         iid == &<ICertPropertyArchivedKeyHash as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertyArchivedKeyHash {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertyAutoEnroll, ICertPropertyAutoEnroll_Vtbl, 0x728ab332_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertyAutoEnroll {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertyAutoEnroll, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertyAutoEnroll {
     pub unsafe fn Initialize(&self, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strtemplatename)) }
@@ -1149,7 +1149,7 @@ impl ICertPropertyAutoEnroll {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyAutoEnroll_Vtbl {
@@ -1157,12 +1157,12 @@ pub struct ICertPropertyAutoEnroll_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TemplateName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyAutoEnroll_Impl: ICertProperty_Impl {
     fn Initialize(&self, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn TemplateName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyAutoEnroll_Vtbl {
     pub const fn new<Identity: ICertPropertyAutoEnroll_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyAutoEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1193,30 +1193,30 @@ impl ICertPropertyAutoEnroll_Vtbl {
         iid == &<ICertPropertyAutoEnroll as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertyAutoEnroll {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertyBackedUp, ICertPropertyBackedUp_Vtbl, 0x728ab338_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertyBackedUp {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertyBackedUp, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertyBackedUp {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn InitializeFromCurrentTime(&self, backedupvalue: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromCurrentTime)(windows_core::Interface::as_raw(self), backedupvalue) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Initialize(&self, backedupvalue: super::wtypes::VARIANT_BOOL, date: f64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), backedupvalue, date) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn BackedUpValue(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1230,33 +1230,33 @@ impl ICertPropertyBackedUp {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyBackedUp_Vtbl {
     pub base__: ICertProperty_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub InitializeFromCurrentTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     InitializeFromCurrentTime: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, f64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Initialize: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub BackedUpValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     BackedUpValue: usize,
     pub BackedUpTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyBackedUp_Impl: ICertProperty_Impl {
     fn InitializeFromCurrentTime(&self, backedupvalue: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Initialize(&self, backedupvalue: super::wtypes::VARIANT_BOOL, date: f64) -> windows_core::Result<()>;
     fn BackedUpValue(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn BackedUpTime(&self) -> windows_core::Result<f64>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyBackedUp_Vtbl {
     pub const fn new<Identity: ICertPropertyBackedUp_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromCurrentTime<Identity: ICertPropertyBackedUp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backedupvalue: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1307,20 +1307,20 @@ impl ICertPropertyBackedUp_Vtbl {
         iid == &<ICertPropertyBackedUp as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertyBackedUp {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertyDescription, ICertPropertyDescription_Vtbl, 0x728ab331_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertyDescription {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertyDescription, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertyDescription {
     pub unsafe fn Initialize(&self, strdescription: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strdescription)) }
@@ -1332,7 +1332,7 @@ impl ICertPropertyDescription {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyDescription_Vtbl {
@@ -1340,12 +1340,12 @@ pub struct ICertPropertyDescription_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyDescription_Impl: ICertProperty_Impl {
     fn Initialize(&self, strdescription: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyDescription_Vtbl {
     pub const fn new<Identity: ICertPropertyDescription_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdescription: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1372,20 +1372,20 @@ impl ICertPropertyDescription_Vtbl {
         iid == &<ICertPropertyDescription as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertyDescription {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertyEnrollment, ICertPropertyEnrollment_Vtbl, 0x728ab339_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertyEnrollment {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertyEnrollment, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertyEnrollment {
     pub unsafe fn Initialize(&self, requestid: i32, strcadnsname: &windows_core::BSTR, strcaname: &windows_core::BSTR, strfriendlyname: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), requestid, core::mem::transmute_copy(strcadnsname), core::mem::transmute_copy(strcaname), core::mem::transmute_copy(strfriendlyname)) }
@@ -1415,7 +1415,7 @@ impl ICertPropertyEnrollment {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyEnrollment_Vtbl {
@@ -1426,7 +1426,7 @@ pub struct ICertPropertyEnrollment_Vtbl {
     pub CAName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyEnrollment_Impl: ICertProperty_Impl {
     fn Initialize(&self, requestid: i32, strcadnsname: &windows_core::BSTR, strcaname: &windows_core::BSTR, strfriendlyname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RequestId(&self) -> windows_core::Result<i32>;
@@ -1434,7 +1434,7 @@ pub trait ICertPropertyEnrollment_Impl: ICertProperty_Impl {
     fn CAName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn FriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyEnrollment_Vtbl {
     pub const fn new<Identity: ICertPropertyEnrollment_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestid: i32, strcadnsname: *mut core::ffi::c_void, strcaname: *mut core::ffi::c_void, strfriendlyname: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1504,22 +1504,22 @@ impl ICertPropertyEnrollment_Vtbl {
         iid == &<ICertPropertyEnrollment as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertyEnrollment {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertyEnrollmentPolicyServer, ICertPropertyEnrollmentPolicyServer_Vtbl, 0x728ab34a_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertyEnrollmentPolicyServer {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertyEnrollmentPolicyServer, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertyEnrollmentPolicyServer {
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub unsafe fn Initialize(&self, propertyflags: EnrollmentPolicyServerPropertyFlags, authflags: super::certcli::X509EnrollmentAuthFlags, enrollmentserverauthflags: super::certcli::X509EnrollmentAuthFlags, urlflags: PolicyServerUrlFlags, strrequestid: &windows_core::BSTR, strurl: &windows_core::BSTR, strid: &windows_core::BSTR, strenrollmentserverurl: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), propertyflags, authflags, enrollmentserverauthflags, urlflags, core::mem::transmute_copy(strrequestid), core::mem::transmute_copy(strurl), core::mem::transmute_copy(strid), core::mem::transmute_copy(strenrollmentserverurl)) }
     }
@@ -1559,14 +1559,14 @@ impl ICertPropertyEnrollmentPolicyServer {
             (windows_core::Interface::vtable(self).GetUrlFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub unsafe fn GetAuthentication(&self) -> windows_core::Result<super::certcli::X509EnrollmentAuthFlags> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAuthentication)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub unsafe fn GetEnrollmentServerAuthentication(&self) -> windows_core::Result<super::certcli::X509EnrollmentAuthFlags> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1574,14 +1574,14 @@ impl ICertPropertyEnrollmentPolicyServer {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyEnrollmentPolicyServer_Vtbl {
     pub base__: ICertProperty_Vtbl,
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EnrollmentPolicyServerPropertyFlags, super::certcli::X509EnrollmentAuthFlags, super::certcli::X509EnrollmentAuthFlags, PolicyServerUrlFlags, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certcli"))]
+    #[cfg(not(feature = "certcli"))]
     Initialize: usize,
     pub GetPolicyServerUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPolicyServerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1589,16 +1589,16 @@ pub struct ICertPropertyEnrollmentPolicyServer_Vtbl {
     pub GetRequestIdString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPropertyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnrollmentPolicyServerPropertyFlags) -> windows_core::HRESULT,
     pub GetUrlFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PolicyServerUrlFlags) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub GetAuthentication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::certcli::X509EnrollmentAuthFlags) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certcli"))]
+    #[cfg(not(feature = "certcli"))]
     GetAuthentication: usize,
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub GetEnrollmentServerAuthentication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::certcli::X509EnrollmentAuthFlags) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certcli"))]
+    #[cfg(not(feature = "certcli"))]
     GetEnrollmentServerAuthentication: usize,
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyEnrollmentPolicyServer_Impl: ICertProperty_Impl {
     fn Initialize(&self, propertyflags: EnrollmentPolicyServerPropertyFlags, authflags: super::certcli::X509EnrollmentAuthFlags, enrollmentserverauthflags: super::certcli::X509EnrollmentAuthFlags, urlflags: PolicyServerUrlFlags, strrequestid: &windows_core::BSTR, strurl: &windows_core::BSTR, strid: &windows_core::BSTR, strenrollmentserverurl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetPolicyServerUrl(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1610,7 +1610,7 @@ pub trait ICertPropertyEnrollmentPolicyServer_Impl: ICertProperty_Impl {
     fn GetAuthentication(&self) -> windows_core::Result<super::certcli::X509EnrollmentAuthFlags>;
     fn GetEnrollmentServerAuthentication(&self) -> windows_core::Result<super::certcli::X509EnrollmentAuthFlags>;
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyEnrollmentPolicyServer_Vtbl {
     pub const fn new<Identity: ICertPropertyEnrollmentPolicyServer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyEnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyflags: EnrollmentPolicyServerPropertyFlags, authflags: super::certcli::X509EnrollmentAuthFlags, enrollmentserverauthflags: super::certcli::X509EnrollmentAuthFlags, urlflags: PolicyServerUrlFlags, strrequestid: *mut core::ffi::c_void, strurl: *mut core::ffi::c_void, strid: *mut core::ffi::c_void, strenrollmentserverurl: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1732,20 +1732,20 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
         iid == &<ICertPropertyEnrollmentPolicyServer as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertyEnrollmentPolicyServer {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertyFriendlyName, ICertPropertyFriendlyName_Vtbl, 0x728ab330_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertyFriendlyName {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertyFriendlyName, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertyFriendlyName {
     pub unsafe fn Initialize(&self, strfriendlyname: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfriendlyname)) }
@@ -1757,7 +1757,7 @@ impl ICertPropertyFriendlyName {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyFriendlyName_Vtbl {
@@ -1765,12 +1765,12 @@ pub struct ICertPropertyFriendlyName_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyFriendlyName_Impl: ICertProperty_Impl {
     fn Initialize(&self, strfriendlyname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn FriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyFriendlyName_Vtbl {
     pub const fn new<Identity: ICertPropertyFriendlyName_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyFriendlyName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfriendlyname: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1801,20 +1801,20 @@ impl ICertPropertyFriendlyName_Vtbl {
         iid == &<ICertPropertyFriendlyName as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertyFriendlyName {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertyKeyProvInfo, ICertPropertyKeyProvInfo_Vtbl, 0x728ab336_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertyKeyProvInfo {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertyKeyProvInfo, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertyKeyProvInfo {
     pub unsafe fn Initialize<P0>(&self, pvalue: P0) -> windows_core::HRESULT
     where
@@ -1829,7 +1829,7 @@ impl ICertPropertyKeyProvInfo {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyKeyProvInfo_Vtbl {
@@ -1837,12 +1837,12 @@ pub struct ICertPropertyKeyProvInfo_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PrivateKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyKeyProvInfo_Impl: ICertProperty_Impl {
     fn Initialize(&self, pvalue: windows_core::Ref<IX509PrivateKey>) -> windows_core::Result<()>;
     fn PrivateKey(&self) -> windows_core::Result<IX509PrivateKey>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyKeyProvInfo_Vtbl {
     pub const fn new<Identity: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1869,25 +1869,25 @@ impl ICertPropertyKeyProvInfo_Vtbl {
         iid == &<ICertPropertyKeyProvInfo as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertyKeyProvInfo {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertyRenewal, ICertPropertyRenewal_Vtbl, 0x728ab33a_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertyRenewal {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertyRenewal, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertyRenewal {
     pub unsafe fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(strrenewalvalue)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn InitializeFromCertificateHash(&self, machinecontext: super::wtypes::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromCertificateHash)(windows_core::Interface::as_raw(self), machinecontext, encoding, core::mem::transmute_copy(strcertificate)) }
     }
@@ -1898,25 +1898,25 @@ impl ICertPropertyRenewal {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyRenewal_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub InitializeFromCertificateHash: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     InitializeFromCertificateHash: usize,
     pub Renewal: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyRenewal_Impl: ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromCertificateHash(&self, machinecontext: super::wtypes::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Renewal(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyRenewal_Vtbl {
     pub const fn new<Identity: ICertPropertyRenewal_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyRenewal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strrenewalvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1954,20 +1954,20 @@ impl ICertPropertyRenewal_Vtbl {
         iid == &<ICertPropertyRenewal as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertyRenewal {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertyRequestOriginator, ICertPropertyRequestOriginator_Vtbl, 0x728ab333_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertyRequestOriginator {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertyRequestOriginator, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertyRequestOriginator {
     pub unsafe fn Initialize(&self, strrequestoriginator: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strrequestoriginator)) }
@@ -1982,7 +1982,7 @@ impl ICertPropertyRequestOriginator {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyRequestOriginator_Vtbl {
@@ -1991,13 +1991,13 @@ pub struct ICertPropertyRequestOriginator_Vtbl {
     pub InitializeFromLocalRequestOriginator: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestOriginator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyRequestOriginator_Impl: ICertProperty_Impl {
     fn Initialize(&self, strrequestoriginator: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromLocalRequestOriginator(&self) -> windows_core::Result<()>;
     fn RequestOriginator(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyRequestOriginator_Vtbl {
     pub const fn new<Identity: ICertPropertyRequestOriginator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyRequestOriginator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strrequestoriginator: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2035,20 +2035,20 @@ impl ICertPropertyRequestOriginator_Vtbl {
         iid == &<ICertPropertyRequestOriginator as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertyRequestOriginator {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPropertySHA1Hash, ICertPropertySHA1Hash_Vtbl, 0x728ab334_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPropertySHA1Hash {
     type Target = ICertProperty;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPropertySHA1Hash, windows_core::IUnknown, super::oaidl::IDispatch, ICertProperty);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPropertySHA1Hash {
     pub unsafe fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(strrenewalvalue)) }
@@ -2060,7 +2060,7 @@ impl ICertPropertySHA1Hash {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertySHA1Hash_Vtbl {
@@ -2068,12 +2068,12 @@ pub struct ICertPropertySHA1Hash_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SHA1Hash: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertySHA1Hash_Impl: ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SHA1Hash(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertySHA1Hash_Vtbl {
     pub const fn new<Identity: ICertPropertySHA1Hash_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPropertySHA1Hash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strrenewalvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2100,20 +2100,20 @@ impl ICertPropertySHA1Hash_Vtbl {
         iid == &<ICertPropertySHA1Hash as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPropertySHA1Hash {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertificateAttestationChallenge, ICertificateAttestationChallenge_Vtbl, 0x6f175a7c_4a3a_40ae_9dba_592fd6bbf9b8);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertificateAttestationChallenge {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertificateAttestationChallenge, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertificateAttestationChallenge {
     pub unsafe fn Initialize(&self, encoding: EncodingType, strpendingfullcmcresponsewithchallenge: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(strpendingfullcmcresponsewithchallenge)) }
@@ -2131,7 +2131,7 @@ impl ICertificateAttestationChallenge {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateAttestationChallenge_Vtbl {
@@ -2140,13 +2140,13 @@ pub struct ICertificateAttestationChallenge_Vtbl {
     pub DecryptChallenge: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertificateAttestationChallenge_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, encoding: EncodingType, strpendingfullcmcresponsewithchallenge: &windows_core::BSTR) -> windows_core::Result<()>;
     fn DecryptChallenge(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn RequestID(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertificateAttestationChallenge_Vtbl {
     pub const fn new<Identity: ICertificateAttestationChallenge_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertificateAttestationChallenge_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strpendingfullcmcresponsewithchallenge: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2190,20 +2190,20 @@ impl ICertificateAttestationChallenge_Vtbl {
         iid == &<ICertificateAttestationChallenge as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertificateAttestationChallenge {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertificateAttestationChallenge2, ICertificateAttestationChallenge2_Vtbl, 0x4631334d_e266_47d6_bd79_be53cb2e2753);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertificateAttestationChallenge2 {
     type Target = ICertificateAttestationChallenge;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertificateAttestationChallenge2, windows_core::IUnknown, super::oaidl::IDispatch, ICertificateAttestationChallenge);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertificateAttestationChallenge2 {
     pub unsafe fn SetKeyContainerName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetKeyContainerName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
@@ -2212,7 +2212,7 @@ impl ICertificateAttestationChallenge2 {
         unsafe { (windows_core::Interface::vtable(self).SetKeyBlob)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(value)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateAttestationChallenge2_Vtbl {
@@ -2220,12 +2220,12 @@ pub struct ICertificateAttestationChallenge2_Vtbl {
     pub SetKeyContainerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetKeyBlob: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertificateAttestationChallenge2_Impl: ICertificateAttestationChallenge_Impl {
     fn SetKeyContainerName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetKeyBlob(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertificateAttestationChallenge2_Vtbl {
     pub const fn new<Identity: ICertificateAttestationChallenge2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetKeyContainerName<Identity: ICertificateAttestationChallenge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2250,20 +2250,20 @@ impl ICertificateAttestationChallenge2_Vtbl {
         iid == &<ICertificateAttestationChallenge2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertificateAttestationChallenge as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertificateAttestationChallenge2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertificatePolicies, ICertificatePolicies_Vtbl, 0x728ab31f_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertificatePolicies {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertificatePolicies, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertificatePolicies {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICertificatePolicy> {
         unsafe {
@@ -2296,7 +2296,7 @@ impl ICertificatePolicies {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificatePolicies_Vtbl {
@@ -2308,7 +2308,7 @@ pub struct ICertificatePolicies_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertificatePolicies_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICertificatePolicy>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -2317,7 +2317,7 @@ pub trait ICertificatePolicies_Impl: super::oaidl::IDispatch_Impl {
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertificatePolicies_Vtbl {
     pub const fn new<Identity: ICertificatePolicies_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: ICertificatePolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2388,20 +2388,20 @@ impl ICertificatePolicies_Vtbl {
         iid == &<ICertificatePolicies as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertificatePolicies {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertificatePolicy, ICertificatePolicy_Vtbl, 0x728ab31e_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertificatePolicy {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertificatePolicy, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertificatePolicy {
     pub unsafe fn Initialize<P0>(&self, pvalue: P0) -> windows_core::HRESULT
     where
@@ -2422,7 +2422,7 @@ impl ICertificatePolicy {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificatePolicy_Vtbl {
@@ -2431,13 +2431,13 @@ pub struct ICertificatePolicy_Vtbl {
     pub ObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PolicyQualifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertificatePolicy_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn PolicyQualifiers(&self) -> windows_core::Result<IPolicyQualifiers>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertificatePolicy_Vtbl {
     pub const fn new<Identity: ICertificatePolicy_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertificatePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2481,20 +2481,20 @@ impl ICertificatePolicy_Vtbl {
         iid == &<ICertificatePolicy as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertificatePolicy {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertificationAuthorities, ICertificationAuthorities_Vtbl, 0x13b79005_2181_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertificationAuthorities {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertificationAuthorities, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertificationAuthorities {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICertificationAuthority> {
         unsafe {
@@ -2536,7 +2536,7 @@ impl ICertificationAuthorities {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificationAuthorities_Vtbl {
@@ -2550,7 +2550,7 @@ pub struct ICertificationAuthorities_Vtbl {
     pub ComputeSiteCosts: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertificationAuthorities_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICertificationAuthority>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -2561,7 +2561,7 @@ pub trait ICertificationAuthorities_Impl: super::oaidl::IDispatch_Impl {
     fn ComputeSiteCosts(&self) -> windows_core::Result<()>;
     fn ItemByName(&self, strname: &windows_core::BSTR) -> windows_core::Result<ICertificationAuthority>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertificationAuthorities_Vtbl {
     pub const fn new<Identity: ICertificationAuthorities_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2652,22 +2652,22 @@ impl ICertificationAuthorities_Vtbl {
         iid == &<ICertificationAuthorities as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertificationAuthorities {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertificationAuthority, ICertificationAuthority_Vtbl, 0x835d1f61_1e95_4bc8_b4d3_976c42b968f7);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertificationAuthority {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertificationAuthority, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertificationAuthority {
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Property(&self, property: EnrollmentCAProperty) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2675,21 +2675,21 @@ impl ICertificationAuthority {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificationAuthority_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Property: unsafe extern "system" fn(*mut core::ffi::c_void, EnrollmentCAProperty, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Property: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertificationAuthority_Impl: super::oaidl::IDispatch_Impl {
     fn Property(&self, property: EnrollmentCAProperty) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertificationAuthority_Vtbl {
     pub const fn new<Identity: ICertificationAuthority_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Property<Identity: ICertificationAuthority_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentCAProperty, pvalue: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -2710,20 +2710,20 @@ impl ICertificationAuthority_Vtbl {
         iid == &<ICertificationAuthority as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertificationAuthority {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICryptAttribute, ICryptAttribute_Vtbl, 0x728ab32c_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICryptAttribute {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICryptAttribute, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICryptAttribute {
     pub unsafe fn InitializeFromObjectId<P0>(&self, pobjectid: P0) -> windows_core::HRESULT
     where
@@ -2750,7 +2750,7 @@ impl ICryptAttribute {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICryptAttribute_Vtbl {
@@ -2760,14 +2760,14 @@ pub struct ICryptAttribute_Vtbl {
     pub ObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Values: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICryptAttribute_Impl: super::oaidl::IDispatch_Impl {
     fn InitializeFromObjectId(&self, pobjectid: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
     fn InitializeFromValues(&self, pattributes: windows_core::Ref<IX509Attributes>) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn Values(&self) -> windows_core::Result<IX509Attributes>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICryptAttribute_Vtbl {
     pub const fn new<Identity: ICryptAttribute_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromObjectId<Identity: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2818,20 +2818,20 @@ impl ICryptAttribute_Vtbl {
         iid == &<ICryptAttribute as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICryptAttribute {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICryptAttributes, ICryptAttributes_Vtbl, 0x728ab32d_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICryptAttributes {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICryptAttributes, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICryptAttributes {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICryptAttribute> {
         unsafe {
@@ -2879,7 +2879,7 @@ impl ICryptAttributes {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), pvalue.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICryptAttributes_Vtbl {
@@ -2893,7 +2893,7 @@ pub struct ICryptAttributes_Vtbl {
     pub IndexByObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub AddRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICryptAttributes_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICryptAttribute>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -2904,7 +2904,7 @@ pub trait ICryptAttributes_Impl: super::oaidl::IDispatch_Impl {
     fn IndexByObjectId(&self, pobjectid: windows_core::Ref<IObjectId>) -> windows_core::Result<i32>;
     fn AddRange(&self, pvalue: windows_core::Ref<ICryptAttributes>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICryptAttributes_Vtbl {
     pub const fn new<Identity: ICryptAttributes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2995,20 +2995,20 @@ impl ICryptAttributes_Vtbl {
         iid == &<ICryptAttributes as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICryptAttributes {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICspAlgorithm, ICspAlgorithm_Vtbl, 0x728ab305_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICspAlgorithm {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICspAlgorithm, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICspAlgorithm {
     pub unsafe fn GetAlgorithmOid(&self, length: i32, algflags: AlgorithmFlags) -> windows_core::Result<IObjectId> {
         unsafe {
@@ -3034,7 +3034,7 @@ impl ICspAlgorithm {
             (windows_core::Interface::vtable(self).LongName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Valid(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3072,7 +3072,7 @@ impl ICspAlgorithm {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICspAlgorithm_Vtbl {
@@ -3081,9 +3081,9 @@ pub struct ICspAlgorithm_Vtbl {
     pub DefaultLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub IncrementLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub LongName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Valid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Valid: usize,
     pub MaxLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub MinLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3091,7 +3091,7 @@ pub struct ICspAlgorithm_Vtbl {
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AlgorithmType) -> windows_core::HRESULT,
     pub Operations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AlgorithmOperationFlags) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICspAlgorithm_Impl: super::oaidl::IDispatch_Impl {
     fn GetAlgorithmOid(&self, length: i32, algflags: AlgorithmFlags) -> windows_core::Result<IObjectId>;
     fn DefaultLength(&self) -> windows_core::Result<i32>;
@@ -3104,7 +3104,7 @@ pub trait ICspAlgorithm_Impl: super::oaidl::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<AlgorithmType>;
     fn Operations(&self) -> windows_core::Result<AlgorithmOperationFlags>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICspAlgorithm_Vtbl {
     pub const fn new<Identity: ICspAlgorithm_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAlgorithmOid<Identity: ICspAlgorithm_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: i32, algflags: AlgorithmFlags, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3245,20 +3245,20 @@ impl ICspAlgorithm_Vtbl {
         iid == &<ICspAlgorithm as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICspAlgorithm {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICspAlgorithms, ICspAlgorithms_Vtbl, 0x728ab306_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICspAlgorithms {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICspAlgorithms, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICspAlgorithms {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICspAlgorithm> {
         unsafe {
@@ -3306,7 +3306,7 @@ impl ICspAlgorithms {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICspAlgorithms_Vtbl {
@@ -3320,7 +3320,7 @@ pub struct ICspAlgorithms_Vtbl {
     pub ItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IndexByObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICspAlgorithms_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICspAlgorithm>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -3331,7 +3331,7 @@ pub trait ICspAlgorithms_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByName(&self, strname: &windows_core::BSTR) -> windows_core::Result<ICspAlgorithm>;
     fn IndexByObjectId(&self, pobjectid: windows_core::Ref<IObjectId>) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICspAlgorithms_Vtbl {
     pub const fn new<Identity: ICspAlgorithms_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3428,25 +3428,25 @@ impl ICspAlgorithms_Vtbl {
         iid == &<ICspAlgorithms as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICspAlgorithms {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICspInformation, ICspInformation_Vtbl, 0x728ab307_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICspInformation {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICspInformation, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICspInformation {
     pub unsafe fn InitializeFromName(&self, strname: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn InitializeFromType<P1>(&self, r#type: X509ProviderType, palgorithm: P1, machinecontext: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IObjectId>,
@@ -3459,35 +3459,35 @@ impl ICspInformation {
             (windows_core::Interface::vtable(self).CspAlgorithms)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn HasHardwareRandomNumberGenerator(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HasHardwareRandomNumberGenerator)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsHardwareDevice(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsHardwareDevice)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsRemovable(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsRemovable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsSoftwareDevice(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSoftwareDevice)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Valid(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3524,21 +3524,21 @@ impl ICspInformation {
             (windows_core::Interface::vtable(self).KeySpec)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsSmartCard(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSmartCard)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetDefaultSecurityDescriptor(&self, machinecontext: super::wtypes::VARIANT_BOOL) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDefaultSecurityDescriptor)(windows_core::Interface::as_raw(self), machinecontext, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn LegacyCsp(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3555,57 +3555,57 @@ impl ICspInformation {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICspInformation_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub InitializeFromName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub InitializeFromType: unsafe extern "system" fn(*mut core::ffi::c_void, X509ProviderType, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     InitializeFromType: usize,
     pub CspAlgorithms: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub HasHardwareRandomNumberGenerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     HasHardwareRandomNumberGenerator: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsHardwareDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsHardwareDevice: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsRemovable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsRemovable: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsSoftwareDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsSoftwareDevice: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Valid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Valid: usize,
     pub MaxKeyContainerNameLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut X509ProviderType) -> windows_core::HRESULT,
     pub Version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub KeySpec: unsafe extern "system" fn(*mut core::ffi::c_void, *mut X509KeySpec) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsSmartCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsSmartCard: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetDefaultSecurityDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetDefaultSecurityDescriptor: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub LegacyCsp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     LegacyCsp: usize,
     pub GetCspStatusFromOperations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, AlgorithmOperationFlags, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICspInformation_Impl: super::oaidl::IDispatch_Impl {
     fn InitializeFromName(&self, strname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromType(&self, r#type: X509ProviderType, palgorithm: windows_core::Ref<IObjectId>, machinecontext: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -3625,7 +3625,7 @@ pub trait ICspInformation_Impl: super::oaidl::IDispatch_Impl {
     fn LegacyCsp(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn GetCspStatusFromOperations(&self, palgorithm: windows_core::Ref<IObjectId>, operations: AlgorithmOperationFlags) -> windows_core::Result<ICspStatus>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICspInformation_Vtbl {
     pub const fn new<Identity: ICspInformation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromName<Identity: ICspInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3845,20 +3845,20 @@ impl ICspInformation_Vtbl {
         iid == &<ICspInformation as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICspInformation {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICspInformations, ICspInformations_Vtbl, 0x728ab308_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICspInformations {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICspInformations, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICspInformations {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICspInformation> {
         unsafe {
@@ -3933,7 +3933,7 @@ impl ICspInformations {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICspInformations_Vtbl {
@@ -3951,7 +3951,7 @@ pub struct ICspInformations_Vtbl {
     pub GetEncryptionCspAlgorithms: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetHashAlgorithms: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICspInformations_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICspInformation>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -3966,7 +3966,7 @@ pub trait ICspInformations_Impl: super::oaidl::IDispatch_Impl {
     fn GetEncryptionCspAlgorithms(&self, pcspinformation: windows_core::Ref<ICspInformation>) -> windows_core::Result<ICspAlgorithms>;
     fn GetHashAlgorithms(&self, pcspinformation: windows_core::Ref<ICspInformation>) -> windows_core::Result<IObjectIds>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICspInformations_Vtbl {
     pub const fn new<Identity: ICspInformations_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: ICspInformations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4109,20 +4109,20 @@ impl ICspInformations_Vtbl {
         iid == &<ICspInformations as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICspInformations {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICspStatus, ICspStatus_Vtbl, 0x728ab309_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICspStatus {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICspStatus, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICspStatus {
     pub unsafe fn Initialize<P0, P1>(&self, pcsp: P0, palgorithm: P1) -> windows_core::HRESULT
     where
@@ -4165,7 +4165,7 @@ impl ICspStatus {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICspStatus_Vtbl {
@@ -4178,7 +4178,7 @@ pub struct ICspStatus_Vtbl {
     pub EnrollmentStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICspStatus_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, pcsp: windows_core::Ref<ICspInformation>, palgorithm: windows_core::Ref<ICspAlgorithm>) -> windows_core::Result<()>;
     fn Ordinal(&self) -> windows_core::Result<i32>;
@@ -4188,7 +4188,7 @@ pub trait ICspStatus_Impl: super::oaidl::IDispatch_Impl {
     fn EnrollmentStatus(&self) -> windows_core::Result<IX509EnrollmentStatus>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICspStatus_Vtbl {
     pub const fn new<Identity: ICspStatus_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICspStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcsp: *mut core::ffi::c_void, palgorithm: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4278,20 +4278,20 @@ impl ICspStatus_Vtbl {
         iid == &<ICspStatus as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICspStatus {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICspStatuses, ICspStatuses_Vtbl, 0x728ab30a_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICspStatuses {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICspStatuses, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICspStatuses {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICspStatus> {
         unsafe {
@@ -4351,7 +4351,7 @@ impl ICspStatuses {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICspStatuses_Vtbl {
@@ -4367,7 +4367,7 @@ pub struct ICspStatuses_Vtbl {
     pub ItemByOperations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, AlgorithmOperationFlags, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ItemByProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICspStatuses_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<ICspStatus>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -4380,7 +4380,7 @@ pub trait ICspStatuses_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByOperations(&self, strcspname: &windows_core::BSTR, stralgorithmname: &windows_core::BSTR, operations: AlgorithmOperationFlags) -> windows_core::Result<ICspStatus>;
     fn ItemByProvider(&self, pcspstatus: windows_core::Ref<ICspStatus>) -> windows_core::Result<ICspStatus>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICspStatuses_Vtbl {
     pub const fn new<Identity: ICspStatuses_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: ICspStatuses_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4503,20 +4503,20 @@ impl ICspStatuses_Vtbl {
         iid == &<ICspStatuses as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICspStatuses {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IObjectId, IObjectId_Vtbl, 0x728ab300_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IObjectId {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IObjectId, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IObjectId {
     pub unsafe fn InitializeFromName(&self, name: CERTENROLL_OBJECTID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromName)(windows_core::Interface::as_raw(self), name) }
@@ -4555,7 +4555,7 @@ impl IObjectId {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectId_Vtbl {
@@ -4569,7 +4569,7 @@ pub struct IObjectId_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAlgorithmName: unsafe extern "system" fn(*mut core::ffi::c_void, ObjectIdGroupId, ObjectIdPublicKeyFlags, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IObjectId_Impl: super::oaidl::IDispatch_Impl {
     fn InitializeFromName(&self, name: CERTENROLL_OBJECTID) -> windows_core::Result<()>;
     fn InitializeFromValue(&self, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -4580,7 +4580,7 @@ pub trait IObjectId_Impl: super::oaidl::IDispatch_Impl {
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetAlgorithmName(&self, groupid: ObjectIdGroupId, keyflags: ObjectIdPublicKeyFlags) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IObjectId_Vtbl {
     pub const fn new<Identity: IObjectId_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromName<Identity: IObjectId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: CERTENROLL_OBJECTID) -> windows_core::HRESULT {
@@ -4671,20 +4671,20 @@ impl IObjectId_Vtbl {
         iid == &<IObjectId as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IObjectId {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IObjectIds, IObjectIds_Vtbl, 0x728ab301_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IObjectIds {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IObjectIds, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IObjectIds {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<IObjectId> {
         unsafe {
@@ -4723,7 +4723,7 @@ impl IObjectIds {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), pvalue.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectIds_Vtbl {
@@ -4736,7 +4736,7 @@ pub struct IObjectIds_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IObjectIds_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<IObjectId>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -4746,7 +4746,7 @@ pub trait IObjectIds_Impl: super::oaidl::IDispatch_Impl {
     fn Clear(&self) -> windows_core::Result<()>;
     fn AddRange(&self, pvalue: windows_core::Ref<IObjectIds>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IObjectIds_Vtbl {
     pub const fn new<Identity: IObjectIds_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: IObjectIds_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4824,20 +4824,20 @@ impl IObjectIds_Vtbl {
         iid == &<IObjectIds as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IObjectIds {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IPolicyQualifier, IPolicyQualifier_Vtbl, 0x728ab31c_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IPolicyQualifier {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IPolicyQualifier, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IPolicyQualifier {
     pub unsafe fn InitializeEncode(&self, strqualifier: &windows_core::BSTR, r#type: PolicyQualifierType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeEncode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strqualifier), r#type) }
@@ -4867,7 +4867,7 @@ impl IPolicyQualifier {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolicyQualifier_Vtbl {
@@ -4878,7 +4878,7 @@ pub struct IPolicyQualifier_Vtbl {
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PolicyQualifierType) -> windows_core::HRESULT,
     pub RawData: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPolicyQualifier_Impl: super::oaidl::IDispatch_Impl {
     fn InitializeEncode(&self, strqualifier: &windows_core::BSTR, r#type: PolicyQualifierType) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
@@ -4886,7 +4886,7 @@ pub trait IPolicyQualifier_Impl: super::oaidl::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<PolicyQualifierType>;
     fn RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPolicyQualifier_Vtbl {
     pub const fn new<Identity: IPolicyQualifier_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IPolicyQualifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqualifier: *mut core::ffi::c_void, r#type: PolicyQualifierType) -> windows_core::HRESULT {
@@ -4956,20 +4956,20 @@ impl IPolicyQualifier_Vtbl {
         iid == &<IPolicyQualifier as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPolicyQualifier {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IPolicyQualifiers, IPolicyQualifiers_Vtbl, 0x728ab31d_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IPolicyQualifiers {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IPolicyQualifiers, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IPolicyQualifiers {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<IPolicyQualifier> {
         unsafe {
@@ -5002,7 +5002,7 @@ impl IPolicyQualifiers {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolicyQualifiers_Vtbl {
@@ -5014,7 +5014,7 @@ pub struct IPolicyQualifiers_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPolicyQualifiers_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<IPolicyQualifier>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -5023,7 +5023,7 @@ pub trait IPolicyQualifiers_Impl: super::oaidl::IDispatch_Impl {
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPolicyQualifiers_Vtbl {
     pub const fn new<Identity: IPolicyQualifiers_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: IPolicyQualifiers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5094,22 +5094,22 @@ impl IPolicyQualifiers_Vtbl {
         iid == &<IPolicyQualifiers as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPolicyQualifiers {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISignerCertificate, ISignerCertificate_Vtbl, 0x728ab33d_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISignerCertificate {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISignerCertificate, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISignerCertificate {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Initialize(&self, machinecontext: super::wtypes::VARIANT_BOOL, verifytype: X509PrivateKeyVerify, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), machinecontext, verifytype, encoding, core::mem::transmute_copy(strcertificate)) }
     }
@@ -5125,14 +5125,14 @@ impl ISignerCertificate {
             (windows_core::Interface::vtable(self).PrivateKey)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Silent(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Silent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetSilent(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSilent)(windows_core::Interface::as_raw(self), value) }
     }
@@ -5164,24 +5164,24 @@ impl ISignerCertificate {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignerCertificate_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, X509PrivateKeyVerify, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Initialize: usize,
     pub Certificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PrivateKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Silent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Silent: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetSilent: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetSilent: usize,
     pub ParentWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetParentWindow: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -5190,7 +5190,7 @@ pub struct ISignerCertificate_Vtbl {
     pub SetPin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SignatureInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISignerCertificate_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, machinecontext: super::wtypes::VARIANT_BOOL, verifytype: X509PrivateKeyVerify, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Certificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
@@ -5204,7 +5204,7 @@ pub trait ISignerCertificate_Impl: super::oaidl::IDispatch_Impl {
     fn SetPin(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SignatureInformation(&self) -> windows_core::Result<IX509SignatureInformation>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISignerCertificate_Vtbl {
     pub const fn new<Identity: ISignerCertificate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinecontext: super::wtypes::VARIANT_BOOL, verifytype: X509PrivateKeyVerify, encoding: EncodingType, strcertificate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5328,20 +5328,20 @@ impl ISignerCertificate_Vtbl {
         iid == &<ISignerCertificate as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISignerCertificate {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISignerCertificates, ISignerCertificates_Vtbl, 0x728ab33e_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISignerCertificates {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISignerCertificates, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISignerCertificates {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<ISignerCertificate> {
         unsafe {
@@ -5383,7 +5383,7 @@ impl ISignerCertificates {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignerCertificates_Vtbl {
@@ -5396,7 +5396,7 @@ pub struct ISignerCertificates_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Find: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISignerCertificates_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<ISignerCertificate>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -5406,7 +5406,7 @@ pub trait ISignerCertificates_Impl: super::oaidl::IDispatch_Impl {
     fn Clear(&self) -> windows_core::Result<()>;
     fn Find(&self, psignercert: windows_core::Ref<ISignerCertificate>) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISignerCertificates_Vtbl {
     pub const fn new<Identity: ISignerCertificates_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5490,20 +5490,20 @@ impl ISignerCertificates_Vtbl {
         iid == &<ISignerCertificates as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISignerCertificates {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISmimeCapabilities, ISmimeCapabilities_Vtbl, 0x728ab31a_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISmimeCapabilities {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISmimeCapabilities, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISmimeCapabilities {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<ISmimeCapability> {
         unsafe {
@@ -5541,12 +5541,12 @@ impl ISmimeCapabilities {
     {
         unsafe { (windows_core::Interface::vtable(self).AddFromCsp)(windows_core::Interface::as_raw(self), pvalue.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AddAvailableSmimeCapabilities(&self, machinecontext: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddAvailableSmimeCapabilities)(windows_core::Interface::as_raw(self), machinecontext) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmimeCapabilities_Vtbl {
@@ -5558,12 +5558,12 @@ pub struct ISmimeCapabilities_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddFromCsp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AddAvailableSmimeCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AddAvailableSmimeCapabilities: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISmimeCapabilities_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<ISmimeCapability>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -5574,7 +5574,7 @@ pub trait ISmimeCapabilities_Impl: super::oaidl::IDispatch_Impl {
     fn AddFromCsp(&self, pvalue: windows_core::Ref<ICspInformation>) -> windows_core::Result<()>;
     fn AddAvailableSmimeCapabilities(&self, machinecontext: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISmimeCapabilities_Vtbl {
     pub const fn new<Identity: ISmimeCapabilities_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5659,20 +5659,20 @@ impl ISmimeCapabilities_Vtbl {
         iid == &<ISmimeCapabilities as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISmimeCapabilities {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISmimeCapability, ISmimeCapability_Vtbl, 0x728ab319_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ISmimeCapability {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ISmimeCapability, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ISmimeCapability {
     pub unsafe fn Initialize<P0>(&self, pobjectid: P0, bitcount: i32) -> windows_core::HRESULT
     where
@@ -5693,7 +5693,7 @@ impl ISmimeCapability {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmimeCapability_Vtbl {
@@ -5702,13 +5702,13 @@ pub struct ISmimeCapability_Vtbl {
     pub ObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BitCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISmimeCapability_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, bitcount: i32) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn BitCount(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISmimeCapability_Vtbl {
     pub const fn new<Identity: ISmimeCapability_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ISmimeCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, bitcount: i32) -> windows_core::HRESULT {
@@ -5752,20 +5752,20 @@ impl ISmimeCapability_Vtbl {
         iid == &<ISmimeCapability as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISmimeCapability {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX500DistinguishedName, IX500DistinguishedName_Vtbl, 0x728ab303_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX500DistinguishedName {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX500DistinguishedName, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX500DistinguishedName {
     pub unsafe fn Decode(&self, strencodedname: &windows_core::BSTR, encoding: EncodingType, nameflags: X500NameFlags) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Decode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strencodedname), encoding, nameflags) }
@@ -5786,7 +5786,7 @@ impl IX500DistinguishedName {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX500DistinguishedName_Vtbl {
@@ -5796,14 +5796,14 @@ pub struct IX500DistinguishedName_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EncodedName: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX500DistinguishedName_Impl: super::oaidl::IDispatch_Impl {
     fn Decode(&self, strencodedname: &windows_core::BSTR, encoding: EncodingType, nameflags: X500NameFlags) -> windows_core::Result<()>;
     fn Encode(&self, strname: &windows_core::BSTR, nameflags: X500NameFlags) -> windows_core::Result<()>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn EncodedName(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX500DistinguishedName_Vtbl {
     pub const fn new<Identity: IX500DistinguishedName_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Decode<Identity: IX500DistinguishedName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodedname: *mut core::ffi::c_void, encoding: EncodingType, nameflags: X500NameFlags) -> windows_core::HRESULT {
@@ -5854,20 +5854,20 @@ impl IX500DistinguishedName_Vtbl {
         iid == &<IX500DistinguishedName as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX500DistinguishedName {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509Attribute, IX509Attribute_Vtbl, 0x728ab322_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509Attribute {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509Attribute, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509Attribute {
     pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT
     where
@@ -5888,7 +5888,7 @@ impl IX509Attribute {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509Attribute_Vtbl {
@@ -5897,13 +5897,13 @@ pub struct IX509Attribute_Vtbl {
     pub ObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RawData: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509Attribute_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509Attribute_Vtbl {
     pub const fn new<Identity: IX509Attribute_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509Attribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5947,20 +5947,20 @@ impl IX509Attribute_Vtbl {
         iid == &<IX509Attribute as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509Attribute {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509AttributeArchiveKey, IX509AttributeArchiveKey_Vtbl, 0x728ab327_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509AttributeArchiveKey {
     type Target = IX509Attribute;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509AttributeArchiveKey, windows_core::IUnknown, super::oaidl::IDispatch, IX509Attribute);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509AttributeArchiveKey {
     pub unsafe fn InitializeEncode<P0, P3>(&self, pkey: P0, encoding: EncodingType, strcaxcert: &windows_core::BSTR, palgorithm: P3, encryptionstrength: i32) -> windows_core::HRESULT
     where
@@ -5991,7 +5991,7 @@ impl IX509AttributeArchiveKey {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeArchiveKey_Vtbl {
@@ -6002,7 +6002,7 @@ pub struct IX509AttributeArchiveKey_Vtbl {
     pub EncryptionAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EncryptionStrength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeArchiveKey_Impl: IX509Attribute_Impl {
     fn InitializeEncode(&self, pkey: windows_core::Ref<IX509PrivateKey>, encoding: EncodingType, strcaxcert: &windows_core::BSTR, palgorithm: windows_core::Ref<IObjectId>, encryptionstrength: i32) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -6010,7 +6010,7 @@ pub trait IX509AttributeArchiveKey_Impl: IX509Attribute_Impl {
     fn EncryptionAlgorithm(&self) -> windows_core::Result<IObjectId>;
     fn EncryptionStrength(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509AttributeArchiveKey_Vtbl {
     pub const fn new<Identity: IX509AttributeArchiveKey_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeArchiveKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut core::ffi::c_void, encoding: EncodingType, strcaxcert: *mut core::ffi::c_void, palgorithm: *mut core::ffi::c_void, encryptionstrength: i32) -> windows_core::HRESULT {
@@ -6074,20 +6074,20 @@ impl IX509AttributeArchiveKey_Vtbl {
         iid == &<IX509AttributeArchiveKey as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509AttributeArchiveKey {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509AttributeArchiveKeyHash, IX509AttributeArchiveKeyHash_Vtbl, 0x728ab328_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509AttributeArchiveKeyHash {
     type Target = IX509Attribute;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509AttributeArchiveKeyHash, windows_core::IUnknown, super::oaidl::IDispatch, IX509Attribute);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509AttributeArchiveKeyHash {
     pub unsafe fn InitializeEncodeFromEncryptedKeyBlob(&self, encoding: EncodingType, strencryptedkeyblob: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeEncodeFromEncryptedKeyBlob)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(strencryptedkeyblob)) }
@@ -6102,7 +6102,7 @@ impl IX509AttributeArchiveKeyHash {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeArchiveKeyHash_Vtbl {
@@ -6111,13 +6111,13 @@ pub struct IX509AttributeArchiveKeyHash_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EncryptedKeyHashBlob: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeArchiveKeyHash_Impl: IX509Attribute_Impl {
     fn InitializeEncodeFromEncryptedKeyBlob(&self, encoding: EncodingType, strencryptedkeyblob: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn EncryptedKeyHashBlob(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509AttributeArchiveKeyHash_Vtbl {
     pub const fn new<Identity: IX509AttributeArchiveKeyHash_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncodeFromEncryptedKeyBlob<Identity: IX509AttributeArchiveKeyHash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencryptedkeyblob: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6155,20 +6155,20 @@ impl IX509AttributeArchiveKeyHash_Vtbl {
         iid == &<IX509AttributeArchiveKeyHash as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509AttributeArchiveKeyHash {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509AttributeClientId, IX509AttributeClientId_Vtbl, 0x728ab325_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509AttributeClientId {
     type Target = IX509Attribute;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509AttributeClientId, windows_core::IUnknown, super::oaidl::IDispatch, IX509Attribute);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509AttributeClientId {
     pub unsafe fn InitializeEncode(&self, clientid: RequestClientInfoClientId, strmachinednsname: &windows_core::BSTR, strusersamname: &windows_core::BSTR, strprocessname: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeEncode)(windows_core::Interface::as_raw(self), clientid, core::mem::transmute_copy(strmachinednsname), core::mem::transmute_copy(strusersamname), core::mem::transmute_copy(strprocessname)) }
@@ -6201,7 +6201,7 @@ impl IX509AttributeClientId {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeClientId_Vtbl {
@@ -6213,7 +6213,7 @@ pub struct IX509AttributeClientId_Vtbl {
     pub UserSamName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProcessName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeClientId_Impl: IX509Attribute_Impl {
     fn InitializeEncode(&self, clientid: RequestClientInfoClientId, strmachinednsname: &windows_core::BSTR, strusersamname: &windows_core::BSTR, strprocessname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -6222,7 +6222,7 @@ pub trait IX509AttributeClientId_Impl: IX509Attribute_Impl {
     fn UserSamName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ProcessName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509AttributeClientId_Vtbl {
     pub const fn new<Identity: IX509AttributeClientId_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeClientId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientid: RequestClientInfoClientId, strmachinednsname: *mut core::ffi::c_void, strusersamname: *mut core::ffi::c_void, strprocessname: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6299,20 +6299,20 @@ impl IX509AttributeClientId_Vtbl {
         iid == &<IX509AttributeClientId as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509AttributeClientId {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509AttributeCspProvider, IX509AttributeCspProvider_Vtbl, 0x728ab32b_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509AttributeCspProvider {
     type Target = IX509Attribute;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509AttributeCspProvider, windows_core::IUnknown, super::oaidl::IDispatch, IX509Attribute);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509AttributeCspProvider {
     pub unsafe fn InitializeEncode(&self, keyspec: X509KeySpec, strprovidername: &windows_core::BSTR, encoding: EncodingType, strsignature: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeEncode)(windows_core::Interface::as_raw(self), keyspec, core::mem::transmute_copy(strprovidername), encoding, core::mem::transmute_copy(strsignature)) }
@@ -6339,7 +6339,7 @@ impl IX509AttributeCspProvider {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeCspProvider_Vtbl {
@@ -6350,7 +6350,7 @@ pub struct IX509AttributeCspProvider_Vtbl {
     pub ProviderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Signature: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeCspProvider_Impl: IX509Attribute_Impl {
     fn InitializeEncode(&self, keyspec: X509KeySpec, strprovidername: &windows_core::BSTR, encoding: EncodingType, strsignature: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -6358,7 +6358,7 @@ pub trait IX509AttributeCspProvider_Impl: IX509Attribute_Impl {
     fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Signature(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509AttributeCspProvider_Vtbl {
     pub const fn new<Identity: IX509AttributeCspProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeCspProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keyspec: X509KeySpec, strprovidername: *mut core::ffi::c_void, encoding: EncodingType, strsignature: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6422,20 +6422,20 @@ impl IX509AttributeCspProvider_Vtbl {
         iid == &<IX509AttributeCspProvider as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509AttributeCspProvider {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509AttributeExtensions, IX509AttributeExtensions_Vtbl, 0x728ab324_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509AttributeExtensions {
     type Target = IX509Attribute;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509AttributeExtensions, windows_core::IUnknown, super::oaidl::IDispatch, IX509Attribute);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509AttributeExtensions {
     pub unsafe fn InitializeEncode<P0>(&self, pextensions: P0) -> windows_core::HRESULT
     where
@@ -6453,7 +6453,7 @@ impl IX509AttributeExtensions {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeExtensions_Vtbl {
@@ -6462,13 +6462,13 @@ pub struct IX509AttributeExtensions_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub X509Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeExtensions_Impl: IX509Attribute_Impl {
     fn InitializeEncode(&self, pextensions: windows_core::Ref<IX509Extensions>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn X509Extensions(&self) -> windows_core::Result<IX509Extensions>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509AttributeExtensions_Vtbl {
     pub const fn new<Identity: IX509AttributeExtensions_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeExtensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensions: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6506,20 +6506,20 @@ impl IX509AttributeExtensions_Vtbl {
         iid == &<IX509AttributeExtensions as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509AttributeExtensions {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509AttributeOSVersion, IX509AttributeOSVersion_Vtbl, 0x728ab32a_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509AttributeOSVersion {
     type Target = IX509Attribute;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509AttributeOSVersion, windows_core::IUnknown, super::oaidl::IDispatch, IX509Attribute);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509AttributeOSVersion {
     pub unsafe fn InitializeEncode(&self, strosversion: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeEncode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strosversion)) }
@@ -6534,7 +6534,7 @@ impl IX509AttributeOSVersion {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeOSVersion_Vtbl {
@@ -6543,13 +6543,13 @@ pub struct IX509AttributeOSVersion_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OSVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeOSVersion_Impl: IX509Attribute_Impl {
     fn InitializeEncode(&self, strosversion: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn OSVersion(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509AttributeOSVersion_Vtbl {
     pub const fn new<Identity: IX509AttributeOSVersion_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeOSVersion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strosversion: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6587,20 +6587,20 @@ impl IX509AttributeOSVersion_Vtbl {
         iid == &<IX509AttributeOSVersion as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509AttributeOSVersion {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509AttributeRenewalCertificate, IX509AttributeRenewalCertificate_Vtbl, 0x728ab326_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509AttributeRenewalCertificate {
     type Target = IX509Attribute;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509AttributeRenewalCertificate, windows_core::IUnknown, super::oaidl::IDispatch, IX509Attribute);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509AttributeRenewalCertificate {
     pub unsafe fn InitializeEncode(&self, encoding: EncodingType, strcert: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeEncode)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(strcert)) }
@@ -6615,7 +6615,7 @@ impl IX509AttributeRenewalCertificate {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeRenewalCertificate_Vtbl {
@@ -6624,13 +6624,13 @@ pub struct IX509AttributeRenewalCertificate_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RenewalCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeRenewalCertificate_Impl: IX509Attribute_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strcert: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RenewalCertificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509AttributeRenewalCertificate_Vtbl {
     pub const fn new<Identity: IX509AttributeRenewalCertificate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeRenewalCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strcert: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6668,20 +6668,20 @@ impl IX509AttributeRenewalCertificate_Vtbl {
         iid == &<IX509AttributeRenewalCertificate as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509AttributeRenewalCertificate {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509Attributes, IX509Attributes_Vtbl, 0x728ab323_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509Attributes {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509Attributes, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509Attributes {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509Attribute> {
         unsafe {
@@ -6714,7 +6714,7 @@ impl IX509Attributes {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509Attributes_Vtbl {
@@ -6726,7 +6726,7 @@ pub struct IX509Attributes_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509Attributes_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509Attribute>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -6735,7 +6735,7 @@ pub trait IX509Attributes_Impl: super::oaidl::IDispatch_Impl {
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509Attributes_Vtbl {
     pub const fn new<Identity: IX509Attributes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: IX509Attributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6806,20 +6806,20 @@ impl IX509Attributes_Vtbl {
         iid == &<IX509Attributes as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509Attributes {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRequest, IX509CertificateRequest_Vtbl, 0x728ab341_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRequest {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRequest, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRequest {
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), context) }
@@ -6848,14 +6848,14 @@ impl IX509CertificateRequest {
             (windows_core::Interface::vtable(self).EnrollmentContext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Silent(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Silent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetSilent(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSilent)(windows_core::Interface::as_raw(self), value) }
     }
@@ -6877,14 +6877,14 @@ impl IX509CertificateRequest {
     pub unsafe fn SetUIContextMessage(&self, value: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUIContextMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SuppressDefaults(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SuppressDefaults)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetSuppressDefaults(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSuppressDefaults)(windows_core::Interface::as_raw(self), value) }
     }
@@ -6930,14 +6930,14 @@ impl IX509CertificateRequest {
     {
         unsafe { (windows_core::Interface::vtable(self).SetHashAlgorithm)(windows_core::Interface::as_raw(self), pvalue.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AlternateSignatureAlgorithm)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(windows_core::Interface::as_raw(self), value) }
     }
@@ -6948,7 +6948,7 @@ impl IX509CertificateRequest {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequest_Vtbl {
@@ -6959,25 +6959,25 @@ pub struct IX509CertificateRequest_Vtbl {
     pub GetInnerRequest: unsafe extern "system" fn(*mut core::ffi::c_void, InnerRequestLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut X509RequestType) -> windows_core::HRESULT,
     pub EnrollmentContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut X509CertificateEnrollmentContext) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Silent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Silent: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetSilent: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetSilent: usize,
     pub ParentWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetParentWindow: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub UIContextMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetUIContextMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SuppressDefaults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SuppressDefaults: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetSuppressDefaults: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetSuppressDefaults: usize,
     pub RenewalCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRenewalCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6987,17 +6987,17 @@ pub struct IX509CertificateRequest_Vtbl {
     pub SetCspInformations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HashAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetHashAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AlternateSignatureAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AlternateSignatureAlgorithm: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetAlternateSignatureAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetAlternateSignatureAlgorithm: usize,
     pub RawData: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequest_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<()>;
@@ -7025,7 +7025,7 @@ pub trait IX509CertificateRequest_Impl: super::oaidl::IDispatch_Impl {
     fn SetAlternateSignatureAlgorithm(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
     fn RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequest_Vtbl {
     pub const fn new<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
@@ -7289,20 +7289,20 @@ impl IX509CertificateRequest_Vtbl {
         iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRequest {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRequestCertificate, IX509CertificateRequestCertificate_Vtbl, 0x728ab343_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRequestCertificate {
     type Target = IX509CertificateRequestPkcs10;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRequestCertificate, windows_core::IUnknown, super::oaidl::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRequestCertificate {
     pub unsafe fn CheckPublicKeySignature<P0>(&self, ppublickey: P0) -> windows_core::HRESULT
     where
@@ -7362,7 +7362,7 @@ impl IX509CertificateRequestCertificate {
         unsafe { (windows_core::Interface::vtable(self).SetSignerCertificate)(windows_core::Interface::as_raw(self), pvalue.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestCertificate_Vtbl {
@@ -7379,7 +7379,7 @@ pub struct IX509CertificateRequestCertificate_Vtbl {
     pub SignerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSignerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestCertificate_Impl: IX509CertificateRequestPkcs10_Impl {
     fn CheckPublicKeySignature(&self, ppublickey: windows_core::Ref<IX509PublicKey>) -> windows_core::Result<()>;
     fn Issuer(&self) -> windows_core::Result<IX500DistinguishedName>;
@@ -7393,7 +7393,7 @@ pub trait IX509CertificateRequestCertificate_Impl: IX509CertificateRequestPkcs10
     fn SignerCertificate(&self) -> windows_core::Result<ISignerCertificate>;
     fn SetSignerCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestCertificate_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CheckPublicKeySignature<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppublickey: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7511,20 +7511,20 @@ impl IX509CertificateRequestCertificate_Vtbl {
         iid == &<IX509CertificateRequestCertificate as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRequestCertificate {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRequestCertificate2, IX509CertificateRequestCertificate2_Vtbl, 0x728ab35a_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRequestCertificate2 {
     type Target = IX509CertificateRequestCertificate;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRequestCertificate2, windows_core::IUnknown, super::oaidl::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestCertificate);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRequestCertificate2 {
     pub unsafe fn InitializeFromTemplate<P1, P2>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P1, ptemplate: P2) -> windows_core::HRESULT
     where
@@ -7554,7 +7554,7 @@ impl IX509CertificateRequestCertificate2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestCertificate2_Vtbl {
@@ -7564,14 +7564,14 @@ pub struct IX509CertificateRequestCertificate2_Vtbl {
     pub PolicyServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Template: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestCertificate2_Impl: IX509CertificateRequestCertificate_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn InitializeFromPrivateKeyTemplate(&self, context: X509CertificateEnrollmentContext, pprivatekey: windows_core::Ref<IX509PrivateKey>, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn PolicyServer(&self) -> windows_core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestCertificate2_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7622,20 +7622,20 @@ impl IX509CertificateRequestCertificate2_Vtbl {
         iid == &<IX509CertificateRequestCertificate2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestCertificate as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRequestCertificate2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRequestCmc, IX509CertificateRequestCmc_Vtbl, 0x728ab345_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRequestCmc {
     type Target = IX509CertificateRequestPkcs7;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRequestCmc, windows_core::IUnknown, super::oaidl::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRequestCmc {
     pub unsafe fn InitializeFromInnerRequestTemplateName<P0>(&self, pinnerrequest: P0, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT
     where
@@ -7649,7 +7649,7 @@ impl IX509CertificateRequestCmc {
             (windows_core::Interface::vtable(self).TemplateObjectId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn NullSigned(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7710,14 +7710,14 @@ impl IX509CertificateRequestCmc {
             (windows_core::Interface::vtable(self).SignatureInformation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ArchivePrivateKey(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ArchivePrivateKey)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetArchivePrivateKey(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetArchivePrivateKey)(windows_core::Interface::as_raw(self), value) }
     }
@@ -7764,16 +7764,16 @@ impl IX509CertificateRequestCmc {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestCmc_Vtbl {
     pub base__: IX509CertificateRequestPkcs7_Vtbl,
     pub InitializeFromInnerRequestTemplateName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TemplateObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub NullSigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     NullSigned: usize,
     pub CryptAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NameValuePairs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7785,13 +7785,13 @@ pub struct IX509CertificateRequestCmc_Vtbl {
     pub SenderNonce: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSenderNonce: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SignatureInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ArchivePrivateKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ArchivePrivateKey: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetArchivePrivateKey: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetArchivePrivateKey: usize,
     pub KeyArchivalCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetKeyArchivalCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7802,7 +7802,7 @@ pub struct IX509CertificateRequestCmc_Vtbl {
     pub EncryptedKeyHash: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SignerCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestCmc_Impl: IX509CertificateRequestPkcs7_Impl {
     fn InitializeFromInnerRequestTemplateName(&self, pinnerrequest: windows_core::Ref<IX509CertificateRequest>, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn TemplateObjectId(&self) -> windows_core::Result<IObjectId>;
@@ -7828,7 +7828,7 @@ pub trait IX509CertificateRequestCmc_Impl: IX509CertificateRequestPkcs7_Impl {
     fn EncryptedKeyHash(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn SignerCertificates(&self) -> windows_core::Result<ISignerCertificates>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestCmc_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromInnerRequestTemplateName<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinnerrequest: *mut core::ffi::c_void, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8096,20 +8096,20 @@ impl IX509CertificateRequestCmc_Vtbl {
         iid == &<IX509CertificateRequestCmc as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRequestCmc {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRequestCmc2, IX509CertificateRequestCmc2_Vtbl, 0x728ab35d_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRequestCmc2 {
     type Target = IX509CertificateRequestCmc;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRequestCmc2, windows_core::IUnknown, super::oaidl::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7, IX509CertificateRequestCmc);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRequestCmc2 {
     pub unsafe fn InitializeFromTemplate<P1, P2>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P1, ptemplate: P2) -> windows_core::HRESULT
     where
@@ -8141,7 +8141,7 @@ impl IX509CertificateRequestCmc2 {
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckSignature)(windows_core::Interface::as_raw(self), allowedsignaturetypes) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn CheckCertificateSignature<P0>(&self, psignercertificate: P0, validatecertificatechain: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISignerCertificate>,
@@ -8149,7 +8149,7 @@ impl IX509CertificateRequestCmc2 {
         unsafe { (windows_core::Interface::vtable(self).CheckCertificateSignature)(windows_core::Interface::as_raw(self), psignercertificate.param().abi(), validatecertificatechain) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestCmc2_Vtbl {
@@ -8159,12 +8159,12 @@ pub struct IX509CertificateRequestCmc2_Vtbl {
     pub PolicyServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Template: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CheckSignature: unsafe extern "system" fn(*mut core::ffi::c_void, Pkcs10AllowedSignatureTypes) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub CheckCertificateSignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     CheckCertificateSignature: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestCmc2_Impl: IX509CertificateRequestCmc_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn InitializeFromInnerRequestTemplate(&self, pinnerrequest: windows_core::Ref<IX509CertificateRequest>, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
@@ -8173,7 +8173,7 @@ pub trait IX509CertificateRequestCmc2_Impl: IX509CertificateRequestCmc_Impl {
     fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> windows_core::Result<()>;
     fn CheckCertificateSignature(&self, psignercertificate: windows_core::Ref<ISignerCertificate>, validatecertificatechain: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestCmc2_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8238,20 +8238,20 @@ impl IX509CertificateRequestCmc2_Vtbl {
         iid == &<IX509CertificateRequestCmc2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestCmc as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRequestCmc2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRequestPkcs10, IX509CertificateRequestPkcs10_Vtbl, 0x728ab342_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRequestPkcs10 {
     type Target = IX509CertificateRequest;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs10, windows_core::IUnknown, super::oaidl::IDispatch, IX509CertificateRequest);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRequestPkcs10 {
     pub unsafe fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromTemplateName)(windows_core::Interface::as_raw(self), context, core::mem::transmute_copy(strtemplatename)) }
@@ -8277,7 +8277,7 @@ impl IX509CertificateRequestPkcs10 {
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckSignature)(windows_core::Interface::as_raw(self), allowedsignaturetypes) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsSmartCard(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8302,14 +8302,14 @@ impl IX509CertificateRequestPkcs10 {
             (windows_core::Interface::vtable(self).PrivateKey)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn NullSigned(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NullSigned)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ReuseKey(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8340,14 +8340,14 @@ impl IX509CertificateRequestPkcs10 {
             (windows_core::Interface::vtable(self).CspStatuses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SmimeCapabilities(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SmimeCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetSmimeCapabilities(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSmimeCapabilities)(windows_core::Interface::as_raw(self), value) }
     }
@@ -8409,7 +8409,7 @@ impl IX509CertificateRequestPkcs10 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestPkcs10_Vtbl {
@@ -8420,32 +8420,32 @@ pub struct IX509CertificateRequestPkcs10_Vtbl {
     pub InitializeFromCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void, EncodingType, X509RequestInheritOptions) -> windows_core::HRESULT,
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType) -> windows_core::HRESULT,
     pub CheckSignature: unsafe extern "system" fn(*mut core::ffi::c_void, Pkcs10AllowedSignatureTypes) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsSmartCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsSmartCard: usize,
     pub TemplateObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PublicKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PrivateKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub NullSigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     NullSigned: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ReuseKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ReuseKey: usize,
     pub OldCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Subject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSubject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CspStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SmimeCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SmimeCapabilities: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetSmimeCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetSmimeCapabilities: usize,
     pub SignatureInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub KeyContainerNamePrefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8458,7 +8458,7 @@ pub struct IX509CertificateRequestPkcs10_Vtbl {
     pub Signature: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCspStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, X509KeySpec, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs10_Impl: IX509CertificateRequest_Impl {
     fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromPrivateKey(&self, context: X509CertificateEnrollmentContext, pprivatekey: windows_core::Ref<IX509PrivateKey>, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -8489,7 +8489,7 @@ pub trait IX509CertificateRequestPkcs10_Impl: IX509CertificateRequest_Impl {
     fn Signature(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn GetCspStatuses(&self, keyspec: X509KeySpec) -> windows_core::Result<ICspStatuses>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestPkcs10_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromTemplateName<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8810,20 +8810,20 @@ impl IX509CertificateRequestPkcs10_Vtbl {
         iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs10 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRequestPkcs10V2, IX509CertificateRequestPkcs10V2_Vtbl, 0x728ab35b_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRequestPkcs10V2 {
     type Target = IX509CertificateRequestPkcs10;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs10V2, windows_core::IUnknown, super::oaidl::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRequestPkcs10V2 {
     pub unsafe fn InitializeFromTemplate<P1, P2>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P1, ptemplate: P2) -> windows_core::HRESULT
     where
@@ -8861,7 +8861,7 @@ impl IX509CertificateRequestPkcs10V2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestPkcs10V2_Vtbl {
@@ -8872,7 +8872,7 @@ pub struct IX509CertificateRequestPkcs10V2_Vtbl {
     pub PolicyServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Template: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs10V2_Impl: IX509CertificateRequestPkcs10_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn InitializeFromPrivateKeyTemplate(&self, context: X509CertificateEnrollmentContext, pprivatekey: windows_core::Ref<IX509PrivateKey>, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
@@ -8880,7 +8880,7 @@ pub trait IX509CertificateRequestPkcs10V2_Impl: IX509CertificateRequestPkcs10_Im
     fn PolicyServer(&self) -> windows_core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestPkcs10V2_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8938,29 +8938,29 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
         iid == &<IX509CertificateRequestPkcs10V2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs10V2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRequestPkcs10V3, IX509CertificateRequestPkcs10V3_Vtbl, 0x54ea9942_3d66_4530_b76e_7c9170d3ec52);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRequestPkcs10V3 {
     type Target = IX509CertificateRequestPkcs10V2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs10V3, windows_core::IUnknown, super::oaidl::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestPkcs10V2);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRequestPkcs10V3 {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AttestPrivateKey(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttestPrivateKey)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetAttestPrivateKey(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAttestPrivateKey)(windows_core::Interface::as_raw(self), value) }
     }
@@ -9010,18 +9010,18 @@ impl IX509CertificateRequestPkcs10V3 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestPkcs10V3_Vtbl {
     pub base__: IX509CertificateRequestPkcs10V2_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AttestPrivateKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AttestPrivateKey: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetAttestPrivateKey: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetAttestPrivateKey: usize,
     pub AttestationEncryptionCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAttestationEncryptionCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9033,7 +9033,7 @@ pub struct IX509CertificateRequestPkcs10V3_Vtbl {
     pub SetChallengePassword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NameValuePairs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs10V3_Impl: IX509CertificateRequestPkcs10V2_Impl {
     fn AttestPrivateKey(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetAttestPrivateKey(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -9047,7 +9047,7 @@ pub trait IX509CertificateRequestPkcs10V3_Impl: IX509CertificateRequestPkcs10V2_
     fn SetChallengePassword(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn NameValuePairs(&self) -> windows_core::Result<IX509NameValuePairs>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestPkcs10V3_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AttestPrivateKey<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -9171,20 +9171,20 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
         iid == &<IX509CertificateRequestPkcs10V3 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs10V3 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRequestPkcs10V4, IX509CertificateRequestPkcs10V4_Vtbl, 0x728ab363_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRequestPkcs10V4 {
     type Target = IX509CertificateRequestPkcs10V3;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs10V4, windows_core::IUnknown, super::oaidl::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestPkcs10V2, IX509CertificateRequestPkcs10V3);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRequestPkcs10V4 {
     pub unsafe fn ClaimType(&self) -> windows_core::Result<KeyAttestationClaimType> {
         unsafe {
@@ -9195,42 +9195,42 @@ impl IX509CertificateRequestPkcs10V4 {
     pub unsafe fn SetClaimType(&self, value: KeyAttestationClaimType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClaimType)(windows_core::Interface::as_raw(self), value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AttestPrivateKeyPreferred(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttestPrivateKeyPreferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetAttestPrivateKeyPreferred(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAttestPrivateKeyPreferred)(windows_core::Interface::as_raw(self), value) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestPkcs10V4_Vtbl {
     pub base__: IX509CertificateRequestPkcs10V3_Vtbl,
     pub ClaimType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KeyAttestationClaimType) -> windows_core::HRESULT,
     pub SetClaimType: unsafe extern "system" fn(*mut core::ffi::c_void, KeyAttestationClaimType) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AttestPrivateKeyPreferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AttestPrivateKeyPreferred: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetAttestPrivateKeyPreferred: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetAttestPrivateKeyPreferred: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs10V4_Impl: IX509CertificateRequestPkcs10V3_Impl {
     fn ClaimType(&self) -> windows_core::Result<KeyAttestationClaimType>;
     fn SetClaimType(&self, value: KeyAttestationClaimType) -> windows_core::Result<()>;
     fn AttestPrivateKeyPreferred(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetAttestPrivateKeyPreferred(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestPkcs10V4_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs10V4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ClaimType<Identity: IX509CertificateRequestPkcs10V4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut KeyAttestationClaimType) -> windows_core::HRESULT {
@@ -9281,25 +9281,25 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
         iid == &<IX509CertificateRequestPkcs10V4 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V2 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs10V4 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRequestPkcs7, IX509CertificateRequestPkcs7_Vtbl, 0x728ab344_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRequestPkcs7 {
     type Target = IX509CertificateRequest;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs7, windows_core::IUnknown, super::oaidl::IDispatch, IX509CertificateRequest);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRequestPkcs7 {
     pub unsafe fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromTemplateName)(windows_core::Interface::as_raw(self), context, core::mem::transmute_copy(strtemplatename)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn InitializeFromCertificate(&self, context: X509CertificateEnrollmentContext, renewalrequest: super::wtypes::VARIANT_BOOL, strcertificate: &windows_core::BSTR, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromCertificate)(windows_core::Interface::as_raw(self), context, renewalrequest, core::mem::transmute_copy(strcertificate), encoding, inheritoptions) }
     }
@@ -9334,15 +9334,15 @@ impl IX509CertificateRequestPkcs7 {
         unsafe { (windows_core::Interface::vtable(self).SetSignerCertificate)(windows_core::Interface::as_raw(self), pvalue.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestPkcs7_Vtbl {
     pub base__: IX509CertificateRequest_Vtbl,
     pub InitializeFromTemplateName: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub InitializeFromCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, super::wtypes::VARIANT_BOOL, *mut core::ffi::c_void, EncodingType, X509RequestInheritOptions) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     InitializeFromCertificate: usize,
     pub InitializeFromInnerRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType) -> windows_core::HRESULT,
@@ -9351,7 +9351,7 @@ pub struct IX509CertificateRequestPkcs7_Vtbl {
     pub SignerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSignerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs7_Impl: IX509CertificateRequest_Impl {
     fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromCertificate(&self, context: X509CertificateEnrollmentContext, renewalrequest: super::wtypes::VARIANT_BOOL, strcertificate: &windows_core::BSTR, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> windows_core::Result<()>;
@@ -9362,7 +9362,7 @@ pub trait IX509CertificateRequestPkcs7_Impl: IX509CertificateRequest_Impl {
     fn SignerCertificate(&self) -> windows_core::Result<ISignerCertificate>;
     fn SetSignerCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestPkcs7_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromTemplateName<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9441,20 +9441,20 @@ impl IX509CertificateRequestPkcs7_Vtbl {
         iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs7 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRequestPkcs7V2, IX509CertificateRequestPkcs7V2_Vtbl, 0x728ab35c_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRequestPkcs7V2 {
     type Target = IX509CertificateRequestPkcs7;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs7V2, windows_core::IUnknown, super::oaidl::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRequestPkcs7V2 {
     pub unsafe fn InitializeFromTemplate<P1, P2>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P1, ptemplate: P2) -> windows_core::HRESULT
     where
@@ -9475,12 +9475,12 @@ impl IX509CertificateRequestPkcs7V2 {
             (windows_core::Interface::vtable(self).Template)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn CheckCertificateSignature(&self, validatecertificatechain: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckCertificateSignature)(windows_core::Interface::as_raw(self), validatecertificatechain) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestPkcs7V2_Vtbl {
@@ -9488,19 +9488,19 @@ pub struct IX509CertificateRequestPkcs7V2_Vtbl {
     pub InitializeFromTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PolicyServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Template: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub CheckCertificateSignature: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     CheckCertificateSignature: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs7V2_Impl: IX509CertificateRequestPkcs7_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn PolicyServer(&self) -> windows_core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
     fn CheckCertificateSignature(&self, validatecertificatechain: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestPkcs7V2_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9551,20 +9551,20 @@ impl IX509CertificateRequestPkcs7V2_Vtbl {
         iid == &<IX509CertificateRequestPkcs7V2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs7V2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRevocationList, IX509CertificateRevocationList_Vtbl, 0x728ab360_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRevocationList {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRevocationList, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRevocationList {
     pub unsafe fn Initialize(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self)) }
@@ -9665,14 +9665,14 @@ impl IX509CertificateRevocationList {
     pub unsafe fn SetCAVersion(&self, pvalue: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCAVersion)(windows_core::Interface::as_raw(self), pvalue) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn BaseCRL(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BaseCRL)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn NullSigned(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9691,14 +9691,14 @@ impl IX509CertificateRevocationList {
     {
         unsafe { (windows_core::Interface::vtable(self).SetHashAlgorithm)(windows_core::Interface::as_raw(self), pvalue.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AlternateSignatureAlgorithm)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(windows_core::Interface::as_raw(self), value) }
     }
@@ -9727,7 +9727,7 @@ impl IX509CertificateRevocationList {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRevocationList_Vtbl {
@@ -9753,30 +9753,30 @@ pub struct IX509CertificateRevocationList_Vtbl {
     pub SetCRLNumber: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CAVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetCAVersion: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub BaseCRL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     BaseCRL: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub NullSigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     NullSigned: usize,
     pub HashAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetHashAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AlternateSignatureAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AlternateSignatureAlgorithm: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetAlternateSignatureAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetAlternateSignatureAlgorithm: usize,
     pub SignatureInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RawData: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RawDataToBeSigned: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Signature: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRevocationList_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self) -> windows_core::Result<()>;
     fn InitializeDecode(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
@@ -9810,7 +9810,7 @@ pub trait IX509CertificateRevocationList_Impl: super::oaidl::IDispatch_Impl {
     fn RawDataToBeSigned(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn Signature(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRevocationList_Vtbl {
     pub const fn new<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10140,20 +10140,20 @@ impl IX509CertificateRevocationList_Vtbl {
         iid == &<IX509CertificateRevocationList as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRevocationList {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRevocationListEntries, IX509CertificateRevocationListEntries_Vtbl, 0x728ab35f_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRevocationListEntries {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRevocationListEntries, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRevocationListEntries {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509CertificateRevocationListEntry> {
         unsafe {
@@ -10198,7 +10198,7 @@ impl IX509CertificateRevocationListEntries {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), pvalue.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRevocationListEntries_Vtbl {
@@ -10212,7 +10212,7 @@ pub struct IX509CertificateRevocationListEntries_Vtbl {
     pub IndexBySerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub AddRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRevocationListEntries_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509CertificateRevocationListEntry>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -10223,7 +10223,7 @@ pub trait IX509CertificateRevocationListEntries_Impl: super::oaidl::IDispatch_Im
     fn IndexBySerialNumber(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn AddRange(&self, pvalue: windows_core::Ref<IX509CertificateRevocationListEntries>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRevocationListEntries_Vtbl {
     pub const fn new<Identity: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10314,20 +10314,20 @@ impl IX509CertificateRevocationListEntries_Vtbl {
         iid == &<IX509CertificateRevocationListEntries as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRevocationListEntries {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateRevocationListEntry, IX509CertificateRevocationListEntry_Vtbl, 0x728ab35e_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateRevocationListEntry {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateRevocationListEntry, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateRevocationListEntry {
     pub unsafe fn Initialize(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR, revocationdate: f64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(serialnumber), revocationdate) }
@@ -10366,7 +10366,7 @@ impl IX509CertificateRevocationListEntry {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRevocationListEntry_Vtbl {
@@ -10379,7 +10379,7 @@ pub struct IX509CertificateRevocationListEntry_Vtbl {
     pub X509Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CriticalExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRevocationListEntry_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR, revocationdate: f64) -> windows_core::Result<()>;
     fn SerialNumber(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
@@ -10389,7 +10389,7 @@ pub trait IX509CertificateRevocationListEntry_Impl: super::oaidl::IDispatch_Impl
     fn X509Extensions(&self) -> windows_core::Result<IX509Extensions>;
     fn CriticalExtensions(&self) -> windows_core::Result<IObjectIds>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRevocationListEntry_Vtbl {
     pub const fn new<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, serialnumber: *mut core::ffi::c_void, revocationdate: f64) -> windows_core::HRESULT {
@@ -10479,22 +10479,22 @@ impl IX509CertificateRevocationListEntry_Vtbl {
         iid == &<IX509CertificateRevocationListEntry as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateRevocationListEntry {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateTemplate, IX509CertificateTemplate_Vtbl, 0x54244a13_555a_4e22_896d_1b0e52f76406);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateTemplate {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateTemplate, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateTemplate {
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Property(&self, property: EnrollmentTemplateProperty) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10502,21 +10502,21 @@ impl IX509CertificateTemplate {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateTemplate_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Property: unsafe extern "system" fn(*mut core::ffi::c_void, EnrollmentTemplateProperty, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Property: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateTemplate_Impl: super::oaidl::IDispatch_Impl {
     fn Property(&self, property: EnrollmentTemplateProperty) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateTemplate_Vtbl {
     pub const fn new<Identity: IX509CertificateTemplate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Property<Identity: IX509CertificateTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -10537,20 +10537,20 @@ impl IX509CertificateTemplate_Vtbl {
         iid == &<IX509CertificateTemplate as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateTemplate {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateTemplateWritable, IX509CertificateTemplateWritable_Vtbl, 0xf49466a7_395a_4e9e_b6e7_32b331600dc0);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateTemplateWritable {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateTemplateWritable, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateTemplateWritable {
     pub unsafe fn Initialize<P0>(&self, pvalue: P0) -> windows_core::HRESULT
     where
@@ -10561,14 +10561,14 @@ impl IX509CertificateTemplateWritable {
     pub unsafe fn Commit(&self, commitflags: CommitTemplateFlags, strservercontext: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), commitflags, core::mem::transmute_copy(strservercontext)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Property(&self, property: EnrollmentTemplateProperty) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Property)(windows_core::Interface::as_raw(self), property, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetProperty(&self, property: EnrollmentTemplateProperty, value: &super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), property, core::mem::transmute_copy(value)) }
     }
@@ -10579,24 +10579,24 @@ impl IX509CertificateTemplateWritable {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateTemplateWritable_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, CommitTemplateFlags, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Property: unsafe extern "system" fn(*mut core::ffi::c_void, EnrollmentTemplateProperty, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Property: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, EnrollmentTemplateProperty, super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     SetProperty: usize,
     pub Template: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateTemplateWritable_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, pvalue: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn Commit(&self, commitflags: CommitTemplateFlags, strservercontext: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -10604,7 +10604,7 @@ pub trait IX509CertificateTemplateWritable_Impl: super::oaidl::IDispatch_Impl {
     fn SetProperty(&self, property: EnrollmentTemplateProperty, value: &super::oaidl::VARIANT) -> windows_core::Result<()>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateTemplateWritable_Vtbl {
     pub const fn new<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10662,20 +10662,20 @@ impl IX509CertificateTemplateWritable_Vtbl {
         iid == &<IX509CertificateTemplateWritable as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateTemplateWritable {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509CertificateTemplates, IX509CertificateTemplates_Vtbl, 0x13b79003_2181_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509CertificateTemplates {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509CertificateTemplates, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509CertificateTemplates {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509CertificateTemplate> {
         unsafe {
@@ -10723,7 +10723,7 @@ impl IX509CertificateTemplates {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateTemplates_Vtbl {
@@ -10737,7 +10737,7 @@ pub struct IX509CertificateTemplates_Vtbl {
     pub ItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ItemByOid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateTemplates_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509CertificateTemplate>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -10748,7 +10748,7 @@ pub trait IX509CertificateTemplates_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IX509CertificateTemplate>;
     fn ItemByOid(&self, poid: windows_core::Ref<IObjectId>) -> windows_core::Result<IX509CertificateTemplate>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateTemplates_Vtbl {
     pub const fn new<Identity: IX509CertificateTemplates_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10845,20 +10845,20 @@ impl IX509CertificateTemplates_Vtbl {
         iid == &<IX509CertificateTemplates as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509CertificateTemplates {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509EndorsementKey, IX509EndorsementKey_Vtbl, 0xb11cd855_f4c4_4fc6_b710_4422237f09e9);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509EndorsementKey {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509EndorsementKey, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509EndorsementKey {
     pub unsafe fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -10875,7 +10875,7 @@ impl IX509EndorsementKey {
             (windows_core::Interface::vtable(self).Length)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Opened(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10888,14 +10888,14 @@ impl IX509EndorsementKey {
     pub unsafe fn RemoveCertificate(&self, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveCertificate)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(strcertificate)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetCertificateByIndex(&self, manufactureronly: super::wtypes::VARIANT_BOOL, dwindex: i32, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCertificateByIndex)(windows_core::Interface::as_raw(self), manufactureronly, dwindex, encoding, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetCertificateCount(&self, manufactureronly: super::wtypes::VARIANT_BOOL) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10915,7 +10915,7 @@ impl IX509EndorsementKey {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509EndorsementKey_Vtbl {
@@ -10923,25 +10923,25 @@ pub struct IX509EndorsementKey_Vtbl {
     pub ProviderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetProviderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Opened: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Opened: usize,
     pub AddCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetCertificateByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, i32, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetCertificateByIndex: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetCertificateCount: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetCertificateCount: usize,
     pub ExportPublicKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509EndorsementKey_Impl: super::oaidl::IDispatch_Impl {
     fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetProviderName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -10955,7 +10955,7 @@ pub trait IX509EndorsementKey_Impl: super::oaidl::IDispatch_Impl {
     fn Open(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509EndorsementKey_Vtbl {
     pub const fn new<Identity: IX509EndorsementKey_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProviderName<Identity: IX509EndorsementKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11079,20 +11079,20 @@ impl IX509EndorsementKey_Vtbl {
         iid == &<IX509EndorsementKey as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509EndorsementKey {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509Enrollment, IX509Enrollment_Vtbl, 0x728ab346_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509Enrollment {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509Enrollment, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509Enrollment {
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), context) }
@@ -11130,14 +11130,14 @@ impl IX509Enrollment {
             (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Silent(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Silent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetSilent(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSilent)(windows_core::Interface::as_raw(self), value) }
     }
@@ -11211,7 +11211,7 @@ impl IX509Enrollment {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509Enrollment_Vtbl {
@@ -11224,13 +11224,13 @@ pub struct IX509Enrollment_Vtbl {
     pub InstallResponse: unsafe extern "system" fn(*mut core::ffi::c_void, InstallResponseRestrictionFlags, *mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreatePFX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PFXExportOptions, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Silent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Silent: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetSilent: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetSilent: usize,
     pub ParentWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetParentWindow: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -11246,7 +11246,7 @@ pub struct IX509Enrollment_Vtbl {
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub CAConfigString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509Enrollment_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
     fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -11272,7 +11272,7 @@ pub trait IX509Enrollment_Impl: super::oaidl::IDispatch_Impl {
     fn RequestId(&self) -> windows_core::Result<i32>;
     fn CAConfigString(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509Enrollment_Vtbl {
     pub const fn new<Identity: IX509Enrollment_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
@@ -11528,20 +11528,20 @@ impl IX509Enrollment_Vtbl {
         iid == &<IX509Enrollment as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509Enrollment {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509Enrollment2, IX509Enrollment2_Vtbl, 0x728ab350_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509Enrollment2 {
     type Target = IX509Enrollment;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509Enrollment2, windows_core::IUnknown, super::oaidl::IDispatch, IX509Enrollment);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509Enrollment2 {
     pub unsafe fn InitializeFromTemplate<P1, P2>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P1, ptemplate: P2) -> windows_core::HRESULT
     where
@@ -11550,7 +11550,7 @@ impl IX509Enrollment2 {
     {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromTemplate)(windows_core::Interface::as_raw(self), context, ppolicyserver.param().abi(), ptemplate.param().abi()) }
     }
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub unsafe fn InstallResponse2(&self, restrictions: InstallResponseRestrictionFlags, strresponse: &windows_core::BSTR, encoding: EncodingType, strpassword: &windows_core::BSTR, strenrollmentpolicyserverurl: &windows_core::BSTR, strenrollmentpolicyserverid: &windows_core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: super::certcli::X509EnrollmentAuthFlags) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InstallResponse2)(windows_core::Interface::as_raw(self), restrictions, core::mem::transmute_copy(strresponse), encoding, core::mem::transmute_copy(strpassword), core::mem::transmute_copy(strenrollmentpolicyserverurl), core::mem::transmute_copy(strenrollmentpolicyserverid), enrollmentpolicyserverflags, authflags) }
     }
@@ -11573,21 +11573,21 @@ impl IX509Enrollment2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509Enrollment2_Vtbl {
     pub base__: IX509Enrollment_Vtbl,
     pub InitializeFromTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub InstallResponse2: unsafe extern "system" fn(*mut core::ffi::c_void, InstallResponseRestrictionFlags, *mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, PolicyServerUrlFlags, super::certcli::X509EnrollmentAuthFlags) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certcli"))]
+    #[cfg(not(feature = "certcli"))]
     InstallResponse2: usize,
     pub PolicyServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Template: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestIdString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509Enrollment2_Impl: IX509Enrollment_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn InstallResponse2(&self, restrictions: InstallResponseRestrictionFlags, strresponse: &windows_core::BSTR, encoding: EncodingType, strpassword: &windows_core::BSTR, strenrollmentpolicyserverurl: &windows_core::BSTR, strenrollmentpolicyserverid: &windows_core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: super::certcli::X509EnrollmentAuthFlags) -> windows_core::Result<()>;
@@ -11595,7 +11595,7 @@ pub trait IX509Enrollment2_Impl: IX509Enrollment_Impl {
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
     fn RequestIdString(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509Enrollment2_Vtbl {
     pub const fn new<Identity: IX509Enrollment2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11659,26 +11659,26 @@ impl IX509Enrollment2_Vtbl {
         iid == &<IX509Enrollment2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Enrollment as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509Enrollment2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509EnrollmentHelper, IX509EnrollmentHelper_Vtbl, 0x728ab351_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509EnrollmentHelper {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509EnrollmentHelper, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509EnrollmentHelper {
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub unsafe fn AddPolicyServer(&self, strenrollmentpolicyserveruri: &windows_core::BSTR, strenrollmentpolicyid: &windows_core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: super::certcli::X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddPolicyServer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strenrollmentpolicyserveruri), core::mem::transmute_copy(strenrollmentpolicyid), enrollmentpolicyserverflags, authflags, core::mem::transmute_copy(strcredential), core::mem::transmute_copy(strpassword)) }
     }
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub unsafe fn AddEnrollmentServer(&self, strenrollmentserveruri: &windows_core::BSTR, authflags: super::certcli::X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddEnrollmentServer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strenrollmentserveruri), authflags, core::mem::transmute_copy(strcredential), core::mem::transmute_copy(strpassword)) }
     }
@@ -11692,30 +11692,30 @@ impl IX509EnrollmentHelper {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), context) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509EnrollmentHelper_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub AddPolicyServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, PolicyServerUrlFlags, super::certcli::X509EnrollmentAuthFlags, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certcli"))]
+    #[cfg(not(feature = "certcli"))]
     AddPolicyServer: usize,
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub AddEnrollmentServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::certcli::X509EnrollmentAuthFlags, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certcli"))]
+    #[cfg(not(feature = "certcli"))]
     AddEnrollmentServer: usize,
     pub Enroll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, WebEnrollmentFlags, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509EnrollmentHelper_Impl: super::oaidl::IDispatch_Impl {
     fn AddPolicyServer(&self, strenrollmentpolicyserveruri: &windows_core::BSTR, strenrollmentpolicyid: &windows_core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: super::certcli::X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AddEnrollmentServer(&self, strenrollmentserveruri: &windows_core::BSTR, authflags: super::certcli::X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Enroll(&self, strenrollmentpolicyserveruri: &windows_core::BSTR, strtemplatename: &windows_core::BSTR, encoding: EncodingType, enrollflags: WebEnrollmentFlags) -> windows_core::Result<windows_core::BSTR>;
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509EnrollmentHelper_Vtbl {
     pub const fn new<Identity: IX509EnrollmentHelper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPolicyServer<Identity: IX509EnrollmentHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strenrollmentpolicyserveruri: *mut core::ffi::c_void, strenrollmentpolicyid: *mut core::ffi::c_void, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: super::certcli::X509EnrollmentAuthFlags, strcredential: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11760,22 +11760,22 @@ impl IX509EnrollmentHelper_Vtbl {
         iid == &<IX509EnrollmentHelper as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509EnrollmentHelper {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509EnrollmentPolicyServer, IX509EnrollmentPolicyServer_Vtbl, 0x13b79026_2181_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509EnrollmentPolicyServer {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509EnrollmentPolicyServer, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509EnrollmentPolicyServer {
-    #[cfg(all(feature = "Win32_certcli", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "certcli", feature = "wtypes"))]
     pub unsafe fn Initialize(&self, bstrpolicyserverurl: &windows_core::BSTR, bstrpolicyserverid: &windows_core::BSTR, authflags: super::certcli::X509EnrollmentAuthFlags, fisuntrusted: super::wtypes::VARIANT_BOOL, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpolicyserverurl), core::mem::transmute_copy(bstrpolicyserverid), authflags, fisuntrusted, context) }
     }
@@ -11842,21 +11842,21 @@ impl IX509EnrollmentPolicyServer {
             (windows_core::Interface::vtable(self).GetFriendlyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetIsDefaultCEP(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsDefaultCEP)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetUseClientId(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUseClientId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetAllowUnTrustedCA(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11875,29 +11875,29 @@ impl IX509EnrollmentPolicyServer {
             (windows_core::Interface::vtable(self).GetCacheDir)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub unsafe fn GetAuthFlags(&self) -> windows_core::Result<super::certcli::X509EnrollmentAuthFlags> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAuthFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub unsafe fn SetCredential(&self, hwndparent: i32, flag: super::certcli::X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCredential)(windows_core::Interface::as_raw(self), hwndparent, flag, core::mem::transmute_copy(strcredential), core::mem::transmute_copy(strpassword)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn QueryChanges(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryChanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn InitializeImport(&self, val: &super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeImport)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(val)) }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Export(&self, exportflags: X509EnrollmentPolicyExportFlags) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11914,14 +11914,14 @@ impl IX509EnrollmentPolicyServer {
         unsafe { (windows_core::Interface::vtable(self).SetCost)(windows_core::Interface::as_raw(self), value) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509EnrollmentPolicyServer_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_certcli", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "certcli", feature = "wtypes"))]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::certcli::X509EnrollmentAuthFlags, super::wtypes::VARIANT_BOOL, X509CertificateEnrollmentContext) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_certcli", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "certcli", feature = "wtypes")))]
     Initialize: usize,
     pub LoadPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, X509EnrollmentPolicyLoadOption) -> windows_core::HRESULT,
     pub GetTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11934,44 +11934,44 @@ pub struct IX509EnrollmentPolicyServer_Vtbl {
     pub GetPolicyServerUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPolicyServerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetIsDefaultCEP: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetIsDefaultCEP: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetUseClientId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetUseClientId: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetAllowUnTrustedCA: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetAllowUnTrustedCA: usize,
     pub GetCachePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCacheDir: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub GetAuthFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::certcli::X509EnrollmentAuthFlags) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certcli"))]
+    #[cfg(not(feature = "certcli"))]
     GetAuthFlags: usize,
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub SetCredential: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::certcli::X509EnrollmentAuthFlags, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certcli"))]
+    #[cfg(not(feature = "certcli"))]
     SetCredential: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub QueryChanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     QueryChanges: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub InitializeImport: unsafe extern "system" fn(*mut core::ffi::c_void, super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     InitializeImport: usize,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Export: unsafe extern "system" fn(*mut core::ffi::c_void, X509EnrollmentPolicyExportFlags, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Export: usize,
     pub Cost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetCost: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509EnrollmentPolicyServer_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, bstrpolicyserverurl: &windows_core::BSTR, bstrpolicyserverid: &windows_core::BSTR, authflags: super::certcli::X509EnrollmentAuthFlags, fisuntrusted: super::wtypes::VARIANT_BOOL, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
     fn LoadPolicy(&self, option: X509EnrollmentPolicyLoadOption) -> windows_core::Result<()>;
@@ -11998,7 +11998,7 @@ pub trait IX509EnrollmentPolicyServer_Impl: super::oaidl::IDispatch_Impl {
     fn Cost(&self) -> windows_core::Result<u32>;
     fn SetCost(&self, value: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509EnrollmentPolicyServer_Vtbl {
     pub const fn new<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpolicyserverurl: *mut core::ffi::c_void, bstrpolicyserverid: *mut core::ffi::c_void, authflags: super::certcli::X509EnrollmentAuthFlags, fisuntrusted: super::wtypes::VARIANT_BOOL, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
@@ -12285,20 +12285,20 @@ impl IX509EnrollmentPolicyServer_Vtbl {
         iid == &<IX509EnrollmentPolicyServer as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509EnrollmentPolicyServer {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509EnrollmentStatus, IX509EnrollmentStatus_Vtbl, 0x728ab304_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509EnrollmentStatus {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509EnrollmentStatus, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509EnrollmentStatus {
     pub unsafe fn AppendText(&self, strtext: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AppendText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strtext)) }
@@ -12355,7 +12355,7 @@ impl IX509EnrollmentStatus {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509EnrollmentStatus_Vtbl {
@@ -12373,7 +12373,7 @@ pub struct IX509EnrollmentStatus_Vtbl {
     pub SetError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
     pub ErrorText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509EnrollmentStatus_Impl: super::oaidl::IDispatch_Impl {
     fn AppendText(&self, strtext: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Text(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -12388,7 +12388,7 @@ pub trait IX509EnrollmentStatus_Impl: super::oaidl::IDispatch_Impl {
     fn SetError(&self, value: windows_core::HRESULT) -> windows_core::Result<()>;
     fn ErrorText(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509EnrollmentStatus_Vtbl {
     pub const fn new<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AppendText<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtext: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12519,20 +12519,20 @@ impl IX509EnrollmentStatus_Vtbl {
         iid == &<IX509EnrollmentStatus as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509EnrollmentStatus {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509EnrollmentWebClassFactory, IX509EnrollmentWebClassFactory_Vtbl, 0x728ab349_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509EnrollmentWebClassFactory {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509EnrollmentWebClassFactory, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509EnrollmentWebClassFactory {
     pub unsafe fn CreateObject(&self, strprogid: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -12541,18 +12541,18 @@ impl IX509EnrollmentWebClassFactory {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509EnrollmentWebClassFactory_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub CreateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509EnrollmentWebClassFactory_Impl: super::oaidl::IDispatch_Impl {
     fn CreateObject(&self, strprogid: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509EnrollmentWebClassFactory_Vtbl {
     pub const fn new<Identity: IX509EnrollmentWebClassFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateObject<Identity: IX509EnrollmentWebClassFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprogid: *mut core::ffi::c_void, ppiunknown: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12573,20 +12573,20 @@ impl IX509EnrollmentWebClassFactory_Vtbl {
         iid == &<IX509EnrollmentWebClassFactory as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509EnrollmentWebClassFactory {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509Extension, IX509Extension_Vtbl, 0x728ab30d_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509Extension {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509Extension, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509Extension {
     pub unsafe fn Initialize<P0>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT
     where
@@ -12606,19 +12606,19 @@ impl IX509Extension {
             (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), encoding, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Critical(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Critical)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetCritical(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCritical)(windows_core::Interface::as_raw(self), value) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509Extension_Vtbl {
@@ -12626,16 +12626,16 @@ pub struct IX509Extension_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RawData: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Critical: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Critical: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetCritical: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetCritical: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509Extension_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
@@ -12643,7 +12643,7 @@ pub trait IX509Extension_Impl: super::oaidl::IDispatch_Impl {
     fn Critical(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn SetCritical(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509Extension_Vtbl {
     pub const fn new<Identity: IX509Extension_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12707,20 +12707,20 @@ impl IX509Extension_Vtbl {
         iid == &<IX509Extension as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509Extension {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509ExtensionAlternativeNames, IX509ExtensionAlternativeNames_Vtbl, 0x728ab315_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509ExtensionAlternativeNames {
     type Target = IX509Extension;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509ExtensionAlternativeNames, windows_core::IUnknown, super::oaidl::IDispatch, IX509Extension);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509ExtensionAlternativeNames {
     pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> windows_core::HRESULT
     where
@@ -12738,7 +12738,7 @@ impl IX509ExtensionAlternativeNames {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionAlternativeNames_Vtbl {
@@ -12747,13 +12747,13 @@ pub struct IX509ExtensionAlternativeNames_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AlternativeNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionAlternativeNames_Impl: IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: windows_core::Ref<IAlternativeNames>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AlternativeNames(&self) -> windows_core::Result<IAlternativeNames>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509ExtensionAlternativeNames_Vtbl {
     pub const fn new<Identity: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12791,20 +12791,20 @@ impl IX509ExtensionAlternativeNames_Vtbl {
         iid == &<IX509ExtensionAlternativeNames as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509ExtensionAlternativeNames {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509ExtensionAuthorityKeyIdentifier, IX509ExtensionAuthorityKeyIdentifier_Vtbl, 0x728ab318_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509ExtensionAuthorityKeyIdentifier {
     type Target = IX509Extension;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509ExtensionAuthorityKeyIdentifier, windows_core::IUnknown, super::oaidl::IDispatch, IX509Extension);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509ExtensionAuthorityKeyIdentifier {
     pub unsafe fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeEncode)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(strkeyidentifier)) }
@@ -12819,7 +12819,7 @@ impl IX509ExtensionAuthorityKeyIdentifier {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionAuthorityKeyIdentifier_Vtbl {
@@ -12828,13 +12828,13 @@ pub struct IX509ExtensionAuthorityKeyIdentifier_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AuthorityKeyIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionAuthorityKeyIdentifier_Impl: IX509Extension_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AuthorityKeyIdentifier(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
     pub const fn new<Identity: IX509ExtensionAuthorityKeyIdentifier_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionAuthorityKeyIdentifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strkeyidentifier: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12872,29 +12872,29 @@ impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
         iid == &<IX509ExtensionAuthorityKeyIdentifier as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509ExtensionAuthorityKeyIdentifier {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509ExtensionBasicConstraints, IX509ExtensionBasicConstraints_Vtbl, 0x728ab316_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509ExtensionBasicConstraints {
     type Target = IX509Extension;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509ExtensionBasicConstraints, windows_core::IUnknown, super::oaidl::IDispatch, IX509Extension);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509ExtensionBasicConstraints {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn InitializeEncode(&self, isca: super::wtypes::VARIANT_BOOL, pathlenconstraint: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeEncode)(windows_core::Interface::as_raw(self), isca, pathlenconstraint) }
     }
     pub unsafe fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeDecode)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(strencodeddata)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn IsCA(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12908,30 +12908,30 @@ impl IX509ExtensionBasicConstraints {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionBasicConstraints_Vtbl {
     pub base__: IX509Extension_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     InitializeEncode: usize,
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub IsCA: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     IsCA: usize,
     pub PathLenConstraint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionBasicConstraints_Impl: IX509Extension_Impl {
     fn InitializeEncode(&self, isca: super::wtypes::VARIANT_BOOL, pathlenconstraint: i32) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn IsCA(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn PathLenConstraint(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509ExtensionBasicConstraints_Vtbl {
     pub const fn new<Identity: IX509ExtensionBasicConstraints_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionBasicConstraints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isca: super::wtypes::VARIANT_BOOL, pathlenconstraint: i32) -> windows_core::HRESULT {
@@ -12982,20 +12982,20 @@ impl IX509ExtensionBasicConstraints_Vtbl {
         iid == &<IX509ExtensionBasicConstraints as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509ExtensionBasicConstraints {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509ExtensionCertificatePolicies, IX509ExtensionCertificatePolicies_Vtbl, 0x728ab320_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509ExtensionCertificatePolicies {
     type Target = IX509Extension;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509ExtensionCertificatePolicies, windows_core::IUnknown, super::oaidl::IDispatch, IX509Extension);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509ExtensionCertificatePolicies {
     pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> windows_core::HRESULT
     where
@@ -13013,7 +13013,7 @@ impl IX509ExtensionCertificatePolicies {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionCertificatePolicies_Vtbl {
@@ -13022,13 +13022,13 @@ pub struct IX509ExtensionCertificatePolicies_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Policies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionCertificatePolicies_Impl: IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: windows_core::Ref<ICertificatePolicies>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Policies(&self) -> windows_core::Result<ICertificatePolicies>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509ExtensionCertificatePolicies_Vtbl {
     pub const fn new<Identity: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13066,20 +13066,20 @@ impl IX509ExtensionCertificatePolicies_Vtbl {
         iid == &<IX509ExtensionCertificatePolicies as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509ExtensionCertificatePolicies {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509ExtensionEnhancedKeyUsage, IX509ExtensionEnhancedKeyUsage_Vtbl, 0x728ab310_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509ExtensionEnhancedKeyUsage {
     type Target = IX509Extension;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509ExtensionEnhancedKeyUsage, windows_core::IUnknown, super::oaidl::IDispatch, IX509Extension);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509ExtensionEnhancedKeyUsage {
     pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> windows_core::HRESULT
     where
@@ -13097,7 +13097,7 @@ impl IX509ExtensionEnhancedKeyUsage {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionEnhancedKeyUsage_Vtbl {
@@ -13106,13 +13106,13 @@ pub struct IX509ExtensionEnhancedKeyUsage_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnhancedKeyUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionEnhancedKeyUsage_Impl: IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: windows_core::Ref<IObjectIds>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn EnhancedKeyUsage(&self) -> windows_core::Result<IObjectIds>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509ExtensionEnhancedKeyUsage_Vtbl {
     pub const fn new<Identity: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13150,20 +13150,20 @@ impl IX509ExtensionEnhancedKeyUsage_Vtbl {
         iid == &<IX509ExtensionEnhancedKeyUsage as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509ExtensionEnhancedKeyUsage {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509ExtensionKeyUsage, IX509ExtensionKeyUsage_Vtbl, 0x728ab30f_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509ExtensionKeyUsage {
     type Target = IX509Extension;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509ExtensionKeyUsage, windows_core::IUnknown, super::oaidl::IDispatch, IX509Extension);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509ExtensionKeyUsage {
     pub unsafe fn InitializeEncode(&self, usageflags: X509KeyUsageFlags) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeEncode)(windows_core::Interface::as_raw(self), usageflags) }
@@ -13178,7 +13178,7 @@ impl IX509ExtensionKeyUsage {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionKeyUsage_Vtbl {
@@ -13187,13 +13187,13 @@ pub struct IX509ExtensionKeyUsage_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub KeyUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut X509KeyUsageFlags) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionKeyUsage_Impl: IX509Extension_Impl {
     fn InitializeEncode(&self, usageflags: X509KeyUsageFlags) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn KeyUsage(&self) -> windows_core::Result<X509KeyUsageFlags>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509ExtensionKeyUsage_Vtbl {
     pub const fn new<Identity: IX509ExtensionKeyUsage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionKeyUsage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usageflags: X509KeyUsageFlags) -> windows_core::HRESULT {
@@ -13231,20 +13231,20 @@ impl IX509ExtensionKeyUsage_Vtbl {
         iid == &<IX509ExtensionKeyUsage as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509ExtensionKeyUsage {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509ExtensionMSApplicationPolicies, IX509ExtensionMSApplicationPolicies_Vtbl, 0x728ab321_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509ExtensionMSApplicationPolicies {
     type Target = IX509Extension;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509ExtensionMSApplicationPolicies, windows_core::IUnknown, super::oaidl::IDispatch, IX509Extension);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509ExtensionMSApplicationPolicies {
     pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> windows_core::HRESULT
     where
@@ -13262,7 +13262,7 @@ impl IX509ExtensionMSApplicationPolicies {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionMSApplicationPolicies_Vtbl {
@@ -13271,13 +13271,13 @@ pub struct IX509ExtensionMSApplicationPolicies_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Policies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionMSApplicationPolicies_Impl: IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: windows_core::Ref<ICertificatePolicies>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Policies(&self) -> windows_core::Result<ICertificatePolicies>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509ExtensionMSApplicationPolicies_Vtbl {
     pub const fn new<Identity: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13315,20 +13315,20 @@ impl IX509ExtensionMSApplicationPolicies_Vtbl {
         iid == &<IX509ExtensionMSApplicationPolicies as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509ExtensionMSApplicationPolicies {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509ExtensionSmimeCapabilities, IX509ExtensionSmimeCapabilities_Vtbl, 0x728ab31b_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509ExtensionSmimeCapabilities {
     type Target = IX509Extension;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509ExtensionSmimeCapabilities, windows_core::IUnknown, super::oaidl::IDispatch, IX509Extension);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509ExtensionSmimeCapabilities {
     pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> windows_core::HRESULT
     where
@@ -13346,7 +13346,7 @@ impl IX509ExtensionSmimeCapabilities {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionSmimeCapabilities_Vtbl {
@@ -13355,13 +13355,13 @@ pub struct IX509ExtensionSmimeCapabilities_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SmimeCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionSmimeCapabilities_Impl: IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: windows_core::Ref<ISmimeCapabilities>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SmimeCapabilities(&self) -> windows_core::Result<ISmimeCapabilities>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509ExtensionSmimeCapabilities_Vtbl {
     pub const fn new<Identity: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13399,20 +13399,20 @@ impl IX509ExtensionSmimeCapabilities_Vtbl {
         iid == &<IX509ExtensionSmimeCapabilities as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509ExtensionSmimeCapabilities {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509ExtensionSubjectKeyIdentifier, IX509ExtensionSubjectKeyIdentifier_Vtbl, 0x728ab317_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509ExtensionSubjectKeyIdentifier {
     type Target = IX509Extension;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509ExtensionSubjectKeyIdentifier, windows_core::IUnknown, super::oaidl::IDispatch, IX509Extension);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509ExtensionSubjectKeyIdentifier {
     pub unsafe fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeEncode)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(strkeyidentifier)) }
@@ -13427,7 +13427,7 @@ impl IX509ExtensionSubjectKeyIdentifier {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionSubjectKeyIdentifier_Vtbl {
@@ -13436,13 +13436,13 @@ pub struct IX509ExtensionSubjectKeyIdentifier_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SubjectKeyIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionSubjectKeyIdentifier_Impl: IX509Extension_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SubjectKeyIdentifier(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
     pub const fn new<Identity: IX509ExtensionSubjectKeyIdentifier_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionSubjectKeyIdentifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strkeyidentifier: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13480,20 +13480,20 @@ impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
         iid == &<IX509ExtensionSubjectKeyIdentifier as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509ExtensionSubjectKeyIdentifier {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509ExtensionTemplate, IX509ExtensionTemplate_Vtbl, 0x728ab312_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509ExtensionTemplate {
     type Target = IX509Extension;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509ExtensionTemplate, windows_core::IUnknown, super::oaidl::IDispatch, IX509Extension);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509ExtensionTemplate {
     pub unsafe fn InitializeEncode<P0>(&self, ptemplateoid: P0, majorversion: i32, minorversion: i32) -> windows_core::HRESULT
     where
@@ -13523,7 +13523,7 @@ impl IX509ExtensionTemplate {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionTemplate_Vtbl {
@@ -13534,7 +13534,7 @@ pub struct IX509ExtensionTemplate_Vtbl {
     pub MajorVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub MinorVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionTemplate_Impl: IX509Extension_Impl {
     fn InitializeEncode(&self, ptemplateoid: windows_core::Ref<IObjectId>, majorversion: i32, minorversion: i32) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -13542,7 +13542,7 @@ pub trait IX509ExtensionTemplate_Impl: IX509Extension_Impl {
     fn MajorVersion(&self) -> windows_core::Result<i32>;
     fn MinorVersion(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509ExtensionTemplate_Vtbl {
     pub const fn new<Identity: IX509ExtensionTemplate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptemplateoid: *mut core::ffi::c_void, majorversion: i32, minorversion: i32) -> windows_core::HRESULT {
@@ -13606,20 +13606,20 @@ impl IX509ExtensionTemplate_Vtbl {
         iid == &<IX509ExtensionTemplate as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509ExtensionTemplate {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509ExtensionTemplateName, IX509ExtensionTemplateName_Vtbl, 0x728ab311_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509ExtensionTemplateName {
     type Target = IX509Extension;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509ExtensionTemplateName, windows_core::IUnknown, super::oaidl::IDispatch, IX509Extension);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509ExtensionTemplateName {
     pub unsafe fn InitializeEncode(&self, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeEncode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strtemplatename)) }
@@ -13634,7 +13634,7 @@ impl IX509ExtensionTemplateName {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionTemplateName_Vtbl {
@@ -13643,13 +13643,13 @@ pub struct IX509ExtensionTemplateName_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TemplateName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionTemplateName_Impl: IX509Extension_Impl {
     fn InitializeEncode(&self, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn TemplateName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509ExtensionTemplateName_Vtbl {
     pub const fn new<Identity: IX509ExtensionTemplateName_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionTemplateName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13687,20 +13687,20 @@ impl IX509ExtensionTemplateName_Vtbl {
         iid == &<IX509ExtensionTemplateName as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509ExtensionTemplateName {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509Extensions, IX509Extensions_Vtbl, 0x728ab30e_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509Extensions {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509Extensions, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509Extensions {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509Extension> {
         unsafe {
@@ -13748,7 +13748,7 @@ impl IX509Extensions {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), pvalue.param().abi()) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509Extensions_Vtbl {
@@ -13762,7 +13762,7 @@ pub struct IX509Extensions_Vtbl {
     pub IndexByObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub AddRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509Extensions_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509Extension>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -13773,7 +13773,7 @@ pub trait IX509Extensions_Impl: super::oaidl::IDispatch_Impl {
     fn IndexByObjectId(&self, pobjectid: windows_core::Ref<IObjectId>) -> windows_core::Result<i32>;
     fn AddRange(&self, pvalue: windows_core::Ref<IX509Extensions>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509Extensions_Vtbl {
     pub const fn new<Identity: IX509Extensions_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: IX509Extensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13864,20 +13864,20 @@ impl IX509Extensions_Vtbl {
         iid == &<IX509Extensions as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509Extensions {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509MachineEnrollmentFactory, IX509MachineEnrollmentFactory_Vtbl, 0x728ab352_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509MachineEnrollmentFactory {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509MachineEnrollmentFactory, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509MachineEnrollmentFactory {
     pub unsafe fn CreateObject(&self, strprogid: &windows_core::BSTR) -> windows_core::Result<IX509EnrollmentHelper> {
         unsafe {
@@ -13886,18 +13886,18 @@ impl IX509MachineEnrollmentFactory {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509MachineEnrollmentFactory_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub CreateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509MachineEnrollmentFactory_Impl: super::oaidl::IDispatch_Impl {
     fn CreateObject(&self, strprogid: &windows_core::BSTR) -> windows_core::Result<IX509EnrollmentHelper>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509MachineEnrollmentFactory_Vtbl {
     pub const fn new<Identity: IX509MachineEnrollmentFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateObject<Identity: IX509MachineEnrollmentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprogid: *mut core::ffi::c_void, ppihelper: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13918,20 +13918,20 @@ impl IX509MachineEnrollmentFactory_Vtbl {
         iid == &<IX509MachineEnrollmentFactory as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509MachineEnrollmentFactory {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509NameValuePair, IX509NameValuePair_Vtbl, 0x728ab33f_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509NameValuePair {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509NameValuePair, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509NameValuePair {
     pub unsafe fn Initialize(&self, strname: &windows_core::BSTR, strvalue: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute_copy(strvalue)) }
@@ -13949,7 +13949,7 @@ impl IX509NameValuePair {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509NameValuePair_Vtbl {
@@ -13958,13 +13958,13 @@ pub struct IX509NameValuePair_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509NameValuePair_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, strname: &windows_core::BSTR, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509NameValuePair_Vtbl {
     pub const fn new<Identity: IX509NameValuePair_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509NameValuePair_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14008,20 +14008,20 @@ impl IX509NameValuePair_Vtbl {
         iid == &<IX509NameValuePair as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509NameValuePair {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509NameValuePairs, IX509NameValuePairs_Vtbl, 0x728ab340_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509NameValuePairs {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509NameValuePairs, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509NameValuePairs {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509NameValuePair> {
         unsafe {
@@ -14054,7 +14054,7 @@ impl IX509NameValuePairs {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509NameValuePairs_Vtbl {
@@ -14066,7 +14066,7 @@ pub struct IX509NameValuePairs_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509NameValuePairs_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509NameValuePair>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -14075,7 +14075,7 @@ pub trait IX509NameValuePairs_Impl: super::oaidl::IDispatch_Impl {
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509NameValuePairs_Vtbl {
     pub const fn new<Identity: IX509NameValuePairs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: IX509NameValuePairs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14146,20 +14146,20 @@ impl IX509NameValuePairs_Vtbl {
         iid == &<IX509NameValuePairs as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509NameValuePairs {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509PolicyServerListManager, IX509PolicyServerListManager_Vtbl, 0x884e204b_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509PolicyServerListManager {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509PolicyServerListManager, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509PolicyServerListManager {
     pub unsafe fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509PolicyServerUrl> {
         unsafe {
@@ -14195,7 +14195,7 @@ impl IX509PolicyServerListManager {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), context, flags) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509PolicyServerListManager_Vtbl {
@@ -14208,7 +14208,7 @@ pub struct IX509PolicyServerListManager_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, PolicyServerUrlFlags) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509PolicyServerListManager_Impl: super::oaidl::IDispatch_Impl {
     fn ItemByIndex(&self, index: i32) -> windows_core::Result<IX509PolicyServerUrl>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -14218,7 +14218,7 @@ pub trait IX509PolicyServerListManager_Impl: super::oaidl::IDispatch_Impl {
     fn Clear(&self) -> windows_core::Result<()>;
     fn Initialize(&self, context: X509CertificateEnrollmentContext, flags: PolicyServerUrlFlags) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509PolicyServerListManager_Vtbl {
     pub const fn new<Identity: IX509PolicyServerListManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemByIndex<Identity: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14296,20 +14296,20 @@ impl IX509PolicyServerListManager_Vtbl {
         iid == &<IX509PolicyServerListManager as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509PolicyServerListManager {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509PolicyServerUrl, IX509PolicyServerUrl_Vtbl, 0x884e204a_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509PolicyServerUrl {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509PolicyServerUrl, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509PolicyServerUrl {
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), context) }
@@ -14323,14 +14323,14 @@ impl IX509PolicyServerUrl {
     pub unsafe fn SetUrl(&self, pvalue: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUrl)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pvalue)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Default(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Default)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetDefault(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDefault)(windows_core::Interface::as_raw(self), value) }
     }
@@ -14343,14 +14343,14 @@ impl IX509PolicyServerUrl {
     pub unsafe fn SetFlags(&self, flags: PolicyServerUrlFlags) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), flags) }
     }
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub unsafe fn AuthFlags(&self) -> windows_core::Result<super::certcli::X509EnrollmentAuthFlags> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AuthFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub unsafe fn SetAuthFlags(&self, flags: super::certcli::X509EnrollmentAuthFlags) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAuthFlags)(windows_core::Interface::as_raw(self), flags) }
     }
@@ -14379,7 +14379,7 @@ impl IX509PolicyServerUrl {
         unsafe { (windows_core::Interface::vtable(self).RemoveFromRegistry)(windows_core::Interface::as_raw(self), context) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509PolicyServerUrl_Vtbl {
@@ -14387,23 +14387,23 @@ pub struct IX509PolicyServerUrl_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext) -> windows_core::HRESULT,
     pub Url: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Default: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetDefault: usize,
     pub Flags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PolicyServerUrlFlags) -> windows_core::HRESULT,
     pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, PolicyServerUrlFlags) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub AuthFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::certcli::X509EnrollmentAuthFlags) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certcli"))]
+    #[cfg(not(feature = "certcli"))]
     AuthFlags: usize,
-    #[cfg(feature = "Win32_certcli")]
+    #[cfg(feature = "certcli")]
     pub SetAuthFlags: unsafe extern "system" fn(*mut core::ffi::c_void, super::certcli::X509EnrollmentAuthFlags) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certcli"))]
+    #[cfg(not(feature = "certcli"))]
     SetAuthFlags: usize,
     pub Cost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetCost: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -14412,7 +14412,7 @@ pub struct IX509PolicyServerUrl_Vtbl {
     pub UpdateRegistry: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext) -> windows_core::HRESULT,
     pub RemoveFromRegistry: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509PolicyServerUrl_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
     fn Url(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -14430,7 +14430,7 @@ pub trait IX509PolicyServerUrl_Impl: super::oaidl::IDispatch_Impl {
     fn UpdateRegistry(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
     fn RemoveFromRegistry(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509PolicyServerUrl_Vtbl {
     pub const fn new<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
@@ -14582,20 +14582,20 @@ impl IX509PolicyServerUrl_Vtbl {
         iid == &<IX509PolicyServerUrl as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_certcli", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certcli", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509PolicyServerUrl {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509PrivateKey, IX509PrivateKey_Vtbl, 0x728ab30c_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509PrivateKey {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509PrivateKey, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509PrivateKey {
     pub unsafe fn Open(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self)) }
@@ -14696,14 +14696,14 @@ impl IX509PrivateKey {
     pub unsafe fn SetProviderType(&self, value: X509ProviderType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetProviderType)(windows_core::Interface::as_raw(self), value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn LegacyCsp(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LegacyCsp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetLegacyCsp(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLegacyCsp)(windows_core::Interface::as_raw(self), value) }
     }
@@ -14764,14 +14764,14 @@ impl IX509PrivateKey {
     pub unsafe fn SetKeyProtection(&self, value: X509PrivateKeyProtection) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetKeyProtection)(windows_core::Interface::as_raw(self), value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn MachineContext(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MachineContext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetMachineContext(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMachineContext)(windows_core::Interface::as_raw(self), value) }
     }
@@ -14799,39 +14799,39 @@ impl IX509PrivateKey {
             (windows_core::Interface::vtable(self).UniqueContainerName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Opened(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Opened)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn DefaultContainer(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DefaultContainer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Existing(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Existing)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetExisting(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetExisting)(windows_core::Interface::as_raw(self), value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Silent(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Silent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetSilent(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSilent)(windows_core::Interface::as_raw(self), value) }
     }
@@ -14875,7 +14875,7 @@ impl IX509PrivateKey {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509PrivateKey_Vtbl {
@@ -14902,13 +14902,13 @@ pub struct IX509PrivateKey_Vtbl {
     pub SetProviderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut X509ProviderType) -> windows_core::HRESULT,
     pub SetProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, X509ProviderType) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub LegacyCsp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     LegacyCsp: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetLegacyCsp: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetLegacyCsp: usize,
     pub Algorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14922,42 +14922,42 @@ pub struct IX509PrivateKey_Vtbl {
     pub SetKeyUsage: unsafe extern "system" fn(*mut core::ffi::c_void, X509PrivateKeyUsageFlags) -> windows_core::HRESULT,
     pub KeyProtection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut X509PrivateKeyProtection) -> windows_core::HRESULT,
     pub SetKeyProtection: unsafe extern "system" fn(*mut core::ffi::c_void, X509PrivateKeyProtection) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub MachineContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     MachineContext: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetMachineContext: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetMachineContext: usize,
     pub SecurityDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSecurityDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Certificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UniqueContainerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Opened: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Opened: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub DefaultContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     DefaultContainer: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Existing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Existing: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetExisting: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetExisting: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Silent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Silent: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetSilent: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetSilent: usize,
     pub ParentWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetParentWindow: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -14969,7 +14969,7 @@ pub struct IX509PrivateKey_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509PrivateKey_Impl: super::oaidl::IDispatch_Impl {
     fn Open(&self) -> windows_core::Result<()>;
     fn Create(&self) -> windows_core::Result<()>;
@@ -15030,7 +15030,7 @@ pub trait IX509PrivateKey_Impl: super::oaidl::IDispatch_Impl {
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDescription(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509PrivateKey_Vtbl {
     pub const fn new<Identity: IX509PrivateKey_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -15615,20 +15615,20 @@ impl IX509PrivateKey_Vtbl {
         iid == &<IX509PrivateKey as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509PrivateKey {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509PrivateKey2, IX509PrivateKey2_Vtbl, 0x728ab362_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509PrivateKey2 {
     type Target = IX509PrivateKey;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509PrivateKey2, windows_core::IUnknown, super::oaidl::IDispatch, IX509PrivateKey);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509PrivateKey2 {
     pub unsafe fn HardwareKeyUsage(&self) -> windows_core::Result<X509HardwareKeyUsageFlags> {
         unsafe {
@@ -15676,7 +15676,7 @@ impl IX509PrivateKey2 {
         unsafe { (windows_core::Interface::vtable(self).SetParametersExportType)(windows_core::Interface::as_raw(self), value) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509PrivateKey2_Vtbl {
@@ -15692,7 +15692,7 @@ pub struct IX509PrivateKey2_Vtbl {
     pub ParametersExportType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut X509KeyParametersExportType) -> windows_core::HRESULT,
     pub SetParametersExportType: unsafe extern "system" fn(*mut core::ffi::c_void, X509KeyParametersExportType) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509PrivateKey2_Impl: IX509PrivateKey_Impl {
     fn HardwareKeyUsage(&self) -> windows_core::Result<X509HardwareKeyUsageFlags>;
     fn SetHardwareKeyUsage(&self, value: X509HardwareKeyUsageFlags) -> windows_core::Result<()>;
@@ -15705,7 +15705,7 @@ pub trait IX509PrivateKey2_Impl: IX509PrivateKey_Impl {
     fn ParametersExportType(&self) -> windows_core::Result<X509KeyParametersExportType>;
     fn SetParametersExportType(&self, value: X509KeyParametersExportType) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509PrivateKey2_Vtbl {
     pub const fn new<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HardwareKeyUsage<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut X509HardwareKeyUsageFlags) -> windows_core::HRESULT {
@@ -15816,20 +15816,20 @@ impl IX509PrivateKey2_Vtbl {
         iid == &<IX509PrivateKey2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509PrivateKey as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509PrivateKey2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509PublicKey, IX509PublicKey_Vtbl, 0x728ab30b_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509PublicKey {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509PublicKey, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509PublicKey {
     pub unsafe fn Initialize<P0>(&self, pobjectid: P0, strencodedkey: &windows_core::BSTR, strencodedparameters: &windows_core::BSTR, encoding: EncodingType) -> windows_core::HRESULT
     where
@@ -15871,7 +15871,7 @@ impl IX509PublicKey {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509PublicKey_Vtbl {
@@ -15884,7 +15884,7 @@ pub struct IX509PublicKey_Vtbl {
     pub EncodedParameters: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ComputeKeyIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, KeyIdentifierHashAlgorithm, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509PublicKey_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, strencodedkey: &windows_core::BSTR, strencodedparameters: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
     fn InitializeFromEncodedPublicKeyInfo(&self, strencodedpublickeyinfo: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
@@ -15894,7 +15894,7 @@ pub trait IX509PublicKey_Impl: super::oaidl::IDispatch_Impl {
     fn EncodedParameters(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn ComputeKeyIdentifier(&self, algorithm: KeyIdentifierHashAlgorithm, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509PublicKey_Vtbl {
     pub const fn new<Identity: IX509PublicKey_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, strencodedkey: *mut core::ffi::c_void, strencodedparameters: *mut core::ffi::c_void, encoding: EncodingType) -> windows_core::HRESULT {
@@ -15984,20 +15984,20 @@ impl IX509PublicKey_Vtbl {
         iid == &<IX509PublicKey as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509PublicKey {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509SCEPEnrollment, IX509SCEPEnrollment_Vtbl, 0x728ab361_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509SCEPEnrollment {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509SCEPEnrollment, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509SCEPEnrollment {
     pub unsafe fn Initialize<P0>(&self, prequest: P0, strthumbprint: &windows_core::BSTR, thumprintencoding: EncodingType, strservercertificates: &windows_core::BSTR, encoding: EncodingType) -> windows_core::HRESULT
     where
@@ -16026,7 +16026,7 @@ impl IX509SCEPEnrollment {
             (windows_core::Interface::vtable(self).CreateRetrieveCertificateMessage)(windows_core::Interface::as_raw(self), context, core::mem::transmute_copy(strissuer), issuerencoding, core::mem::transmute_copy(strserialnumber), serialnumberencoding, encoding, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_certpol")]
+    #[cfg(feature = "certpol")]
     pub unsafe fn ProcessResponseMessage(&self, strresponse: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<super::certpol::X509SCEPDisposition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16036,7 +16036,7 @@ impl IX509SCEPEnrollment {
     pub unsafe fn SetServerCapabilities(&self, value: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetServerCapabilities)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
-    #[cfg(feature = "Win32_certpol")]
+    #[cfg(feature = "certpol")]
     pub unsafe fn FailInfo(&self) -> windows_core::Result<super::certpol::X509SCEPFailInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16103,14 +16103,14 @@ impl IX509SCEPEnrollment {
             (windows_core::Interface::vtable(self).Certificate)(windows_core::Interface::as_raw(self), encoding, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Silent(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Silent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetSilent(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSilent)(windows_core::Interface::as_raw(self), value) }
     }
@@ -16118,7 +16118,7 @@ impl IX509SCEPEnrollment {
         unsafe { (windows_core::Interface::vtable(self).DeleteRequest)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509SCEPEnrollment_Vtbl {
@@ -16128,14 +16128,14 @@ pub struct IX509SCEPEnrollment_Vtbl {
     pub CreateRequestMessage: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateRetrievePendingMessage: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateRetrieveCertificateMessage: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void, EncodingType, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_certpol")]
+    #[cfg(feature = "certpol")]
     pub ProcessResponseMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, *mut super::certpol::X509SCEPDisposition) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certpol"))]
+    #[cfg(not(feature = "certpol"))]
     ProcessResponseMessage: usize,
     pub SetServerCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_certpol")]
+    #[cfg(feature = "certpol")]
     pub FailInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::certpol::X509SCEPFailInfo) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certpol"))]
+    #[cfg(not(feature = "certpol"))]
     FailInfo: usize,
     pub SignerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSignerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16148,17 +16148,17 @@ pub struct IX509SCEPEnrollment_Vtbl {
     pub SetCertificateFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Certificate: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Silent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Silent: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetSilent: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetSilent: usize,
     pub DeleteRequest: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_certpol", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certpol", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509SCEPEnrollment_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, prequest: windows_core::Ref<IX509CertificateRequestPkcs10>, strthumbprint: &windows_core::BSTR, thumprintencoding: EncodingType, strservercertificates: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
     fn InitializeForPending(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
@@ -16183,7 +16183,7 @@ pub trait IX509SCEPEnrollment_Impl: super::oaidl::IDispatch_Impl {
     fn SetSilent(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
     fn DeleteRequest(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_certpol", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certpol", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509SCEPEnrollment_Vtbl {
     pub const fn new<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prequest: *mut core::ffi::c_void, strthumbprint: *mut core::ffi::c_void, thumprintencoding: EncodingType, strservercertificates: *mut core::ffi::c_void, encoding: EncodingType) -> windows_core::HRESULT {
@@ -16426,20 +16426,20 @@ impl IX509SCEPEnrollment_Vtbl {
         iid == &<IX509SCEPEnrollment as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_certpol", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certpol", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509SCEPEnrollment {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509SCEPEnrollment2, IX509SCEPEnrollment2_Vtbl, 0x728ab364_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509SCEPEnrollment2 {
     type Target = IX509SCEPEnrollment;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509SCEPEnrollment2, windows_core::IUnknown, super::oaidl::IDispatch, IX509SCEPEnrollment);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509SCEPEnrollment2 {
     pub unsafe fn CreateChallengeAnswerMessage(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -16447,7 +16447,7 @@ impl IX509SCEPEnrollment2 {
             (windows_core::Interface::vtable(self).CreateChallengeAnswerMessage)(windows_core::Interface::as_raw(self), encoding, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_certpol")]
+    #[cfg(feature = "certpol")]
     pub unsafe fn ProcessResponseMessage2(&self, flags: X509SCEPProcessMessageFlags, strresponse: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<super::certpol::X509SCEPDisposition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16476,22 +16476,22 @@ impl IX509SCEPEnrollment2 {
         unsafe { (windows_core::Interface::vtable(self).SetActivityId)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509SCEPEnrollment2_Vtbl {
     pub base__: IX509SCEPEnrollment_Vtbl,
     pub CreateChallengeAnswerMessage: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_certpol")]
+    #[cfg(feature = "certpol")]
     pub ProcessResponseMessage2: unsafe extern "system" fn(*mut core::ffi::c_void, X509SCEPProcessMessageFlags, *mut core::ffi::c_void, EncodingType, *mut super::certpol::X509SCEPDisposition) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certpol"))]
+    #[cfg(not(feature = "certpol"))]
     ProcessResponseMessage2: usize,
     pub ResultMessageText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DelayRetry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DelayRetryAction) -> windows_core::HRESULT,
     pub ActivityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetActivityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_certpol", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certpol", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509SCEPEnrollment2_Impl: IX509SCEPEnrollment_Impl {
     fn CreateChallengeAnswerMessage(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn ProcessResponseMessage2(&self, flags: X509SCEPProcessMessageFlags, strresponse: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<super::certpol::X509SCEPDisposition>;
@@ -16500,7 +16500,7 @@ pub trait IX509SCEPEnrollment2_Impl: IX509SCEPEnrollment_Impl {
     fn ActivityId(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetActivityId(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_certpol", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certpol", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509SCEPEnrollment2_Vtbl {
     pub const fn new<Identity: IX509SCEPEnrollment2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateChallengeAnswerMessage<Identity: IX509SCEPEnrollment2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16583,20 +16583,20 @@ impl IX509SCEPEnrollment2_Vtbl {
         iid == &<IX509SCEPEnrollment2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<IX509SCEPEnrollment as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_certpol", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certpol", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509SCEPEnrollment2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509SCEPEnrollmentHelper, IX509SCEPEnrollmentHelper_Vtbl, 0x728ab365_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509SCEPEnrollmentHelper {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509SCEPEnrollmentHelper, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509SCEPEnrollmentHelper {
     pub unsafe fn Initialize<P2>(&self, strserverurl: &windows_core::BSTR, strrequestheaders: &windows_core::BSTR, prequest: P2, strcacertificatethumbprint: &windows_core::BSTR) -> windows_core::HRESULT
     where
@@ -16607,14 +16607,14 @@ impl IX509SCEPEnrollmentHelper {
     pub unsafe fn InitializeForPending(&self, strserverurl: &windows_core::BSTR, strrequestheaders: &windows_core::BSTR, context: X509CertificateEnrollmentContext, strtransactionid: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeForPending)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strserverurl), core::mem::transmute_copy(strrequestheaders), context, core::mem::transmute_copy(strtransactionid)) }
     }
-    #[cfg(feature = "Win32_certpol")]
+    #[cfg(feature = "certpol")]
     pub unsafe fn Enroll(&self, processflags: X509SCEPProcessMessageFlags) -> windows_core::Result<super::certpol::X509SCEPDisposition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enroll)(windows_core::Interface::as_raw(self), processflags, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_certpol")]
+    #[cfg(feature = "certpol")]
     pub unsafe fn FetchPending(&self, processflags: X509SCEPProcessMessageFlags) -> windows_core::Result<super::certpol::X509SCEPDisposition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16634,25 +16634,25 @@ impl IX509SCEPEnrollmentHelper {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509SCEPEnrollmentHelper_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InitializeForPending: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_certpol")]
+    #[cfg(feature = "certpol")]
     pub Enroll: unsafe extern "system" fn(*mut core::ffi::c_void, X509SCEPProcessMessageFlags, *mut super::certpol::X509SCEPDisposition) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certpol"))]
+    #[cfg(not(feature = "certpol"))]
     Enroll: usize,
-    #[cfg(feature = "Win32_certpol")]
+    #[cfg(feature = "certpol")]
     pub FetchPending: unsafe extern "system" fn(*mut core::ffi::c_void, X509SCEPProcessMessageFlags, *mut super::certpol::X509SCEPDisposition) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certpol"))]
+    #[cfg(not(feature = "certpol"))]
     FetchPending: usize,
     pub X509SCEPEnrollment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResultMessageText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_certpol", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certpol", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509SCEPEnrollmentHelper_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, strserverurl: &windows_core::BSTR, strrequestheaders: &windows_core::BSTR, prequest: windows_core::Ref<IX509CertificateRequestPkcs10>, strcacertificatethumbprint: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeForPending(&self, strserverurl: &windows_core::BSTR, strrequestheaders: &windows_core::BSTR, context: X509CertificateEnrollmentContext, strtransactionid: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -16661,7 +16661,7 @@ pub trait IX509SCEPEnrollmentHelper_Impl: super::oaidl::IDispatch_Impl {
     fn X509SCEPEnrollment(&self) -> windows_core::Result<IX509SCEPEnrollment>;
     fn ResultMessageText(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_certpol", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certpol", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509SCEPEnrollmentHelper_Vtbl {
     pub const fn new<Identity: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserverurl: *mut core::ffi::c_void, strrequestheaders: *mut core::ffi::c_void, prequest: *mut core::ffi::c_void, strcacertificatethumbprint: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16738,20 +16738,20 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
         iid == &<IX509SCEPEnrollmentHelper as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_certpol", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certpol", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509SCEPEnrollmentHelper {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IX509SignatureInformation, IX509SignatureInformation_Vtbl, 0x728ab33c_217d_11da_b2a4_000e7bbb2b09);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IX509SignatureInformation {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IX509SignatureInformation, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IX509SignatureInformation {
     pub unsafe fn HashAlgorithm(&self) -> windows_core::Result<IObjectId> {
         unsafe {
@@ -16786,36 +16786,36 @@ impl IX509SignatureInformation {
     pub unsafe fn SetParameters(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(value)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AlternateSignatureAlgorithm)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(windows_core::Interface::as_raw(self), value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AlternateSignatureAlgorithmSet(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AlternateSignatureAlgorithmSet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn NullSigned(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NullSigned)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetNullSigned(&self, value: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNullSigned)(windows_core::Interface::as_raw(self), value) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetSignatureAlgorithm(&self, pkcs7signature: super::wtypes::VARIANT_BOOL, signaturekey: super::wtypes::VARIANT_BOOL) -> windows_core::Result<IObjectId> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16826,7 +16826,7 @@ impl IX509SignatureInformation {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultValues)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509SignatureInformation_Vtbl {
@@ -16837,33 +16837,33 @@ pub struct IX509SignatureInformation_Vtbl {
     pub SetPublicKeyAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AlternateSignatureAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AlternateSignatureAlgorithm: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetAlternateSignatureAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetAlternateSignatureAlgorithm: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AlternateSignatureAlgorithmSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AlternateSignatureAlgorithmSet: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub NullSigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     NullSigned: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetNullSigned: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetNullSigned: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetSignatureAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL, super::wtypes::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetSignatureAlgorithm: usize,
     pub SetDefaultValues: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509SignatureInformation_Impl: super::oaidl::IDispatch_Impl {
     fn HashAlgorithm(&self) -> windows_core::Result<IObjectId>;
     fn SetHashAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
@@ -16879,7 +16879,7 @@ pub trait IX509SignatureInformation_Impl: super::oaidl::IDispatch_Impl {
     fn GetSignatureAlgorithm(&self, pkcs7signature: super::wtypes::VARIANT_BOOL, signaturekey: super::wtypes::VARIANT_BOOL) -> windows_core::Result<IObjectId>;
     fn SetDefaultValues(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509SignatureInformation_Vtbl {
     pub const fn new<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HashAlgorithm<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17023,7 +17023,7 @@ impl IX509SignatureInformation_Vtbl {
         iid == &<IX509SignatureInformation as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IX509SignatureInformation {}
 pub const ImportExportable: ImportPFXFlags = 16;
 pub const ImportExportableEncrypted: ImportPFXFlags = 32;

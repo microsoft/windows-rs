@@ -400,7 +400,7 @@ impl IWSDAsyncResult {
     {
         unsafe { (windows_core::Interface::vtable(self).SetCallback)(windows_core::Interface::as_raw(self), pcallback.param().abi(), pasyncstate.param().abi()) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetWaitHandle(&self, hwaithandle: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetWaitHandle)(windows_core::Interface::as_raw(self), hwaithandle) }
     }
@@ -431,9 +431,9 @@ impl IWSDAsyncResult {
 pub struct IWSDAsyncResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetWaitHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetWaitHandle: usize,
     pub HasCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAsyncState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -441,7 +441,7 @@ pub struct IWSDAsyncResult_Vtbl {
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WSD_EVENT) -> windows_core::HRESULT,
     pub GetEndpointProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IWSDAsyncResult_Impl: windows_core::IUnknownImpl {
     fn SetCallback(&self, pcallback: windows_core::Ref<IWSDAsyncCallback>, pasyncstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetWaitHandle(&self, hwaithandle: super::winnt::HANDLE) -> windows_core::Result<()>;
@@ -451,7 +451,7 @@ pub trait IWSDAsyncResult_Impl: windows_core::IUnknownImpl {
     fn GetEvent(&self, pevent: *mut WSD_EVENT) -> windows_core::Result<()>;
     fn GetEndpointProxy(&self) -> windows_core::Result<IWSDEndpointProxy>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IWSDAsyncResult_Vtbl {
     pub const fn new<Identity: IWSDAsyncResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetCallback<Identity: IWSDAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void, pasyncstate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -523,7 +523,7 @@ impl IWSDAsyncResult_Vtbl {
         iid == &<IWSDAsyncResult as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IWSDAsyncResult {}
 windows_core::imp::define_interface!(IWSDAttachment, IWSDAttachment_Vtbl, 0x5d55a616_9df8_4b09_b156_9ba351a48b76);
 windows_core::imp::interface_hierarchy!(IWSDAttachment, windows_core::IUnknown);
@@ -1012,7 +1012,7 @@ impl IWSDEndpointProxy {
     pub unsafe fn SendOneWayRequest(&self, pbody: *const core::ffi::c_void, poperation: *const WSD_OPERATION) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SendOneWayRequest)(windows_core::Interface::as_raw(self), pbody, poperation) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SendTwoWayRequest(&self, pbody: *const core::ffi::c_void, poperation: *const WSD_OPERATION, presponsecontext: Option<*const WSD_SYNCHRONOUS_RESPONSE_CONTEXT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SendTwoWayRequest)(windows_core::Interface::as_raw(self), pbody, poperation, presponsecontext.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -1053,9 +1053,9 @@ impl IWSDEndpointProxy {
 pub struct IWSDEndpointProxy_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SendOneWayRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *const WSD_OPERATION) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SendTwoWayRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *const WSD_OPERATION, *const WSD_SYNCHRONOUS_RESPONSE_CONTEXT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SendTwoWayRequest: usize,
     pub SendTwoWayRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *const WSD_OPERATION, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AbortAsyncOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1063,7 +1063,7 @@ pub struct IWSDEndpointProxy_Vtbl {
     pub GetErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetFaultInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut WSD_SOAP_FAULT) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IWSDEndpointProxy_Impl: windows_core::IUnknownImpl {
     fn SendOneWayRequest(&self, pbody: *const core::ffi::c_void, poperation: *const WSD_OPERATION) -> windows_core::Result<()>;
     fn SendTwoWayRequest(&self, pbody: *const core::ffi::c_void, poperation: *const WSD_OPERATION, presponsecontext: *const WSD_SYNCHRONOUS_RESPONSE_CONTEXT) -> windows_core::Result<()>;
@@ -1073,7 +1073,7 @@ pub trait IWSDEndpointProxy_Impl: windows_core::IUnknownImpl {
     fn GetErrorInfo(&self) -> windows_core::Result<windows_core::PCWSTR>;
     fn GetFaultInfo(&self) -> windows_core::Result<*mut WSD_SOAP_FAULT>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IWSDEndpointProxy_Vtbl {
     pub const fn new<Identity: IWSDEndpointProxy_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SendOneWayRequest<Identity: IWSDEndpointProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbody: *const core::ffi::c_void, poperation: *const WSD_OPERATION) -> windows_core::HRESULT {
@@ -1151,7 +1151,7 @@ impl IWSDEndpointProxy_Vtbl {
         iid == &<IWSDEndpointProxy as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IWSDEndpointProxy {}
 windows_core::imp::define_interface!(IWSDEventingStatus, IWSDEventingStatus_Vtbl, 0x49b17f52_637a_407a_ae99_fbe82a4d38c0);
 windows_core::imp::interface_hierarchy!(IWSDEventingStatus, windows_core::IUnknown);
@@ -1317,7 +1317,7 @@ impl windows_core::RuntimeName for IWSDHttpAddress {}
 windows_core::imp::define_interface!(IWSDHttpAuthParameters, IWSDHttpAuthParameters_Vtbl, 0x0b476df0_8dac_480d_b05c_99781a5884aa);
 windows_core::imp::interface_hierarchy!(IWSDHttpAuthParameters, windows_core::IUnknown);
 impl IWSDHttpAuthParameters {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetClientAccessToken(&self) -> windows_core::Result<super::winnt::HANDLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1335,18 +1335,18 @@ impl IWSDHttpAuthParameters {
 #[doc(hidden)]
 pub struct IWSDHttpAuthParameters_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetClientAccessToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetClientAccessToken: usize,
     pub GetAuthType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IWSDHttpAuthParameters_Impl: windows_core::IUnknownImpl {
     fn GetClientAccessToken(&self) -> windows_core::Result<super::winnt::HANDLE>;
     fn GetAuthType(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IWSDHttpAuthParameters_Vtbl {
     pub const fn new<Identity: IWSDHttpAuthParameters_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetClientAccessToken<Identity: IWSDHttpAuthParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phtoken: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
@@ -1383,7 +1383,7 @@ impl IWSDHttpAuthParameters_Vtbl {
         iid == &<IWSDHttpAuthParameters as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IWSDHttpAuthParameters {}
 windows_core::imp::define_interface!(IWSDHttpMessageParameters, IWSDHttpMessageParameters_Vtbl, 0x540bd122_5c83_4dec_b396_ea62a2697fdf);
 impl core::ops::Deref for IWSDHttpMessageParameters {
@@ -1848,11 +1848,11 @@ impl windows_core::RuntimeName for IWSDOutboundAttachment {}
 windows_core::imp::define_interface!(IWSDSSLClientCertificate, IWSDSSLClientCertificate_Vtbl, 0xde105e87_a0da_418e_98ad_27b9eed87bdc);
 windows_core::imp::interface_hierarchy!(IWSDSSLClientCertificate, windows_core::IUnknown);
 impl IWSDSSLClientCertificate {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+    #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
     pub unsafe fn GetClientCertificate(&self, ppcertcontext: *mut super::wincrypt::PCCERT_CONTEXT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetClientCertificate)(windows_core::Interface::as_raw(self), ppcertcontext as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetMappedAccessToken(&self) -> windows_core::Result<super::winnt::HANDLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1864,21 +1864,21 @@ impl IWSDSSLClientCertificate {
 #[doc(hidden)]
 pub struct IWSDSSLClientCertificate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+    #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
     pub GetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wincrypt::PCCERT_CONTEXT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_wincrypt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wincrypt")))]
     GetClientCertificate: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetMappedAccessToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetMappedAccessToken: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 pub trait IWSDSSLClientCertificate_Impl: windows_core::IUnknownImpl {
     fn GetClientCertificate(&self, ppcertcontext: *mut super::wincrypt::PCCERT_CONTEXT) -> windows_core::Result<()>;
     fn GetMappedAccessToken(&self) -> windows_core::Result<super::winnt::HANDLE>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl IWSDSSLClientCertificate_Vtbl {
     pub const fn new<Identity: IWSDSSLClientCertificate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetClientCertificate<Identity: IWSDSSLClientCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcertcontext: *mut super::wincrypt::PCCERT_CONTEXT) -> windows_core::HRESULT {
@@ -1909,7 +1909,7 @@ impl IWSDSSLClientCertificate_Vtbl {
         iid == &<IWSDSSLClientCertificate as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl windows_core::RuntimeName for IWSDSSLClientCertificate {}
 windows_core::imp::define_interface!(IWSDScopeMatchingRule, IWSDScopeMatchingRule_Vtbl, 0xfcafe424_fef5_481a_bd9f_33ce0574256f);
 windows_core::imp::interface_hierarchy!(IWSDScopeMatchingRule, windows_core::IUnknown);
@@ -2664,11 +2664,11 @@ impl core::ops::Deref for IWSDUdpAddress {
 }
 windows_core::imp::interface_hierarchy!(IWSDUdpAddress, windows_core::IUnknown, IWSDAddress, IWSDTransportAddress);
 impl IWSDUdpAddress {
-    #[cfg(feature = "Win32_ws2")]
+    #[cfg(feature = "ws2")]
     pub unsafe fn SetSockaddr(&self, psockaddr: *const super::ws2::SOCKADDR_STORAGE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSockaddr)(windows_core::Interface::as_raw(self), psockaddr) }
     }
-    #[cfg(feature = "Win32_ws2")]
+    #[cfg(feature = "ws2")]
     pub unsafe fn GetSockaddr(&self, psockaddr: *mut super::ws2::SOCKADDR_STORAGE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSockaddr)(windows_core::Interface::as_raw(self), psockaddr as _) }
     }
@@ -2710,13 +2710,13 @@ impl IWSDUdpAddress {
 #[doc(hidden)]
 pub struct IWSDUdpAddress_Vtbl {
     pub base__: IWSDTransportAddress_Vtbl,
-    #[cfg(feature = "Win32_ws2")]
+    #[cfg(feature = "ws2")]
     pub SetSockaddr: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ws2::SOCKADDR_STORAGE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ws2"))]
+    #[cfg(not(feature = "ws2"))]
     SetSockaddr: usize,
-    #[cfg(feature = "Win32_ws2")]
+    #[cfg(feature = "ws2")]
     pub GetSockaddr: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ws2::SOCKADDR_STORAGE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ws2"))]
+    #[cfg(not(feature = "ws2"))]
     GetSockaddr: usize,
     pub SetExclusive: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetExclusive: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2727,7 +2727,7 @@ pub struct IWSDUdpAddress_Vtbl {
     pub SetAlias: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub GetAlias: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub trait IWSDUdpAddress_Impl: IWSDTransportAddress_Impl {
     fn SetSockaddr(&self, psockaddr: *const super::ws2::SOCKADDR_STORAGE) -> windows_core::Result<()>;
     fn GetSockaddr(&self, psockaddr: *mut super::ws2::SOCKADDR_STORAGE) -> windows_core::Result<()>;
@@ -2740,7 +2740,7 @@ pub trait IWSDUdpAddress_Impl: IWSDTransportAddress_Impl {
     fn SetAlias(&self, palias: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetAlias(&self) -> windows_core::Result<windows_core::GUID>;
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 impl IWSDUdpAddress_Vtbl {
     pub const fn new<Identity: IWSDUdpAddress_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetSockaddr<Identity: IWSDUdpAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psockaddr: *const super::ws2::SOCKADDR_STORAGE) -> windows_core::HRESULT {
@@ -2839,7 +2839,7 @@ impl IWSDUdpAddress_Vtbl {
         iid == &<IWSDUdpAddress as windows_core::Interface>::IID || iid == &<IWSDAddress as windows_core::Interface>::IID || iid == &<IWSDTransportAddress as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 impl windows_core::RuntimeName for IWSDUdpAddress {}
 windows_core::imp::define_interface!(IWSDUdpMessageParameters, IWSDUdpMessageParameters_Vtbl, 0x9934149f_8f0c_447b_aa0b_73124b0ca7f0);
 impl core::ops::Deref for IWSDUdpMessageParameters {
@@ -3945,17 +3945,17 @@ impl Default for PWSD_CONFIG_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWSD_SECURITY_CERT_VALIDATION(pub *mut WSD_SECURITY_CERT_VALIDATION);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl PWSD_SECURITY_CERT_VALIDATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for PWSD_SECURITY_CERT_VALIDATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3974,17 +3974,17 @@ impl Default for PWSD_SECURITY_HTTP_AUTH_SCHEMES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWSD_SECURITY_SIGNATURE_VALIDATION(pub *mut WSD_SECURITY_SIGNATURE_VALIDATION);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl PWSD_SECURITY_SIGNATURE_VALIDATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for PWSD_SECURITY_SIGNATURE_VALIDATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4815,7 +4815,7 @@ impl Default for WSD_SCOPES {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_SECURITY_CERT_VALIDATION {
     pub certMatchArray: *mut super::wincrypt::PCCERT_CONTEXT,
@@ -4827,14 +4827,14 @@ pub struct WSD_SECURITY_CERT_VALIDATION {
     pub pbCertHash: *mut u8,
     pub dwCertHashSize: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for WSD_SECURITY_CERT_VALIDATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub certMatchArray: *mut super::wincrypt::PCCERT_CONTEXT,
@@ -4843,7 +4843,7 @@ pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub hCertIssuerStore: super::wincrypt::HCERTSTORE,
     pub dwCertCheckOptions: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4859,7 +4859,7 @@ pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2;
 pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 12;
 pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 11;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub signingCertArray: *mut super::wincrypt::PCCERT_CONTEXT,
@@ -4867,7 +4867,7 @@ pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub hSigningCertStore: super::wincrypt::HCERTSTORE,
     pub dwFlags: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for WSD_SECURITY_SIGNATURE_VALIDATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4980,7 +4980,7 @@ impl Default for WSD_SOAP_MESSAGE {
 }
 pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: windows_core::Ref<windows_core::IUnknown>, session: windows_core::Ref<IWSDServiceMessaging>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Debug, PartialEq)]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: windows_core::HRESULT,
@@ -4988,7 +4988,7 @@ pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub messageParameters: core::mem::ManuallyDrop<Option<IWSDMessageParameters>>,
     pub results: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

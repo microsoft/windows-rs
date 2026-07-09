@@ -2,7 +2,7 @@ pub type PSecPkgCred_CipherStrengths = *mut SecPkgCred_CipherStrengths;
 pub type PSecPkgCred_ClientCertPolicy = *mut SecPkgCred_ClientCertPolicy;
 pub type PSecPkgCred_SessionTicketKey = *mut SecPkgCred_SessionTicketKey;
 pub type PSecPkgCred_SessionTicketKeys = *mut SecPkgCred_SessionTicketKeys;
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 pub type PSecPkgCred_SupportedAlgs = *mut SecPkgCred_SupportedAlgs;
 pub type PSecPkgCred_SupportedProtocols = *mut SecPkgCred_SupportedProtocols;
 pub const SECPKG_ATTR_APP_DATA: u32 = 94;
@@ -94,13 +94,13 @@ impl Default for SecPkgCred_SessionTicketKeys {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy)]
 pub struct SecPkgCred_SupportedAlgs {
     pub cSupportedAlgs: u32,
     pub palgSupportedAlgs: *mut super::wincrypt::ALG_ID,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for SecPkgCred_SupportedAlgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

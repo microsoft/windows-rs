@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfCloseHandle(filehandle: super::winnt::HANDLE) {
     windows_core::link!("cldapi.dll" "system" fn CfCloseHandle(filehandle : super::winnt::HANDLE));
     unsafe { CfCloseHandle(filehandle) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfConnectSyncRoot<P0>(syncrootpath: P0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: Option<*const core::ffi::c_void>, connectflags: CF_CONNECT_FLAGS) -> windows_core::Result<CF_CONNECTION_KEY>
 where
@@ -16,13 +16,13 @@ where
         CfConnectSyncRoot(syncrootpath.param().abi(), callbacktable, callbackcontext.unwrap_or(core::mem::zeroed()) as _, connectflags, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn CfConvertToPlaceholder(filehandle: super::winnt::HANDLE, fileidentity: Option<*const core::ffi::c_void>, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: Option<*mut super::winnt::USN>, overlapped: Option<*mut super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfConvertToPlaceholder(filehandle : super::winnt::HANDLE, fileidentity : *const core::ffi::c_void, fileidentitylength : u32, convertflags : CF_CONVERT_FLAGS, convertusn : *mut super::winnt::USN, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_core::HRESULT);
     unsafe { CfConvertToPlaceholder(filehandle, fileidentity.unwrap_or(core::mem::zeroed()) as _, fileidentitylength, convertflags, convertusn.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn CfCreatePlaceholders<P0>(basedirectorypath: P0, placeholderarray: &mut [CF_PLACEHOLDER_CREATE_INFO], createflags: CF_CREATE_FLAGS, entriesprocessed: Option<*mut u32>) -> windows_core::HRESULT
 where
@@ -31,7 +31,7 @@ where
     windows_core::link!("cldapi.dll" "system" fn CfCreatePlaceholders(basedirectorypath : windows_core::PCWSTR, placeholderarray : *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount : u32, createflags : CF_CREATE_FLAGS, entriesprocessed : *mut u32) -> windows_core::HRESULT);
     unsafe { CfCreatePlaceholders(basedirectorypath.param().abi(), core::mem::transmute(placeholderarray.as_ptr()), placeholderarray.len().try_into().unwrap(), createflags, entriesprocessed.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn CfDehydratePlaceholder(filehandle: super::winnt::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: Option<*mut super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfDehydratePlaceholder(filehandle : super::winnt::HANDLE, startingoffset : i64, length : i64, dehydrateflags : CF_DEHYDRATE_FLAGS, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_core::HRESULT);
@@ -42,25 +42,25 @@ pub unsafe fn CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY) -> windows_
     windows_core::link!("cldapi.dll" "system" fn CfDisconnectSyncRoot(connectionkey : CF_CONNECTION_KEY) -> windows_core::HRESULT);
     unsafe { CfDisconnectSyncRoot(core::mem::transmute(connectionkey)) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfExecute(opinfo : *const CF_OPERATION_INFO, opparams : *mut CF_OPERATION_PARAMETERS) -> windows_core::HRESULT);
     unsafe { CfExecute(opinfo, opparams as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfGetCorrelationVector(filehandle: super::winnt::HANDLE, correlationvector: *mut super::winnt::CORRELATION_VECTOR) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfGetCorrelationVector(filehandle : super::winnt::HANDLE, correlationvector : *mut super::winnt::CORRELATION_VECTOR) -> windows_core::HRESULT);
     unsafe { CfGetCorrelationVector(filehandle, correlationvector as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfGetPlaceholderInfo(filehandle: super::winnt::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfGetPlaceholderInfo(filehandle : super::winnt::HANDLE, infoclass : CF_PLACEHOLDER_INFO_CLASS, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
     unsafe { CfGetPlaceholderInfo(filehandle, infoclass, infobuffer as _, infobufferlength, returnedlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfGetPlaceholderRangeInfo(filehandle: super::winnt::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfGetPlaceholderRangeInfo(filehandle : super::winnt::HANDLE, infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset : i64, length : i64, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
@@ -76,13 +76,13 @@ pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparse
     windows_core::link!("cldapi.dll" "system" fn CfGetPlaceholderStateFromAttributeTag(fileattributes : u32, reparsetag : u32) -> CF_PLACEHOLDER_STATE);
     unsafe { CfGetPlaceholderStateFromAttributeTag(fileattributes, reparsetag) }
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const core::ffi::c_void, infoclass: super::minwinbase::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE {
     windows_core::link!("cldapi.dll" "system" fn CfGetPlaceholderStateFromFileInfo(infobuffer : *const core::ffi::c_void, infoclass : super::minwinbase::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE);
     unsafe { CfGetPlaceholderStateFromFileInfo(infobuffer, infoclass) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::minwinbase::WIN32_FIND_DATA) -> CF_PLACEHOLDER_STATE {
     windows_core::link!("cldapi.dll" "system" fn CfGetPlaceholderStateFromFindData(finddata : *const super::minwinbase::WIN32_FIND_DATA) -> CF_PLACEHOLDER_STATE);
@@ -96,7 +96,7 @@ pub unsafe fn CfGetPlatformInfo() -> windows_core::Result<CF_PLATFORM_INFO> {
         CfGetPlatformInfo(&mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfGetSyncRootInfoByHandle(filehandle: super::winnt::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfGetSyncRootInfoByHandle(filehandle : super::winnt::HANDLE, infoclass : CF_SYNC_ROOT_INFO_CLASS, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
@@ -110,7 +110,7 @@ where
     windows_core::link!("cldapi.dll" "system" fn CfGetSyncRootInfoByPath(filepath : windows_core::PCWSTR, infoclass : CF_SYNC_ROOT_INFO_CLASS, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
     unsafe { CfGetSyncRootInfoByPath(filepath.param().abi(), infoclass, infobuffer as _, infobufferlength, returnedlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfGetTransferKey(filehandle: super::winnt::HANDLE) -> windows_core::Result<CF_TRANSFER_KEY> {
     windows_core::link!("cldapi.dll" "system" fn CfGetTransferKey(filehandle : super::winnt::HANDLE, transferkey : *mut CF_TRANSFER_KEY) -> windows_core::HRESULT);
@@ -119,19 +119,19 @@ pub unsafe fn CfGetTransferKey(filehandle: super::winnt::HANDLE) -> windows_core
         CfGetTransferKey(filehandle, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfGetWin32HandleFromProtectedHandle(protectedhandle: super::winnt::HANDLE) -> super::winnt::HANDLE {
     windows_core::link!("cldapi.dll" "system" fn CfGetWin32HandleFromProtectedHandle(protectedhandle : super::winnt::HANDLE) -> super::winnt::HANDLE);
     unsafe { CfGetWin32HandleFromProtectedHandle(protectedhandle) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn CfHydratePlaceholder(filehandle: super::winnt::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: Option<*mut super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfHydratePlaceholder(filehandle : super::winnt::HANDLE, startingoffset : i64, length : i64, hydrateflags : CF_HYDRATE_FLAGS, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_core::HRESULT);
     unsafe { CfHydratePlaceholder(filehandle, startingoffset, length, hydrateflags, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfOpenFileWithOplock<P0>(filepath: P0, flags: CF_OPEN_FILE_FLAGS) -> windows_core::Result<super::winnt::HANDLE>
 where
@@ -151,7 +151,7 @@ pub unsafe fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY) -> win
         CfQuerySyncProviderStatus(core::mem::transmute(connectionkey), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfReferenceProtectedHandle(protectedhandle: super::winnt::HANDLE) -> bool {
     windows_core::link!("cldapi.dll" "system" fn CfReferenceProtectedHandle(protectedhandle : super::winnt::HANDLE) -> bool);
@@ -165,13 +165,13 @@ where
     windows_core::link!("cldapi.dll" "system" fn CfRegisterSyncRoot(syncrootpath : windows_core::PCWSTR, registration : *const CF_SYNC_REGISTRATION, policies : *const CF_SYNC_POLICIES, registerflags : CF_REGISTER_FLAGS) -> windows_core::HRESULT);
     unsafe { CfRegisterSyncRoot(syncrootpath.param().abi(), registration, policies, registerflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfReleaseProtectedHandle(protectedhandle: super::winnt::HANDLE) {
     windows_core::link!("cldapi.dll" "system" fn CfReleaseProtectedHandle(protectedhandle : super::winnt::HANDLE));
     unsafe { CfReleaseProtectedHandle(protectedhandle) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfReleaseTransferKey(filehandle: super::winnt::HANDLE) -> CF_TRANSFER_KEY {
     windows_core::link!("cldapi.dll" "system" fn CfReleaseTransferKey(filehandle : super::winnt::HANDLE, transferkey : *mut CF_TRANSFER_KEY));
@@ -199,25 +199,25 @@ where
     windows_core::link!("cldapi.dll" "system" fn CfReportSyncStatus(syncrootpath : windows_core::PCWSTR, syncstatus : *const CF_SYNC_STATUS) -> windows_core::HRESULT);
     unsafe { CfReportSyncStatus(syncrootpath.param().abi(), syncstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn CfRevertPlaceholder(filehandle: super::winnt::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: Option<*mut super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfRevertPlaceholder(filehandle : super::winnt::HANDLE, revertflags : CF_REVERT_FLAGS, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_core::HRESULT);
     unsafe { CfRevertPlaceholder(filehandle, revertflags, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfSetCorrelationVector(filehandle: super::winnt::HANDLE, correlationvector: *const super::winnt::CORRELATION_VECTOR) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfSetCorrelationVector(filehandle : super::winnt::HANDLE, correlationvector : *const super::winnt::CORRELATION_VECTOR) -> windows_core::HRESULT);
     unsafe { CfSetCorrelationVector(filehandle, correlationvector) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CfSetInSyncState(filehandle: super::winnt::HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: Option<*mut super::winnt::USN>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfSetInSyncState(filehandle : super::winnt::HANDLE, insyncstate : CF_IN_SYNC_STATE, insyncflags : CF_SET_IN_SYNC_FLAGS, insyncusn : *mut super::winnt::USN) -> windows_core::HRESULT);
     unsafe { CfSetInSyncState(filehandle, insyncstate, insyncflags, insyncusn.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn CfSetPinState(filehandle: super::winnt::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: Option<*mut super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfSetPinState(filehandle : super::winnt::HANDLE, pinstate : CF_PIN_STATE, pinflags : CF_SET_PIN_FLAGS, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_core::HRESULT);
@@ -231,7 +231,7 @@ where
     windows_core::link!("cldapi.dll" "system" fn CfUnregisterSyncRoot(syncrootpath : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { CfUnregisterSyncRoot(syncrootpath.param().abi()) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn CfUpdatePlaceholder(filehandle: super::winnt::HANDLE, fsmetadata: Option<*const CF_FS_METADATA>, fileidentity: Option<*const core::ffi::c_void>, fileidentitylength: u32, dehydraterangearray: Option<&[CF_FILE_RANGE]>, updateflags: CF_UPDATE_FLAGS, updateusn: Option<*mut super::winnt::USN>, overlapped: Option<*mut super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfUpdatePlaceholder(filehandle : super::winnt::HANDLE, fsmetadata : *const CF_FS_METADATA, fileidentity : *const core::ffi::c_void, fileidentitylength : u32, dehydraterangearray : *const CF_FILE_RANGE, dehydraterangecount : u32, updateflags : CF_UPDATE_FLAGS, updateusn : *mut super::winnt::USN, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_core::HRESULT);
@@ -242,7 +242,7 @@ pub unsafe fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, provi
     windows_core::link!("cldapi.dll" "system" fn CfUpdateSyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT);
     unsafe { CfUpdateSyncProviderStatus(core::mem::transmute(connectionkey), providerstatus) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type CF_CALLBACK = Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS)>;
 pub type CF_CALLBACK_CANCEL_FLAGS = u32;
 pub const CF_CALLBACK_CANCEL_FLAG_IO_ABORTED: CF_CALLBACK_CANCEL_FLAGS = 2;
@@ -277,7 +277,7 @@ pub const CF_CALLBACK_FETCH_DATA_FLAG_RECOVERY: CF_CALLBACK_FETCH_DATA_FLAGS = 1
 pub type CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = u32;
 pub const CF_CALLBACK_FETCH_PLACEHOLDERS_FLAG_NONE: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_INFO {
     pub StructSize: u32,
@@ -300,7 +300,7 @@ pub struct CF_CALLBACK_INFO {
     pub ProcessInfo: *mut CF_PROCESS_INFO,
     pub RequestKey: CF_REQUEST_KEY,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for CF_CALLBACK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -438,7 +438,7 @@ pub struct CF_CALLBACK_PARAMETERS_0_9 {
     pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct CF_CALLBACK_REGISTRATION {
     pub Type: CF_CALLBACK_TYPE,
@@ -500,7 +500,7 @@ pub struct CF_FILE_RANGE {
     pub Length: i64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winbase")]
+#[cfg(feature = "winbase")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CF_FS_METADATA {
     pub BasicInfo: super::winbase::FILE_BASIC_INFO,
@@ -575,7 +575,7 @@ pub const CF_OPERATION_ACK_DELETE_FLAG_NONE: CF_OPERATION_ACK_DELETE_FLAGS = 0;
 pub type CF_OPERATION_ACK_RENAME_FLAGS = u32;
 pub const CF_OPERATION_ACK_RENAME_FLAG_NONE: CF_OPERATION_ACK_RENAME_FLAGS = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_INFO {
     pub StructSize: u32,
@@ -586,27 +586,27 @@ pub struct CF_OPERATION_INFO {
     pub SyncStatus: *const CF_SYNC_STATUS,
     pub RequestKey: CF_REQUEST_KEY,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for CF_OPERATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CF_OPERATION_PARAMETERS {
     pub ParamSize: u32,
     pub Anonymous: CF_OPERATION_PARAMETERS_0,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CF_OPERATION_PARAMETERS_0 {
     pub TransferData: CF_OPERATION_PARAMETERS_0_0,
@@ -618,14 +618,14 @@ pub union CF_OPERATION_PARAMETERS_0 {
     pub AckRename: CF_OPERATION_PARAMETERS_0_6,
     pub AckDelete: CF_OPERATION_PARAMETERS_0_7,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
@@ -634,14 +634,14 @@ pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Offset: i64,
     pub Length: i64,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
@@ -650,14 +650,14 @@ pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Length: i64,
     pub ReturnedLength: i64,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
@@ -666,7 +666,7 @@ pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Length: i64,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
@@ -674,14 +674,14 @@ pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub FileIdentity: *const core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
@@ -691,14 +691,14 @@ pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub PlaceholderCount: u32,
     pub EntriesProcessed: u32,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
@@ -706,21 +706,21 @@ pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub FileIdentity: *const core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
     pub CompletionStatus: super::bcrypt::NTSTATUS,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
@@ -774,7 +774,7 @@ pub const CF_PLACEHOLDER_CREATE_FLAG_MARK_IN_SYNC: CF_PLACEHOLDER_CREATE_FLAGS =
 pub const CF_PLACEHOLDER_CREATE_FLAG_NONE: CF_PLACEHOLDER_CREATE_FLAGS = 0;
 pub const CF_PLACEHOLDER_CREATE_FLAG_SUPERSEDE: CF_PLACEHOLDER_CREATE_FLAGS = 4;
 #[repr(C)]
-#[cfg(all(feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub RelativeFileName: windows_core::PCWSTR,
@@ -785,7 +785,7 @@ pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub Result: windows_core::HRESULT,
     pub CreateUsn: super::winnt::USN,
 }
-#[cfg(all(feature = "Win32_winbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 impl Default for CF_PLACEHOLDER_CREATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

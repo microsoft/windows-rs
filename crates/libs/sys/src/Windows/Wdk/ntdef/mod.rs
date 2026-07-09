@@ -9,7 +9,7 @@ pub const NotificationTimer: TIMER_TYPE = 0;
 pub const NtProductLanManNt: NT_PRODUCT_TYPE = 2;
 pub const NtProductServer: NT_PRODUCT_TYPE = 3;
 pub const NtProductWinNt: NT_PRODUCT_TYPE = 1;
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_ntsecapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 pub type PUTF8_STRING = super::super::Win32::ntsecapi::PSTRING;
 pub const SynchronizationEvent: EVENT_TYPE = 1;
 pub const SynchronizationTimer: TIMER_TYPE = 1;

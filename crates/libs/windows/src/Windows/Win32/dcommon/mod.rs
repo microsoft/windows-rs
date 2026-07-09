@@ -5,7 +5,7 @@ pub const D2D1_ALPHA_MODE_PREMULTIPLIED: D2D1_ALPHA_MODE = 1;
 pub const D2D1_ALPHA_MODE_STRAIGHT: D2D1_ALPHA_MODE = 2;
 pub const D2D1_ALPHA_MODE_UNKNOWN: D2D1_ALPHA_MODE = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_PIXEL_FORMAT {
     pub format: super::dxgi::DXGI_FORMAT,
@@ -93,7 +93,7 @@ pub struct D2D_MATRIX_5X4_F_0_0 {
     pub _53: f32,
     pub _54: f32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type D2D_POINT_2L = super::windef::POINT;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -109,7 +109,7 @@ pub struct D2D_RECT_F {
     pub right: f32,
     pub bottom: f32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type D2D_RECT_L = super::windef::RECT;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

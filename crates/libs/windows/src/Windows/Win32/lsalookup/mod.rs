@@ -17,7 +17,7 @@ impl Default for LSA_LOOKUP_HANDLE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LSA_OBJECT_ATTRIBUTES {
     pub Length: u32,
@@ -27,21 +27,21 @@ pub struct LSA_OBJECT_ATTRIBUTES {
     pub SecurityDescriptor: *mut core::ffi::c_void,
     pub SecurityQualityOfService: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LSA_OBJECT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_REFERENCED_DOMAIN_LIST {
     pub Entries: u32,
     pub Domains: PLSA_TRUST_INFORMATION,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_STRING {
     pub Length: u16,
@@ -49,7 +49,7 @@ pub struct LSA_STRING {
     pub Buffer: super::winnt::PCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_TRANSLATED_NAME {
     pub Use: super::winnt::SID_NAME_USE,
@@ -57,7 +57,7 @@ pub struct LSA_TRANSLATED_NAME {
     pub DomainIndex: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_TRANSLATED_SID2 {
     pub Use: super::winnt::SID_NAME_USE,
@@ -66,7 +66,7 @@ pub struct LSA_TRANSLATED_SID2 {
     pub Flags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_TRUST_INFORMATION {
     pub Name: LSA_UNICODE_STRING,
@@ -105,97 +105,97 @@ impl Default for PLSA_LOOKUP_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_OBJECT_ATTRIBUTES(pub *mut LSA_OBJECT_ATTRIBUTES);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PLSA_OBJECT_ATTRIBUTES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PLSA_OBJECT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_REFERENCED_DOMAIN_LIST(pub *mut LSA_REFERENCED_DOMAIN_LIST);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PLSA_REFERENCED_DOMAIN_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PLSA_REFERENCED_DOMAIN_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_STRING(pub *mut LSA_STRING);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PLSA_STRING {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PLSA_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_TRANSLATED_NAME(pub *mut LSA_TRANSLATED_NAME);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PLSA_TRANSLATED_NAME {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PLSA_TRANSLATED_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_TRANSLATED_SID2(pub *mut LSA_TRANSLATED_SID2);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PLSA_TRANSLATED_SID2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PLSA_TRANSLATED_SID2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_TRUST_INFORMATION(pub *mut LSA_TRUST_INFORMATION);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PLSA_TRUST_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PLSA_TRUST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -215,14 +215,14 @@ impl Default for PLSA_UNICODE_STRING {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_ACCOUNT_DOMAIN_INFO {
     pub DomainName: LSA_UNICODE_STRING,
     pub DomainSid: super::winnt::PSID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_DNS_DOMAIN_INFO {
     pub Name: LSA_UNICODE_STRING,
@@ -231,33 +231,33 @@ pub struct POLICY_DNS_DOMAIN_INFO {
     pub DomainGuid: windows_core::GUID,
     pub Sid: super::winnt::PSID,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPOLICY_ACCOUNT_DOMAIN_INFO(pub *mut POLICY_ACCOUNT_DOMAIN_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PPOLICY_ACCOUNT_DOMAIN_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PPOLICY_ACCOUNT_DOMAIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPOLICY_DNS_DOMAIN_INFO(pub *mut POLICY_DNS_DOMAIN_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PPOLICY_DNS_DOMAIN_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PPOLICY_DNS_DOMAIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

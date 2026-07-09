@@ -3,26 +3,26 @@ pub const DlBroadcast: DL_ADDRESS_TYPE = 2;
 pub const DlMulticast: DL_ADDRESS_TYPE = 1;
 pub const DlUnicast: DL_ADDRESS_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy)]
 pub struct FWPM_ACTION0 {
     pub r#type: super::fwptypes::FWP_ACTION_TYPE,
     pub Anonymous: FWPM_ACTION0_0,
 }
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 impl Default for FWPM_ACTION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy)]
 pub union FWPM_ACTION0_0 {
     pub filterType: windows_sys::core::GUID,
     pub calloutKey: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 impl Default for FWPM_ACTION0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -33,7 +33,7 @@ pub const FWPM_APPC_NETWORK_CAPABILITY_INTERNET_CLIENT_SERVER: FWPM_APPC_NETWORK
 pub const FWPM_APPC_NETWORK_CAPABILITY_INTERNET_PRIVATE_NETWORK: FWPM_APPC_NETWORK_CAPABILITY_TYPE = 2;
 pub type FWPM_APPC_NETWORK_CAPABILITY_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy)]
 pub struct FWPM_CALLOUT0 {
     pub calloutKey: windows_sys::core::GUID,
@@ -44,7 +44,7 @@ pub struct FWPM_CALLOUT0 {
     pub applicableLayer: windows_sys::core::GUID,
     pub calloutId: u32,
 }
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 impl Default for FWPM_CALLOUT0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -88,26 +88,26 @@ pub const FWPM_CHANGE_DELETE: FWPM_CHANGE_TYPE = 2;
 pub type FWPM_CHANGE_TYPE = i32;
 pub const FWPM_CHANGE_TYPE_MAX: FWPM_CHANGE_TYPE = 3;
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_CLASSIFY_OPTION0 {
     pub r#type: super::fwptypes::FWP_CLASSIFY_OPTION_TYPE,
     pub value: super::fwptypes::FWP_VALUE0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 impl Default for FWPM_CLASSIFY_OPTION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_CLASSIFY_OPTIONS0 {
     pub numOptions: u32,
     pub options: *mut FWPM_CLASSIFY_OPTION0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 impl Default for FWPM_CLASSIFY_OPTIONS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -115,7 +115,7 @@ impl Default for FWPM_CLASSIFY_OPTIONS0 {
 }
 pub const FWPM_CLASSIFY_OPTIONS_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 7;
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_CONNECTION0 {
     pub connectionId: u64,
@@ -133,33 +133,33 @@ pub struct FWPM_CONNECTION0 {
     pub bytesTransferredTotal: u64,
     pub startSysTime: super::minwindef::FILETIME,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef"))]
 impl Default for FWPM_CONNECTION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub union FWPM_CONNECTION0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef"))]
 impl Default for FWPM_CONNECTION0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub union FWPM_CONNECTION0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef"))]
 impl Default for FWPM_CONNECTION0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -201,14 +201,14 @@ pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE: u32 = 0;
 pub const FWPM_ENGINE_PACKET_QUEUING: FWPM_ENGINE_OPTION = 4;
 pub const FWPM_ENGINE_TXN_WATCHDOG_TIMEOUT_IN_MSEC: FWPM_ENGINE_OPTION = 5;
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy)]
 pub struct FWPM_FIELD0 {
     pub fieldKey: *mut windows_sys::core::GUID,
     pub r#type: FWPM_FIELD_TYPE,
     pub dataType: super::fwptypes::FWP_DATA_TYPE,
 }
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 impl Default for FWPM_FIELD0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -220,7 +220,7 @@ pub const FWPM_FIELD_RAW_DATA: FWPM_FIELD_TYPE = 0;
 pub type FWPM_FIELD_TYPE = i32;
 pub const FWPM_FIELD_TYPE_MAX: FWPM_FIELD_TYPE = 3;
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_FILTER0 {
     pub filterKey: windows_sys::core::GUID,
@@ -239,20 +239,20 @@ pub struct FWPM_FILTER0 {
     pub filterId: u64,
     pub effectiveWeight: super::fwptypes::FWP_VALUE0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 impl Default for FWPM_FILTER0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_FILTER0_0 {
     pub rawContext: u64,
     pub providerContextKey: windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 impl Default for FWPM_FILTER0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -266,21 +266,21 @@ pub struct FWPM_FILTER_CHANGE0 {
     pub filterId: u64,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_FILTER_CONDITION0 {
     pub fieldKey: windows_sys::core::GUID,
     pub matchType: super::fwptypes::FWP_MATCH_TYPE,
     pub conditionValue: super::fwptypes::FWP_CONDITION_VALUE0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 impl Default for FWPM_FILTER_CONDITION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
@@ -293,7 +293,7 @@ pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
     pub actionMask: u32,
     pub calloutKey: *mut windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 impl Default for FWPM_FILTER_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -316,14 +316,14 @@ pub const FWPM_FILTER_FLAG_RESERVED2: u32 = 16384;
 pub const FWPM_FILTER_FLAG_SILENT_MODE: u32 = 1024;
 pub const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: u32 = 256;
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_FILTER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_FILTER_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 impl Default for FWPM_FILTER_SUBSCRIPTION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -342,7 +342,7 @@ pub const FWPM_IPSEC_IKE_QM_TRANSPORT_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 1;
 pub const FWPM_IPSEC_IKE_QM_TUNNEL_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 2;
 pub const FWPM_IPSEC_KEYING_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy)]
 pub struct FWPM_LAYER0 {
     pub layerKey: windows_sys::core::GUID,
@@ -353,7 +353,7 @@ pub struct FWPM_LAYER0 {
     pub defaultSubLayerKey: windows_sys::core::GUID,
     pub layerId: u16,
 }
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 impl Default for FWPM_LAYER0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -381,47 +381,47 @@ pub struct FWPM_LAYER_STATISTICS1 {
 }
 pub const FWPM_NETWORK_CONNECTION_POLICY_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 13;
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
     pub r#type: super::fwptypes::FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE,
     pub value: super::fwptypes::FWP_VALUE0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 impl Default for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
     pub numSettings: u32,
     pub settings: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTING0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 impl Default for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT0 {
     pub header: FWPM_NET_EVENT_HEADER0,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT0_0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT0_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE0,
@@ -431,28 +431,28 @@ pub union FWPM_NET_EVENT0_0 {
     pub ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
     pub idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT1 {
     pub header: FWPM_NET_EVENT_HEADER1,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT1_0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT1_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
@@ -462,28 +462,28 @@ pub union FWPM_NET_EVENT1_0 {
     pub ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
     pub idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT2 {
     pub header: FWPM_NET_EVENT_HEADER2,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT2_0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT2_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
@@ -497,28 +497,28 @@ pub union FWPM_NET_EVENT2_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT3 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT3_0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT3_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
@@ -532,28 +532,28 @@ pub union FWPM_NET_EVENT3_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT4 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT4_0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT4_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2,
@@ -567,28 +567,28 @@ pub union FWPM_NET_EVENT4_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT4_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT5 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT5_0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT5_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2,
@@ -603,7 +603,7 @@ pub union FWPM_NET_EVENT5_0 {
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
     pub lpmPacketArrival: *mut FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT5_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -652,7 +652,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
     pub isLoopback: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
     pub filterId: u64,
@@ -667,7 +667,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
     pub vSwitchDestinationPort: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     pub localMacAddr: super::fwptypes::FWP_BYTE_ARRAY6,
@@ -691,7 +691,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     pub vSwitchDestinationPort: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     pub startTime: super::minwindef::FILETIME,
@@ -699,7 +699,7 @@ pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     pub numFilterConditions: u32,
     pub filterCondition: *mut FWPM_FILTER_CONDITION0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -720,7 +720,7 @@ pub const FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET: u32 = 16;
 pub const FWPM_NET_EVENT_FLAG_SCOPE_ID_SET: u32 = 128;
 pub const FWPM_NET_EVENT_FLAG_USER_ID_SET: u32 = 64;
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER0 {
     pub timeStamp: super::minwindef::FILETIME,
@@ -735,40 +735,40 @@ pub struct FWPM_NET_EVENT_HEADER0 {
     pub appId: super::fwptypes::FWP_BYTE_BLOB,
     pub userId: *mut super::winnt::SID,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER0_0 {
     pub localAddrV4: u32,
     pub localAddrV6: super::fwptypes::FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER0_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: super::fwptypes::FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER1 {
     pub timeStamp: super::minwindef::FILETIME,
@@ -784,77 +784,77 @@ pub struct FWPM_NET_EVENT_HEADER1 {
     pub userId: *mut super::winnt::SID,
     pub Anonymous3: FWPM_NET_EVENT_HEADER1_2,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_0 {
     pub localAddrV4: u32,
     pub localAddrV6: super::fwptypes::FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: super::fwptypes::FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_2 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER1_2_0 {
     pub reserved1: super::fwptypes::FWP_AF,
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER1_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_2_0_0 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0_0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER1_2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved2: super::fwptypes::FWP_BYTE_ARRAY6,
@@ -868,7 +868,7 @@ pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved10: u64,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER2 {
     pub timeStamp: super::minwindef::FILETIME,
@@ -885,40 +885,40 @@ pub struct FWPM_NET_EVENT_HEADER2 {
     pub addressFamily: super::fwptypes::FWP_AF,
     pub packageSid: *mut super::winnt::SID,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER2_0 {
     pub localAddrV4: u32,
     pub localAddrV6: super::fwptypes::FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER2_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: super::fwptypes::FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER3 {
     pub timeStamp: super::minwindef::FILETIME,
@@ -938,40 +938,40 @@ pub struct FWPM_NET_EVENT_HEADER3 {
     pub policyFlags: u64,
     pub effectiveName: super::fwptypes::FWP_BYTE_BLOB,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER3_0 {
     pub localAddrV4: u32,
     pub localAddrV6: super::fwptypes::FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER3_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: super::fwptypes::FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_HEADER3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_ipsectypes"))]
+#[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     pub failureErrorCode: u32,
@@ -984,14 +984,14 @@ pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     pub mmId: u64,
     pub qmFilterId: u64,
 }
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_ipsectypes"))]
+#[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
 impl Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_ipsectypes"))]
+#[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     pub failureErrorCode: u32,
@@ -1011,7 +1011,7 @@ pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     pub remotePrincipalGroupSids: *mut windows_sys::core::PWSTR,
     pub saTrafficType: super::ipsectypes::IPSEC_TRAFFIC_TYPE,
 }
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_ipsectypes"))]
+#[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
 impl Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1020,7 +1020,7 @@ impl Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2;
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_ipsectypes"))]
+#[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     pub failureErrorCode: u32,
@@ -1034,14 +1034,14 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     pub mmId: u64,
     pub mmFilterId: u64,
 }
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_ipsectypes"))]
+#[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
 impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_ipsectypes"))]
+#[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     pub failureErrorCode: u32,
@@ -1061,14 +1061,14 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     pub numRemotePrincipalGroupSids: u32,
     pub remotePrincipalGroupSids: *mut windows_sys::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_ipsectypes"))]
+#[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
 impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_ipsectypes"))]
+#[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     pub failureErrorCode: u32,
@@ -1089,7 +1089,7 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     pub remotePrincipalGroupSids: *mut windows_sys::core::PWSTR,
     pub providerContextKey: *mut windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_iketypes", feature = "Win32_ipsectypes"))]
+#[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
 impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1098,7 +1098,7 @@ impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: u32 = 1;
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     pub failureErrorCode: u32,
@@ -1111,38 +1111,38 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     pub Anonymous2: FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1,
     pub qmFilterId: u64,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     pub localSubNet: super::fwptypes::FWP_CONDITION_VALUE0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     pub remoteSubNet: super::fwptypes::FWP_CONDITION_VALUE0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     pub failureErrorCode: u32,
@@ -1157,38 +1157,38 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     pub mmSaLuid: u64,
     pub mmProviderContextKey: windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     pub localSubNet: super::fwptypes::FWP_CONDITION_VALUE0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     pub remoteSubNet: super::fwptypes::FWP_CONDITION_VALUE0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     pub ipVersion: super::fwptypes::FWP_IP_VERSION,
@@ -1197,40 +1197,40 @@ pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     pub failureStatus: i32,
     pub direction: super::fwptypes::FWP_DIRECTION,
 }
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 impl Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     pub publicHostV4Addr: u32,
     pub publicHostV6Addr: [u8; 16],
 }
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 impl Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     pub internalHostV4Addr: u32,
     pub internalHostV6Addr: [u8; 16],
 }
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 impl Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     pub failureStatus: i32,
@@ -1246,20 +1246,20 @@ pub const FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST: u32 = 2;
 pub const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: u32 = 1;
 pub const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_ipsectypes")]
+#[cfg(feature = "ipsectypes")]
 #[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     pub spi: super::ipsectypes::IPSEC_SA_SPI,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_NET_EVENT_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 impl Default for FWPM_NET_EVENT_SUBSCRIPTION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1279,7 +1279,7 @@ pub const FWPM_NET_EVENT_TYPE_IPSEC_KERNEL_DROP: FWPM_NET_EVENT_TYPE = 4;
 pub const FWPM_NET_EVENT_TYPE_LPM_PACKET_ARRIVAL: FWPM_NET_EVENT_TYPE = 10;
 pub const FWPM_NET_EVENT_TYPE_MAX: FWPM_NET_EVENT_TYPE = 11;
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER0 {
     pub providerKey: windows_sys::core::GUID,
@@ -1288,7 +1288,7 @@ pub struct FWPM_PROVIDER0 {
     pub providerData: super::fwptypes::FWP_BYTE_BLOB,
     pub serviceName: *mut u16,
 }
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 impl Default for FWPM_PROVIDER0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1301,7 +1301,7 @@ pub struct FWPM_PROVIDER_CHANGE0 {
     pub providerKey: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CONTEXT0 {
     pub providerContextKey: windows_sys::core::GUID,
@@ -1313,14 +1313,14 @@ pub struct FWPM_PROVIDER_CONTEXT0 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT0_0,
     pub providerContextId: u64,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_PROVIDER_CONTEXT0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_PROVIDER_CONTEXT0_0 {
     pub keyingPolicy: *mut super::ipsectypes::IPSEC_KEYING_POLICY0,
@@ -1333,14 +1333,14 @@ pub union FWPM_PROVIDER_CONTEXT0_0 {
     pub dataBuffer: *mut super::fwptypes::FWP_BYTE_BLOB,
     pub classifyOptions: *mut FWPM_CLASSIFY_OPTIONS0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_PROVIDER_CONTEXT0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CONTEXT1 {
     pub providerContextKey: windows_sys::core::GUID,
@@ -1352,14 +1352,14 @@ pub struct FWPM_PROVIDER_CONTEXT1 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT1_0,
     pub providerContextId: u64,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_PROVIDER_CONTEXT1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_PROVIDER_CONTEXT1_0 {
     pub keyingPolicy: *mut super::ipsectypes::IPSEC_KEYING_POLICY0,
@@ -1375,14 +1375,14 @@ pub union FWPM_PROVIDER_CONTEXT1_0 {
     pub ikeV2MmPolicy: *mut super::iketypes::IKEEXT_POLICY1,
     pub idpOptions: *mut super::ipsectypes::IPSEC_DOSP_OPTIONS0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_PROVIDER_CONTEXT1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CONTEXT2 {
     pub providerContextKey: windows_sys::core::GUID,
@@ -1394,14 +1394,14 @@ pub struct FWPM_PROVIDER_CONTEXT2 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT2_0,
     pub providerContextId: u64,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_PROVIDER_CONTEXT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_PROVIDER_CONTEXT2_0 {
     pub keyingPolicy: *mut super::ipsectypes::IPSEC_KEYING_POLICY1,
@@ -1418,14 +1418,14 @@ pub union FWPM_PROVIDER_CONTEXT2_0 {
     pub ikeV2MmPolicy: *mut super::iketypes::IKEEXT_POLICY2,
     pub idpOptions: *mut super::ipsectypes::IPSEC_DOSP_OPTIONS0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_PROVIDER_CONTEXT2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CONTEXT3 {
     pub providerContextKey: windows_sys::core::GUID,
@@ -1437,14 +1437,14 @@ pub struct FWPM_PROVIDER_CONTEXT3 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT3_0,
     pub providerContextId: u64,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_PROVIDER_CONTEXT3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWPM_PROVIDER_CONTEXT3_0 {
     pub keyingPolicy: *mut super::ipsectypes::IPSEC_KEYING_POLICY1,
@@ -1462,7 +1462,7 @@ pub union FWPM_PROVIDER_CONTEXT3_0 {
     pub idpOptions: *mut super::ipsectypes::IPSEC_DOSP_OPTIONS0,
     pub networkConnectionPolicy: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_iketypes", feature = "Win32_ipsectypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 impl Default for FWPM_PROVIDER_CONTEXT3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1528,7 +1528,7 @@ pub const FWPM_SERVICE_STATE_MAX: FWPM_SERVICE_STATE = 4;
 pub const FWPM_SERVICE_STOPPED: FWPM_SERVICE_STATE = 0;
 pub const FWPM_SERVICE_STOP_PENDING: FWPM_SERVICE_STATE = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWPM_SESSION0 {
     pub sessionKey: windows_sys::core::GUID,
@@ -1540,7 +1540,7 @@ pub struct FWPM_SESSION0 {
     pub username: *mut u16,
     pub kernelMode: windows_sys::core::BOOL,
 }
-#[cfg(all(feature = "Win32_fwptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "winnt"))]
 impl Default for FWPM_SESSION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1599,7 +1599,7 @@ impl Default for FWPM_STATISTICS1 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 #[derive(Clone, Copy)]
 pub struct FWPM_SUBLAYER0 {
     pub subLayerKey: windows_sys::core::GUID,
@@ -1609,7 +1609,7 @@ pub struct FWPM_SUBLAYER0 {
     pub providerData: super::fwptypes::FWP_BYTE_BLOB,
     pub weight: u16,
 }
-#[cfg(feature = "Win32_fwptypes")]
+#[cfg(feature = "fwptypes")]
 impl Default for FWPM_SUBLAYER0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

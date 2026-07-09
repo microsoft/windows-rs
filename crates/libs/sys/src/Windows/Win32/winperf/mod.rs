@@ -76,7 +76,7 @@ pub const PERF_COUNTER_TIMER: u32 = 541132032;
 pub const PERF_COUNTER_TIMER_INV: u32 = 557909248;
 pub const PERF_COUNTER_VALUE: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[derive(Clone, Copy)]
 pub struct PERF_DATA_BLOCK {
     pub Signature: [u16; 4],
@@ -94,7 +94,7 @@ pub struct PERF_DATA_BLOCK {
     pub SystemNameLength: u32,
     pub SystemNameOffset: u32,
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 impl Default for PERF_DATA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -207,7 +207,7 @@ pub type PM_COLLECT_PROC = Option<unsafe extern "system" fn(pvaluename: windows_
 pub type PM_OPEN_PROC = Option<unsafe extern "system" fn(pcontext: windows_sys::core::PCWSTR) -> u32>;
 pub type PPERF_COUNTER_BLOCK = *mut PERF_COUNTER_BLOCK;
 pub type PPERF_COUNTER_DEFINITION = *mut PERF_COUNTER_DEFINITION;
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 pub type PPERF_DATA_BLOCK = *mut PERF_DATA_BLOCK;
 pub type PPERF_INSTANCE_DEFINITION = *mut PERF_INSTANCE_DEFINITION;
 pub type PPERF_OBJECT_TYPE = *mut PERF_OBJECT_TYPE;

@@ -33,7 +33,7 @@ pub unsafe fn MFCreateVideoSampleAllocator(riid: *const windows_core::GUID, ppsa
     windows_core::link!("evr.dll" "C" fn MFCreateVideoSampleAllocator(riid : *const windows_core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateVideoSampleAllocator(riid, ppsampleallocator as _) }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[inline]
 pub unsafe fn MFCreateVideoSampleFromSurface<P0>(punksurface: P0) -> windows_core::Result<super::mfobjects::IMFSample>
 where
@@ -437,19 +437,19 @@ impl windows_core::RuntimeName for IMFVideoDeviceID {}
 windows_core::imp::define_interface!(IMFVideoDisplayControl, IMFVideoDisplayControl_Vtbl, 0xa490b1e4_ab84_4d31_a1b2_181e03b1077a);
 windows_core::imp::interface_hierarchy!(IMFVideoDisplayControl, windows_core::IUnknown);
 impl IMFVideoDisplayControl {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetNativeVideoSize(&self, pszvideo: *mut super::windef::SIZE, pszarvideo: *mut super::windef::SIZE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNativeVideoSize)(windows_core::Interface::as_raw(self), pszvideo as _, pszarvideo as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetIdealVideoSize(&self, pszmin: *mut super::windef::SIZE, pszmax: *mut super::windef::SIZE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetIdealVideoSize)(windows_core::Interface::as_raw(self), pszmin as _, pszmax as _) }
     }
-    #[cfg(all(feature = "Win32_mfidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "mfidl", feature = "windef"))]
     pub unsafe fn SetVideoPosition(&self, pnrcsource: *const super::mfidl::MFVideoNormalizedRect, prcdest: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVideoPosition)(windows_core::Interface::as_raw(self), pnrcsource, prcdest) }
     }
-    #[cfg(all(feature = "Win32_mfidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "mfidl", feature = "windef"))]
     pub unsafe fn GetVideoPosition(&self, pnrcsource: *mut super::mfidl::MFVideoNormalizedRect, prcdest: *mut super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetVideoPosition)(windows_core::Interface::as_raw(self), pnrcsource as _, prcdest as _) }
     }
@@ -462,11 +462,11 @@ impl IMFVideoDisplayControl {
             (windows_core::Interface::vtable(self).GetAspectRatioMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetVideoWindow(&self, hwndvideo: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVideoWindow)(windows_core::Interface::as_raw(self), hwndvideo) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetVideoWindow(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -476,15 +476,15 @@ impl IMFVideoDisplayControl {
     pub unsafe fn RepaintVideo(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RepaintVideo)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn GetCurrentImage(&self, pbih: *mut super::wingdi::BITMAPINFOHEADER, pdib: *mut *mut u8, pcbdib: *mut u32, ptimestamp: *mut i64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentImage)(windows_core::Interface::as_raw(self), pbih as _, pdib as _, pcbdib as _, ptimestamp as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetBorderColor(&self, clr: super::windef::COLORREF) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), clr) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetBorderColor(&self) -> windows_core::Result<super::windef::COLORREF> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -514,51 +514,51 @@ impl IMFVideoDisplayControl {
 #[doc(hidden)]
 pub struct IMFVideoDisplayControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetNativeVideoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::SIZE, *mut super::windef::SIZE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetNativeVideoSize: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetIdealVideoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::SIZE, *mut super::windef::SIZE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetIdealVideoSize: usize,
-    #[cfg(all(feature = "Win32_mfidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "mfidl", feature = "windef"))]
     pub SetVideoPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::mfidl::MFVideoNormalizedRect, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_mfidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "mfidl", feature = "windef")))]
     SetVideoPosition: usize,
-    #[cfg(all(feature = "Win32_mfidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "mfidl", feature = "windef"))]
     pub GetVideoPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::mfidl::MFVideoNormalizedRect, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_mfidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "mfidl", feature = "windef")))]
     GetVideoPosition: usize,
     pub SetAspectRatioMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetAspectRatioMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetVideoWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetVideoWindow: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetVideoWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetVideoWindow: usize,
     pub RepaintVideo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub GetCurrentImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wingdi::BITMAPINFOHEADER, *mut *mut u8, *mut u32, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     GetCurrentImage: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetBorderColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::COLORREF) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetBorderColor: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetBorderColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::COLORREF) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetBorderColor: usize,
     pub SetRenderingPrefs: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetRenderingPrefs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetFullscreen: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetFullscreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mfidl", feature = "windef", feature = "wingdi"))]
 pub trait IMFVideoDisplayControl_Impl: windows_core::IUnknownImpl {
     fn GetNativeVideoSize(&self, pszvideo: *mut super::windef::SIZE, pszarvideo: *mut super::windef::SIZE) -> windows_core::Result<()>;
     fn GetIdealVideoSize(&self, pszmin: *mut super::windef::SIZE, pszmax: *mut super::windef::SIZE) -> windows_core::Result<()>;
@@ -577,7 +577,7 @@ pub trait IMFVideoDisplayControl_Impl: windows_core::IUnknownImpl {
     fn SetFullscreen(&self, ffullscreen: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetFullscreen(&self) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mfidl", feature = "windef", feature = "wingdi"))]
 impl IMFVideoDisplayControl_Vtbl {
     pub const fn new<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNativeVideoSize<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvideo: *mut super::windef::SIZE, pszarvideo: *mut super::windef::SIZE) -> windows_core::HRESULT {
@@ -730,7 +730,7 @@ impl IMFVideoDisplayControl_Vtbl {
         iid == &<IMFVideoDisplayControl as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "mfidl", feature = "windef", feature = "wingdi"))]
 impl windows_core::RuntimeName for IMFVideoDisplayControl {}
 windows_core::imp::define_interface!(IMFVideoMixerControl, IMFVideoMixerControl_Vtbl, 0xa5c6c53f_c202_4aa5_9695_175ba8c508a5);
 windows_core::imp::interface_hierarchy!(IMFVideoMixerControl, windows_core::IUnknown);
@@ -744,11 +744,11 @@ impl IMFVideoMixerControl {
             (windows_core::Interface::vtable(self).GetStreamZOrder)(windows_core::Interface::as_raw(self), dwstreamid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub unsafe fn SetStreamOutputRect(&self, dwstreamid: u32, pnrcoutput: *const super::mfidl::MFVideoNormalizedRect) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStreamOutputRect)(windows_core::Interface::as_raw(self), dwstreamid, pnrcoutput) }
     }
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub unsafe fn GetStreamOutputRect(&self, dwstreamid: u32) -> windows_core::Result<super::mfidl::MFVideoNormalizedRect> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -762,23 +762,23 @@ pub struct IMFVideoMixerControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetStreamZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetStreamZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub SetStreamOutputRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::mfidl::MFVideoNormalizedRect) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfidl"))]
+    #[cfg(not(feature = "mfidl"))]
     SetStreamOutputRect: usize,
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub GetStreamOutputRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::mfidl::MFVideoNormalizedRect) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfidl"))]
+    #[cfg(not(feature = "mfidl"))]
     GetStreamOutputRect: usize,
 }
-#[cfg(feature = "Win32_mfidl")]
+#[cfg(feature = "mfidl")]
 pub trait IMFVideoMixerControl_Impl: windows_core::IUnknownImpl {
     fn SetStreamZOrder(&self, dwstreamid: u32, dwz: u32) -> windows_core::Result<()>;
     fn GetStreamZOrder(&self, dwstreamid: u32) -> windows_core::Result<u32>;
     fn SetStreamOutputRect(&self, dwstreamid: u32, pnrcoutput: *const super::mfidl::MFVideoNormalizedRect) -> windows_core::Result<()>;
     fn GetStreamOutputRect(&self, dwstreamid: u32) -> windows_core::Result<super::mfidl::MFVideoNormalizedRect>;
 }
-#[cfg(feature = "Win32_mfidl")]
+#[cfg(feature = "mfidl")]
 impl IMFVideoMixerControl_Vtbl {
     pub const fn new<Identity: IMFVideoMixerControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetStreamZOrder<Identity: IMFVideoMixerControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: u32, dwz: u32) -> windows_core::HRESULT {
@@ -829,7 +829,7 @@ impl IMFVideoMixerControl_Vtbl {
         iid == &<IMFVideoMixerControl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfidl")]
+#[cfg(feature = "mfidl")]
 impl windows_core::RuntimeName for IMFVideoMixerControl {}
 windows_core::imp::define_interface!(IMFVideoMixerControl2, IMFVideoMixerControl2_Vtbl, 0x8459616d_966e_4930_b658_54fa7e5a16d3);
 impl core::ops::Deref for IMFVideoMixerControl2 {
@@ -857,12 +857,12 @@ pub struct IMFVideoMixerControl2_Vtbl {
     pub SetMixingPrefs: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetMixingPrefs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_mfidl")]
+#[cfg(feature = "mfidl")]
 pub trait IMFVideoMixerControl2_Impl: IMFVideoMixerControl_Impl {
     fn SetMixingPrefs(&self, dwmixflags: u32) -> windows_core::Result<()>;
     fn GetMixingPrefs(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_mfidl")]
+#[cfg(feature = "mfidl")]
 impl IMFVideoMixerControl2_Vtbl {
     pub const fn new<Identity: IMFVideoMixerControl2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetMixingPrefs<Identity: IMFVideoMixerControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmixflags: u32) -> windows_core::HRESULT {
@@ -893,7 +893,7 @@ impl IMFVideoMixerControl2_Vtbl {
         iid == &<IMFVideoMixerControl2 as windows_core::Interface>::IID || iid == &<IMFVideoMixerControl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfidl")]
+#[cfg(feature = "mfidl")]
 impl windows_core::RuntimeName for IMFVideoMixerControl2 {}
 windows_core::imp::define_interface!(IMFVideoPositionMapper, IMFVideoPositionMapper_Vtbl, 0x1f6a9f17_e70b_4e24_8ae4_0b2c3ba7a4ae);
 windows_core::imp::interface_hierarchy!(IMFVideoPositionMapper, windows_core::IUnknown);
@@ -929,23 +929,23 @@ impl IMFVideoPositionMapper_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMFVideoPositionMapper {}
-#[cfg(feature = "Win32_mfidl")]
+#[cfg(feature = "mfidl")]
 windows_core::imp::define_interface!(IMFVideoPresenter, IMFVideoPresenter_Vtbl, 0x29aff080_182a_4a5d_af3b_448f3a6346cb);
-#[cfg(feature = "Win32_mfidl")]
+#[cfg(feature = "mfidl")]
 impl core::ops::Deref for IMFVideoPresenter {
     type Target = super::mfidl::IMFClockStateSink;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_mfidl")]
+#[cfg(feature = "mfidl")]
 windows_core::imp::interface_hierarchy!(IMFVideoPresenter, windows_core::IUnknown, super::mfidl::IMFClockStateSink);
-#[cfg(feature = "Win32_mfidl")]
+#[cfg(feature = "mfidl")]
 impl IMFVideoPresenter {
     pub unsafe fn ProcessMessage(&self, emessage: MFVP_MESSAGE_TYPE, ulparam: usize) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ProcessMessage)(windows_core::Interface::as_raw(self), emessage, ulparam) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetCurrentMediaType(&self) -> windows_core::Result<super::mfobjects::IMFVideoMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -953,23 +953,23 @@ impl IMFVideoPresenter {
         }
     }
 }
-#[cfg(feature = "Win32_mfidl")]
+#[cfg(feature = "mfidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFVideoPresenter_Vtbl {
     pub base__: super::mfidl::IMFClockStateSink_Vtbl,
     pub ProcessMessage: unsafe extern "system" fn(*mut core::ffi::c_void, MFVP_MESSAGE_TYPE, usize) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetCurrentMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetCurrentMediaType: usize,
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 pub trait IMFVideoPresenter_Impl: super::mfidl::IMFClockStateSink_Impl {
     fn ProcessMessage(&self, emessage: MFVP_MESSAGE_TYPE, ulparam: usize) -> windows_core::Result<()>;
     fn GetCurrentMediaType(&self) -> windows_core::Result<super::mfobjects::IMFVideoMediaType>;
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 impl IMFVideoPresenter_Vtbl {
     pub const fn new<Identity: IMFVideoPresenter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProcessMessage<Identity: IMFVideoPresenter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, emessage: MFVP_MESSAGE_TYPE, ulparam: usize) -> windows_core::HRESULT {
@@ -1000,12 +1000,12 @@ impl IMFVideoPresenter_Vtbl {
         iid == &<IMFVideoPresenter as windows_core::Interface>::IID || iid == &<super::mfidl::IMFClockStateSink as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 impl windows_core::RuntimeName for IMFVideoPresenter {}
 windows_core::imp::define_interface!(IMFVideoRenderer, IMFVideoRenderer_Vtbl, 0xdfdfd197_a9ca_43d8_b341_6af3503792cd);
 windows_core::imp::interface_hierarchy!(IMFVideoRenderer, windows_core::IUnknown);
 impl IMFVideoRenderer {
-    #[cfg(all(feature = "Win32_mfidl", feature = "Win32_mftransform"))]
+    #[cfg(all(feature = "mfidl", feature = "mftransform"))]
     pub unsafe fn InitializeRenderer<P0, P1>(&self, pvideomixer: P0, pvideopresenter: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::mftransform::IMFTransform>,
@@ -1018,16 +1018,16 @@ impl IMFVideoRenderer {
 #[doc(hidden)]
 pub struct IMFVideoRenderer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_mfidl", feature = "Win32_mftransform"))]
+    #[cfg(all(feature = "mfidl", feature = "mftransform"))]
     pub InitializeRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_mfidl", feature = "Win32_mftransform")))]
+    #[cfg(not(all(feature = "mfidl", feature = "mftransform")))]
     InitializeRenderer: usize,
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mftransform"))]
+#[cfg(all(feature = "mfidl", feature = "mftransform"))]
 pub trait IMFVideoRenderer_Impl: windows_core::IUnknownImpl {
     fn InitializeRenderer(&self, pvideomixer: windows_core::Ref<super::mftransform::IMFTransform>, pvideopresenter: windows_core::Ref<IMFVideoPresenter>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mftransform"))]
+#[cfg(all(feature = "mfidl", feature = "mftransform"))]
 impl IMFVideoRenderer_Vtbl {
     pub const fn new<Identity: IMFVideoRenderer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeRenderer<Identity: IMFVideoRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideomixer: *mut core::ffi::c_void, pvideopresenter: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1042,7 +1042,7 @@ impl IMFVideoRenderer_Vtbl {
         iid == &<IMFVideoRenderer as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mftransform"))]
+#[cfg(all(feature = "mfidl", feature = "mftransform"))]
 impl windows_core::RuntimeName for IMFVideoRenderer {}
 pub const MFEVRDLL: u32 = 0;
 pub const MFVP_MESSAGE_BEGINSTREAMING: MFVP_MESSAGE_TYPE = 3;

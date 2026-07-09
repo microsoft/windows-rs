@@ -327,28 +327,28 @@ pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) ->
     unsafe { RtlValidateCorrelationVector(vector) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_excpt"))]
+#[cfg(all(feature = "basetsd", feature = "excpt"))]
 #[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: u32, imagebase: u64, controlpc: u64, functionentry: *const RUNTIME_FUNCTION, contextrecord: *mut CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut u64, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS>) -> PEXCEPTION_ROUTINE {
     windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : u32, imagebase : u64, controlpc : u64, functionentry : *const RUNTIME_FUNCTION, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE);
     unsafe { RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_excpt"))]
+#[cfg(all(feature = "basetsd", feature = "excpt"))]
 #[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: u32, imagebase: usize, controlpc: usize, functionentry: *const ARM64_RUNTIME_FUNCTION, contextrecord: *mut ARM64_NT_CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut u64, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS_ARM64>) -> PEXCEPTION_ROUTINE {
     windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : u32, imagebase : usize, controlpc : usize, functionentry : *const ARM64_RUNTIME_FUNCTION, contextrecord : *mut ARM64_NT_CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> PEXCEPTION_ROUTINE);
     unsafe { RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_excpt"))]
+#[cfg(all(feature = "basetsd", feature = "excpt"))]
 #[inline]
 pub unsafe fn RtlVirtualUnwind2(handlertype: u32, imagebase: u64, controlpc: u64, functionentry: Option<*const RUNTIME_FUNCTION>, contextrecord: *mut CONTEXT, machineframeunwound: Option<*mut bool>, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut u64, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS>, lowlimit: Option<*const u64>, highlimit: Option<*const u64>, handlerroutine: *mut PEXCEPTION_ROUTINE, unwindflags: u32) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind2(handlertype : u32, imagebase : u64, controlpc : u64, functionentry : *const RUNTIME_FUNCTION, contextrecord : *mut CONTEXT, machineframeunwound : *mut bool, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS, lowlimit : *const u64, highlimit : *const u64, handlerroutine : *mut PEXCEPTION_ROUTINE, unwindflags : u32) -> u32);
     unsafe { RtlVirtualUnwind2(handlertype, imagebase, controlpc, functionentry.unwrap_or(core::mem::zeroed()) as _, contextrecord as _, machineframeunwound.unwrap_or(core::mem::zeroed()) as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _, lowlimit.unwrap_or(core::mem::zeroed()) as _, highlimit.unwrap_or(core::mem::zeroed()) as _, handlerroutine as _, unwindflags) }
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_excpt"))]
+#[cfg(all(feature = "basetsd", feature = "excpt"))]
 #[inline]
 pub unsafe fn RtlVirtualUnwind2(handlertype: u32, imagebase: usize, controlpc: usize, functionentry: Option<*const ARM64_RUNTIME_FUNCTION>, contextrecord: *mut ARM64_NT_CONTEXT, machineframeunwound: Option<*mut bool>, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut u64, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS_ARM64>, lowlimit: Option<*const u64>, highlimit: Option<*const u64>, handlerroutine: *mut PEXCEPTION_ROUTINE, unwindflags: u32) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind2(handlertype : u32, imagebase : usize, controlpc : usize, functionentry : *const ARM64_RUNTIME_FUNCTION, contextrecord : *mut ARM64_NT_CONTEXT, machineframeunwound : *mut bool, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64, lowlimit : *const u64, highlimit : *const u64, handlerroutine : *mut PEXCEPTION_ROUTINE, unwindflags : u32) -> u32);
@@ -1138,7 +1138,7 @@ pub struct CACHE_DESCRIPTOR {
 }
 pub const CACHE_FULLY_ASSOCIATIVE: u32 = 255;
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub struct CACHE_RELATIONSHIP {
     pub Level: u8,
@@ -1150,20 +1150,20 @@ pub struct CACHE_RELATIONSHIP {
     pub GroupCount: u16,
     pub Anonymous: CACHE_RELATIONSHIP_0,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for CACHE_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub union CACHE_RELATIONSHIP_0 {
     pub GroupMask: GROUP_AFFINITY,
     pub GroupMasks: [GROUP_AFFINITY; 1],
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for CACHE_RELATIONSHIP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1184,7 +1184,7 @@ pub const CFG_CALL_TARGET_PROCESSED: u32 = 2;
 pub const CFG_CALL_TARGET_VALID: u32 = 1;
 pub const CFG_CALL_TARGET_VALID_XFG: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     pub Version: u16,
@@ -1192,19 +1192,19 @@ pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     pub AttributeCount: u32,
     pub Attribute: CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: PCLAIM_SECURITY_ATTRIBUTE_V1,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1273,7 +1273,7 @@ pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING: u32 = 3;
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64: u32 = 2;
 pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
     pub Name: windows_core::PWSTR,
@@ -1283,14 +1283,14 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
     pub ValueCount: u32,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_V1_0,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for CLAIM_SECURITY_ATTRIBUTE_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pInt64: super::basetsd::PLONG64,
@@ -1299,7 +1299,7 @@ pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pFqbn: PCLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: PCLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1753,7 +1753,7 @@ pub const DISCHARGE_POLICY_CRITICAL: u32 = 0;
 pub const DISCHARGE_POLICY_LOW: u32 = 1;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 #[derive(Clone, Copy, Debug)]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: u64,
@@ -1769,18 +1769,18 @@ pub struct DISPATCHER_CONTEXT {
     pub Fill0: u32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 impl Default for DISPATCHER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 pub type DISPATCHER_CONTEXT = DISPATCHER_CONTEXT_ARM64;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug)]
 pub struct DISPATCHER_CONTEXT_ARM64 {
     pub ControlPc: usize,
@@ -1797,7 +1797,7 @@ pub struct DISPATCHER_CONTEXT_ARM64 {
     pub NonVolatileRegisters: super::minwindef::PBYTE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 impl Default for DISPATCHER_CONTEXT_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1805,7 +1805,7 @@ impl Default for DISPATCHER_CONTEXT_ARM64 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug)]
 pub struct DISPATCHER_CONTEXT_ARM64 {
     pub ControlPc: usize,
@@ -1822,7 +1822,7 @@ pub struct DISPATCHER_CONTEXT_ARM64 {
     pub NonVolatileRegisters: super::minwindef::PBYTE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 impl Default for DISPATCHER_CONTEXT_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2265,23 +2265,23 @@ impl Default for EXCEPTION_RECORD64 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 #[derive(Clone, Copy, Debug)]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut Self,
     pub Handler: PEXCEPTION_ROUTINE,
 }
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 impl Default for EXCEPTION_REGISTRATION_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut CONTEXT, dispatchercontext: *const core::ffi::c_void) -> super::excpt::EXCEPTION_DISPOSITION>;
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut ARM64_NT_CONTEXT, dispatchercontext: *const core::ffi::c_void) -> super::excpt::EXCEPTION_DISPOSITION>;
 pub const EXCEPTION_SOFTWARE_ORIGINATE: u32 = 128;
 pub const EXCEPTION_STACK_INVALID: u32 = 8;
@@ -2740,14 +2740,14 @@ pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "system" fn(contro
 #[cfg(target_arch = "aarch64")]
 pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "system" fn(controlpc: u64, context: *const core::ffi::c_void) -> PARM64_RUNTIME_FUNCTION>;
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GROUP_AFFINITY {
     pub Mask: super::basetsd::KAFFINITY,
     pub Group: u16,
     pub Reserved: [u16; 3],
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for GROUP_AFFINITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2778,7 +2778,7 @@ impl Default for GROUP_AFFINITY64 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GROUP_RELATIONSHIP {
     pub MaximumGroupCount: u16,
@@ -2786,7 +2786,7 @@ pub struct GROUP_RELATIONSHIP {
     pub Reserved: [u8; 20],
     pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for GROUP_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6088,14 +6088,14 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0,
     pub Anonymous2: KNONVOLATILE_CONTEXT_POINTERS_1,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6103,14 +6103,14 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [PM128A; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6118,7 +6118,7 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm0: PM128A,
@@ -6140,14 +6140,14 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [super::basetsd::PDWORD64; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_1_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6155,7 +6155,7 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub Rax: super::basetsd::PDWORD64,
@@ -6176,10 +6176,10 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub R15: super::basetsd::PDWORD64,
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 pub type KNONVOLATILE_CONTEXT_POINTERS = KNONVOLATILE_CONTEXT_POINTERS_ARM64;
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub X19: super::basetsd::PDWORD64,
@@ -7063,7 +7063,7 @@ impl Default for NPSTR {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 #[derive(Clone, Copy)]
 pub struct NT_TIB {
     pub ExceptionList: *mut EXCEPTION_REGISTRATION_RECORD,
@@ -7074,20 +7074,20 @@ pub struct NT_TIB {
     pub ArbitraryUserPointer: *mut core::ffi::c_void,
     pub Self_: *mut Self,
 }
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 impl Default for NT_TIB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 #[derive(Clone, Copy)]
 pub union NT_TIB_0 {
     pub FiberData: *mut core::ffi::c_void,
     pub Version: u32,
 }
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 impl Default for NT_TIB_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7148,7 +7148,7 @@ impl Default for NT_TIB64_0 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub struct NUMA_NODE_RELATIONSHIP {
     pub NodeNumber: u32,
@@ -7156,20 +7156,20 @@ pub struct NUMA_NODE_RELATIONSHIP {
     pub GroupCount: u16,
     pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for NUMA_NODE_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub union NUMA_NODE_RELATIONSHIP_0 {
     pub GroupMask: GROUP_AFFINITY,
     pub GroupMasks: [GROUP_AFFINITY; 1],
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for NUMA_NODE_RELATIONSHIP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7787,17 +7787,17 @@ impl Default for PCACHE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCACHE_RELATIONSHIP(pub *mut CACHE_RELATIONSHIP);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PCACHE_RELATIONSHIP {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PCACHE_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7998,17 +7998,17 @@ impl Default for PCLAIMS_BLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCLAIM_SECURITY_ATTRIBUTES_INFORMATION(pub *mut CLAIM_SECURITY_ATTRIBUTES_INFORMATION);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PCLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PCLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8053,17 +8053,17 @@ impl Default for PCLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCLAIM_SECURITY_ATTRIBUTE_V1(pub *mut CLAIM_SECURITY_ATTRIBUTE_V1);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PCLAIM_SECURITY_ATTRIBUTE_V1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PCLAIM_SECURITY_ATTRIBUTE_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8466,54 +8466,54 @@ impl Default for PDEVICE_POWER_STATE {
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDISPATCHER_CONTEXT(pub *mut DISPATCHER_CONTEXT);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 impl PDISPATCHER_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 impl Default for PDISPATCHER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDISPATCHER_CONTEXT(pub *mut DISPATCHER_CONTEXT_ARM64);
 #[cfg(target_arch = "aarch64")]
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 impl PDISPATCHER_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 impl Default for PDISPATCHER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDISPATCHER_CONTEXT_ARM64(pub *mut DISPATCHER_CONTEXT_ARM64);
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 impl PDISPATCHER_CONTEXT_ARM64 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_excpt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "excpt", feature = "minwindef"))]
 impl Default for PDISPATCHER_CONTEXT_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8808,27 +8808,27 @@ impl Default for PEXCEPTION_RECORD64 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEXCEPTION_REGISTRATION_RECORD(pub *mut EXCEPTION_REGISTRATION_RECORD);
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 impl PEXCEPTION_REGISTRATION_RECORD {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 impl Default for PEXCEPTION_REGISTRATION_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 pub type PEXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut CONTEXT, dispatchercontext: *const core::ffi::c_void) -> super::excpt::EXCEPTION_DISPOSITION>;
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 pub type PEXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut ARM64_NT_CONTEXT, dispatchercontext: *const core::ffi::c_void) -> super::excpt::EXCEPTION_DISPOSITION>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -9151,17 +9151,17 @@ impl Default for PGET_RUNTIME_FUNCTION_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PGROUP_AFFINITY(pub *mut GROUP_AFFINITY);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PGROUP_AFFINITY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PGROUP_AFFINITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9193,17 +9193,17 @@ impl Default for PGROUP_AFFINITY64 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PGROUP_RELATIONSHIP(pub *mut GROUP_RELATIONSHIP);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PGROUP_RELATIONSHIP {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PGROUP_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10790,54 +10790,54 @@ impl Default for PKERNEL_CET_CONTEXT {
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKNONVOLATILE_CONTEXT_POINTERS(pub *mut KNONVOLATILE_CONTEXT_POINTERS);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PKNONVOLATILE_CONTEXT_POINTERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PKNONVOLATILE_CONTEXT_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKNONVOLATILE_CONTEXT_POINTERS(pub *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64);
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PKNONVOLATILE_CONTEXT_POINTERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PKNONVOLATILE_CONTEXT_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKNONVOLATILE_CONTEXT_POINTERS_ARM64(pub *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PKNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PKNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10895,7 +10895,7 @@ impl Default for PLARGE_INTEGER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PLCID(pub super::minwindef::PDWORD);
@@ -11293,17 +11293,17 @@ impl Default for PNOTIFY_USER_POWER_SETTING {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNT_TIB(pub *mut NT_TIB);
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 impl PNT_TIB {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_excpt")]
+#[cfg(feature = "excpt")]
 impl Default for PNT_TIB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11335,17 +11335,17 @@ impl Default for PNT_TIB64 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNUMA_NODE_RELATIONSHIP(pub *mut NUMA_NODE_RELATIONSHIP);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PNUMA_NODE_RELATIONSHIP {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PNUMA_NODE_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12427,17 +12427,17 @@ impl Default for PPROCESSOR_CACHE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPROCESSOR_GROUP_INFO(pub *mut PROCESSOR_GROUP_INFO);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PPROCESSOR_GROUP_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PPROCESSOR_GROUP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12521,17 +12521,17 @@ impl Default for PPROCESSOR_POWER_POLICY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPROCESSOR_RELATIONSHIP(pub *mut PROCESSOR_RELATIONSHIP);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PPROCESSOR_RELATIONSHIP {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PPROCESSOR_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13035,7 +13035,7 @@ pub type PROCESSOR_CACHE_TYPE = i32;
 pub const PROCESSOR_DUTY_CYCLING_DISABLED: u32 = 0;
 pub const PROCESSOR_DUTY_CYCLING_ENABLED: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESSOR_GROUP_INFO {
     pub MaximumProcessorCount: u8,
@@ -13043,7 +13043,7 @@ pub struct PROCESSOR_GROUP_INFO {
     pub Reserved: [u8; 38],
     pub ActiveProcessorMask: super::basetsd::KAFFINITY,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PROCESSOR_GROUP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13207,7 +13207,7 @@ pub const PROCESSOR_PPC_603: u32 = 603;
 pub const PROCESSOR_PPC_604: u32 = 604;
 pub const PROCESSOR_PPC_620: u32 = 620;
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESSOR_RELATIONSHIP {
     pub Flags: u8,
@@ -13216,7 +13216,7 @@ pub struct PROCESSOR_RELATIONSHIP {
     pub GroupCount: u16,
     pub GroupMask: [GROUP_AFFINITY; 1],
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PROCESSOR_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14478,17 +14478,17 @@ impl Default for PSET_POWER_SETTING_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSE_ACCESS_REPLY(pub *mut SE_ACCESS_REPLY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PSE_ACCESS_REPLY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PSE_ACCESS_REPLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14573,17 +14573,17 @@ impl Default for PSE_SIGNING_LEVEL {
     }
 }
 pub type PSE_TOKEN_USER = SE_TOKEN_USER;
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSHARED_COMPUTE_UNIT_RELATIONSHIP(pub *mut SHARED_COMPUTE_UNIT_RELATIONSHIP);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PSHARED_COMPUTE_UNIT_RELATIONSHIP {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PSHARED_COMPUTE_UNIT_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14959,17 +14959,17 @@ impl Default for PSYSTEM_LOGICAL_PROCESSOR_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX(pub *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX);
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15884,33 +15884,33 @@ impl Default for PTRANSACTION_ENLISTMENT_PAIR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ktmtypes")]
+#[cfg(feature = "ktmtypes")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTRANSACTION_LIST_ENTRY(pub *mut TRANSACTION_LIST_ENTRY);
-#[cfg(feature = "Win32_ktmtypes")]
+#[cfg(feature = "ktmtypes")]
 impl PTRANSACTION_LIST_ENTRY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ktmtypes")]
+#[cfg(feature = "ktmtypes")]
 impl Default for PTRANSACTION_LIST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ktmtypes")]
+#[cfg(feature = "ktmtypes")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTRANSACTION_LIST_INFORMATION(pub *mut TRANSACTION_LIST_INFORMATION);
-#[cfg(feature = "Win32_ktmtypes")]
+#[cfg(feature = "ktmtypes")]
 impl PTRANSACTION_LIST_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ktmtypes")]
+#[cfg(feature = "ktmtypes")]
 impl Default for PTRANSACTION_LIST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -17420,7 +17420,7 @@ impl Default for SET_POWER_SETTING_VALUE {
 pub const SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: u32 = 8;
 pub const SE_ACCESS_CHECK_VALID_FLAGS: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SE_ACCESS_REPLY {
     pub Size: u32,
@@ -17430,7 +17430,7 @@ pub struct SE_ACCESS_REPLY {
     pub AccessReason: PACCESS_REASONS,
     pub Privileges: *mut PPRIVILEGE_SET,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for SE_ACCESS_REPLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -17577,7 +17577,7 @@ impl Default for SE_TOKEN_USER_1 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARED_COMPUTE_UNIT_RELATIONSHIP {
     pub Type: u32,
@@ -17586,7 +17586,7 @@ pub struct SHARED_COMPUTE_UNIT_RELATIONSHIP {
     pub GroupCount: u16,
     pub GroupMasks: [GROUP_AFFINITY; 1],
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for SHARED_COMPUTE_UNIT_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -18324,21 +18324,21 @@ pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     pub NodeNumber: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
     pub Size: u32,
     pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     pub Processor: PROCESSOR_RELATIONSHIP,
@@ -18347,7 +18347,7 @@ pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     pub Group: GROUP_RELATIONSHIP,
     pub SharedComputeUnit: SHARED_COMPUTE_UNIT_RELATIONSHIP,
 }
-#[cfg(feature = "Win32_basetsd")]
+#[cfg(feature = "basetsd")]
 impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -19166,19 +19166,19 @@ pub const TRANSACTION_GENERIC_READ: u32 = 1179649;
 pub const TRANSACTION_GENERIC_WRITE: u32 = 1179710;
 pub type TRANSACTION_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_ktmtypes")]
+#[cfg(feature = "ktmtypes")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRANSACTION_LIST_ENTRY {
     pub UOW: super::ktmtypes::UOW,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ktmtypes")]
+#[cfg(feature = "ktmtypes")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSACTION_LIST_INFORMATION {
     pub NumberOfTransactions: u32,
     pub TransactionInformation: [TRANSACTION_LIST_ENTRY; 1],
 }
-#[cfg(feature = "Win32_ktmtypes")]
+#[cfg(feature = "ktmtypes")]
 impl Default for TRANSACTION_LIST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -9,7 +9,7 @@ where
         WICConvertBitmapSource(dstformat, pisrc.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WICCreateBitmapFromSection(width: u32, height: u32, pixelformat: REFWICPixelFormatGUID, hsection: super::winnt::HANDLE, stride: u32, offset: u32) -> windows_core::Result<IWICBitmap> {
     windows_core::link!("windowscodecs.dll" "system" fn WICCreateBitmapFromSection(width : u32, height : u32, pixelformat : REFWICPixelFormatGUID, hsection : super::winnt::HANDLE, stride : u32, offset : u32, ppibitmap : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -18,7 +18,7 @@ pub unsafe fn WICCreateBitmapFromSection(width: u32, height: u32, pixelformat: R
         WICCreateBitmapFromSection(width, height, pixelformat, hsection, stride, offset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelformat: REFWICPixelFormatGUID, hsection: super::winnt::HANDLE, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel) -> windows_core::Result<IWICBitmap> {
     windows_core::link!("windowscodecs.dll" "system" fn WICCreateBitmapFromSectionEx(width : u32, height : u32, pixelformat : REFWICPixelFormatGUID, hsection : super::winnt::HANDLE, stride : u32, offset : u32, desiredaccesslevel : WICSectionAccessLevel, ppibitmap : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -580,7 +580,7 @@ impl windows_core::RuntimeName for IWICBitmapCodecProgressNotification {}
 windows_core::imp::define_interface!(IWICBitmapDecoder, IWICBitmapDecoder_Vtbl, 0x9edde9e7_8dee_47ea_99df_e6faf2ed44bf);
 windows_core::imp::interface_hierarchy!(IWICBitmapDecoder, windows_core::IUnknown);
 impl IWICBitmapDecoder {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn QueryCapability<P0>(&self, pistream: P0) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -590,7 +590,7 @@ impl IWICBitmapDecoder {
             (windows_core::Interface::vtable(self).QueryCapability)(windows_core::Interface::as_raw(self), pistream.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Initialize<P0>(&self, pistream: P0, cacheoptions: WICDecodeOptions) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -653,13 +653,13 @@ impl IWICBitmapDecoder {
 #[doc(hidden)]
 pub struct IWICBitmapDecoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub QueryCapability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     QueryCapability: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WICDecodeOptions) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Initialize: usize,
     pub GetContainerFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetDecoderInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -671,7 +671,7 @@ pub struct IWICBitmapDecoder_Vtbl {
     pub GetFrameCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetFrame: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IWICBitmapDecoder_Impl: windows_core::IUnknownImpl {
     fn QueryCapability(&self, pistream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<u32>;
     fn Initialize(&self, pistream: windows_core::Ref<super::objidlbase::IStream>, cacheoptions: WICDecodeOptions) -> windows_core::Result<()>;
@@ -685,7 +685,7 @@ pub trait IWICBitmapDecoder_Impl: windows_core::IUnknownImpl {
     fn GetFrameCount(&self) -> windows_core::Result<u32>;
     fn GetFrame(&self, index: u32) -> windows_core::Result<IWICBitmapFrameDecode>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IWICBitmapDecoder_Vtbl {
     pub const fn new<Identity: IWICBitmapDecoder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryCapability<Identity: IWICBitmapDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, pdwcapability: *mut u32) -> windows_core::HRESULT {
@@ -821,7 +821,7 @@ impl IWICBitmapDecoder_Vtbl {
         iid == &<IWICBitmapDecoder as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IWICBitmapDecoder {}
 windows_core::imp::define_interface!(IWICBitmapDecoderInfo, IWICBitmapDecoderInfo_Vtbl, 0xd8cd007f_d08f_4191_9bfc_236ea7f0e4b5);
 impl core::ops::Deref for IWICBitmapDecoderInfo {
@@ -835,7 +835,7 @@ impl IWICBitmapDecoderInfo {
     pub unsafe fn GetPatterns(&self, cbsizepatterns: u32, ppatterns: Option<*mut WICBitmapPattern>, pcpatterns: Option<*mut u32>, pcbpatternsactual: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), cbsizepatterns, ppatterns.unwrap_or(core::mem::zeroed()) as _, pcpatterns.unwrap_or(core::mem::zeroed()) as _, pcbpatternsactual as _) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn MatchesPattern<P0>(&self, pistream: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -857,19 +857,19 @@ impl IWICBitmapDecoderInfo {
 pub struct IWICBitmapDecoderInfo_Vtbl {
     pub base__: IWICBitmapCodecInfo_Vtbl,
     pub GetPatterns: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut WICBitmapPattern, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub MatchesPattern: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     MatchesPattern: usize,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IWICBitmapDecoderInfo_Impl: IWICBitmapCodecInfo_Impl {
     fn GetPatterns(&self, cbsizepatterns: u32, ppatterns: *mut WICBitmapPattern, pcpatterns: *mut u32, pcbpatternsactual: *mut u32) -> windows_core::Result<()>;
     fn MatchesPattern(&self, pistream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<windows_core::BOOL>;
     fn CreateInstance(&self) -> windows_core::Result<IWICBitmapDecoder>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IWICBitmapDecoderInfo_Vtbl {
     pub const fn new<Identity: IWICBitmapDecoderInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPatterns<Identity: IWICBitmapDecoderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsizepatterns: u32, ppatterns: *mut WICBitmapPattern, pcpatterns: *mut u32, pcbpatternsactual: *mut u32) -> windows_core::HRESULT {
@@ -913,12 +913,12 @@ impl IWICBitmapDecoderInfo_Vtbl {
         iid == &<IWICBitmapDecoderInfo as windows_core::Interface>::IID || iid == &<IWICComponentInfo as windows_core::Interface>::IID || iid == &<IWICBitmapCodecInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IWICBitmapDecoderInfo {}
 windows_core::imp::define_interface!(IWICBitmapEncoder, IWICBitmapEncoder_Vtbl, 0x00000103_a8f2_4877_ba0a_fd2b6645fb94);
 windows_core::imp::interface_hierarchy!(IWICBitmapEncoder, windows_core::IUnknown);
 impl IWICBitmapEncoder {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Initialize<P0>(&self, pistream: P0, cacheoption: WICBitmapEncoderCacheOption) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -958,7 +958,7 @@ impl IWICBitmapEncoder {
     {
         unsafe { (windows_core::Interface::vtable(self).SetPreview)(windows_core::Interface::as_raw(self), pipreview.param().abi()) }
     }
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub unsafe fn CreateNewFrame(&self, ppiframeencode: *mut Option<IWICBitmapFrameEncode>, ppiencoderoptions: *mut Option<super::ocidl::IPropertyBag2>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateNewFrame)(windows_core::Interface::as_raw(self), core::mem::transmute(ppiframeencode), core::mem::transmute(ppiencoderoptions)) }
     }
@@ -976,9 +976,9 @@ impl IWICBitmapEncoder {
 #[doc(hidden)]
 pub struct IWICBitmapEncoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WICBitmapEncoderCacheOption) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Initialize: usize,
     pub GetContainerFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetEncoderInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -986,14 +986,14 @@ pub struct IWICBitmapEncoder_Vtbl {
     pub SetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPreview: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub CreateNewFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ocidl"))]
+    #[cfg(not(feature = "ocidl"))]
     CreateNewFrame: usize,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMetadataQueryWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_ocidl"))]
+#[cfg(all(feature = "objidlbase", feature = "ocidl"))]
 pub trait IWICBitmapEncoder_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, pistream: windows_core::Ref<super::objidlbase::IStream>, cacheoption: WICBitmapEncoderCacheOption) -> windows_core::Result<()>;
     fn GetContainerFormat(&self) -> windows_core::Result<windows_core::GUID>;
@@ -1006,7 +1006,7 @@ pub trait IWICBitmapEncoder_Impl: windows_core::IUnknownImpl {
     fn Commit(&self) -> windows_core::Result<()>;
     fn GetMetadataQueryWriter(&self) -> windows_core::Result<IWICMetadataQueryWriter>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_ocidl"))]
+#[cfg(all(feature = "objidlbase", feature = "ocidl"))]
 impl IWICBitmapEncoder_Vtbl {
     pub const fn new<Identity: IWICBitmapEncoder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWICBitmapEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, cacheoption: WICBitmapEncoderCacheOption) -> windows_core::HRESULT {
@@ -1105,7 +1105,7 @@ impl IWICBitmapEncoder_Vtbl {
         iid == &<IWICBitmapEncoder as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_ocidl"))]
+#[cfg(all(feature = "objidlbase", feature = "ocidl"))]
 impl windows_core::RuntimeName for IWICBitmapEncoder {}
 windows_core::imp::define_interface!(IWICBitmapEncoderInfo, IWICBitmapEncoderInfo_Vtbl, 0x94c9b4ee_a09f_4f92_8a1e_4a9bce7e76fb);
 impl core::ops::Deref for IWICBitmapEncoderInfo {
@@ -1260,7 +1260,7 @@ impl windows_core::RuntimeName for IWICBitmapFrameChainReader {}
 windows_core::imp::define_interface!(IWICBitmapFrameChainWriter, IWICBitmapFrameChainWriter_Vtbl, 0x40d9ea28_4768_47b3_8c12_558a48e98e38);
 windows_core::imp::interface_hierarchy!(IWICBitmapFrameChainWriter, windows_core::IUnknown);
 impl IWICBitmapFrameChainWriter {
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub unsafe fn AppendFrameToChain(&self, chaintype: WICBitmapChainType, ppiframeencode: *mut Option<IWICBitmapFrameEncode>, ppiencoderoptions: *mut Option<super::ocidl::IPropertyBag2>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AppendFrameToChain)(windows_core::Interface::as_raw(self), chaintype, core::mem::transmute(ppiframeencode), core::mem::transmute(ppiencoderoptions)) }
     }
@@ -1275,18 +1275,18 @@ impl IWICBitmapFrameChainWriter {
 #[doc(hidden)]
 pub struct IWICBitmapFrameChainWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub AppendFrameToChain: unsafe extern "system" fn(*mut core::ffi::c_void, WICBitmapChainType, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ocidl"))]
+    #[cfg(not(feature = "ocidl"))]
     AppendFrameToChain: usize,
     pub DoesSupportChainType: unsafe extern "system" fn(*mut core::ffi::c_void, WICBitmapChainType, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 pub trait IWICBitmapFrameChainWriter_Impl: windows_core::IUnknownImpl {
     fn AppendFrameToChain(&self, chaintype: WICBitmapChainType, ppiframeencode: windows_core::OutRef<IWICBitmapFrameEncode>, ppiencoderoptions: windows_core::OutRef<super::ocidl::IPropertyBag2>) -> windows_core::Result<()>;
     fn DoesSupportChainType(&self, chaintype: WICBitmapChainType) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 impl IWICBitmapFrameChainWriter_Vtbl {
     pub const fn new<Identity: IWICBitmapFrameChainWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AppendFrameToChain<Identity: IWICBitmapFrameChainWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, chaintype: WICBitmapChainType, ppiframeencode: *mut *mut core::ffi::c_void, ppiencoderoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1317,7 +1317,7 @@ impl IWICBitmapFrameChainWriter_Vtbl {
         iid == &<IWICBitmapFrameChainWriter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 impl windows_core::RuntimeName for IWICBitmapFrameChainWriter {}
 windows_core::imp::define_interface!(IWICBitmapFrameDecode, IWICBitmapFrameDecode_Vtbl, 0x3b16811b_6a43_4ec9_a813_3d930c13b940);
 impl core::ops::Deref for IWICBitmapFrameDecode {
@@ -1404,7 +1404,7 @@ impl windows_core::RuntimeName for IWICBitmapFrameDecode {}
 windows_core::imp::define_interface!(IWICBitmapFrameEncode, IWICBitmapFrameEncode_Vtbl, 0x00000105_a8f2_4877_ba0a_fd2b6645fb94);
 windows_core::imp::interface_hierarchy!(IWICBitmapFrameEncode, windows_core::IUnknown);
 impl IWICBitmapFrameEncode {
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub unsafe fn Initialize<P0>(&self, piencoderoptions: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::ocidl::IPropertyBag2>,
@@ -1458,9 +1458,9 @@ impl IWICBitmapFrameEncode {
 #[doc(hidden)]
 pub struct IWICBitmapFrameEncode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ocidl"))]
+    #[cfg(not(feature = "ocidl"))]
     Initialize: usize,
     pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub SetResolution: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
@@ -1473,7 +1473,7 @@ pub struct IWICBitmapFrameEncode_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMetadataQueryWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 pub trait IWICBitmapFrameEncode_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, piencoderoptions: windows_core::Ref<super::ocidl::IPropertyBag2>) -> windows_core::Result<()>;
     fn SetSize(&self, uiwidth: u32, uiheight: u32) -> windows_core::Result<()>;
@@ -1487,7 +1487,7 @@ pub trait IWICBitmapFrameEncode_Impl: windows_core::IUnknownImpl {
     fn Commit(&self) -> windows_core::Result<()>;
     fn GetMetadataQueryWriter(&self) -> windows_core::Result<IWICMetadataQueryWriter>;
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 impl IWICBitmapFrameEncode_Vtbl {
     pub const fn new<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piencoderoptions: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1581,7 +1581,7 @@ impl IWICBitmapFrameEncode_Vtbl {
         iid == &<IWICBitmapFrameEncode as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 impl windows_core::RuntimeName for IWICBitmapFrameEncode {}
 windows_core::imp::define_interface!(IWICBitmapLock, IWICBitmapLock_Vtbl, 0x00000123_a8f2_4877_ba0a_fd2b6645fb94);
 windows_core::imp::interface_hierarchy!(IWICBitmapLock, windows_core::IUnknown);
@@ -2323,7 +2323,7 @@ impl windows_core::RuntimeName for IWICComponentInfo {}
 windows_core::imp::define_interface!(IWICD3DTextureSource, IWICD3DTextureSource_Vtbl, 0xcaf65cc4_8ebe_4718_a21f_8dbf40bb7e25);
 windows_core::imp::interface_hierarchy!(IWICD3DTextureSource, windows_core::IUnknown);
 impl IWICD3DTextureSource {
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub unsafe fn GetTexture<P0, P1>(&self, pd3ddevice: P0, pid3dtextureoptions: P1, riid: *const windows_core::GUID, pptexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -2331,7 +2331,7 @@ impl IWICD3DTextureSource {
     {
         unsafe { (windows_core::Interface::vtable(self).GetTexture)(windows_core::Interface::as_raw(self), pd3ddevice.param().abi(), pid3dtextureoptions.param().abi(), riid, pptexture as _) }
     }
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub unsafe fn GetTransformedTexture<P5, P6>(&self, prc: Option<*const WICRect>, uiwidth: u32, uiheight: u32, pguiddstformat: Option<*const WICPixelFormatGUID>, dsttransform: WICBitmapTransformOptions, pd3ddevice: P5, pid3dtextureoptions: P6, riid: *const windows_core::GUID, pptexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P5: windows_core::Param<windows_core::IUnknown>,
@@ -2345,7 +2345,7 @@ impl IWICD3DTextureSource {
             (windows_core::Interface::vtable(self).DoesSupportD3DDeviceType)(windows_core::Interface::as_raw(self), riid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub unsafe fn GetD3DTextureOptions(&self) -> windows_core::Result<super::ocidl::IPropertyBag2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2357,28 +2357,28 @@ impl IWICD3DTextureSource {
 #[doc(hidden)]
 pub struct IWICD3DTextureSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub GetTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ocidl"))]
+    #[cfg(not(feature = "ocidl"))]
     GetTexture: usize,
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub GetTransformedTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *const WICRect, u32, u32, *const WICPixelFormatGUID, WICBitmapTransformOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ocidl"))]
+    #[cfg(not(feature = "ocidl"))]
     GetTransformedTexture: usize,
     pub DoesSupportD3DDeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub GetD3DTextureOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ocidl"))]
+    #[cfg(not(feature = "ocidl"))]
     GetD3DTextureOptions: usize,
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 pub trait IWICD3DTextureSource_Impl: windows_core::IUnknownImpl {
     fn GetTexture(&self, pd3ddevice: windows_core::Ref<windows_core::IUnknown>, pid3dtextureoptions: windows_core::Ref<super::ocidl::IPropertyBag2>, riid: *const windows_core::GUID, pptexture: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetTransformedTexture(&self, prc: *const WICRect, uiwidth: u32, uiheight: u32, pguiddstformat: *const WICPixelFormatGUID, dsttransform: WICBitmapTransformOptions, pd3ddevice: windows_core::Ref<windows_core::IUnknown>, pid3dtextureoptions: windows_core::Ref<super::ocidl::IPropertyBag2>, riid: *const windows_core::GUID, pptexture: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn DoesSupportD3DDeviceType(&self, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL>;
     fn GetD3DTextureOptions(&self) -> windows_core::Result<super::ocidl::IPropertyBag2>;
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 impl IWICD3DTextureSource_Vtbl {
     pub const fn new<Identity: IWICD3DTextureSource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTexture<Identity: IWICD3DTextureSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd3ddevice: *mut core::ffi::c_void, pid3dtextureoptions: *mut core::ffi::c_void, riid: *const windows_core::GUID, pptexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2429,12 +2429,12 @@ impl IWICD3DTextureSource_Vtbl {
         iid == &<IWICD3DTextureSource as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 impl windows_core::RuntimeName for IWICD3DTextureSource {}
 windows_core::imp::define_interface!(IWICDdsDecoder, IWICDdsDecoder_Vtbl, 0x409cd537_8532_40cb_9774_e2feb2df4e9c);
 windows_core::imp::interface_hierarchy!(IWICDdsDecoder, windows_core::IUnknown);
 impl IWICDdsDecoder {
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetParameters(&self, pparameters: *mut WICDdsParameters) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetParameters)(windows_core::Interface::as_raw(self), pparameters as _) }
     }
@@ -2449,18 +2449,18 @@ impl IWICDdsDecoder {
 #[doc(hidden)]
 pub struct IWICDdsDecoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICDdsParameters) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetParameters: usize,
     pub GetFrame: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 pub trait IWICDdsDecoder_Impl: windows_core::IUnknownImpl {
     fn GetParameters(&self, pparameters: *mut WICDdsParameters) -> windows_core::Result<()>;
     fn GetFrame(&self, arrayindex: u32, miplevel: u32, sliceindex: u32) -> windows_core::Result<IWICBitmapFrameDecode>;
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl IWICDdsDecoder_Vtbl {
     pub const fn new<Identity: IWICDdsDecoder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetParameters<Identity: IWICDdsDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *mut WICDdsParameters) -> windows_core::HRESULT {
@@ -2491,16 +2491,16 @@ impl IWICDdsDecoder_Vtbl {
         iid == &<IWICDdsDecoder as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl windows_core::RuntimeName for IWICDdsDecoder {}
 windows_core::imp::define_interface!(IWICDdsEncoder, IWICDdsEncoder_Vtbl, 0x5cacdb4c_407e_41b3_b936_d0f010cd6732);
 windows_core::imp::interface_hierarchy!(IWICDdsEncoder, windows_core::IUnknown);
 impl IWICDdsEncoder {
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn SetParameters(&self, pparameters: *const WICDdsParameters) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), pparameters) }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetParameters(&self, pparameters: *mut WICDdsParameters) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetParameters)(windows_core::Interface::as_raw(self), pparameters as _) }
     }
@@ -2512,23 +2512,23 @@ impl IWICDdsEncoder {
 #[doc(hidden)]
 pub struct IWICDdsEncoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const WICDdsParameters) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     SetParameters: usize,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICDdsParameters) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetParameters: usize,
     pub CreateNewFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 pub trait IWICDdsEncoder_Impl: windows_core::IUnknownImpl {
     fn SetParameters(&self, pparameters: *const WICDdsParameters) -> windows_core::Result<()>;
     fn GetParameters(&self, pparameters: *mut WICDdsParameters) -> windows_core::Result<()>;
     fn CreateNewFrame(&self, ppiframeencode: windows_core::OutRef<IWICBitmapFrameEncode>, parrayindex: *mut u32, pmiplevel: *mut u32, psliceindex: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl IWICDdsEncoder_Vtbl {
     pub const fn new<Identity: IWICDdsEncoder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetParameters<Identity: IWICDdsEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *const WICDdsParameters) -> windows_core::HRESULT {
@@ -2560,7 +2560,7 @@ impl IWICDdsEncoder_Vtbl {
         iid == &<IWICDdsEncoder as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl windows_core::RuntimeName for IWICDdsEncoder {}
 windows_core::imp::define_interface!(IWICDdsFrameDecode, IWICDdsFrameDecode_Vtbl, 0x3d4c0c61_18a4_41e4_bd80_481a4fc9f464);
 windows_core::imp::interface_hierarchy!(IWICDdsFrameDecode, windows_core::IUnknown);
@@ -2568,7 +2568,7 @@ impl IWICDdsFrameDecode {
     pub unsafe fn GetSizeInBlocks(&self, pwidthinblocks: *mut u32, pheightinblocks: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSizeInBlocks)(windows_core::Interface::as_raw(self), pwidthinblocks as _, pheightinblocks as _) }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetFormatInfo(&self) -> windows_core::Result<WICDdsFormatInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2587,19 +2587,19 @@ impl IWICDdsFrameDecode {
 pub struct IWICDdsFrameDecode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSizeInBlocks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetFormatInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICDdsFormatInfo) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetFormatInfo: usize,
     pub CopyBlocks: unsafe extern "system" fn(*mut core::ffi::c_void, *const WICRect, u32, u32, *mut u8) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 pub trait IWICDdsFrameDecode_Impl: windows_core::IUnknownImpl {
     fn GetSizeInBlocks(&self, pwidthinblocks: *mut u32, pheightinblocks: *mut u32) -> windows_core::Result<()>;
     fn GetFormatInfo(&self) -> windows_core::Result<WICDdsFormatInfo>;
     fn CopyBlocks(&self, prcboundsinblocks: *const WICRect, cbstride: u32, cbbuffersize: u32) -> windows_core::Result<u8>;
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl IWICDdsFrameDecode_Vtbl {
     pub const fn new<Identity: IWICDdsFrameDecode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSizeInBlocks<Identity: IWICDdsFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidthinblocks: *mut u32, pheightinblocks: *mut u32) -> windows_core::HRESULT {
@@ -2643,7 +2643,7 @@ impl IWICDdsFrameDecode_Vtbl {
         iid == &<IWICDdsFrameDecode as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl windows_core::RuntimeName for IWICDdsFrameDecode {}
 windows_core::imp::define_interface!(IWICDevelopRaw, IWICDevelopRaw_Vtbl, 0xfbec5e44_f7be_4b65_b7f8_c0c81fef026d);
 impl core::ops::Deref for IWICDevelopRaw {
@@ -2660,7 +2660,7 @@ impl IWICDevelopRaw {
     pub unsafe fn LoadParameterSet(&self, parameterset: WICRawParameterSet) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LoadParameterSet)(windows_core::Interface::as_raw(self), parameterset) }
     }
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub unsafe fn GetCurrentParameterSet(&self) -> windows_core::Result<super::ocidl::IPropertyBag2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2800,9 +2800,9 @@ pub struct IWICDevelopRaw_Vtbl {
     pub base__: IWICBitmapFrameDecode_Vtbl,
     pub QueryRawCapabilitiesInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICRawCapabilitiesInfo) -> windows_core::HRESULT,
     pub LoadParameterSet: unsafe extern "system" fn(*mut core::ffi::c_void, WICRawParameterSet) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ocidl")]
+    #[cfg(feature = "ocidl")]
     pub GetCurrentParameterSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ocidl"))]
+    #[cfg(not(feature = "ocidl"))]
     GetCurrentParameterSet: usize,
     pub SetExposureCompensation: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub GetExposureCompensation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -2834,7 +2834,7 @@ pub struct IWICDevelopRaw_Vtbl {
     pub GetRenderMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICRawRenderMode) -> windows_core::HRESULT,
     pub SetNotificationCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 pub trait IWICDevelopRaw_Impl: IWICBitmapFrameDecode_Impl {
     fn QueryRawCapabilitiesInfo(&self, pinfo: *mut WICRawCapabilitiesInfo) -> windows_core::Result<()>;
     fn LoadParameterSet(&self, parameterset: WICRawParameterSet) -> windows_core::Result<()>;
@@ -2869,7 +2869,7 @@ pub trait IWICDevelopRaw_Impl: IWICBitmapFrameDecode_Impl {
     fn GetRenderMode(&self) -> windows_core::Result<WICRawRenderMode>;
     fn SetNotificationCallback(&self, pcallback: windows_core::Ref<IWICDevelopRawNotificationCallback>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 impl IWICDevelopRaw_Vtbl {
     pub const fn new<Identity: IWICDevelopRaw_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryRawCapabilitiesInfo<Identity: IWICDevelopRaw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *mut WICRawCapabilitiesInfo) -> windows_core::HRESULT {
@@ -3176,7 +3176,7 @@ impl IWICDevelopRaw_Vtbl {
         iid == &<IWICDevelopRaw as windows_core::Interface>::IID || iid == &<IWICBitmapSource as windows_core::Interface>::IID || iid == &<IWICBitmapFrameDecode as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_ocidl")]
+#[cfg(feature = "ocidl")]
 impl windows_core::RuntimeName for IWICDevelopRaw {}
 windows_core::imp::define_interface!(IWICDevelopRawNotificationCallback, IWICDevelopRawNotificationCallback_Vtbl, 0x95c75a6e_3e8c_4ec2_85a8_aebcc551e59b);
 windows_core::imp::interface_hierarchy!(IWICDevelopRawNotificationCallback, windows_core::IUnknown);
@@ -3403,7 +3403,7 @@ impl windows_core::RuntimeName for IWICDisplayAdaptationControl2 {}
 windows_core::imp::define_interface!(IWICEnumMetadataItem, IWICEnumMetadataItem_Vtbl, 0xdc2bb46d_3f07_481e_8625_220c4aedbb33);
 windows_core::imp::interface_hierarchy!(IWICEnumMetadataItem, windows_core::IUnknown);
 impl IWICEnumMetadataItem {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, celt: u32, rgeltschema: *mut super::propidlbase::PROPVARIANT, rgeltid: *mut super::propidlbase::PROPVARIANT, rgeltvalue: Option<*mut super::propidlbase::PROPVARIANT>, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgeltschema), core::mem::transmute(rgeltid), rgeltvalue.unwrap_or(core::mem::zeroed()) as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -3424,22 +3424,22 @@ impl IWICEnumMetadataItem {
 #[doc(hidden)]
 pub struct IWICEnumMetadataItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::propidlbase::PROPVARIANT, *mut super::propidlbase::PROPVARIANT, *mut super::propidlbase::PROPVARIANT, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWICEnumMetadataItem_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgeltschema: *mut super::propidlbase::PROPVARIANT, rgeltid: *mut super::propidlbase::PROPVARIANT, rgeltvalue: *mut super::propidlbase::PROPVARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IWICEnumMetadataItem>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IWICEnumMetadataItem_Vtbl {
     pub const fn new<Identity: IWICEnumMetadataItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IWICEnumMetadataItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgeltschema: *mut super::propidlbase::PROPVARIANT, rgeltid: *mut super::propidlbase::PROPVARIANT, rgeltvalue: *mut super::propidlbase::PROPVARIANT, pceltfetched: *mut u32) -> windows_core::HRESULT {
@@ -3484,7 +3484,7 @@ impl IWICEnumMetadataItem_Vtbl {
         iid == &<IWICEnumMetadataItem as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWICEnumMetadataItem {}
 windows_core::imp::define_interface!(IWICFastMetadataEncoder, IWICFastMetadataEncoder_Vtbl, 0xb84e2c09_78c9_4ac4_8bd3_524ae1663a2f);
 windows_core::imp::interface_hierarchy!(IWICFastMetadataEncoder, windows_core::IUnknown);
@@ -3666,7 +3666,7 @@ impl windows_core::RuntimeName for IWICFormatConverterInfo {}
 windows_core::imp::define_interface!(IWICImageEncoder, IWICImageEncoder_Vtbl, 0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
 windows_core::imp::interface_hierarchy!(IWICImageEncoder, windows_core::IUnknown);
 impl IWICImageEncoder {
-    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
     pub unsafe fn WriteFrame<P0, P1>(&self, pimage: P0, pframeencode: P1, pimageparameters: *const WICImageParameters) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::d2d::ID2D1Image>,
@@ -3674,7 +3674,7 @@ impl IWICImageEncoder {
     {
         unsafe { (windows_core::Interface::vtable(self).WriteFrame)(windows_core::Interface::as_raw(self), pimage.param().abi(), pframeencode.param().abi(), pimageparameters) }
     }
-    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
     pub unsafe fn WriteFrameThumbnail<P0, P1>(&self, pimage: P0, pframeencode: P1, pimageparameters: *const WICImageParameters) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::d2d::ID2D1Image>,
@@ -3682,7 +3682,7 @@ impl IWICImageEncoder {
     {
         unsafe { (windows_core::Interface::vtable(self).WriteFrameThumbnail)(windows_core::Interface::as_raw(self), pimage.param().abi(), pframeencode.param().abi(), pimageparameters) }
     }
-    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
     pub unsafe fn WriteThumbnail<P0, P1>(&self, pimage: P0, pencoder: P1, pimageparameters: *const WICImageParameters) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::d2d::ID2D1Image>,
@@ -3695,26 +3695,26 @@ impl IWICImageEncoder {
 #[doc(hidden)]
 pub struct IWICImageEncoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
     pub WriteFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const WICImageParameters) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi")))]
+    #[cfg(not(all(feature = "d2d", feature = "dcommon", feature = "dxgi")))]
     WriteFrame: usize,
-    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
     pub WriteFrameThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const WICImageParameters) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi")))]
+    #[cfg(not(all(feature = "d2d", feature = "dcommon", feature = "dxgi")))]
     WriteFrameThumbnail: usize,
-    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
     pub WriteThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const WICImageParameters) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi")))]
+    #[cfg(not(all(feature = "d2d", feature = "dcommon", feature = "dxgi")))]
     WriteThumbnail: usize,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 pub trait IWICImageEncoder_Impl: windows_core::IUnknownImpl {
     fn WriteFrame(&self, pimage: windows_core::Ref<super::d2d::ID2D1Image>, pframeencode: windows_core::Ref<IWICBitmapFrameEncode>, pimageparameters: *const WICImageParameters) -> windows_core::Result<()>;
     fn WriteFrameThumbnail(&self, pimage: windows_core::Ref<super::d2d::ID2D1Image>, pframeencode: windows_core::Ref<IWICBitmapFrameEncode>, pimageparameters: *const WICImageParameters) -> windows_core::Result<()>;
     fn WriteThumbnail(&self, pimage: windows_core::Ref<super::d2d::ID2D1Image>, pencoder: windows_core::Ref<IWICBitmapEncoder>, pimageparameters: *const WICImageParameters) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 impl IWICImageEncoder_Vtbl {
     pub const fn new<Identity: IWICImageEncoder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn WriteFrame<Identity: IWICImageEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimage: *mut core::ffi::c_void, pframeencode: *mut core::ffi::c_void, pimageparameters: *const WICImageParameters) -> windows_core::HRESULT {
@@ -3746,7 +3746,7 @@ impl IWICImageEncoder_Vtbl {
         iid == &<IWICImageEncoder as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 impl windows_core::RuntimeName for IWICImageEncoder {}
 windows_core::imp::define_interface!(IWICImagingFactory, IWICImagingFactory_Vtbl, 0xec5ec8a9_c395_4314_9c77_54d7a935ff70);
 windows_core::imp::interface_hierarchy!(IWICImagingFactory, windows_core::IUnknown);
@@ -3760,7 +3760,7 @@ impl IWICImagingFactory {
             (windows_core::Interface::vtable(self).CreateDecoderFromFilename)(windows_core::Interface::as_raw(self), wzfilename.param().abi(), pguidvendor, dwdesiredaccess, metadataoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateDecoderFromStream<P0>(&self, pistream: P0, pguidvendor: *const windows_core::GUID, metadataoptions: WICDecodeOptions) -> windows_core::Result<IWICBitmapDecoder>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3824,7 +3824,7 @@ impl IWICImagingFactory {
             (windows_core::Interface::vtable(self).CreateBitmapFlipRotator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateStream(&self) -> windows_core::Result<IWICStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3873,21 +3873,21 @@ impl IWICImagingFactory {
             (windows_core::Interface::vtable(self).CreateBitmapFromMemory)(windows_core::Interface::as_raw(self), uiwidth, uiheight, pixelformat, cbstride, cbbuffersize, pbbuffer, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn CreateBitmapFromHBITMAP(&self, hbitmap: super::windef::HBITMAP, hpalette: super::windef::HPALETTE, options: WICBitmapAlphaChannelOption) -> windows_core::Result<IWICBitmap> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateBitmapFromHBITMAP)(windows_core::Interface::as_raw(self), hbitmap, hpalette, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn CreateBitmapFromHICON(&self, hicon: super::windef::HICON) -> windows_core::Result<IWICBitmap> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateBitmapFromHICON)(windows_core::Interface::as_raw(self), hicon, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateComponentEnumerator(&self, componenttypes: u32, options: u32) -> windows_core::Result<super::objidlbase::IEnumUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3933,9 +3933,9 @@ impl IWICImagingFactory {
 pub struct IWICImagingFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateDecoderFromFilename: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, u32, WICDecodeOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateDecoderFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, WICDecodeOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateDecoderFromStream: usize,
     pub CreateDecoderFromFileHandle: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *const windows_core::GUID, WICDecodeOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateComponentInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3946,9 +3946,9 @@ pub struct IWICImagingFactory_Vtbl {
     pub CreateBitmapScaler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateBitmapClipper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateBitmapFlipRotator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateStream: usize,
     pub CreateColorContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateColorTransformer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3956,24 +3956,24 @@ pub struct IWICImagingFactory_Vtbl {
     pub CreateBitmapFromSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WICBitmapCreateCacheOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateBitmapFromSourceRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateBitmapFromMemory: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, REFWICPixelFormatGUID, u32, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub CreateBitmapFromHBITMAP: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HBITMAP, super::windef::HPALETTE, WICBitmapAlphaChannelOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     CreateBitmapFromHBITMAP: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub CreateBitmapFromHICON: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HICON, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     CreateBitmapFromHICON: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateComponentEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateComponentEnumerator: usize,
     pub CreateFastMetadataEncoderFromDecoder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFastMetadataEncoderFromFrameDecode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateQueryWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateQueryWriterFromReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidlbase", feature = "windef"))]
 pub trait IWICImagingFactory_Impl: windows_core::IUnknownImpl {
     fn CreateDecoderFromFilename(&self, wzfilename: &windows_core::PCWSTR, pguidvendor: *const windows_core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> windows_core::Result<IWICBitmapDecoder>;
     fn CreateDecoderFromStream(&self, pistream: windows_core::Ref<super::objidlbase::IStream>, pguidvendor: *const windows_core::GUID, metadataoptions: WICDecodeOptions) -> windows_core::Result<IWICBitmapDecoder>;
@@ -4001,7 +4001,7 @@ pub trait IWICImagingFactory_Impl: windows_core::IUnknownImpl {
     fn CreateQueryWriter(&self, guidmetadataformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID) -> windows_core::Result<IWICMetadataQueryWriter>;
     fn CreateQueryWriterFromReader(&self, piqueryreader: windows_core::Ref<IWICMetadataQueryReader>, pguidvendor: *const windows_core::GUID) -> windows_core::Result<IWICMetadataQueryWriter>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidlbase", feature = "windef"))]
 impl IWICImagingFactory_Vtbl {
     pub const fn new<Identity: IWICImagingFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDecoderFromFilename<Identity: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzfilename: windows_core::PCWSTR, pguidvendor: *const windows_core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions, ppidecoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4337,7 +4337,7 @@ impl IWICImagingFactory_Vtbl {
         iid == &<IWICImagingFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidlbase", feature = "windef"))]
 impl windows_core::RuntimeName for IWICImagingFactory {}
 windows_core::imp::define_interface!(IWICImagingFactory2, IWICImagingFactory2_Vtbl, 0x7b816b45_1996_4476_b132_de9e247c8af0);
 impl core::ops::Deref for IWICImagingFactory2 {
@@ -4348,7 +4348,7 @@ impl core::ops::Deref for IWICImagingFactory2 {
 }
 windows_core::imp::interface_hierarchy!(IWICImagingFactory2, windows_core::IUnknown, IWICImagingFactory);
 impl IWICImagingFactory2 {
-    #[cfg(feature = "Win32_d2d")]
+    #[cfg(feature = "d2d")]
     pub unsafe fn CreateImageEncoder<P0>(&self, pd2ddevice: P0) -> windows_core::Result<IWICImageEncoder>
     where
         P0: windows_core::Param<super::d2d::ID2D1Device>,
@@ -4363,16 +4363,16 @@ impl IWICImagingFactory2 {
 #[doc(hidden)]
 pub struct IWICImagingFactory2_Vtbl {
     pub base__: IWICImagingFactory_Vtbl,
-    #[cfg(feature = "Win32_d2d")]
+    #[cfg(feature = "d2d")]
     pub CreateImageEncoder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d2d"))]
+    #[cfg(not(feature = "d2d"))]
     CreateImageEncoder: usize,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "objidlbase", feature = "windef"))]
 pub trait IWICImagingFactory2_Impl: IWICImagingFactory_Impl {
     fn CreateImageEncoder(&self, pd2ddevice: windows_core::Ref<super::d2d::ID2D1Device>) -> windows_core::Result<IWICImageEncoder>;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "objidlbase", feature = "windef"))]
 impl IWICImagingFactory2_Vtbl {
     pub const fn new<Identity: IWICImagingFactory2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateImageEncoder<Identity: IWICImagingFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd2ddevice: *mut core::ffi::c_void, ppwicimageencoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4393,7 +4393,7 @@ impl IWICImagingFactory2_Vtbl {
         iid == &<IWICImagingFactory2 as windows_core::Interface>::IID || iid == &<IWICImagingFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "objidlbase", feature = "windef"))]
 impl windows_core::RuntimeName for IWICImagingFactory2 {}
 windows_core::imp::define_interface!(IWICImagingFactory3, IWICImagingFactory3_Vtbl, 0x489b3d8b_624a_4258_b678_7eece70f299d);
 impl core::ops::Deref for IWICImagingFactory3 {
@@ -4417,11 +4417,11 @@ pub struct IWICImagingFactory3_Vtbl {
     pub base__: IWICImagingFactory2_Vtbl,
     pub CreateBitmapToneMapper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "objidlbase", feature = "windef"))]
 pub trait IWICImagingFactory3_Impl: IWICImagingFactory2_Impl {
     fn CreateBitmapToneMapper(&self) -> windows_core::Result<IWICBitmapToneMapper>;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "objidlbase", feature = "windef"))]
 impl IWICImagingFactory3_Vtbl {
     pub const fn new<Identity: IWICImagingFactory3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateBitmapToneMapper<Identity: IWICImagingFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptonemapper: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4442,7 +4442,7 @@ impl IWICImagingFactory3_Vtbl {
         iid == &<IWICImagingFactory3 as windows_core::Interface>::IID || iid == &<IWICImagingFactory as windows_core::Interface>::IID || iid == &<IWICImagingFactory2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "objidlbase", feature = "windef"))]
 impl windows_core::RuntimeName for IWICImagingFactory3 {}
 windows_core::imp::define_interface!(IWICJpegFrameDecode, IWICJpegFrameDecode_Vtbl, 0x8939f66e_c46a_4c21_a9d1_98b327ce1679);
 windows_core::imp::interface_hierarchy!(IWICJpegFrameDecode, windows_core::IUnknown);
@@ -4459,15 +4459,15 @@ impl IWICJpegFrameDecode {
     pub unsafe fn ClearIndexing(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ClearIndexing)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAcHuffmanTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pachuffmantable as _) }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDcHuffmanTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pdchuffmantable as _) }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetQuantizationTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pquantizationtable as _) }
     }
@@ -4491,24 +4491,24 @@ pub struct IWICJpegFrameDecode_Vtbl {
     pub DoesSupportIndexing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetIndexing: unsafe extern "system" fn(*mut core::ffi::c_void, WICJpegIndexingOptions, u32) -> windows_core::HRESULT,
     pub ClearIndexing: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetAcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetAcHuffmanTable: usize,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetDcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetDcHuffmanTable: usize,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetQuantizationTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetQuantizationTable: usize,
     pub GetFrameHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICJpegFrameHeader) -> windows_core::HRESULT,
     pub GetScanHeader: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut WICJpegScanHeader) -> windows_core::HRESULT,
     pub CopyScan: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub CopyMinimalStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 pub trait IWICJpegFrameDecode_Impl: windows_core::IUnknownImpl {
     fn DoesSupportIndexing(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetIndexing(&self, options: WICJpegIndexingOptions, horizontalintervalsize: u32) -> windows_core::Result<()>;
@@ -4521,7 +4521,7 @@ pub trait IWICJpegFrameDecode_Impl: windows_core::IUnknownImpl {
     fn CopyScan(&self, scanindex: u32, scanoffset: u32, cbscandata: u32, pbscandata: *mut u8, pcbscandataactual: *mut u32) -> windows_core::Result<()>;
     fn CopyMinimalStream(&self, streamoffset: u32, cbstreamdata: u32, pbstreamdata: *mut u8, pcbstreamdataactual: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl IWICJpegFrameDecode_Vtbl {
     pub const fn new<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DoesSupportIndexing<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfindexingsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -4608,20 +4608,20 @@ impl IWICJpegFrameDecode_Vtbl {
         iid == &<IWICJpegFrameDecode as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl windows_core::RuntimeName for IWICJpegFrameDecode {}
 windows_core::imp::define_interface!(IWICJpegFrameEncode, IWICJpegFrameEncode_Vtbl, 0x2f0c601f_d2c6_468c_abfa_49495d983ed1);
 windows_core::imp::interface_hierarchy!(IWICJpegFrameEncode, windows_core::IUnknown);
 impl IWICJpegFrameEncode {
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAcHuffmanTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pachuffmantable as _) }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDcHuffmanTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pdchuffmantable as _) }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetQuantizationTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pquantizationtable as _) }
     }
@@ -4633,28 +4633,28 @@ impl IWICJpegFrameEncode {
 #[doc(hidden)]
 pub struct IWICJpegFrameEncode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetAcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetAcHuffmanTable: usize,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetDcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetDcHuffmanTable: usize,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetQuantizationTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetQuantizationTable: usize,
     pub WriteScan: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 pub trait IWICJpegFrameEncode_Impl: windows_core::IUnknownImpl {
     fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::Result<()>;
     fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::Result<()>;
     fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::Result<()>;
     fn WriteScan(&self, cbscandata: u32, pbscandata: *const u8) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl IWICJpegFrameEncode_Vtbl {
     pub const fn new<Identity: IWICJpegFrameEncode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAcHuffmanTable<Identity: IWICJpegFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT {
@@ -4693,7 +4693,7 @@ impl IWICJpegFrameEncode_Vtbl {
         iid == &<IWICJpegFrameEncode as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl windows_core::RuntimeName for IWICJpegFrameEncode {}
 windows_core::imp::define_interface!(IWICMetadataQueryReader, IWICMetadataQueryReader_Vtbl, 0x30989668_e1c9_4597_b395_458eedb808df);
 windows_core::imp::interface_hierarchy!(IWICMetadataQueryReader, windows_core::IUnknown);
@@ -4707,14 +4707,14 @@ impl IWICMetadataQueryReader {
     pub unsafe fn GetLocation(&self, cchmaxlength: u32, wznamespace: *mut u16, pcchactuallength: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLocation)(windows_core::Interface::as_raw(self), cchmaxlength, wznamespace as _, pcchactuallength as _) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetMetadataByName)(windows_core::Interface::as_raw(self), wzname.param().abi(), core::mem::transmute(pvarvalue)) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<super::objidlbase::IEnumString> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4728,23 +4728,23 @@ pub struct IWICMetadataQueryReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContainerFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetLocation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetMetadataByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetMetadataByName: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetEnumerator: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWICMetadataQueryReader_Impl: windows_core::IUnknownImpl {
     fn GetContainerFormat(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetLocation(&self, cchmaxlength: u32, wznamespace: *mut u16, pcchactuallength: *mut u32) -> windows_core::Result<()>;
     fn GetMetadataByName(&self, wzname: &windows_core::PCWSTR, pvarvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
     fn GetEnumerator(&self) -> windows_core::Result<super::objidlbase::IEnumString>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IWICMetadataQueryReader_Vtbl {
     pub const fn new<Identity: IWICMetadataQueryReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetContainerFormat<Identity: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcontainerformat: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -4795,7 +4795,7 @@ impl IWICMetadataQueryReader_Vtbl {
         iid == &<IWICMetadataQueryReader as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWICMetadataQueryReader {}
 windows_core::imp::define_interface!(IWICMetadataQueryWriter, IWICMetadataQueryWriter_Vtbl, 0xa721791a_0def_4d06_bd91_2118bf1db10b);
 impl core::ops::Deref for IWICMetadataQueryWriter {
@@ -4806,7 +4806,7 @@ impl core::ops::Deref for IWICMetadataQueryWriter {
 }
 windows_core::imp::interface_hierarchy!(IWICMetadataQueryWriter, windows_core::IUnknown, IWICMetadataQueryReader);
 impl IWICMetadataQueryWriter {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -4824,18 +4824,18 @@ impl IWICMetadataQueryWriter {
 #[doc(hidden)]
 pub struct IWICMetadataQueryWriter_Vtbl {
     pub base__: IWICMetadataQueryReader_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub SetMetadataByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     SetMetadataByName: usize,
     pub RemoveMetadataByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWICMetadataQueryWriter_Impl: IWICMetadataQueryReader_Impl {
     fn SetMetadataByName(&self, wzname: &windows_core::PCWSTR, pvarvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
     fn RemoveMetadataByName(&self, wzname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IWICMetadataQueryWriter_Vtbl {
     pub const fn new<Identity: IWICMetadataQueryWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetMetadataByName<Identity: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
@@ -4860,7 +4860,7 @@ impl IWICMetadataQueryWriter_Vtbl {
         iid == &<IWICMetadataQueryWriter as windows_core::Interface>::IID || iid == &<IWICMetadataQueryReader as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWICMetadataQueryWriter {}
 windows_core::imp::define_interface!(IWICPalette, IWICPalette_Vtbl, 0x00000040_a8f2_4877_ba0a_fd2b6645fb94);
 windows_core::imp::interface_hierarchy!(IWICPalette, windows_core::IUnknown);
@@ -5508,18 +5508,18 @@ impl IWICProgressiveLevelControl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWICProgressiveLevelControl {}
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(IWICStream, IWICStream_Vtbl, 0x135ff860_22b7_4ddf_b0f6_218f4f299a43);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl core::ops::Deref for IWICStream {
     type Target = super::objidlbase::IStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 windows_core::imp::interface_hierarchy!(IWICStream, windows_core::IUnknown, super::objidlbase::ISequentialStream, super::objidlbase::IStream);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IWICStream {
     pub unsafe fn InitializeFromIStream<P0>(&self, pistream: P0) -> windows_core::HRESULT
     where
@@ -5543,7 +5543,7 @@ impl IWICStream {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromIStreamRegion)(windows_core::Interface::as_raw(self), pistream.param().abi(), uloffset, ulmaxsize) }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICStream_Vtbl {
@@ -5553,14 +5553,14 @@ pub struct IWICStream_Vtbl {
     pub InitializeFromMemory: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
     pub InitializeFromIStreamRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, u64) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 pub trait IWICStream_Impl: super::objidlbase::IStream_Impl {
     fn InitializeFromIStream(&self, pistream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
     fn InitializeFromFilename(&self, wzfilename: &windows_core::PCWSTR, dwdesiredaccess: u32) -> windows_core::Result<()>;
     fn InitializeFromMemory(&self, pbbuffer: *const u8, cbbuffersize: u32) -> windows_core::Result<()>;
     fn InitializeFromIStreamRegion(&self, pistream: windows_core::Ref<super::objidlbase::IStream>, uloffset: u64, ulmaxsize: u64) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl IWICStream_Vtbl {
     pub const fn new<Identity: IWICStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitializeFromIStream<Identity: IWICStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5599,7 +5599,7 @@ impl IWICStream_Vtbl {
         iid == &<IWICStream as windows_core::Interface>::IID || iid == &<super::objidlbase::ISequentialStream as windows_core::Interface>::IID || iid == &<super::objidlbase::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IWICStream {}
 pub type PFNProgressNotification = Option<unsafe extern "system" fn(pvdata: *mut core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> windows_core::HRESULT>;
 #[repr(transparent)]
@@ -5785,7 +5785,7 @@ pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = 1;
 pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = 0;
 pub type WICDdsDimension = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WICDdsFormatInfo {
     pub DxgiFormat: super::dxgi::DXGI_FORMAT,
@@ -5794,7 +5794,7 @@ pub struct WICDdsFormatInfo {
     pub BlockHeight: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WICDdsParameters {
     pub Width: u32,
@@ -5875,7 +5875,7 @@ pub const WICHeifOrientation: WICHeifProperties = 1;
 pub type WICHeifProperties = i32;
 pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = 2147483647;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WICImageParameters {
     pub PixelFormat: super::dcommon::D2D1_PIXEL_FORMAT,

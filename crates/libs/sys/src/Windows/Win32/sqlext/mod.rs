@@ -1,77 +1,77 @@
 windows_link::link!("odbc32.dll" "system" fn ODBCGetTryWaitValue() -> u32);
 windows_link::link!("odbc32.dll" "system" fn ODBCSetTryWaitValue(dwvalue : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLAllocHandleStd(fhandletype : super::sqltypes::SQLSMALLINT, hinput : super::sqltypes::SQLHANDLE, phoutput : *mut super::sqltypes::SQLHANDLE) -> super::sqltypes::SQLRETURN);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLBindParameter(hstmt : super::sqltypes::SQLHSTMT, ipar : super::sqltypes::SQLUSMALLINT, fparamtype : super::sqltypes::SQLSMALLINT, fctype : super::sqltypes::SQLSMALLINT, fsqltype : super::sqltypes::SQLSMALLINT, cbcoldef : super::sqltypes::SQLUINTEGER, ibscale : super::sqltypes::SQLSMALLINT, rgbvalue : super::sqltypes::SQLPOINTER, cbvaluemax : super::sqltypes::SQLINTEGER, pcbvalue : *mut super::sqltypes::SQLINTEGER) -> super::sqltypes::SQLRETURN);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLBindParameter(hstmt : super::sqltypes::SQLHSTMT, ipar : super::sqltypes::SQLUSMALLINT, fparamtype : super::sqltypes::SQLSMALLINT, fctype : super::sqltypes::SQLSMALLINT, fsqltype : super::sqltypes::SQLSMALLINT, cbcoldef : super::sqltypes::SQLULEN, ibscale : super::sqltypes::SQLSMALLINT, rgbvalue : super::sqltypes::SQLPOINTER, cbvaluemax : super::sqltypes::SQLLEN, pcbvalue : *mut super::sqltypes::SQLLEN) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLBrowseConnect(hdbc : super::sqltypes::SQLHDBC, szconnstrin : *const super::sqltypes::SQLCHAR, cchconnstrin : super::sqltypes::SQLSMALLINT, szconnstrout : *mut super::sqltypes::SQLCHAR, cchconnstroutmax : super::sqltypes::SQLSMALLINT, pcchconnstrout : *mut super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLBulkOperations(statementhandle : super::sqltypes::SQLHSTMT, operation : super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLColAttributes(hstmt : super::sqltypes::SQLHSTMT, icol : super::sqltypes::SQLUSMALLINT, fdesctype : super::sqltypes::SQLUSMALLINT, rgbdesc : super::sqltypes::SQLPOINTER, cbdescmax : super::sqltypes::SQLSMALLINT, pcbdesc : *mut super::sqltypes::SQLSMALLINT, pfdesc : *mut super::sqltypes::SQLINTEGER) -> super::sqltypes::SQLRETURN);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLColAttributes(hstmt : super::sqltypes::SQLHSTMT, icol : super::sqltypes::SQLUSMALLINT, fdesctype : super::sqltypes::SQLUSMALLINT, rgbdesc : super::sqltypes::SQLPOINTER, cbdescmax : super::sqltypes::SQLSMALLINT, pcbdesc : *mut super::sqltypes::SQLSMALLINT, pfdesc : *mut super::sqltypes::SQLLEN) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLColumnPrivileges(hstmt : super::sqltypes::SQLHSTMT, szcatalogname : *const super::sqltypes::SQLCHAR, cchcatalogname : super::sqltypes::SQLSMALLINT, szschemaname : *const super::sqltypes::SQLCHAR, cchschemaname : super::sqltypes::SQLSMALLINT, sztablename : *const super::sqltypes::SQLCHAR, cchtablename : super::sqltypes::SQLSMALLINT, szcolumnname : *const super::sqltypes::SQLCHAR, cchcolumnname : super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLDescribeParam(hstmt : super::sqltypes::SQLHSTMT, ipar : super::sqltypes::SQLUSMALLINT, pfsqltype : *mut super::sqltypes::SQLSMALLINT, pcbparamdef : *mut super::sqltypes::SQLUINTEGER, pibscale : *mut super::sqltypes::SQLSMALLINT, pfnullable : *mut super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLDescribeParam(hstmt : super::sqltypes::SQLHSTMT, ipar : super::sqltypes::SQLUSMALLINT, pfsqltype : *mut super::sqltypes::SQLSMALLINT, pcbparamdef : *mut super::sqltypes::SQLULEN, pibscale : *mut super::sqltypes::SQLSMALLINT, pfnullable : *mut super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
-#[cfg(all(feature = "Win32_sqltypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "sqltypes", feature = "windef"))]
 windows_link::link!("odbc32.dll" "system" fn SQLDriverConnect(hdbc : super::sqltypes::SQLHDBC, hwnd : super::sqltypes::SQLHWND, szconnstrin : *const super::sqltypes::SQLCHAR, cchconnstrin : super::sqltypes::SQLSMALLINT, szconnstrout : *mut super::sqltypes::SQLCHAR, cchconnstroutmax : super::sqltypes::SQLSMALLINT, pcchconnstrout : *mut super::sqltypes::SQLSMALLINT, fdrivercompletion : super::sqltypes::SQLUSMALLINT) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLDrivers(henv : super::sqltypes::SQLHENV, fdirection : super::sqltypes::SQLUSMALLINT, szdriverdesc : *mut super::sqltypes::SQLCHAR, cchdriverdescmax : super::sqltypes::SQLSMALLINT, pcchdriverdesc : *mut super::sqltypes::SQLSMALLINT, szdriverattributes : *mut super::sqltypes::SQLCHAR, cchdrvrattrmax : super::sqltypes::SQLSMALLINT, pcchdrvrattr : *mut super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLExtendedFetch(hstmt : super::sqltypes::SQLHSTMT, ffetchtype : super::sqltypes::SQLUSMALLINT, irow : super::sqltypes::SQLINTEGER, pcrow : *mut super::sqltypes::SQLUINTEGER, rgfrowstatus : *mut super::sqltypes::SQLUSMALLINT) -> super::sqltypes::SQLRETURN);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLExtendedFetch(hstmt : super::sqltypes::SQLHSTMT, ffetchtype : super::sqltypes::SQLUSMALLINT, irow : super::sqltypes::SQLLEN, pcrow : *mut super::sqltypes::SQLULEN, rgfrowstatus : *mut super::sqltypes::SQLUSMALLINT) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLForeignKeys(hstmt : super::sqltypes::SQLHSTMT, szpkcatalogname : *const super::sqltypes::SQLCHAR, cchpkcatalogname : super::sqltypes::SQLSMALLINT, szpkschemaname : *const super::sqltypes::SQLCHAR, cchpkschemaname : super::sqltypes::SQLSMALLINT, szpktablename : *const super::sqltypes::SQLCHAR, cchpktablename : super::sqltypes::SQLSMALLINT, szfkcatalogname : *const super::sqltypes::SQLCHAR, cchfkcatalogname : super::sqltypes::SQLSMALLINT, szfkschemaname : *const super::sqltypes::SQLCHAR, cchfkschemaname : super::sqltypes::SQLSMALLINT, szfktablename : *const super::sqltypes::SQLCHAR, cchfktablename : super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLMoreResults(hstmt : super::sqltypes::SQLHSTMT) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLNativeSql(hdbc : super::sqltypes::SQLHDBC, szsqlstrin : *const super::sqltypes::SQLCHAR, cchsqlstrin : super::sqltypes::SQLINTEGER, szsqlstr : *mut super::sqltypes::SQLCHAR, cchsqlstrmax : super::sqltypes::SQLINTEGER, pcbsqlstr : *mut super::sqltypes::SQLINTEGER) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLNumParams(hstmt : super::sqltypes::SQLHSTMT, pcpar : *mut super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLParamOptions(hstmt : super::sqltypes::SQLHSTMT, crow : super::sqltypes::SQLUINTEGER, pirow : *mut super::sqltypes::SQLUINTEGER) -> super::sqltypes::SQLRETURN);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLParamOptions(hstmt : super::sqltypes::SQLHSTMT, crow : super::sqltypes::SQLULEN, pirow : *mut super::sqltypes::SQLULEN) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLPrimaryKeys(hstmt : super::sqltypes::SQLHSTMT, szcatalogname : *const super::sqltypes::SQLCHAR, cchcatalogname : super::sqltypes::SQLSMALLINT, szschemaname : *const super::sqltypes::SQLCHAR, cchschemaname : super::sqltypes::SQLSMALLINT, sztablename : *const super::sqltypes::SQLCHAR, cchtablename : super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLProcedureColumns(hstmt : super::sqltypes::SQLHSTMT, szcatalogname : *const super::sqltypes::SQLCHAR, cchcatalogname : super::sqltypes::SQLSMALLINT, szschemaname : *const super::sqltypes::SQLCHAR, cchschemaname : super::sqltypes::SQLSMALLINT, szprocname : *const super::sqltypes::SQLCHAR, cchprocname : super::sqltypes::SQLSMALLINT, szcolumnname : *const super::sqltypes::SQLCHAR, cchcolumnname : super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLProcedures(hstmt : super::sqltypes::SQLHSTMT, szcatalogname : *const super::sqltypes::SQLCHAR, cchcatalogname : super::sqltypes::SQLSMALLINT, szschemaname : *const super::sqltypes::SQLCHAR, cchschemaname : super::sqltypes::SQLSMALLINT, szprocname : *const super::sqltypes::SQLCHAR, cchprocname : super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLSetPos(hstmt : super::sqltypes::SQLHSTMT, irow : super::sqltypes::SQLUSMALLINT, foption : super::sqltypes::SQLUSMALLINT, flock : super::sqltypes::SQLUSMALLINT) -> super::sqltypes::SQLRETURN);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLSetPos(hstmt : super::sqltypes::SQLHSTMT, irow : super::sqltypes::SQLSETPOSIROW, foption : super::sqltypes::SQLUSMALLINT, flock : super::sqltypes::SQLUSMALLINT) -> super::sqltypes::SQLRETURN);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLSetScrollOptions(hstmt : super::sqltypes::SQLHSTMT, fconcurrency : super::sqltypes::SQLUSMALLINT, crowkeyset : super::sqltypes::SQLINTEGER, crowrowset : super::sqltypes::SQLUSMALLINT) -> super::sqltypes::SQLRETURN);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLSetScrollOptions(hstmt : super::sqltypes::SQLHSTMT, fconcurrency : super::sqltypes::SQLUSMALLINT, crowkeyset : super::sqltypes::SQLLEN, crowrowset : super::sqltypes::SQLUSMALLINT) -> super::sqltypes::SQLRETURN);
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLTablePrivileges(hstmt : super::sqltypes::SQLHSTMT, szcatalogname : *const super::sqltypes::SQLCHAR, cchcatalogname : super::sqltypes::SQLSMALLINT, szschemaname : *const super::sqltypes::SQLCHAR, cchschemaname : super::sqltypes::SQLSMALLINT, sztablename : *const super::sqltypes::SQLCHAR, cchtablename : super::sqltypes::SQLSMALLINT) -> super::sqltypes::SQLRETURN);
 #[repr(C)]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 #[derive(Clone, Copy)]
 pub struct ODBC_VS_ARGS {
     pub pguidEvent: *const windows_sys::core::GUID,
@@ -80,33 +80,33 @@ pub struct ODBC_VS_ARGS {
     pub Anonymous2: ODBC_VS_ARGS_1,
     pub RetCode: super::sqltypes::RETCODE,
 }
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 impl Default for ODBC_VS_ARGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 #[derive(Clone, Copy)]
 pub union ODBC_VS_ARGS_0 {
     pub wszArg: *mut u16,
     pub szArg: *mut i8,
 }
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 impl Default for ODBC_VS_ARGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 #[derive(Clone, Copy)]
 pub union ODBC_VS_ARGS_1 {
     pub wszCorrelation: *mut u16,
     pub szCorrelation: *mut i8,
 }
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 impl Default for ODBC_VS_ARGS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -116,9 +116,9 @@ pub const ODBC_VS_FLAG_RETCODE: u32 = 4;
 pub const ODBC_VS_FLAG_STOP: u32 = 8;
 pub const ODBC_VS_FLAG_UNICODE_ARG: u32 = 1;
 pub const ODBC_VS_FLAG_UNICODE_COR: u32 = 2;
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 pub type PODBC_VS_ARGS = *mut ODBC_VS_ARGS;
-#[cfg(feature = "Win32_sqltypes")]
+#[cfg(feature = "sqltypes")]
 pub type SQLSTATE = [super::sqltypes::SQLTCHAR; 6];
 pub const SQL_AA_FALSE: u32 = 0;
 pub const SQL_AA_TRUE: u32 = 1;

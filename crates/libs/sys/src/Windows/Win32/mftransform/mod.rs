@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFCreateTransformActivate(ppactivate : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type DeviceStreamState = i32;
 pub const DeviceStreamState_Disabled: DeviceStreamState = 3;
@@ -62,7 +62,7 @@ pub type MFT_MESSAGE_TYPE = i32;
 pub const MFT_OUTPUT_BOUND_LOWER_UNBOUNDED: u32 = 0;
 pub const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: i32 = -1;
 #[repr(C)]
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[derive(Clone, Copy)]
 pub struct MFT_OUTPUT_DATA_BUFFER {
     pub dwStreamID: u32,
@@ -70,7 +70,7 @@ pub struct MFT_OUTPUT_DATA_BUFFER {
     pub dwStatus: u32,
     pub pEvents: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl Default for MFT_OUTPUT_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -103,16 +103,16 @@ pub const MFT_PROCESS_OUTPUT_STATUS_NEW_STREAMS: _MFT_PROCESS_OUTPUT_STATUS = 25
 pub const MFT_SET_TYPE_TEST_ONLY: _MFT_SET_TYPE_FLAGS = 1;
 pub const MFT_STREAMS_UNLIMITED: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[derive(Clone, Copy, Default)]
 pub struct MFT_STREAM_STATE_PARAM {
     pub StreamId: u32,
     pub State: super::mfobjects::MF_STREAM_STATE,
 }
 pub type PDeviceStreamState = *mut DeviceStreamState;
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub type PMFT_OUTPUT_DATA_BUFFER = *mut MFT_OUTPUT_DATA_BUFFER;
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub type PMFT_STREAM_STATE_PARAM = *mut MFT_STREAM_STATE_PARAM;
 pub type PSTREAM_MEDIUM = *mut STREAM_MEDIUM;
 #[repr(C)]

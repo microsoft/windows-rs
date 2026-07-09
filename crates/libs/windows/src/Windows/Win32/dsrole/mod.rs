@@ -3,7 +3,7 @@ pub unsafe fn DsRoleFreeMemory(buffer: *mut core::ffi::c_void) {
     windows_core::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : *mut core::ffi::c_void));
     unsafe { DsRoleFreeMemory(buffer as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DsRoleGetPrimaryDomainInformation<P0>(lpserver: P0, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: *mut super::minwindef::PBYTE) -> u32
 where

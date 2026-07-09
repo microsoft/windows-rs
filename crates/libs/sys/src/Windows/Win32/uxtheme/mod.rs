@@ -1,146 +1,146 @@
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn BeginBufferedAnimation(hwnd : super::windef::HWND, hdctarget : super::windef::HDC, prctarget : *const super::windef::RECT, dwformat : BP_BUFFERFORMAT, ppaintparams : *const BP_PAINTPARAMS, panimationparams : *const BP_ANIMATIONPARAMS, phdcfrom : *mut super::windef::HDC, phdcto : *mut super::windef::HDC) -> HANIMATIONBUFFER);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn BeginBufferedPaint(hdctarget : super::windef::HDC, prctarget : *const super::windef::RECT, dwformat : BP_BUFFERFORMAT, ppaintparams : *const BP_PAINTPARAMS, phdc : *mut super::windef::HDC) -> HPAINTBUFFER);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("uxtheme.dll" "system" fn BeginPanningFeedback(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn BufferedPaintClear(hbufferedpaint : HPAINTBUFFER, prc : *const super::windef::RECT) -> windows_sys::core::HRESULT);
 windows_link::link!("uxtheme.dll" "system" fn BufferedPaintInit() -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("uxtheme.dll" "system" fn BufferedPaintRenderAnimation(hwnd : super::windef::HWND, hdctarget : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn BufferedPaintSetAlpha(hbufferedpaint : HPAINTBUFFER, prc : *const super::windef::RECT, alpha : u8) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("uxtheme.dll" "system" fn BufferedPaintStopAllAnimations(hwnd : super::windef::HWND) -> windows_sys::core::HRESULT);
 windows_link::link!("uxtheme.dll" "system" fn BufferedPaintUnInit() -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn CloseThemeData(htheme : super::shobjidl_core::HTHEME) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn DrawThemeBackground(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, prect : *const super::windef::RECT, pcliprect : *const super::windef::RECT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn DrawThemeBackgroundEx(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, prect : *const super::windef::RECT, poptions : *const DTBGOPTS) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn DrawThemeEdge(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, pdestrect : *const super::windef::RECT, uedge : u32, uflags : u32, pcontentrect : *mut super::windef::RECT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_commctrl", feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "commctrl", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn DrawThemeIcon(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, prect : *const super::windef::RECT, himl : *const super::commctrl::_IMAGELIST, iimageindex : i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("uxtheme.dll" "system" fn DrawThemeParentBackground(hwnd : super::windef::HWND, hdc : super::windef::HDC, prc : *const super::windef::RECT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("uxtheme.dll" "system" fn DrawThemeParentBackgroundEx(hwnd : super::windef::HWND, hdc : super::windef::HDC, dwflags : u32, prc : *const super::windef::RECT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, psztext : windows_sys::core::PCWSTR, cchtext : i32, dwtextflags : u32, dwtextflags2 : u32, prect : *const super::windef::RECT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn DrawThemeTextEx(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, psztext : windows_sys::core::PCWSTR, cchtext : i32, dwtextflags : u32, prect : *mut super::windef::RECT, poptions : *const DTTOPTS) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("uxtheme.dll" "system" fn EnableThemeDialogTexture(hwnd : super::windef::HWND, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("uxtheme.dll" "system" fn EnableTheming(fenable : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("uxtheme.dll" "system" fn EndBufferedAnimation(hbpanimation : HANIMATIONBUFFER, fupdatetarget : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("uxtheme.dll" "system" fn EndBufferedPaint(hbufferedpaint : HPAINTBUFFER, fupdatetarget : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("uxtheme.dll" "system" fn EndPanningFeedback(hwnd : super::windef::HWND, fanimateback : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetBufferedPaintBits(hbufferedpaint : HPAINTBUFFER, ppbbuffer : *mut *mut super::wingdi::RGBQUAD, pcxrow : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetBufferedPaintDC(hbufferedpaint : HPAINTBUFFER) -> super::windef::HDC);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetBufferedPaintTargetDC(hbufferedpaint : HPAINTBUFFER) -> super::windef::HDC);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetBufferedPaintTargetRect(hbufferedpaint : HPAINTBUFFER, prc : *mut super::windef::RECT) -> windows_sys::core::HRESULT);
 windows_link::link!("uxtheme.dll" "system" fn GetCurrentThemeName(pszthemefilename : windows_sys::core::PWSTR, cchmaxnamechars : i32, pszcolorbuff : windows_sys::core::PWSTR, cchmaxcolorchars : i32, pszsizebuff : windows_sys::core::PWSTR, cchmaxsizechars : i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeAnimationProperty(htheme : super::shobjidl_core::HTHEME, istoryboardid : i32, itargetid : i32, eproperty : TA_PROPERTY, pvproperty : *mut core::ffi::c_void, cbsize : u32, pcbsizeout : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeAnimationTransform(htheme : super::shobjidl_core::HTHEME, istoryboardid : i32, itargetid : i32, dwtransformindex : u32, ptransform : *mut TA_TRANSFORM, cbsize : u32, pcbsizeout : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("uxtheme.dll" "system" fn GetThemeAppProperties() -> u32);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeBackgroundContentRect(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, pboundingrect : *const super::windef::RECT, pcontentrect : *mut super::windef::RECT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeBackgroundExtent(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, pcontentrect : *const super::windef::RECT, pextentrect : *mut super::windef::RECT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeBackgroundRegion(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, prect : *const super::windef::RECT, pregion : *mut super::minwindef::HRGN) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeBitmap(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, dwflags : u32, phbitmap : *mut super::windef::HBITMAP) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeBool(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pfval : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeColor(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pcolor : *mut super::windef::COLORREF) -> windows_sys::core::HRESULT);
 windows_link::link!("uxtheme.dll" "system" fn GetThemeDocumentationProperty(pszthemename : windows_sys::core::PCWSTR, pszpropertyname : windows_sys::core::PCWSTR, pszvaluebuff : windows_sys::core::PWSTR, cchmaxvalchars : i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeEnumValue(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszthemefilename : windows_sys::core::PWSTR, cchmaxbuffchars : i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeFont(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, ipropid : i32, pfont : *mut super::wingdi::LOGFONTW) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeInt(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeIntList(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pintlist : *mut INTLIST) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, ipropid : i32, prc : *const super::windef::RECT, pmargins : *mut MARGINS) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeMetric(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemePartSize(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, prc : *const super::windef::RECT, esize : THEMESIZE, psz : *mut super::windef::SIZE) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemePosition(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppoint : *mut super::windef::POINT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemePropertyOrigin(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, porigin : *mut PROPERTYORIGIN) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeRect(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, prect : *mut super::windef::RECT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeStream(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppvstream : *mut *mut core::ffi::c_void, pcbstream : *mut u32, hinst : super::minwindef::HINSTANCE) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeString(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszbuff : windows_sys::core::PWSTR, cchmaxbuffchars : i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeSysBool(htheme : super::shobjidl_core::HTHEME, iboolid : i32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeSysColor(htheme : super::shobjidl_core::HTHEME, icolorid : i32) -> super::windef::COLORREF);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeSysColorBrush(htheme : super::shobjidl_core::HTHEME, icolorid : i32) -> super::windef::HBRUSH);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeSysFont(htheme : super::shobjidl_core::HTHEME, ifontid : i32, plf : *mut super::wingdi::LOGFONTW) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeSysInt(htheme : super::shobjidl_core::HTHEME, iintid : i32, pivalue : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeSysSize(htheme : super::shobjidl_core::HTHEME, isizeid : i32) -> i32);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeSysString(htheme : super::shobjidl_core::HTHEME, istringid : i32, pszstringbuff : windows_sys::core::PWSTR, cchmaxstringchars : i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, psztext : windows_sys::core::PCWSTR, cchcharcount : i32, dwtextflags : u32, pboundingrect : *const super::windef::RECT, pextentrect : *mut super::windef::RECT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeTextMetrics(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, ptm : *mut super::wingdi::TEXTMETRICW) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeTimingFunction(htheme : super::shobjidl_core::HTHEME, itimingfunctionid : i32, ptimingfunction : *mut TA_TIMINGFUNCTION, cbsize : u32, pcbsizeout : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetThemeTransitionDuration(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateidfrom : i32, istateidto : i32, ipropid : i32, pdwduration : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn GetWindowTheme(hwnd : super::windef::HWND) -> super::shobjidl_core::HTHEME);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, dwoptions : u32, prect : *const super::windef::RECT, hrgn : super::minwindef::HRGN, pttest : super::windef::POINT, pwhittestcode : *mut u16) -> windows_sys::core::HRESULT);
 windows_link::link!("uxtheme.dll" "system" fn IsAppThemed() -> windows_sys::core::BOOL);
 windows_link::link!("uxtheme.dll" "system" fn IsCompositionActive() -> windows_sys::core::BOOL);
 windows_link::link!("uxtheme.dll" "system" fn IsThemeActive() -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn IsThemeBackgroundPartiallyTransparent(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("uxtheme.dll" "system" fn IsThemeDialogTextureEnabled(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn IsThemePartDefined(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn OpenThemeData(hwnd : super::windef::HWND, pszclasslist : windows_sys::core::PCWSTR) -> super::shobjidl_core::HTHEME);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn OpenThemeDataEx(hwnd : super::windef::HWND, pszclasslist : windows_sys::core::PCWSTR, dwflags : u32) -> super::shobjidl_core::HTHEME);
-#[cfg(all(feature = "Win32_shobjidl_core", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 windows_link::link!("uxtheme.dll" "system" fn OpenThemeDataForDpi(hwnd : super::windef::HWND, pszclasslist : windows_sys::core::PCWSTR, dpi : u32) -> super::shobjidl_core::HTHEME);
 windows_link::link!("uxtheme.dll" "system" fn SetThemeAppProperties(dwflags : u32));
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("uxtheme.dll" "system" fn SetWindowTheme(hwnd : super::windef::HWND, pszsubappname : windows_sys::core::PCWSTR, pszsubidlist : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("uxtheme.dll" "system" fn SetWindowThemeAttribute(hwnd : super::windef::HWND, eattribute : WINDOWTHEMEATTRIBUTETYPE, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("uxtheme.dll" "system" fn UpdatePanningFeedback(hwnd : super::windef::HWND, ltotaloverpanoffsetx : i32, ltotaloverpanoffsety : i32, fininertia : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 pub const BPAS_CUBIC: BP_ANIMATIONSTYLE = 2;
 pub const BPAS_LINEAR: BP_ANIMATIONSTYLE = 1;
@@ -165,7 +165,7 @@ pub struct BP_ANIMATIONPARAMS {
 pub type BP_ANIMATIONSTYLE = i32;
 pub type BP_BUFFERFORMAT = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct BP_PAINTPARAMS {
     pub cbSize: u32,
@@ -173,14 +173,14 @@ pub struct BP_PAINTPARAMS {
     pub prcExclude: *const super::windef::RECT,
     pub pBlendFunction: *const super::wingdi::BLENDFUNCTION,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 impl Default for BP_PAINTPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct DTBGOPTS {
     pub dwSize: u32,
@@ -199,7 +199,7 @@ pub const DTPB_USECTLCOLORSTATIC: u32 = 2;
 pub const DTPB_USEERASEBKGND: u32 = 4;
 pub const DTPB_WINDOWDC: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DTTOPTS {
     pub dwSize: u32,
@@ -223,7 +223,7 @@ pub const DTT_BORDERCOLOR: u32 = 2;
 pub const DTT_BORDERSIZE: u32 = 32;
 pub const DTT_CALCRECT: u32 = 512;
 pub const DTT_CALLBACK: u32 = 4096;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type DTT_CALLBACK_PROC = Option<unsafe extern "system" fn(hdc: super::windef::HDC, psztext: windows_sys::core::PWSTR, cchtext: i32, prc: *mut super::windef::RECT, dwflags: u32, lparam: super::minwindef::LPARAM) -> i32>;
 pub const DTT_COLORPROP: u32 = 128;
 pub const DTT_COMPOSITED: u32 = 8192;
@@ -247,9 +247,9 @@ pub const ETDT_VALIDBITS: u32 = 15;
 pub const GBF_COPY: u32 = 2;
 pub const GBF_DIRECT: u32 = 1;
 pub const GBF_VALIDBITS: u32 = 3;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HANIMATIONBUFFER = super::winnt::HANDLE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HPAINTBUFFER = super::winnt::HANDLE;
 pub const HTTB_BACKGROUNDSEG: u32 = 0;
 pub const HTTB_CAPTION: u32 = 4;
@@ -287,11 +287,11 @@ pub const OTD_FORCE_RECT_SIZING: u32 = 1;
 pub const OTD_NONCLIENT: u32 = 2;
 pub const OTD_VALIDBITS: u32 = 3;
 pub type PBP_ANIMATIONPARAMS = *mut BP_ANIMATIONPARAMS;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 pub type PBP_PAINTPARAMS = *mut BP_PAINTPARAMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PDTBGOPTS = *mut DTBGOPTS;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PDTTOPTS = *mut DTTOPTS;
 pub type PINTLIST = *mut INTLIST;
 pub type PMARGINS = *mut MARGINS;

@@ -6,13 +6,13 @@ where
     windows_core::link!("kernel32.dll" "system" fn AddDllDirectory(newdirectory : windows_core::PCWSTR) -> DLL_DIRECTORY_COOKIE);
     unsafe { AddDllDirectory(newdirectory.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DisableThreadLibraryCalls(hlibmodule: super::minwindef::HMODULE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn DisableThreadLibraryCalls(hlibmodule : super::minwindef::HMODULE) -> windows_core::BOOL);
     unsafe { DisableThreadLibraryCalls(hlibmodule) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn EnumResourceLanguagesExA<P1, P2>(hmodule: Option<super::minwindef::HMODULE>, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCA, lparam: Option<isize>, dwflags: u32, langid: super::winnt::LANGID) -> windows_core::BOOL
 where
@@ -22,7 +22,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn EnumResourceLanguagesExA(hmodule : super::minwindef::HMODULE, lptype : windows_core::PCSTR, lpname : windows_core::PCSTR, lpenumfunc : ENUMRESLANGPROCA, lparam : isize, dwflags : u32, langid : super::winnt::LANGID) -> windows_core::BOOL);
     unsafe { EnumResourceLanguagesExA(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpname.param().abi(), lpenumfunc, lparam.unwrap_or(core::mem::zeroed()) as _, dwflags, langid) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn EnumResourceLanguagesExW<P1, P2>(hmodule: Option<super::minwindef::HMODULE>, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCW, lparam: Option<isize>, dwflags: u32, langid: super::winnt::LANGID) -> windows_core::BOOL
 where
@@ -32,7 +32,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn EnumResourceLanguagesExW(hmodule : super::minwindef::HMODULE, lptype : windows_core::PCWSTR, lpname : windows_core::PCWSTR, lpenumfunc : ENUMRESLANGPROCW, lparam : isize, dwflags : u32, langid : super::winnt::LANGID) -> windows_core::BOOL);
     unsafe { EnumResourceLanguagesExW(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpname.param().abi(), lpenumfunc, lparam.unwrap_or(core::mem::zeroed()) as _, dwflags, langid) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn EnumResourceNamesA<P1>(hmodule: Option<super::minwindef::HMODULE>, lptype: P1, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize) -> windows_core::BOOL
 where
@@ -41,7 +41,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn EnumResourceNamesA(hmodule : super::minwindef::HMODULE, lptype : windows_core::PCSTR, lpenumfunc : ENUMRESNAMEPROCA, lparam : isize) -> windows_core::BOOL);
     unsafe { EnumResourceNamesA(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpenumfunc, lparam) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn EnumResourceNamesExA<P1>(hmodule: Option<super::minwindef::HMODULE>, lptype: P1, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize, dwflags: u32, langid: super::winnt::LANGID) -> windows_core::BOOL
 where
@@ -50,7 +50,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn EnumResourceNamesExA(hmodule : super::minwindef::HMODULE, lptype : windows_core::PCSTR, lpenumfunc : ENUMRESNAMEPROCA, lparam : isize, dwflags : u32, langid : super::winnt::LANGID) -> windows_core::BOOL);
     unsafe { EnumResourceNamesExA(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpenumfunc, lparam, dwflags, langid) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn EnumResourceNamesExW<P1>(hmodule: Option<super::minwindef::HMODULE>, lptype: P1, lpenumfunc: ENUMRESNAMEPROCW, lparam: isize, dwflags: u32, langid: super::winnt::LANGID) -> windows_core::BOOL
 where
@@ -59,7 +59,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn EnumResourceNamesExW(hmodule : super::minwindef::HMODULE, lptype : windows_core::PCWSTR, lpenumfunc : ENUMRESNAMEPROCW, lparam : isize, dwflags : u32, langid : super::winnt::LANGID) -> windows_core::BOOL);
     unsafe { EnumResourceNamesExW(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpenumfunc, lparam, dwflags, langid) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn EnumResourceNamesW<P1>(hmodule: Option<super::minwindef::HMODULE>, lptype: P1, lpenumfunc: ENUMRESNAMEPROCW, lparam: isize) -> windows_core::BOOL
 where
@@ -68,19 +68,19 @@ where
     windows_core::link!("kernel32.dll" "system" fn EnumResourceNamesW(hmodule : super::minwindef::HMODULE, lptype : windows_core::PCWSTR, lpenumfunc : ENUMRESNAMEPROCW, lparam : isize) -> windows_core::BOOL);
     unsafe { EnumResourceNamesW(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpenumfunc, lparam) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn EnumResourceTypesExA(hmodule: Option<super::minwindef::HMODULE>, lpenumfunc: ENUMRESTYPEPROCA, lparam: isize, dwflags: u32, langid: super::winnt::LANGID) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumResourceTypesExA(hmodule : super::minwindef::HMODULE, lpenumfunc : ENUMRESTYPEPROCA, lparam : isize, dwflags : u32, langid : super::winnt::LANGID) -> windows_core::BOOL);
     unsafe { EnumResourceTypesExA(hmodule.unwrap_or(core::mem::zeroed()) as _, lpenumfunc, lparam, dwflags, langid) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn EnumResourceTypesExW(hmodule: Option<super::minwindef::HMODULE>, lpenumfunc: ENUMRESTYPEPROCW, lparam: isize, dwflags: u32, langid: super::winnt::LANGID) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumResourceTypesExW(hmodule : super::minwindef::HMODULE, lpenumfunc : ENUMRESTYPEPROCW, lparam : isize, dwflags : u32, langid : super::winnt::LANGID) -> windows_core::BOOL);
     unsafe { EnumResourceTypesExW(hmodule.unwrap_or(core::mem::zeroed()) as _, lpenumfunc, lparam, dwflags, langid) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn FindResourceExW<P1, P2>(hmodule: Option<super::minwindef::HMODULE>, lptype: P1, lpname: P2, wlanguage: u16) -> super::minwindef::HRSRC
 where
@@ -90,7 +90,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn FindResourceExW(hmodule : super::minwindef::HMODULE, lptype : windows_core::PCWSTR, lpname : windows_core::PCWSTR, wlanguage : u16) -> super::minwindef::HRSRC);
     unsafe { FindResourceExW(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpname.param().abi(), wlanguage) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn FindResourceW<P1, P2>(hmodule: Option<super::minwindef::HMODULE>, lpname: P1, lptype: P2) -> super::minwindef::HRSRC
 where
@@ -105,37 +105,37 @@ pub unsafe fn FindStringOrdinal(dwfindstringordinalflags: u32, lpstringsource: &
     windows_core::link!("kernel32.dll" "system" fn FindStringOrdinal(dwfindstringordinalflags : u32, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, bignorecase : windows_core::BOOL) -> i32);
     unsafe { FindStringOrdinal(dwfindstringordinalflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), bignorecase.into()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn FreeLibrary(hlibmodule: super::minwindef::HMODULE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : super::minwindef::HMODULE) -> windows_core::BOOL);
     unsafe { FreeLibrary(hlibmodule) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn FreeLibraryAndExitThread(hlibmodule: super::minwindef::HMODULE, dwexitcode: u32) -> ! {
     windows_core::link!("kernel32.dll" "system" fn FreeLibraryAndExitThread(hlibmodule : super::minwindef::HMODULE, dwexitcode : u32) -> !);
     unsafe { FreeLibraryAndExitThread(hlibmodule, dwexitcode) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn FreeResource(hresdata: super::minwindef::HGLOBAL) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn FreeResource(hresdata : super::minwindef::HGLOBAL) -> windows_core::BOOL);
     unsafe { FreeResource(hresdata) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetModuleFileNameA(hmodule: Option<super::minwindef::HMODULE>, lpfilename: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetModuleFileNameA(hmodule : super::minwindef::HMODULE, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
     unsafe { GetModuleFileNameA(hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetModuleFileNameW(hmodule: Option<super::minwindef::HMODULE>, lpfilename: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetModuleFileNameW(hmodule : super::minwindef::HMODULE, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
     unsafe { GetModuleFileNameW(hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetModuleHandleA<P0>(lpmodulename: P0) -> super::minwindef::HMODULE
 where
@@ -144,7 +144,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetModuleHandleA(lpmodulename : windows_core::PCSTR) -> super::minwindef::HMODULE);
     unsafe { GetModuleHandleA(lpmodulename.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetModuleHandleExA<P1>(dwflags: u32, lpmodulename: P1, phmodule: *mut super::minwindef::HMODULE) -> windows_core::BOOL
 where
@@ -153,7 +153,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetModuleHandleExA(dwflags : u32, lpmodulename : windows_core::PCSTR, phmodule : *mut super::minwindef::HMODULE) -> windows_core::BOOL);
     unsafe { GetModuleHandleExA(dwflags, lpmodulename.param().abi(), phmodule as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetModuleHandleExW<P1>(dwflags: u32, lpmodulename: P1, phmodule: *mut super::minwindef::HMODULE) -> windows_core::BOOL
 where
@@ -162,7 +162,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetModuleHandleExW(dwflags : u32, lpmodulename : windows_core::PCWSTR, phmodule : *mut super::minwindef::HMODULE) -> windows_core::BOOL);
     unsafe { GetModuleHandleExW(dwflags, lpmodulename.param().abi(), phmodule as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetModuleHandleW<P0>(lpmodulename: P0) -> super::minwindef::HMODULE
 where
@@ -171,7 +171,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetModuleHandleW(lpmodulename : windows_core::PCWSTR) -> super::minwindef::HMODULE);
     unsafe { GetModuleHandleW(lpmodulename.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetProcAddress<P1>(hmodule: super::minwindef::HMODULE, lpprocname: P1) -> super::minwindef::FARPROC
 where
@@ -180,7 +180,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetProcAddress(hmodule : super::minwindef::HMODULE, lpprocname : windows_core::PCSTR) -> super::minwindef::FARPROC);
     unsafe { GetProcAddress(hmodule, lpprocname.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn LoadLibraryA<P0>(lplibfilename: P0) -> super::minwindef::HMODULE
 where
@@ -189,7 +189,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn LoadLibraryA(lplibfilename : windows_core::PCSTR) -> super::minwindef::HMODULE);
     unsafe { LoadLibraryA(lplibfilename.param().abi()) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn LoadLibraryExA<P0>(lplibfilename: P0, hfile: Option<super::winnt::HANDLE>, dwflags: u32) -> super::minwindef::HMODULE
 where
@@ -198,7 +198,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : windows_core::PCSTR, hfile : super::winnt::HANDLE, dwflags : u32) -> super::minwindef::HMODULE);
     unsafe { LoadLibraryExA(lplibfilename.param().abi(), hfile.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn LoadLibraryExW<P0>(lplibfilename: P0, hfile: Option<super::winnt::HANDLE>, dwflags: u32) -> super::minwindef::HMODULE
 where
@@ -207,7 +207,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn LoadLibraryExW(lplibfilename : windows_core::PCWSTR, hfile : super::winnt::HANDLE, dwflags : u32) -> super::minwindef::HMODULE);
     unsafe { LoadLibraryExW(lplibfilename.param().abi(), hfile.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn LoadLibraryW<P0>(lplibfilename: P0) -> super::minwindef::HMODULE
 where
@@ -216,25 +216,25 @@ where
     windows_core::link!("kernel32.dll" "system" fn LoadLibraryW(lplibfilename : windows_core::PCWSTR) -> super::minwindef::HMODULE);
     unsafe { LoadLibraryW(lplibfilename.param().abi()) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn LoadResource(hmodule: Option<super::minwindef::HMODULE>, hresinfo: super::minwindef::HRSRC) -> super::minwindef::HGLOBAL {
     windows_core::link!("kernel32.dll" "system" fn LoadResource(hmodule : super::minwindef::HMODULE, hresinfo : super::minwindef::HRSRC) -> super::minwindef::HGLOBAL);
     unsafe { LoadResource(hmodule.unwrap_or(core::mem::zeroed()) as _, hresinfo) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn LoadStringA(hinstance: Option<super::minwindef::HINSTANCE>, uid: u32, lpbuffer: &mut [u8]) -> i32 {
     windows_core::link!("user32.dll" "system" fn LoadStringA(hinstance : super::minwindef::HINSTANCE, uid : u32, lpbuffer : windows_core::PSTR, cchbuffermax : i32) -> i32);
     unsafe { LoadStringA(hinstance.unwrap_or(core::mem::zeroed()) as _, uid, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn LoadStringW(hinstance: Option<super::minwindef::HINSTANCE>, uid: u32, lpbuffer: &mut [u16]) -> i32 {
     windows_core::link!("user32.dll" "system" fn LoadStringW(hinstance : super::minwindef::HINSTANCE, uid : u32, lpbuffer : windows_core::PWSTR, cchbuffermax : i32) -> i32);
     unsafe { LoadStringW(hinstance.unwrap_or(core::mem::zeroed()) as _, uid, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap()) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn LockResource(hresdata: super::minwindef::HGLOBAL) -> *mut core::ffi::c_void {
     windows_core::link!("kernel32.dll" "system" fn LockResource(hresdata : super::minwindef::HGLOBAL) -> *mut core::ffi::c_void);
@@ -250,7 +250,7 @@ pub unsafe fn SetDefaultDllDirectories(directoryflags: u32) -> windows_core::BOO
     windows_core::link!("kernel32.dll" "system" fn SetDefaultDllDirectories(directoryflags : u32) -> windows_core::BOOL);
     unsafe { SetDefaultDllDirectories(directoryflags) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn SizeofResource(hmodule: Option<super::minwindef::HMODULE>, hresinfo: super::minwindef::HRSRC) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn SizeofResource(hmodule : super::minwindef::HMODULE, hresinfo : super::minwindef::HRSRC) -> u32);
@@ -271,27 +271,27 @@ impl Default for DLL_DIRECTORY_COOKIE {
     }
 }
 pub const DONT_RESOLVE_DLL_REFERENCES: u32 = 1;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type ENUMRESLANGPROCA = Option<unsafe extern "system" fn(hmodule: super::minwindef::HMODULE, lptype: windows_core::PCSTR, lpname: windows_core::PCSTR, wlanguage: u16, lparam: isize) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type ENUMRESLANGPROCW = Option<unsafe extern "system" fn(hmodule: super::minwindef::HMODULE, lptype: windows_core::PCWSTR, lpname: windows_core::PCWSTR, wlanguage: u16, lparam: isize) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type ENUMRESNAMEPROCA = Option<unsafe extern "system" fn(hmodule: super::minwindef::HMODULE, lptype: windows_core::PCSTR, lpname: windows_core::PCSTR, lparam: isize) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type ENUMRESNAMEPROCW = Option<unsafe extern "system" fn(hmodule: super::minwindef::HMODULE, lptype: windows_core::PCWSTR, lpname: windows_core::PCWSTR, lparam: isize) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type ENUMRESTYPEPROCA = Option<unsafe extern "system" fn(hmodule: super::minwindef::HMODULE, lptype: windows_core::PCSTR, lparam: isize) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type ENUMRESTYPEPROCW = Option<unsafe extern "system" fn(hmodule: super::minwindef::HMODULE, lptype: windows_core::PCWSTR, lparam: isize) -> windows_core::BOOL>;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUMUILANG {
     pub NumOfEnumUILang: u32,
     pub SizeOfEnumUIBuffer: u32,
     pub pEnumUIBuffer: *mut super::winnt::LANGID,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for ENUMUILANG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -356,25 +356,25 @@ impl Default for PDLL_DIRECTORY_COOKIE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PENUMUILANG(pub *mut ENUMUILANG);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PENUMUILANG {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PENUMUILANG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PGET_MODULE_HANDLE_EXA = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_core::PCSTR, phmodule: *mut super::minwindef::HMODULE) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PGET_MODULE_HANDLE_EXW = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_core::PCWSTR, phmodule: *mut super::minwindef::HMODULE) -> windows_core::BOOL>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

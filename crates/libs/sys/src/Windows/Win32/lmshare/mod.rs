@@ -1,29 +1,29 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetConnectionEnum(servername : windows_sys::core::PCWSTR, qualifier : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetFileClose(servername : windows_sys::core::PCWSTR, fileid : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetFileEnum(servername : windows_sys::core::PCWSTR, basepath : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut usize) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetFileGetInfo(servername : windows_sys::core::PCWSTR, fileid : u32, level : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetServerAliasAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetServerAliasDel(servername : windows_sys::core::PCWSTR, level : u32, buf : *mut u8) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetServerAliasEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetSessionDel(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetSessionEnum(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetSessionGetInfo(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetShareAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetShareCheck(servername : windows_sys::core::PCWSTR, device : windows_sys::core::PCWSTR, r#type : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetShareDel(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, reserved : u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetShareDelEx(servername : windows_sys::core::PCWSTR, level : u32, buf : *mut u8) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetShareDelSticky(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, reserved : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetShareEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetShareEnumSticky(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetShareGetInfo(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetShareSetInfo(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
 #[repr(C)]
@@ -87,14 +87,14 @@ pub type LPSHARE_INFO_1 = *mut SHARE_INFO_1;
 pub type LPSHARE_INFO_1004 = *mut SHARE_INFO_1004;
 pub type LPSHARE_INFO_1005 = *mut SHARE_INFO_1005;
 pub type LPSHARE_INFO_1006 = *mut SHARE_INFO_1006;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPSHARE_INFO_1501 = *mut SHARE_INFO_1501;
 pub type LPSHARE_INFO_1503 = *mut SHARE_INFO_1503;
 pub type LPSHARE_INFO_2 = *mut SHARE_INFO_2;
 pub type LPSHARE_INFO_501 = *mut SHARE_INFO_501;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPSHARE_INFO_502 = *mut SHARE_INFO_502;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPSHARE_INFO_503 = *mut SHARE_INFO_503;
 pub type PCONNECTION_INFO_0 = *mut CONNECTION_INFO_0;
 pub type PCONNECTION_INFO_1 = *mut CONNECTION_INFO_1;
@@ -114,14 +114,14 @@ pub type PSHARE_INFO_1 = *mut SHARE_INFO_1;
 pub type PSHARE_INFO_1004 = *mut SHARE_INFO_1004;
 pub type PSHARE_INFO_1005 = *mut SHARE_INFO_1005;
 pub type PSHARE_INFO_1006 = *mut SHARE_INFO_1006;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSHARE_INFO_1501 = *mut SHARE_INFO_1501;
 pub type PSHARE_INFO_1503 = *mut SHARE_INFO_1503;
 pub type PSHARE_INFO_2 = *mut SHARE_INFO_2;
 pub type PSHARE_INFO_501 = *mut SHARE_INFO_501;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSHARE_INFO_502 = *mut SHARE_INFO_502;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSHARE_INFO_503 = *mut SHARE_INFO_503;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -257,13 +257,13 @@ pub struct SHARE_INFO_1006 {
     pub shi1006_max_uses: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SHARE_INFO_1501 {
     pub shi1501_reserved: u32,
     pub shi1501_security_descriptor: super::winnt::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SHARE_INFO_1501 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -305,7 +305,7 @@ impl Default for SHARE_INFO_501 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: windows_sys::core::PWSTR,
@@ -319,14 +319,14 @@ pub struct SHARE_INFO_502 {
     pub shi502_reserved: u32,
     pub shi502_security_descriptor: super::winnt::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SHARE_INFO_502 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: windows_sys::core::PWSTR,
@@ -341,7 +341,7 @@ pub struct SHARE_INFO_503 {
     pub shi503_reserved: u32,
     pub shi503_security_descriptor: super::winnt::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SHARE_INFO_503 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

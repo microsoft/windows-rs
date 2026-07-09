@@ -7,7 +7,7 @@ pub const AME_8mm: STORAGE_MEDIA_TYPE = 37;
 pub const ASSERT_ALTERNATE: u32 = 9;
 pub const ASSERT_PRIMARY: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct ASYNC_DUPLICATE_EXTENTS_STATUS {
     pub Version: u32,
@@ -65,13 +65,13 @@ pub struct BOOT_AREA_INFO_0 {
     pub Offset: i64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct BULK_SECURITY_TEST_DATA {
     pub DesiredAccess: super::winnt::ACCESS_MASK,
     pub SecurityIds: [u32; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for BULK_SECURITY_TEST_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -288,7 +288,7 @@ pub struct CLASS_MEDIA_CHANGE_CONTEXT {
     pub NewState: u32,
 }
 pub const CLEANER_CARTRIDGE: STORAGE_MEDIA_TYPE = 50;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type CLSN = super::winnt::DWORDLONG;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -366,7 +366,7 @@ pub struct CREATE_DISK_MBR {
     pub Signature: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CREATE_USN_JOURNAL_DATA {
     pub MaximumSize: super::winnt::DWORDLONG,
@@ -412,13 +412,13 @@ impl Default for CSV_QUERY_FILE_REVISION {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CSV_QUERY_FILE_REVISION_FILE_ID_128 {
     pub FileId: super::winnt::FILE_ID_128,
     pub FileRevision: [i64; 3],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -464,14 +464,14 @@ pub struct CSV_QUERY_REDIRECT_STATE {
     pub FileRedirected: bool,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     pub VetoedFromAltitudeIntegral: super::winnt::DWORDLONG,
     pub VetoedFromAltitudeDecimal: super::winnt::DWORDLONG,
     pub Reason: [u16; 256],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -536,7 +536,7 @@ pub struct DECRYPTION_STATUS_BUFFER {
     pub NoEncryptedStreams: bool,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DELETE_USN_JOURNAL_DATA {
     pub UsnJournalID: super::winnt::DWORDLONG,
@@ -612,7 +612,7 @@ pub struct DEVICEDUMP_STORAGEDEVICE_DATA {
     pub PrivateData: DEVICEDUMP_SUBSECTION_POINTER,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     pub Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
@@ -621,14 +621,14 @@ pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     pub uiNumRecords: u32,
     pub RecordArray: [DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
     pub Cdb: [u8; 16],
@@ -639,40 +639,40 @@ pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
     pub OperationError: u32,
     pub StackSpecific: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
     pub ExternalStack: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0,
     pub AtaPort: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1,
     pub StorPort: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
     pub dwReserved: u32,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
     pub dwAtaPortSpecific: u32,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
     pub SrbTag: u32,
@@ -693,7 +693,7 @@ pub struct DEVICEDUMP_SUBSECTION_POINTER {
     pub dwOffset: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_COPY_OFFLOAD_DESCRIPTOR {
     pub Version: u32,
@@ -708,7 +708,7 @@ pub struct DEVICE_COPY_OFFLOAD_DESCRIPTOR {
     pub OptimalTransferLengthGranularity: u16,
     pub Reserved: [u8; 2],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -725,7 +725,7 @@ pub struct DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
 }
 pub const DEVICE_DATA_SET_LBP_STATE_PARAMETERS_VERSION_V1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE {
     pub Size: u32,
@@ -736,14 +736,14 @@ pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE {
     pub SlabAllocationBitMapLength: u32,
     pub SlabAllocationBitMap: [u32; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
     pub Size: u32,
@@ -754,7 +754,7 @@ pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
     pub SlabAllocationBitMapLength: u32,
     pub SlabAllocationBitMap: [u32; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -763,14 +763,14 @@ impl Default for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
 pub const DEVICE_DATA_SET_LB_PROVISIONING_STATE_VERSION_V1: u32 = 32;
 pub const DEVICE_DATA_SET_LB_PROVISIONING_STATE_VERSION_V2: u32 = 40;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_DATA_SET_RANGE {
     pub StartingOffset: i64,
     pub LengthInBytes: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_DATA_SET_REPAIR_OUTPUT {
     pub ParityExtent: DEVICE_DSM_RANGE,
@@ -788,7 +788,7 @@ impl Default for DEVICE_DATA_SET_REPAIR_PARAMETERS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
     pub BytesProcessed: super::winnt::DWORDLONG,
@@ -798,7 +798,7 @@ pub struct DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
     pub BytesScrubbed: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_DATA_SET_SCRUB_OUTPUT {
     pub BytesProcessed: super::winnt::DWORDLONG,
@@ -806,22 +806,22 @@ pub struct DEVICE_DATA_SET_SCRUB_OUTPUT {
     pub BytesFailed: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
     pub TopologyRangeBytes: super::winnt::DWORDLONG,
     pub TopologyId: [u8; 16],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type DEVICE_DSM_ACTION = u32;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type DEVICE_DSM_ALLOCATION_OUTPUT = DEVICE_DATA_SET_LB_PROVISIONING_STATE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type DEVICE_DSM_ALLOCATION_OUTPUT2 = DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
 pub type DEVICE_DSM_ALLOCATION_PARAMETERS = DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
 #[repr(C)]
@@ -851,7 +851,7 @@ pub const DEVICE_DSM_FLAG_SCRUB_SKIP_IN_SYNC: u32 = 268435456;
 pub const DEVICE_DSM_FLAG_TRIM_BYPASS_RZAT: u32 = 1073741824;
 pub const DEVICE_DSM_FLAG_TRIM_NOT_FS_ALLOCATED: u32 = 2147483648;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_DSM_FREE_SPACE_OUTPUT {
     pub Version: u32,
@@ -859,7 +859,7 @@ pub struct DEVICE_DSM_FREE_SPACE_OUTPUT {
 }
 pub type DEVICE_DSM_INPUT = DEVICE_MANAGE_DATA_SET_ATTRIBUTES;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DSM_LOST_QUERY_OUTPUT {
     pub Version: u32,
@@ -868,14 +868,14 @@ pub struct DEVICE_DSM_LOST_QUERY_OUTPUT {
     pub NumberOfBits: u32,
     pub BitMap: [u32; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_DSM_LOST_QUERY_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_DSM_LOST_QUERY_PARAMETERS {
     pub Version: u32,
@@ -921,7 +921,7 @@ impl Default for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     pub Flags: u32,
@@ -929,7 +929,7 @@ pub struct DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     pub TokenOffset: super::winnt::DWORDLONG,
     pub Token: STORAGE_OFFLOAD_TOKEN,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -938,7 +938,7 @@ impl Default for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
 pub type DEVICE_DSM_OUTPUT = DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT;
 pub const DEVICE_DSM_PARAMETERS_V1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     pub Version: u32,
@@ -947,7 +947,7 @@ pub struct DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     pub NumberOfRangesReturned: u32,
     pub Ranges: [DEVICE_STORAGE_ADDRESS_RANGE; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -962,10 +962,10 @@ pub struct DEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT {
     pub Version: u32,
     pub PreferLocalRepair: bool,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type DEVICE_DSM_RANGE = DEVICE_DATA_SET_RANGE;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DSM_RANGE_ERROR_INFO {
     pub Version: u32,
@@ -974,21 +974,21 @@ pub struct DEVICE_DSM_RANGE_ERROR_INFO {
     pub NumberOfRangesReturned: u32,
     pub Ranges: [DEVICE_STORAGE_RANGE_ATTRIBUTES; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_DSM_RANGE_ERROR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const DEVICE_DSM_RANGE_ERROR_INFO_VERSION_V1: u32 = 1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type DEVICE_DSM_RANGE_ERROR_OUTPUT = DEVICE_DSM_RANGE_ERROR_INFO;
 pub const DEVICE_DSM_RANGE_ERROR_OUTPUT_V1: u32 = 1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type DEVICE_DSM_REPAIR_OUTPUT = DEVICE_DATA_SET_REPAIR_OUTPUT;
 pub type DEVICE_DSM_REPAIR_PARAMETERS = DEVICE_DATA_SET_REPAIR_PARAMETERS;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DSM_REPORT_ZONES_DATA {
     pub Size: u32,
@@ -997,13 +997,13 @@ pub struct DEVICE_DSM_REPORT_ZONES_DATA {
     pub Reserved0: u32,
     pub ZoneDescriptors: [STORAGE_ZONE_DESCRIPTOR; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_DSM_REPORT_ZONES_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type DEVICE_DSM_REPORT_ZONES_OUTPUT = DEVICE_DSM_REPORT_ZONES_DATA;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1018,9 +1018,9 @@ impl Default for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type DEVICE_DSM_SCRUB_OUTPUT = DEVICE_DATA_SET_SCRUB_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type DEVICE_DSM_SCRUB_OUTPUT2 = DEVICE_DATA_SET_SCRUB_EX_OUTPUT;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1037,7 +1037,7 @@ impl Default for DEVICE_DSM_TIERING_QUERY_INPUT {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DSM_TIERING_QUERY_OUTPUT {
     pub Version: u32,
@@ -1049,17 +1049,17 @@ pub struct DEVICE_DSM_TIERING_QUERY_OUTPUT {
     pub NumberOfRegionsReturned: u32,
     pub Regions: [STORAGE_TIER_REGION; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_DSM_TIERING_QUERY_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type DEVICE_DSM_TIERING_QUERY_PARAMETERS = DEVICE_DSM_TIERING_QUERY_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type DEVICE_DSM_TOPOLOGY_ID_QUERY_OUTPUT = DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_INTERNAL_STATUS_DATA {
     pub Version: u32,
@@ -1075,7 +1075,7 @@ pub struct DEVICE_INTERNAL_STATUS_DATA {
     pub StatusDataLength: u32,
     pub StatusData: [u8; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_INTERNAL_STATUS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1084,7 +1084,7 @@ impl Default for DEVICE_INTERNAL_STATUS_DATA {
 pub type DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = i32;
 pub type DEVICE_INTERNAL_STATUS_DATA_SET = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_LB_PROVISIONING_DESCRIPTOR {
     pub Version: u32,
@@ -1096,7 +1096,7 @@ pub struct DEVICE_LB_PROVISIONING_DESCRIPTOR {
     pub MaxUnmapLbaCount: u32,
     pub MaxUnmapBlockDescriptorCount: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_LB_PROVISIONING_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1265,7 +1265,7 @@ pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
     pub IncursSeekPenalty: bool,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_STORAGE_ADDRESS_RANGE {
     pub StartAddress: i64,
@@ -1273,34 +1273,34 @@ pub struct DEVICE_STORAGE_ADDRESS_RANGE {
 }
 pub const DEVICE_STORAGE_NO_ERRORS: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES {
     pub LengthInBytes: super::winnt::DWORDLONG,
     pub Anonymous: DEVICE_STORAGE_RANGE_ATTRIBUTES_0,
     pub Reserved: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_STORAGE_RANGE_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
     pub AllFlags: u32,
     pub Anonymous: DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     pub _bitfield: u32,
@@ -1629,7 +1629,7 @@ pub const DST_L: STORAGE_MEDIA_TYPE = 82;
 pub const DST_M: STORAGE_MEDIA_TYPE = 81;
 pub const DST_S: STORAGE_MEDIA_TYPE = 80;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DUPLICATE_EXTENTS_DATA {
     pub FileHandle: super::winnt::HANDLE,
@@ -1637,7 +1637,7 @@ pub struct DUPLICATE_EXTENTS_DATA {
     pub TargetFileOffset: i64,
     pub ByteCount: i64,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DUPLICATE_EXTENTS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1653,7 +1653,7 @@ pub struct DUPLICATE_EXTENTS_DATA32 {
     pub ByteCount: i64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub Size: usize,
@@ -1663,7 +1663,7 @@ pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub ByteCount: i64,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DUPLICATE_EXTENTS_DATA_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1803,7 +1803,7 @@ pub const ENABLE_DISABLE_AUTOSAVE: u32 = 210;
 pub const ENABLE_DISABLE_AUTO_OFFLINE: u32 = 219;
 pub const ENABLE_SMART: u32 = 216;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct ENCRYPTED_DATA_INFO {
     pub StartingFileOffset: super::winnt::DWORDLONG,
@@ -1818,7 +1818,7 @@ pub struct ENCRYPTED_DATA_INFO {
     pub NumberOfDataBlocks: u16,
     pub DataBlockSize: [u32; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for ENCRYPTED_DATA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1840,7 +1840,7 @@ impl Default for ENCRYPTION_BUFFER {
 }
 pub const ENCRYPTION_FORMAT_DEFAULT: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct ENCRYPTION_KEY_CTRL_INPUT {
     pub HeaderSize: u32,
@@ -1939,7 +1939,7 @@ pub struct FILESYSTEM_STATISTICS {
     pub MetaDataDiskWrites: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILESYSTEM_STATISTICS_EX {
     pub FileSystemType: u16,
@@ -2123,7 +2123,7 @@ pub const FILE_INITIATE_REPAIR_HINT1_SYSTEM_FILE: u32 = 16;
 pub const FILE_INITIATE_REPAIR_HINT1_UNABLE_TO_REPAIR: u32 = 64;
 pub const FILE_INITIATE_REPAIR_HINT1_VALID_INDEX_ENTRY: u32 = 536870912;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
     pub Hint1: super::winnt::DWORDLONG,
@@ -2132,7 +2132,7 @@ pub struct FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
     pub Status: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_LAYOUT_ENTRY {
     pub Version: u32,
@@ -2146,7 +2146,7 @@ pub struct FILE_LAYOUT_ENTRY {
     pub ExtraInfoLength: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_LAYOUT_INFO_ENTRY {
     pub BasicInformation: FILE_LAYOUT_INFO_ENTRY_0,
@@ -2156,7 +2156,7 @@ pub struct FILE_LAYOUT_INFO_ENTRY {
     pub StorageReserveId: STORAGE_RESERVE_ID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_LAYOUT_INFO_ENTRY_0 {
     pub CreationTime: i64,
@@ -2166,7 +2166,7 @@ pub struct FILE_LAYOUT_INFO_ENTRY_0 {
     pub FileAttributes: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FILE_LAYOUT_NAME_ENTRY {
     pub NextNameOffset: u32,
@@ -2176,7 +2176,7 @@ pub struct FILE_LAYOUT_NAME_ENTRY {
     pub Reserved: u32,
     pub FileName: [u16; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FILE_LAYOUT_NAME_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2185,14 +2185,14 @@ impl Default for FILE_LAYOUT_NAME_ENTRY {
 pub const FILE_LAYOUT_NAME_ENTRY_DOS: u32 = 2;
 pub const FILE_LAYOUT_NAME_ENTRY_PRIMARY: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FILE_LEVEL_TRIM {
     pub Key: u32,
     pub NumRanges: u32,
     pub Ranges: [FILE_LEVEL_TRIM_RANGE; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FILE_LEVEL_TRIM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2204,7 +2204,7 @@ pub struct FILE_LEVEL_TRIM_OUTPUT {
     pub NumRangesProcessed: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_LEVEL_TRIM_RANGE {
     pub Offset: super::winnt::DWORDLONG,
@@ -2250,21 +2250,21 @@ impl Default for FILE_OBJECTID_BUFFER_0_0 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FILE_PREFETCH {
     pub Type: u32,
     pub Count: u32,
     pub Prefetch: [super::winnt::DWORDLONG; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FILE_PREFETCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FILE_PREFETCH_EX {
     pub Type: u32,
@@ -2272,7 +2272,7 @@ pub struct FILE_PREFETCH_EX {
     pub Context: *mut core::ffi::c_void,
     pub Prefetch: [super::winnt::DWORDLONG; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FILE_PREFETCH_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2335,7 +2335,7 @@ pub struct FILE_QUERY_SPARING_BUFFER {
 }
 pub const FILE_READ_ACCESS: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_REFERENCE_RANGE {
     pub StartingFileReferenceNumber: super::winnt::DWORDLONG,
@@ -2393,7 +2393,7 @@ pub struct FILE_SET_SPARSE_BUFFER {
 }
 pub const FILE_SPECIAL_ACCESS: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FILE_STORAGE_TIER {
     pub Id: windows_sys::core::GUID,
@@ -2404,7 +2404,7 @@ pub struct FILE_STORAGE_TIER {
     pub MediaType: FILE_STORAGE_TIER_MEDIA_TYPE,
     pub Class: FILE_STORAGE_TIER_CLASS,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FILE_STORAGE_TIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2420,7 +2420,7 @@ pub const FILE_STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152;
 pub type FILE_STORAGE_TIER_MEDIA_TYPE = i32;
 pub const FILE_STORAGE_TIER_NAME_LENGTH: u32 = 256;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_STORAGE_TIER_REGION {
     pub TierId: windows_sys::core::GUID,
@@ -2470,7 +2470,7 @@ pub struct FILE_ZERO_DATA_INFORMATION_EX {
 }
 pub const FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FIND_BY_SID_DATA {
     pub Restart: u32,
@@ -2627,7 +2627,7 @@ pub const FSCTL_NOTIFY_DATA_CHANGE: u32 = 590844;
 pub const FSCTL_NOTIFY_STORAGE_SPACE_ALLOCATION: u32 = 590748;
 pub const FSCTL_OFFLOAD_READ: u32 = 606820;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FSCTL_OFFLOAD_READ_INPUT {
     pub Size: u32,
@@ -2638,7 +2638,7 @@ pub struct FSCTL_OFFLOAD_READ_INPUT {
     pub CopyLength: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FSCTL_OFFLOAD_READ_OUTPUT {
     pub Size: u32,
@@ -2646,7 +2646,7 @@ pub struct FSCTL_OFFLOAD_READ_OUTPUT {
     pub TransferLength: super::winnt::DWORDLONG,
     pub Token: [u8; 512],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FSCTL_OFFLOAD_READ_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2654,7 +2654,7 @@ impl Default for FSCTL_OFFLOAD_READ_OUTPUT {
 }
 pub const FSCTL_OFFLOAD_WRITE: u32 = 623208;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FSCTL_OFFLOAD_WRITE_INPUT {
     pub Size: u32,
@@ -2664,14 +2664,14 @@ pub struct FSCTL_OFFLOAD_WRITE_INPUT {
     pub TransferOffset: super::winnt::DWORDLONG,
     pub Token: [u8; 512],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FSCTL_OFFLOAD_WRITE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FSCTL_OFFLOAD_WRITE_OUTPUT {
     pub Size: u32,
@@ -2727,7 +2727,7 @@ impl Default for FSCTL_QUERY_REGION_INFO_INPUT {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FSCTL_QUERY_REGION_INFO_OUTPUT {
     pub Version: u32,
@@ -2739,7 +2739,7 @@ pub struct FSCTL_QUERY_REGION_INFO_OUTPUT {
     pub NumberOfRegionsReturned: u32,
     pub Regions: [FILE_STORAGE_TIER_REGION; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FSCTL_QUERY_REGION_INFO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2750,7 +2750,7 @@ pub const FSCTL_QUERY_SHARED_VIRTUAL_DISK_SUPPORT: u32 = 590592;
 pub const FSCTL_QUERY_SPARING_INFO: u32 = 590136;
 pub const FSCTL_QUERY_STORAGE_CLASSES: u32 = 590572;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     pub Version: u32,
@@ -2760,7 +2760,7 @@ pub struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     pub NumberOfTiersReturned: u32,
     pub Tiers: [FILE_STORAGE_TIER; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2912,7 +2912,7 @@ impl Default for FS_BPIO_INFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FS_BPIO_INPUT {
     pub Operation: FS_BPIO_OPERATIONS,
@@ -2932,7 +2932,7 @@ pub const FS_BPIO_OP_VOLUME_STACK_PAUSE: FS_BPIO_OPERATIONS = 4;
 pub const FS_BPIO_OP_VOLUME_STACK_RESUME: FS_BPIO_OPERATIONS = 5;
 pub type FS_BPIO_OUTFLAGS = u32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FS_BPIO_OUTPUT {
     pub Operation: FS_BPIO_OPERATIONS,
@@ -2941,14 +2941,14 @@ pub struct FS_BPIO_OUTPUT {
     pub Reserved2: super::winnt::DWORDLONG,
     pub Anonymous: FS_BPIO_OUTPUT_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FS_BPIO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union FS_BPIO_OUTPUT_0 {
     pub Enable: FS_BPIO_RESULTS,
@@ -2957,7 +2957,7 @@ pub union FS_BPIO_OUTPUT_0 {
     pub StreamResume: FS_BPIO_RESULTS,
     pub GetInfo: FS_BPIO_INFO,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FS_BPIO_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3072,7 +3072,7 @@ pub struct GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
     pub RequestDataSet: DEVICE_INTERNAL_STATUS_DATA_SET,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct GET_DISK_ATTRIBUTES {
     pub Version: u32,
@@ -3409,27 +3409,27 @@ pub const MARK_HANDLE_ENABLE_CPU_CACHE: u32 = 268435456;
 pub const MARK_HANDLE_ENABLE_USN_SOURCE_ON_PAGING_IO: u32 = 8192;
 pub const MARK_HANDLE_FILTER_METADATA: u32 = 512;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MARK_HANDLE_INFO {
     pub Anonymous: MARK_HANDLE_INFO_0,
     pub VolumeHandle: super::winnt::HANDLE,
     pub HandleInfo: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MARK_HANDLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union MARK_HANDLE_INFO_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MARK_HANDLE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3490,10 +3490,10 @@ pub const METHOD_DIRECT_TO_HARDWARE: u32 = 1;
 pub const METHOD_IN_DIRECT: u32 = 1;
 pub const METHOD_NEITHER: u32 = 3;
 pub const METHOD_OUT_DIRECT: u32 = 2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type MFT_ENUM_DATA = MFT_ENUM_DATA_V1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct MFT_ENUM_DATA_V0 {
     pub StartFileReferenceNumber: super::winnt::DWORDLONG,
@@ -3501,7 +3501,7 @@ pub struct MFT_ENUM_DATA_V0 {
     pub HighUsn: super::winnt::USN,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct MFT_ENUM_DATA_V1 {
     pub StartFileReferenceNumber: super::winnt::DWORDLONG,
@@ -3511,7 +3511,7 @@ pub struct MFT_ENUM_DATA_V1 {
     pub MaxMajorVersion: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MOVE_FILE_DATA {
     pub FileHandle: super::winnt::HANDLE,
@@ -3519,7 +3519,7 @@ pub struct MOVE_FILE_DATA {
     pub StartingLcn: i64,
     pub ClusterCount: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MOVE_FILE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3535,14 +3535,14 @@ pub struct MOVE_FILE_DATA32 {
     pub ClusterCount: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MOVE_FILE_RECORD_DATA {
     pub FileHandle: super::winnt::HANDLE,
     pub SourceFileRecord: i64,
     pub TargetFileRecord: i64,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MOVE_FILE_RECORD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3686,7 +3686,7 @@ pub struct NTFS_STATISTICS_4 {
     pub CacheMissClusters: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX {
     pub LogFileFullExceptions: u32,
@@ -3748,7 +3748,7 @@ pub struct NTFS_STATISTICS_EX {
     pub NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_0 {
     pub Write: u32,
@@ -3757,7 +3757,7 @@ pub struct NTFS_STATISTICS_EX_0 {
     pub Flush: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_1 {
     pub Write: u32,
@@ -3766,7 +3766,7 @@ pub struct NTFS_STATISTICS_EX_1 {
     pub Flush: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_2 {
     pub Write: u32,
@@ -3775,7 +3775,7 @@ pub struct NTFS_STATISTICS_EX_2 {
     pub Flush: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_3 {
     pub Write: u32,
@@ -3784,7 +3784,7 @@ pub struct NTFS_STATISTICS_EX_3 {
     pub Flush: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_4 {
     pub Calls: u32,
@@ -3925,7 +3925,7 @@ pub const PARTITION_XENIX_1: u32 = 2;
 pub const PARTITION_XENIX_2: u32 = 3;
 pub const PARTITION_XINT13: u32 = 14;
 pub const PARTITION_XINT13_EXTENDED: u32 = 15;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PASYNC_DUPLICATE_EXTENTS_STATUS = *mut ASYNC_DUPLICATE_EXTENTS_STATUS;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3943,7 +3943,7 @@ pub type PBIN_COUNT = *mut BIN_COUNT;
 pub type PBIN_RANGE = *mut BIN_RANGE;
 pub type PBIN_RESULTS = *mut BIN_RESULTS;
 pub type PBOOT_AREA_INFO = *mut BOOT_AREA_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PBULK_SECURITY_TEST_DATA = *mut BULK_SECURITY_TEST_DATA;
 pub type PCHANGER_DEVICE_PROBLEM_TYPE = *mut CHANGER_DEVICE_PROBLEM_TYPE;
 pub type PCHANGER_ELEMENT = *mut CHANGER_ELEMENT;
@@ -3966,7 +3966,7 @@ pub type PCONTAINER_VOLUME_STATE = *mut CONTAINER_VOLUME_STATE;
 pub type PCREATE_DISK = *mut CREATE_DISK;
 pub type PCREATE_DISK_GPT = *mut CREATE_DISK_GPT;
 pub type PCREATE_DISK_MBR = *mut CREATE_DISK_MBR;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCREATE_USN_JOURNAL_DATA = *mut CREATE_USN_JOURNAL_DATA;
 pub type PCSMB_SHARE_FLUSH_AND_PURGE_INPUT = *const SMB_SHARE_FLUSH_AND_PURGE_INPUT;
 pub type PCSMB_SHARE_FLUSH_AND_PURGE_OUTPUT = *const SMB_SHARE_FLUSH_AND_PURGE_OUTPUT;
@@ -3977,12 +3977,12 @@ pub type PCSV_IS_OWNED_BY_CSVFS = *mut CSV_IS_OWNED_BY_CSVFS;
 pub type PCSV_MGMT_LOCK = *mut CSV_MGMT_LOCK;
 pub type PCSV_NAMESPACE_INFO = *mut CSV_NAMESPACE_INFO;
 pub type PCSV_QUERY_FILE_REVISION = *mut CSV_QUERY_FILE_REVISION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCSV_QUERY_FILE_REVISION_FILE_ID_128 = *mut CSV_QUERY_FILE_REVISION_FILE_ID_128;
 pub type PCSV_QUERY_MDS_PATH = *mut CSV_QUERY_MDS_PATH;
 pub type PCSV_QUERY_MDS_PATH_V2 = *mut CSV_QUERY_MDS_PATH_V2;
 pub type PCSV_QUERY_REDIRECT_STATE = *mut CSV_QUERY_REDIRECT_STATE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT = *mut CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT;
 pub type PCSV_QUERY_VOLUME_ID = *mut CSV_QUERY_VOLUME_ID;
 pub type PCSV_QUERY_VOLUME_REDIRECT_STATE = *mut CSV_QUERY_VOLUME_REDIRECT_STATE;
@@ -3990,7 +3990,7 @@ pub type PCSV_SET_VOLUME_ID = *mut CSV_SET_VOLUME_ID;
 pub const PC_5_RW: STORAGE_MEDIA_TYPE = 62;
 pub const PC_5_WO: STORAGE_MEDIA_TYPE = 61;
 pub type PDECRYPTION_STATUS_BUFFER = *mut DECRYPTION_STATUS_BUFFER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDELETE_USN_JOURNAL_DATA = *mut DELETE_USN_JOURNAL_DATA;
 pub type PDEVICEDUMP_COLLECTION_TYPE = *mut DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE;
 pub type PDEVICEDUMP_PRIVATE_SUBSECTION = *mut DEVICEDUMP_PRIVATE_SUBSECTION;
@@ -3998,82 +3998,82 @@ pub type PDEVICEDUMP_PUBLIC_SUBSECTION = *mut DEVICEDUMP_PUBLIC_SUBSECTION;
 pub type PDEVICEDUMP_RESTRICTED_SUBSECTION = *mut DEVICEDUMP_RESTRICTED_SUBSECTION;
 pub type PDEVICEDUMP_SECTION_HEADER = *mut DEVICEDUMP_SECTION_HEADER;
 pub type PDEVICEDUMP_STORAGEDEVICE_DATA = *mut DEVICEDUMP_STORAGEDEVICE_DATA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICEDUMP_STORAGESTACK_PUBLIC_DUMP = *mut DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD = *mut DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD;
 pub type PDEVICEDUMP_STRUCTURE_VERSION = *mut DEVICEDUMP_STRUCTURE_VERSION;
 pub type PDEVICEDUMP_SUBSECTION_POINTER = *mut DEVICEDUMP_SUBSECTION_POINTER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_COPY_OFFLOAD_DESCRIPTOR = *mut DEVICE_COPY_OFFLOAD_DESCRIPTOR;
 pub type PDEVICE_DATA_SET_LBP_STATE_PARAMETERS = *mut DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DATA_SET_LB_PROVISIONING_STATE = *mut DEVICE_DATA_SET_LB_PROVISIONING_STATE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 = *mut DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DATA_SET_RANGE = *mut DEVICE_DATA_SET_RANGE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DATA_SET_REPAIR_OUTPUT = *mut DEVICE_DATA_SET_REPAIR_OUTPUT;
 pub type PDEVICE_DATA_SET_REPAIR_PARAMETERS = *mut DEVICE_DATA_SET_REPAIR_PARAMETERS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DATA_SET_SCRUB_EX_OUTPUT = *mut DEVICE_DATA_SET_SCRUB_EX_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DATA_SET_SCRUB_OUTPUT = *mut DEVICE_DATA_SET_SCRUB_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT = *mut DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_ALLOCATION_OUTPUT = *mut DEVICE_DATA_SET_LB_PROVISIONING_STATE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_ALLOCATION_OUTPUT2 = *mut DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
 pub type PDEVICE_DSM_ALLOCATION_PARAMETERS = *mut DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
 pub type PDEVICE_DSM_CONVERSION_OUTPUT = *mut DEVICE_DSM_CONVERSION_OUTPUT;
 pub type PDEVICE_DSM_DEFINITION = *mut DEVICE_DSM_DEFINITION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_FREE_SPACE_OUTPUT = *mut DEVICE_DSM_FREE_SPACE_OUTPUT;
 pub type PDEVICE_DSM_INPUT = *mut DEVICE_MANAGE_DATA_SET_ATTRIBUTES;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_LOST_QUERY_OUTPUT = *mut DEVICE_DSM_LOST_QUERY_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_LOST_QUERY_PARAMETERS = *mut DEVICE_DSM_LOST_QUERY_PARAMETERS;
 pub type PDEVICE_DSM_NOTIFICATION_PARAMETERS = *mut DEVICE_DSM_NOTIFICATION_PARAMETERS;
 pub type PDEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS = *mut DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS;
 pub type PDEVICE_DSM_OFFLOAD_READ_PARAMETERS = *mut DEVICE_DSM_OFFLOAD_READ_PARAMETERS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_OFFLOAD_WRITE_PARAMETERS = *mut DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS;
 pub type PDEVICE_DSM_OUTPUT = *mut DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT = *mut DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT;
 pub type PDEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT = *mut DEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_RANGE = *mut DEVICE_DATA_SET_RANGE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_RANGE_ERROR_INFO = *mut DEVICE_DSM_RANGE_ERROR_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_RANGE_ERROR_OUTPUT = *mut DEVICE_DSM_RANGE_ERROR_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_REPAIR_OUTPUT = *mut DEVICE_DATA_SET_REPAIR_OUTPUT;
 pub type PDEVICE_DSM_REPAIR_PARAMETERS = *mut DEVICE_DATA_SET_REPAIR_PARAMETERS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_REPORT_ZONES_DATA = *mut DEVICE_DSM_REPORT_ZONES_DATA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_REPORT_ZONES_OUTPUT = *mut DEVICE_DSM_REPORT_ZONES_DATA;
 pub type PDEVICE_DSM_REPORT_ZONES_PARAMETERS = *mut DEVICE_DSM_REPORT_ZONES_PARAMETERS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_SCRUB_OUTPUT = *mut DEVICE_DATA_SET_SCRUB_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_SCRUB_OUTPUT2 = *mut DEVICE_DATA_SET_SCRUB_EX_OUTPUT;
 pub type PDEVICE_DSM_TIERING_QUERY_INPUT = *mut DEVICE_DSM_TIERING_QUERY_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_TIERING_QUERY_OUTPUT = *mut DEVICE_DSM_TIERING_QUERY_OUTPUT;
 pub type PDEVICE_DSM_TIERING_QUERY_PARAMETERS = *mut DEVICE_DSM_TIERING_QUERY_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_TOPOLOGY_ID_QUERY_OUTPUT = *mut DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_INTERNAL_STATUS_DATA = *mut DEVICE_INTERNAL_STATUS_DATA;
 pub type PDEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = *mut DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE;
 pub type PDEVICE_INTERNAL_STATUS_DATA_SET = *mut DEVICE_INTERNAL_STATUS_DATA_SET;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_LB_PROVISIONING_DESCRIPTOR = *mut DEVICE_LB_PROVISIONING_DESCRIPTOR;
 pub type PDEVICE_LOCATION = *mut DEVICE_LOCATION;
 pub type PDEVICE_MANAGE_DATA_SET_ATTRIBUTES = *mut DEVICE_MANAGE_DATA_SET_ATTRIBUTES;
@@ -4081,9 +4081,9 @@ pub type PDEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT = *mut DEVICE_MANAGE_DATA_SET
 pub type PDEVICE_MEDIA_INFO = *mut DEVICE_MEDIA_INFO;
 pub type PDEVICE_POWER_DESCRIPTOR = *mut DEVICE_POWER_DESCRIPTOR;
 pub type PDEVICE_SEEK_PENALTY_DESCRIPTOR = *mut DEVICE_SEEK_PENALTY_DESCRIPTOR;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_STORAGE_ADDRESS_RANGE = *mut DEVICE_STORAGE_ADDRESS_RANGE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEVICE_STORAGE_RANGE_ATTRIBUTES = *mut DEVICE_STORAGE_RANGE_ATTRIBUTES;
 pub type PDEVICE_TRIM_DESCRIPTOR = *mut DEVICE_TRIM_DESCRIPTOR;
 pub type PDEVICE_WRITE_AGGREGATION_DESCRIPTOR = *mut DEVICE_WRITE_AGGREGATION_DESCRIPTOR;
@@ -4106,21 +4106,21 @@ pub type PDRIVE_LAYOUT_INFORMATION = *mut DRIVE_LAYOUT_INFORMATION;
 pub type PDRIVE_LAYOUT_INFORMATION_EX = *mut DRIVE_LAYOUT_INFORMATION_EX;
 pub type PDRIVE_LAYOUT_INFORMATION_GPT = *mut DRIVE_LAYOUT_INFORMATION_GPT;
 pub type PDRIVE_LAYOUT_INFORMATION_MBR = *mut DRIVE_LAYOUT_INFORMATION_MBR;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDUPLICATE_EXTENTS_DATA = *mut DUPLICATE_EXTENTS_DATA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PDUPLICATE_EXTENTS_DATA32 = *mut DUPLICATE_EXTENTS_DATA32;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDUPLICATE_EXTENTS_DATA_EX = *mut DUPLICATE_EXTENTS_DATA_EX;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PDUPLICATE_EXTENTS_DATA_EX32 = *mut DUPLICATE_EXTENTS_DATA_EX32;
 pub type PDUPLICATE_EXTENTS_STATE = *mut DUPLICATE_EXTENTS_STATE;
 pub const PD_5_RW: STORAGE_MEDIA_TYPE = 63;
 pub type PELEMENT_TYPE = *mut ELEMENT_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PENCRYPTED_DATA_INFO = *mut ENCRYPTED_DATA_INFO;
 pub type PENCRYPTION_BUFFER = *mut ENCRYPTION_BUFFER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PENCRYPTION_KEY_CTRL_INPUT = *mut ENCRYPTION_KEY_CTRL_INPUT;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4194,84 +4194,84 @@ pub type PEXFAT_STATISTICS = *mut EXFAT_STATISTICS;
 pub type PEXTENDED_ENCRYPTED_DATA_INFO = *mut EXTENDED_ENCRYPTED_DATA_INFO;
 pub type PFAT_STATISTICS = *mut FAT_STATISTICS;
 pub type PFILESYSTEM_STATISTICS = *mut FILESYSTEM_STATISTICS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILESYSTEM_STATISTICS_EX = *mut FILESYSTEM_STATISTICS_EX;
 pub type PFILE_ALLOCATED_RANGE_BUFFER = *mut FILE_ALLOCATED_RANGE_BUFFER;
 pub type PFILE_DESIRED_STORAGE_CLASS_INFORMATION = *mut FILE_DESIRED_STORAGE_CLASS_INFORMATION;
 pub type PFILE_FS_PERSISTENT_VOLUME_INFORMATION = *mut FILE_FS_PERSISTENT_VOLUME_INFORMATION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILE_INITIATE_REPAIR_OUTPUT_BUFFER = *mut FILE_INITIATE_REPAIR_OUTPUT_BUFFER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILE_LAYOUT_ENTRY = *mut FILE_LAYOUT_ENTRY;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILE_LAYOUT_INFO_ENTRY = *mut FILE_LAYOUT_INFO_ENTRY;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILE_LAYOUT_NAME_ENTRY = *mut FILE_LAYOUT_NAME_ENTRY;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILE_LEVEL_TRIM = *mut FILE_LEVEL_TRIM;
 pub type PFILE_LEVEL_TRIM_OUTPUT = *mut FILE_LEVEL_TRIM_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILE_LEVEL_TRIM_RANGE = *mut FILE_LEVEL_TRIM_RANGE;
 pub type PFILE_MAKE_COMPATIBLE_BUFFER = *mut FILE_MAKE_COMPATIBLE_BUFFER;
 pub type PFILE_OBJECTID_BUFFER = *mut FILE_OBJECTID_BUFFER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILE_PREFETCH = *mut FILE_PREFETCH;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILE_PREFETCH_EX = *mut FILE_PREFETCH_EX;
 pub type PFILE_PROVIDER_EXTERNAL_INFO = PFILE_PROVIDER_EXTERNAL_INFO_V1;
 pub type PFILE_PROVIDER_EXTERNAL_INFO_V0 = *mut FILE_PROVIDER_EXTERNAL_INFO_V0;
 pub type PFILE_PROVIDER_EXTERNAL_INFO_V1 = *mut FILE_PROVIDER_EXTERNAL_INFO_V1;
 pub type PFILE_QUERY_ON_DISK_VOL_INFO_BUFFER = *mut FILE_QUERY_ON_DISK_VOL_INFO_BUFFER;
 pub type PFILE_QUERY_SPARING_BUFFER = *mut FILE_QUERY_SPARING_BUFFER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILE_REFERENCE_RANGE = *mut FILE_REFERENCE_RANGE;
 pub type PFILE_REGION_INFO = *mut FILE_REGION_INFO;
 pub type PFILE_REGION_INPUT = *mut FILE_REGION_INPUT;
 pub type PFILE_REGION_OUTPUT = *mut FILE_REGION_OUTPUT;
 pub type PFILE_SET_DEFECT_MGMT_BUFFER = *mut FILE_SET_DEFECT_MGMT_BUFFER;
 pub type PFILE_SET_SPARSE_BUFFER = *mut FILE_SET_SPARSE_BUFFER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILE_STORAGE_TIER = *mut FILE_STORAGE_TIER;
 pub type PFILE_STORAGE_TIER_CLASS = *mut FILE_STORAGE_TIER_CLASS;
 pub type PFILE_STORAGE_TIER_MEDIA_TYPE = *mut FILE_STORAGE_TIER_MEDIA_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFILE_STORAGE_TIER_REGION = *mut FILE_STORAGE_TIER_REGION;
 pub type PFILE_SYSTEM_RECOGNITION_INFORMATION = *mut FILE_SYSTEM_RECOGNITION_INFORMATION;
 pub type PFILE_TYPE_NOTIFICATION_INPUT = *mut FILE_TYPE_NOTIFICATION_INPUT;
 pub type PFILE_ZERO_DATA_INFORMATION = *mut FILE_ZERO_DATA_INFORMATION;
 pub type PFILE_ZERO_DATA_INFORMATION_EX = *mut FILE_ZERO_DATA_INFORMATION_EX;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFIND_BY_SID_DATA = *mut FIND_BY_SID_DATA;
 pub type PFIND_BY_SID_OUTPUT = *mut FIND_BY_SID_OUTPUT;
 pub type PFORMAT_EX_PARAMETERS = *mut FORMAT_EX_PARAMETERS;
 pub type PFORMAT_PARAMETERS = *mut FORMAT_PARAMETERS;
 pub type PFSCTL_GET_INTEGRITY_INFORMATION_BUFFER = *mut FSCTL_GET_INTEGRITY_INFORMATION_BUFFER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFSCTL_OFFLOAD_READ_INPUT = *mut FSCTL_OFFLOAD_READ_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFSCTL_OFFLOAD_READ_OUTPUT = *mut FSCTL_OFFLOAD_READ_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFSCTL_OFFLOAD_WRITE_INPUT = *mut FSCTL_OFFLOAD_WRITE_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFSCTL_OFFLOAD_WRITE_OUTPUT = *mut FSCTL_OFFLOAD_WRITE_OUTPUT;
 pub type PFSCTL_QUERY_FAT_BPB_BUFFER = *mut FSCTL_QUERY_FAT_BPB_BUFFER;
 pub type PFSCTL_QUERY_REGION_INFO_INPUT = *mut FSCTL_QUERY_REGION_INFO_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFSCTL_QUERY_REGION_INFO_OUTPUT = *mut FSCTL_QUERY_REGION_INFO_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFSCTL_QUERY_STORAGE_CLASSES_OUTPUT = *mut FSCTL_QUERY_STORAGE_CLASSES_OUTPUT;
 pub type PFSCTL_SET_INTEGRITY_INFORMATION_BUFFER = *mut FSCTL_SET_INTEGRITY_INFORMATION_BUFFER;
 pub type PFSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX = *mut FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX;
 pub type PFS_BPIO_INFO = *mut FS_BPIO_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFS_BPIO_INPUT = *mut FS_BPIO_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFS_BPIO_OUTPUT = *mut FS_BPIO_OUTPUT;
 pub type PFS_BPIO_RESULTS = *mut FS_BPIO_RESULTS;
 pub type PGETVERSIONINPARAMS = *mut GETVERSIONINPARAMS;
 pub type PGET_CHANGER_PARAMETERS = *mut GET_CHANGER_PARAMETERS;
 pub type PGET_DEVICE_INTERNAL_STATUS_DATA_REQUEST = *mut GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PGET_DISK_ATTRIBUTES = *mut GET_DISK_ATTRIBUTES;
 pub type PGET_FILTER_FILE_IDENTIFIER_INPUT = *mut GET_FILTER_FILE_IDENTIFIER_INPUT;
 pub type PGET_FILTER_FILE_IDENTIFIER_OUTPUT = *mut GET_FILTER_FILE_IDENTIFIER_OUTPUT;
@@ -4281,7 +4281,7 @@ pub type PGP_LOG_PAGE_DESCRIPTOR = *mut GP_LOG_PAGE_DESCRIPTOR;
 pub const PHILIPS_12_WO: STORAGE_MEDIA_TYPE = 67;
 pub type PHISTOGRAM_BUCKET = *mut HISTOGRAM_BUCKET;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PHYSICAL_ELEMENT_STATUS {
     pub Version: u32,
@@ -4292,14 +4292,14 @@ pub struct PHYSICAL_ELEMENT_STATUS {
     pub Reserved: u32,
     pub Descriptors: [PHYSICAL_ELEMENT_STATUS_DESCRIPTOR; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PHYSICAL_ELEMENT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
     pub Version: u32,
@@ -4311,7 +4311,7 @@ pub struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
     pub AssociatedCapacity: super::winnt::DWORDLONG,
     pub Reserved2: [u32; 4],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4349,28 +4349,28 @@ pub type PLMR_QUERY_SESSION_INFO = *mut LMR_QUERY_SESSION_INFO;
 pub type PLOOKUP_STREAM_FROM_CLUSTER_ENTRY = *mut LOOKUP_STREAM_FROM_CLUSTER_ENTRY;
 pub type PLOOKUP_STREAM_FROM_CLUSTER_INPUT = *mut LOOKUP_STREAM_FROM_CLUSTER_INPUT;
 pub type PLOOKUP_STREAM_FROM_CLUSTER_OUTPUT = *mut LOOKUP_STREAM_FROM_CLUSTER_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PMARK_HANDLE_INFO = *mut MARK_HANDLE_INFO;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PMARK_HANDLE_INFO32 = *mut MARK_HANDLE_INFO32;
 pub type PMEDIA_TYPE = *mut MEDIA_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PMFT_ENUM_DATA = *mut MFT_ENUM_DATA_V1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PMFT_ENUM_DATA_V0 = *mut MFT_ENUM_DATA_V0;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PMFT_ENUM_DATA_V1 = *mut MFT_ENUM_DATA_V1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PMOVE_FILE_DATA = *mut MOVE_FILE_DATA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PMOVE_FILE_DATA32 = *mut MOVE_FILE_DATA32;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PMOVE_FILE_RECORD_DATA = *mut MOVE_FILE_RECORD_DATA;
 pub type PNTFS_EXTENDED_VOLUME_DATA = *mut NTFS_EXTENDED_VOLUME_DATA;
 pub type PNTFS_FILE_RECORD_INPUT_BUFFER = *mut NTFS_FILE_RECORD_INPUT_BUFFER;
 pub type PNTFS_FILE_RECORD_OUTPUT_BUFFER = *mut NTFS_FILE_RECORD_OUTPUT_BUFFER;
 pub type PNTFS_STATISTICS = *mut NTFS_STATISTICS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PNTFS_STATISTICS_EX = *mut NTFS_STATISTICS_EX;
 pub type PNTFS_VOLUME_DATA_BUFFER = *mut NTFS_VOLUME_DATA_BUFFER;
 pub type PPARTITION_INFORMATION = *mut PARTITION_INFORMATION;
@@ -4380,48 +4380,48 @@ pub type PPARTITION_INFORMATION_MBR = *mut PARTITION_INFORMATION_MBR;
 pub type PPATHNAME_BUFFER = *mut PATHNAME_BUFFER;
 pub type PPERF_BIN = *mut PERF_BIN;
 pub type PPERSISTENT_RESERVE_COMMAND = *mut PERSISTENT_RESERVE_COMMAND;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PPHYSICAL_ELEMENT_STATUS = *mut PHYSICAL_ELEMENT_STATUS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PPHYSICAL_ELEMENT_STATUS_DESCRIPTOR = *mut PHYSICAL_ELEMENT_STATUS_DESCRIPTOR;
 pub type PPHYSICAL_ELEMENT_STATUS_REQUEST = *mut PHYSICAL_ELEMENT_STATUS_REQUEST;
 pub type PPLEX_READ_DATA_REQUEST = *mut PLEX_READ_DATA_REQUEST;
 pub type PPREVENT_MEDIA_REMOVAL = *mut PREVENT_MEDIA_REMOVAL;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PQUERY_BAD_RANGES_INPUT = *mut QUERY_BAD_RANGES_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PQUERY_BAD_RANGES_INPUT_RANGE = *mut QUERY_BAD_RANGES_INPUT_RANGE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PQUERY_BAD_RANGES_OUTPUT = *mut QUERY_BAD_RANGES_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PQUERY_BAD_RANGES_OUTPUT_RANGE = *mut QUERY_BAD_RANGES_OUTPUT_RANGE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PQUERY_FILE_LAYOUT_INPUT = *mut QUERY_FILE_LAYOUT_INPUT;
 pub type PQUERY_FILE_LAYOUT_OUTPUT = *mut QUERY_FILE_LAYOUT_OUTPUT;
 pub type PREAD_ELEMENT_ADDRESS_INFO = *mut READ_ELEMENT_ADDRESS_INFO;
 pub type PREAD_FILE_USN_DATA = *mut READ_FILE_USN_DATA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PREAD_USN_JOURNAL_DATA = *mut READ_USN_JOURNAL_DATA_V1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PREAD_USN_JOURNAL_DATA_V0 = *mut READ_USN_JOURNAL_DATA_V0;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PREAD_USN_JOURNAL_DATA_V1 = *mut READ_USN_JOURNAL_DATA_V1;
 pub type PREASSIGN_BLOCKS = *mut REASSIGN_BLOCKS;
 pub type PREASSIGN_BLOCKS_EX = *mut REASSIGN_BLOCKS_EX;
 pub type PREFS_SMR_VOLUME_GC_ACTION = *mut REFS_SMR_VOLUME_GC_ACTION;
 pub type PREFS_SMR_VOLUME_GC_METHOD = *mut REFS_SMR_VOLUME_GC_METHOD;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PREFS_SMR_VOLUME_GC_PARAMETERS = *mut REFS_SMR_VOLUME_GC_PARAMETERS;
 pub type PREFS_SMR_VOLUME_GC_STATE = *mut REFS_SMR_VOLUME_GC_STATE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PREFS_SMR_VOLUME_INFO_OUTPUT = *mut REFS_SMR_VOLUME_INFO_OUTPUT;
 pub type PREFS_VOLUME_DATA_BUFFER = *mut REFS_VOLUME_DATA_BUFFER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PREMOVE_ELEMENT_AND_TRUNCATE_REQUEST = *mut REMOVE_ELEMENT_AND_TRUNCATE_REQUEST;
 pub type PREPAIR_COPIES_INPUT = *mut REPAIR_COPIES_INPUT;
 pub type PREPAIR_COPIES_OUTPUT = *mut REPAIR_COPIES_OUTPUT;
 pub type PREQUEST_OPLOCK_INPUT_BUFFER = *mut REQUEST_OPLOCK_INPUT_BUFFER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PREQUEST_OPLOCK_OUTPUT_BUFFER = *mut REQUEST_OPLOCK_OUTPUT_BUFFER;
 pub type PREQUEST_RAW_ENCRYPTED_DATA = *mut REQUEST_RAW_ENCRYPTED_DATA;
 pub type PRETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER = *mut RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER;
@@ -4435,9 +4435,9 @@ pub struct PREVENT_MEDIA_REMOVAL {
 }
 pub const PRODUCT_ID_LENGTH: u32 = 16;
 pub const PROJFS_PROTOCOL_VERSION: u32 = 3;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSCM_BUS_DEDICATED_MEMORY_DEVICES_INFO = *mut SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSCM_BUS_DEDICATED_MEMORY_DEVICE_INFO = *mut SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO;
 pub type PSCM_BUS_DEDICATED_MEMORY_STATE = *mut SCM_BUS_DEDICATED_MEMORY_STATE;
 pub type PSCM_BUS_FIRMWARE_ACTIVATION_STATE = *mut SCM_BUS_FIRMWARE_ACTIVATION_STATE;
@@ -4445,7 +4445,7 @@ pub type PSCM_BUS_PROPERTY_ID = *mut SCM_BUS_PROPERTY_ID;
 pub type PSCM_BUS_PROPERTY_QUERY = *mut SCM_BUS_PROPERTY_QUERY;
 pub type PSCM_BUS_PROPERTY_SET = *mut SCM_BUS_PROPERTY_SET;
 pub type PSCM_BUS_QUERY_TYPE = *mut SCM_BUS_QUERY_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSCM_BUS_RUNTIME_FW_ACTIVATION_INFO = *mut SCM_BUS_RUNTIME_FW_ACTIVATION_INFO;
 pub type PSCM_BUS_SET_TYPE = *mut SCM_BUS_SET_TYPE;
 pub type PSCM_INTERLEAVED_PD_INFO = *mut SCM_INTERLEAVED_PD_INFO;
@@ -4490,31 +4490,31 @@ pub type PSCM_REGION = *mut SCM_REGION;
 pub type PSCM_REGIONS = *mut SCM_REGIONS;
 pub type PSCM_REGION_FLAG = *mut SCM_REGION_FLAG;
 pub type PSD_CHANGE_MACHINE_SID_INPUT = *mut SD_CHANGE_MACHINE_SID_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSD_CHANGE_MACHINE_SID_OUTPUT = *mut SD_CHANGE_MACHINE_SID_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSD_ENUM_SDS_ENTRY = *mut SD_ENUM_SDS_ENTRY;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSD_ENUM_SDS_INPUT = *mut SD_ENUM_SDS_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSD_ENUM_SDS_OUTPUT = *mut SD_ENUM_SDS_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSD_GLOBAL_CHANGE_INPUT = *mut SD_GLOBAL_CHANGE_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSD_GLOBAL_CHANGE_OUTPUT = *mut SD_GLOBAL_CHANGE_OUTPUT;
 pub type PSD_QUERY_STATS_INPUT = *mut SD_QUERY_STATS_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSD_QUERY_STATS_OUTPUT = *mut SD_QUERY_STATS_OUTPUT;
 pub type PSENDCMDINPARAMS = *mut SENDCMDINPARAMS;
 pub type PSENDCMDOUTPARAMS = *mut SENDCMDOUTPARAMS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSET_DAX_ALLOC_ALIGNMENT_HINT_INPUT = *mut SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSET_DISK_ATTRIBUTES = *mut SET_DISK_ATTRIBUTES;
 pub type PSET_PARTITION_INFORMATION = *mut SET_PARTITION_INFORMATION;
 pub type PSET_PARTITION_INFORMATION_EX = *mut SET_PARTITION_INFORMATION_EX;
 pub type PSET_PURGE_FAILURE_MODE_INPUT = *mut SET_PURGE_FAILURE_MODE_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSHRINK_VOLUME_INFORMATION = *mut SHRINK_VOLUME_INFORMATION;
 pub type PSHRINK_VOLUME_REQUEST_TYPES = *mut SHRINK_VOLUME_REQUEST_TYPES;
 pub type PSI_COPYFILE = *mut SI_COPYFILE;
@@ -4527,7 +4527,7 @@ pub type PSTORAGE_ACCESS_ALIGNMENT_DESCRIPTOR = *mut STORAGE_ACCESS_ALIGNMENT_DE
 pub type PSTORAGE_ADAPTER_DESCRIPTOR = *mut STORAGE_ADAPTER_DESCRIPTOR;
 pub type PSTORAGE_ADAPTER_SERIAL_NUMBER = *mut STORAGE_ADAPTER_SERIAL_NUMBER;
 pub type PSTORAGE_ALLOCATE_BC_STREAM_INPUT = *mut STORAGE_ALLOCATE_BC_STREAM_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_ALLOCATE_BC_STREAM_OUTPUT = *mut STORAGE_ALLOCATE_BC_STREAM_OUTPUT;
 pub type PSTORAGE_ASSOCIATION_TYPE = *mut STORAGE_ASSOCIATION_TYPE;
 pub type PSTORAGE_ATTRIBUTE_MGMT = *mut STORAGE_ATTRIBUTE_MGMT;
@@ -4536,9 +4536,9 @@ pub type PSTORAGE_BREAK_RESERVATION_REQUEST = *mut STORAGE_BREAK_RESERVATION_REQ
 pub type PSTORAGE_BUS_RESET_REQUEST = *mut STORAGE_BUS_RESET_REQUEST;
 pub type PSTORAGE_BUS_TYPE = *mut STORAGE_BUS_TYPE;
 pub type PSTORAGE_COMPONENT_HEALTH_STATUS = *mut STORAGE_COMPONENT_HEALTH_STATUS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_COUNTER = *mut STORAGE_COUNTER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_COUNTERS = *mut STORAGE_COUNTERS;
 pub type PSTORAGE_COUNTER_TYPE = *mut STORAGE_COUNTER_TYPE;
 pub type PSTORAGE_CRYPTO_ALGORITHM_ID = *mut STORAGE_CRYPTO_ALGORITHM_ID;
@@ -4554,7 +4554,7 @@ pub type PSTORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR = *mut STORAGE_DEVICE_FAULT_DOM
 pub type PSTORAGE_DEVICE_FORM_FACTOR = *mut STORAGE_DEVICE_FORM_FACTOR;
 pub type PSTORAGE_DEVICE_ID_DESCRIPTOR = *mut STORAGE_DEVICE_ID_DESCRIPTOR;
 pub type PSTORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR = *mut STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_DEVICE_LED_STATE_DESCRIPTOR = *mut STORAGE_DEVICE_LED_STATE_DESCRIPTOR;
 pub type PSTORAGE_DEVICE_LOCATION_DESCRIPTOR = *mut STORAGE_DEVICE_LOCATION_DESCRIPTOR;
 pub type PSTORAGE_DEVICE_MANAGEMENT_STATUS = *mut STORAGE_DEVICE_MANAGEMENT_STATUS;
@@ -4562,13 +4562,13 @@ pub type PSTORAGE_DEVICE_NUMA_PROPERTY = *mut STORAGE_DEVICE_NUMA_PROPERTY;
 pub type PSTORAGE_DEVICE_NUMBER = *mut STORAGE_DEVICE_NUMBER;
 pub type PSTORAGE_DEVICE_NUMBERS = *mut STORAGE_DEVICE_NUMBERS;
 pub type PSTORAGE_DEVICE_NUMBER_EX = *mut STORAGE_DEVICE_NUMBER_EX;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_DEVICE_POWER_CAP = *mut STORAGE_DEVICE_POWER_CAP;
 pub type PSTORAGE_DEVICE_POWER_CAP_UNITS = *mut STORAGE_DEVICE_POWER_CAP_UNITS;
 pub type PSTORAGE_DEVICE_RESILIENCY_DESCRIPTOR = *mut STORAGE_DEVICE_RESILIENCY_DESCRIPTOR;
 pub type PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY = *mut STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY;
 pub type PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 = *mut STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_DEVICE_TIERING_DESCRIPTOR = *mut STORAGE_DEVICE_TIERING_DESCRIPTOR;
 pub type PSTORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT = *mut STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT;
 pub type PSTORAGE_DIAGNOSTIC_DATA = *mut STORAGE_DIAGNOSTIC_DATA;
@@ -4578,28 +4578,28 @@ pub type PSTORAGE_DIAGNOSTIC_TARGET_TYPE = *mut STORAGE_DIAGNOSTIC_TARGET_TYPE;
 pub type PSTORAGE_DISK_HEALTH_STATUS = *mut STORAGE_DISK_HEALTH_STATUS;
 pub type PSTORAGE_DISK_OPERATIONAL_STATUS = *mut STORAGE_DISK_OPERATIONAL_STATUS;
 pub type PSTORAGE_ENCRYPTION_TYPE = *mut STORAGE_ENCRYPTION_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_EVENT_NOTIFICATION = *mut STORAGE_EVENT_NOTIFICATION;
 pub type PSTORAGE_FAILURE_PREDICTION_CONFIG = *mut STORAGE_FAILURE_PREDICTION_CONFIG;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_FEATURE_SUPPORT = *mut STORAGE_FEATURE_SUPPORT;
 pub type PSTORAGE_FRU_ID_DESCRIPTOR = *mut STORAGE_FRU_ID_DESCRIPTOR;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_GET_BC_PROPERTIES_OUTPUT = *mut STORAGE_GET_BC_PROPERTIES_OUTPUT;
 pub type PSTORAGE_HOTPLUG_INFO = *mut STORAGE_HOTPLUG_INFO;
 pub type PSTORAGE_HW_BOOT_PARTITION_ACTIVATE = *mut STORAGE_HW_BOOT_PARTITION_ACTIVATE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_HW_BOOT_PARTITION_DOWNLOAD = *mut STORAGE_HW_BOOT_PARTITION_DOWNLOAD;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_HW_BOOT_PARTITION_INFO = *mut STORAGE_HW_BOOT_PARTITION_INFO;
 pub type PSTORAGE_HW_CRYPTO_CAPABILITY = *mut STORAGE_HW_CRYPTO_CAPABILITY;
 pub type PSTORAGE_HW_CRYPTO_DESCRIPTOR = *mut STORAGE_HW_CRYPTO_DESCRIPTOR;
 pub type PSTORAGE_HW_ENDURANCE_DATA_DESCRIPTOR = *mut STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR;
 pub type PSTORAGE_HW_ENDURANCE_INFO = *mut STORAGE_HW_ENDURANCE_INFO;
 pub type PSTORAGE_HW_FIRMWARE_ACTIVATE = *mut STORAGE_HW_FIRMWARE_ACTIVATE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_HW_FIRMWARE_DOWNLOAD = *mut STORAGE_HW_FIRMWARE_DOWNLOAD;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_HW_FIRMWARE_DOWNLOAD_V2 = *mut STORAGE_HW_FIRMWARE_DOWNLOAD_V2;
 pub type PSTORAGE_HW_FIRMWARE_INFO = *mut STORAGE_HW_FIRMWARE_INFO;
 pub type PSTORAGE_HW_FIRMWARE_INFO_QUERY = *mut STORAGE_HW_FIRMWARE_INFO_QUERY;
@@ -4611,21 +4611,21 @@ pub type PSTORAGE_IDENTIFIER_TYPE = *mut STORAGE_IDENTIFIER_TYPE;
 pub type PSTORAGE_IDLE_POWER = *mut STORAGE_IDLE_POWER;
 pub type PSTORAGE_IDLE_POWERUP_REASON = *mut STORAGE_IDLE_POWERUP_REASON;
 pub type PSTORAGE_ID_NAA_FORMAT = *mut STORAGE_ID_NAA_FORMAT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_LB_PROVISIONING_MAP_RESOURCES = *mut STORAGE_LB_PROVISIONING_MAP_RESOURCES;
 pub type PSTORAGE_MEDIA_SERIAL_NUMBER_DATA = *mut STORAGE_MEDIA_SERIAL_NUMBER_DATA;
 pub type PSTORAGE_MEDIA_TYPE = *mut STORAGE_MEDIA_TYPE;
 pub type PSTORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR = *mut STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR;
 pub type PSTORAGE_MINIPORT_DESCRIPTOR = *mut STORAGE_MINIPORT_DESCRIPTOR;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_OFFLOAD_READ_OUTPUT = *mut STORAGE_OFFLOAD_READ_OUTPUT;
 pub type PSTORAGE_OFFLOAD_TOKEN = *mut STORAGE_OFFLOAD_TOKEN;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_OFFLOAD_WRITE_OUTPUT = *mut STORAGE_OFFLOAD_WRITE_OUTPUT;
 pub type PSTORAGE_OPERATIONAL_REASON = *mut STORAGE_OPERATIONAL_REASON;
 pub type PSTORAGE_OPERATIONAL_STATUS_REASON = *mut STORAGE_OPERATIONAL_STATUS_REASON;
 pub type PSTORAGE_PHYSICAL_ADAPTER_DATA = *mut STORAGE_PHYSICAL_ADAPTER_DATA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_PHYSICAL_DEVICE_DATA = *mut STORAGE_PHYSICAL_DEVICE_DATA;
 pub type PSTORAGE_PHYSICAL_NODE_DATA = *mut STORAGE_PHYSICAL_NODE_DATA;
 pub type PSTORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR = *mut STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR;
@@ -4666,79 +4666,79 @@ pub type PSTORAGE_STACK_TYPE = *mut STORAGE_STACK_TYPE;
 pub type PSTORAGE_TEMPERATURE_DATA_DESCRIPTOR = *mut STORAGE_TEMPERATURE_DATA_DESCRIPTOR;
 pub type PSTORAGE_TEMPERATURE_INFO = *mut STORAGE_TEMPERATURE_INFO;
 pub type PSTORAGE_TEMPERATURE_THRESHOLD = *mut STORAGE_TEMPERATURE_THRESHOLD;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_TIER = *mut STORAGE_TIER;
 pub type PSTORAGE_TIER_CLASS = *mut STORAGE_TIER_CLASS;
 pub type PSTORAGE_TIER_MEDIA_TYPE = *mut STORAGE_TIER_MEDIA_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_TIER_REGION = *mut STORAGE_TIER_REGION;
 pub type PSTORAGE_WRITE_CACHE_PROPERTY = *mut STORAGE_WRITE_CACHE_PROPERTY;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_ZONED_DEVICE_DESCRIPTOR = *mut STORAGE_ZONED_DEVICE_DESCRIPTOR;
 pub type PSTORAGE_ZONED_DEVICE_TYPES = *mut STORAGE_ZONED_DEVICE_TYPES;
 pub type PSTORAGE_ZONES_ATTRIBUTES = *mut STORAGE_ZONES_ATTRIBUTES;
 pub type PSTORAGE_ZONE_CONDITION = *mut STORAGE_ZONE_CONDITION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_ZONE_DESCRIPTOR = *mut STORAGE_ZONE_DESCRIPTOR;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_ZONE_GROUP = *mut STORAGE_ZONE_GROUP;
 pub type PSTORAGE_ZONE_TYPES = *mut STORAGE_ZONE_TYPES;
 pub type PSTREAMS_ASSOCIATE_ID_INPUT_BUFFER = *mut STREAMS_ASSOCIATE_ID_INPUT_BUFFER;
 pub type PSTREAMS_QUERY_ID_OUTPUT_BUFFER = *mut STREAMS_QUERY_ID_OUTPUT_BUFFER;
 pub type PSTREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER = *mut STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER;
 pub type PSTREAM_EXTENT_ENTRY = *mut STREAM_EXTENT_ENTRY;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSTREAM_INFORMATION_ENTRY = *mut STREAM_INFORMATION_ENTRY;
 pub type PSTREAM_LAYOUT_ENTRY = *mut STREAM_LAYOUT_ENTRY;
 pub type PTAPE_GET_STATISTICS = *mut TAPE_GET_STATISTICS;
 pub type PTAPE_STATISTICS = *mut TAPE_STATISTICS;
 pub type PTXFS_CREATE_MINIVERSION_INFO = *mut TXFS_CREATE_MINIVERSION_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTXFS_GET_METADATA_INFO_OUT = *mut TXFS_GET_METADATA_INFO_OUT;
 pub type PTXFS_GET_TRANSACTED_VERSION = *mut TXFS_GET_TRANSACTED_VERSION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTXFS_LIST_TRANSACTIONS = *mut TXFS_LIST_TRANSACTIONS;
 pub type PTXFS_LIST_TRANSACTIONS_ENTRY = *mut TXFS_LIST_TRANSACTIONS_ENTRY;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTXFS_LIST_TRANSACTION_LOCKED_FILES = *mut TXFS_LIST_TRANSACTION_LOCKED_FILES;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY = *mut TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTXFS_MODIFY_RM = *mut TXFS_MODIFY_RM;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTXFS_QUERY_RM_INFORMATION = *mut TXFS_QUERY_RM_INFORMATION;
 pub type PTXFS_READ_BACKUP_INFORMATION_OUT = *mut TXFS_READ_BACKUP_INFORMATION_OUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTXFS_ROLLFORWARD_REDO_INFORMATION = *mut TXFS_ROLLFORWARD_REDO_INFORMATION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTXFS_SAVEPOINT_INFORMATION = *mut TXFS_SAVEPOINT_INFORMATION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTXFS_START_RM_INFORMATION = *mut TXFS_START_RM_INFORMATION;
 pub type PTXFS_TRANSACTION_ACTIVE_INFO = *mut TXFS_TRANSACTION_ACTIVE_INFO;
 pub type PTXFS_WRITE_BACKUP_INFORMATION = *mut TXFS_WRITE_BACKUP_INFORMATION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PUSN_JOURNAL_DATA = *mut USN_JOURNAL_DATA_V1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PUSN_JOURNAL_DATA_V0 = *mut USN_JOURNAL_DATA_V0;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PUSN_JOURNAL_DATA_V1 = *mut USN_JOURNAL_DATA_V1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PUSN_JOURNAL_DATA_V2 = *mut USN_JOURNAL_DATA_V2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PUSN_RANGE_TRACK_OUTPUT = *mut USN_RANGE_TRACK_OUTPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PUSN_RECORD = *mut USN_RECORD_V2;
 pub type PUSN_RECORD_COMMON_HEADER = *mut USN_RECORD_COMMON_HEADER;
 pub type PUSN_RECORD_EXTENT = *mut USN_RECORD_EXTENT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PUSN_RECORD_UNION = *mut USN_RECORD_UNION;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PUSN_RECORD_V2 = *mut USN_RECORD_V2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PUSN_RECORD_V3 = *mut USN_RECORD_V3;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PUSN_RECORD_V4 = *mut USN_RECORD_V4;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PUSN_TRACK_MODIFIED_RANGES = *mut USN_TRACK_MODIFIED_RANGES;
 pub type PVERIFY_INFORMATION = *mut VERIFY_INFORMATION;
 pub type PVIRTUALIZATION_INSTANCE_INFO_INPUT = *mut VIRTUALIZATION_INSTANCE_INFO_INPUT;
@@ -4749,7 +4749,7 @@ pub type PVIRTUAL_STORAGE_SET_BEHAVIOR_INPUT = *mut VIRTUAL_STORAGE_SET_BEHAVIOR
 pub type PVIRTUAL_STORAGE_TYPE = *mut VIRTUAL_STORAGE_TYPE;
 pub type PVOLUME_BITMAP_BUFFER = *mut VOLUME_BITMAP_BUFFER;
 pub type PVOLUME_DISK_EXTENTS = *mut VOLUME_DISK_EXTENTS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PVOLUME_GET_GPT_ATTRIBUTES_INFORMATION = *mut VOLUME_GET_GPT_ATTRIBUTES_INFORMATION;
 pub type PWIM_PROVIDER_ADD_OVERLAY_INPUT = *mut WIM_PROVIDER_ADD_OVERLAY_INPUT;
 pub type PWIM_PROVIDER_EXTERNAL_INFO = *mut WIM_PROVIDER_EXTERNAL_INFO;
@@ -4757,7 +4757,7 @@ pub type PWIM_PROVIDER_OVERLAY_ENTRY = *mut WIM_PROVIDER_OVERLAY_ENTRY;
 pub type PWIM_PROVIDER_REMOVE_OVERLAY_INPUT = *mut WIM_PROVIDER_REMOVE_OVERLAY_INPUT;
 pub type PWIM_PROVIDER_SUSPEND_OVERLAY_INPUT = *mut WIM_PROVIDER_SUSPEND_OVERLAY_INPUT;
 pub type PWIM_PROVIDER_UPDATE_OVERLAY_INPUT = *mut WIM_PROVIDER_UPDATE_OVERLAY_INPUT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWOF_EXTERNAL_FILE_ID = *mut WOF_EXTERNAL_FILE_ID;
 pub type PWOF_EXTERNAL_INFO = *mut WOF_EXTERNAL_INFO;
 pub type PWOF_VERSION_INFO = *mut WOF_VERSION_INFO;
@@ -4779,28 +4779,28 @@ pub const ProtocolTypeUfs: STORAGE_PROTOCOL_TYPE = 5;
 pub const ProtocolTypeUnknown: STORAGE_PROTOCOL_TYPE = 0;
 pub const QIC: STORAGE_MEDIA_TYPE = 35;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct QUERY_BAD_RANGES_INPUT {
     pub Flags: u32,
     pub NumRanges: u32,
     pub Ranges: [QUERY_BAD_RANGES_INPUT_RANGE; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for QUERY_BAD_RANGES_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct QUERY_BAD_RANGES_INPUT_RANGE {
     pub StartOffset: super::winnt::DWORDLONG,
     pub LengthInBytes: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct QUERY_BAD_RANGES_OUTPUT {
     pub Flags: u32,
@@ -4808,14 +4808,14 @@ pub struct QUERY_BAD_RANGES_OUTPUT {
     pub NextOffsetToLookUp: super::winnt::DWORDLONG,
     pub BadRanges: [QUERY_BAD_RANGES_OUTPUT_RANGE; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for QUERY_BAD_RANGES_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct QUERY_BAD_RANGES_OUTPUT_RANGE {
     pub Flags: u32,
@@ -4846,7 +4846,7 @@ pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EFS_ATTRIBUTE: u32 = 
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_REPARSE_ATTRIBUTE: u32 = 16384;
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_TXF_ATTRIBUTE: u32 = 512;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct QUERY_FILE_LAYOUT_INPUT {
     pub Anonymous: QUERY_FILE_LAYOUT_INPUT_0,
@@ -4855,34 +4855,34 @@ pub struct QUERY_FILE_LAYOUT_INPUT {
     pub Reserved: u32,
     pub Filter: QUERY_FILE_LAYOUT_INPUT_1,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for QUERY_FILE_LAYOUT_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union QUERY_FILE_LAYOUT_INPUT_0 {
     pub FilterEntryCount: u32,
     pub NumberOfPairs: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for QUERY_FILE_LAYOUT_INPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union QUERY_FILE_LAYOUT_INPUT_1 {
     pub ClusterRanges: [CLUSTER_RANGE; 1],
     pub FileReferenceRanges: [FILE_REFERENCE_RANGE; 1],
     pub StorageReserveIds: [STORAGE_RESERVE_ID; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for QUERY_FILE_LAYOUT_INPUT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4928,10 +4928,10 @@ pub struct READ_FILE_USN_DATA {
 }
 pub const READ_THRESHOLDS: u32 = 209;
 pub const READ_THRESHOLD_BUFFER_SIZE: u32 = 512;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type READ_USN_JOURNAL_DATA = READ_USN_JOURNAL_DATA_V1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct READ_USN_JOURNAL_DATA_V0 {
     pub StartUsn: super::winnt::USN,
@@ -4942,7 +4942,7 @@ pub struct READ_USN_JOURNAL_DATA_V0 {
     pub UsnJournalID: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct READ_USN_JOURNAL_DATA_V1 {
     pub StartUsn: super::winnt::USN,
@@ -4983,7 +4983,7 @@ pub const RECOVERED_WRITES_VALID: u32 = 1;
 pub type REFS_SMR_VOLUME_GC_ACTION = i32;
 pub type REFS_SMR_VOLUME_GC_METHOD = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct REFS_SMR_VOLUME_GC_PARAMETERS {
     pub Version: u32,
@@ -4994,7 +4994,7 @@ pub struct REFS_SMR_VOLUME_GC_PARAMETERS {
     pub CompressionFormat: u32,
     pub Unused: [super::winnt::DWORDLONG; 8],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for REFS_SMR_VOLUME_GC_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5003,7 +5003,7 @@ impl Default for REFS_SMR_VOLUME_GC_PARAMETERS {
 pub const REFS_SMR_VOLUME_GC_PARAMETERS_VERSION_V1: u32 = 1;
 pub type REFS_SMR_VOLUME_GC_STATE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct REFS_SMR_VOLUME_INFO_OUTPUT {
     pub Version: u32,
@@ -5018,7 +5018,7 @@ pub struct REFS_SMR_VOLUME_INFO_OUTPUT {
     pub CurrentGcBandFillPercentage: u32,
     pub Unused: [super::winnt::DWORDLONG; 6],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for REFS_SMR_VOLUME_INFO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5056,7 +5056,7 @@ impl Default for REFS_VOLUME_DATA_BUFFER {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
     pub Version: u32,
@@ -5106,7 +5106,7 @@ pub const REQUEST_OPLOCK_INPUT_FLAG_RH_ALWAYS_BLOCK_UNTIL_ACK: u32 = 8;
 pub const REQUEST_OPLOCK_INPUT_FLAG_RH_IGNORE_WRITES: u32 = 16;
 pub const REQUEST_OPLOCK_INPUT_FLAG_RH_NO_NON_CACHED_IO: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct REQUEST_OPLOCK_OUTPUT_BUFFER {
     pub StructureVersion: u16,
@@ -5183,7 +5183,7 @@ pub const RequestSize: BIN_TYPES = 0;
 pub const SAIT: STORAGE_MEDIA_TYPE = 93;
 pub const SAVE_ATTRIBUTE_VALUES: u32 = 211;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
     pub Version: u32,
@@ -5191,14 +5191,14 @@ pub struct SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
     pub DeviceCount: u32,
     pub Devices: [SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
     pub DeviceGuid: windows_sys::core::GUID,
@@ -5207,7 +5207,7 @@ pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
     pub DeviceSize: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     pub _bitfield: u32,
@@ -5249,7 +5249,7 @@ impl Default for SCM_BUS_PROPERTY_SET {
 }
 pub type SCM_BUS_QUERY_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub Version: u32,
@@ -5263,7 +5263,7 @@ pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub PlatformSupportedMaxIOAccessQuiesceTimeInUSecs: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     pub _bitfield: u32,
@@ -5678,7 +5678,7 @@ pub struct SD_CHANGE_MACHINE_SID_INPUT {
     pub NewMachineSIDLength: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SD_CHANGE_MACHINE_SID_OUTPUT {
     pub NumSDChangedSuccess: super::winnt::DWORDLONG,
@@ -5690,7 +5690,7 @@ pub struct SD_CHANGE_MACHINE_SID_OUTPUT {
     pub NumMftSDTotal: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SD_ENUM_SDS_ENTRY {
     pub Hash: u32,
@@ -5699,21 +5699,21 @@ pub struct SD_ENUM_SDS_ENTRY {
     pub Length: u32,
     pub Descriptor: [u8; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SD_ENUM_SDS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SD_ENUM_SDS_INPUT {
     pub StartingOffset: super::winnt::DWORDLONG,
     pub MaxSDEntriesToReturn: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SD_ENUM_SDS_OUTPUT {
     pub NextOffset: super::winnt::DWORDLONG,
@@ -5721,63 +5721,63 @@ pub struct SD_ENUM_SDS_OUTPUT {
     pub NumSDBytesReturned: super::winnt::DWORDLONG,
     pub SDEntry: [SD_ENUM_SDS_ENTRY; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SD_ENUM_SDS_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SD_GLOBAL_CHANGE_INPUT {
     pub Flags: u32,
     pub ChangeType: u32,
     pub Anonymous: SD_GLOBAL_CHANGE_INPUT_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SD_GLOBAL_CHANGE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union SD_GLOBAL_CHANGE_INPUT_0 {
     pub SdChange: SD_CHANGE_MACHINE_SID_INPUT,
     pub SdQueryStats: SD_QUERY_STATS_INPUT,
     pub SdEnumSds: SD_ENUM_SDS_INPUT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SD_GLOBAL_CHANGE_INPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SD_GLOBAL_CHANGE_OUTPUT {
     pub Flags: u32,
     pub ChangeType: u32,
     pub Anonymous: SD_GLOBAL_CHANGE_OUTPUT_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SD_GLOBAL_CHANGE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union SD_GLOBAL_CHANGE_OUTPUT_0 {
     pub SdChange: SD_CHANGE_MACHINE_SID_OUTPUT,
     pub SdQueryStats: SD_QUERY_STATS_OUTPUT,
     pub SdEnumSds: SD_ENUM_SDS_OUTPUT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SD_GLOBAL_CHANGE_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5792,7 +5792,7 @@ pub struct SD_QUERY_STATS_INPUT {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SD_QUERY_STATS_OUTPUT {
     pub SdsStreamSize: super::winnt::DWORDLONG,
@@ -5856,7 +5856,7 @@ pub const SERIAL_LSRMST_LSR_NODATA: u8 = 2;
 pub const SERIAL_LSRMST_MST: u8 = 3;
 pub const SERIAL_NUMBER_LENGTH: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     pub Flags: u32,
@@ -5865,7 +5865,7 @@ pub struct SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     pub FallbackAlignmentShift: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SET_DISK_ATTRIBUTES {
     pub Version: u32,
@@ -5875,7 +5875,7 @@ pub struct SET_DISK_ATTRIBUTES {
     pub AttributesMask: super::winnt::DWORDLONG,
     pub Reserved2: [u32; 4],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for SET_DISK_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5922,7 +5922,7 @@ pub const SET_REPAIR_ENABLED: u32 = 1;
 pub const SET_REPAIR_VALID_MASK: u32 = 25;
 pub const SET_REPAIR_WARN_ABOUT_DATA_LOSS: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SHRINK_VOLUME_INFORMATION {
     pub ShrinkRequestType: SHRINK_VOLUME_REQUEST_TYPES,
@@ -6066,7 +6066,7 @@ impl Default for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     pub RequestSize: super::winnt::DWORDLONG,
@@ -6108,40 +6108,40 @@ pub const STORAGE_COMPONENT_ROLE_CACHE: u32 = 1;
 pub const STORAGE_COMPONENT_ROLE_DATA: u32 = 4;
 pub const STORAGE_COMPONENT_ROLE_TIERING: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_COUNTER {
     pub Type: STORAGE_COUNTER_TYPE,
     pub Value: STORAGE_COUNTER_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union STORAGE_COUNTER_0 {
     pub ManufactureDate: STORAGE_COUNTER_0_0,
     pub AsUlonglong: super::winnt::DWORDLONG,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_COUNTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_COUNTER_0_0 {
     pub Week: u32,
     pub Year: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_COUNTERS {
     pub Version: u32,
@@ -6149,7 +6149,7 @@ pub struct STORAGE_COUNTERS {
     pub NumberOfCounters: u32,
     pub Counters: [STORAGE_COUNTER; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6312,7 +6312,7 @@ pub struct STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
     pub AdapterMaxIoCount: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
     pub Version: u32,
@@ -6389,7 +6389,7 @@ pub struct STORAGE_DEVICE_NUMBER_EX {
     pub PartitionNumber: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_POWER_CAP {
     pub Version: u32,
@@ -6428,7 +6428,7 @@ pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
 }
 pub const STORAGE_DEVICE_TELEMETRY_REGKEY: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry");
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_DEVICE_TIERING_DESCRIPTOR {
     pub Version: u32,
@@ -6438,7 +6438,7 @@ pub struct STORAGE_DEVICE_TIERING_DESCRIPTOR {
     pub NumberOfTiersReturned: u32,
     pub Tiers: [STORAGE_TIER; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_DEVICE_TIERING_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6486,7 +6486,7 @@ pub const STORAGE_EVENT_DEVICE_OPERATION: u32 = 4;
 pub const STORAGE_EVENT_DEVICE_STATUS: u32 = 2;
 pub const STORAGE_EVENT_MEDIA_STATUS: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_EVENT_NOTIFICATION {
     pub Version: u32,
@@ -6505,7 +6505,7 @@ pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
 }
 pub const STORAGE_FAILURE_PREDICTION_CONFIG_V1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_FEATURE_SUPPORT {
     pub Size: u32,
@@ -6513,27 +6513,27 @@ pub struct STORAGE_FEATURE_SUPPORT {
     pub Flags: STORAGE_FEATURE_SUPPORT_0,
     pub Reserved: [super::winnt::DWORDLONG; 6],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_FEATURE_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union STORAGE_FEATURE_SUPPORT_0 {
     pub Anonymous: STORAGE_FEATURE_SUPPORT_0_0,
     pub AsUlonglong: super::winnt::DWORDLONG,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_FEATURE_SUPPORT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_FEATURE_SUPPORT_0_0 {
     pub _bitfield: super::winnt::DWORDLONG,
@@ -6553,7 +6553,7 @@ impl Default for STORAGE_FRU_ID_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_GET_BC_PROPERTIES_OUTPUT {
     pub MaximumRequestsPerPeriod: u32,
@@ -6588,7 +6588,7 @@ impl Default for STORAGE_HW_BOOT_PARTITION_ACTIVATE {
 }
 pub const STORAGE_HW_BOOT_PARTITION_ACTIVATE_STRUCTURE_VERSION: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_HW_BOOT_PARTITION_DOWNLOAD {
     pub Version: u32,
@@ -6600,7 +6600,7 @@ pub struct STORAGE_HW_BOOT_PARTITION_DOWNLOAD {
     pub BufferSize: super::winnt::DWORDLONG,
     pub ImageBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_HW_BOOT_PARTITION_DOWNLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6608,7 +6608,7 @@ impl Default for STORAGE_HW_BOOT_PARTITION_DOWNLOAD {
 }
 pub const STORAGE_HW_BOOT_PARTITION_DOWNLOAD_STRUCTURE_VERSION: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_HW_BOOT_PARTITION_INFO {
     pub Version: u32,
@@ -6703,7 +6703,7 @@ impl Default for STORAGE_HW_FIRMWARE_ACTIVATE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_HW_FIRMWARE_DOWNLOAD {
     pub Version: u32,
@@ -6715,14 +6715,14 @@ pub struct STORAGE_HW_FIRMWARE_DOWNLOAD {
     pub BufferSize: super::winnt::DWORDLONG,
     pub ImageBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_HW_FIRMWARE_DOWNLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     pub Version: u32,
@@ -6736,7 +6736,7 @@ pub struct STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     pub Reserved2: u32,
     pub ImageBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6830,7 +6830,7 @@ pub struct STORAGE_IDLE_POWERUP_REASON {
 pub const STORAGE_IDLE_POWERUP_REASON_VERSION_V1: u32 = 1;
 pub type STORAGE_ID_NAA_FORMAT = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     pub Size: u32,
@@ -6842,7 +6842,7 @@ pub struct STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     pub AvailableMappingResources: super::winnt::DWORDLONG,
     pub UsedMappingResources: super::winnt::DWORDLONG,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6906,7 +6906,7 @@ pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
 pub const STORAGE_MINIPORT_DESCRIPTOR_V1_SIZE: u32 = 16;
 pub const STORAGE_OFFLOAD_MAX_TOKEN_LENGTH: u32 = 512;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_OFFLOAD_READ_OUTPUT {
     pub OffloadReadFlags: u32,
@@ -6915,7 +6915,7 @@ pub struct STORAGE_OFFLOAD_READ_OUTPUT {
     pub TokenLength: u32,
     pub Token: STORAGE_OFFLOAD_TOKEN,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_OFFLOAD_READ_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6960,7 +6960,7 @@ pub const STORAGE_OFFLOAD_TOKEN_ID_LENGTH: u32 = 504;
 pub const STORAGE_OFFLOAD_TOKEN_INVALID: u32 = 2;
 pub const STORAGE_OFFLOAD_TOKEN_TYPE_ZERO_DATA: u32 = 4294901761;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_OFFLOAD_WRITE_OUTPUT {
     pub OffloadWriteFlags: u32,
@@ -7035,7 +7035,7 @@ impl Default for STORAGE_PHYSICAL_ADAPTER_DATA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_PHYSICAL_DEVICE_DATA {
     pub DeviceId: u32,
@@ -7051,7 +7051,7 @@ pub struct STORAGE_PHYSICAL_DEVICE_DATA {
     pub PhysicalLocation: [u8; 32],
     pub Reserved: [u32; 2],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_PHYSICAL_DEVICE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7465,7 +7465,7 @@ pub struct STORAGE_TEMPERATURE_THRESHOLD {
 pub const STORAGE_TEMPERATURE_THRESHOLD_FLAG_ADAPTER_REQUEST: u32 = 1;
 pub const STORAGE_TEMPERATURE_VALUE_NOT_REPORTED: u32 = 32768;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_TIER {
     pub Id: windows_sys::core::GUID,
@@ -7476,7 +7476,7 @@ pub struct STORAGE_TIER {
     pub MediaType: STORAGE_TIER_MEDIA_TYPE,
     pub Class: STORAGE_TIER_CLASS,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_TIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7492,7 +7492,7 @@ pub const STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152;
 pub type STORAGE_TIER_MEDIA_TYPE = i32;
 pub const STORAGE_TIER_NAME_LENGTH: u32 = 256;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_TIER_REGION {
     pub TierId: windows_sys::core::GUID,
@@ -7513,7 +7513,7 @@ pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub NVCacheEnabled: bool,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
     pub Version: u32,
@@ -7524,41 +7524,41 @@ pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
     pub ZoneGroupCount: u32,
     pub ZoneGroup: [STORAGE_ZONE_GROUP; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     pub SequentialRequiredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0,
     pub SequentialPreferredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub MaxOpenZoneCount: u32,
     pub UnrestrictedRead: bool,
     pub Reserved: [u8; 3],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     pub OptimalOpenZoneCount: u32,
@@ -7568,7 +7568,7 @@ pub type STORAGE_ZONED_DEVICE_TYPES = i32;
 pub type STORAGE_ZONES_ATTRIBUTES = i32;
 pub type STORAGE_ZONE_CONDITION = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_ZONE_DESCRIPTOR {
     pub Size: u32,
@@ -7579,14 +7579,14 @@ pub struct STORAGE_ZONE_DESCRIPTOR {
     pub ZoneSize: super::winnt::DWORDLONG,
     pub WritePointerOffset: super::winnt::DWORDLONG,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_ZONE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_ZONE_GROUP {
     pub ZoneCount: u32,
@@ -7644,21 +7644,21 @@ impl Default for STREAM_EXTENT_ENTRY_0 {
 pub const STREAM_EXTENT_ENTRY_ALL_EXTENTS: u32 = 2;
 pub const STREAM_EXTENT_ENTRY_AS_RETRIEVAL_POINTERS: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STREAM_INFORMATION_ENTRY {
     pub Version: u32,
     pub Flags: u32,
     pub StreamInformation: STREAM_INFORMATION_ENTRY_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STREAM_INFORMATION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union STREAM_INFORMATION_ENTRY_0 {
     pub DesiredStorageClass: STREAM_INFORMATION_ENTRY_0_0,
@@ -7666,7 +7666,7 @@ pub union STREAM_INFORMATION_ENTRY_0 {
     pub Reparse: STREAM_INFORMATION_ENTRY_0_2,
     pub Ea: STREAM_INFORMATION_ENTRY_0_3,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for STREAM_INFORMATION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7679,7 +7679,7 @@ pub struct STREAM_INFORMATION_ENTRY_0_0 {
     pub Flags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STREAM_INFORMATION_ENTRY_0_1 {
     pub Length: u16,
@@ -8032,7 +8032,7 @@ pub struct TXFS_CREATE_MINIVERSION_INFO {
     pub MiniVersion: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TXFS_GET_METADATA_INFO_OUT {
     pub TxfFileId: TXFS_GET_METADATA_INFO_OUT_0,
@@ -8041,7 +8041,7 @@ pub struct TXFS_GET_METADATA_INFO_OUT {
     pub TransactionState: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TXFS_GET_METADATA_INFO_OUT_0 {
     pub LowPart: i64,
@@ -8057,7 +8057,7 @@ pub struct TXFS_GET_TRANSACTED_VERSION {
     pub LatestMiniVersion: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TXFS_LIST_TRANSACTIONS {
     pub NumberOfTransactions: super::winnt::DWORDLONG,
@@ -8073,7 +8073,7 @@ pub struct TXFS_LIST_TRANSACTIONS_ENTRY {
     pub Reserved3: i64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES {
     pub KtmTransaction: windows_sys::core::GUID,
@@ -8082,7 +8082,7 @@ pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES {
     pub Offset: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     pub Offset: super::winnt::DWORDLONG,
@@ -8093,7 +8093,7 @@ pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     pub Reserved3: i64,
     pub FileName: [u16; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8104,7 +8104,7 @@ pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_DELETED: u32 = 2;
 pub const TXFS_LOGGING_MODE_FULL: u32 = 2;
 pub const TXFS_LOGGING_MODE_SIMPLE: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TXFS_MODIFY_RM {
     pub Flags: u32,
@@ -8118,7 +8118,7 @@ pub struct TXFS_MODIFY_RM {
 }
 pub const TXFS_MODIFY_RM_VALID_FLAGS: u32 = 261631;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TXFS_QUERY_RM_INFORMATION {
     pub BytesRequired: u32,
@@ -8194,7 +8194,7 @@ pub const TXFS_RM_STATE_STARTING: u32 = 1;
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_REDO_LSN: u32 = 1;
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_VIRTUAL_CLOCK: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TXFS_ROLLFORWARD_REDO_INFORMATION {
     pub LastVirtualClock: i64,
@@ -8206,14 +8206,14 @@ pub const TXFS_ROLLFORWARD_REDO_VALID_FLAGS: u32 = 3;
 pub const TXFS_SAVEPOINT_CLEAR: u32 = 4;
 pub const TXFS_SAVEPOINT_CLEAR_ALL: u32 = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct TXFS_SAVEPOINT_INFORMATION {
     pub KtmTransaction: super::winnt::HANDLE,
     pub ActionCode: u32,
     pub SavepointId: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for TXFS_SAVEPOINT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8235,7 +8235,7 @@ pub const TXFS_START_RM_FLAG_PREFER_CONSISTENCY: u32 = 4096;
 pub const TXFS_START_RM_FLAG_PRESERVE_CHANGES: u32 = 2048;
 pub const TXFS_START_RM_FLAG_RECOVER_BEST_EFFORT: u32 = 512;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct TXFS_START_RM_INFORMATION {
     pub Flags: u32,
@@ -8251,7 +8251,7 @@ pub struct TXFS_START_RM_INFORMATION {
     pub Reserved: u16,
     pub LogPath: [u16; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for TXFS_START_RM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8288,10 +8288,10 @@ pub const UNRECOVERED_WRITES_VALID: u32 = 2;
 pub const USN_DELETE_FLAG_DELETE: u32 = 1;
 pub const USN_DELETE_FLAG_NOTIFY: u32 = 2;
 pub const USN_DELETE_VALID_FLAGS: u32 = 3;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type USN_JOURNAL_DATA = USN_JOURNAL_DATA_V1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct USN_JOURNAL_DATA_V0 {
     pub UsnJournalID: super::winnt::DWORDLONG,
@@ -8303,7 +8303,7 @@ pub struct USN_JOURNAL_DATA_V0 {
     pub AllocationDelta: super::winnt::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct USN_JOURNAL_DATA_V1 {
     pub UsnJournalID: super::winnt::DWORDLONG,
@@ -8317,7 +8317,7 @@ pub struct USN_JOURNAL_DATA_V1 {
     pub MaxSupportedMajorVersion: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct USN_JOURNAL_DATA_V2 {
     pub UsnJournalID: super::winnt::DWORDLONG,
@@ -8335,7 +8335,7 @@ pub struct USN_JOURNAL_DATA_V2 {
 }
 pub const USN_PAGE_SIZE: u32 = 4096;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct USN_RANGE_TRACK_OUTPUT {
     pub Usn: super::winnt::USN,
@@ -8364,7 +8364,7 @@ pub const USN_REASON_REPARSE_POINT_CHANGE: u32 = 1048576;
 pub const USN_REASON_SECURITY_CHANGE: u32 = 2048;
 pub const USN_REASON_STREAM_CHANGE: u32 = 2097152;
 pub const USN_REASON_TRANSACTED_CHANGE: u32 = 4194304;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type USN_RECORD = USN_RECORD_V2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -8380,7 +8380,7 @@ pub struct USN_RECORD_EXTENT {
     pub Length: i64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union USN_RECORD_UNION {
     pub Header: USN_RECORD_COMMON_HEADER,
@@ -8388,14 +8388,14 @@ pub union USN_RECORD_UNION {
     pub V3: USN_RECORD_V3,
     pub V4: USN_RECORD_V4,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for USN_RECORD_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct USN_RECORD_V2 {
     pub RecordLength: u32,
@@ -8413,14 +8413,14 @@ pub struct USN_RECORD_V2 {
     pub FileNameOffset: u16,
     pub FileName: [u16; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for USN_RECORD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct USN_RECORD_V3 {
     pub RecordLength: u32,
@@ -8438,14 +8438,14 @@ pub struct USN_RECORD_V3 {
     pub FileNameOffset: u16,
     pub FileName: [u16; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for USN_RECORD_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct USN_RECORD_V4 {
     pub Header: USN_RECORD_COMMON_HEADER,
@@ -8459,7 +8459,7 @@ pub struct USN_RECORD_V4 {
     pub ExtentSize: u16,
     pub Extents: [USN_RECORD_EXTENT; 1],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for USN_RECORD_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8471,7 +8471,7 @@ pub const USN_SOURCE_DATA_MANAGEMENT: u32 = 1;
 pub const USN_SOURCE_REPLICATION_MANAGEMENT: u32 = 4;
 pub const USN_SOURCE_VALID_FLAGS: u32 = 15;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct USN_TRACK_MODIFIED_RANGES {
     pub Flags: u32,
@@ -8553,7 +8553,7 @@ impl Default for VOLUME_DISK_EXTENTS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: super::winnt::DWORDLONG,
@@ -8626,7 +8626,7 @@ pub struct WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
 }
 pub const WOF_CURRENT_VERSION: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct WOF_EXTERNAL_FILE_ID {
     pub FileId: super::winnt::FILE_ID_128,

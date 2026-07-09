@@ -94,7 +94,7 @@ pub struct AudioClient3ActivationParams {
     pub tracingContextId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_audiosessiontypes")]
+#[cfg(feature = "audiosessiontypes")]
 #[derive(Clone, Copy, Default)]
 pub struct AudioClientProperties {
     pub cbSize: u32,

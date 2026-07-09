@@ -47,7 +47,7 @@ pub const D3DKMDT_EPT_VIDPNSOURCE: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = 1;
 pub const D3DKMDT_EPT_VIDPNTARGET: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = 2;
 pub const D3DKMDT_FREQUENCY_NOTSPECIFIED: i32 = -2;
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMDT_FREQUENCY_RANGE {
     pub MinVSyncFreq: super::d3dukmdt::D3DDDI_RATIONAL,
@@ -57,21 +57,21 @@ pub struct D3DKMDT_FREQUENCY_RANGE {
 }
 pub const D3DKMDT_FREQUENCY_UNINITIALIZED: i32 = -1;
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_GAMMA_RAMP {
     pub Type: super::d3dukmdt::D3DDDI_GAMMARAMP_TYPE,
     pub DataSize: usize,
     pub Data: D3DKMDT_GAMMA_RAMP_0,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_GAMMA_RAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_GAMMA_RAMP_0 {
     pub pRgb256x3x16: *mut super::d3dukmdt::D3DDDI_GAMMA_RAMP_RGB256x3x16,
@@ -80,14 +80,14 @@ pub union D3DKMDT_GAMMA_RAMP_0 {
     pub pMatrixV2: *mut super::d3dukmdt::D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2,
     pub pRaw: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_GAMMA_RAMP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_GDISURFACEDATA {
     pub Width: u32,
@@ -97,7 +97,7 @@ pub struct D3DKMDT_GDISURFACEDATA {
     pub Flags: D3DKMDT_GDISURFACEFLAGS,
     pub Pitch: u32,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_GDISURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -147,7 +147,7 @@ pub const D3DKMDT_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY: D3DKMDT_GRAPHICS_PREEM
 pub const D3DKMDT_GRAPHICS_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = 500;
 pub const D3DKMDT_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = 300;
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
     pub PrimSurfSize: D3DKMDT_2DREGION,
@@ -213,7 +213,7 @@ impl Default for D3DKMDT_MONITOR_DESCRIPTOR {
 pub type D3DKMDT_MONITOR_DESCRIPTOR_ID = u32;
 pub type D3DKMDT_MONITOR_DESCRIPTOR_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE {
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
@@ -221,20 +221,20 @@ pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE {
     pub ConstraintType: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT,
     pub Constraint: D3DKMDT_MONITOR_FREQUENCY_RANGE_0,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_MONITOR_FREQUENCY_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
     pub ActiveSize: D3DKMDT_2DREGION,
     pub MaxPixelRate: usize,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -244,7 +244,7 @@ pub type D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = i32;
 pub type D3DKMDT_MONITOR_ORIENTATION = i32;
 pub type D3DKMDT_MONITOR_ORIENTATION_AWARENESS = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_MONITOR_SOURCE_MODE {
     pub Id: D3DKMDT_MONITOR_SOURCE_MODE_ID,
@@ -254,7 +254,7 @@ pub struct D3DKMDT_MONITOR_SOURCE_MODE {
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
     pub Preference: D3DKMDT_MODE_PREFERENCE,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_MONITOR_SOURCE_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -304,7 +304,7 @@ pub const D3DKMDT_RMT_UNINITIALIZED: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = 0;
 pub const D3DKMDT_ROTATION_SUPPORT_MASK: u32 = 255;
 pub const D3DKMDT_SCALING_SUPPORT_MASK: u32 = 31;
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMDT_SHADOWSURFACEDATA {
     pub Width: u32,
@@ -313,7 +313,7 @@ pub struct D3DKMDT_SHADOWSURFACEDATA {
     pub Pitch: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMDT_SHAREDPRIMARYSURFACEDATA {
     pub Width: u32,
@@ -340,7 +340,7 @@ pub type D3DKMDT_TEXT_RENDERING_FORMAT = i32;
 pub const D3DKMDT_TRF_UNINITIALIZED: D3DKMDT_TEXT_RENDERING_FORMAT = 0;
 pub type D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMDT_VIDEO_PRESENT_SOURCE {
     pub Id: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -348,7 +348,7 @@ pub struct D3DKMDT_VIDEO_PRESENT_SOURCE {
 }
 pub type D3DKMDT_VIDEO_PRESENT_SOURCE_MODE_ID = u32;
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub Id: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_TARGET_ID,
@@ -359,7 +359,7 @@ pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
 }
 pub type D3DKMDT_VIDEO_PRESENT_TARGET_MODE_ID = u32;
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDEO_SIGNAL_INFO {
     pub VideoStandard: D3DKMDT_VIDEO_SIGNAL_STANDARD,
@@ -370,27 +370,27 @@ pub struct D3DKMDT_VIDEO_SIGNAL_INFO {
     pub PixelRate: usize,
     pub Anonymous: D3DKMDT_VIDEO_SIGNAL_INFO_0,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_VIDEO_SIGNAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_VIDEO_SIGNAL_INFO_0 {
     pub AdditionalSignalInfo: D3DKMDT_VIDEO_SIGNAL_INFO_0_0,
     pub ScanLineOrdering: super::d3dukmdt::D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_VIDEO_SIGNAL_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
     pub _bitfield: super::d3dukmdt::D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
@@ -402,7 +402,7 @@ pub struct D3DKMDT_VIDPN_HW_CAPABILITY {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -417,7 +417,7 @@ pub struct D3DKMDT_VIDPN_PRESENT_PATH {
     pub CopyProtection: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION,
     pub GammaRamp: D3DKMDT_GAMMA_RAMP,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_VIDPN_PRESENT_PATH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -466,27 +466,27 @@ pub struct D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
     pub RotationSupport: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_SOURCE_MODE {
     pub Id: D3DKMDT_VIDEO_PRESENT_SOURCE_MODE_ID,
     pub Type: D3DKMDT_VIDPN_SOURCE_MODE_TYPE,
     pub Format: D3DKMDT_VIDPN_SOURCE_MODE_0,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_VIDPN_SOURCE_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_VIDPN_SOURCE_MODE_0 {
     pub Graphics: D3DKMDT_GRAPHICS_RENDERING_FORMAT,
     pub Text: D3DKMDT_TEXT_RENDERING_FORMAT,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_VIDPN_SOURCE_MODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -494,7 +494,7 @@ impl Default for D3DKMDT_VIDPN_SOURCE_MODE_0 {
 }
 pub type D3DKMDT_VIDPN_SOURCE_MODE_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_TARGET_MODE {
     pub Id: D3DKMDT_VIDEO_PRESENT_TARGET_MODE_ID,
@@ -502,27 +502,27 @@ pub struct D3DKMDT_VIDPN_TARGET_MODE {
     pub Anonymous: D3DKMDT_VIDPN_TARGET_MODE_0,
     pub MinimumVSyncFreq: super::d3dukmdt::D3DDDI_RATIONAL,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_VIDPN_TARGET_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_VIDPN_TARGET_MODE_0 {
     pub WireFormatAndPreference: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE,
     pub Anonymous: D3DKMDT_VIDPN_TARGET_MODE_0_0,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMDT_VIDPN_TARGET_MODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMDT_VIDPN_TARGET_MODE_0_0 {
     pub _bitfield: D3DKMDT_MODE_PREFERENCE,
@@ -708,7 +708,7 @@ pub struct D3DKMT_DRIVERCAPS_EXT_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MOVE_RECT {
     pub SourcePoint: super::windef::POINT,
@@ -726,7 +726,7 @@ impl Default for D3DKMT_NODEMETADATA {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYCLOCKCALIBRATION {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
@@ -734,7 +734,7 @@ pub struct D3DKMT_QUERYCLOCKCALIBRATION {
     pub PhysicalAdapterIndex: u32,
     pub ClockData: DXGK_GPUCLOCKDATA,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for D3DKMT_QUERYCLOCKCALIBRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -976,7 +976,7 @@ pub type DXGKARG_CALIBRATEGPUCLOCK = DXGK_GPUCLOCKDATA;
 pub type DXGKARG_FENCESTORAGEVALUETYPE = i32;
 pub type DXGKARG_GETNODEMETADATA = DXGK_NODEMETADATA;
 #[repr(C)]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
 pub struct DXGKARG_SETPALETTE {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -984,7 +984,7 @@ pub struct DXGKARG_SETPALETTE {
     pub NumEntries: u32,
     pub pLookupTable: *mut D3DKMDT_PALETTEDATA,
 }
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 impl Default for DXGKARG_SETPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1133,7 +1133,7 @@ impl Default for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_d3dukmdt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     pub AdapterLuid: super::winnt::LUID,
@@ -1370,7 +1370,7 @@ pub struct DXGK_ADAPTER_PERFDATACAPS {
     pub TemperatureWarning: u32,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_d3dukmdt")]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BACKLIGHT_INFO {
     pub BacklightUsersetting: u16,
@@ -1536,7 +1536,7 @@ impl Default for DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO {
 pub type DXGK_DISPLAYMUX_SUPPORT_LEVEL = i32;
 pub type DXGK_DISPLAY_DESCRIPTOR_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_d3dukmdt", feature = "Win32_usb"))]
+#[cfg(all(feature = "d3dukmdt", feature = "usb"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_DISPLAY_INFORMATION {
     pub Width: u32,
@@ -1802,7 +1802,7 @@ pub type PDXGK_DISPLAYMUX_RUNTIME_STATUS = *mut DXGK_DISPLAYMUX_RUNTIME_STATUS;
 pub type PDXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO = *mut DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO;
 pub type PDXGK_DISPLAYMUX_SUPPORT_LEVEL = *mut DXGK_DISPLAYMUX_SUPPORT_LEVEL;
 pub type PDXGK_DISPLAY_DESCRIPTOR_TYPE = *mut DXGK_DISPLAY_DESCRIPTOR_TYPE;
-#[cfg(all(feature = "Win32_d3dukmdt", feature = "Win32_usb"))]
+#[cfg(all(feature = "d3dukmdt", feature = "usb"))]
 pub type PDXGK_DISPLAY_INFORMATION = *mut DXGK_DISPLAY_INFORMATION;
 pub type PDXGK_DISPLAY_TECHNOLOGY = *mut DXGK_DISPLAY_TECHNOLOGY;
 pub type PDXGK_DISPLAY_USAGE = *mut DXGK_DISPLAY_USAGE;

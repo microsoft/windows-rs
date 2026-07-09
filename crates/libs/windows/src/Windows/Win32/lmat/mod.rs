@@ -14,7 +14,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetScheduleJobDel(servername : windows_core::PCWSTR, minjobid : u32, maxjobid : u32) -> u32);
     unsafe { NetScheduleJobDel(servername.param().abi(), minjobid, maxjobid) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetScheduleJobEnum<P0>(servername: P0, pointertobuffer: *mut super::minwindef::LPBYTE, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32
 where
@@ -23,7 +23,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetScheduleJobEnum(servername : windows_core::PCWSTR, pointertobuffer : *mut super::minwindef::LPBYTE, prefferedmaximumlength : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
     unsafe { NetScheduleJobEnum(servername.param().abi(), pointertobuffer as _, prefferedmaximumlength, entriesread as _, totalentries as _, resumehandle as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetScheduleJobGetInfo<P0>(servername: P0, jobid: u32, pointertobuffer: *mut super::minwindef::LPBYTE) -> u32
 where

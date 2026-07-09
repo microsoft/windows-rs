@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("gpedit.dll" "system" fn BrowseForGPO(lpbrowseinfo : *mut GPOBROWSEINFO) -> windows_sys::core::HRESULT);
 windows_link::link!("gpedit.dll" "system" fn CreateGPOLink(lpgpo : windows_sys::core::PCWSTR, lpcontainer : windows_sys::core::PCWSTR, fhighpriority : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("gpedit.dll" "system" fn DeleteAllGPOLinks(lpcontainer : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
@@ -14,7 +14,7 @@ pub const GPHintOrganizationalUnit: GROUP_POLICY_HINT_TYPE = 4;
 pub const GPHintSite: GROUP_POLICY_HINT_TYPE = 2;
 pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
@@ -29,7 +29,7 @@ pub struct GPOBROWSEINFO {
     pub gpoType: GROUP_POLICY_OBJECT_TYPE,
     pub gpoHint: GROUP_POLICY_HINT_TYPE,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for GPOBROWSEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -56,7 +56,7 @@ pub const GPO_SECTION_ROOT: u32 = 0;
 pub const GPO_SECTION_USER: u32 = 1;
 pub type GROUP_POLICY_HINT_TYPE = i32;
 pub type GROUP_POLICY_OBJECT_TYPE = i32;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPGPOBROWSEINFO = *mut GPOBROWSEINFO;
 pub const NODEID_Machine: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_MachineSWSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3);

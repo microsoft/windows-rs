@@ -147,7 +147,7 @@ impl Default for DUMP_DRIVER {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DUMP_DRIVER_EX {
     pub DumpDriverList: *mut core::ffi::c_void,
@@ -155,7 +155,7 @@ pub struct DUMP_DRIVER_EX {
     pub BaseName: [u16; 15],
     pub DriverFullPath: NTSCSI_UNICODE_STRING,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DUMP_DRIVER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -186,7 +186,7 @@ impl Default for DUMP_POINTERS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DUMP_POINTERS_EX {
     pub Header: DUMP_POINTERS_VERSION,
@@ -206,7 +206,7 @@ pub struct DUMP_POINTERS_EX {
     pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
     pub DumpDevicePowerOnContext: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DUMP_POINTERS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -554,14 +554,14 @@ pub const NRB_OUTPUT_DATA_OVERRUN: u32 = 5;
 pub const NRB_OUTPUT_DATA_UNDERRUN: u32 = 6;
 pub const NRB_SUCCESS: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct NTSCSI_UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: super::winnt::PWCH,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for NTSCSI_UNICODE_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -690,10 +690,10 @@ pub type PBOOT_PARTITION_REQUEST_BLOCK = *mut BOOT_PARTITION_REQUEST_BLOCK;
 pub type PDSM_NOTIFICATION_REQUEST_BLOCK = *mut DSM_NOTIFICATION_REQUEST_BLOCK;
 pub type PDUMP_DEVICE_POWERON_ROUTINE = *mut DUMP_DEVICE_POWERON_ROUTINE;
 pub type PDUMP_DRIVER = *mut DUMP_DRIVER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDUMP_DRIVER_EX = *mut DUMP_DRIVER_EX;
 pub type PDUMP_POINTERS = *mut DUMP_POINTERS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDUMP_POINTERS_EX = *mut DUMP_POINTERS_EX;
 pub type PDUMP_POINTERS_VERSION = *mut DUMP_POINTERS_VERSION;
 pub type PFIRMWARE_REQUEST_BLOCK = *mut FIRMWARE_REQUEST_BLOCK;
@@ -718,7 +718,7 @@ pub type PMPIO_PASS_THROUGH_PATH_EX = *mut MPIO_PASS_THROUGH_PATH_EX;
 pub type PMP_DEVICE_DATA_SET_RANGE = *mut MP_DEVICE_DATA_SET_RANGE;
 pub type PMP_STORAGE_DIAGNOSTIC_LEVEL = *mut MP_STORAGE_DIAGNOSTIC_LEVEL;
 pub type PMP_STORAGE_DIAGNOSTIC_TARGET_TYPE = *mut MP_STORAGE_DIAGNOSTIC_TARGET_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PNTSCSI_UNICODE_STRING = *mut NTSCSI_UNICODE_STRING;
 pub type PNVCACHE_HINT_PAYLOAD = *mut NVCACHE_HINT_PAYLOAD;
 pub type PNVCACHE_PRIORITY_LEVEL_DESCRIPTOR = *mut NVCACHE_PRIORITY_LEVEL_DESCRIPTOR;

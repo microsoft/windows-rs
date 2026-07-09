@@ -67,7 +67,7 @@ pub struct ICivicAddressReport_Vtbl {
     pub GetCountryRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDetailLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_sensorsapi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "sensorsapi", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICivicAddressReport_Impl: ILocationReport_Impl {
     fn GetAddressLine1(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetAddressLine2(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -77,7 +77,7 @@ pub trait ICivicAddressReport_Impl: ILocationReport_Impl {
     fn GetCountryRegion(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetDetailLevel(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_sensorsapi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "sensorsapi", feature = "wtypes", feature = "wtypesbase"))]
 impl ICivicAddressReport_Vtbl {
     pub const fn new<Identity: ICivicAddressReport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAddressLine1<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstraddress1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -179,20 +179,20 @@ impl ICivicAddressReport_Vtbl {
         iid == &<ICivicAddressReport as windows_core::Interface>::IID || iid == &<ILocationReport as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_sensorsapi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "sensorsapi", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICivicAddressReport {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICivicAddressReportFactory, ICivicAddressReportFactory_Vtbl, 0xbf773b93_c64f_4bee_beb2_67c0b8df66e0);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICivicAddressReportFactory {
     type Target = ILocationReportFactory;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICivicAddressReportFactory, windows_core::IUnknown, super::oaidl::IDispatch, ILocationReportFactory);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICivicAddressReportFactory {
     pub unsafe fn CivicAddressReport(&self) -> windows_core::Result<IDispCivicAddressReport> {
         unsafe {
@@ -201,18 +201,18 @@ impl ICivicAddressReportFactory {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICivicAddressReportFactory_Vtbl {
     pub base__: ILocationReportFactory_Vtbl,
     pub CivicAddressReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICivicAddressReportFactory_Impl: ILocationReportFactory_Impl {
     fn CivicAddressReport(&self) -> windows_core::Result<IDispCivicAddressReport>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICivicAddressReportFactory_Vtbl {
     pub const fn new<Identity: ICivicAddressReportFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CivicAddressReport<Identity: ICivicAddressReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -233,7 +233,7 @@ impl ICivicAddressReportFactory_Vtbl {
         iid == &<ICivicAddressReportFactory as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ILocationReportFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICivicAddressReportFactory {}
 windows_core::imp::define_interface!(IDefaultLocation, IDefaultLocation_Vtbl, 0xa65af77e_969a_4a2e_8aca_33bb7cbb1235);
 windows_core::imp::interface_hierarchy!(IDefaultLocation, windows_core::IUnknown);
@@ -293,18 +293,18 @@ impl IDefaultLocation_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDefaultLocation {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDispCivicAddressReport, IDispCivicAddressReport_Vtbl, 0x16ff1a34_9e30_42c3_b44d_e22513b5767a);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IDispCivicAddressReport {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IDispCivicAddressReport, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IDispCivicAddressReport {
     pub unsafe fn AddressLine1(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -355,7 +355,7 @@ impl IDispCivicAddressReport {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDispCivicAddressReport_Vtbl {
@@ -369,7 +369,7 @@ pub struct IDispCivicAddressReport_Vtbl {
     pub DetailLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDispCivicAddressReport_Impl: super::oaidl::IDispatch_Impl {
     fn AddressLine1(&self) -> windows_core::Result<windows_core::BSTR>;
     fn AddressLine2(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -380,7 +380,7 @@ pub trait IDispCivicAddressReport_Impl: super::oaidl::IDispatch_Impl {
     fn DetailLevel(&self) -> windows_core::Result<u32>;
     fn Timestamp(&self) -> windows_core::Result<f64>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDispCivicAddressReport_Vtbl {
     pub const fn new<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddressLine1<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -495,20 +495,20 @@ impl IDispCivicAddressReport_Vtbl {
         iid == &<IDispCivicAddressReport as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDispCivicAddressReport {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDispLatLongReport, IDispLatLongReport_Vtbl, 0x8ae32723_389b_4a11_9957_5bdd48fc9617);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IDispLatLongReport {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IDispLatLongReport, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IDispLatLongReport {
     pub unsafe fn Latitude(&self) -> windows_core::Result<f64> {
         unsafe {
@@ -547,7 +547,7 @@ impl IDispLatLongReport {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDispLatLongReport_Vtbl {
@@ -559,7 +559,7 @@ pub struct IDispLatLongReport_Vtbl {
     pub AltitudeError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDispLatLongReport_Impl: super::oaidl::IDispatch_Impl {
     fn Latitude(&self) -> windows_core::Result<f64>;
     fn Longitude(&self) -> windows_core::Result<f64>;
@@ -568,7 +568,7 @@ pub trait IDispLatLongReport_Impl: super::oaidl::IDispatch_Impl {
     fn AltitudeError(&self) -> windows_core::Result<f64>;
     fn Timestamp(&self) -> windows_core::Result<f64>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDispLatLongReport_Vtbl {
     pub const fn new<Identity: IDispLatLongReport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Latitude<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
@@ -657,7 +657,7 @@ impl IDispLatLongReport_Vtbl {
         iid == &<IDispLatLongReport as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDispLatLongReport {}
 windows_core::imp::define_interface!(ILatLongReport, ILatLongReport_Vtbl, 0x7fed806d_0ef8_4f07_80ac_36a0beae3134);
 impl core::ops::Deref for ILatLongReport {
@@ -709,7 +709,7 @@ pub struct ILatLongReport_Vtbl {
     pub GetAltitude: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub GetAltitudeError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_sensorsapi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "sensorsapi", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ILatLongReport_Impl: ILocationReport_Impl {
     fn GetLatitude(&self) -> windows_core::Result<f64>;
     fn GetLongitude(&self) -> windows_core::Result<f64>;
@@ -717,7 +717,7 @@ pub trait ILatLongReport_Impl: ILocationReport_Impl {
     fn GetAltitude(&self) -> windows_core::Result<f64>;
     fn GetAltitudeError(&self) -> windows_core::Result<f64>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_sensorsapi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "sensorsapi", feature = "wtypes", feature = "wtypesbase"))]
 impl ILatLongReport_Vtbl {
     pub const fn new<Identity: ILatLongReport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetLatitude<Identity: ILatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, platitude: *mut f64) -> windows_core::HRESULT {
@@ -793,20 +793,20 @@ impl ILatLongReport_Vtbl {
         iid == &<ILatLongReport as windows_core::Interface>::IID || iid == &<ILocationReport as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_sensorsapi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "sensorsapi", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ILatLongReport {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ILatLongReportFactory, ILatLongReportFactory_Vtbl, 0x3f0804cb_b114_447d_83dd_390174ebb082);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ILatLongReportFactory {
     type Target = ILocationReportFactory;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ILatLongReportFactory, windows_core::IUnknown, super::oaidl::IDispatch, ILocationReportFactory);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ILatLongReportFactory {
     pub unsafe fn LatLongReport(&self) -> windows_core::Result<IDispLatLongReport> {
         unsafe {
@@ -815,18 +815,18 @@ impl ILatLongReportFactory {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILatLongReportFactory_Vtbl {
     pub base__: ILocationReportFactory_Vtbl,
     pub LatLongReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ILatLongReportFactory_Impl: ILocationReportFactory_Impl {
     fn LatLongReport(&self) -> windows_core::Result<IDispLatLongReport>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ILatLongReportFactory_Vtbl {
     pub const fn new<Identity: ILatLongReportFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LatLongReport<Identity: ILatLongReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -847,7 +847,7 @@ impl ILatLongReportFactory_Vtbl {
         iid == &<ILatLongReportFactory as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ILocationReportFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ILatLongReportFactory {}
 windows_core::imp::define_interface!(ILocation, ILocation_Vtbl, 0xab2ece69_56d9_4f28_b525_de1b0ee44237);
 windows_core::imp::interface_hierarchy!(ILocation, windows_core::IUnknown);
@@ -882,18 +882,18 @@ impl ILocation {
     pub unsafe fn SetReportInterval(&self, reporttype: *const windows_core::GUID, millisecondsrequested: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetReportInterval)(windows_core::Interface::as_raw(self), reporttype, millisecondsrequested) }
     }
-    #[cfg(feature = "Win32_sensorsapi")]
+    #[cfg(feature = "sensorsapi")]
     pub unsafe fn GetDesiredAccuracy(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<super::sensorsapi::LOCATION_DESIRED_ACCURACY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDesiredAccuracy)(windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_sensorsapi")]
+    #[cfg(feature = "sensorsapi")]
     pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const windows_core::GUID, desiredaccuracy: super::sensorsapi::LOCATION_DESIRED_ACCURACY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), reporttype, desiredaccuracy) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RequestPermissions(&self, hparent: super::windef::HWND, preporttypes: *const windows_core::GUID, count: u32, fmodal: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hparent, preporttypes, count, fmodal.into()) }
     }
@@ -908,20 +908,20 @@ pub struct ILocation_Vtbl {
     pub GetReportStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut LOCATION_REPORT_STATUS) -> windows_core::HRESULT,
     pub GetReportInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     pub SetReportInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_sensorsapi")]
+    #[cfg(feature = "sensorsapi")]
     pub GetDesiredAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::sensorsapi::LOCATION_DESIRED_ACCURACY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_sensorsapi"))]
+    #[cfg(not(feature = "sensorsapi"))]
     GetDesiredAccuracy: usize,
-    #[cfg(feature = "Win32_sensorsapi")]
+    #[cfg(feature = "sensorsapi")]
     pub SetDesiredAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::sensorsapi::LOCATION_DESIRED_ACCURACY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_sensorsapi"))]
+    #[cfg(not(feature = "sensorsapi"))]
     SetDesiredAccuracy: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, *const windows_core::GUID, u32, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RequestPermissions: usize,
 }
-#[cfg(all(feature = "Win32_sensorsapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "sensorsapi", feature = "windef"))]
 pub trait ILocation_Impl: windows_core::IUnknownImpl {
     fn RegisterForReport(&self, pevents: windows_core::Ref<ILocationEvents>, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::Result<()>;
     fn UnregisterForReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -933,7 +933,7 @@ pub trait ILocation_Impl: windows_core::IUnknownImpl {
     fn SetDesiredAccuracy(&self, reporttype: *const windows_core::GUID, desiredaccuracy: super::sensorsapi::LOCATION_DESIRED_ACCURACY) -> windows_core::Result<()>;
     fn RequestPermissions(&self, hparent: super::windef::HWND, preporttypes: *const windows_core::GUID, count: u32, fmodal: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_sensorsapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "sensorsapi", feature = "windef"))]
 impl ILocation_Vtbl {
     pub const fn new<Identity: ILocation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterForReport<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevents: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::HRESULT {
@@ -1031,7 +1031,7 @@ impl ILocation_Vtbl {
         iid == &<ILocation as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_sensorsapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "sensorsapi", feature = "windef"))]
 impl windows_core::RuntimeName for ILocation {}
 windows_core::imp::define_interface!(ILocationEvents, ILocationEvents_Vtbl, 0xcae02bbf_798b_4508_a207_35a7906dc73d);
 windows_core::imp::interface_hierarchy!(ILocationEvents, windows_core::IUnknown);
@@ -1127,21 +1127,21 @@ impl windows_core::RuntimeName for ILocationPower {}
 windows_core::imp::define_interface!(ILocationReport, ILocationReport_Vtbl, 0xc8b7f7ee_75d0_4db9_b62d_7a0f369ca456);
 windows_core::imp::interface_hierarchy!(ILocationReport, windows_core::IUnknown);
 impl ILocationReport {
-    #[cfg(feature = "Win32_sensorsapi")]
+    #[cfg(feature = "sensorsapi")]
     pub unsafe fn GetSensorID(&self) -> windows_core::Result<super::sensorsapi::SENSOR_ID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSensorID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub unsafe fn GetTimestamp(&self) -> windows_core::Result<super::minwinbase::SYSTEMTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, pkey: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1153,26 +1153,26 @@ impl ILocationReport {
 #[doc(hidden)]
 pub struct ILocationReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_sensorsapi")]
+    #[cfg(feature = "sensorsapi")]
     pub GetSensorID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::sensorsapi::SENSOR_ID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_sensorsapi"))]
+    #[cfg(not(feature = "sensorsapi"))]
     GetSensorID: usize,
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub GetTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwinbase"))]
+    #[cfg(not(feature = "minwinbase"))]
     GetTimestamp: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_sensorsapi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "sensorsapi", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ILocationReport_Impl: windows_core::IUnknownImpl {
     fn GetSensorID(&self) -> windows_core::Result<super::sensorsapi::SENSOR_ID>;
     fn GetTimestamp(&self) -> windows_core::Result<super::minwinbase::SYSTEMTIME>;
     fn GetValue(&self, pkey: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::propidlbase::PROPVARIANT>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_sensorsapi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "sensorsapi", feature = "wtypes", feature = "wtypesbase"))]
 impl ILocationReport_Vtbl {
     pub const fn new<Identity: ILocationReport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSensorID<Identity: ILocationReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psensorid: *mut super::sensorsapi::SENSOR_ID) -> windows_core::HRESULT {
@@ -1222,20 +1222,20 @@ impl ILocationReport_Vtbl {
         iid == &<ILocationReport as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_sensorsapi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "sensorsapi", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ILocationReport {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ILocationReportFactory, ILocationReportFactory_Vtbl, 0x2daec322_90b2_47e4_bb08_0da841935a6b);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ILocationReportFactory {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ILocationReportFactory, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ILocationReportFactory {
     pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ListenForReports)(windows_core::Interface::as_raw(self), requestedreportinterval) }
@@ -1271,7 +1271,7 @@ impl ILocationReportFactory {
         unsafe { (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hwnd) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationReportFactory_Vtbl {
@@ -1285,7 +1285,7 @@ pub struct ILocationReportFactory_Vtbl {
     pub SetDesiredAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ILocationReportFactory_Impl: super::oaidl::IDispatch_Impl {
     fn ListenForReports(&self, requestedreportinterval: u32) -> windows_core::Result<()>;
     fn StopListeningForReports(&self) -> windows_core::Result<()>;
@@ -1296,7 +1296,7 @@ pub trait ILocationReportFactory_Impl: super::oaidl::IDispatch_Impl {
     fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> windows_core::Result<()>;
     fn RequestPermissions(&self, hwnd: *const u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ILocationReportFactory_Vtbl {
     pub const fn new<Identity: ILocationReportFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ListenForReports<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestedreportinterval: u32) -> windows_core::HRESULT {
@@ -1381,7 +1381,7 @@ impl ILocationReportFactory_Vtbl {
         iid == &<ILocationReportFactory as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ILocationReportFactory {}
 pub const LOCATION_API_VERSION: u32 = 1;
 pub type LOCATION_REPORT_STATUS = i32;
@@ -1393,26 +1393,26 @@ pub const REPORT_ERROR: LOCATION_REPORT_STATUS = 1;
 pub const REPORT_INITIALIZING: LOCATION_REPORT_STATUS = 3;
 pub const REPORT_NOT_SUPPORTED: LOCATION_REPORT_STATUS = 0;
 pub const REPORT_RUNNING: LOCATION_REPORT_STATUS = 4;
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(_ICivicAddressReportFactoryEvents, _ICivicAddressReportFactoryEvents_Vtbl, 0xc96039ff_72ec_4617_89bd_84d88bedc722);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for _ICivicAddressReportFactoryEvents {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(_ICivicAddressReportFactoryEvents, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ICivicAddressReportFactoryEvents_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _ICivicAddressReportFactoryEvents_Impl: super::oaidl::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _ICivicAddressReportFactoryEvents_Vtbl {
     pub const fn new<Identity: _ICivicAddressReportFactoryEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::oaidl::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -1421,28 +1421,28 @@ impl _ICivicAddressReportFactoryEvents_Vtbl {
         iid == &<_ICivicAddressReportFactoryEvents as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _ICivicAddressReportFactoryEvents {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(_ILatLongReportFactoryEvents, _ILatLongReportFactoryEvents_Vtbl, 0x16ee6cb7_ab3c_424b_849f_269be551fcbc);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for _ILatLongReportFactoryEvents {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(_ILatLongReportFactoryEvents, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ILatLongReportFactoryEvents_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _ILatLongReportFactoryEvents_Impl: super::oaidl::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _ILatLongReportFactoryEvents_Vtbl {
     pub const fn new<Identity: _ILatLongReportFactoryEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::oaidl::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -1451,5 +1451,5 @@ impl _ILatLongReportFactoryEvents_Vtbl {
         iid == &<_ILatLongReportFactoryEvents as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _ILatLongReportFactoryEvents {}

@@ -6,7 +6,7 @@ pub const ADVF_DATAONSTOP: ADVF = 64;
 pub const ADVF_NODATA: ADVF = 1;
 pub const ADVF_ONLYONCE: ADVF = 4;
 pub const ADVF_PRIMEFIRST: ADVF = 2;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub type ASYNC_STGMEDIUM = STGMEDIUM;
 pub type ApplicationType = i32;
 pub type BIND_FLAGS = i32;
@@ -21,7 +21,7 @@ pub struct BIND_OPTS {
     pub dwTickCountDeadline: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_winnt", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct BIND_OPTS2 {
     pub Base: BIND_OPTS,
@@ -30,20 +30,20 @@ pub struct BIND_OPTS2 {
     pub locale: super::winnt::LCID,
     pub pServerInfo: *mut super::objidlbase::COSERVERINFO,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_winnt", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl Default for BIND_OPTS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct BIND_OPTS3 {
     pub Base: BIND_OPTS2,
     pub hwnd: super::windef::HWND,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
 impl Default for BIND_OPTS3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -74,21 +74,21 @@ impl Default for DVTARGETDEVICE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 #[derive(Clone, Copy)]
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: STGMEDIUM,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl Default for FLAG_STGMEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct FORMATETC {
     pub cfFormat: super::wtypes::CLIPFORMAT,
@@ -97,7 +97,7 @@ pub struct FORMATETC {
     pub lindex: i32,
     pub tymed: u32,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for FORMATETC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -105,27 +105,27 @@ impl Default for FORMATETC {
 }
 pub const ForcedShutdown: ShutdownType = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct GDI_OBJECT {
     pub ObjectType: u32,
     pub u: GDI_OBJECT_0,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for GDI_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union GDI_OBJECT_0 {
     pub hBitmap: super::wtypes::wireHBITMAP,
     pub hPalette: super::wtypes::wireHPALETTE,
     pub hGeneric: super::wtypes::wireHGLOBAL,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for GDI_OBJECT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -145,18 +145,18 @@ impl Default for INTERFACEINFO {
 }
 pub const IdleShutdown: ShutdownType = 0;
 pub type LPBIND_OPTS = *mut BIND_OPTS;
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_winnt", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub type LPBIND_OPTS2 = *mut BIND_OPTS2;
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
 pub type LPBIND_OPTS3 = *mut BIND_OPTS3;
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub type LPCLIPFORMAT = *mut super::wtypes::CLIPFORMAT;
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub type LPFORMATETC = *mut FORMATETC;
 pub type LPINTERFACEINFO = *mut INTERFACEINFO;
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub type LPSTATDATA = *mut STATDATA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub type LPSTGMEDIUM = *mut STGMEDIUM;
 pub const LibraryApplication: ApplicationType = 1;
 pub type MKRREDUCE = i32;
@@ -183,21 +183,21 @@ pub type PENDINGTYPE = i32;
 pub const PENDINGTYPE_NESTED: PENDINGTYPE = 2;
 pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy)]
 pub struct RemSNB {
     pub ulCntStr: u32,
     pub ulCntChar: u32,
     pub rgString: [super::wtypesbase::OLECHAR; 1],
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for RemSNB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy)]
 pub struct RemSTGMEDIUM {
     pub tymed: u32,
@@ -207,7 +207,7 @@ pub struct RemSTGMEDIUM {
     pub cbData: u32,
     pub data: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for RemSTGMEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -219,7 +219,7 @@ pub const SERVERCALL_REJECTED: SERVERCALL = 1;
 pub const SERVERCALL_RETRYLATER: SERVERCALL = 2;
 pub type SNB = *mut windows_sys::core::PWSTR;
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct STATDATA {
     pub formatetc: FORMATETC,
@@ -227,18 +227,18 @@ pub struct STATDATA {
     pub pAdvSink: *mut core::ffi::c_void,
     pub dwConnection: u32,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for STATDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub type STGMEDIUM = uSTGMEDIUM;
 pub const ServerApplication: ApplicationType = 0;
 pub type ShutdownType = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy)]
 pub struct StorageLayout {
     pub LayoutType: u32,
@@ -246,7 +246,7 @@ pub struct StorageLayout {
     pub cOffset: i64,
     pub cBytes: i64,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for StorageLayout {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -262,21 +262,21 @@ pub const TYMED_ISTREAM: TYMED = 4;
 pub const TYMED_MFPICT: TYMED = 32;
 pub const TYMED_NULL: TYMED = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 #[derive(Clone, Copy)]
 pub struct uSTGMEDIUM {
     pub tymed: u32,
     pub Anonymous: uSTGMEDIUM_0,
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl Default for uSTGMEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 #[derive(Clone, Copy)]
 pub union uSTGMEDIUM_0 {
     pub hBitmap: super::windef::HBITMAP,
@@ -287,7 +287,7 @@ pub union uSTGMEDIUM_0 {
     pub pstm: *mut core::ffi::c_void,
     pub pstg: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl Default for uSTGMEDIUM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -311,20 +311,20 @@ impl Default for userSTGMEDIUM {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct userSTGMEDIUM_0 {
     pub tymed: u32,
     pub u: userSTGMEDIUM_0_0,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for userSTGMEDIUM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union userSTGMEDIUM_0_0 {
     pub hMetaFilePict: super::wtypes::wireHMETAFILEPICT,
@@ -335,7 +335,7 @@ pub union userSTGMEDIUM_0_0 {
     pub pstm: *mut super::wtypesbase::BYTE_BLOB,
     pub pstg: *mut super::wtypesbase::BYTE_BLOB,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for userSTGMEDIUM_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -343,6 +343,6 @@ impl Default for userSTGMEDIUM_0_0 {
 }
 pub type wireASYNC_STGMEDIUM = *mut userSTGMEDIUM;
 pub type wireFLAG_STGMEDIUM = *mut userFLAG_STGMEDIUM;
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 pub type wireSNB = *mut RemSNB;
 pub type wireSTGMEDIUM = *mut userSTGMEDIUM;

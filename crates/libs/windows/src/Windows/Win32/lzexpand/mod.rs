@@ -39,7 +39,7 @@ pub unsafe fn LZInit(hfsource: i32) -> i32 {
     windows_core::link!("lz32.dll" "system" fn LZInit(hfsource : i32) -> i32);
     unsafe { LZInit(hfsource) }
 }
-#[cfg(feature = "Win32_winbase")]
+#[cfg(feature = "winbase")]
 #[inline]
 pub unsafe fn LZOpenFileA<P0>(lpfilename: P0, lpreopenbuf: *mut super::winbase::OFSTRUCT, wstyle: u16) -> i32
 where
@@ -48,7 +48,7 @@ where
     windows_core::link!("lz32.dll" "system" fn LZOpenFileA(lpfilename : windows_core::PCSTR, lpreopenbuf : *mut super::winbase::OFSTRUCT, wstyle : u16) -> i32);
     unsafe { LZOpenFileA(lpfilename.param().abi(), lpreopenbuf as _, wstyle) }
 }
-#[cfg(feature = "Win32_winbase")]
+#[cfg(feature = "winbase")]
 #[inline]
 pub unsafe fn LZOpenFileW<P0>(lpfilename: P0, lpreopenbuf: *mut super::winbase::OFSTRUCT, wstyle: u16) -> i32
 where

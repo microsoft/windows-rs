@@ -1,7 +1,7 @@
 windows_core::imp::define_interface!(IMFCaptureEngine, IMFCaptureEngine_Vtbl, 0xa6bba433_176b_48b2_b375_53aa03473207);
 windows_core::imp::interface_hierarchy!(IMFCaptureEngine, windows_core::IUnknown);
 impl IMFCaptureEngine {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn Initialize<P0, P1, P2, P3>(&self, peventcallback: P0, pattributes: P1, paudiosource: P2, pvideosource: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMFCaptureEngineOnEventCallback>,
@@ -43,9 +43,9 @@ impl IMFCaptureEngine {
 #[doc(hidden)]
 pub struct IMFCaptureEngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     Initialize: usize,
     pub StartPreview: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopPreview: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -55,7 +55,7 @@ pub struct IMFCaptureEngine_Vtbl {
     pub GetSink: unsafe extern "system" fn(*mut core::ffi::c_void, MF_CAPTURE_ENGINE_SINK_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFCaptureEngine_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, peventcallback: windows_core::Ref<IMFCaptureEngineOnEventCallback>, pattributes: windows_core::Ref<super::mfobjects::IMFAttributes>, paudiosource: windows_core::Ref<windows_core::IUnknown>, pvideosource: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn StartPreview(&self) -> windows_core::Result<()>;
@@ -66,7 +66,7 @@ pub trait IMFCaptureEngine_Impl: windows_core::IUnknownImpl {
     fn GetSink(&self, mfcaptureenginesinktype: MF_CAPTURE_ENGINE_SINK_TYPE) -> windows_core::Result<IMFCaptureSink>;
     fn GetSource(&self) -> windows_core::Result<IMFCaptureSource>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFCaptureEngine_Vtbl {
     pub const fn new<Identity: IMFCaptureEngine_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IMFCaptureEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventcallback: *mut core::ffi::c_void, pattributes: *mut core::ffi::c_void, paudiosource: *mut core::ffi::c_void, pvideosource: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -145,7 +145,7 @@ impl IMFCaptureEngine_Vtbl {
         iid == &<IMFCaptureEngine as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFCaptureEngine {}
 windows_core::imp::define_interface!(IMFCaptureEngineClassFactory, IMFCaptureEngineClassFactory_Vtbl, 0x8f02d140_56fc_4302_a705_3a97c78be779);
 windows_core::imp::interface_hierarchy!(IMFCaptureEngineClassFactory, windows_core::IUnknown);
@@ -181,7 +181,7 @@ impl windows_core::RuntimeName for IMFCaptureEngineClassFactory {}
 windows_core::imp::define_interface!(IMFCaptureEngineOnEventCallback, IMFCaptureEngineOnEventCallback_Vtbl, 0xaeda51c0_9025_4983_9012_de597b88b089);
 windows_core::imp::interface_hierarchy!(IMFCaptureEngineOnEventCallback, windows_core::IUnknown);
 impl IMFCaptureEngineOnEventCallback {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn OnEvent<P0>(&self, pevent: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::mfobjects::IMFMediaEvent>,
@@ -193,16 +193,16 @@ impl IMFCaptureEngineOnEventCallback {
 #[doc(hidden)]
 pub struct IMFCaptureEngineOnEventCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     OnEvent: usize,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFCaptureEngineOnEventCallback_Impl: windows_core::IUnknownImpl {
     fn OnEvent(&self, pevent: windows_core::Ref<super::mfobjects::IMFMediaEvent>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFCaptureEngineOnEventCallback_Vtbl {
     pub const fn new<Identity: IMFCaptureEngineOnEventCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnEvent<Identity: IMFCaptureEngineOnEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevent: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -217,12 +217,12 @@ impl IMFCaptureEngineOnEventCallback_Vtbl {
         iid == &<IMFCaptureEngineOnEventCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFCaptureEngineOnEventCallback {}
 windows_core::imp::define_interface!(IMFCaptureEngineOnSampleCallback, IMFCaptureEngineOnSampleCallback_Vtbl, 0x52150b82_ab39_4467_980f_e48bf0822ecd);
 windows_core::imp::interface_hierarchy!(IMFCaptureEngineOnSampleCallback, windows_core::IUnknown);
 impl IMFCaptureEngineOnSampleCallback {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn OnSample<P0>(&self, psample: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::mfobjects::IMFSample>,
@@ -234,16 +234,16 @@ impl IMFCaptureEngineOnSampleCallback {
 #[doc(hidden)]
 pub struct IMFCaptureEngineOnSampleCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub OnSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     OnSample: usize,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFCaptureEngineOnSampleCallback_Impl: windows_core::IUnknownImpl {
     fn OnSample(&self, psample: windows_core::Ref<super::mfobjects::IMFSample>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFCaptureEngineOnSampleCallback_Vtbl {
     pub const fn new<Identity: IMFCaptureEngineOnSampleCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnSample<Identity: IMFCaptureEngineOnSampleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psample: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -258,7 +258,7 @@ impl IMFCaptureEngineOnSampleCallback_Vtbl {
         iid == &<IMFCaptureEngineOnSampleCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFCaptureEngineOnSampleCallback {}
 windows_core::imp::define_interface!(IMFCaptureEngineOnSampleCallback2, IMFCaptureEngineOnSampleCallback2_Vtbl, 0xe37ceed7_340f_4514_9f4d_9c2ae026100b);
 impl core::ops::Deref for IMFCaptureEngineOnSampleCallback2 {
@@ -269,7 +269,7 @@ impl core::ops::Deref for IMFCaptureEngineOnSampleCallback2 {
 }
 windows_core::imp::interface_hierarchy!(IMFCaptureEngineOnSampleCallback2, windows_core::IUnknown, IMFCaptureEngineOnSampleCallback);
 impl IMFCaptureEngineOnSampleCallback2 {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn OnSynchronizedEvent<P0>(&self, pevent: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::mfobjects::IMFMediaEvent>,
@@ -281,16 +281,16 @@ impl IMFCaptureEngineOnSampleCallback2 {
 #[doc(hidden)]
 pub struct IMFCaptureEngineOnSampleCallback2_Vtbl {
     pub base__: IMFCaptureEngineOnSampleCallback_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub OnSynchronizedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     OnSynchronizedEvent: usize,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFCaptureEngineOnSampleCallback2_Impl: IMFCaptureEngineOnSampleCallback_Impl {
     fn OnSynchronizedEvent(&self, pevent: windows_core::Ref<super::mfobjects::IMFMediaEvent>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFCaptureEngineOnSampleCallback2_Vtbl {
     pub const fn new<Identity: IMFCaptureEngineOnSampleCallback2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnSynchronizedEvent<Identity: IMFCaptureEngineOnSampleCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevent: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -305,7 +305,7 @@ impl IMFCaptureEngineOnSampleCallback2_Vtbl {
         iid == &<IMFCaptureEngineOnSampleCallback2 as windows_core::Interface>::IID || iid == &<IMFCaptureEngineOnSampleCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFCaptureEngineOnSampleCallback2 {}
 windows_core::imp::define_interface!(IMFCapturePhotoSink, IMFCapturePhotoSink_Vtbl, 0xd2d43cc8_48bb_4aa7_95db_10c06977e777);
 impl core::ops::Deref for IMFCapturePhotoSink {
@@ -328,7 +328,7 @@ impl IMFCapturePhotoSink {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSampleCallback)(windows_core::Interface::as_raw(self), pcallback.param().abi()) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetOutputByteStream<P0>(&self, pbytestream: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::mfobjects::IMFByteStream>,
@@ -342,18 +342,18 @@ pub struct IMFCapturePhotoSink_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
     pub SetOutputFileName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetSampleCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetOutputByteStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetOutputByteStream: usize,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFCapturePhotoSink_Impl: IMFCaptureSink_Impl {
     fn SetOutputFileName(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetSampleCallback(&self, pcallback: windows_core::Ref<IMFCaptureEngineOnSampleCallback>) -> windows_core::Result<()>;
     fn SetOutputByteStream(&self, pbytestream: windows_core::Ref<super::mfobjects::IMFByteStream>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFCapturePhotoSink_Vtbl {
     pub const fn new<Identity: IMFCapturePhotoSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOutputFileName<Identity: IMFCapturePhotoSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -385,7 +385,7 @@ impl IMFCapturePhotoSink_Vtbl {
         iid == &<IMFCapturePhotoSink as windows_core::Interface>::IID || iid == &<IMFCaptureSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFCapturePhotoSink {}
 windows_core::imp::define_interface!(IMFCapturePreviewSink, IMFCapturePreviewSink_Vtbl, 0x77346cfd_5b49_4d73_ace0_5b52a859f2e0);
 impl core::ops::Deref for IMFCapturePreviewSink {
@@ -396,7 +396,7 @@ impl core::ops::Deref for IMFCapturePreviewSink {
 }
 windows_core::imp::interface_hierarchy!(IMFCapturePreviewSink, windows_core::IUnknown, IMFCaptureSink);
 impl IMFCapturePreviewSink {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetRenderHandle(&self, handle: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRenderHandle)(windows_core::Interface::as_raw(self), handle) }
     }
@@ -406,7 +406,7 @@ impl IMFCapturePreviewSink {
     {
         unsafe { (windows_core::Interface::vtable(self).SetRenderSurface)(windows_core::Interface::as_raw(self), psurface.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_mfidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "mfidl", feature = "windef"))]
     pub unsafe fn UpdateVideo(&self, psrc: Option<*const super::mfidl::MFVideoNormalizedRect>, pdst: Option<*const super::windef::RECT>, pborderclr: Option<*const super::windef::COLORREF>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UpdateVideo)(windows_core::Interface::as_raw(self), psrc.unwrap_or(core::mem::zeroed()) as _, pdst.unwrap_or(core::mem::zeroed()) as _, pborderclr.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -434,7 +434,7 @@ impl IMFCapturePreviewSink {
     pub unsafe fn SetRotation(&self, dwstreamindex: u32, dwrotationvalue: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRotation)(windows_core::Interface::as_raw(self), dwstreamindex, dwrotationvalue) }
     }
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub unsafe fn SetCustomSink<P0>(&self, pmediasink: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::mfidl::IMFMediaSink>,
@@ -446,26 +446,26 @@ impl IMFCapturePreviewSink {
 #[doc(hidden)]
 pub struct IMFCapturePreviewSink_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetRenderHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetRenderHandle: usize,
     pub SetRenderSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_mfidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "mfidl", feature = "windef"))]
     pub UpdateVideo: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::mfidl::MFVideoNormalizedRect, *const super::windef::RECT, *const super::windef::COLORREF) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_mfidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "mfidl", feature = "windef")))]
     UpdateVideo: usize,
     pub SetSampleCallback: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMirrorState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetMirrorState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub SetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub SetCustomSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfidl"))]
+    #[cfg(not(feature = "mfidl"))]
     SetCustomSink: usize,
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects", feature = "windef", feature = "winnt"))]
 pub trait IMFCapturePreviewSink_Impl: IMFCaptureSink_Impl {
     fn SetRenderHandle(&self, handle: super::winnt::HANDLE) -> windows_core::Result<()>;
     fn SetRenderSurface(&self, psurface: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -477,7 +477,7 @@ pub trait IMFCapturePreviewSink_Impl: IMFCaptureSink_Impl {
     fn SetRotation(&self, dwstreamindex: u32, dwrotationvalue: u32) -> windows_core::Result<()>;
     fn SetCustomSink(&self, pmediasink: windows_core::Ref<super::mfidl::IMFMediaSink>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects", feature = "windef", feature = "winnt"))]
 impl IMFCapturePreviewSink_Vtbl {
     pub const fn new<Identity: IMFCapturePreviewSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetRenderHandle<Identity: IMFCapturePreviewSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: super::winnt::HANDLE) -> windows_core::HRESULT {
@@ -563,7 +563,7 @@ impl IMFCapturePreviewSink_Vtbl {
         iid == &<IMFCapturePreviewSink as windows_core::Interface>::IID || iid == &<IMFCaptureSink as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IMFCapturePreviewSink {}
 windows_core::imp::define_interface!(IMFCaptureRecordSink, IMFCaptureRecordSink_Vtbl, 0x3323b55a_f92a_4fe2_8edc_e9bfc0634d77);
 impl core::ops::Deref for IMFCaptureRecordSink {
@@ -574,7 +574,7 @@ impl core::ops::Deref for IMFCaptureRecordSink {
 }
 windows_core::imp::interface_hierarchy!(IMFCaptureRecordSink, windows_core::IUnknown, IMFCaptureSink);
 impl IMFCaptureRecordSink {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetOutputByteStream<P0>(&self, pbytestream: P0, guidcontainertype: *const windows_core::GUID) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::mfobjects::IMFByteStream>,
@@ -593,7 +593,7 @@ impl IMFCaptureRecordSink {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSampleCallback)(windows_core::Interface::as_raw(self), dwstreamsinkindex, pcallback.param().abi()) }
     }
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub unsafe fn SetCustomSink<P0>(&self, pmediasink: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::mfidl::IMFMediaSink>,
@@ -614,20 +614,20 @@ impl IMFCaptureRecordSink {
 #[doc(hidden)]
 pub struct IMFCaptureRecordSink_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetOutputByteStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetOutputByteStream: usize,
     pub SetOutputFileName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetSampleCallback: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub SetCustomSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfidl"))]
+    #[cfg(not(feature = "mfidl"))]
     SetCustomSink: usize,
     pub GetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub SetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 pub trait IMFCaptureRecordSink_Impl: IMFCaptureSink_Impl {
     fn SetOutputByteStream(&self, pbytestream: windows_core::Ref<super::mfobjects::IMFByteStream>, guidcontainertype: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SetOutputFileName(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -636,7 +636,7 @@ pub trait IMFCaptureRecordSink_Impl: IMFCaptureSink_Impl {
     fn GetRotation(&self, dwstreamindex: u32) -> windows_core::Result<u32>;
     fn SetRotation(&self, dwstreamindex: u32, dwrotationvalue: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 impl IMFCaptureRecordSink_Vtbl {
     pub const fn new<Identity: IMFCaptureRecordSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOutputByteStream<Identity: IMFCaptureRecordSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbytestream: *mut core::ffi::c_void, guidcontainertype: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -695,19 +695,19 @@ impl IMFCaptureRecordSink_Vtbl {
         iid == &<IMFCaptureRecordSink as windows_core::Interface>::IID || iid == &<IMFCaptureSink as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 impl windows_core::RuntimeName for IMFCaptureRecordSink {}
 windows_core::imp::define_interface!(IMFCaptureSink, IMFCaptureSink_Vtbl, 0x72d6135b_35e9_412c_b926_fd5265f2a885);
 windows_core::imp::interface_hierarchy!(IMFCaptureSink, windows_core::IUnknown);
 impl IMFCaptureSink {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetOutputMediaType(&self, dwsinkstreamindex: u32, ppmediatype: Option<*mut Option<super::mfobjects::IMFMediaType>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetOutputMediaType)(windows_core::Interface::as_raw(self), dwsinkstreamindex, ppmediatype.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppunknown: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), dwsinkstreamindex, rguidservice, riid, ppunknown.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn AddStream<P1, P2>(&self, dwsourcestreamindex: u32, pmediatype: P1, pattributes: P2, pdwsinkstreamindex: Option<*mut u32>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaType>,
@@ -726,19 +726,19 @@ impl IMFCaptureSink {
 #[doc(hidden)]
 pub struct IMFCaptureSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetOutputMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetOutputMediaType: usize,
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub AddStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     AddStream: usize,
     pub Prepare: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAllStreams: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFCaptureSink_Impl: windows_core::IUnknownImpl {
     fn GetOutputMediaType(&self, dwsinkstreamindex: u32, ppmediatype: windows_core::OutRef<super::mfobjects::IMFMediaType>) -> windows_core::Result<()>;
     fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppunknown: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -746,7 +746,7 @@ pub trait IMFCaptureSink_Impl: windows_core::IUnknownImpl {
     fn Prepare(&self) -> windows_core::Result<()>;
     fn RemoveAllStreams(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFCaptureSink_Vtbl {
     pub const fn new<Identity: IMFCaptureSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOutputMediaType<Identity: IMFCaptureSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsinkstreamindex: u32, ppmediatype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -792,7 +792,7 @@ impl IMFCaptureSink_Vtbl {
         iid == &<IMFCaptureSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFCaptureSink {}
 windows_core::imp::define_interface!(IMFCaptureSink2, IMFCaptureSink2_Vtbl, 0xf9e4219e_6197_4b5e_b888_bee310ab2c59);
 impl core::ops::Deref for IMFCaptureSink2 {
@@ -803,7 +803,7 @@ impl core::ops::Deref for IMFCaptureSink2 {
 }
 windows_core::imp::interface_hierarchy!(IMFCaptureSink2, windows_core::IUnknown, IMFCaptureSink);
 impl IMFCaptureSink2 {
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetOutputMediaType<P1, P2>(&self, dwstreamindex: u32, pmediatype: P1, pencodingattributes: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaType>,
@@ -816,16 +816,16 @@ impl IMFCaptureSink2 {
 #[doc(hidden)]
 pub struct IMFCaptureSink2_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetOutputMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetOutputMediaType: usize,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 pub trait IMFCaptureSink2_Impl: IMFCaptureSink_Impl {
     fn SetOutputMediaType(&self, dwstreamindex: u32, pmediatype: windows_core::Ref<super::mfobjects::IMFMediaType>, pencodingattributes: windows_core::Ref<super::mfobjects::IMFAttributes>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl IMFCaptureSink2_Vtbl {
     pub const fn new<Identity: IMFCaptureSink2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOutputMediaType<Identity: IMFCaptureSink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: u32, pmediatype: *mut core::ffi::c_void, pencodingattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -840,16 +840,16 @@ impl IMFCaptureSink2_Vtbl {
         iid == &<IMFCaptureSink2 as windows_core::Interface>::IID || iid == &<IMFCaptureSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl windows_core::RuntimeName for IMFCaptureSink2 {}
 windows_core::imp::define_interface!(IMFCaptureSource, IMFCaptureSource_Vtbl, 0x439a42a8_0d2c_4505_be83_f79b2a05d5c4);
 windows_core::imp::interface_hierarchy!(IMFCaptureSource, windows_core::IUnknown);
 impl IMFCaptureSource {
-    #[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+    #[cfg(all(feature = "mfidl", feature = "mfobjects"))]
     pub unsafe fn GetCaptureDeviceSource(&self, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppmediasource: Option<*mut Option<super::mfidl::IMFMediaSource>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCaptureDeviceSource)(windows_core::Interface::as_raw(self), mfcaptureenginedevicetype, ppmediasource.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetCaptureDeviceActivate(&self, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppactivate: Option<*mut Option<super::mfobjects::IMFActivate>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCaptureDeviceActivate)(windows_core::Interface::as_raw(self), mfcaptureenginedevicetype, ppactivate.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -871,18 +871,18 @@ impl IMFCaptureSource {
     pub unsafe fn RemoveAllEffects(&self, dwsourcestreamindex: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllEffects)(windows_core::Interface::as_raw(self), dwsourcestreamindex) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetAvailableDeviceMediaType(&self, dwsourcestreamindex: u32, dwmediatypeindex: u32, ppmediatype: Option<*mut Option<super::mfobjects::IMFMediaType>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAvailableDeviceMediaType)(windows_core::Interface::as_raw(self), dwsourcestreamindex, dwmediatypeindex, ppmediatype.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn SetCurrentDeviceMediaType<P1>(&self, dwsourcestreamindex: u32, pmediatype: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::mfobjects::IMFMediaType>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentDeviceMediaType)(windows_core::Interface::as_raw(self), dwsourcestreamindex, pmediatype.param().abi()) }
     }
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub unsafe fn GetCurrentDeviceMediaType(&self, dwsourcestreamindex: u32) -> windows_core::Result<super::mfobjects::IMFMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -921,29 +921,29 @@ impl IMFCaptureSource {
 #[doc(hidden)]
 pub struct IMFCaptureSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+    #[cfg(all(feature = "mfidl", feature = "mfobjects"))]
     pub GetCaptureDeviceSource: unsafe extern "system" fn(*mut core::ffi::c_void, MF_CAPTURE_ENGINE_DEVICE_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_mfidl", feature = "Win32_mfobjects")))]
+    #[cfg(not(all(feature = "mfidl", feature = "mfobjects")))]
     GetCaptureDeviceSource: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetCaptureDeviceActivate: unsafe extern "system" fn(*mut core::ffi::c_void, MF_CAPTURE_ENGINE_DEVICE_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetCaptureDeviceActivate: usize,
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddEffect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveEffect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAllEffects: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetAvailableDeviceMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetAvailableDeviceMediaType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub SetCurrentDeviceMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     SetCurrentDeviceMediaType: usize,
-    #[cfg(feature = "Win32_mfobjects")]
+    #[cfg(feature = "mfobjects")]
     pub GetCurrentDeviceMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfobjects"))]
+    #[cfg(not(feature = "mfobjects"))]
     GetCurrentDeviceMediaType: usize,
     pub GetDeviceStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDeviceStreamCategory: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MF_CAPTURE_ENGINE_STREAM_CATEGORY) -> windows_core::HRESULT,
@@ -951,7 +951,7 @@ pub struct IMFCaptureSource_Vtbl {
     pub SetMirrorState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetStreamIndexFromFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 pub trait IMFCaptureSource_Impl: windows_core::IUnknownImpl {
     fn GetCaptureDeviceSource(&self, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppmediasource: windows_core::OutRef<super::mfidl::IMFMediaSource>) -> windows_core::Result<()>;
     fn GetCaptureDeviceActivate(&self, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppactivate: windows_core::OutRef<super::mfobjects::IMFActivate>) -> windows_core::Result<()>;
@@ -968,7 +968,7 @@ pub trait IMFCaptureSource_Impl: windows_core::IUnknownImpl {
     fn SetMirrorState(&self, dwstreamindex: u32, fmirrorstate: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetStreamIndexFromFriendlyName(&self, uifriendlyname: u32) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 impl IMFCaptureSource_Vtbl {
     pub const fn new<Identity: IMFCaptureSource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCaptureDeviceSource<Identity: IMFCaptureSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppmediasource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1107,7 +1107,7 @@ impl IMFCaptureSource_Vtbl {
         iid == &<IMFCaptureSource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 impl windows_core::RuntimeName for IMFCaptureSource {}
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING_DEFAULT: MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE = 0;
 pub type MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE = i32;

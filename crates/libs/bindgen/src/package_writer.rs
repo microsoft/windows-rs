@@ -73,15 +73,7 @@ impl Cfg {
                 continue;
             }
 
-            let mut feature = String::new();
-
-            for name in dependency.split('.').skip(1) {
-                feature.push_str(name);
-                feature.push('_');
-            }
-
-            feature.truncate(feature.len() - 1);
-            features.insert(feature);
+            features.insert(namespace_feature(dependency));
         }
 
         let mut tokens = quote! {};
@@ -164,7 +156,7 @@ impl Config<'_> {
             let (parent, _) = tree.namespace.rsplit_once('.').unwrap();
 
             if parent != "Windows" {
-                let dependency = parent.split_once('.').unwrap().1.replace('.', "_");
+                let dependency = namespace_feature(parent);
 
                 toml.push_str(&format!("{feature} = [\"{dependency}\"]\n"));
             } else if namespace_starts_with(tree.namespace, "Windows.Wdk") {

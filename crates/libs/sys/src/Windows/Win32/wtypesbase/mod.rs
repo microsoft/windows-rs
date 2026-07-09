@@ -26,26 +26,26 @@ impl Default for BLOB {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy)]
 pub struct BYTE_BLOB {
     pub clSize: u32,
     pub abData: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for BYTE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy)]
 pub struct BYTE_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut super::rpc::byte,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for BYTE_SIZEDARR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -144,14 +144,14 @@ impl Default for DWORD_SIZEDARR {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy)]
 pub struct FLAGGED_BYTE_BLOB {
     pub fFlags: u32,
     pub clSize: u32,
     pub abData: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for FLAGGED_BYTE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -207,10 +207,10 @@ pub type OLECHAR = u16;
 pub type PSCODE = *mut SCODE;
 pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1;
 pub type SCODE = i32;
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub type UP_BYTE_BLOB = *mut BYTE_BLOB;
 pub type UP_DWORD_BLOB = *mut DWORD_BLOB;
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub type UP_FLAGGED_BYTE_BLOB = *mut FLAGGED_BYTE_BLOB;
 pub type UP_FLAGGED_WORD_BLOB = *mut FLAGGED_WORD_BLOB;
 pub type UP_WORD_BLOB = *mut WORD_BLOB;

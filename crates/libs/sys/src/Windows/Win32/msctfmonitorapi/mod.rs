@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::winnt::HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("msctfmonitor.dll" "system" fn InitLocalMsCtfMonitor(dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("msctfmonitor.dll" "system" fn UninitLocalMsCtfMonitor() -> windows_sys::core::HRESULT);

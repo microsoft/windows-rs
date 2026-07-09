@@ -1,80 +1,80 @@
 windows_link::link!("advapi32.dll" "system" fn CloseTrace(tracehandle : PROCESSTRACE_HANDLE) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn ControlTraceA(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : u32) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn ControlTraceW(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("advapi32.dll" "system" fn CreateTraceInstanceId(reghandle : super::winnt::HANDLE, instinfo : *mut EVENT_INSTANCE_INFO) -> u32);
 windows_link::link!("advapi32.dll" "system" fn EnableTrace(enable : u32, enableflag : u32, enablelevel : u32, controlguid : *const windows_sys::core::GUID, traceid : CONTROLTRACE_ID) -> u32);
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 windows_link::link!("advapi32.dll" "system" fn EnableTraceEx(providerid : *const windows_sys::core::GUID, sourceid : *const windows_sys::core::GUID, traceid : CONTROLTRACE_ID, isenabled : u32, level : u8, matchanykeyword : u64, matchallkeyword : u64, enableproperty : u32, enablefilterdesc : *const super::evntprov::EVENT_FILTER_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 windows_link::link!("advapi32.dll" "system" fn EnableTraceEx2(traceid : CONTROLTRACE_ID, providerid : *const windows_sys::core::GUID, controlcode : u32, level : u8, matchanykeyword : u64, matchallkeyword : u64, timeout : u32, enableparameters : *const ENABLE_TRACE_PARAMETERS) -> u32);
 windows_link::link!("advapi32.dll" "system" fn EnumerateTraceGuids(guidpropertiesarray : *mut PTRACE_GUID_PROPERTIES, propertyarraycount : u32, guidcount : *mut u32) -> u32);
 windows_link::link!("advapi32.dll" "system" fn EnumerateTraceGuidsEx(tracequeryinfoclass : TRACE_QUERY_INFO_CLASS, inbuffer : *const core::ffi::c_void, inbuffersize : u32, outbuffer : *mut core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn FlushTraceA(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn FlushTraceW(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
 windows_link::link!("advapi32.dll" "system" fn GetTraceEnableFlags(tracehandle : TRACELOGGER_HANDLE) -> u32);
 windows_link::link!("advapi32.dll" "system" fn GetTraceEnableLevel(tracehandle : TRACELOGGER_HANDLE) -> u8);
 windows_link::link!("advapi32.dll" "system" fn GetTraceLoggerHandle(buffer : *const core::ffi::c_void) -> TRACELOGGER_HANDLE);
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 windows_link::link!("advapi32.dll" "system" fn OpenTraceA(logfile : *mut EVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HANDLE);
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 windows_link::link!("advapi32.dll" "system" fn OpenTraceFromBufferStream(options : *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback : PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext : *const core::ffi::c_void) -> PROCESSTRACE_HANDLE);
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 windows_link::link!("advapi32.dll" "system" fn OpenTraceFromFile(logfilename : windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 windows_link::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLogger(loggername : windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::winnt::HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 windows_link::link!("advapi32.dll" "system" fn OpenTraceW(logfile : *mut EVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HANDLE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn ProcessTrace(handlearray : *const PROCESSTRACE_HANDLE, handlecount : u32, starttime : *const super::minwindef::FILETIME, endtime : *const super::minwindef::FILETIME) -> u32);
 windows_link::link!("advapi32.dll" "system" fn ProcessTraceAddBufferToBufferStream(tracehandle : PROCESSTRACE_HANDLE, buffer : *const ETW_BUFFER_HEADER, buffersize : u32) -> u32);
 windows_link::link!("advapi32.dll" "system" fn ProcessTraceBufferDecrementReference(buffer : *const ETW_BUFFER_HEADER) -> u32);
 windows_link::link!("advapi32.dll" "system" fn ProcessTraceBufferIncrementReference(tracehandle : PROCESSTRACE_HANDLE, buffer : *const ETW_BUFFER_HEADER) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn QueryAllTracesA(propertyarray : *mut PEVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn QueryAllTracesW(propertyarray : *mut PEVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn QueryTraceA(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
 windows_link::link!("advapi32.dll" "system" fn QueryTraceProcessingHandle(processinghandle : PROCESSTRACE_HANDLE, informationclass : ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer : *const core::ffi::c_void, inbuffersize : u32, outbuffer : *mut core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn QueryTraceW(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "guiddef", feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn RegisterTraceGuidsA(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_sys::core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_sys::core::PCSTR, mofresourcename : windows_sys::core::PCSTR, registrationhandle : *mut TRACEGUID_HANDLE) -> u32);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "guiddef", feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn RegisterTraceGuidsW(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_sys::core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_sys::core::PCWSTR, mofresourcename : windows_sys::core::PCWSTR, registrationhandle : *mut TRACEGUID_HANDLE) -> u32);
 windows_link::link!("advapi32.dll" "system" fn RemoveTraceCallback(pguid : *const windows_sys::core::GUID) -> u32);
 windows_link::link!("advapi32.dll" "system" fn SetTraceCallback(pguid : *const windows_sys::core::GUID, eventcallback : PEVENT_CALLBACK) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn StartTraceA(traceid : *mut CONTROLTRACE_ID, instancename : windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn StartTraceW(traceid : *mut CONTROLTRACE_ID, instancename : windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn StopTraceA(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn StopTraceW(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
 windows_link::link!("advapi32.dll" "C" fn TraceConfigureLastBranchRecord(traceid : CONTROLTRACE_ID, lbrconfiguration : TRACE_LBR_CONFIGURATION, events : *const CLASSIC_EVENT_ID, eventcount : u32) -> u32);
 windows_link::link!("advapi32.dll" "system" fn TraceEvent(tracehandle : TRACELOGGER_HANDLE, eventtrace : *const EVENT_TRACE_HEADER) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("advapi32.dll" "system" fn TraceEventInstance(tracehandle : TRACELOGGER_HANDLE, eventtrace : *const EVENT_INSTANCE_HEADER, instinfo : *const EVENT_INSTANCE_INFO, parentinstinfo : *const EVENT_INSTANCE_INFO) -> u32);
 windows_link::link!("advapi32.dll" "C" fn TraceMessage(loggerhandle : TRACELOGGER_HANDLE, messageflags : u32, messageguid : *const windows_sys::core::GUID, messagenumber : u16, ...) -> u32);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_link::link!("advapi32.dll" "C" fn TraceMessageVa(loggerhandle : TRACELOGGER_HANDLE, messageflags : u32, messageguid : *const windows_sys::core::GUID, messagenumber : u16, messagearglist : *const i8) -> u32);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 windows_link::link!("advapi32.dll" "C" fn TraceMessageVa(loggerhandle : TRACELOGGER_HANDLE, messageflags : u32, messageguid : *const windows_sys::core::GUID, messagenumber : u16, messagearglist : super::vadefs::va_list) -> u32);
 windows_link::link!("advapi32.dll" "system" fn TraceQueryInformation(traceid : CONTROLTRACE_ID, informationclass : TRACE_INFO_CLASS, traceinformation : *mut core::ffi::c_void, informationlength : u32, returnlength : *mut u32) -> u32);
 windows_link::link!("advapi32.dll" "system" fn TraceSetInformation(traceid : CONTROLTRACE_ID, informationclass : TRACE_INFO_CLASS, traceinformation : *const core::ffi::c_void, informationlength : u32) -> u32);
 windows_link::link!("advapi32.dll" "system" fn UnregisterTraceGuids(registrationhandle : TRACEGUID_HANDLE) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn UpdateTraceA(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn UpdateTraceW(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -93,7 +93,7 @@ pub const DIAG_LOGGER_NAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("D
 pub const DIAG_LOGGER_NAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("DiagLog");
 pub const DefaultTraceSecurityGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713);
 #[repr(C)]
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 #[derive(Clone, Copy)]
 pub struct ENABLE_TRACE_PARAMETERS {
     pub Version: u32,
@@ -103,14 +103,14 @@ pub struct ENABLE_TRACE_PARAMETERS {
     pub EnableFilterDesc: PEVENT_FILTER_DESCRIPTOR,
     pub FilterDescCount: u32,
 }
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 impl Default for ENABLE_TRACE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 #[derive(Clone, Copy)]
 pub struct ENABLE_TRACE_PARAMETERS_V1 {
     pub Version: u32,
@@ -119,7 +119,7 @@ pub struct ENABLE_TRACE_PARAMETERS_V1 {
     pub SourceId: windows_sys::core::GUID,
     pub EnableFilterDesc: PEVENT_FILTER_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 impl Default for ENABLE_TRACE_PARAMETERS_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -132,14 +132,14 @@ pub const ETW_ASCIISTRING_TYPE_VALUE: u32 = 103;
 pub const ETW_BOOLEAN_TYPE_VALUE: u32 = 14;
 pub const ETW_BOOL_TYPE_VALUE: u32 = 108;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub struct ETW_BUFFER_CALLBACK_INFORMATION {
     pub TraceHandle: PROCESSTRACE_HANDLE,
     pub LogfileHeader: *const TRACE_LOGFILE_HEADER,
     pub BuffersRead: u32,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for ETW_BUFFER_CALLBACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -207,7 +207,7 @@ pub const ETW_NON_NULL_TERMINATED_STRING_TYPE_VALUE: u32 = 112;
 pub const ETW_NULL_TYPE_VALUE: u32 = 0;
 pub const ETW_OBJECT_TYPE_VALUE: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub struct ETW_OPEN_TRACE_OPTIONS {
     pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
@@ -216,7 +216,7 @@ pub struct ETW_OPEN_TRACE_OPTIONS {
     pub BufferCallback: PETW_BUFFER_CALLBACK,
     pub BufferCallbackContext: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for ETW_OPEN_TRACE_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -376,13 +376,13 @@ pub struct EVENT_INSTANCE_HEADER_2_1 {
     pub Flags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct EVENT_INSTANCE_INFO {
     pub RegHandle: super::winnt::HANDLE,
     pub InstanceId: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for EVENT_INSTANCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -554,7 +554,7 @@ pub struct EVENT_TRACE_HEADER_3_1 {
 }
 pub const EVENT_TRACE_INDEPENDENT_SESSION_MODE: u32 = 134217728;
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub struct EVENT_TRACE_LOGFILEA {
     pub LogFileName: windows_sys::core::PSTR,
@@ -572,40 +572,40 @@ pub struct EVENT_TRACE_LOGFILEA {
     pub IsKernelTrace: u32,
     pub Context: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for EVENT_TRACE_LOGFILEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEA_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
 }
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for EVENT_TRACE_LOGFILEA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEA_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
 }
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for EVENT_TRACE_LOGFILEA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub struct EVENT_TRACE_LOGFILEW {
     pub LogFileName: windows_sys::core::PWSTR,
@@ -623,33 +623,33 @@ pub struct EVENT_TRACE_LOGFILEW {
     pub IsKernelTrace: u32,
     pub Context: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for EVENT_TRACE_LOGFILEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEW_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
 }
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for EVENT_TRACE_LOGFILEW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEW_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
 }
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for EVENT_TRACE_LOGFILEW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -662,7 +662,7 @@ pub const EVENT_TRACE_PERSIST_ON_HYBRID_SHUTDOWN: u32 = 8388608;
 pub const EVENT_TRACE_PRIVATE_IN_PROC: u32 = 131072;
 pub const EVENT_TRACE_PRIVATE_LOGGER_MODE: u32 = 2048;
 #[repr(C)]
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 #[derive(Clone, Copy)]
 pub struct EVENT_TRACE_PROPERTIES {
     pub Wnode: super::wmistr::WNODE_HEADER,
@@ -684,27 +684,27 @@ pub struct EVENT_TRACE_PROPERTIES {
     pub LogFileNameOffset: u32,
     pub LoggerNameOffset: u32,
 }
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 impl Default for EVENT_TRACE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_PROPERTIES_0 {
     pub AgeLimit: i32,
     pub FlushThreshold: i32,
 }
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 impl Default for EVENT_TRACE_PROPERTIES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 #[derive(Clone, Copy)]
 pub struct EVENT_TRACE_PROPERTIES_V2 {
     pub Wnode: super::wmistr::WNODE_HEADER,
@@ -730,59 +730,59 @@ pub struct EVENT_TRACE_PROPERTIES_V2 {
     pub FilterDesc: PEVENT_FILTER_DESCRIPTOR,
     pub Anonymous3: EVENT_TRACE_PROPERTIES_V2_2,
 }
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 impl Default for EVENT_TRACE_PROPERTIES_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_PROPERTIES_V2_0 {
     pub AgeLimit: i32,
     pub FlushThreshold: i32,
 }
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 impl Default for EVENT_TRACE_PROPERTIES_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_PROPERTIES_V2_1 {
     pub Anonymous: EVENT_TRACE_PROPERTIES_V2_1_0,
     pub V2Control: u32,
 }
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 impl Default for EVENT_TRACE_PROPERTIES_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 #[derive(Clone, Copy, Default)]
 pub struct EVENT_TRACE_PROPERTIES_V2_1_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_PROPERTIES_V2_2 {
     pub Anonymous: EVENT_TRACE_PROPERTIES_V2_2_0,
     pub V2Options: u64,
 }
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 impl Default for EVENT_TRACE_PROPERTIES_V2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 #[derive(Clone, Copy, Default)]
 pub struct EVENT_TRACE_PROPERTIES_V2_2_0 {
     pub _bitfield: u32,
@@ -941,11 +941,11 @@ pub struct MOF_FIELD {
 }
 pub const MaxTraceSetInfoClass: TRACE_QUERY_INFO_CLASS = 29;
 pub type PCLASSIC_EVENT_ID = *mut CLASSIC_EVENT_ID;
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 pub type PENABLE_TRACE_PARAMETERS = *mut ENABLE_TRACE_PARAMETERS;
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 pub type PENABLE_TRACE_PARAMETERS_V1 = *mut ENABLE_TRACE_PARAMETERS_V1;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 pub type PETW_BUFFER_CALLBACK = Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, buffersize: u32, consumerinfo: *const ETW_BUFFER_CALLBACK_INFORMATION, callbackcontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type PETW_BUFFER_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, callbackcontext: *const core::ffi::c_void)>;
 pub type PETW_BUFFER_CONTEXT = *mut ETW_BUFFER_CONTEXT;
@@ -954,28 +954,28 @@ pub type PETW_PMC_COUNTER_OWNERSHIP_STATUS = *mut ETW_PMC_COUNTER_OWNERSHIP_STAT
 pub type PETW_TRACE_PARTITION_INFORMATION = *mut ETW_TRACE_PARTITION_INFORMATION;
 pub type PETW_TRACE_PARTITION_INFORMATION_V2 = *mut ETW_TRACE_PARTITION_INFORMATION_V2;
 pub type PEVENT_CALLBACK = Option<unsafe extern "system" fn(pevent: *mut EVENT_TRACE)>;
-#[cfg(feature = "Win32_evntprov")]
+#[cfg(feature = "evntprov")]
 pub type PEVENT_FILTER_DESCRIPTOR = *mut super::evntprov::EVENT_FILTER_DESCRIPTOR;
 pub type PEVENT_INSTANCE_HEADER = *mut EVENT_INSTANCE_HEADER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PEVENT_INSTANCE_INFO = *mut EVENT_INSTANCE_INFO;
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov"))]
 pub type PEVENT_RECORD = *mut super::evntcons::EVENT_RECORD;
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov"))]
 pub type PEVENT_RECORD_CALLBACK = Option<unsafe extern "system" fn(eventrecord: *mut super::evntcons::EVENT_RECORD)>;
 pub type PEVENT_TRACE = *mut EVENT_TRACE;
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 pub type PEVENT_TRACE_BUFFER_CALLBACKA = Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32>;
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 pub type PEVENT_TRACE_BUFFER_CALLBACKW = Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32>;
 pub type PEVENT_TRACE_HEADER = *mut EVENT_TRACE_HEADER;
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 pub type PEVENT_TRACE_LOGFILEA = *mut EVENT_TRACE_LOGFILEA;
-#[cfg(all(feature = "Win32_evntcons", feature = "Win32_evntprov", feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 pub type PEVENT_TRACE_LOGFILEW = *mut EVENT_TRACE_LOGFILEW;
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "winnt", feature = "wmistr"))]
 pub type PEVENT_TRACE_PROPERTIES = *mut EVENT_TRACE_PROPERTIES;
-#[cfg(all(feature = "Win32_evntprov", feature = "Win32_winnt", feature = "Win32_wmistr"))]
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 pub type PEVENT_TRACE_PROPERTIES_V2 = *mut EVENT_TRACE_PROPERTIES_V2;
 pub type PMOF_FIELD = *mut MOF_FIELD;
 pub type PPROFILE_SOURCE_INFO = *mut PROFILE_SOURCE_INFO;
@@ -999,13 +999,13 @@ pub type PTRACEHANDLE = *mut u64;
 pub type PTRACE_ENABLE_INFO = *mut TRACE_ENABLE_INFO;
 pub type PTRACE_GUID_INFO = *mut TRACE_GUID_INFO;
 pub type PTRACE_GUID_PROPERTIES = *mut TRACE_GUID_PROPERTIES;
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
 pub type PTRACE_GUID_REGISTRATION = *mut TRACE_GUID_REGISTRATION;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 pub type PTRACE_LOGFILE_HEADER = *mut TRACE_LOGFILE_HEADER;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 pub type PTRACE_LOGFILE_HEADER32 = *mut TRACE_LOGFILE_HEADER32;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 pub type PTRACE_LOGFILE_HEADER64 = *mut TRACE_LOGFILE_HEADER64;
 pub type PTRACE_PERIODIC_CAPTURE_STATE_INFO = *mut TRACE_PERIODIC_CAPTURE_STATE_INFO;
 pub type PTRACE_PROFILE_INTERVAL = *mut TRACE_PROFILE_INTERVAL;
@@ -1173,13 +1173,13 @@ pub struct TRACE_GUID_PROPERTIES {
     pub IsEnable: bool,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct TRACE_GUID_REGISTRATION {
     pub Guid: super::guiddef::LPCGUID,
     pub RegHandle: super::winnt::HANDLE,
 }
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
 impl Default for TRACE_GUID_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1218,7 +1218,7 @@ pub const TRACE_LEVEL_RESERVED9: u32 = 9;
 pub const TRACE_LEVEL_VERBOSE: u32 = 5;
 pub const TRACE_LEVEL_WARNING: u32 = 3;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub struct TRACE_LOGFILE_HEADER {
     pub BufferSize: u32,
@@ -1240,27 +1240,27 @@ pub struct TRACE_LOGFILE_HEADER {
     pub ReservedFlags: u32,
     pub BuffersLost: u32,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for TRACE_LOGFILE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER_0_0,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for TRACE_LOGFILE_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRACE_LOGFILE_HEADER_0_0 {
     pub MajorVersion: u8,
@@ -1269,20 +1269,20 @@ pub struct TRACE_LOGFILE_HEADER_0_0 {
     pub SubMinorVersion: u8,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER_1 {
     pub LogInstanceGuid: windows_sys::core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER_1_0,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for TRACE_LOGFILE_HEADER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRACE_LOGFILE_HEADER_1_0 {
     pub StartBuffers: u32,
@@ -1291,7 +1291,7 @@ pub struct TRACE_LOGFILE_HEADER_1_0 {
     pub CpuSpeedInMHz: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub struct TRACE_LOGFILE_HEADER32 {
     pub BufferSize: u32,
@@ -1313,27 +1313,27 @@ pub struct TRACE_LOGFILE_HEADER32 {
     pub ReservedFlags: u32,
     pub BuffersLost: u32,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for TRACE_LOGFILE_HEADER32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER32_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER32_0_0,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for TRACE_LOGFILE_HEADER32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub MajorVersion: u8,
@@ -1342,20 +1342,20 @@ pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub SubMinorVersion: u8,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER32_1 {
     pub LogInstanceGuid: windows_sys::core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER32_1_0,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for TRACE_LOGFILE_HEADER32_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRACE_LOGFILE_HEADER32_1_0 {
     pub StartBuffers: u32,
@@ -1364,7 +1364,7 @@ pub struct TRACE_LOGFILE_HEADER32_1_0 {
     pub CpuSpeedInMHz: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub struct TRACE_LOGFILE_HEADER64 {
     pub BufferSize: u32,
@@ -1386,27 +1386,27 @@ pub struct TRACE_LOGFILE_HEADER64 {
     pub ReservedFlags: u32,
     pub BuffersLost: u32,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for TRACE_LOGFILE_HEADER64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER64_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER64_0_0,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for TRACE_LOGFILE_HEADER64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub MajorVersion: u8,
@@ -1415,20 +1415,20 @@ pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub SubMinorVersion: u8,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER64_1 {
     pub LogInstanceGuid: windows_sys::core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER64_1_0,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for TRACE_LOGFILE_HEADER64_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRACE_LOGFILE_HEADER64_1_0 {
     pub StartBuffers: u32,
@@ -1512,5 +1512,5 @@ pub const TraceStreamCount: TRACE_QUERY_INFO_CLASS = 23;
 pub const TraceSystemTraceEnableFlagsInfo: TRACE_QUERY_INFO_CLASS = 4;
 pub const TraceUnifiedStackCachingInfo: TRACE_QUERY_INFO_CLASS = 26;
 pub const TraceVersionInfo: TRACE_QUERY_INFO_CLASS = 11;
-#[cfg(feature = "Win32_wmistr")]
+#[cfg(feature = "wmistr")]
 pub type WMIDPREQUEST = Option<unsafe extern "system" fn(requestcode: super::wmistr::WMIDPREQUESTCODE, requestcontext: *const core::ffi::c_void, buffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32>;

@@ -49,7 +49,7 @@ pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTION
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = 0;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 #[derive(Clone, Copy)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
@@ -57,14 +57,14 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub useDiffusion: windows_sys::core::BOOL,
     pub blockMapHashAlgorithm: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 #[derive(Clone, Copy)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
@@ -72,7 +72,7 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub blockMapHashAlgorithm: *mut core::ffi::c_void,
     pub options: u32,
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -118,20 +118,20 @@ pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: AP
 pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = i32;
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 #[derive(Clone, Copy)]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: windows_sys::core::BOOL,
     pub hashMethod: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 impl Default for APPX_PACKAGE_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Copy)]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     pub inputStream: *mut core::ffi::c_void,
@@ -139,7 +139,7 @@ pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     pub contentType: windows_sys::core::PCWSTR,
     pub compressionOption: APPX_COMPRESSION_OPTION,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl Default for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

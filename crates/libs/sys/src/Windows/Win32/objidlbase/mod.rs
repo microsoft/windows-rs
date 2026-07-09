@@ -56,7 +56,7 @@ pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUE
 pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 0;
 pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy)]
 pub struct COSERVERINFO {
     pub dwReserved1: u32,
@@ -64,7 +64,7 @@ pub struct COSERVERINFO {
     pub pAuthInfo: *mut super::wtypesbase::COAUTHINFO,
     pub dwReserved2: u32,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for COSERVERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -149,7 +149,7 @@ pub type MachineGlobalObjectTableRegistrationToken = *mut core::ffi::c_void;
 pub type PRPCOLEMESSAGE = *mut RPCOLEMESSAGE;
 pub type PSOLE_AUTHENTICATION_INFO = *mut SOLE_AUTHENTICATION_INFO;
 pub type PSOLE_AUTHENTICATION_LIST = *mut SOLE_AUTHENTICATION_LIST;
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 pub type PSOLE_AUTHENTICATION_SERVICE = *mut SOLE_AUTHENTICATION_SERVICE;
 pub type RPCOLEDATAREP = u32;
 #[repr(C)]
@@ -212,7 +212,7 @@ impl Default for SOLE_AUTHENTICATION_LIST {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy)]
 pub struct SOLE_AUTHENTICATION_SERVICE {
     pub dwAuthnSvc: u32,
@@ -220,14 +220,14 @@ pub struct SOLE_AUTHENTICATION_SERVICE {
     pub pPrincipalName: *mut super::wtypesbase::OLECHAR,
     pub hr: windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for SOLE_AUTHENTICATION_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct STATSTG {
     pub pwcsName: windows_sys::core::PWSTR,
@@ -242,7 +242,7 @@ pub struct STATSTG {
     pub grfStateBits: u32,
     pub reserved: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for STATSTG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

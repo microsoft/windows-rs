@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DirectInput8Create<P4>(hinst: super::minwindef::HINSTANCE, dwversion: u32, riidltf: *const windows_core::GUID, ppvout: *mut *mut core::ffi::c_void, punkouter: P4) -> windows_core::HRESULT
 where
@@ -120,10 +120,10 @@ impl Default for DIACTIONA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DIACTIONFORMAT = DIACTIONFORMATA;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIACTIONFORMATA {
     pub dwSize: u32,
@@ -141,14 +141,14 @@ pub struct DIACTIONFORMATA {
     pub dwCRC: u32,
     pub tszActionMap: [i8; 260],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DIACTIONFORMATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIACTIONFORMATW {
     pub dwSize: u32,
@@ -166,7 +166,7 @@ pub struct DIACTIONFORMATW {
     pub dwCRC: u32,
     pub tszActionMap: [u16; 260],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DIACTIONFORMATW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1041,7 +1041,7 @@ pub const DIBUTTON_TPS_VIEW: u32 = 167789574;
 pub const DICD_DEFAULT: u32 = 0;
 pub const DICD_EDIT: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DICOLORSET {
     pub dwSize: u32,
@@ -1064,10 +1064,10 @@ pub struct DICONDITION {
     pub dwNegativeSaturation: u32,
     pub lDeadBand: i32,
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub type DICONFIGUREDEVICESPARAMS = DICONFIGUREDEVICESPARAMSA;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct DICONFIGUREDEVICESPARAMSA {
     pub dwSize: u32,
@@ -1080,7 +1080,7 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub lpUnkDDSTarget: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct DICONFIGUREDEVICESPARAMSW {
     pub dwSize: u32,
@@ -1098,7 +1098,7 @@ pub struct DICONSTANTFORCE {
     pub lMagnitude: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DICUSTOMFORCE {
     pub cChannels: u32,
@@ -1166,10 +1166,10 @@ pub struct DIDEVCAPS_DX3 {
     pub dwButtons: u32,
     pub dwPOVs: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type DIDEVICEIMAGEINFO = DIDEVICEIMAGEINFOA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVICEIMAGEINFOA {
     pub tszImagePath: [i8; 260],
@@ -1182,16 +1182,16 @@ pub struct DIDEVICEIMAGEINFOA {
     pub rcCalloutRect: super::windef::RECT,
     pub dwTextAlign: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DIDEVICEIMAGEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type DIDEVICEIMAGEINFOHEADER = DIDEVICEIMAGEINFOHEADERA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwSize: u32,
@@ -1205,7 +1205,7 @@ pub struct DIDEVICEIMAGEINFOHEADERA {
     pub lprgImageInfoArray: LPDIDEVICEIMAGEINFOA,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwSize: u32,
@@ -1219,7 +1219,7 @@ pub struct DIDEVICEIMAGEINFOHEADERW {
     pub lprgImageInfoArray: LPDIDEVICEIMAGEINFOW,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIDEVICEIMAGEINFOW {
     pub tszImagePath: [u16; 260],
@@ -1232,7 +1232,7 @@ pub struct DIDEVICEIMAGEINFOW {
     pub rcCalloutRect: super::windef::RECT,
     pub dwTextAlign: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DIDEVICEIMAGEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1457,7 +1457,7 @@ pub const DIEDFL_INCLUDEALIASES: u32 = 65536;
 pub const DIEDFL_INCLUDEHIDDEN: u32 = 262144;
 pub const DIEDFL_INCLUDEPHANTOMS: u32 = 131072;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIEFFECT {
     pub dwSize: u32,
@@ -1475,7 +1475,7 @@ pub struct DIEFFECT {
     pub lpvTypeSpecificParams: *mut core::ffi::c_void,
     pub dwStartDelay: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DIEFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1513,7 +1513,7 @@ impl Default for DIEFFECTINFOW {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIEFFECT_DX5 {
     pub dwSize: u32,
@@ -1530,13 +1530,13 @@ pub struct DIEFFECT_DX5 {
     pub cbTypeSpecificParams: u32,
     pub lpvTypeSpecificParams: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DIEFFECT_DX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DIEFFECT_DX6 = DIEFFECT;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1638,7 +1638,7 @@ pub const DIFEF_DEFAULT: u32 = 0;
 pub const DIFEF_INCLUDENONSTANDARD: u32 = 1;
 pub const DIFEF_MODIFYIFNEEDED: u32 = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIFILEEFFECT {
     pub dwSize: u32,
@@ -1646,7 +1646,7 @@ pub struct DIFILEEFFECT {
     pub lpDiEffect: LPCDIEFFECT,
     pub szFriendlyName: [i8; 260],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DIFILEEFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2414,11 +2414,11 @@ impl IDirectInput2A {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -2442,17 +2442,17 @@ pub struct IDirectInput2A_Vtbl {
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput2A_Impl: IDirectInputA_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -2464,7 +2464,7 @@ pub trait IDirectInput2A_Impl: IDirectInputA_Impl {
     fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::Result<()>;
     fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCSTR) -> windows_core::Result<windows_core::GUID>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInput2A_Vtbl {
     pub const fn new<Identity: IDirectInput2A_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2544,7 +2544,7 @@ impl IDirectInput2A_Vtbl {
         iid == &<IDirectInput2A as windows_core::Interface>::IID || iid == &<IDirectInputA as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDirectInput2A {}
 windows_core::imp::define_interface!(IDirectInput2W, IDirectInput2W_Vtbl, 0x5944e663_aa8a_11cf_bfc7_444553540000);
 impl core::ops::Deref for IDirectInput2W {
@@ -2576,11 +2576,11 @@ impl IDirectInput2W {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -2604,17 +2604,17 @@ pub struct IDirectInput2W_Vtbl {
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput2W_Impl: IDirectInputW_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -2626,7 +2626,7 @@ pub trait IDirectInput2W_Impl: IDirectInputW_Impl {
     fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::Result<()>;
     fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCWSTR) -> windows_core::Result<windows_core::GUID>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInput2W_Vtbl {
     pub const fn new<Identity: IDirectInput2W_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInput2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2706,7 +2706,7 @@ impl IDirectInput2W_Vtbl {
         iid == &<IDirectInput2W as windows_core::Interface>::IID || iid == &<IDirectInputW as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDirectInput2W {}
 windows_core::imp::define_interface!(IDirectInput7A, IDirectInput7A_Vtbl, 0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
 impl core::ops::Deref for IDirectInput7A {
@@ -2738,11 +2738,11 @@ impl IDirectInput7A {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -2772,18 +2772,18 @@ pub struct IDirectInput7A_Vtbl {
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub CreateDeviceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput7A_Impl: IDirectInput2A_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -2796,7 +2796,7 @@ pub trait IDirectInput7A_Impl: IDirectInput2A_Impl {
     fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCSTR) -> windows_core::Result<windows_core::GUID>;
     fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInput7A_Vtbl {
     pub const fn new<Identity: IDirectInput7A_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2883,7 +2883,7 @@ impl IDirectInput7A_Vtbl {
         iid == &<IDirectInput7A as windows_core::Interface>::IID || iid == &<IDirectInputA as windows_core::Interface>::IID || iid == &<IDirectInput2A as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDirectInput7A {}
 windows_core::imp::define_interface!(IDirectInput7W, IDirectInput7W_Vtbl, 0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
 impl core::ops::Deref for IDirectInput7W {
@@ -2915,11 +2915,11 @@ impl IDirectInput7W {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -2949,18 +2949,18 @@ pub struct IDirectInput7W_Vtbl {
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub CreateDeviceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput7W_Impl: IDirectInput2W_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -2973,7 +2973,7 @@ pub trait IDirectInput7W_Impl: IDirectInput2W_Impl {
     fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCWSTR) -> windows_core::Result<windows_core::GUID>;
     fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInput7W_Vtbl {
     pub const fn new<Identity: IDirectInput7W_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3060,7 +3060,7 @@ impl IDirectInput7W_Vtbl {
         iid == &<IDirectInput7W as windows_core::Interface>::IID || iid == &<IDirectInputW as windows_core::Interface>::IID || iid == &<IDirectInput2W as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDirectInput7W {}
 windows_core::imp::define_interface!(IDirectInput8A, IDirectInput8A_Vtbl, 0xbf798030_483a_4da2_aa99_5d64ed369700);
 windows_core::imp::interface_hierarchy!(IDirectInput8A, windows_core::IUnknown);
@@ -3086,11 +3086,11 @@ impl IDirectInput8A {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -3103,14 +3103,14 @@ impl IDirectInput8A {
             (windows_core::Interface::vtable(self).FindDevice)(windows_core::Interface::as_raw(self), param0, param1.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn EnumDevicesBySemantics<P0>(&self, param0: P0, param1: *mut DIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut core::ffi::c_void, param4: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).EnumDevicesBySemantics)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _, param2, param3 as _, param4) }
     }
-    #[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
     pub unsafe fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ConfigureDevices)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2, param3 as _) }
     }
@@ -3125,25 +3125,25 @@ pub struct IDirectInput8A_Vtbl {
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub EnumDevicesBySemantics: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut DIACTIONFORMATA, LPDIENUMDEVICESBYSEMANTICSCBA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     EnumDevicesBySemantics: usize,
-    #[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
     pub ConfigureDevices: unsafe extern "system" fn(*mut core::ffi::c_void, LPDICONFIGUREDEVICESCALLBACK, *mut DICONFIGUREDEVICESPARAMSA, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "dsound", feature = "minwindef", feature = "windef")))]
     ConfigureDevices: usize,
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput8A_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -3157,7 +3157,7 @@ pub trait IDirectInput8A_Impl: windows_core::IUnknownImpl {
     fn EnumDevicesBySemantics(&self, param0: &windows_core::PCSTR, param1: *mut DIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut core::ffi::c_void, param4: u32) -> windows_core::Result<()>;
     fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl IDirectInput8A_Vtbl {
     pub const fn new<Identity: IDirectInput8A_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3251,7 +3251,7 @@ impl IDirectInput8A_Vtbl {
         iid == &<IDirectInput8A as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDirectInput8A {}
 windows_core::imp::define_interface!(IDirectInput8W, IDirectInput8W_Vtbl, 0xbf798031_483a_4da2_aa99_5d64ed369700);
 windows_core::imp::interface_hierarchy!(IDirectInput8W, windows_core::IUnknown);
@@ -3277,11 +3277,11 @@ impl IDirectInput8W {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -3294,14 +3294,14 @@ impl IDirectInput8W {
             (windows_core::Interface::vtable(self).FindDevice)(windows_core::Interface::as_raw(self), param0, param1.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn EnumDevicesBySemantics<P0>(&self, param0: P0, param1: *mut DIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut core::ffi::c_void, param4: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).EnumDevicesBySemantics)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _, param2, param3 as _, param4) }
     }
-    #[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
     pub unsafe fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ConfigureDevices)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2, param3 as _) }
     }
@@ -3316,25 +3316,25 @@ pub struct IDirectInput8W_Vtbl {
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub EnumDevicesBySemantics: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut DIACTIONFORMATW, LPDIENUMDEVICESBYSEMANTICSCBW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     EnumDevicesBySemantics: usize,
-    #[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
     pub ConfigureDevices: unsafe extern "system" fn(*mut core::ffi::c_void, LPDICONFIGUREDEVICESCALLBACK, *mut DICONFIGUREDEVICESPARAMSW, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "dsound", feature = "minwindef", feature = "windef")))]
     ConfigureDevices: usize,
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput8W_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -3348,7 +3348,7 @@ pub trait IDirectInput8W_Impl: windows_core::IUnknownImpl {
     fn EnumDevicesBySemantics(&self, param0: &windows_core::PCWSTR, param1: *mut DIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut core::ffi::c_void, param4: u32) -> windows_core::Result<()>;
     fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl IDirectInput8W_Vtbl {
     pub const fn new<Identity: IDirectInput8W_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3442,7 +3442,7 @@ impl IDirectInput8W_Vtbl {
         iid == &<IDirectInput8W as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDirectInput8W {}
 windows_core::imp::define_interface!(IDirectInputA, IDirectInputA_Vtbl, 0x89521360_aa8a_11cf_bfc7_444553540000);
 windows_core::imp::interface_hierarchy!(IDirectInputA, windows_core::IUnknown);
@@ -3468,11 +3468,11 @@ impl IDirectInputA {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -3487,16 +3487,16 @@ pub struct IDirectInputA_Vtbl {
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInputA_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -3507,7 +3507,7 @@ pub trait IDirectInputA_Impl: windows_core::IUnknownImpl {
     fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
     fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInputA_Vtbl {
     pub const fn new<Identity: IDirectInputA_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInputA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3574,7 +3574,7 @@ impl IDirectInputA_Vtbl {
         iid == &<IDirectInputA as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDirectInputA {}
 windows_core::imp::define_interface!(IDirectInputDevice2A, IDirectInputDevice2A_Vtbl, 0x5944e682_c92e_11cf_bfc7_444553540000);
 impl core::ops::Deref for IDirectInputDevice2A {
@@ -3624,11 +3624,11 @@ impl IDirectInputDevice2A {
     pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -3638,15 +3638,15 @@ impl IDirectInputDevice2A {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
@@ -3697,27 +3697,27 @@ pub struct IDirectInputDevice2A_Vtbl {
     pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
     pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetEventNotification: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEA, u32, u32) -> windows_core::HRESULT,
     pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub CreateEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIEFFECT, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     CreateEffect: usize,
     pub EnumEffects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMEFFECTSCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetEffectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFECTINFOA, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -3728,7 +3728,7 @@ pub struct IDirectInputDevice2A_Vtbl {
     pub Poll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice2A_Impl: IDirectInputDeviceA_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -3758,7 +3758,7 @@ pub trait IDirectInputDevice2A_Impl: IDirectInputDeviceA_Impl {
     fn Poll(&self) -> windows_core::Result<()>;
     fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice2A_Vtbl {
     pub const fn new<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3970,7 +3970,7 @@ impl IDirectInputDevice2A_Vtbl {
         iid == &<IDirectInputDevice2A as windows_core::Interface>::IID || iid == &<IDirectInputDeviceA as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectInputDevice2A {}
 windows_core::imp::define_interface!(IDirectInputDevice2W, IDirectInputDevice2W_Vtbl, 0x5944e683_c92e_11cf_bfc7_444553540000);
 impl core::ops::Deref for IDirectInputDevice2W {
@@ -4020,11 +4020,11 @@ impl IDirectInputDevice2W {
     pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -4034,15 +4034,15 @@ impl IDirectInputDevice2W {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
@@ -4093,27 +4093,27 @@ pub struct IDirectInputDevice2W_Vtbl {
     pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
     pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetEventNotification: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEW, u32, u32) -> windows_core::HRESULT,
     pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub CreateEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIEFFECT, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     CreateEffect: usize,
     pub EnumEffects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMEFFECTSCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetEffectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFECTINFOW, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -4124,7 +4124,7 @@ pub struct IDirectInputDevice2W_Vtbl {
     pub Poll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice2W_Impl: IDirectInputDeviceW_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -4154,7 +4154,7 @@ pub trait IDirectInputDevice2W_Impl: IDirectInputDeviceW_Impl {
     fn Poll(&self) -> windows_core::Result<()>;
     fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice2W_Vtbl {
     pub const fn new<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4366,7 +4366,7 @@ impl IDirectInputDevice2W_Vtbl {
         iid == &<IDirectInputDevice2W as windows_core::Interface>::IID || iid == &<IDirectInputDeviceW as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectInputDevice2W {}
 windows_core::imp::define_interface!(IDirectInputDevice7A, IDirectInputDevice7A_Vtbl, 0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
 impl core::ops::Deref for IDirectInputDevice7A {
@@ -4416,11 +4416,11 @@ impl IDirectInputDevice7A {
     pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -4430,15 +4430,15 @@ impl IDirectInputDevice7A {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
@@ -4472,14 +4472,14 @@ impl IDirectInputDevice7A {
     pub unsafe fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SendDeviceData)(windows_core::Interface::as_raw(self), param0, param1, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn EnumEffectsInFile<P0>(&self, param0: P0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).EnumEffectsInFile)(windows_core::Interface::as_raw(self), param0.param().abi(), param1, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
@@ -4503,27 +4503,27 @@ pub struct IDirectInputDevice7A_Vtbl {
     pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
     pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetEventNotification: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEA, u32, u32) -> windows_core::HRESULT,
     pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub CreateEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIEFFECT, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     CreateEffect: usize,
     pub EnumEffects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMEFFECTSCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetEffectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFECTINFOA, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -4533,16 +4533,16 @@ pub struct IDirectInputDevice7A_Vtbl {
     pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFESCAPE) -> windows_core::HRESULT,
     pub Poll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub EnumEffectsInFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, LPDIENUMEFFECTSINFILECALLBACK, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     EnumEffectsInFile: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub WriteEffectToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut DIFILEEFFECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     WriteEffectToFile: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice7A_Impl: IDirectInputDevice2A_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -4574,7 +4574,7 @@ pub trait IDirectInputDevice7A_Impl: IDirectInputDevice2A_Impl {
     fn EnumEffectsInFile(&self, param0: &windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn WriteEffectToFile(&self, param0: &windows_core::PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice7A_Vtbl {
     pub const fn new<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4800,7 +4800,7 @@ impl IDirectInputDevice7A_Vtbl {
         iid == &<IDirectInputDevice7A as windows_core::Interface>::IID || iid == &<IDirectInputDeviceA as windows_core::Interface>::IID || iid == &<IDirectInputDevice2A as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectInputDevice7A {}
 windows_core::imp::define_interface!(IDirectInputDevice7W, IDirectInputDevice7W_Vtbl, 0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
 impl core::ops::Deref for IDirectInputDevice7W {
@@ -4850,11 +4850,11 @@ impl IDirectInputDevice7W {
     pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -4864,15 +4864,15 @@ impl IDirectInputDevice7W {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
@@ -4906,14 +4906,14 @@ impl IDirectInputDevice7W {
     pub unsafe fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SendDeviceData)(windows_core::Interface::as_raw(self), param0, param1, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn EnumEffectsInFile<P0>(&self, param0: P0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).EnumEffectsInFile)(windows_core::Interface::as_raw(self), param0.param().abi(), param1, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -4937,27 +4937,27 @@ pub struct IDirectInputDevice7W_Vtbl {
     pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
     pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetEventNotification: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEW, u32, u32) -> windows_core::HRESULT,
     pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub CreateEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIEFFECT, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     CreateEffect: usize,
     pub EnumEffects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMEFFECTSCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetEffectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFECTINFOW, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -4967,16 +4967,16 @@ pub struct IDirectInputDevice7W_Vtbl {
     pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFESCAPE) -> windows_core::HRESULT,
     pub Poll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub EnumEffectsInFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, LPDIENUMEFFECTSINFILECALLBACK, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     EnumEffectsInFile: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub WriteEffectToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut DIFILEEFFECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     WriteEffectToFile: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice7W_Impl: IDirectInputDevice2W_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -5008,7 +5008,7 @@ pub trait IDirectInputDevice7W_Impl: IDirectInputDevice2W_Impl {
     fn EnumEffectsInFile(&self, param0: &windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn WriteEffectToFile(&self, param0: &windows_core::PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice7W_Vtbl {
     pub const fn new<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5234,7 +5234,7 @@ impl IDirectInputDevice7W_Vtbl {
         iid == &<IDirectInputDevice7W as windows_core::Interface>::IID || iid == &<IDirectInputDeviceW as windows_core::Interface>::IID || iid == &<IDirectInputDevice2W as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectInputDevice7W {}
 windows_core::imp::define_interface!(IDirectInputDevice8A, IDirectInputDevice8A_Vtbl, 0x54d41080_dc15_4833_a41b_748f73a38179);
 windows_core::imp::interface_hierarchy!(IDirectInputDevice8A, windows_core::IUnknown);
@@ -5278,11 +5278,11 @@ impl IDirectInputDevice8A {
     pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -5292,15 +5292,15 @@ impl IDirectInputDevice8A {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
@@ -5334,35 +5334,35 @@ impl IDirectInputDevice8A {
     pub unsafe fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SendDeviceData)(windows_core::Interface::as_raw(self), param0, param1, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn EnumEffectsInFile<P0>(&self, param0: P0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).EnumEffectsInFile)(windows_core::Interface::as_raw(self), param0.param().abi(), param1, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).WriteEffectToFile)(windows_core::Interface::as_raw(self), param0.param().abi(), param1, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn BuildActionMap<P1>(&self, param0: *mut DIACTIONFORMATA, param1: P1, param2: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).BuildActionMap)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetActionMap<P1>(&self, param0: *mut DIACTIONFORMATA, param1: P1, param2: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetActionMap)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetImageInfo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
@@ -5383,27 +5383,27 @@ pub struct IDirectInputDevice8A_Vtbl {
     pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
     pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetEventNotification: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEA, u32, u32) -> windows_core::HRESULT,
     pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub CreateEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIEFFECT, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     CreateEffect: usize,
     pub EnumEffects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMEFFECTSCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetEffectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFECTINFOA, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -5413,28 +5413,28 @@ pub struct IDirectInputDevice8A_Vtbl {
     pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFESCAPE) -> windows_core::HRESULT,
     pub Poll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub EnumEffectsInFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, LPDIENUMEFFECTSINFILECALLBACK, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     EnumEffectsInFile: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub WriteEffectToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut DIFILEEFFECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     WriteEffectToFile: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub BuildActionMap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIACTIONFORMATA, windows_core::PCSTR, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     BuildActionMap: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub SetActionMap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIACTIONFORMATA, windows_core::PCSTR, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     SetActionMap: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetImageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEIMAGEINFOHEADERA) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetImageInfo: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice8A_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -5469,7 +5469,7 @@ pub trait IDirectInputDevice8A_Impl: windows_core::IUnknownImpl {
     fn SetActionMap(&self, param0: *mut DIACTIONFORMATA, param1: &windows_core::PCSTR, param2: u32) -> windows_core::Result<()>;
     fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice8A_Vtbl {
     pub const fn new<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5716,7 +5716,7 @@ impl IDirectInputDevice8A_Vtbl {
         iid == &<IDirectInputDevice8A as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectInputDevice8A {}
 windows_core::imp::define_interface!(IDirectInputDevice8W, IDirectInputDevice8W_Vtbl, 0x54d41081_dc15_4833_a41b_748f73a38179);
 windows_core::imp::interface_hierarchy!(IDirectInputDevice8W, windows_core::IUnknown);
@@ -5760,11 +5760,11 @@ impl IDirectInputDevice8W {
     pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -5774,15 +5774,15 @@ impl IDirectInputDevice8W {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
@@ -5816,35 +5816,35 @@ impl IDirectInputDevice8W {
     pub unsafe fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SendDeviceData)(windows_core::Interface::as_raw(self), param0, param1, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn EnumEffectsInFile<P0>(&self, param0: P0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).EnumEffectsInFile)(windows_core::Interface::as_raw(self), param0.param().abi(), param1, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).WriteEffectToFile)(windows_core::Interface::as_raw(self), param0.param().abi(), param1, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn BuildActionMap<P1>(&self, param0: *mut DIACTIONFORMATW, param1: P1, param2: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).BuildActionMap)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetActionMap<P1>(&self, param0: *mut DIACTIONFORMATW, param1: P1, param2: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetActionMap)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetImageInfo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
@@ -5865,27 +5865,27 @@ pub struct IDirectInputDevice8W_Vtbl {
     pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
     pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetEventNotification: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEW, u32, u32) -> windows_core::HRESULT,
     pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub CreateEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIEFFECT, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     CreateEffect: usize,
     pub EnumEffects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMEFFECTSCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetEffectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFECTINFOW, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -5895,28 +5895,28 @@ pub struct IDirectInputDevice8W_Vtbl {
     pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFESCAPE) -> windows_core::HRESULT,
     pub Poll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub EnumEffectsInFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, LPDIENUMEFFECTSINFILECALLBACK, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     EnumEffectsInFile: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub WriteEffectToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut DIFILEEFFECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     WriteEffectToFile: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub BuildActionMap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIACTIONFORMATW, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     BuildActionMap: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub SetActionMap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIACTIONFORMATW, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     SetActionMap: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetImageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEIMAGEINFOHEADERW) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetImageInfo: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice8W_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -5951,7 +5951,7 @@ pub trait IDirectInputDevice8W_Impl: windows_core::IUnknownImpl {
     fn SetActionMap(&self, param0: *mut DIACTIONFORMATW, param1: &windows_core::PCWSTR, param2: u32) -> windows_core::Result<()>;
     fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice8W_Vtbl {
     pub const fn new<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6198,7 +6198,7 @@ impl IDirectInputDevice8W_Vtbl {
         iid == &<IDirectInputDevice8W as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectInputDevice8W {}
 windows_core::imp::define_interface!(IDirectInputDeviceA, IDirectInputDeviceA_Vtbl, 0x5944e680_c92e_11cf_bfc7_444553540000);
 windows_core::imp::interface_hierarchy!(IDirectInputDeviceA, windows_core::IUnknown);
@@ -6242,11 +6242,11 @@ impl IDirectInputDeviceA {
     pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -6256,11 +6256,11 @@ impl IDirectInputDeviceA {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
@@ -6281,26 +6281,26 @@ pub struct IDirectInputDeviceA_Vtbl {
     pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
     pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetEventNotification: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEA, u32, u32) -> windows_core::HRESULT,
     pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDeviceA_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -6321,7 +6321,7 @@ pub trait IDirectInputDeviceA_Impl: windows_core::IUnknownImpl {
     fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
     fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDeviceA_Vtbl {
     pub const fn new<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6464,7 +6464,7 @@ impl IDirectInputDeviceA_Vtbl {
         iid == &<IDirectInputDeviceA as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectInputDeviceA {}
 windows_core::imp::define_interface!(IDirectInputDeviceW, IDirectInputDeviceW_Vtbl, 0x5944e681_c92e_11cf_bfc7_444553540000);
 windows_core::imp::interface_hierarchy!(IDirectInputDeviceW, windows_core::IUnknown);
@@ -6508,11 +6508,11 @@ impl IDirectInputDeviceW {
     pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -6522,11 +6522,11 @@ impl IDirectInputDeviceW {
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
@@ -6547,26 +6547,26 @@ pub struct IDirectInputDeviceW_Vtbl {
     pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
     pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetEventNotification: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEW, u32, u32) -> windows_core::HRESULT,
     pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDeviceW_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -6587,7 +6587,7 @@ pub trait IDirectInputDeviceW_Impl: windows_core::IUnknownImpl {
     fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
     fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDeviceW_Vtbl {
     pub const fn new<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6730,7 +6730,7 @@ impl IDirectInputDeviceW_Vtbl {
         iid == &<IDirectInputDeviceW as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectInputDeviceW {}
 windows_core::imp::define_interface!(IDirectInputEffect, IDirectInputEffect_Vtbl, 0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
 windows_core::imp::interface_hierarchy!(IDirectInputEffect, windows_core::IUnknown);
@@ -6744,7 +6744,7 @@ impl IDirectInputEffect {
     pub unsafe fn Release(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
@@ -6754,11 +6754,11 @@ impl IDirectInputEffect {
             (windows_core::Interface::vtable(self).GetEffectGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetParameters(&self, param0: *mut DIEFFECT, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetParameters)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetParameters(&self, param0: *const DIEFFECT, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -6791,18 +6791,18 @@ pub struct IDirectInputEffect_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
     pub GetEffectGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetParameters: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIEFFECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     SetParameters: usize,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6811,7 +6811,7 @@ pub struct IDirectInputEffect_Vtbl {
     pub Unload: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFESCAPE) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IDirectInputEffect_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -6827,7 +6827,7 @@ pub trait IDirectInputEffect_Impl: windows_core::IUnknownImpl {
     fn Unload(&self) -> windows_core::Result<()>;
     fn Escape(&self, param0: *mut DIEFFESCAPE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IDirectInputEffect_Vtbl {
     pub const fn new<Identity: IDirectInputEffect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6941,7 +6941,7 @@ impl IDirectInputEffect_Vtbl {
         iid == &<IDirectInputEffect as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IDirectInputEffect {}
 windows_core::imp::define_interface!(IDirectInputW, IDirectInputW_Vtbl, 0x89521361_aa8a_11cf_bfc7_444553540000);
 windows_core::imp::interface_hierarchy!(IDirectInputW, windows_core::IUnknown);
@@ -6967,11 +6967,11 @@ impl IDirectInputW {
     pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -6986,16 +6986,16 @@ pub struct IDirectInputW_Vtbl {
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RunControlPanel: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInputW_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -7006,7 +7006,7 @@ pub trait IDirectInputW_Impl: windows_core::IUnknownImpl {
     fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
     fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInputW_Vtbl {
     pub const fn new<Identity: IDirectInputW_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectInputW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7073,7 +7073,7 @@ impl IDirectInputW_Vtbl {
         iid == &<IDirectInputW as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDirectInputW {}
 pub const JOY_HWS_AUTOLOAD: u32 = 268435456;
 pub const JOY_HWS_GAMEPORTBUSBUSY: u32 = 1;
@@ -7100,37 +7100,37 @@ impl Default for LPCDIACTIONA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPCDIACTIONFORMAT(pub LPCDIACTIONFORMATA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDIACTIONFORMATA(pub *const DIACTIONFORMATA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPCDIACTIONFORMATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPCDIACTIONFORMATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDIACTIONFORMATW(pub *const DIACTIONFORMATW);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPCDIACTIONFORMATW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPCDIACTIONFORMATW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7149,17 +7149,17 @@ impl Default for LPCDIACTIONW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDICOLORSET(pub *const DICOLORSET);
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 impl LPCDICOLORSET {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 impl Default for LPCDICOLORSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7178,37 +7178,37 @@ impl Default for LPCDICONDITION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPCDICONFIGUREDEVICESPARAMS(pub LPCDICONFIGUREDEVICESPARAMSA);
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDICONFIGUREDEVICESPARAMSA(pub *const DICONFIGUREDEVICESPARAMSA);
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl LPCDICONFIGUREDEVICESPARAMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl Default for LPCDICONFIGUREDEVICESPARAMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDICONFIGUREDEVICESPARAMSW(pub *const DICONFIGUREDEVICESPARAMSW);
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl LPCDICONFIGUREDEVICESPARAMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl Default for LPCDICONFIGUREDEVICESPARAMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7227,17 +7227,17 @@ impl Default for LPCDICONSTANTFORCE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDICUSTOMFORCE(pub *const DICUSTOMFORCE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPCDICUSTOMFORCE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPCDICUSTOMFORCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7256,73 +7256,73 @@ impl Default for LPCDIDATAFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPCDIDEVICEIMAGEINFO(pub LPCDIDEVICEIMAGEINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDIDEVICEIMAGEINFOA(pub *const DIDEVICEIMAGEINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPCDIDEVICEIMAGEINFOA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPCDIDEVICEIMAGEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPCDIDEVICEIMAGEINFOHEADER(pub LPCDIDEVICEIMAGEINFOHEADERA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDIDEVICEIMAGEINFOHEADERA(pub *const DIDEVICEIMAGEINFOHEADERA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPCDIDEVICEIMAGEINFOHEADERA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPCDIDEVICEIMAGEINFOHEADERA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDIDEVICEIMAGEINFOHEADERW(pub *const DIDEVICEIMAGEINFOHEADERW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPCDIDEVICEIMAGEINFOHEADERW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPCDIDEVICEIMAGEINFOHEADERW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDIDEVICEIMAGEINFOW(pub *const DIDEVICEIMAGEINFOW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPCDIDEVICEIMAGEINFOW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPCDIDEVICEIMAGEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7500,17 +7500,17 @@ impl Default for LPCDIDEVICEOBJECTINSTANCE_DX3W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDIEFFECT(pub *const DIEFFECT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPCDIEFFECT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPCDIEFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7555,17 +7555,17 @@ impl Default for LPCDIEFFECTINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDIEFFECT_DX5(pub *const DIEFFECT_DX5);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPCDIEFFECT_DX5 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPCDIEFFECT_DX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7584,17 +7584,17 @@ impl Default for LPCDIENVELOPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCDIFILEEFFECT(pub *const DIFILEEFFECT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPCDIFILEEFFECT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPCDIFILEEFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7772,37 +7772,37 @@ impl Default for LPDIACTIONA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPDIACTIONFORMAT(pub LPDIACTIONFORMATA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDIACTIONFORMATA(pub *mut DIACTIONFORMATA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDIACTIONFORMATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDIACTIONFORMATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDIACTIONFORMATW(pub *mut DIACTIONFORMATW);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDIACTIONFORMATW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDIACTIONFORMATW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7821,17 +7821,17 @@ impl Default for LPDIACTIONW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDICOLORSET(pub *mut DICOLORSET);
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 impl LPDICOLORSET {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_dsound")]
+#[cfg(feature = "dsound")]
 impl Default for LPDICOLORSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7851,37 +7851,37 @@ impl Default for LPDICONDITION {
     }
 }
 pub type LPDICONFIGUREDEVICESCALLBACK = Option<unsafe extern "system" fn(param0: windows_core::Ref<windows_core::IUnknown>, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPDICONFIGUREDEVICESPARAMS(pub LPDICONFIGUREDEVICESPARAMSA);
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDICONFIGUREDEVICESPARAMSA(pub *mut DICONFIGUREDEVICESPARAMSA);
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl LPDICONFIGUREDEVICESPARAMSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl Default for LPDICONFIGUREDEVICESPARAMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDICONFIGUREDEVICESPARAMSW(pub *mut DICONFIGUREDEVICESPARAMSW);
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl LPDICONFIGUREDEVICESPARAMSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_dsound", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl Default for LPDICONFIGUREDEVICESPARAMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7900,17 +7900,17 @@ impl Default for LPDICONSTANTFORCE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDICUSTOMFORCE(pub *mut DICUSTOMFORCE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDICUSTOMFORCE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDICUSTOMFORCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7955,73 +7955,73 @@ impl Default for LPDIDEVCAPS_DX3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPDIDEVICEIMAGEINFO(pub LPDIDEVICEIMAGEINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDIDEVICEIMAGEINFOA(pub *mut DIDEVICEIMAGEINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPDIDEVICEIMAGEINFOA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPDIDEVICEIMAGEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPDIDEVICEIMAGEINFOHEADER(pub LPDIDEVICEIMAGEINFOHEADERA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDIDEVICEIMAGEINFOHEADERA(pub *mut DIDEVICEIMAGEINFOHEADERA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPDIDEVICEIMAGEINFOHEADERA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPDIDEVICEIMAGEINFOHEADERA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDIDEVICEIMAGEINFOHEADERW(pub *mut DIDEVICEIMAGEINFOHEADERW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPDIDEVICEIMAGEINFOHEADERW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPDIDEVICEIMAGEINFOHEADERW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDIDEVICEIMAGEINFOW(pub *mut DIDEVICEIMAGEINFOW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPDIDEVICEIMAGEINFOW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPDIDEVICEIMAGEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8169,17 +8169,17 @@ impl Default for LPDIDEVICEOBJECTINSTANCE_DX3W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDIEFFECT(pub *mut DIEFFECT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDIEFFECT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDIEFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8214,23 +8214,23 @@ impl Default for LPDIEFFECTINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDIEFFECT_DX5(pub *mut DIEFFECT_DX5);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDIEFFECT_DX5 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDIEFFECT_DX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPDIEFFECT_DX6(pub LPDIEFFECT);
@@ -8256,7 +8256,7 @@ pub type LPDIENUMDEVICESCALLBACKA = Option<unsafe extern "system" fn(param0: *co
 pub type LPDIENUMDEVICESCALLBACKW = Option<unsafe extern "system" fn(param0: *const DIDEVICEINSTANCEW, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPDIENUMEFFECTSCALLBACKA = Option<unsafe extern "system" fn(param0: *const DIEFFECTINFOA, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPDIENUMEFFECTSCALLBACKW = Option<unsafe extern "system" fn(param0: *const DIEFFECTINFOW, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPDIENUMEFFECTSINFILECALLBACK = Option<unsafe extern "system" fn(param0: *const DIFILEEFFECT, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -8271,17 +8271,17 @@ impl Default for LPDIENVELOPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDIFILEEFFECT(pub *mut DIFILEEFFECT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPDIFILEEFFECT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPDIFILEEFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8495,7 +8495,7 @@ impl Default for LPDIRAMPFORCE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPFNSHOWJOYCPL = Option<unsafe extern "system" fn(hwnd: super::windef::HWND)>;
 pub const MAXCPOINTSNUM: u32 = 8;
 #[repr(transparent)]

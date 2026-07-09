@@ -1,22 +1,22 @@
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn timeBeginPeriod(uperiod : u32) -> super::mmsyscom::MMRESULT);
     unsafe { timeBeginPeriod(uperiod) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn timeEndPeriod(uperiod: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn timeEndPeriod(uperiod : u32) -> super::mmsyscom::MMRESULT);
     unsafe { timeEndPeriod(uperiod) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn timeGetDevCaps(ptc : *mut TIMECAPS, cbtc : u32) -> super::mmsyscom::MMRESULT);
     unsafe { timeGetDevCaps(ptc as _, cbtc) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn timeGetSystemTime(pmmt: *mut super::mmsyscom::MMTIME, cbmmt: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn timeGetSystemTime(pmmt : *mut super::mmsyscom::MMTIME, cbmmt : u32) -> super::mmsyscom::MMRESULT);

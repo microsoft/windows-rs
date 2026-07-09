@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn NetStatisticsGet(servername: super::winnt::LPTSTR, service: super::winnt::LPTSTR, level: u32, options: u32, buffer: *mut super::minwindef::LPBYTE) -> u32 {
     windows_core::link!("netapi32.dll" "system" fn NetStatisticsGet(servername : super::winnt::LPTSTR, service : super::winnt::LPTSTR, level : u32, options : u32, buffer : *mut super::minwindef::LPBYTE) -> u32);

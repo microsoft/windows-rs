@@ -768,7 +768,7 @@ pub unsafe fn u_vformatMessage(locale: *const i8, pattern: *const UChar, pattern
     unsafe { u_vformatMessage(locale, pattern, patternlength, result as _, resultlength, ap as _, status as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 #[inline]
 pub unsafe fn u_vformatMessage(locale: *const i8, pattern: *const UChar, patternlength: i32, result: *mut UChar, resultlength: i32, ap: super::vadefs::va_list, status: *mut UErrorCode) -> i32 {
     windows_core::link!("icuin.dll" "C" fn u_vformatMessage(locale : *const i8, pattern : *const UChar, patternlength : i32, result : *mut UChar, resultlength : i32, ap : super::vadefs::va_list, status : *mut UErrorCode) -> i32);
@@ -781,7 +781,7 @@ pub unsafe fn u_vformatMessageWithError(locale: *const i8, pattern: *const UChar
     unsafe { u_vformatMessageWithError(locale, pattern, patternlength, result as _, resultlength, parseerror as _, ap as _, status as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 #[inline]
 pub unsafe fn u_vformatMessageWithError(locale: *const i8, pattern: *const UChar, patternlength: i32, result: *mut UChar, resultlength: i32, parseerror: *mut UParseError, ap: super::vadefs::va_list, status: *mut UErrorCode) -> i32 {
     windows_core::link!("icuin.dll" "C" fn u_vformatMessageWithError(locale : *const i8, pattern : *const UChar, patternlength : i32, result : *mut UChar, resultlength : i32, parseerror : *mut UParseError, ap : super::vadefs::va_list, status : *mut UErrorCode) -> i32);
@@ -794,7 +794,7 @@ pub unsafe fn u_vparseMessage(locale: *const i8, pattern: *const UChar, patternl
     unsafe { u_vparseMessage(locale, pattern, patternlength, source, sourcelength, ap as _, status as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 #[inline]
 pub unsafe fn u_vparseMessage(locale: *const i8, pattern: *const UChar, patternlength: i32, source: *const UChar, sourcelength: i32, ap: super::vadefs::va_list) -> UErrorCode {
     windows_core::link!("icuin.dll" "C" fn u_vparseMessage(locale : *const i8, pattern : *const UChar, patternlength : i32, source : *const UChar, sourcelength : i32, ap : super::vadefs::va_list, status : *mut UErrorCode));
@@ -811,7 +811,7 @@ pub unsafe fn u_vparseMessageWithError(locale: *const i8, pattern: *const UChar,
     unsafe { u_vparseMessageWithError(locale, pattern, patternlength, source, sourcelength, ap as _, parseerror as _, status as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 #[inline]
 pub unsafe fn u_vparseMessageWithError(locale: *const i8, pattern: *const UChar, patternlength: i32, source: *const UChar, sourcelength: i32, ap: super::vadefs::va_list, parseerror: *mut UParseError, status: *mut UErrorCode) {
     windows_core::link!("icuin.dll" "C" fn u_vparseMessageWithError(locale : *const i8, pattern : *const UChar, patternlength : i32, source : *const UChar, sourcelength : i32, ap : super::vadefs::va_list, parseerror : *mut UParseError, status : *mut UErrorCode));
@@ -3474,7 +3474,7 @@ pub unsafe fn umsg_vformat(fmt: *const UMessageFormat, result: *mut UChar, resul
     unsafe { umsg_vformat(fmt, result as _, resultlength, ap as _, status as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 #[inline]
 pub unsafe fn umsg_vformat(fmt: *const UMessageFormat, result: *mut UChar, resultlength: i32, ap: super::vadefs::va_list, status: *mut UErrorCode) -> i32 {
     windows_core::link!("icuin.dll" "C" fn umsg_vformat(fmt : *const UMessageFormat, result : *mut UChar, resultlength : i32, ap : super::vadefs::va_list, status : *mut UErrorCode) -> i32);
@@ -3487,7 +3487,7 @@ pub unsafe fn umsg_vparse(fmt: *const UMessageFormat, source: *const UChar, sour
     unsafe { umsg_vparse(fmt, source, sourcelength, count as _, ap as _, status as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 #[inline]
 pub unsafe fn umsg_vparse(fmt: *const UMessageFormat, source: *const UChar, sourcelength: i32, count: *mut i32, ap: super::vadefs::va_list, status: *mut UErrorCode) {
     windows_core::link!("icuin.dll" "C" fn umsg_vparse(fmt : *const UMessageFormat, source : *const UChar, sourcelength : i32, count : *mut i32, ap : super::vadefs::va_list, status : *mut UErrorCode));
@@ -5482,7 +5482,7 @@ pub unsafe fn utrace_functionName(fnnumber: i32) -> *const i8 {
     windows_core::link!("icuuc.dll" "C" fn utrace_functionName(fnnumber : i32) -> *const i8);
     unsafe { utrace_functionName(fnnumber) }
 }
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 #[inline]
 pub unsafe fn utrace_getFunctions(context: *mut *mut core::ffi::c_void, e: *mut UTraceEntry, x: *mut UTraceExit, d: *mut UTraceData) {
     windows_core::link!("icuuc.dll" "C" fn utrace_getFunctions(context : *mut *mut core::ffi::c_void, e : *mut UTraceEntry, x : *mut UTraceExit, d : *mut UTraceData));
@@ -5493,7 +5493,7 @@ pub unsafe fn utrace_getLevel() -> i32 {
     windows_core::link!("icuuc.dll" "C" fn utrace_getLevel() -> i32);
     unsafe { utrace_getLevel() }
 }
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 #[inline]
 pub unsafe fn utrace_setFunctions(context: *const core::ffi::c_void, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
     windows_core::link!("icuuc.dll" "C" fn utrace_setFunctions(context : *const core::ffi::c_void, e : UTraceEntry, x : UTraceExit, d : UTraceData));
@@ -5511,7 +5511,7 @@ pub unsafe fn utrace_vformat(outbuf: *mut i8, capacity: i32, indent: i32, fmt: *
     unsafe { utrace_vformat(outbuf as _, capacity, indent, fmt, args as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 #[inline]
 pub unsafe fn utrace_vformat(outbuf: *mut i8, capacity: i32, indent: i32, fmt: *const i8, args: super::vadefs::va_list) -> i32 {
     windows_core::link!("icuuc.dll" "C" fn utrace_vformat(outbuf : *mut i8, capacity : i32, indent : i32, fmt : *const i8, args : super::vadefs::va_list) -> i32);
@@ -7766,13 +7766,13 @@ pub type UTimeZoneTransitionType = i32;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type UTraceData = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32, level: i32, fmt: *const i8, args: *mut i8)>;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 pub type UTraceData = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32, level: i32, fmt: *const i8, args: super::vadefs::va_list)>;
 pub type UTraceEntry = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32)>;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type UTraceExit = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32, fmt: *const i8, args: *mut i8)>;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 pub type UTraceExit = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32, fmt: *const i8, args: super::vadefs::va_list)>;
 pub type UTraceFunctionNumber = i32;
 pub type UTraceLevel = i32;

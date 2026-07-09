@@ -32,7 +32,7 @@ pub const APPTYPE_SWC: COMPLUS_APPTYPE = 2;
 pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = -1;
 pub const AppDomainHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct ApplicationProcessRecycleInfo {
     pub IsRecyclable: windows_sys::core::BOOL,
@@ -254,7 +254,7 @@ impl Default for ComponentSummary {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy, Default)]
 pub struct CrmLogRecordRead {
     pub dwCrmFlags: u32,

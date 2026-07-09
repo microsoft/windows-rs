@@ -423,14 +423,14 @@ pub const INCOMING_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 1;
 windows_core::imp::define_interface!(ITipHelper, ITipHelper_Vtbl, 0x17cf72d1_bac5_11d1_b1bf_00c04fc2f3ef);
 windows_core::imp::interface_hierarchy!(ITipHelper, windows_core::IUnknown);
 impl ITipHelper {
-    #[cfg(feature = "Win32_transact")]
+    #[cfg(feature = "transact")]
     pub unsafe fn Pull(&self, i_psztxurl: *const i8) -> windows_core::Result<super::transact::ITransaction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Pull)(windows_core::Interface::as_raw(self), i_psztxurl, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_transact")]
+    #[cfg(feature = "transact")]
     pub unsafe fn PullAsync<P1>(&self, i_psztxurl: *const i8, i_ptippullsink: P1) -> windows_core::Result<super::transact::ITransaction>
     where
         P1: windows_core::Param<ITipPullSink>,
@@ -451,23 +451,23 @@ impl ITipHelper {
 #[doc(hidden)]
 pub struct ITipHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_transact")]
+    #[cfg(feature = "transact")]
     pub Pull: unsafe extern "system" fn(*mut core::ffi::c_void, *const i8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_transact"))]
+    #[cfg(not(feature = "transact"))]
     Pull: usize,
-    #[cfg(feature = "Win32_transact")]
+    #[cfg(feature = "transact")]
     pub PullAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *const i8, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_transact"))]
+    #[cfg(not(feature = "transact"))]
     PullAsync: usize,
     pub GetLocalTmUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut i8) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_transact")]
+#[cfg(feature = "transact")]
 pub trait ITipHelper_Impl: windows_core::IUnknownImpl {
     fn Pull(&self, i_psztxurl: *const i8) -> windows_core::Result<super::transact::ITransaction>;
     fn PullAsync(&self, i_psztxurl: *const i8, i_ptippullsink: windows_core::Ref<ITipPullSink>) -> windows_core::Result<super::transact::ITransaction>;
     fn GetLocalTmUrl(&self) -> windows_core::Result<*mut i8>;
 }
-#[cfg(feature = "Win32_transact")]
+#[cfg(feature = "transact")]
 impl ITipHelper_Vtbl {
     pub const fn new<Identity: ITipHelper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Pull<Identity: ITipHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i_psztxurl: *const i8, o_ppitransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -517,7 +517,7 @@ impl ITipHelper_Vtbl {
         iid == &<ITipHelper as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_transact")]
+#[cfg(feature = "transact")]
 impl windows_core::RuntimeName for ITipHelper {}
 windows_core::imp::define_interface!(ITipPullSink, ITipPullSink_Vtbl, 0x17cf72d2_bac5_11d1_b1bf_00c04fc2f3ef);
 windows_core::imp::interface_hierarchy!(ITipPullSink, windows_core::IUnknown);
@@ -617,7 +617,7 @@ impl windows_core::RuntimeName for ITipTransaction {}
 windows_core::imp::define_interface!(ITransactionEnlistmentAsync, ITransactionEnlistmentAsync_Vtbl, 0x0fb15081_af41_11ce_bd2b_204c4f4f5020);
 windows_core::imp::interface_hierarchy!(ITransactionEnlistmentAsync, windows_core::IUnknown);
 impl ITransactionEnlistmentAsync {
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "objidl", feature = "rpc", feature = "transact"))]
     pub unsafe fn PrepareRequestDone<P1>(&self, hr: windows_core::HRESULT, pmk: P1, pboidreason: *const super::transact::BOID) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IMoniker>,
@@ -635,20 +635,20 @@ impl ITransactionEnlistmentAsync {
 #[doc(hidden)]
 pub struct ITransactionEnlistmentAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "objidl", feature = "rpc", feature = "transact"))]
     pub PrepareRequestDone: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *mut core::ffi::c_void, *const super::transact::BOID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_rpc", feature = "Win32_transact")))]
+    #[cfg(not(all(feature = "objidl", feature = "rpc", feature = "transact")))]
     PrepareRequestDone: usize,
     pub CommitRequestDone: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
     pub AbortRequestDone: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "objidl", feature = "rpc", feature = "transact"))]
 pub trait ITransactionEnlistmentAsync_Impl: windows_core::IUnknownImpl {
     fn PrepareRequestDone(&self, hr: windows_core::HRESULT, pmk: windows_core::Ref<super::objidl::IMoniker>, pboidreason: *const super::transact::BOID) -> windows_core::Result<()>;
     fn CommitRequestDone(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn AbortRequestDone(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "objidl", feature = "rpc", feature = "transact"))]
 impl ITransactionEnlistmentAsync_Vtbl {
     pub const fn new<Identity: ITransactionEnlistmentAsync_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PrepareRequestDone<Identity: ITransactionEnlistmentAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT, pmk: *mut core::ffi::c_void, pboidreason: *const super::transact::BOID) -> windows_core::HRESULT {
@@ -680,7 +680,7 @@ impl ITransactionEnlistmentAsync_Vtbl {
         iid == &<ITransactionEnlistmentAsync as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "objidl", feature = "rpc", feature = "transact"))]
 impl windows_core::RuntimeName for ITransactionEnlistmentAsync {}
 windows_core::imp::define_interface!(ITransactionExport, ITransactionExport_Vtbl, 0x0141fda5_8fc0_11ce_bd18_204c4f4f5020);
 windows_core::imp::interface_hierarchy!(ITransactionExport, windows_core::IUnknown);
@@ -694,7 +694,7 @@ impl ITransactionExport {
             (windows_core::Interface::vtable(self).Export)(windows_core::Interface::as_raw(self), punktransaction.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn GetTransactionCookie<P0>(&self, punktransaction: P0, cbtransactioncookie: u32, rgbtransactioncookie: *mut super::rpc::byte, pcbused: *mut u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -707,17 +707,17 @@ impl ITransactionExport {
 pub struct ITransactionExport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Export: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub GetTransactionCookie: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut super::rpc::byte, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     GetTransactionCookie: usize,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait ITransactionExport_Impl: windows_core::IUnknownImpl {
     fn Export(&self, punktransaction: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
     fn GetTransactionCookie(&self, punktransaction: windows_core::Ref<windows_core::IUnknown>, cbtransactioncookie: u32, rgbtransactioncookie: *mut super::rpc::byte, pcbused: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl ITransactionExport_Vtbl {
     pub const fn new<Identity: ITransactionExport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Export<Identity: ITransactionExport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punktransaction: *mut core::ffi::c_void, pcbtransactioncookie: *mut u32) -> windows_core::HRESULT {
@@ -748,7 +748,7 @@ impl ITransactionExport_Vtbl {
         iid == &<ITransactionExport as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ITransactionExport {}
 windows_core::imp::define_interface!(ITransactionExportFactory, ITransactionExportFactory_Vtbl, 0xe1cf9b53_8745_11ce_a9ba_00aa006c3706);
 windows_core::imp::interface_hierarchy!(ITransactionExportFactory, windows_core::IUnknown);
@@ -759,7 +759,7 @@ impl ITransactionExportFactory {
             (windows_core::Interface::vtable(self).GetRemoteClassId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn Create(&self, cbwhereabouts: u32, rgbwhereabouts: *const super::rpc::byte) -> windows_core::Result<ITransactionExport> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -772,17 +772,17 @@ impl ITransactionExportFactory {
 pub struct ITransactionExportFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRemoteClassId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::rpc::byte, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     Create: usize,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait ITransactionExportFactory_Impl: windows_core::IUnknownImpl {
     fn GetRemoteClassId(&self) -> windows_core::Result<windows_core::GUID>;
     fn Create(&self, cbwhereabouts: u32, rgbwhereabouts: *const super::rpc::byte) -> windows_core::Result<ITransactionExport>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl ITransactionExportFactory_Vtbl {
     pub const fn new<Identity: ITransactionExportFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRemoteClassId<Identity: ITransactionExportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclsid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -819,12 +819,12 @@ impl ITransactionExportFactory_Vtbl {
         iid == &<ITransactionExportFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ITransactionExportFactory {}
 windows_core::imp::define_interface!(ITransactionImport, ITransactionImport_Vtbl, 0xe1cf9b5a_8745_11ce_a9ba_00aa006c3706);
 windows_core::imp::interface_hierarchy!(ITransactionImport, windows_core::IUnknown);
 impl ITransactionImport {
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn Import<T>(&self, cbtransactioncookie: u32, rgbtransactioncookie: *const super::rpc::byte) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -837,16 +837,16 @@ impl ITransactionImport {
 #[doc(hidden)]
 pub struct ITransactionImport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub Import: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::rpc::byte, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     Import: usize,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait ITransactionImport_Impl: windows_core::IUnknownImpl {
     fn Import(&self, cbtransactioncookie: u32, rgbtransactioncookie: *const super::rpc::byte, piid: *const windows_core::GUID, ppvtransaction: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl ITransactionImport_Vtbl {
     pub const fn new<Identity: ITransactionImport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Import<Identity: ITransactionImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbtransactioncookie: u32, rgbtransactioncookie: *const super::rpc::byte, piid: *const windows_core::GUID, ppvtransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -861,7 +861,7 @@ impl ITransactionImport_Vtbl {
         iid == &<ITransactionImport as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ITransactionImport {}
 windows_core::imp::define_interface!(ITransactionImportWhereabouts, ITransactionImportWhereabouts_Vtbl, 0x0141fda4_8fc0_11ce_bd18_204c4f4f5020);
 windows_core::imp::interface_hierarchy!(ITransactionImportWhereabouts, windows_core::IUnknown);
@@ -872,7 +872,7 @@ impl ITransactionImportWhereabouts {
             (windows_core::Interface::vtable(self).GetWhereaboutsSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn GetWhereabouts(&self, cbwhereabouts: u32, rgbwhereabouts: *mut super::rpc::byte, pcbused: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWhereabouts)(windows_core::Interface::as_raw(self), cbwhereabouts, rgbwhereabouts as _, pcbused as _) }
     }
@@ -882,17 +882,17 @@ impl ITransactionImportWhereabouts {
 pub struct ITransactionImportWhereabouts_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetWhereaboutsSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub GetWhereabouts: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::rpc::byte, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     GetWhereabouts: usize,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait ITransactionImportWhereabouts_Impl: windows_core::IUnknownImpl {
     fn GetWhereaboutsSize(&self) -> windows_core::Result<u32>;
     fn GetWhereabouts(&self, cbwhereabouts: u32, rgbwhereabouts: *mut super::rpc::byte, pcbused: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl ITransactionImportWhereabouts_Vtbl {
     pub const fn new<Identity: ITransactionImportWhereabouts_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetWhereaboutsSize<Identity: ITransactionImportWhereabouts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbwhereabouts: *mut u32) -> windows_core::HRESULT {
@@ -923,12 +923,12 @@ impl ITransactionImportWhereabouts_Vtbl {
         iid == &<ITransactionImportWhereabouts as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ITransactionImportWhereabouts {}
 windows_core::imp::define_interface!(ITransactionLastEnlistmentAsync, ITransactionLastEnlistmentAsync_Vtbl, 0xc82bd533_5b30_11d3_8a91_00c04f79eb6d);
 windows_core::imp::interface_hierarchy!(ITransactionLastEnlistmentAsync, windows_core::IUnknown);
 impl ITransactionLastEnlistmentAsync {
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub unsafe fn TransactionOutcome(&self, xactstat: super::transact::XACTSTAT, pboidreason: *const super::transact::BOID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TransactionOutcome)(windows_core::Interface::as_raw(self), xactstat, pboidreason) }
     }
@@ -937,16 +937,16 @@ impl ITransactionLastEnlistmentAsync {
 #[doc(hidden)]
 pub struct ITransactionLastEnlistmentAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub TransactionOutcome: unsafe extern "system" fn(*mut core::ffi::c_void, super::transact::XACTSTAT, *const super::transact::BOID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_rpc", feature = "Win32_transact")))]
+    #[cfg(not(all(feature = "rpc", feature = "transact")))]
     TransactionOutcome: usize,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 pub trait ITransactionLastEnlistmentAsync_Impl: windows_core::IUnknownImpl {
     fn TransactionOutcome(&self, xactstat: super::transact::XACTSTAT, pboidreason: *const super::transact::BOID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 impl ITransactionLastEnlistmentAsync_Vtbl {
     pub const fn new<Identity: ITransactionLastEnlistmentAsync_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TransactionOutcome<Identity: ITransactionLastEnlistmentAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xactstat: super::transact::XACTSTAT, pboidreason: *const super::transact::BOID) -> windows_core::HRESULT {
@@ -961,7 +961,7 @@ impl ITransactionLastEnlistmentAsync_Vtbl {
         iid == &<ITransactionLastEnlistmentAsync as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 impl windows_core::RuntimeName for ITransactionLastEnlistmentAsync {}
 windows_core::imp::define_interface!(ITransactionLastResourceAsync, ITransactionLastResourceAsync_Vtbl, 0xc82bd532_5b30_11d3_8a91_00c04f79eb6d);
 windows_core::imp::interface_hierarchy!(ITransactionLastResourceAsync, windows_core::IUnknown);
@@ -969,7 +969,7 @@ impl ITransactionLastResourceAsync {
     pub unsafe fn DelegateCommit(&self, grfrm: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DelegateCommit)(windows_core::Interface::as_raw(self), grfrm) }
     }
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub unsafe fn ForgetRequest(&self, pnewuow: *const super::transact::XACTUOW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ForgetRequest)(windows_core::Interface::as_raw(self), pnewuow) }
     }
@@ -979,17 +979,17 @@ impl ITransactionLastResourceAsync {
 pub struct ITransactionLastResourceAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DelegateCommit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub ForgetRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::transact::XACTUOW) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_rpc", feature = "Win32_transact")))]
+    #[cfg(not(all(feature = "rpc", feature = "transact")))]
     ForgetRequest: usize,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 pub trait ITransactionLastResourceAsync_Impl: windows_core::IUnknownImpl {
     fn DelegateCommit(&self, grfrm: u32) -> windows_core::Result<()>;
     fn ForgetRequest(&self, pnewuow: *const super::transact::XACTUOW) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 impl ITransactionLastResourceAsync_Vtbl {
     pub const fn new<Identity: ITransactionLastResourceAsync_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DelegateCommit<Identity: ITransactionLastResourceAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfrm: u32) -> windows_core::HRESULT {
@@ -1014,7 +1014,7 @@ impl ITransactionLastResourceAsync_Vtbl {
         iid == &<ITransactionLastResourceAsync as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 impl windows_core::RuntimeName for ITransactionLastResourceAsync {}
 windows_core::imp::define_interface!(ITransactionResource, ITransactionResource_Vtbl, 0xee5ff7b3_4572_11d0_9452_00a0c905416e);
 windows_core::imp::interface_hierarchy!(ITransactionResource, windows_core::IUnknown);
@@ -1022,11 +1022,11 @@ impl ITransactionResource {
     pub unsafe fn PrepareRequest(&self, fretaining: bool, grfrm: u32, fwantmoniker: bool, fsinglephase: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PrepareRequest)(windows_core::Interface::as_raw(self), fretaining.into(), grfrm, fwantmoniker.into(), fsinglephase.into()) }
     }
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub unsafe fn CommitRequest(&self, grfrm: u32, pnewuow: *const super::transact::XACTUOW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CommitRequest)(windows_core::Interface::as_raw(self), grfrm, pnewuow) }
     }
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub unsafe fn AbortRequest(&self, pboidreason: *const super::transact::BOID, fretaining: bool, pnewuow: *const super::transact::XACTUOW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AbortRequest)(windows_core::Interface::as_raw(self), pboidreason, fretaining.into(), pnewuow) }
     }
@@ -1039,24 +1039,24 @@ impl ITransactionResource {
 pub struct ITransactionResource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PrepareRequest: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u32, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub CommitRequest: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::transact::XACTUOW) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_rpc", feature = "Win32_transact")))]
+    #[cfg(not(all(feature = "rpc", feature = "transact")))]
     CommitRequest: usize,
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub AbortRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::transact::BOID, windows_core::BOOL, *const super::transact::XACTUOW) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_rpc", feature = "Win32_transact")))]
+    #[cfg(not(all(feature = "rpc", feature = "transact")))]
     AbortRequest: usize,
     pub TMDown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 pub trait ITransactionResource_Impl: windows_core::IUnknownImpl {
     fn PrepareRequest(&self, fretaining: windows_core::BOOL, grfrm: u32, fwantmoniker: windows_core::BOOL, fsinglephase: windows_core::BOOL) -> windows_core::Result<()>;
     fn CommitRequest(&self, grfrm: u32, pnewuow: *const super::transact::XACTUOW) -> windows_core::Result<()>;
     fn AbortRequest(&self, pboidreason: *const super::transact::BOID, fretaining: windows_core::BOOL, pnewuow: *const super::transact::XACTUOW) -> windows_core::Result<()>;
     fn TMDown(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 impl ITransactionResource_Vtbl {
     pub const fn new<Identity: ITransactionResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PrepareRequest<Identity: ITransactionResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: windows_core::BOOL, grfrm: u32, fwantmoniker: windows_core::BOOL, fsinglephase: windows_core::BOOL) -> windows_core::HRESULT {
@@ -1095,7 +1095,7 @@ impl ITransactionResource_Vtbl {
         iid == &<ITransactionResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 impl windows_core::RuntimeName for ITransactionResource {}
 windows_core::imp::define_interface!(ITransactionResourceAsync, ITransactionResourceAsync_Vtbl, 0x69e971f0_23ce_11cf_ad60_00aa00a74ccd);
 windows_core::imp::interface_hierarchy!(ITransactionResourceAsync, windows_core::IUnknown);
@@ -1103,11 +1103,11 @@ impl ITransactionResourceAsync {
     pub unsafe fn PrepareRequest(&self, fretaining: bool, grfrm: u32, fwantmoniker: bool, fsinglephase: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PrepareRequest)(windows_core::Interface::as_raw(self), fretaining.into(), grfrm, fwantmoniker.into(), fsinglephase.into()) }
     }
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub unsafe fn CommitRequest(&self, grfrm: u32, pnewuow: *const super::transact::XACTUOW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CommitRequest)(windows_core::Interface::as_raw(self), grfrm, pnewuow) }
     }
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub unsafe fn AbortRequest(&self, pboidreason: *const super::transact::BOID, fretaining: bool, pnewuow: *const super::transact::XACTUOW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AbortRequest)(windows_core::Interface::as_raw(self), pboidreason, fretaining.into(), pnewuow) }
     }
@@ -1120,24 +1120,24 @@ impl ITransactionResourceAsync {
 pub struct ITransactionResourceAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PrepareRequest: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u32, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub CommitRequest: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::transact::XACTUOW) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_rpc", feature = "Win32_transact")))]
+    #[cfg(not(all(feature = "rpc", feature = "transact")))]
     CommitRequest: usize,
-    #[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+    #[cfg(all(feature = "rpc", feature = "transact"))]
     pub AbortRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::transact::BOID, windows_core::BOOL, *const super::transact::XACTUOW) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_rpc", feature = "Win32_transact")))]
+    #[cfg(not(all(feature = "rpc", feature = "transact")))]
     AbortRequest: usize,
     pub TMDown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 pub trait ITransactionResourceAsync_Impl: windows_core::IUnknownImpl {
     fn PrepareRequest(&self, fretaining: windows_core::BOOL, grfrm: u32, fwantmoniker: windows_core::BOOL, fsinglephase: windows_core::BOOL) -> windows_core::Result<()>;
     fn CommitRequest(&self, grfrm: u32, pnewuow: *const super::transact::XACTUOW) -> windows_core::Result<()>;
     fn AbortRequest(&self, pboidreason: *const super::transact::BOID, fretaining: windows_core::BOOL, pnewuow: *const super::transact::XACTUOW) -> windows_core::Result<()>;
     fn TMDown(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 impl ITransactionResourceAsync_Vtbl {
     pub const fn new<Identity: ITransactionResourceAsync_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PrepareRequest<Identity: ITransactionResourceAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: windows_core::BOOL, grfrm: u32, fwantmoniker: windows_core::BOOL, fsinglephase: windows_core::BOOL) -> windows_core::HRESULT {
@@ -1176,7 +1176,7 @@ impl ITransactionResourceAsync_Vtbl {
         iid == &<ITransactionResourceAsync as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
+#[cfg(all(feature = "rpc", feature = "transact"))]
 impl windows_core::RuntimeName for ITransactionResourceAsync {}
 pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 2;
 pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 0;

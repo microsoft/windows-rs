@@ -1,6 +1,6 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_sys::core::PCSTR, hmod : super::minwindef::HMODULE, fdwsound : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_sys::core::PCWSTR, hmod : super::minwindef::HMODULE, fdwsound : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_sys::core::PCSTR, fusound : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_sys::core::PCWSTR, fusound : u32) -> windows_sys::core::BOOL);

@@ -49,129 +49,129 @@ impl Default for PWMIREGINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWNODE_ALL_DATA(pub *mut WNODE_ALL_DATA);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWNODE_ALL_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWNODE_ALL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWNODE_EVENT_ITEM(pub *mut WNODE_EVENT_ITEM);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWNODE_EVENT_ITEM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWNODE_EVENT_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWNODE_EVENT_REFERENCE(pub *mut WNODE_EVENT_REFERENCE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWNODE_EVENT_REFERENCE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWNODE_EVENT_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWNODE_HEADER(pub *mut WNODE_HEADER);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWNODE_HEADER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWNODE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWNODE_METHOD_ITEM(pub *mut WNODE_METHOD_ITEM);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWNODE_METHOD_ITEM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWNODE_METHOD_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWNODE_SINGLE_INSTANCE(pub *mut WNODE_SINGLE_INSTANCE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWNODE_SINGLE_INSTANCE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWNODE_SINGLE_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWNODE_SINGLE_ITEM(pub *mut WNODE_SINGLE_ITEM);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWNODE_SINGLE_ITEM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWNODE_SINGLE_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWNODE_TOO_SMALL(pub *mut WNODE_TOO_SMALL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWNODE_TOO_SMALL {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWNODE_TOO_SMALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -266,7 +266,7 @@ pub const WMI_REGINFO: WMIDPREQUESTCODE = 8;
 pub const WMI_SET_SINGLE_INSTANCE: WMIDPREQUESTCODE = 2;
 pub const WMI_SET_SINGLE_ITEM: WMIDPREQUESTCODE = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WNODE_ALL_DATA {
     pub WnodeHeader: WNODE_HEADER,
@@ -275,39 +275,39 @@ pub struct WNODE_ALL_DATA {
     pub OffsetInstanceNameOffsets: u32,
     pub Anonymous: WNODE_ALL_DATA_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_ALL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union WNODE_ALL_DATA_0 {
     pub FixedInstanceSize: u32,
     pub OffsetInstanceDataAndLength: [OFFSETINSTANCEDATAANDLENGTH; 0],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_ALL_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WNODE_EVENT_ITEM {
     pub WnodeHeader: WNODE_HEADER,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_EVENT_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WNODE_EVENT_REFERENCE {
     pub WnodeHeader: WNODE_HEADER,
@@ -315,20 +315,20 @@ pub struct WNODE_EVENT_REFERENCE {
     pub TargetDataBlockSize: u32,
     pub Anonymous: WNODE_EVENT_REFERENCE_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_EVENT_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union WNODE_EVENT_REFERENCE_0 {
     pub TargetInstanceIndex: u32,
     pub TargetInstanceName: [u16; 0],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_EVENT_REFERENCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -358,7 +358,7 @@ pub const WNODE_FLAG_USE_MOF_PTR: u32 = 1048576;
 pub const WNODE_FLAG_USE_TIMESTAMP: u32 = 512;
 pub const WNODE_FLAG_VERSIONED_PROPERTIES: u32 = 8388608;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WNODE_HEADER {
     pub BufferSize: u32,
@@ -369,48 +369,48 @@ pub struct WNODE_HEADER {
     pub ClientContext: u32,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union WNODE_HEADER_0 {
     pub HistoricalContext: u64,
     pub Anonymous: WNODE_HEADER_0_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WNODE_HEADER_0_0 {
     pub Version: u32,
     pub Linkage: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union WNODE_HEADER_1 {
     pub CountLost: u32,
     pub KernelHandle: super::winnt::HANDLE,
     pub TimeStamp: i64,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_HEADER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WNODE_METHOD_ITEM {
     pub WnodeHeader: WNODE_HEADER,
@@ -421,14 +421,14 @@ pub struct WNODE_METHOD_ITEM {
     pub SizeDataBlock: u32,
     pub VariableData: [u8; 0],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_METHOD_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WNODE_SINGLE_INSTANCE {
     pub WnodeHeader: WNODE_HEADER,
@@ -438,14 +438,14 @@ pub struct WNODE_SINGLE_INSTANCE {
     pub SizeDataBlock: u32,
     pub VariableData: [u8; 0],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_SINGLE_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WNODE_SINGLE_ITEM {
     pub WnodeHeader: WNODE_HEADER,
@@ -456,20 +456,20 @@ pub struct WNODE_SINGLE_ITEM {
     pub SizeDataItem: u32,
     pub VariableData: [u8; 0],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_SINGLE_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WNODE_TOO_SMALL {
     pub WnodeHeader: WNODE_HEADER,
     pub SizeNeeded: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WNODE_TOO_SMALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

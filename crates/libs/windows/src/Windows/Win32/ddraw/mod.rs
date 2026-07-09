@@ -27,13 +27,13 @@ pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mu
     windows_core::link!("ddraw.dll" "system" fn DirectDrawEnumerateA(lpcallback : LPDDENUMCALLBACKA, lpcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { DirectDrawEnumerateA(lpcallback, lpcontext as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawEnumerateExA(lpcallback : LPDDENUMCALLBACKEXA, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
     unsafe { DirectDrawEnumerateExA(lpcallback, lpcontext as _, dwflags) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawEnumerateExW(lpcallback : LPDDENUMCALLBACKEXW, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
@@ -63,7 +63,7 @@ pub const DDBD_32: u32 = 256;
 pub const DDBD_4: u32 = 4096;
 pub const DDBD_8: u32 = 2048;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct DDBLTBATCH {
     pub lprDest: super::windef::LPRECT,
@@ -1219,7 +1219,7 @@ pub const DDSMT_ISTESTREQUIRED: u32 = 1;
 pub const DDSPD_IUNKNOWNPOINTER: u32 = 1;
 pub const DDSPD_VOLATILE: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub struct DDSURFACEDESC {
     pub dwSize: u32,
@@ -1239,41 +1239,41 @@ pub struct DDSURFACEDESC {
     pub ddpfPixelFormat: super::ksmedia::DDPIXELFORMAT,
     pub ddsCaps: DDSCAPS,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC_0 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC_1 {
     pub dwMipMapCount: u32,
     pub dwZBufferBitDepth: u32,
     pub dwRefreshRate: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub struct DDSURFACEDESC2 {
     pub dwSize: u32,
@@ -1294,73 +1294,73 @@ pub struct DDSURFACEDESC2 {
     pub ddsCaps: DDSCAPS2,
     pub dwTextureStage: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_0 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_1 {
     pub dwBackBufferCount: u32,
     pub dwDepth: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_2 {
     pub dwMipMapCount: u32,
     pub dwRefreshRate: u32,
     pub dwSrcVBHandle: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_3 {
     pub ddckCKDestOverlay: DDCOLORKEY,
     pub dwEmptyFaceColor: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_4 {
     pub ddpfPixelFormat: super::ksmedia::DDPIXELFORMAT,
     pub dwFVF: u32,
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for DDSURFACEDESC2_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1404,14 +1404,14 @@ impl IDirectDraw {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::wingdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC, param1: *mut Option<IDirectDrawSurface>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -1427,11 +1427,11 @@ impl IDirectDraw {
             (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
@@ -1441,7 +1441,7 @@ impl IDirectDraw {
     pub unsafe fn GetCaps(&self, param0: *mut DDCAPS, param1: *mut DDCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _) }
     }
@@ -1481,14 +1481,14 @@ impl IDirectDraw {
     pub unsafe fn RestoreDisplayMode(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -1502,28 +1502,28 @@ pub struct IDirectDraw_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub CreatePalette: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::wingdi::PALETTEENTRY, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     CreatePalette: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     CreateSurface: usize,
     pub DuplicateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumDisplayModes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDSURFACEDESC, *mut core::ffi::c_void, LPDDENUMMODESCALLBACK) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumDisplayModes: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDSURFACEDESC, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumSurfaces: usize,
     pub FlipToGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDCAPS, *mut DDCAPS) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetDisplayMode: usize,
     pub GetFourCCCodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1532,17 +1532,17 @@ pub struct IDirectDraw_Vtbl {
     pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub SetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub WaitForVerticalBlank: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     WaitForVerticalBlank: usize,
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub trait IDirectDraw_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -1568,7 +1568,7 @@ pub trait IDirectDraw_Impl: windows_core::IUnknownImpl {
     fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> windows_core::Result<()>;
     fn WaitForVerticalBlank(&self, param0: u32, param1: super::winnt::HANDLE) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl IDirectDraw_Vtbl {
     pub const fn new<Identity: IDirectDraw_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1776,7 +1776,7 @@ impl IDirectDraw_Vtbl {
         iid == &<IDirectDraw as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectDraw {}
 windows_core::imp::define_interface!(IDirectDraw2, IDirectDraw2_Vtbl, 0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
 windows_core::imp::interface_hierarchy!(IDirectDraw2, windows_core::IUnknown);
@@ -1799,14 +1799,14 @@ impl IDirectDraw2 {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::wingdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC, param1: *mut Option<IDirectDrawSurface>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -1822,11 +1822,11 @@ impl IDirectDraw2 {
             (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
@@ -1836,7 +1836,7 @@ impl IDirectDraw2 {
     pub unsafe fn GetCaps(&self, param0: *mut DDCAPS, param1: *mut DDCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _) }
     }
@@ -1876,14 +1876,14 @@ impl IDirectDraw2 {
     pub unsafe fn RestoreDisplayMode(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -1900,28 +1900,28 @@ pub struct IDirectDraw2_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub CreatePalette: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::wingdi::PALETTEENTRY, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     CreatePalette: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     CreateSurface: usize,
     pub DuplicateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumDisplayModes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDSURFACEDESC, *mut core::ffi::c_void, LPDDENUMMODESCALLBACK) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumDisplayModes: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDSURFACEDESC, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumSurfaces: usize,
     pub FlipToGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDCAPS, *mut DDCAPS) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetDisplayMode: usize,
     pub GetFourCCCodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1930,18 +1930,18 @@ pub struct IDirectDraw2_Vtbl {
     pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub SetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub WaitForVerticalBlank: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     WaitForVerticalBlank: usize,
     pub GetAvailableVidMem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub trait IDirectDraw2_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -1968,7 +1968,7 @@ pub trait IDirectDraw2_Impl: windows_core::IUnknownImpl {
     fn WaitForVerticalBlank(&self, param0: u32, param1: super::winnt::HANDLE) -> windows_core::Result<()>;
     fn GetAvailableVidMem(&self, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl IDirectDraw2_Vtbl {
     pub const fn new<Identity: IDirectDraw2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2183,7 +2183,7 @@ impl IDirectDraw2_Vtbl {
         iid == &<IDirectDraw2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectDraw2 {}
 windows_core::imp::define_interface!(IDirectDraw4, IDirectDraw4_Vtbl, 0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
 windows_core::imp::interface_hierarchy!(IDirectDraw4, windows_core::IUnknown);
@@ -2206,14 +2206,14 @@ impl IDirectDraw4 {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::wingdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC2, param1: *mut Option<IDirectDrawSurface4>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -2229,11 +2229,11 @@ impl IDirectDraw4 {
             (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
@@ -2243,7 +2243,7 @@ impl IDirectDraw4 {
     pub unsafe fn GetCaps(&self, param0: *mut DDCAPS, param1: *mut DDCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _) }
     }
@@ -2283,21 +2283,21 @@ impl IDirectDraw4 {
     pub unsafe fn RestoreDisplayMode(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1) }
     }
     pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAvailableVidMem)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetSurfaceFromDC(&self, param0: super::windef::HDC) -> windows_core::Result<IDirectDrawSurface4> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2323,28 +2323,28 @@ pub struct IDirectDraw4_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub CreatePalette: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::wingdi::PALETTEENTRY, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     CreatePalette: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC2, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     CreateSurface: usize,
     pub DuplicateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumDisplayModes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDSURFACEDESC2, *mut core::ffi::c_void, LPDDENUMMODESCALLBACK2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumDisplayModes: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDSURFACEDESC2, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumSurfaces: usize,
     pub FlipToGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDCAPS, *mut DDCAPS) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetDisplayMode: usize,
     pub GetFourCCCodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2353,25 +2353,25 @@ pub struct IDirectDraw4_Vtbl {
     pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub SetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub WaitForVerticalBlank: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     WaitForVerticalBlank: usize,
     pub GetAvailableVidMem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS2, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetSurfaceFromDC: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetSurfaceFromDC: usize,
     pub RestoreAllSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TestCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDDEVICEIDENTIFIER, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub trait IDirectDraw4_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -2402,7 +2402,7 @@ pub trait IDirectDraw4_Impl: windows_core::IUnknownImpl {
     fn TestCooperativeLevel(&self) -> windows_core::Result<()>;
     fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl IDirectDraw4_Vtbl {
     pub const fn new<Identity: IDirectDraw4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2651,7 +2651,7 @@ impl IDirectDraw4_Vtbl {
         iid == &<IDirectDraw4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectDraw4 {}
 windows_core::imp::define_interface!(IDirectDraw7, IDirectDraw7_Vtbl, 0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
 windows_core::imp::interface_hierarchy!(IDirectDraw7, windows_core::IUnknown);
@@ -2674,14 +2674,14 @@ impl IDirectDraw7 {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::wingdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC2, param1: *mut Option<IDirectDrawSurface7>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -2697,11 +2697,11 @@ impl IDirectDraw7 {
             (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
@@ -2711,7 +2711,7 @@ impl IDirectDraw7 {
     pub unsafe fn GetCaps(&self, param0: *mut DDCAPS, param1: *mut DDCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _) }
     }
@@ -2751,21 +2751,21 @@ impl IDirectDraw7 {
     pub unsafe fn RestoreDisplayMode(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1) }
     }
     pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAvailableVidMem)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetSurfaceFromDC(&self, param0: super::windef::HDC) -> windows_core::Result<IDirectDrawSurface7> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2781,7 +2781,7 @@ impl IDirectDraw7 {
     pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceIdentifier)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn StartModeTest(&self, param0: *mut super::windef::SIZE, param1: u32, param2: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).StartModeTest)(windows_core::Interface::as_raw(self), param0 as _, param1, param2) }
     }
@@ -2801,28 +2801,28 @@ pub struct IDirectDraw7_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub CreatePalette: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::wingdi::PALETTEENTRY, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     CreatePalette: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC2, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     CreateSurface: usize,
     pub DuplicateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumDisplayModes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDSURFACEDESC2, *mut core::ffi::c_void, LPDDENUMMODESCALLBACK2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumDisplayModes: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDSURFACEDESC2, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumSurfaces: usize,
     pub FlipToGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDCAPS, *mut DDCAPS) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetDisplayMode: usize,
     pub GetFourCCCodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2831,30 +2831,30 @@ pub struct IDirectDraw7_Vtbl {
     pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetCooperativeLevel: usize,
     pub SetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub WaitForVerticalBlank: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     WaitForVerticalBlank: usize,
     pub GetAvailableVidMem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS2, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetSurfaceFromDC: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetSurfaceFromDC: usize,
     pub RestoreAllSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TestCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDDEVICEIDENTIFIER2, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub StartModeTest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::SIZE, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     StartModeTest: usize,
     pub EvaluateMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub trait IDirectDraw7_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -2887,7 +2887,7 @@ pub trait IDirectDraw7_Impl: windows_core::IUnknownImpl {
     fn StartModeTest(&self, param0: *mut super::windef::SIZE, param1: u32, param2: u32) -> windows_core::Result<()>;
     fn EvaluateMode(&self, param0: u32) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl IDirectDraw7_Vtbl {
     pub const fn new<Identity: IDirectDraw7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3156,7 +3156,7 @@ impl IDirectDraw7_Vtbl {
         iid == &<IDirectDraw7 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectDraw7 {}
 windows_core::imp::define_interface!(IDirectDrawClipper, IDirectDrawClipper_Vtbl, 0x6c14db85_a733_11ce_a521_0020af0be560);
 windows_core::imp::interface_hierarchy!(IDirectDrawClipper, windows_core::IUnknown);
@@ -3170,11 +3170,11 @@ impl IDirectDrawClipper {
     pub unsafe fn Release(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+    #[cfg(all(feature = "windef", feature = "wingdi"))]
     pub unsafe fn GetClipList(&self, param0: *mut super::windef::RECT, param1: *mut super::wingdi::RGNDATA, param2: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetClipList)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetHWnd(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3193,11 +3193,11 @@ impl IDirectDrawClipper {
             (windows_core::Interface::vtable(self).IsClipListChanged)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+    #[cfg(all(feature = "windef", feature = "wingdi"))]
     pub unsafe fn SetClipList(&self, param0: *mut super::wingdi::RGNDATA, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClipList)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetHWnd(&self, param0: u32, param1: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHWnd)(windows_core::Interface::as_raw(self), param0, param1) }
     }
@@ -3209,26 +3209,26 @@ pub struct IDirectDrawClipper_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+    #[cfg(all(feature = "windef", feature = "wingdi"))]
     pub GetClipList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut super::wingdi::RGNDATA, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_windef", feature = "Win32_wingdi")))]
+    #[cfg(not(all(feature = "windef", feature = "wingdi")))]
     GetClipList: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetHWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetHWnd: usize,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub IsClipListChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+    #[cfg(all(feature = "windef", feature = "wingdi"))]
     pub SetClipList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wingdi::RGNDATA, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_windef", feature = "Win32_wingdi")))]
+    #[cfg(not(all(feature = "windef", feature = "wingdi")))]
     SetClipList: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetHWnd: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetHWnd: usize,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 pub trait IDirectDrawClipper_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -3240,7 +3240,7 @@ pub trait IDirectDrawClipper_Impl: windows_core::IUnknownImpl {
     fn SetClipList(&self, param0: *mut super::wingdi::RGNDATA, param1: u32) -> windows_core::Result<()>;
     fn SetHWnd(&self, param0: u32, param1: super::windef::HWND) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 impl IDirectDrawClipper_Vtbl {
     pub const fn new<Identity: IDirectDrawClipper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3326,7 +3326,7 @@ impl IDirectDrawClipper_Vtbl {
         iid == &<IDirectDrawClipper as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 impl windows_core::RuntimeName for IDirectDrawClipper {}
 windows_core::imp::define_interface!(IDirectDrawColorControl, IDirectDrawColorControl_Vtbl, 0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
 windows_core::imp::interface_hierarchy!(IDirectDrawColorControl, windows_core::IUnknown);
@@ -3510,14 +3510,14 @@ impl IDirectDrawPalette {
             (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn GetEntries(&self, param0: u32, param1: u32, param2: u32) -> windows_core::Result<super::wingdi::PALETTEENTRY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEntries)(windows_core::Interface::as_raw(self), param0, param1, param2, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<super::wingdi::PALETTEENTRY>
     where
         P0: windows_core::Param<IDirectDraw>,
@@ -3527,7 +3527,7 @@ impl IDirectDrawPalette {
             (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn SetEntries(&self, param0: u32, param1: u32, param2: u32) -> windows_core::Result<super::wingdi::PALETTEENTRY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3543,20 +3543,20 @@ pub struct IDirectDrawPalette_Vtbl {
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub GetEntries: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut super::wingdi::PALETTEENTRY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     GetEntries: usize,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut super::wingdi::PALETTEENTRY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     Initialize: usize,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub SetEntries: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut super::wingdi::PALETTEENTRY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     SetEntries: usize,
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub trait IDirectDrawPalette_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -3566,7 +3566,7 @@ pub trait IDirectDrawPalette_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, param0: windows_core::Ref<IDirectDraw>, param1: u32) -> windows_core::Result<super::wingdi::PALETTEENTRY>;
     fn SetEntries(&self, param0: u32, param1: u32, param2: u32) -> windows_core::Result<super::wingdi::PALETTEENTRY>;
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 impl IDirectDrawPalette_Vtbl {
     pub const fn new<Identity: IDirectDrawPalette_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDrawPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3650,7 +3650,7 @@ impl IDirectDrawPalette_Vtbl {
         iid == &<IDirectDrawPalette as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 impl windows_core::RuntimeName for IDirectDrawPalette {}
 windows_core::imp::define_interface!(IDirectDrawSurface, IDirectDrawSurface_Vtbl, 0x6c14db81_a733_11ce_a521_0020af0be560);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface, windows_core::IUnknown);
@@ -3670,25 +3670,25 @@ impl IDirectDrawSurface {
     {
         unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AddOverlayDirtyRect(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Blt<P1>(&self, param0: *mut super::windef::RECT, param1: P1, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::windef::RECT, param4: u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<Self>,
@@ -3701,11 +3701,11 @@ impl IDirectDrawSurface {
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
     }
@@ -3739,7 +3739,7 @@ impl IDirectDrawSurface {
             (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetDC(&self) -> windows_core::Result<super::windef::HDC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3758,15 +3758,15 @@ impl IDirectDrawSurface {
             (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetPixelFormat(&self, param0: *mut super::ksmedia::DDPIXELFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
@@ -3776,11 +3776,11 @@ impl IDirectDrawSurface {
     pub unsafe fn IsLost(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
     pub unsafe fn Lock(&self, param0: *mut super::windef::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ReleaseDC(&self, param0: super::windef::HDC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0) }
     }
@@ -3811,7 +3811,7 @@ impl IDirectDrawSurface {
     pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::windef::RECT, param1: P1, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
@@ -3836,30 +3836,30 @@ pub struct IDirectDrawSurface_Vtbl {
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AddOverlayDirtyRect: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Blt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut core::ffi::c_void, *mut super::windef::RECT, u32, *mut DDBLTFX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Blt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub BltBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDBLTBATCH, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     BltBatch: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub BltFast: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, *mut super::windef::RECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     BltFast: usize,
     pub DeleteAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumAttachedSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumAttachedSurfaces: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumOverlayZOrders: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumOverlayZOrders: usize,
     pub Flip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3867,33 +3867,33 @@ pub struct IDirectDrawSurface_Vtbl {
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS) -> windows_core::HRESULT,
     pub GetClipper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDCOLORKEY) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetDC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HDC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetDC: usize,
     pub GetFlipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetOverlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetPixelFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ksmedia::DDPIXELFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetPixelFormat: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetSurfaceDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetSurfaceDesc: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut DDSURFACEDESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     Initialize: usize,
     pub IsLost: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
     pub Lock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut DDSURFACEDESC, u32, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "ksmedia", feature = "windef", feature = "winnt")))]
     Lock: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ReleaseDC: usize,
     pub Restore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetClipper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3901,14 +3901,14 @@ pub struct IDirectDrawSurface_Vtbl {
     pub SetOverlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub UpdateOverlay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut core::ffi::c_void, *mut super::windef::RECT, u32, *mut DDOVERLAYFX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub UpdateOverlayZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 pub trait IDirectDrawSurface_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -3947,7 +3947,7 @@ pub trait IDirectDrawSurface_Impl: windows_core::IUnknownImpl {
     fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()>;
     fn UpdateOverlayZOrder(&self, param0: u32, param1: windows_core::Ref<IDirectDrawSurface>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl IDirectDrawSurface_Vtbl {
     pub const fn new<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4252,7 +4252,7 @@ impl IDirectDrawSurface_Vtbl {
         iid == &<IDirectDrawSurface as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectDrawSurface {}
 windows_core::imp::define_interface!(IDirectDrawSurface2, IDirectDrawSurface2_Vtbl, 0x57805885_6eec_11cf_9441_a82303c10e27);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface2, windows_core::IUnknown);
@@ -4272,25 +4272,25 @@ impl IDirectDrawSurface2 {
     {
         unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AddOverlayDirtyRect(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Blt<P1>(&self, param0: *mut super::windef::RECT, param1: P1, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::windef::RECT, param4: u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<Self>,
@@ -4303,11 +4303,11 @@ impl IDirectDrawSurface2 {
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
     }
@@ -4341,7 +4341,7 @@ impl IDirectDrawSurface2 {
             (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetDC(&self) -> windows_core::Result<super::windef::HDC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4360,15 +4360,15 @@ impl IDirectDrawSurface2 {
             (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetPixelFormat(&self, param0: *mut super::ksmedia::DDPIXELFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
@@ -4378,11 +4378,11 @@ impl IDirectDrawSurface2 {
     pub unsafe fn IsLost(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
     pub unsafe fn Lock(&self, param0: *mut super::windef::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ReleaseDC(&self, param0: super::windef::HDC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0) }
     }
@@ -4413,7 +4413,7 @@ impl IDirectDrawSurface2 {
     pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::windef::RECT, param1: P1, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
@@ -4447,30 +4447,30 @@ pub struct IDirectDrawSurface2_Vtbl {
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AddOverlayDirtyRect: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Blt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut core::ffi::c_void, *mut super::windef::RECT, u32, *mut DDBLTFX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Blt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub BltBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDBLTBATCH, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     BltBatch: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub BltFast: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, *mut super::windef::RECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     BltFast: usize,
     pub DeleteAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumAttachedSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumAttachedSurfaces: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumOverlayZOrders: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumOverlayZOrders: usize,
     pub Flip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4478,33 +4478,33 @@ pub struct IDirectDrawSurface2_Vtbl {
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS) -> windows_core::HRESULT,
     pub GetClipper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDCOLORKEY) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetDC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HDC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetDC: usize,
     pub GetFlipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetOverlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetPixelFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ksmedia::DDPIXELFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetPixelFormat: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetSurfaceDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetSurfaceDesc: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut DDSURFACEDESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     Initialize: usize,
     pub IsLost: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
     pub Lock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut DDSURFACEDESC, u32, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "ksmedia", feature = "windef", feature = "winnt")))]
     Lock: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ReleaseDC: usize,
     pub Restore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetClipper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4512,9 +4512,9 @@ pub struct IDirectDrawSurface2_Vtbl {
     pub SetOverlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub UpdateOverlay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut core::ffi::c_void, *mut super::windef::RECT, u32, *mut DDOVERLAYFX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub UpdateOverlayZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4522,7 +4522,7 @@ pub struct IDirectDrawSurface2_Vtbl {
     pub PageLock: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PageUnlock: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 pub trait IDirectDrawSurface2_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -4564,7 +4564,7 @@ pub trait IDirectDrawSurface2_Impl: windows_core::IUnknownImpl {
     fn PageLock(&self, param0: u32) -> windows_core::Result<()>;
     fn PageUnlock(&self, param0: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl IDirectDrawSurface2_Vtbl {
     pub const fn new<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4890,7 +4890,7 @@ impl IDirectDrawSurface2_Vtbl {
         iid == &<IDirectDrawSurface2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectDrawSurface2 {}
 windows_core::imp::define_interface!(IDirectDrawSurface3, IDirectDrawSurface3_Vtbl, 0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface3, windows_core::IUnknown);
@@ -4910,25 +4910,25 @@ impl IDirectDrawSurface3 {
     {
         unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AddOverlayDirtyRect(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Blt<P1>(&self, param0: *mut super::windef::RECT, param1: P1, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::windef::RECT, param4: u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<Self>,
@@ -4941,11 +4941,11 @@ impl IDirectDrawSurface3 {
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
     }
@@ -4979,7 +4979,7 @@ impl IDirectDrawSurface3 {
             (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetDC(&self) -> windows_core::Result<super::windef::HDC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4998,15 +4998,15 @@ impl IDirectDrawSurface3 {
             (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetPixelFormat(&self, param0: *mut super::ksmedia::DDPIXELFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
@@ -5016,11 +5016,11 @@ impl IDirectDrawSurface3 {
     pub unsafe fn IsLost(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
     pub unsafe fn Lock(&self, param0: *mut super::windef::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ReleaseDC(&self, param0: super::windef::HDC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0) }
     }
@@ -5051,7 +5051,7 @@ impl IDirectDrawSurface3 {
     pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::windef::RECT, param1: P1, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
@@ -5076,7 +5076,7 @@ impl IDirectDrawSurface3 {
     pub unsafe fn PageUnlock(&self, param0: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PageUnlock)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
@@ -5089,30 +5089,30 @@ pub struct IDirectDrawSurface3_Vtbl {
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AddOverlayDirtyRect: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Blt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut core::ffi::c_void, *mut super::windef::RECT, u32, *mut DDBLTFX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Blt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub BltBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDBLTBATCH, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     BltBatch: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub BltFast: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, *mut super::windef::RECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     BltFast: usize,
     pub DeleteAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumAttachedSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumAttachedSurfaces: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumOverlayZOrders: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumOverlayZOrders: usize,
     pub Flip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5120,33 +5120,33 @@ pub struct IDirectDrawSurface3_Vtbl {
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS) -> windows_core::HRESULT,
     pub GetClipper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDCOLORKEY) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetDC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HDC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetDC: usize,
     pub GetFlipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetOverlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetPixelFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ksmedia::DDPIXELFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetPixelFormat: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetSurfaceDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetSurfaceDesc: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut DDSURFACEDESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     Initialize: usize,
     pub IsLost: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
     pub Lock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut DDSURFACEDESC, u32, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "ksmedia", feature = "windef", feature = "winnt")))]
     Lock: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ReleaseDC: usize,
     pub Restore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetClipper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5154,21 +5154,21 @@ pub struct IDirectDrawSurface3_Vtbl {
     pub SetOverlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub UpdateOverlay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut core::ffi::c_void, *mut super::windef::RECT, u32, *mut DDOVERLAYFX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub UpdateOverlayZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDDInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PageLock: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PageUnlock: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub SetSurfaceDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     SetSurfaceDesc: usize,
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 pub trait IDirectDrawSurface3_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -5211,7 +5211,7 @@ pub trait IDirectDrawSurface3_Impl: windows_core::IUnknownImpl {
     fn PageUnlock(&self, param0: u32) -> windows_core::Result<()>;
     fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC, param1: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl IDirectDrawSurface3_Vtbl {
     pub const fn new<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5544,7 +5544,7 @@ impl IDirectDrawSurface3_Vtbl {
         iid == &<IDirectDrawSurface3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectDrawSurface3 {}
 windows_core::imp::define_interface!(IDirectDrawSurface4, IDirectDrawSurface4_Vtbl, 0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface4, windows_core::IUnknown);
@@ -5564,25 +5564,25 @@ impl IDirectDrawSurface4 {
     {
         unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AddOverlayDirtyRect(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Blt<P1>(&self, param0: *mut super::windef::RECT, param1: P1, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::windef::RECT, param4: u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<Self>,
@@ -5595,11 +5595,11 @@ impl IDirectDrawSurface4 {
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
     }
@@ -5633,7 +5633,7 @@ impl IDirectDrawSurface4 {
             (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetDC(&self) -> windows_core::Result<super::windef::HDC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5652,15 +5652,15 @@ impl IDirectDrawSurface4 {
             (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetPixelFormat(&self, param0: *mut super::ksmedia::DDPIXELFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
@@ -5670,11 +5670,11 @@ impl IDirectDrawSurface4 {
     pub unsafe fn IsLost(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
     pub unsafe fn Lock(&self, param0: *mut super::windef::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ReleaseDC(&self, param0: super::windef::HDC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0) }
     }
@@ -5702,14 +5702,14 @@ impl IDirectDrawSurface4 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Unlock(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::windef::RECT, param1: P1, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
@@ -5734,7 +5734,7 @@ impl IDirectDrawSurface4 {
     pub unsafe fn PageUnlock(&self, param0: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PageUnlock)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
@@ -5765,30 +5765,30 @@ pub struct IDirectDrawSurface4_Vtbl {
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AddOverlayDirtyRect: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Blt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut core::ffi::c_void, *mut super::windef::RECT, u32, *mut DDBLTFX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Blt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub BltBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDBLTBATCH, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     BltBatch: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub BltFast: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, *mut super::windef::RECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     BltFast: usize,
     pub DeleteAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumAttachedSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumAttachedSurfaces: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumOverlayZOrders: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumOverlayZOrders: usize,
     pub Flip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5796,55 +5796,55 @@ pub struct IDirectDrawSurface4_Vtbl {
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS2) -> windows_core::HRESULT,
     pub GetClipper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDCOLORKEY) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetDC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HDC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetDC: usize,
     pub GetFlipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetOverlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetPixelFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ksmedia::DDPIXELFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetPixelFormat: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetSurfaceDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetSurfaceDesc: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut DDSURFACEDESC2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     Initialize: usize,
     pub IsLost: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
     pub Lock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut DDSURFACEDESC2, u32, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "ksmedia", feature = "windef", feature = "winnt")))]
     Lock: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ReleaseDC: usize,
     pub Restore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetClipper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDCOLORKEY) -> windows_core::HRESULT,
     pub SetOverlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Unlock: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub UpdateOverlay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut core::ffi::c_void, *mut super::windef::RECT, u32, *mut DDOVERLAYFX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub UpdateOverlayZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDDInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PageLock: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PageUnlock: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub SetSurfaceDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC2, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     SetSurfaceDesc: usize,
     pub SetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5852,7 +5852,7 @@ pub struct IDirectDrawSurface4_Vtbl {
     pub GetUniquenessValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ChangeUniquenessValue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 pub trait IDirectDrawSurface4_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -5900,7 +5900,7 @@ pub trait IDirectDrawSurface4_Impl: windows_core::IUnknownImpl {
     fn GetUniquenessValue(&self) -> windows_core::Result<u32>;
     fn ChangeUniquenessValue(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl IDirectDrawSurface4_Vtbl {
     pub const fn new<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6280,7 +6280,7 @@ impl IDirectDrawSurface4_Vtbl {
         iid == &<IDirectDrawSurface4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectDrawSurface4 {}
 windows_core::imp::define_interface!(IDirectDrawSurface7, IDirectDrawSurface7_Vtbl, 0x06675a80_3b9b_11d2_b92f_00609797ea5b);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface7, windows_core::IUnknown);
@@ -6300,25 +6300,25 @@ impl IDirectDrawSurface7 {
     {
         unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AddOverlayDirtyRect(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Blt<P1>(&self, param0: *mut super::windef::RECT, param1: P1, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::windef::RECT, param4: u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<Self>,
@@ -6331,11 +6331,11 @@ impl IDirectDrawSurface7 {
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
     }
@@ -6369,7 +6369,7 @@ impl IDirectDrawSurface7 {
             (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetDC(&self) -> windows_core::Result<super::windef::HDC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6388,15 +6388,15 @@ impl IDirectDrawSurface7 {
             (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetPixelFormat(&self, param0: *mut super::ksmedia::DDPIXELFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
@@ -6406,11 +6406,11 @@ impl IDirectDrawSurface7 {
     pub unsafe fn IsLost(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
     pub unsafe fn Lock(&self, param0: *mut super::windef::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ReleaseDC(&self, param0: super::windef::HDC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0) }
     }
@@ -6438,14 +6438,14 @@ impl IDirectDrawSurface7 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Unlock(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::windef::RECT, param1: P1, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
@@ -6470,7 +6470,7 @@ impl IDirectDrawSurface7 {
     pub unsafe fn PageUnlock(&self, param0: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PageUnlock)(windows_core::Interface::as_raw(self), param0) }
     }
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
@@ -6519,30 +6519,30 @@ pub struct IDirectDrawSurface7_Vtbl {
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AddOverlayDirtyRect: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Blt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut core::ffi::c_void, *mut super::windef::RECT, u32, *mut DDBLTFX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Blt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub BltBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDBLTBATCH, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     BltBatch: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub BltFast: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, *mut super::windef::RECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     BltFast: usize,
     pub DeleteAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumAttachedSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumAttachedSurfaces: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub EnumOverlayZOrders: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     EnumOverlayZOrders: usize,
     pub Flip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6550,55 +6550,55 @@ pub struct IDirectDrawSurface7_Vtbl {
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS2) -> windows_core::HRESULT,
     pub GetClipper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDCOLORKEY) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetDC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HDC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetDC: usize,
     pub GetFlipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetOverlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetPixelFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ksmedia::DDPIXELFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetPixelFormat: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub GetSurfaceDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     GetSurfaceDesc: usize,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut DDSURFACEDESC2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     Initialize: usize,
     pub IsLost: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
     pub Lock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut DDSURFACEDESC2, u32, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "ksmedia", feature = "windef", feature = "winnt")))]
     Lock: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ReleaseDC: usize,
     pub Restore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetClipper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDCOLORKEY) -> windows_core::HRESULT,
     pub SetOverlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Unlock: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub UpdateOverlay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut core::ffi::c_void, *mut super::windef::RECT, u32, *mut DDOVERLAYFX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub UpdateOverlayZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDDInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PageLock: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PageUnlock: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_ksmedia")]
+    #[cfg(feature = "ksmedia")]
     pub SetSurfaceDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC2, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_ksmedia"))]
+    #[cfg(not(feature = "ksmedia"))]
     SetSurfaceDesc: usize,
     pub SetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6610,7 +6610,7 @@ pub struct IDirectDrawSurface7_Vtbl {
     pub SetLOD: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetLOD: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 pub trait IDirectDrawSurface7_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -6662,7 +6662,7 @@ pub trait IDirectDrawSurface7_Impl: windows_core::IUnknownImpl {
     fn SetLOD(&self, param0: u32) -> windows_core::Result<()>;
     fn GetLOD(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl IDirectDrawSurface7_Vtbl {
     pub const fn new<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7082,9 +7082,9 @@ impl IDirectDrawSurface7_Vtbl {
         iid == &<IDirectDrawSurface7 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectDrawSurface7 {}
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCLIPPERCALLBACK = Option<unsafe extern "system" fn(lpddclipper: windows_core::Ref<IDirectDrawClipper>, hwnd: super::windef::HWND, code: u32, lpcontext: *mut core::ffi::c_void) -> u32>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -7099,17 +7099,17 @@ impl Default for LPDDARGB {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDDBLTBATCH(pub *mut DDBLTBATCH);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPDDBLTBATCH {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPDDBLTBATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7260,22 +7260,22 @@ impl Default for LPDDDEVICEIDENTIFIER2 {
 }
 pub type LPDDENUMCALLBACK = LPDDENUMCALLBACKA;
 pub type LPDDENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDDENUMCALLBACKEX = LPDDENUMCALLBACKEXA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDDENUMCALLBACKEXA = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void, param4: super::windef::HMONITOR) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDDENUMCALLBACKEXW = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void, param4: super::windef::HMONITOR) -> windows_core::BOOL>;
 pub type LPDDENUMCALLBACKW = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDENUMMODESCALLBACK = Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC, param1: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDENUMMODESCALLBACK2 = Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC2, param1: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDENUMSURFACESCALLBACK = Option<unsafe extern "system" fn(param0: windows_core::Ref<IDirectDrawSurface>, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDENUMSURFACESCALLBACK2 = Option<unsafe extern "system" fn(param0: windows_core::Ref<IDirectDrawSurface4>, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 pub type LPDDENUMSURFACESCALLBACK7 = Option<unsafe extern "system" fn(param0: windows_core::Ref<IDirectDrawSurface7>, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -7381,43 +7381,43 @@ impl Default for LPDDSCAPSEX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDDSURFACEDESC(pub *mut DDSURFACEDESC);
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl LPDDSURFACEDESC {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for LPDDSURFACEDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDDSURFACEDESC2(pub *mut DDSURFACEDESC2);
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl LPDDSURFACEDESC2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ksmedia")]
+#[cfg(feature = "ksmedia")]
 impl Default for LPDDSURFACEDESC2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIRECTDRAWENUMERATEEX = LPDIRECTDRAWENUMERATEEXA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIRECTDRAWENUMERATEEXA = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT>;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDIRECTDRAWENUMERATEEXW = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT>;
 pub const MAX_DDDEVICEID_STRING: u32 = 512;
 pub const REGSTR_KEY_DDHW_DESCRIPTION: windows_core::PCSTR = windows_core::s!("Description");

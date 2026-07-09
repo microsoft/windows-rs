@@ -1,8 +1,8 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::winnt::HANDLE, wdeviceid : MCIDEVICEID, ustatus : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winmm.dll" "system" fn mciDriverYield(wdeviceid : MCIDEVICEID) -> u32);
 windows_link::link!("winmm.dll" "system" fn mciFreeCommandResource(wtable : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("winmm.dll" "system" fn mciGetCreatorTask(mciid : MCIDEVICEID) -> super::minwindef::HTASK);
 windows_link::link!("winmm.dll" "system" fn mciGetDeviceIDA(pszdevice : windows_sys::core::PCSTR) -> MCIDEVICEID);
 windows_link::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDA(dwelementid : u32, lpstrtype : windows_sys::core::PCSTR) -> MCIDEVICEID);
@@ -12,35 +12,35 @@ windows_link::link!("winmm.dll" "system" fn mciGetDriverData(wdeviceid : MCIDEVI
 windows_link::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : MCIERROR, psztext : windows_sys::core::PSTR, cchtext : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : MCIERROR, psztext : windows_sys::core::PWSTR, cchtext : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : MCIDEVICEID, pdwyielddata : *const u32) -> YIELDPROC);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("winmm.dll" "system" fn mciLoadCommandResource(hinstance : super::winnt::HANDLE, lpresname : windows_sys::core::PCWSTR, wtype : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn mciSendCommandA(mciid : MCIDEVICEID, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> MCIERROR);
 windows_link::link!("winmm.dll" "system" fn mciSendCommandW(mciid : MCIDEVICEID, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> MCIERROR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : windows_sys::core::PCSTR, lpstrreturnstring : windows_sys::core::PSTR, ureturnlength : u32, hwndcallback : super::windef::HWND) -> MCIERROR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("winmm.dll" "system" fn mciSendStringW(lpstrcommand : windows_sys::core::PCWSTR, lpstrreturnstring : windows_sys::core::PWSTR, ureturnlength : u32, hwndcallback : super::windef::HWND) -> MCIERROR);
 windows_link::link!("winmm.dll" "system" fn mciSetDriverData(wdeviceid : MCIDEVICEID, dwdata : usize) -> windows_sys::core::BOOL);
 windows_link::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : MCIDEVICEID, fpyieldproc : YIELDPROC, dwyielddata : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_ANIM_OPEN_PARMS = LPMCI_ANIM_OPEN_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_ANIM_OPEN_PARMSA = *mut MCI_ANIM_OPEN_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_ANIM_OPEN_PARMSW = *mut MCI_ANIM_OPEN_PARMSW;
 pub type LPMCI_ANIM_PLAY_PARMS = *mut MCI_ANIM_PLAY_PARMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_ANIM_RECT_PARMS = *mut MCI_ANIM_RECT_PARMS;
 pub type LPMCI_ANIM_STEP_PARMS = *mut MCI_ANIM_STEP_PARMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_ANIM_UPDATE_PARMS = *mut MCI_ANIM_UPDATE_PARMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_ANIM_WINDOW_PARMS = LPMCI_ANIM_WINDOW_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_ANIM_WINDOW_PARMSA = *mut MCI_ANIM_WINDOW_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_ANIM_WINDOW_PARMSW = *mut MCI_ANIM_WINDOW_PARMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_BREAK_PARMS = *mut MCI_BREAK_PARMS;
 pub type LPMCI_GENERIC_PARMS = *mut MCI_GENERIC_PARMS;
 pub type LPMCI_GETDEVCAPS_PARMS = *mut MCI_GETDEVCAPS_PARMS;
@@ -53,31 +53,31 @@ pub type LPMCI_LOAD_PARMSW = *mut MCI_LOAD_PARMSW;
 pub type LPMCI_OPEN_PARMS = LPMCI_OPEN_PARMSA;
 pub type LPMCI_OPEN_PARMSA = *mut MCI_OPEN_PARMSA;
 pub type LPMCI_OPEN_PARMSW = *mut MCI_OPEN_PARMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_LOAD_PARMS = LPMCI_OVLY_LOAD_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_LOAD_PARMSA = *mut MCI_OVLY_LOAD_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_LOAD_PARMSW = *mut MCI_OVLY_LOAD_PARMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_OPEN_PARMS = LPMCI_OVLY_OPEN_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_OPEN_PARMSA = *mut MCI_OVLY_OPEN_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_OPEN_PARMSW = *mut MCI_OVLY_OPEN_PARMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_RECT_PARMS = *mut MCI_OVLY_RECT_PARMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_SAVE_PARMS = LPMCI_OVLY_SAVE_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_SAVE_PARMSA = *mut MCI_OVLY_SAVE_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_SAVE_PARMSW = *mut MCI_OVLY_SAVE_PARMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_WINDOW_PARMS = LPMCI_OVLY_WINDOW_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_WINDOW_PARMSA = *mut MCI_OVLY_WINDOW_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMCI_OVLY_WINDOW_PARMSW = *mut MCI_OVLY_WINDOW_PARMSW;
 pub type LPMCI_PLAY_PARMS = *mut MCI_PLAY_PARMS;
 pub type LPMCI_RECORD_PARMS = *mut MCI_RECORD_PARMS;
@@ -190,10 +190,10 @@ pub const MCI_ANIM_GETDEVCAPS_SLOW_RATE: u32 = 16387;
 pub const MCI_ANIM_INFO_TEXT: u32 = 65536;
 pub const MCI_ANIM_OPEN_NOSTATIC: u32 = 262144;
 pub const MCI_ANIM_OPEN_PARENT: u32 = 131072;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_ANIM_OPEN_PARMS = MCI_ANIM_OPEN_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -204,14 +204,14 @@ pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::windef::HWND,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_ANIM_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -222,7 +222,7 @@ pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwStyle: u32,
     pub hWndParent: super::windef::HWND,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_ANIM_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -248,7 +248,7 @@ pub const MCI_ANIM_REALIZE_BKGD: u32 = 131072;
 pub const MCI_ANIM_REALIZE_NORM: u32 = 65536;
 pub const MCI_ANIM_RECT: u32 = 65536;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_RECT_PARMS {
     pub dwCallback: usize,
@@ -269,14 +269,14 @@ pub struct MCI_ANIM_STEP_PARMS {
 pub const MCI_ANIM_STEP_REVERSE: u32 = 65536;
 pub const MCI_ANIM_UPDATE_HDC: u32 = 131072;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_UPDATE_PARMS {
     pub dwCallback: usize,
     pub rc: super::windef::RECT,
     pub hDC: super::windef::HDC,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_ANIM_UPDATE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -288,10 +288,10 @@ pub const MCI_ANIM_WINDOW_DEFAULT: u32 = 0;
 pub const MCI_ANIM_WINDOW_DISABLE_STRETCH: u32 = 2097152;
 pub const MCI_ANIM_WINDOW_ENABLE_STRETCH: u32 = 1048576;
 pub const MCI_ANIM_WINDOW_HWND: u32 = 65536;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_ANIM_WINDOW_PARMS = MCI_ANIM_WINDOW_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -299,14 +299,14 @@ pub struct MCI_ANIM_WINDOW_PARMSA {
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_ANIM_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -314,7 +314,7 @@ pub struct MCI_ANIM_WINDOW_PARMSW {
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_ANIM_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -327,14 +327,14 @@ pub const MCI_BREAK_HWND: u32 = 512;
 pub const MCI_BREAK_KEY: u32 = 256;
 pub const MCI_BREAK_OFF: u32 = 1024;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_BREAK_PARMS {
     pub dwCallback: usize,
     pub nVirtKey: i32,
     pub hwndBreak: super::windef::HWND,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_BREAK_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -510,41 +510,41 @@ pub const MCI_OVLY_GETDEVCAPS_CAN_FREEZE: u32 = 16386;
 pub const MCI_OVLY_GETDEVCAPS_CAN_STRETCH: u32 = 16385;
 pub const MCI_OVLY_GETDEVCAPS_MAX_WINDOWS: u32 = 16387;
 pub const MCI_OVLY_INFO_TEXT: u32 = 65536;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_OVLY_LOAD_PARMS = MCI_OVLY_LOAD_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_LOAD_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCSTR,
     pub rc: super::windef::RECT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_OVLY_LOAD_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_LOAD_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCWSTR,
     pub rc: super::windef::RECT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_OVLY_LOAD_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const MCI_OVLY_OPEN_PARENT: u32 = 131072;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_OVLY_OPEN_PARMS = MCI_OVLY_OPEN_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -555,14 +555,14 @@ pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::windef::HWND,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_OVLY_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -573,7 +573,7 @@ pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwStyle: u32,
     pub hWndParent: super::windef::HWND,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_OVLY_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -586,37 +586,37 @@ pub const MCI_OVLY_PUT_SOURCE: u32 = 131072;
 pub const MCI_OVLY_PUT_VIDEO: u32 = 1048576;
 pub const MCI_OVLY_RECT: u32 = 65536;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::windef::RECT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_OVLY_SAVE_PARMS = MCI_OVLY_SAVE_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_SAVE_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCSTR,
     pub rc: super::windef::RECT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_OVLY_SAVE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_SAVE_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCWSTR,
     pub rc: super::windef::RECT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_OVLY_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -632,10 +632,10 @@ pub const MCI_OVLY_WINDOW_DEFAULT: u32 = 0;
 pub const MCI_OVLY_WINDOW_DISABLE_STRETCH: u32 = 2097152;
 pub const MCI_OVLY_WINDOW_ENABLE_STRETCH: u32 = 1048576;
 pub const MCI_OVLY_WINDOW_HWND: u32 = 65536;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MCI_OVLY_WINDOW_PARMS = MCI_OVLY_WINDOW_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -643,14 +643,14 @@ pub struct MCI_OVLY_WINDOW_PARMSA {
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_OVLY_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -658,7 +658,7 @@ pub struct MCI_OVLY_WINDOW_PARMSW {
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MCI_OVLY_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -983,25 +983,25 @@ pub const MCI_WAVE_STATUS_LEVEL: u32 = 16391;
 pub const MCI_WAVE_STATUS_SAMPLESPERSEC: u32 = 16387;
 pub const MCI_WHERE: u32 = 2115;
 pub const MCI_WINDOW: u32 = 2113;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_ANIM_OPEN_PARMS = PMCI_ANIM_OPEN_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_ANIM_OPEN_PARMSA = *mut MCI_ANIM_OPEN_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_ANIM_OPEN_PARMSW = *mut MCI_ANIM_OPEN_PARMSW;
 pub type PMCI_ANIM_PLAY_PARMS = *mut MCI_ANIM_PLAY_PARMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_ANIM_RECT_PARMS = *mut MCI_ANIM_RECT_PARMS;
 pub type PMCI_ANIM_STEP_PARMS = *mut MCI_ANIM_STEP_PARMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_ANIM_UPDATE_PARMS = *mut MCI_ANIM_UPDATE_PARMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_ANIM_WINDOW_PARMS = PMCI_ANIM_WINDOW_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_ANIM_WINDOW_PARMSA = *mut MCI_ANIM_WINDOW_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_ANIM_WINDOW_PARMSW = *mut MCI_ANIM_WINDOW_PARMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_BREAK_PARMS = *mut MCI_BREAK_PARMS;
 pub type PMCI_GENERIC_PARMS = *mut MCI_GENERIC_PARMS;
 pub type PMCI_GETDEVCAPS_PARMS = *mut MCI_GETDEVCAPS_PARMS;
@@ -1011,31 +1011,31 @@ pub type PMCI_LOAD_PARMSW = *mut MCI_LOAD_PARMSW;
 pub type PMCI_OPEN_PARMS = PMCI_OPEN_PARMSA;
 pub type PMCI_OPEN_PARMSA = *mut MCI_OPEN_PARMSA;
 pub type PMCI_OPEN_PARMSW = *mut MCI_OPEN_PARMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_LOAD_PARMS = PMCI_OVLY_LOAD_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_LOAD_PARMSA = *mut MCI_OVLY_LOAD_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_LOAD_PARMSW = *mut MCI_OVLY_LOAD_PARMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_OPEN_PARMS = PMCI_OVLY_OPEN_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_OPEN_PARMSA = *mut MCI_OVLY_OPEN_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_OPEN_PARMSW = *mut MCI_OVLY_OPEN_PARMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_RECT_PARMS = *mut MCI_OVLY_RECT_PARMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_SAVE_PARMS = PMCI_OVLY_SAVE_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_SAVE_PARMSA = *mut MCI_OVLY_SAVE_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_SAVE_PARMSW = *mut MCI_OVLY_SAVE_PARMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_WINDOW_PARMS = PMCI_OVLY_WINDOW_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_WINDOW_PARMSA = *mut MCI_OVLY_WINDOW_PARMSA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMCI_OVLY_WINDOW_PARMSW = *mut MCI_OVLY_WINDOW_PARMSW;
 pub type PMCI_PLAY_PARMS = *mut MCI_PLAY_PARMS;
 pub type PMCI_SAVE_PARMS = PMCI_SAVE_PARMSA;

@@ -5,7 +5,7 @@ pub type PWIA_DITHER_PATTERN_DATA = *mut WIA_DITHER_PATTERN_DATA;
 pub type PWIA_EVENT_HANDLER = *mut WIA_DEV_CAP;
 pub type PWIA_EXTENDED_TRANSFER_INFO = *mut WIA_EXTENDED_TRANSFER_INFO;
 pub type PWIA_FORMAT_INFO = *mut WIA_FORMAT_INFO;
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub type PWIA_PROPID_TO_NAME = *mut WIA_PROPID_TO_NAME;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -73,13 +73,13 @@ pub struct WIA_FORMAT_INFO {
     pub lTymed: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: super::wtypes::PROPID,
     pub pszName: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for WIA_PROPID_TO_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

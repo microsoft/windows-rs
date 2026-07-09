@@ -3,7 +3,7 @@ pub unsafe fn WebSocketAbortHandle(hwebsocket: WEB_SOCKET_HANDLE) {
     windows_core::link!("websocket.dll" "system" fn WebSocketAbortHandle(hwebsocket : WEB_SOCKET_HANDLE));
     unsafe { WebSocketAbortHandle(hwebsocket) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocols: Option<&[windows_core::PCSTR]>, pszextensions: Option<&[windows_core::PCSTR]>, pinitialheaders: Option<&[WEB_SOCKET_HTTP_HEADER]>, padditionalheaders: *mut PWEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("websocket.dll" "system" fn WebSocketBeginClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocols : *const windows_core::PCSTR, ulsubprotocolcount : u32, pszextensions : *const windows_core::PCSTR, ulextensioncount : u32, pinitialheaders : *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount : u32, padditionalheaders : *mut PWEB_SOCKET_HTTP_HEADER, puladditionalheadercount : *mut u32) -> windows_core::HRESULT);
@@ -21,7 +21,7 @@ pub unsafe fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsu
         )
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WebSocketBeginServerHandshake<P1>(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocolselected: P1, pszextensionselected: Option<&[windows_core::PCSTR]>, prequestheaders: &[WEB_SOCKET_HTTP_HEADER], presponseheaders: *mut PWEB_SOCKET_HTTP_HEADER, pulresponseheadercount: *mut u32) -> windows_core::HRESULT
 where
@@ -56,7 +56,7 @@ pub unsafe fn WebSocketDeleteHandle(hwebsocket: WEB_SOCKET_HANDLE) {
     windows_core::link!("websocket.dll" "system" fn WebSocketDeleteHandle(hwebsocket : WEB_SOCKET_HANDLE));
     unsafe { WebSocketDeleteHandle(hwebsocket) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WebSocketEndClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, presponseheaders: &[WEB_SOCKET_HTTP_HEADER], pulselectedextensions: Option<*mut u32>, pulselectedextensioncount: Option<*mut u32>, pulselectedsubprotocol: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("websocket.dll" "system" fn WebSocketEndClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, presponseheaders : *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount : u32, pulselectedextensions : *mut u32, pulselectedextensioncount : *mut u32, pulselectedsubprotocol : *mut u32) -> windows_core::HRESULT);
@@ -67,7 +67,7 @@ pub unsafe fn WebSocketEndServerHandshake(hwebsocket: WEB_SOCKET_HANDLE) -> wind
     windows_core::link!("websocket.dll" "system" fn WebSocketEndServerHandshake(hwebsocket : WEB_SOCKET_HANDLE) -> windows_core::HRESULT);
     unsafe { WebSocketEndServerHandshake(hwebsocket) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn WebSocketGetAction(hwebsocket: WEB_SOCKET_HANDLE, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: *mut u32, paction: *mut WEB_SOCKET_ACTION, pbuffertype: *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: Option<*mut *mut core::ffi::c_void>, pvactioncontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("websocket.dll" "system" fn WebSocketGetAction(hwebsocket : WEB_SOCKET_HANDLE, eactionqueue : WEB_SOCKET_ACTION_QUEUE, pdatabuffers : *mut WEB_SOCKET_BUFFER, puldatabuffercount : *mut u32, paction : *mut WEB_SOCKET_ACTION, pbuffertype : *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext : *mut *mut core::ffi::c_void, pvactioncontext : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -78,13 +78,13 @@ pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalu
     windows_core::link!("websocket.dll" "system" fn WebSocketGetGlobalProperty(etype : WEB_SOCKET_PROPERTY_TYPE, pvvalue : *mut core::ffi::c_void, ulsize : *mut u32) -> windows_core::HRESULT);
     unsafe { WebSocketGetGlobalProperty(etype, pvvalue as _, ulsize as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn WebSocketReceive(hwebsocket: WEB_SOCKET_HANDLE, pbuffer: Option<*const WEB_SOCKET_BUFFER>, pvcontext: Option<*const core::ffi::c_void>) -> windows_core::HRESULT {
     windows_core::link!("websocket.dll" "system" fn WebSocketReceive(hwebsocket : WEB_SOCKET_HANDLE, pbuffer : *const WEB_SOCKET_BUFFER, pvcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { WebSocketReceive(hwebsocket, pbuffer.unwrap_or(core::mem::zeroed()) as _, pvcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn WebSocketSend(hwebsocket: WEB_SOCKET_HANDLE, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: Option<*const WEB_SOCKET_BUFFER>, context: Option<*const core::ffi::c_void>) -> windows_core::HRESULT {
     windows_core::link!("websocket.dll" "system" fn WebSocketSend(hwebsocket : WEB_SOCKET_HANDLE, buffertype : WEB_SOCKET_BUFFER_TYPE, pbuffer : *const WEB_SOCKET_BUFFER, context : *const core::ffi::c_void) -> windows_core::HRESULT);
@@ -103,33 +103,33 @@ impl Default for PWEB_SOCKET_ACTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWEB_SOCKET_BUFFER(pub *mut WEB_SOCKET_BUFFER);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PWEB_SOCKET_BUFFER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PWEB_SOCKET_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWEB_SOCKET_HTTP_HEADER(pub *mut WEB_SOCKET_HTTP_HEADER);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWEB_SOCKET_HTTP_HEADER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWEB_SOCKET_HTTP_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -156,27 +156,27 @@ pub const WEB_SOCKET_ALL_ACTION_QUEUE: WEB_SOCKET_ACTION_QUEUE = 3;
 pub const WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = -2147483645;
 pub const WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = -2147483646;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union WEB_SOCKET_BUFFER {
     pub Data: WEB_SOCKET_BUFFER_0,
     pub CloseStatus: WEB_SOCKET_BUFFER_1,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for WEB_SOCKET_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WEB_SOCKET_BUFFER_0 {
     pub pbBuffer: super::minwindef::PBYTE,
     pub ulBufferLength: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WEB_SOCKET_BUFFER_1 {
     pub pbReason: super::minwindef::PBYTE,
@@ -204,7 +204,7 @@ impl Default for WEB_SOCKET_HANDLE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WEB_SOCKET_HTTP_HEADER {
     pub pcName: super::winnt::PCHAR,

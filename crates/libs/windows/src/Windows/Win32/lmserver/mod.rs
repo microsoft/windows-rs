@@ -17,7 +17,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerComputerNameDel(servername : windows_core::PCWSTR, emulatedservername : windows_core::PCWSTR) -> u32);
     unsafe { NetServerComputerNameDel(servername.param().abi(), emulatedservername.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetServerDiskEnum<P0>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
 where
@@ -26,7 +26,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerDiskEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     unsafe { NetServerDiskEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetServerEnum<P0, P7>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: u32, domain: P7, resume_handle: Option<*mut u32>) -> u32
 where
@@ -36,7 +36,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, servertype : u32, domain : windows_core::PCWSTR, resume_handle : *mut u32) -> u32);
     unsafe { NetServerEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, servertype, domain.param().abi(), resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetServerGetInfo<P0>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -77,7 +77,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerTransportDel(servername : windows_core::PCWSTR, level : u32, bufptr : *mut u8) -> u32);
     unsafe { NetServerTransportDel(servername.param().abi(), level, bufptr as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetServerTransportEnum<P0>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
 where
@@ -86,7 +86,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerTransportEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     unsafe { NetServerTransportEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winsvc")]
+#[cfg(feature = "winsvc")]
 #[inline]
 pub unsafe fn SetServiceBits(hservicestatus: super::winsvc::SERVICE_STATUS_HANDLE, dwservicebits: u32, bsetbitson: bool, bupdateimmediately: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetServiceBits(hservicestatus : super::winsvc::SERVICE_STATUS_HANDLE, dwservicebits : u32, bsetbitson : windows_core::BOOL, bupdateimmediately : windows_core::BOOL) -> windows_core::BOOL);
@@ -1444,65 +1444,65 @@ impl Default for LPSERVER_INFO_599 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPSERVER_TRANSPORT_INFO_0(pub *mut SERVER_TRANSPORT_INFO_0);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPSERVER_TRANSPORT_INFO_0 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPSERVER_TRANSPORT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPSERVER_TRANSPORT_INFO_1(pub *mut SERVER_TRANSPORT_INFO_1);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPSERVER_TRANSPORT_INFO_1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPSERVER_TRANSPORT_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPSERVER_TRANSPORT_INFO_2(pub *mut SERVER_TRANSPORT_INFO_2);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPSERVER_TRANSPORT_INFO_2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPSERVER_TRANSPORT_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPSERVER_TRANSPORT_INFO_3(pub *mut SERVER_TRANSPORT_INFO_3);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPSERVER_TRANSPORT_INFO_3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPSERVER_TRANSPORT_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2861,65 +2861,65 @@ impl Default for PSERVER_INFO_599 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSERVER_TRANSPORT_INFO_0(pub *mut SERVER_TRANSPORT_INFO_0);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PSERVER_TRANSPORT_INFO_0 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PSERVER_TRANSPORT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSERVER_TRANSPORT_INFO_1(pub *mut SERVER_TRANSPORT_INFO_1);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PSERVER_TRANSPORT_INFO_1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PSERVER_TRANSPORT_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSERVER_TRANSPORT_INFO_2(pub *mut SERVER_TRANSPORT_INFO_2);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PSERVER_TRANSPORT_INFO_2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PSERVER_TRANSPORT_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSERVER_TRANSPORT_INFO_3(pub *mut SERVER_TRANSPORT_INFO_3);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PSERVER_TRANSPORT_INFO_3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PSERVER_TRANSPORT_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3695,7 +3695,7 @@ pub struct SERVER_INFO_599 {
     pub sv599_maxworkitemidletime: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_numberofvcs: u32,
@@ -3705,7 +3705,7 @@ pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_networkaddress: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_numberofvcs: u32,
@@ -3716,7 +3716,7 @@ pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_domain: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_numberofvcs: u32,
@@ -3728,7 +3728,7 @@ pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_flags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_TRANSPORT_INFO_3 {
     pub svti3_numberofvcs: u32,
@@ -3741,7 +3741,7 @@ pub struct SERVER_TRANSPORT_INFO_3 {
     pub svti3_passwordlength: u32,
     pub svti3_password: [u8; 256],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for SERVER_TRANSPORT_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

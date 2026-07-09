@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: Option<*const core::ffi::c_void>, pcontext: *mut super::winnt::HANDLE) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_A(credentialflags : u32, credentials : *const core::ffi::c_void, pcontext : *mut super::winnt::HANDLE) -> DNS_STATUS);
     unsafe { DnsAcquireContextHandle_A(credentialflags, credentials.unwrap_or(core::mem::zeroed()) as _, pcontext as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: Option<*const core::ffi::c_void>, pcontext: *mut super::winnt::HANDLE) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_W(credentialflags : u32, credentials : *const core::ffi::c_void, pcontext : *mut super::winnt::HANDLE) -> DNS_STATUS);
@@ -43,7 +43,7 @@ pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_I
     windows_core::link!("dnsapi.dll" "C" fn DnsConnectionFreeProxyInfo(pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO));
     unsafe { DnsConnectionFreeProxyInfo(pproxyinfo as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) {
     windows_core::link!("dnsapi.dll" "C" fn DnsConnectionFreeProxyInfoEx(pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX));
@@ -67,7 +67,7 @@ where
     windows_core::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyInfo(pwszconnectionname : windows_core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO) -> u32);
     unsafe { DnsConnectionGetProxyInfo(pwszconnectionname.param().abi(), r#type, pproxyinfo as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<P0>(pwszhosturl: P0, pselectioncontext: Option<&[u8]>, dwexplicitinterfaceindex: u32, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32
 where
@@ -76,7 +76,7 @@ where
     windows_core::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *const u8, dwselectioncontextlength : u32, dwexplicitinterfaceindex : u32, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32);
     unsafe { DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.param().abi(), core::mem::transmute(pselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), pselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwexplicitinterfaceindex, pproxyinfoex as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DnsConnectionGetProxyInfoForHostUrlEx<P0, P4>(pwszhosturl: P0, pselectioncontext: Option<&[u8]>, dwexplicitinterfaceindex: u32, pwszconnectionname: P4, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32
 where
@@ -94,7 +94,7 @@ where
     windows_core::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyList(pwszconnectionname : windows_core::PCWSTR, pproxylist : *mut DNS_CONNECTION_PROXY_LIST) -> u32);
     unsafe { DnsConnectionGetProxyList(pwszconnectionname.param().abi(), pproxylist as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32 {
     windows_core::link!("dnsapi.dll" "C" fn DnsConnectionSetPolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG, ppolicyentrylist : *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32);
@@ -113,13 +113,13 @@ pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const 
     windows_core::link!("dnsapi.dll" "C" fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries : *const DNS_CONNECTION_IFINDEX_LIST) -> u32);
     unsafe { DnsConnectionUpdateIfIndexTable(pconnectionifindexentries) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut PDNS_RECORD) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer : *const DNS_MESSAGE_BUFFER, wmessagelength : u16, pprecord : *mut PDNS_RECORD) -> DNS_STATUS);
     unsafe { DnsExtractRecordsFromMessage_UTF8(pdnsbuffer, wmessagelength, pprecord as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsExtractRecordsFromMessage_W(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut PDNS_RECORD) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_W(pdnsbuffer : *const DNS_MESSAGE_BUFFER, wmessagelength : u16, pprecord : *mut PDNS_RECORD) -> DNS_STATUS);
@@ -130,7 +130,7 @@ pub unsafe fn DnsFree(pdata: *mut core::ffi::c_void, freetype: DNS_FREE_TYPE) {
     windows_core::link!("dnsapi.dll" "system" fn DnsFree(pdata : *mut core::ffi::c_void, freetype : DNS_FREE_TYPE));
     unsafe { DnsFree(pdata as _, freetype) }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[inline]
 pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER) {
     windows_core::link!("dnsapi.dll" "C" fn DnsFreeCustomServers(pcservers : *mut u32, ppservers : *mut *mut DNS_CUSTOM_SERVER));
@@ -144,7 +144,7 @@ where
     windows_core::link!("dnsapi.dll" "system" fn DnsFreeProxyName(proxyname : windows_core::PCWSTR));
     unsafe { DnsFreeProxyName(proxyname.param().abi()) }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[inline]
 pub unsafe fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER, psettings: Option<*mut DNS_APPLICATION_SETTINGS>) -> u32 {
     windows_core::link!("dnsapi.dll" "C" fn DnsGetApplicationSettings(pcservers : *mut u32, ppdefaultservers : *mut *mut DNS_CUSTOM_SERVER, psettings : *mut DNS_APPLICATION_SETTINGS) -> u32);
@@ -158,25 +158,25 @@ where
     windows_core::link!("dnsapi.dll" "system" fn DnsGetProxyInformation(hostname : windows_core::PCWSTR, proxyinformation : *mut DNS_PROXY_INFORMATION, defaultproxyinformation : *mut DNS_PROXY_INFORMATION, completionroutine : DNS_PROXY_COMPLETION_ROUTINE, completioncontext : *const core::ffi::c_void) -> u32);
     unsafe { DnsGetProxyInformation(hostname.param().abi(), proxyinformation as _, defaultproxyinformation.unwrap_or(core::mem::zeroed()) as _, completionroutine, completioncontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsIsFlatRecord(precord: *const DNS_RECORDA, ullflags: u64, pfflat: *mut windows_core::BOOL) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsIsFlatRecord(precord : *const DNS_RECORDA, ullflags : u64, pfflat : *mut windows_core::BOOL) -> DNS_STATUS);
     unsafe { DnsIsFlatRecord(precord, ullflags, pfflat as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsModifyRecordsInSet_A(paddrecords: Option<*const DNS_RECORDA>, pdeleterecords: Option<*const DNS_RECORDA>, options: u32, hcredentials: Option<super::winnt::HANDLE>, pextralist: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_A(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::winnt::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
     unsafe { DnsModifyRecordsInSet_A(paddrecords.unwrap_or(core::mem::zeroed()) as _, pdeleterecords.unwrap_or(core::mem::zeroed()) as _, options, hcredentials.unwrap_or(core::mem::zeroed()) as _, pextralist.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsModifyRecordsInSet_UTF8(paddrecords: Option<*const DNS_RECORDA>, pdeleterecords: Option<*const DNS_RECORDA>, options: u32, hcredentials: Option<super::winnt::HANDLE>, pextralist: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_UTF8(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::winnt::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
     unsafe { DnsModifyRecordsInSet_UTF8(paddrecords.unwrap_or(core::mem::zeroed()) as _, pdeleterecords.unwrap_or(core::mem::zeroed()) as _, options, hcredentials.unwrap_or(core::mem::zeroed()) as _, pextralist.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsModifyRecordsInSet_W(paddrecords: Option<*const DNS_RECORDA>, pdeleterecords: Option<*const DNS_RECORDA>, options: u32, hcredentials: Option<super::winnt::HANDLE>, pextralist: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_W(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::winnt::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
@@ -208,25 +208,25 @@ where
     windows_core::link!("dnsapi.dll" "system" fn DnsQueryConfig(config : DNS_CONFIG_TYPE, flag : u32, pwsadaptername : windows_core::PCWSTR, preserved : *const core::ffi::c_void, pbuffer : *mut core::ffi::c_void, pbuflen : *mut u32) -> DNS_STATUS);
     unsafe { DnsQueryConfig(config, flag, pwsadaptername.param().abi(), preserved.unwrap_or(core::mem::zeroed()) as _, pbuffer.unwrap_or(core::mem::zeroed()) as _, pbuflen as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: Option<*mut DNS_QUERY_CANCEL>) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsQueryEx(pqueryrequest : *const DNS_QUERY_REQUEST, pqueryresults : *mut DNS_QUERY_RESULT, pcancelhandle : *mut DNS_QUERY_CANCEL) -> DNS_STATUS);
     unsafe { DnsQueryEx(pqueryrequest, pqueryresults as _, pcancelhandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 #[inline]
 pub unsafe fn DnsQueryRaw(queryrequest: *const DNS_QUERY_RAW_REQUEST, cancelhandle: *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsQueryRaw(queryrequest : *const DNS_QUERY_RAW_REQUEST, cancelhandle : *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS);
     unsafe { DnsQueryRaw(queryrequest, cancelhandle as _) }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 #[inline]
 pub unsafe fn DnsQueryRawResultFree(queryresults: *mut DNS_QUERY_RAW_RESULT) {
     windows_core::link!("dnsapi.dll" "system" fn DnsQueryRawResultFree(queryresults : *mut DNS_QUERY_RAW_RESULT));
     unsafe { DnsQueryRawResultFree(queryresults as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsQuery_A<P0>(pszname: P0, wtype: u16, options: u32, pextra: Option<*mut core::ffi::c_void>, ppqueryresults: *mut PDNS_RECORD, preserved: *mut *mut core::ffi::c_void) -> DNS_STATUS
 where
@@ -235,7 +235,7 @@ where
     windows_core::link!("dnsapi.dll" "system" fn DnsQuery_A(pszname : windows_core::PCSTR, wtype : u16, options : u32, pextra : *mut core::ffi::c_void, ppqueryresults : *mut PDNS_RECORD, preserved : *mut *mut core::ffi::c_void) -> DNS_STATUS);
     unsafe { DnsQuery_A(pszname.param().abi(), wtype, options, pextra.unwrap_or(core::mem::zeroed()) as _, ppqueryresults as _, preserved as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsQuery_UTF8<P0>(pszname: P0, wtype: u16, options: u32, pextra: Option<*mut core::ffi::c_void>, ppqueryresults: *mut PDNS_RECORD, preserved: *mut *mut core::ffi::c_void) -> DNS_STATUS
 where
@@ -244,7 +244,7 @@ where
     windows_core::link!("dnsapi.dll" "system" fn DnsQuery_UTF8(pszname : windows_core::PCSTR, wtype : u16, options : u32, pextra : *mut core::ffi::c_void, ppqueryresults : *mut PDNS_RECORD, preserved : *mut *mut core::ffi::c_void) -> DNS_STATUS);
     unsafe { DnsQuery_UTF8(pszname.param().abi(), wtype, options, pextra.unwrap_or(core::mem::zeroed()) as _, ppqueryresults as _, preserved as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsQuery_W<P0>(pszname: P0, wtype: u16, options: u32, pextra: Option<*mut core::ffi::c_void>, ppqueryresults: *mut PDNS_RECORD, preserved: *mut *mut core::ffi::c_void) -> DNS_STATUS
 where
@@ -253,61 +253,61 @@ where
     windows_core::link!("dnsapi.dll" "system" fn DnsQuery_W(pszname : windows_core::PCWSTR, wtype : u16, options : u32, pextra : *mut core::ffi::c_void, ppqueryresults : *mut PDNS_RECORD, preserved : *mut *mut core::ffi::c_void) -> DNS_STATUS);
     unsafe { DnsQuery_W(pszname.param().abi(), wtype, options, pextra.unwrap_or(core::mem::zeroed()) as _, ppqueryresults as _, preserved as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DNS_RECORDA) -> windows_core::BOOL {
     windows_core::link!("dnsapi.dll" "system" fn DnsRecordCompare(precord1 : *const DNS_RECORDA, precord2 : *const DNS_RECORDA) -> windows_core::BOOL);
     unsafe { DnsRecordCompare(precord1, precord2) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsRecordCopyEx(precord: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> PDNS_RECORD {
     windows_core::link!("dnsapi.dll" "system" fn DnsRecordCopyEx(precord : *const DNS_RECORDA, charsetin : DNS_CHARSET, charsetout : DNS_CHARSET) -> PDNS_RECORD);
     unsafe { DnsRecordCopyEx(precord, charsetin, charsetout) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA, ppdiff1: *mut PDNS_RECORD, ppdiff2: *mut PDNS_RECORD) -> windows_core::BOOL {
     windows_core::link!("dnsapi.dll" "system" fn DnsRecordSetCompare(prr1 : *mut DNS_RECORDA, prr2 : *mut DNS_RECORDA, ppdiff1 : *mut PDNS_RECORD, ppdiff2 : *mut PDNS_RECORD) -> windows_core::BOOL);
     unsafe { DnsRecordSetCompare(prr1 as _, prr2 as _, ppdiff1 as _, ppdiff2 as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsRecordSetCopyEx(precordset: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> PDNS_RECORD {
     windows_core::link!("dnsapi.dll" "system" fn DnsRecordSetCopyEx(precordset : *const DNS_RECORDA, charsetin : DNS_CHARSET, charsetout : DNS_CHARSET) -> PDNS_RECORD);
     unsafe { DnsRecordSetCopyEx(precordset, charsetin, charsetout) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> PDNS_RECORD {
     windows_core::link!("dnsapi.dll" "C" fn DnsRecordSetDetach(precordlist : *mut DNS_RECORDA) -> PDNS_RECORD);
     unsafe { DnsRecordSetDetach(precordlist as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DnsReleaseContextHandle(hcontext: super::winnt::HANDLE) {
     windows_core::link!("dnsapi.dll" "system" fn DnsReleaseContextHandle(hcontext : super::winnt::HANDLE));
     unsafe { DnsReleaseContextHandle(hcontext) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsReplaceRecordSetA(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Option<super::winnt::HANDLE>, pextrainfo: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetA(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::winnt::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
     unsafe { DnsReplaceRecordSetA(preplaceset, options, hcontext.unwrap_or(core::mem::zeroed()) as _, pextrainfo.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsReplaceRecordSetUTF8(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Option<super::winnt::HANDLE>, pextrainfo: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetUTF8(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::winnt::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
     unsafe { DnsReplaceRecordSetUTF8(preplaceset, options, hcontext.unwrap_or(core::mem::zeroed()) as _, pextrainfo.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn DnsReplaceRecordSetW(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Option<super::winnt::HANDLE>, pextrainfo: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetW(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::winnt::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
     unsafe { DnsReplaceRecordSetW(preplaceset, options, hcontext.unwrap_or(core::mem::zeroed()) as _, pextrainfo.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsServiceBrowse(prequest: *const DNS_SERVICE_BROWSE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsServiceBrowse(prequest : *const DNS_SERVICE_BROWSE_REQUEST, pcancel : *mut DNS_SERVICE_CANCEL) -> DNS_STATUS);
@@ -332,7 +332,7 @@ pub unsafe fn DnsServiceCopyInstance(porig: *const DNS_SERVICE_INSTANCE) -> PDNS
     windows_core::link!("dnsapi.dll" "system" fn DnsServiceCopyInstance(porig : *const DNS_SERVICE_INSTANCE) -> PDNS_SERVICE_INSTANCE);
     unsafe { DnsServiceCopyInstance(porig) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DnsServiceDeRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: Option<*mut DNS_SERVICE_CANCEL>) -> u32 {
     windows_core::link!("dnsapi.dll" "system" fn DnsServiceDeRegister(prequest : *const DNS_SERVICE_REGISTER_REQUEST, pcancel : *mut DNS_SERVICE_CANCEL) -> u32);
@@ -343,7 +343,7 @@ pub unsafe fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE) {
     windows_core::link!("dnsapi.dll" "system" fn DnsServiceFreeInstance(pinstance : *const DNS_SERVICE_INSTANCE));
     unsafe { DnsServiceFreeInstance(pinstance) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DnsServiceRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: Option<*mut DNS_SERVICE_CANCEL>) -> u32 {
     windows_core::link!("dnsapi.dll" "system" fn DnsServiceRegister(prequest : *const DNS_SERVICE_REGISTER_REQUEST, pcancel : *mut DNS_SERVICE_CANCEL) -> u32);
@@ -364,13 +364,13 @@ pub unsafe fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) 
     windows_core::link!("dnsapi.dll" "system" fn DnsServiceResolveCancel(pcancelhandle : *const DNS_SERVICE_CANCEL) -> DNS_STATUS);
     unsafe { DnsServiceResolveCancel(pcancelhandle) }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[inline]
 pub unsafe fn DnsSetApplicationSettings(pservers: &[DNS_CUSTOM_SERVER], psettings: Option<*const DNS_APPLICATION_SETTINGS>) -> u32 {
     windows_core::link!("dnsapi.dll" "C" fn DnsSetApplicationSettings(cservers : u32, pservers : *const DNS_CUSTOM_SERVER, psettings : *const DNS_APPLICATION_SETTINGS) -> u32);
     unsafe { DnsSetApplicationSettings(pservers.len().try_into().unwrap(), core::mem::transmute(pservers.as_ptr()), psettings.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DnsStartMulticastQuery(pqueryrequest: *const MDNS_QUERY_REQUEST, phandle: *mut MDNS_QUERY_HANDLE) -> DNS_STATUS {
     windows_core::link!("dnsapi.dll" "system" fn DnsStartMulticastQuery(pqueryrequest : *const MDNS_QUERY_REQUEST, phandle : *mut MDNS_QUERY_HANDLE) -> DNS_STATUS);
@@ -405,7 +405,7 @@ where
     windows_core::link!("dnsapi.dll" "C" fn DnsValidateName_W(pszname : windows_core::PCWSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
     unsafe { DnsValidateName_W(pszname.param().abi(), format) }
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[inline]
 pub unsafe fn DnsValidateServerStatus<P1>(server: *const super::ws2::SOCKADDR, queryname: P1, serverstatus: *mut u32) -> DNS_STATUS
 where
@@ -621,7 +621,7 @@ impl Default for DNS_CONNECTION_NAME_LIST {
 }
 pub const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub pwszHost: windows_core::PCWSTR,
@@ -632,20 +632,20 @@ pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub ppwszConnections: *mut windows_core::PCWSTR,
     pub dwPolicyEntryFlags: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_CONNECTION_POLICY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_ENTRY_LIST {
     pub pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
     pub nEntries: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_CONNECTION_POLICY_ENTRY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -718,7 +718,7 @@ impl Default for DNS_CONNECTION_PROXY_INFO_0_1 {
 }
 pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO_EX {
     pub ProxyInfo: DNS_CONNECTION_PROXY_INFO,
@@ -727,7 +727,7 @@ pub struct DNS_CONNECTION_PROXY_INFO_EX {
     pub fDirectConfiguration: windows_core::BOOL,
     pub hConnection: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DNS_CONNECTION_PROXY_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -763,7 +763,7 @@ pub const DNS_CONNECTION_PROXY_TYPE_SOCKS4: DNS_CONNECTION_PROXY_TYPE = 4;
 pub const DNS_CONNECTION_PROXY_TYPE_SOCKS5: DNS_CONNECTION_PROXY_TYPE = 5;
 pub const DNS_CONNECTION_PROXY_TYPE_WAP: DNS_CONNECTION_PROXY_TYPE = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct DNS_CUSTOM_SERVER {
     pub dwServerType: u32,
@@ -771,33 +771,33 @@ pub struct DNS_CUSTOM_SERVER {
     pub Anonymous: DNS_CUSTOM_SERVER_0,
     pub Anonymous2: DNS_CUSTOM_SERVER_1,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 impl Default for DNS_CUSTOM_SERVER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union DNS_CUSTOM_SERVER_0 {
     pub pwszTemplate: windows_core::PWSTR,
     pub pwszHostname: windows_core::PWSTR,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 impl Default for DNS_CUSTOM_SERVER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union DNS_CUSTOM_SERVER_1 {
     pub ServerAddr: super::ws2::SOCKADDR_INET,
     pub MaxSa: [i8; 32],
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 impl Default for DNS_CUSTOM_SERVER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1115,7 +1115,7 @@ impl Default for DNS_QUERY_CANCEL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DNS_QUERY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
 pub const DNS_QUERY_DISABLE_IDN_ENCODING: u32 = 2097152;
 pub const DNS_QUERY_DNSSEC_CHECKING_DISABLED: u32 = 33554432;
@@ -1141,11 +1141,11 @@ impl Default for DNS_QUERY_RAW_CANCEL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 pub type DNS_QUERY_RAW_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(querycontext: *const core::ffi::c_void, queryresults: *const DNS_QUERY_RAW_RESULT)>;
 pub const DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_REQUEST {
     pub version: u32,
@@ -1164,20 +1164,20 @@ pub struct DNS_QUERY_RAW_REQUEST {
     pub protocol: u32,
     pub Anonymous: DNS_QUERY_RAW_REQUEST_0,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 impl Default for DNS_QUERY_RAW_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union DNS_QUERY_RAW_REQUEST_0 {
     pub sourceAddr: super::ws2::SOCKADDR_INET,
     pub maxSa: [i8; 32],
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 impl Default for DNS_QUERY_RAW_REQUEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1185,7 +1185,7 @@ impl Default for DNS_QUERY_RAW_REQUEST_0 {
 }
 pub const DNS_QUERY_RAW_REQUEST_VERSION1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_RESULT {
     pub version: u32,
@@ -1199,20 +1199,20 @@ pub struct DNS_QUERY_RAW_RESULT {
     pub protocol: u32,
     pub Anonymous: DNS_QUERY_RAW_RESULT_0,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 impl Default for DNS_QUERY_RAW_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union DNS_QUERY_RAW_RESULT_0 {
     pub sourceAddr: super::ws2::SOCKADDR_INET,
     pub maxSa: [i8; 32],
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 impl Default for DNS_QUERY_RAW_RESULT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1220,7 +1220,7 @@ impl Default for DNS_QUERY_RAW_RESULT_0 {
 }
 pub const DNS_QUERY_RAW_RESULTS_VERSION1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug)]
 pub struct DNS_QUERY_REQUEST {
     pub Version: u32,
@@ -1232,14 +1232,14 @@ pub struct DNS_QUERY_REQUEST {
     pub pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
     pub pQueryContext: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_QUERY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 #[derive(Clone, Copy, Debug)]
 pub struct DNS_QUERY_REQUEST3 {
     pub Version: u32,
@@ -1255,7 +1255,7 @@ pub struct DNS_QUERY_REQUEST3 {
     pub cCustomServers: u32,
     pub pCustomServers: *mut DNS_CUSTOM_SERVER,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 impl Default for DNS_QUERY_REQUEST3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1266,7 +1266,7 @@ pub const DNS_QUERY_REQUEST_VERSION2: u32 = 2;
 pub const DNS_QUERY_REQUEST_VERSION3: u32 = 3;
 pub const DNS_QUERY_RESERVED: u32 = 4026531840;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_QUERY_RESULT {
     pub Version: u32,
@@ -1275,7 +1275,7 @@ pub struct DNS_QUERY_RESULT {
     pub pQueryRecords: PDNS_RECORD,
     pub Reserved: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_QUERY_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1317,10 +1317,10 @@ pub const DNS_RCODE_SERVER_FAILURE: u32 = 2;
 pub const DNS_RCODE_SERVFAIL: u32 = 2;
 pub const DNS_RCODE_YXDOMAIN: u32 = 6;
 pub const DNS_RCODE_YXRRSET: u32 = 7;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DNS_RECORD = DNS_RECORDA;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DNS_RECORDA {
     pub pNext: *mut Self,
@@ -1332,27 +1332,27 @@ pub struct DNS_RECORDA {
     pub dwReserved: u32,
     pub Data: DNS_RECORDA_1,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORDA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DNS_RECORDA_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORDA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DNS_RECORDA_1 {
     pub A: DNS_A_DATA,
@@ -1442,14 +1442,14 @@ pub union DNS_RECORDA_1 {
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: super::minwindef::PBYTE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORDA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DNS_RECORDW {
     pub pNext: *mut Self,
@@ -1461,27 +1461,27 @@ pub struct DNS_RECORDW {
     pub dwReserved: u32,
     pub Data: DNS_RECORDW_1,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORDW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DNS_RECORDW_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORDW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DNS_RECORDW_1 {
     pub A: DNS_A_DATA,
@@ -1571,7 +1571,7 @@ pub union DNS_RECORDW_1 {
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: super::minwindef::PBYTE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORDW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1586,10 +1586,10 @@ pub const DNS_RECORD_FIXED_SIZE: u32 = 32;
 pub struct DNS_RECORD_FLAGS {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DNS_RECORD_OPT = DNS_RECORD_OPTA;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DNS_RECORD_OPTA {
     pub pNext: *mut DNS_RECORDA,
@@ -1602,40 +1602,40 @@ pub struct DNS_RECORD_OPTA {
     pub wReserved: u16,
     pub Data: DNS_RECORD_OPTA_1,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORD_OPTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DNS_RECORD_OPTA_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORD_OPTA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DNS_RECORD_OPTA_1 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORD_OPTA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DNS_RECORD_OPTW {
     pub pNext: *mut DNS_RECORDW,
@@ -1648,33 +1648,33 @@ pub struct DNS_RECORD_OPTW {
     pub wReserved: u16,
     pub Data: DNS_RECORD_OPTW_1,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORD_OPTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DNS_RECORD_OPTW_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORD_OPTW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DNS_RECORD_OPTW_1 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_RECORD_OPTW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1682,7 +1682,7 @@ impl Default for DNS_RECORD_OPTW_1 {
 }
 pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DNS_RRSET {
     pub pFirstRR: PDNS_RECORD,
@@ -1791,10 +1791,10 @@ pub const DNS_RTYPE_WINSR: u32 = 767;
 pub const DNS_RTYPE_WKS: u32 = 2816;
 pub const DNS_RTYPE_X25: u32 = 4864;
 pub type DNS_SECTION = i32;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DNS_SERVICE_BROWSE_CALLBACK = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pdnsrecord: *const DNS_RECORDA)>;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DNS_SERVICE_BROWSE_REQUEST {
     pub Version: u32,
@@ -1803,20 +1803,20 @@ pub struct DNS_SERVICE_BROWSE_REQUEST {
     pub Anonymous: DNS_SERVICE_BROWSE_REQUEST_0,
     pub pQueryContext: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_SERVICE_BROWSE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DNS_SERVICE_BROWSE_REQUEST_0 {
     pub pBrowseCallback: PDNS_SERVICE_BROWSE_CALLBACK,
     pub pBrowseCallbackV2: DNS_QUERY_COMPLETION_ROUTINE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for DNS_SERVICE_BROWSE_REQUEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1854,7 +1854,7 @@ impl Default for DNS_SERVICE_INSTANCE {
 }
 pub type DNS_SERVICE_REGISTER_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug)]
 pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub Version: u32,
@@ -1865,7 +1865,7 @@ pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub hCredentials: super::winnt::HANDLE,
     pub unicastEnabled: windows_core::BOOL,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DNS_SERVICE_REGISTER_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2042,10 +2042,10 @@ impl Default for DNS_SVCB_PARAM_UNKNOWN {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DNS_TKEY_DATA = DNS_TKEY_DATAA;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DNS_TKEY_DATAA {
     pub pNameAlgorithm: windows_core::PSTR,
@@ -2062,7 +2062,7 @@ pub struct DNS_TKEY_DATAA {
     pub bPacketPointers: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DNS_TKEY_DATAW {
     pub pNameAlgorithm: windows_core::PWSTR,
@@ -2097,10 +2097,10 @@ impl Default for DNS_TLSA_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DNS_TSIG_DATA = DNS_TSIG_DATAA;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DNS_TSIG_DATAA {
     pub pNameAlgorithm: windows_core::PSTR,
@@ -2117,7 +2117,7 @@ pub struct DNS_TSIG_DATAA {
     pub bPacketPointers: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DNS_TSIG_DATAW {
     pub pNameAlgorithm: windows_core::PWSTR,
@@ -2412,7 +2412,7 @@ impl Default for IP6_ADDRESS {
 }
 pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65;
 pub const IP6_ADDRESS_STRING_LENGTH: u32 = 65;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type MDNS_QUERY_CALLBACK = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2429,7 +2429,7 @@ impl Default for MDNS_QUERY_HANDLE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug)]
 pub struct MDNS_QUERY_REQUEST {
     pub Version: u32,
@@ -2443,7 +2443,7 @@ pub struct MDNS_QUERY_REQUEST {
     pub fAnswerReceived: windows_core::BOOL,
     pub ulResendCount: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for MDNS_QUERY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2514,17 +2514,17 @@ impl Default for PDNS_A_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_CONNECTION_POLICY_ENTRY(pub *mut DNS_CONNECTION_POLICY_ENTRY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_CONNECTION_POLICY_ENTRY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_CONNECTION_POLICY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2543,17 +2543,17 @@ impl Default for PDNS_CONNECTION_PROXY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_CONNECTION_PROXY_INFO_EX(pub *mut DNS_CONNECTION_PROXY_INFO_EX);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDNS_CONNECTION_PROXY_INFO_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDNS_CONNECTION_PROXY_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2962,163 +2962,163 @@ impl Default for PDNS_QUERY_CANCEL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PDNS_QUERY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_QUERY_REQUEST(pub *mut DNS_QUERY_REQUEST);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_QUERY_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_QUERY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_QUERY_REQUEST3(pub *mut DNS_QUERY_REQUEST3);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 impl PDNS_QUERY_REQUEST3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_minwindef", feature = "Win32_ws2"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 impl Default for PDNS_QUERY_REQUEST3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_QUERY_RESULT(pub *mut DNS_QUERY_RESULT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_QUERY_RESULT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_QUERY_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_RECORD(pub *mut DNS_RECORDA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_RECORD {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_RECORDA(pub *mut DNS_RECORDA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_RECORDA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_RECORDA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_RECORDW(pub *mut DNS_RECORDW);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_RECORDW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_RECORDW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_RECORD_OPT(pub *mut DNS_RECORD_OPTA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_RECORD_OPT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_RECORD_OPT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_RECORD_OPTA(pub *mut DNS_RECORD_OPTA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_RECORD_OPTA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_RECORD_OPTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_RECORD_OPTW(pub *mut DNS_RECORD_OPTW);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_RECORD_OPTW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_RECORD_OPTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_RRSET(pub *mut DNS_RRSET);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_RRSET {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_RRSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3163,19 +3163,19 @@ impl Default for PDNS_RRSIG_DATAW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PDNS_SERVICE_BROWSE_CALLBACK = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pdnsrecord: *const DNS_RECORDA)>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_SERVICE_BROWSE_REQUEST(pub *mut DNS_SERVICE_BROWSE_REQUEST);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_SERVICE_BROWSE_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_SERVICE_BROWSE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3208,17 +3208,17 @@ impl Default for PDNS_SERVICE_INSTANCE {
     }
 }
 pub type PDNS_SERVICE_REGISTER_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_SERVICE_REGISTER_REQUEST(pub *mut DNS_SERVICE_REGISTER_REQUEST);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDNS_SERVICE_REGISTER_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDNS_SERVICE_REGISTER_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3368,49 +3368,49 @@ impl Default for PDNS_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_TKEY_DATA(pub *mut DNS_TKEY_DATAA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_TKEY_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_TKEY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_TKEY_DATAA(pub *mut DNS_TKEY_DATAA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_TKEY_DATAA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_TKEY_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_TKEY_DATAW(pub *mut DNS_TKEY_DATAW);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_TKEY_DATAW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_TKEY_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3429,49 +3429,49 @@ impl Default for PDNS_TLSA_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_TSIG_DATA(pub *mut DNS_TSIG_DATAA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_TSIG_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_TSIG_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_TSIG_DATAA(pub *mut DNS_TSIG_DATAA);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_TSIG_DATAA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_TSIG_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDNS_TSIG_DATAW(pub *mut DNS_TSIG_DATAW);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PDNS_TSIG_DATAW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PDNS_TSIG_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3659,7 +3659,7 @@ impl Default for PIP6_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PMDNS_QUERY_CALLBACK = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -3674,17 +3674,17 @@ impl Default for PMDNS_QUERY_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMDNS_QUERY_REQUEST(pub *mut MDNS_QUERY_REQUEST);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PMDNS_QUERY_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PMDNS_QUERY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

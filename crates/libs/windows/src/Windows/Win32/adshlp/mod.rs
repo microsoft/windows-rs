@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_iads", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "iads", feature = "oaidl"))]
 #[inline]
 pub unsafe fn ADsBuildEnumerator<P0>(padscontainer: P0) -> windows_core::Result<super::oaidl::IEnumVARIANT>
 where
@@ -10,13 +10,13 @@ where
         ADsBuildEnumerator(padscontainer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn ADsBuildVarArrayInt(lpdwobjecttypes: *mut u32, dwobjecttypes: u32, pvar: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
     windows_core::link!("activeds.dll" "system" fn ADsBuildVarArrayInt(lpdwobjecttypes : *mut u32, dwobjecttypes : u32, pvar : *mut super::oaidl::VARIANT) -> windows_core::HRESULT);
     unsafe { ADsBuildVarArrayInt(lpdwobjecttypes as _, dwobjecttypes, core::mem::transmute(pvar)) }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn ADsBuildVarArrayStr(lpppathnames: &[windows_core::PCWSTR]) -> windows_core::Result<super::oaidl::VARIANT> {
     windows_core::link!("activeds.dll" "system" fn ADsBuildVarArrayStr(lpppathnames : *const windows_core::PCWSTR, dwpathnames : u32, pvar : *mut super::oaidl::VARIANT) -> windows_core::HRESULT);
@@ -25,7 +25,7 @@ pub unsafe fn ADsBuildVarArrayStr(lpppathnames: &[windows_core::PCWSTR]) -> wind
         ADsBuildVarArrayStr(core::mem::transmute(lpppathnames.as_ptr()), lpppathnames.len().try_into().unwrap(), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ADsDecodeBinaryData<P0>(szsrcdata: P0, ppbdestdata: *mut super::minwindef::PBYTE, pdwdestlen: *mut u32) -> windows_core::HRESULT
 where
@@ -39,7 +39,7 @@ pub unsafe fn ADsEncodeBinaryData(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdat
     windows_core::link!("activeds.dll" "system" fn ADsEncodeBinaryData(pbsrcdata : *mut u8, dwsrclen : u32, ppszdestdata : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { ADsEncodeBinaryData(pbsrcdata as _, dwsrclen, ppszdestdata as _) }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn ADsEnumerateNext<P0>(penumvariant: P0, celements: u32, pvar: *mut super::oaidl::VARIANT, pcelementsfetched: *mut u32) -> windows_core::HRESULT
 where
@@ -48,7 +48,7 @@ where
     windows_core::link!("activeds.dll" "system" fn ADsEnumerateNext(penumvariant : *mut core::ffi::c_void, celements : u32, pvar : *mut super::oaidl::VARIANT, pcelementsfetched : *mut u32) -> windows_core::HRESULT);
     unsafe { ADsEnumerateNext(penumvariant.param().abi(), celements, core::mem::transmute(pvar), pcelementsfetched as _) }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[inline]
 pub unsafe fn ADsFreeEnumerator<P0>(penumvariant: P0) -> windows_core::HRESULT
 where
@@ -89,13 +89,13 @@ where
     windows_core::link!("activeds.dll" "system" fn ADsSetLastError(dwerr : u32, pszerror : windows_core::PCWSTR, pszprovider : windows_core::PCWSTR));
     unsafe { ADsSetLastError(dwerr, pszerror.param().abi(), pszprovider.param().abi()) }
 }
-#[cfg(all(feature = "Win32_iads", feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "iads", feature = "minwinbase", feature = "minwindef"))]
 #[inline]
 pub unsafe fn AdsFreeAdsValues(padsvalues: *mut super::iads::ADSVALUE, dwnumvalues: u32) {
     windows_core::link!("activeds.dll" "system" fn AdsFreeAdsValues(padsvalues : *mut super::iads::ADSVALUE, dwnumvalues : u32));
     unsafe { AdsFreeAdsValues(padsvalues as _, dwnumvalues) }
 }
-#[cfg(all(feature = "Win32_iads", feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "iads", feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn AdsTypeToPropVariant(padsvalues: *mut super::iads::ADSVALUE, dwnumvalues: u32, pvariant: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
     windows_core::link!("activeds.dll" "system" fn AdsTypeToPropVariant(padsvalues : *mut super::iads::ADSVALUE, dwnumvalues : u32, pvariant : *mut super::oaidl::VARIANT) -> windows_core::HRESULT);
@@ -114,7 +114,7 @@ where
     windows_core::link!("activeds.dll" "system" fn AllocADsStr(pstr : windows_core::PCWSTR) -> windows_core::PWSTR);
     unsafe { AllocADsStr(pstr.param().abi()) }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn BinarySDToSecurityDescriptor<P2, P3, P4>(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, pvarsec: *mut super::oaidl::VARIANT, pszservername: P2, username: P3, password: P4, dwflags: u32) -> windows_core::HRESULT
 where
@@ -138,7 +138,7 @@ where
     windows_core::link!("activeds.dll" "system" fn FreeADsStr(pstr : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { FreeADsStr(pstr.param().abi()) }
 }
-#[cfg(all(feature = "Win32_iads", feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "iads", feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToAdsType(pvariant: *mut super::oaidl::VARIANT, dwnumvariant: u32, ppadsvalues: *mut super::iads::PADSVALUE, pdwnumvalues: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("activeds.dll" "system" fn PropVariantToAdsType(pvariant : *mut super::oaidl::VARIANT, dwnumvariant : u32, ppadsvalues : *mut super::iads::PADSVALUE, pdwnumvalues : *mut u32) -> windows_core::HRESULT);
@@ -157,7 +157,7 @@ where
     windows_core::link!("activeds.dll" "system" fn ReallocADsStr(ppstr : *mut windows_core::PWSTR, pstr : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { ReallocADsStr(ppstr as _, pstr.param().abi()) }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn SecurityDescriptorToBinarySD<P3, P4, P5>(vvarsecdes: &super::oaidl::VARIANT, ppsecuritydescriptor: *mut super::winnt::PSECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: P3, username: P4, password: P5, dwflags: u32) -> windows_core::HRESULT
 where

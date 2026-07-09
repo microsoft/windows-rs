@@ -3,7 +3,7 @@ windows_link::link!("evr.dll" "C" fn MFCreateVideoMixerAndPresenter(pmixerowner 
 windows_link::link!("evr.dll" "C" fn MFCreateVideoPresenter(powner : *mut core::ffi::c_void, riiddevice : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppvideopresenter : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "C" fn MFCreateVideoRenderer(riidrenderer : *const windows_sys::core::GUID, ppvideorenderer : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("evr.dll" "C" fn MFCreateVideoSampleAllocator(riid : *const windows_sys::core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("evr.dll" "C" fn MFCreateVideoSampleFromSurface(punksurface : *mut core::ffi::c_void, ppsample : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type EVRFilterConfigPrefs = i32;
 pub const EVRFilterConfigPrefs_EnableQoS: EVRFilterConfigPrefs = 1;

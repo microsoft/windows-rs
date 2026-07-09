@@ -186,15 +186,15 @@ impl windows_core::RuntimeName for IBDA_AutoDemodulateEx {}
 windows_core::imp::define_interface!(IBDA_ConditionalAccess, IBDA_ConditionalAccess_Vtbl, 0xcd51f1e0_7be9_4123_8482_a2a796c0a6b0);
 windows_core::imp::interface_hierarchy!(IBDA_ConditionalAccess, windows_core::IUnknown);
 impl IBDA_ConditionalAccess {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn get_SmartCardStatus(&self, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut windows_core::BSTR, pfooblocked: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_SmartCardStatus)(windows_core::Interface::as_raw(self), pcardstatus as _, pcardassociation as _, core::mem::transmute(pbstrcarderror), pfooblocked as _) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn get_SmartCardInfo(&self, pbstrcardname: *mut windows_core::BSTR, pbstrcardmanufacturer: *mut windows_core::BSTR, pfdaylightsavings: *mut super::wtypes::VARIANT_BOOL, pbyratingregion: *mut u8, pltimezoneoffsetminutes: *mut i32, pbstrlanguage: *mut windows_core::BSTR, pealocationcode: *mut EALocationCodeType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_SmartCardInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrcardname), core::mem::transmute(pbstrcardmanufacturer), pfdaylightsavings as _, pbyratingregion as _, pltimezoneoffsetminutes as _, core::mem::transmute(pbstrlanguage), pealocationcode as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_SmartCardApplications(&self, pulcapplications: *mut u32, ulcapplicationsmax: u32, rgapplications: *mut SmartCardApplication) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_SmartCardApplications)(windows_core::Interface::as_raw(self), pulcapplications as _, ulcapplicationsmax, core::mem::transmute(rgapplications)) }
     }
@@ -230,17 +230,17 @@ impl IBDA_ConditionalAccess {
 #[doc(hidden)]
 pub struct IBDA_ConditionalAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub get_SmartCardStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardStatusType, *mut SmartCardAssociationType, *mut *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     get_SmartCardStatus: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub get_SmartCardInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL, *mut u8, *mut i32, *mut *mut core::ffi::c_void, *mut EALocationCodeType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     get_SmartCardInfo: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_SmartCardApplications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *mut SmartCardApplication) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_SmartCardApplications: usize,
     pub get_Entitlement: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut EntitlementType) -> windows_core::HRESULT,
     pub TuneByChannel: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
@@ -250,7 +250,7 @@ pub struct IBDA_ConditionalAccess_Vtbl {
     pub GetModuleUI: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InformUIClosed: unsafe extern "system" fn(*mut core::ffi::c_void, u8, UICloseReasonType) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_bdatypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "bdatypes", feature = "wtypes"))]
 pub trait IBDA_ConditionalAccess_Impl: windows_core::IUnknownImpl {
     fn get_SmartCardStatus(&self, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut windows_core::BSTR, pfooblocked: *mut super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
     fn get_SmartCardInfo(&self, pbstrcardname: *mut windows_core::BSTR, pbstrcardmanufacturer: *mut windows_core::BSTR, pfdaylightsavings: *mut super::wtypes::VARIANT_BOOL, pbyratingregion: *mut u8, pltimezoneoffsetminutes: *mut i32, pbstrlanguage: *mut windows_core::BSTR, pealocationcode: *mut EALocationCodeType) -> windows_core::Result<()>;
@@ -263,7 +263,7 @@ pub trait IBDA_ConditionalAccess_Impl: windows_core::IUnknownImpl {
     fn GetModuleUI(&self, bydialognumber: u8) -> windows_core::Result<windows_core::BSTR>;
     fn InformUIClosed(&self, bydialognumber: u8, closereason: UICloseReasonType) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_bdatypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "bdatypes", feature = "wtypes"))]
 impl IBDA_ConditionalAccess_Vtbl {
     pub const fn new<Identity: IBDA_ConditionalAccess_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn get_SmartCardStatus<Identity: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut *mut core::ffi::c_void, pfooblocked: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -356,12 +356,12 @@ impl IBDA_ConditionalAccess_Vtbl {
         iid == &<IBDA_ConditionalAccess as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_bdatypes", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "bdatypes", feature = "wtypes"))]
 impl windows_core::RuntimeName for IBDA_ConditionalAccess {}
 windows_core::imp::define_interface!(IBDA_ConditionalAccessEx, IBDA_ConditionalAccessEx_Vtbl, 0x497c3418_23cb_44ba_bb62_769f506fcea7);
 windows_core::imp::interface_hierarchy!(IBDA_ConditionalAccessEx, windows_core::IUnknown);
 impl IBDA_ConditionalAccessEx {
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn CheckEntitlementToken(&self, uldialogrequest: u32, bstrlanguage: &windows_core::BSTR, requesttype: super::bdatypes::BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: u32, pbentitlementtoken: *const u8) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -374,7 +374,7 @@ impl IBDA_ConditionalAccessEx {
     pub unsafe fn OpenBroadcastMmi(&self, uldialogrequest: u32, bstrlanguage: &windows_core::BSTR, eventid: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OpenBroadcastMmi)(windows_core::Interface::as_raw(self), uldialogrequest, core::mem::transmute_copy(bstrlanguage), eventid) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn CloseMmiDialog(&self, uldialogrequest: u32, bstrlanguage: &windows_core::BSTR, uldialognumber: u32, reasoncode: super::bdatypes::BDA_CONDITIONALACCESS_MMICLOSEREASON) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -392,19 +392,19 @@ impl IBDA_ConditionalAccessEx {
 #[doc(hidden)]
 pub struct IBDA_ConditionalAccessEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub CheckEntitlementToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, super::bdatypes::BDA_CONDITIONALACCESS_REQUESTTYPE, u32, *const u8, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     CheckEntitlementToken: usize,
     pub SetCaptureToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
     pub OpenBroadcastMmi: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub CloseMmiDialog: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, super::bdatypes::BDA_CONDITIONALACCESS_MMICLOSEREASON, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     CloseMmiDialog: usize,
     pub CreateDialogRequestNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 pub trait IBDA_ConditionalAccessEx_Impl: windows_core::IUnknownImpl {
     fn CheckEntitlementToken(&self, uldialogrequest: u32, bstrlanguage: &windows_core::BSTR, requesttype: super::bdatypes::BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: u32, pbentitlementtoken: *const u8) -> windows_core::Result<u32>;
     fn SetCaptureToken(&self, ulcbcapturetokenlen: u32, pbcapturetoken: *const u8) -> windows_core::Result<()>;
@@ -412,7 +412,7 @@ pub trait IBDA_ConditionalAccessEx_Impl: windows_core::IUnknownImpl {
     fn CloseMmiDialog(&self, uldialogrequest: u32, bstrlanguage: &windows_core::BSTR, uldialognumber: u32, reasoncode: super::bdatypes::BDA_CONDITIONALACCESS_MMICLOSEREASON) -> windows_core::Result<u32>;
     fn CreateDialogRequestNumber(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl IBDA_ConditionalAccessEx_Vtbl {
     pub const fn new<Identity: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CheckEntitlementToken<Identity: IBDA_ConditionalAccessEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uldialogrequest: u32, bstrlanguage: *mut core::ffi::c_void, requesttype: super::bdatypes::BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: u32, pbentitlementtoken: *const u8, puldescramblestatus: *mut u32) -> windows_core::HRESULT {
@@ -476,7 +476,7 @@ impl IBDA_ConditionalAccessEx_Vtbl {
         iid == &<IBDA_ConditionalAccessEx as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl windows_core::RuntimeName for IBDA_ConditionalAccessEx {}
 windows_core::imp::define_interface!(IBDA_DRIDRMService, IBDA_DRIDRMService_Vtbl, 0x1f9bc2a5_44a3_4c52_aab1_0bbce5a1381d);
 windows_core::imp::interface_hierarchy!(IBDA_DRIDRMService, windows_core::IUnknown);
@@ -804,26 +804,26 @@ impl IBDA_DeviceControl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IBDA_DeviceControl {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IBDA_DiagnosticProperties, IBDA_DiagnosticProperties_Vtbl, 0x20e80cb5_c543_4c1b_8eb3_49e719eee7d4);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IBDA_DiagnosticProperties {
     type Target = super::oaidl::IPropertyBag;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IBDA_DiagnosticProperties, windows_core::IUnknown, super::oaidl::IPropertyBag);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBDA_DiagnosticProperties_Vtbl {
     pub base__: super::oaidl::IPropertyBag_Vtbl,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBDA_DiagnosticProperties_Impl: super::oaidl::IPropertyBag_Impl {}
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IBDA_DiagnosticProperties_Vtbl {
     pub const fn new<Identity: IBDA_DiagnosticProperties_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::oaidl::IPropertyBag_Vtbl::new::<Identity, OFFSET>() }
@@ -832,48 +832,48 @@ impl IBDA_DiagnosticProperties_Vtbl {
         iid == &<IBDA_DiagnosticProperties as windows_core::Interface>::IID || iid == &<super::oaidl::IPropertyBag as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBDA_DiagnosticProperties {}
 windows_core::imp::define_interface!(IBDA_DigitalDemodulator, IBDA_DigitalDemodulator_Vtbl, 0xef30f379_985b_4d10_b640_a79d5e04e1e0);
 windows_core::imp::interface_hierarchy!(IBDA_DigitalDemodulator, windows_core::IUnknown);
 impl IBDA_DigitalDemodulator {
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_ModulationType(&self, pmodulationtype: *const super::bdatypes::ModulationType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_ModulationType)(windows_core::Interface::as_raw(self), pmodulationtype) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_ModulationType(&self, pmodulationtype: *mut super::bdatypes::ModulationType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_ModulationType)(windows_core::Interface::as_raw(self), pmodulationtype as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_InnerFECMethod(&self, pfecmethod: *const super::bdatypes::FECMethod) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_InnerFECMethod)(windows_core::Interface::as_raw(self), pfecmethod) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_InnerFECMethod(&self, pfecmethod: *mut super::bdatypes::FECMethod) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_InnerFECMethod)(windows_core::Interface::as_raw(self), pfecmethod as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_InnerFECRate(&self, pfecrate: *const super::bdatypes::BinaryConvolutionCodeRate) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_InnerFECRate)(windows_core::Interface::as_raw(self), pfecrate) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_InnerFECRate(&self, pfecrate: *mut super::bdatypes::BinaryConvolutionCodeRate) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_InnerFECRate)(windows_core::Interface::as_raw(self), pfecrate as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_OuterFECMethod(&self, pfecmethod: *const super::bdatypes::FECMethod) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_OuterFECMethod)(windows_core::Interface::as_raw(self), pfecmethod) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_OuterFECMethod(&self, pfecmethod: *mut super::bdatypes::FECMethod) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_OuterFECMethod)(windows_core::Interface::as_raw(self), pfecmethod as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_OuterFECRate(&self, pfecrate: *const super::bdatypes::BinaryConvolutionCodeRate) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_OuterFECRate)(windows_core::Interface::as_raw(self), pfecrate) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_OuterFECRate(&self, pfecrate: *mut super::bdatypes::BinaryConvolutionCodeRate) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_OuterFECRate)(windows_core::Interface::as_raw(self), pfecrate as _) }
     }
@@ -883,11 +883,11 @@ impl IBDA_DigitalDemodulator {
     pub unsafe fn get_SymbolRate(&self, psymbolrate: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_SymbolRate)(windows_core::Interface::as_raw(self), psymbolrate as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_SpectralInversion(&self, pspectralinversion: *const super::bdatypes::SpectralInversion) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_SpectralInversion)(windows_core::Interface::as_raw(self), pspectralinversion) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_SpectralInversion(&self, pspectralinversion: *mut super::bdatypes::SpectralInversion) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_SpectralInversion)(windows_core::Interface::as_raw(self), pspectralinversion as _) }
     }
@@ -896,58 +896,58 @@ impl IBDA_DigitalDemodulator {
 #[doc(hidden)]
 pub struct IBDA_DigitalDemodulator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_ModulationType: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::bdatypes::ModulationType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_ModulationType: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_ModulationType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::ModulationType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_ModulationType: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_InnerFECMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::bdatypes::FECMethod) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_InnerFECMethod: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_InnerFECMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::FECMethod) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_InnerFECMethod: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_InnerFECRate: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::bdatypes::BinaryConvolutionCodeRate) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_InnerFECRate: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_InnerFECRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::BinaryConvolutionCodeRate) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_InnerFECRate: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_OuterFECMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::bdatypes::FECMethod) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_OuterFECMethod: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_OuterFECMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::FECMethod) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_OuterFECMethod: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_OuterFECRate: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::bdatypes::BinaryConvolutionCodeRate) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_OuterFECRate: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_OuterFECRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::BinaryConvolutionCodeRate) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_OuterFECRate: usize,
     pub put_SymbolRate: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
     pub get_SymbolRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_SpectralInversion: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::bdatypes::SpectralInversion) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_SpectralInversion: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_SpectralInversion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::SpectralInversion) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_SpectralInversion: usize,
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 pub trait IBDA_DigitalDemodulator_Impl: windows_core::IUnknownImpl {
     fn put_ModulationType(&self, pmodulationtype: *const super::bdatypes::ModulationType) -> windows_core::Result<()>;
     fn get_ModulationType(&self, pmodulationtype: *mut super::bdatypes::ModulationType) -> windows_core::Result<()>;
@@ -964,7 +964,7 @@ pub trait IBDA_DigitalDemodulator_Impl: windows_core::IUnknownImpl {
     fn put_SpectralInversion(&self, pspectralinversion: *const super::bdatypes::SpectralInversion) -> windows_core::Result<()>;
     fn get_SpectralInversion(&self, pspectralinversion: *mut super::bdatypes::SpectralInversion) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl IBDA_DigitalDemodulator_Vtbl {
     pub const fn new<Identity: IBDA_DigitalDemodulator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn put_ModulationType<Identity: IBDA_DigitalDemodulator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmodulationtype: *const super::bdatypes::ModulationType) -> windows_core::HRESULT {
@@ -1073,7 +1073,7 @@ impl IBDA_DigitalDemodulator_Vtbl {
         iid == &<IBDA_DigitalDemodulator as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl windows_core::RuntimeName for IBDA_DigitalDemodulator {}
 windows_core::imp::define_interface!(IBDA_DigitalDemodulator2, IBDA_DigitalDemodulator2_Vtbl, 0x525ed3ee_5cf3_4e1e_9a06_5368a84f9a6e);
 impl core::ops::Deref for IBDA_DigitalDemodulator2 {
@@ -1084,35 +1084,35 @@ impl core::ops::Deref for IBDA_DigitalDemodulator2 {
 }
 windows_core::imp::interface_hierarchy!(IBDA_DigitalDemodulator2, windows_core::IUnknown, IBDA_DigitalDemodulator);
 impl IBDA_DigitalDemodulator2 {
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_GuardInterval(&self, pguardinterval: *const super::bdatypes::GuardInterval) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_GuardInterval)(windows_core::Interface::as_raw(self), pguardinterval) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_GuardInterval(&self, pguardinterval: *mut super::bdatypes::GuardInterval) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_GuardInterval)(windows_core::Interface::as_raw(self), pguardinterval as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_TransmissionMode(&self, ptransmissionmode: *const super::bdatypes::TransmissionMode) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_TransmissionMode)(windows_core::Interface::as_raw(self), ptransmissionmode) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_TransmissionMode(&self, ptransmissionmode: *mut super::bdatypes::TransmissionMode) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_TransmissionMode)(windows_core::Interface::as_raw(self), ptransmissionmode as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_RollOff(&self, prolloff: *const super::bdatypes::RollOff) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_RollOff)(windows_core::Interface::as_raw(self), prolloff) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_RollOff(&self, prolloff: *mut super::bdatypes::RollOff) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_RollOff)(windows_core::Interface::as_raw(self), prolloff as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_Pilot(&self, ppilot: *const super::bdatypes::Pilot) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_Pilot)(windows_core::Interface::as_raw(self), ppilot) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_Pilot(&self, ppilot: *mut super::bdatypes::Pilot) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_Pilot)(windows_core::Interface::as_raw(self), ppilot as _) }
     }
@@ -1121,40 +1121,40 @@ impl IBDA_DigitalDemodulator2 {
 #[doc(hidden)]
 pub struct IBDA_DigitalDemodulator2_Vtbl {
     pub base__: IBDA_DigitalDemodulator_Vtbl,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_GuardInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::bdatypes::GuardInterval) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_GuardInterval: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_GuardInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::GuardInterval) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_GuardInterval: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_TransmissionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::bdatypes::TransmissionMode) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_TransmissionMode: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_TransmissionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::TransmissionMode) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_TransmissionMode: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_RollOff: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::bdatypes::RollOff) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_RollOff: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_RollOff: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::RollOff) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_RollOff: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_Pilot: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::bdatypes::Pilot) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_Pilot: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_Pilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::Pilot) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_Pilot: usize,
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 pub trait IBDA_DigitalDemodulator2_Impl: IBDA_DigitalDemodulator_Impl {
     fn put_GuardInterval(&self, pguardinterval: *const super::bdatypes::GuardInterval) -> windows_core::Result<()>;
     fn get_GuardInterval(&self, pguardinterval: *mut super::bdatypes::GuardInterval) -> windows_core::Result<()>;
@@ -1165,7 +1165,7 @@ pub trait IBDA_DigitalDemodulator2_Impl: IBDA_DigitalDemodulator_Impl {
     fn put_Pilot(&self, ppilot: *const super::bdatypes::Pilot) -> windows_core::Result<()>;
     fn get_Pilot(&self, ppilot: *mut super::bdatypes::Pilot) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl IBDA_DigitalDemodulator2_Vtbl {
     pub const fn new<Identity: IBDA_DigitalDemodulator2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn put_GuardInterval<Identity: IBDA_DigitalDemodulator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguardinterval: *const super::bdatypes::GuardInterval) -> windows_core::HRESULT {
@@ -1232,7 +1232,7 @@ impl IBDA_DigitalDemodulator2_Vtbl {
         iid == &<IBDA_DigitalDemodulator2 as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl windows_core::RuntimeName for IBDA_DigitalDemodulator2 {}
 windows_core::imp::define_interface!(IBDA_DigitalDemodulator3, IBDA_DigitalDemodulator3_Vtbl, 0x13f19604_7d32_4359_93a2_a05205d90ac9);
 impl core::ops::Deref for IBDA_DigitalDemodulator3 {
@@ -1243,11 +1243,11 @@ impl core::ops::Deref for IBDA_DigitalDemodulator3 {
 }
 windows_core::imp::interface_hierarchy!(IBDA_DigitalDemodulator3, windows_core::IUnknown, IBDA_DigitalDemodulator, IBDA_DigitalDemodulator2);
 impl IBDA_DigitalDemodulator3 {
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_SignalTimeouts(&self, psignaltimeouts: *const super::bdatypes::BDA_SIGNAL_TIMEOUTS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_SignalTimeouts)(windows_core::Interface::as_raw(self), psignaltimeouts) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_SignalTimeouts(&self, psignaltimeouts: *mut super::bdatypes::BDA_SIGNAL_TIMEOUTS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_SignalTimeouts)(windows_core::Interface::as_raw(self), psignaltimeouts as _) }
     }
@@ -1262,25 +1262,25 @@ impl IBDA_DigitalDemodulator3 {
 #[doc(hidden)]
 pub struct IBDA_DigitalDemodulator3_Vtbl {
     pub base__: IBDA_DigitalDemodulator2_Vtbl,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_SignalTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::bdatypes::BDA_SIGNAL_TIMEOUTS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_SignalTimeouts: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_SignalTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::BDA_SIGNAL_TIMEOUTS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_SignalTimeouts: usize,
     pub put_PLPNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
     pub get_PLPNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 pub trait IBDA_DigitalDemodulator3_Impl: IBDA_DigitalDemodulator2_Impl {
     fn put_SignalTimeouts(&self, psignaltimeouts: *const super::bdatypes::BDA_SIGNAL_TIMEOUTS) -> windows_core::Result<()>;
     fn get_SignalTimeouts(&self, psignaltimeouts: *mut super::bdatypes::BDA_SIGNAL_TIMEOUTS) -> windows_core::Result<()>;
     fn put_PLPNumber(&self, pplpnumber: *const u32) -> windows_core::Result<()>;
     fn get_PLPNumber(&self, pplpnumber: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl IBDA_DigitalDemodulator3_Vtbl {
     pub const fn new<Identity: IBDA_DigitalDemodulator3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn put_SignalTimeouts<Identity: IBDA_DigitalDemodulator3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psignaltimeouts: *const super::bdatypes::BDA_SIGNAL_TIMEOUTS) -> windows_core::HRESULT {
@@ -1319,7 +1319,7 @@ impl IBDA_DigitalDemodulator3_Vtbl {
         iid == &<IBDA_DigitalDemodulator3 as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl windows_core::RuntimeName for IBDA_DigitalDemodulator3 {}
 windows_core::imp::define_interface!(IBDA_DiseqCommand, IBDA_DiseqCommand_Vtbl, 0xf84e2ab0_3c6b_45e3_a0fc_8669d4b81f11);
 windows_core::imp::interface_hierarchy!(IBDA_DiseqCommand, windows_core::IUnknown);
@@ -1811,11 +1811,11 @@ impl IBDA_FrequencyFilter {
     pub unsafe fn get_Frequency(&self, pulfrequency: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_Frequency)(windows_core::Interface::as_raw(self), pulfrequency as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn put_Polarity(&self, polarity: super::bdatypes::Polarisation) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_Polarity)(windows_core::Interface::as_raw(self), polarity) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn get_Polarity(&self, ppolarity: *mut super::bdatypes::Polarisation) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_Polarity)(windows_core::Interface::as_raw(self), ppolarity as _) }
     }
@@ -1846,13 +1846,13 @@ pub struct IBDA_FrequencyFilter_Vtbl {
     pub get_Autotune: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub put_Frequency: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub get_Frequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub put_Polarity: unsafe extern "system" fn(*mut core::ffi::c_void, super::bdatypes::Polarisation) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     put_Polarity: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub get_Polarity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::bdatypes::Polarisation) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     get_Polarity: usize,
     pub put_Range: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub get_Range: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1861,7 +1861,7 @@ pub struct IBDA_FrequencyFilter_Vtbl {
     pub put_FrequencyMultiplier: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub get_FrequencyMultiplier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 pub trait IBDA_FrequencyFilter_Impl: windows_core::IUnknownImpl {
     fn put_Autotune(&self, ultransponder: u32) -> windows_core::Result<()>;
     fn get_Autotune(&self, pultransponder: *mut u32) -> windows_core::Result<()>;
@@ -1876,7 +1876,7 @@ pub trait IBDA_FrequencyFilter_Impl: windows_core::IUnknownImpl {
     fn put_FrequencyMultiplier(&self, ulmultiplier: u32) -> windows_core::Result<()>;
     fn get_FrequencyMultiplier(&self, pulmultiplier: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl IBDA_FrequencyFilter_Vtbl {
     pub const fn new<Identity: IBDA_FrequencyFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn put_Autotune<Identity: IBDA_FrequencyFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultransponder: u32) -> windows_core::HRESULT {
@@ -1971,7 +1971,7 @@ impl IBDA_FrequencyFilter_Vtbl {
         iid == &<IBDA_FrequencyFilter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl windows_core::RuntimeName for IBDA_FrequencyFilter {}
 windows_core::imp::define_interface!(IBDA_GuideDataDeliveryService, IBDA_GuideDataDeliveryService_Vtbl, 0xc0afcb73_23e7_4bc6_bafa_fdc167b4719f);
 windows_core::imp::interface_hierarchy!(IBDA_GuideDataDeliveryService, windows_core::IUnknown);
@@ -2526,11 +2526,11 @@ impl windows_core::RuntimeName for IBDA_LNBInfo {}
 windows_core::imp::define_interface!(IBDA_MUX, IBDA_MUX_Vtbl, 0x942aafec_4c05_4c74_b8eb_8706c2a4943f);
 windows_core::imp::interface_hierarchy!(IBDA_MUX, windows_core::IUnknown);
 impl IBDA_MUX {
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn SetPidList(&self, ulpidlistcount: u32, pbpidlistbuffer: *const super::bdatypes::BDA_MUX_PIDLISTITEM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPidList)(windows_core::Interface::as_raw(self), ulpidlistcount, pbpidlistbuffer) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn GetPidList(&self, pulpidlistcount: *mut u32, pbpidlistbuffer: *mut super::bdatypes::BDA_MUX_PIDLISTITEM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPidList)(windows_core::Interface::as_raw(self), pulpidlistcount as _, pbpidlistbuffer as _) }
     }
@@ -2539,21 +2539,21 @@ impl IBDA_MUX {
 #[doc(hidden)]
 pub struct IBDA_MUX_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub SetPidList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::bdatypes::BDA_MUX_PIDLISTITEM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     SetPidList: usize,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub GetPidList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut super::bdatypes::BDA_MUX_PIDLISTITEM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     GetPidList: usize,
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 pub trait IBDA_MUX_Impl: windows_core::IUnknownImpl {
     fn SetPidList(&self, ulpidlistcount: u32, pbpidlistbuffer: *const super::bdatypes::BDA_MUX_PIDLISTITEM) -> windows_core::Result<()>;
     fn GetPidList(&self, pulpidlistcount: *mut u32, pbpidlistbuffer: *mut super::bdatypes::BDA_MUX_PIDLISTITEM) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl IBDA_MUX_Vtbl {
     pub const fn new<Identity: IBDA_MUX_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPidList<Identity: IBDA_MUX_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulpidlistcount: u32, pbpidlistbuffer: *const super::bdatypes::BDA_MUX_PIDLISTITEM) -> windows_core::HRESULT {
@@ -2578,7 +2578,7 @@ impl IBDA_MUX_Vtbl {
         iid == &<IBDA_MUX as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl windows_core::RuntimeName for IBDA_MUX {}
 windows_core::imp::define_interface!(IBDA_NameValueService, IBDA_NameValueService_Vtbl, 0x7f0b3150_7b81_4ad4_98e3_7e9097094301);
 windows_core::imp::interface_hierarchy!(IBDA_NameValueService, windows_core::IUnknown);
@@ -3107,7 +3107,7 @@ impl IBDA_Topology {
     pub unsafe fn GetNodeTypes(&self, pulcnodetypes: *mut u32, ulcnodetypesmax: u32, rgulnodetypes: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNodeTypes)(windows_core::Interface::as_raw(self), pulcnodetypes as _, ulcnodetypesmax, rgulnodetypes as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn GetNodeDescriptors(&self, ulcnodedescriptors: *mut u32, ulcnodedescriptorsmax: u32, rgnodedescriptors: *mut super::bdatypes::BDANODE_DESCRIPTOR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNodeDescriptors)(windows_core::Interface::as_raw(self), ulcnodedescriptors as _, ulcnodedescriptorsmax, rgnodedescriptors as _) }
     }
@@ -3117,7 +3117,7 @@ impl IBDA_Topology {
     pub unsafe fn GetPinTypes(&self, pulcpintypes: *mut u32, ulcpintypesmax: u32, rgulpintypes: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPinTypes)(windows_core::Interface::as_raw(self), pulcpintypes as _, ulcpintypesmax, rgulpintypes as _) }
     }
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn GetTemplateConnections(&self, pulcconnections: *mut u32, ulcconnectionsmax: u32, rgconnections: *mut super::bdatypes::BDA_TEMPLATE_CONNECTION) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTemplateConnections)(windows_core::Interface::as_raw(self), pulcconnections as _, ulcconnectionsmax, rgconnections as _) }
     }
@@ -3127,11 +3127,11 @@ impl IBDA_Topology {
     pub unsafe fn DeletePin(&self, ulpinid: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeletePin)(windows_core::Interface::as_raw(self), ulpinid) }
     }
-    #[cfg(feature = "Win32_strmif")]
+    #[cfg(feature = "strmif")]
     pub unsafe fn SetMediaType(&self, ulpinid: u32, pmediatype: *const super::strmif::AM_MEDIA_TYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMediaType)(windows_core::Interface::as_raw(self), ulpinid, core::mem::transmute(pmediatype)) }
     }
-    #[cfg(feature = "Win32_strmif")]
+    #[cfg(feature = "strmif")]
     pub unsafe fn SetMedium(&self, ulpinid: u32, pmedium: *const super::strmif::REGPINMEDIUM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMedium)(windows_core::Interface::as_raw(self), ulpinid, pmedium) }
     }
@@ -3147,30 +3147,30 @@ impl IBDA_Topology {
 pub struct IBDA_Topology_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNodeTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub GetNodeDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *mut super::bdatypes::BDANODE_DESCRIPTOR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     GetNodeDescriptors: usize,
     pub GetNodeInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetPinTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub GetTemplateConnections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *mut super::bdatypes::BDA_TEMPLATE_CONNECTION) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     GetTemplateConnections: usize,
     pub CreatePin: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub DeletePin: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_strmif")]
+    #[cfg(feature = "strmif")]
     pub SetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::strmif::AM_MEDIA_TYPE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_strmif"))]
+    #[cfg(not(feature = "strmif"))]
     SetMediaType: usize,
-    #[cfg(feature = "Win32_strmif")]
+    #[cfg(feature = "strmif")]
     pub SetMedium: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::strmif::REGPINMEDIUM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_strmif"))]
+    #[cfg(not(feature = "strmif"))]
     SetMedium: usize,
     pub CreateTopology: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetControlNode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_bdatypes", feature = "Win32_strmif"))]
+#[cfg(all(feature = "bdatypes", feature = "strmif"))]
 pub trait IBDA_Topology_Impl: windows_core::IUnknownImpl {
     fn GetNodeTypes(&self, pulcnodetypes: *mut u32, ulcnodetypesmax: u32, rgulnodetypes: *mut u32) -> windows_core::Result<()>;
     fn GetNodeDescriptors(&self, ulcnodedescriptors: *mut u32, ulcnodedescriptorsmax: u32, rgnodedescriptors: *mut super::bdatypes::BDANODE_DESCRIPTOR) -> windows_core::Result<()>;
@@ -3184,7 +3184,7 @@ pub trait IBDA_Topology_Impl: windows_core::IUnknownImpl {
     fn CreateTopology(&self, ulinputpinid: u32, uloutputpinid: u32) -> windows_core::Result<()>;
     fn GetControlNode(&self, ulinputpinid: u32, uloutputpinid: u32, ulnodetype: u32, ppcontrolnode: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_bdatypes", feature = "Win32_strmif"))]
+#[cfg(all(feature = "bdatypes", feature = "strmif"))]
 impl IBDA_Topology_Vtbl {
     pub const fn new<Identity: IBDA_Topology_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNodeTypes<Identity: IBDA_Topology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulcnodetypes: *mut u32, ulcnodetypesmax: u32, rgulnodetypes: *mut u32) -> windows_core::HRESULT {
@@ -3272,7 +3272,7 @@ impl IBDA_Topology_Vtbl {
         iid == &<IBDA_Topology as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_bdatypes", feature = "Win32_strmif"))]
+#[cfg(all(feature = "bdatypes", feature = "strmif"))]
 impl windows_core::RuntimeName for IBDA_Topology {}
 windows_core::imp::define_interface!(IBDA_TransportStreamInfo, IBDA_TransportStreamInfo_Vtbl, 0x8e882535_5f86_47ab_86cf_c281a72a0549);
 windows_core::imp::interface_hierarchy!(IBDA_TransportStreamInfo, windows_core::IUnknown);
@@ -3831,7 +3831,7 @@ impl IESEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCompletionStatus)(windows_core::Interface::as_raw(self), dwresult) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetData(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3852,13 +3852,13 @@ pub struct IESEvent_Vtbl {
     pub GetEventId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetEventType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub SetCompletionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetData: usize,
     pub GetStringData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 pub trait IESEvent_Impl: windows_core::IUnknownImpl {
     fn GetEventId(&self) -> windows_core::Result<u32>;
     fn GetEventType(&self) -> windows_core::Result<windows_core::GUID>;
@@ -3866,7 +3866,7 @@ pub trait IESEvent_Impl: windows_core::IUnknownImpl {
     fn GetData(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
     fn GetStringData(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IESEvent_Vtbl {
     pub const fn new<Identity: IESEvent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEventId<Identity: IESEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdweventid: *mut u32) -> windows_core::HRESULT {
@@ -3936,7 +3936,7 @@ impl IESEvent_Vtbl {
         iid == &<IESEvent as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl windows_core::RuntimeName for IESEvent {}
 windows_core::imp::define_interface!(IESEvents, IESEvents_Vtbl, 0xabd414bf_cfe5_4e5e_af5b_4b4e49c5bfeb);
 windows_core::imp::interface_hierarchy!(IESEvents, windows_core::IUnknown);
@@ -3975,7 +3975,7 @@ impl windows_core::RuntimeName for IESEvents {}
 windows_core::imp::define_interface!(IEnumPIDMap, IEnumPIDMap_Vtbl, 0xafb6c2a2_2c41_11d3_8a60_0000f81e0e4a);
 windows_core::imp::interface_hierarchy!(IEnumPIDMap, windows_core::IUnknown);
 impl IEnumPIDMap {
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn Next(&self, crequest: u32, ppidmap: *mut super::bdatypes::PID_MAP, pcreceived: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), crequest, ppidmap as _, pcreceived as _) }
     }
@@ -3996,22 +3996,22 @@ impl IEnumPIDMap {
 #[doc(hidden)]
 pub struct IEnumPIDMap_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::bdatypes::PID_MAP, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 pub trait IEnumPIDMap_Impl: windows_core::IUnknownImpl {
     fn Next(&self, crequest: u32, ppidmap: *mut super::bdatypes::PID_MAP, pcreceived: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, crecords: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPIDMap>;
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl IEnumPIDMap_Vtbl {
     pub const fn new<Identity: IEnumPIDMap_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumPIDMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crequest: u32, ppidmap: *mut super::bdatypes::PID_MAP, pcreceived: *mut u32) -> windows_core::HRESULT {
@@ -4056,7 +4056,7 @@ impl IEnumPIDMap_Vtbl {
         iid == &<IEnumPIDMap as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl windows_core::RuntimeName for IEnumPIDMap {}
 windows_core::imp::define_interface!(IFrequencyMap, IFrequencyMap_Vtbl, 0x06fb45c1_693c_4ea7_b79f_7a6a54d8def2);
 windows_core::imp::interface_hierarchy!(IFrequencyMap, windows_core::IUnknown);
@@ -4164,7 +4164,7 @@ impl windows_core::RuntimeName for IFrequencyMap {}
 windows_core::imp::define_interface!(IMPEG2PIDMap, IMPEG2PIDMap_Vtbl, 0xafb6c2a1_2c41_11d3_8a60_0000f81e0e4a);
 windows_core::imp::interface_hierarchy!(IMPEG2PIDMap, windows_core::IUnknown);
 impl IMPEG2PIDMap {
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub unsafe fn MapPID(&self, culpid: u32, pulpid: *const u32, mediasamplecontent: super::bdatypes::MEDIA_SAMPLE_CONTENT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MapPID)(windows_core::Interface::as_raw(self), culpid, pulpid, mediasamplecontent) }
     }
@@ -4182,20 +4182,20 @@ impl IMPEG2PIDMap {
 #[doc(hidden)]
 pub struct IMPEG2PIDMap_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_bdatypes")]
+    #[cfg(feature = "bdatypes")]
     pub MapPID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, super::bdatypes::MEDIA_SAMPLE_CONTENT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_bdatypes"))]
+    #[cfg(not(feature = "bdatypes"))]
     MapPID: usize,
     pub UnmapPID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32) -> windows_core::HRESULT,
     pub EnumPIDMap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 pub trait IMPEG2PIDMap_Impl: windows_core::IUnknownImpl {
     fn MapPID(&self, culpid: u32, pulpid: *const u32, mediasamplecontent: super::bdatypes::MEDIA_SAMPLE_CONTENT) -> windows_core::Result<()>;
     fn UnmapPID(&self, culpid: u32, pulpid: *const u32) -> windows_core::Result<()>;
     fn EnumPIDMap(&self) -> windows_core::Result<IEnumPIDMap>;
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl IMPEG2PIDMap_Vtbl {
     pub const fn new<Identity: IMPEG2PIDMap_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MapPID<Identity: IMPEG2PIDMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, culpid: u32, pulpid: *const u32, mediasamplecontent: super::bdatypes::MEDIA_SAMPLE_CONTENT) -> windows_core::HRESULT {
@@ -4233,7 +4233,7 @@ impl IMPEG2PIDMap_Vtbl {
         iid == &<IMPEG2PIDMap as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 impl windows_core::RuntimeName for IMPEG2PIDMap {}
 pub type KSPROPERTY_IPSINK = i32;
 pub const KSPROPERTY_IPSINK_ADAPTER_ADDRESS: KSPROPERTY_IPSINK = 2;
@@ -4256,7 +4256,7 @@ pub const PBDA_Encoder_Video_MPEG2PartII: u32 = 0;
 pub const PBDA_Encoder_Video_MPEG4Part10: u32 = 1;
 pub const SCTE_18: LocationCodeSchemeType = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_bdatypes")]
+#[cfg(feature = "bdatypes")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct SmartCardApplication {
     pub ApplicationType: super::bdatypes::ApplicationTypeType,

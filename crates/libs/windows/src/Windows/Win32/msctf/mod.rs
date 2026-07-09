@@ -481,7 +481,7 @@ impl IEnumTfInputProcessorProfiles {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub unsafe fn Next(&self, ulcount: u32, pprofile: *mut TF_INPUTPROCESSORPROFILE, pcfetch: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, pprofile as _, pcfetch as _) }
     }
@@ -497,21 +497,21 @@ impl IEnumTfInputProcessorProfiles {
 pub struct IEnumTfInputProcessorProfiles_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut TF_INPUTPROCESSORPROFILE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "winnt")))]
     Next: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub trait IEnumTfInputProcessorProfiles_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfInputProcessorProfiles>;
     fn Next(&self, ulcount: u32, pprofile: *mut TF_INPUTPROCESSORPROFILE, pcfetch: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl IEnumTfInputProcessorProfiles_Vtbl {
     pub const fn new<Identity: IEnumTfInputProcessorProfiles_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Clone<Identity: IEnumTfInputProcessorProfiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -556,7 +556,7 @@ impl IEnumTfInputProcessorProfiles_Vtbl {
         iid == &<IEnumTfInputProcessorProfiles as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl windows_core::RuntimeName for IEnumTfInputProcessorProfiles {}
 windows_core::imp::define_interface!(IEnumTfLanguageProfiles, IEnumTfLanguageProfiles_Vtbl, 0x3d61bf11_ac5f_42c8_a4cb_931bcc28c744);
 windows_core::imp::interface_hierarchy!(IEnumTfLanguageProfiles, windows_core::IUnknown);
@@ -567,7 +567,7 @@ impl IEnumTfLanguageProfiles {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn Next(&self, ulcount: u32, pprofile: *mut TF_LANGUAGEPROFILE, pcfetch: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, pprofile as _, pcfetch as _) }
     }
@@ -583,21 +583,21 @@ impl IEnumTfLanguageProfiles {
 pub struct IEnumTfLanguageProfiles_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut TF_LANGUAGEPROFILE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     Next: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IEnumTfLanguageProfiles_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfLanguageProfiles>;
     fn Next(&self, ulcount: u32, pprofile: *mut TF_LANGUAGEPROFILE, pcfetch: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IEnumTfLanguageProfiles_Vtbl {
     pub const fn new<Identity: IEnumTfLanguageProfiles_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Clone<Identity: IEnumTfLanguageProfiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -642,7 +642,7 @@ impl IEnumTfLanguageProfiles_Vtbl {
         iid == &<IEnumTfLanguageProfiles as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IEnumTfLanguageProfiles {}
 windows_core::imp::define_interface!(IEnumTfProperties, IEnumTfProperties_Vtbl, 0x19188cb0_aca9_11d2_afc5_00105a2799b5);
 windows_core::imp::interface_hierarchy!(IEnumTfProperties, windows_core::IUnknown);
@@ -732,7 +732,7 @@ impl IEnumTfPropertyValue {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, ulcount: u32, rgvalues: *mut TF_PROPERTYVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(rgvalues), pcfetched as _) }
     }
@@ -748,21 +748,21 @@ impl IEnumTfPropertyValue {
 pub struct IEnumTfPropertyValue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut TF_PROPERTYVAL, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     Next: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumTfPropertyValue_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfPropertyValue>;
     fn Next(&self, ulcount: u32, rgvalues: *mut TF_PROPERTYVAL, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumTfPropertyValue_Vtbl {
     pub const fn new<Identity: IEnumTfPropertyValue_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Clone<Identity: IEnumTfPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -807,7 +807,7 @@ impl IEnumTfPropertyValue_Vtbl {
         iid == &<IEnumTfPropertyValue as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEnumTfPropertyValue {}
 windows_core::imp::define_interface!(IEnumTfRanges, IEnumTfRanges_Vtbl, 0xf99d3f40_8e32_11d2_bf46_00105a2799b5);
 windows_core::imp::interface_hierarchy!(IEnumTfRanges, windows_core::IUnknown);
@@ -970,7 +970,7 @@ impl windows_core::RuntimeName for IEnumTfUIElements {}
 windows_core::imp::define_interface!(ITextStoreACPServices, ITextStoreACPServices_Vtbl, 0xaa80e901_2021_11d2_93e0_0060b067b86e);
 windows_core::imp::interface_hierarchy!(ITextStoreACPServices, windows_core::IUnknown);
 impl ITextStoreACPServices {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Serialize<P0, P1, P3>(&self, pprop: P0, prange: P1, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ITfProperty>,
@@ -979,7 +979,7 @@ impl ITextStoreACPServices {
     {
         unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pprop.param().abi(), prange.param().abi(), phdr as _, pstream.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Unserialize<P0, P2, P3>(&self, pprop: P0, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P2, ploader: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ITfProperty>,
@@ -1005,25 +1005,25 @@ impl ITextStoreACPServices {
 #[doc(hidden)]
 pub struct ITextStoreACPServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Serialize: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Unserialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const TF_PERSISTENT_PROPERTY_HEADER_ACP, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Unserialize: usize,
     pub ForceLoadProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait ITextStoreACPServices_Impl: windows_core::IUnknownImpl {
     fn Serialize(&self, pprop: windows_core::Ref<ITfProperty>, prange: windows_core::Ref<ITfRange>, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
     fn Unserialize(&self, pprop: windows_core::Ref<ITfProperty>, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: windows_core::Ref<super::objidlbase::IStream>, ploader: windows_core::Ref<ITfPersistentPropertyLoaderACP>) -> windows_core::Result<()>;
     fn ForceLoadProperty(&self, pprop: windows_core::Ref<ITfProperty>) -> windows_core::Result<()>;
     fn CreateRange(&self, acpstart: i32, acpend: i32) -> windows_core::Result<ITfRangeACP>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl ITextStoreACPServices_Vtbl {
     pub const fn new<Identity: ITextStoreACPServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Serialize<Identity: ITextStoreACPServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprop: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1068,7 +1068,7 @@ impl ITextStoreACPServices_Vtbl {
         iid == &<ITextStoreACPServices as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for ITextStoreACPServices {}
 windows_core::imp::define_interface!(ITfActiveLanguageProfileNotifySink, ITfActiveLanguageProfileNotifySink_Vtbl, 0xb246cb75_a93e_4652_bf8c_b3fe0cfd7e57);
 windows_core::imp::interface_hierarchy!(ITfActiveLanguageProfileNotifySink, windows_core::IUnknown);
@@ -1352,14 +1352,14 @@ impl ITfCategoryMgr {
     pub unsafe fn UnregisterCategory(&self, rclsid: *const windows_core::GUID, rcatid: *const windows_core::GUID, rguid: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnregisterCategory)(windows_core::Interface::as_raw(self), rclsid, rcatid, rguid) }
     }
-    #[cfg(feature = "Win32_comcat")]
+    #[cfg(feature = "comcat")]
     pub unsafe fn EnumCategoriesInItem(&self, rguid: *const windows_core::GUID) -> windows_core::Result<super::comcat::IEnumGUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumCategoriesInItem)(windows_core::Interface::as_raw(self), rguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_comcat")]
+    #[cfg(feature = "comcat")]
     pub unsafe fn EnumItemsInCategory(&self, rcatid: *const windows_core::GUID) -> windows_core::Result<super::comcat::IEnumGUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1418,13 +1418,13 @@ pub struct ITfCategoryMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *const windows_core::GUID) -> windows_core::HRESULT,
     pub UnregisterCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_comcat")]
+    #[cfg(feature = "comcat")]
     pub EnumCategoriesInItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_comcat"))]
+    #[cfg(not(feature = "comcat"))]
     EnumCategoriesInItem: usize,
-    #[cfg(feature = "Win32_comcat")]
+    #[cfg(feature = "comcat")]
     pub EnumItemsInCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_comcat"))]
+    #[cfg(not(feature = "comcat"))]
     EnumItemsInCategory: usize,
     pub FindClosestCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut windows_core::GUID, *const *const windows_core::GUID, u32) -> windows_core::HRESULT,
     pub RegisterGUIDDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *const u16, u32) -> windows_core::HRESULT,
@@ -1437,7 +1437,7 @@ pub struct ITfCategoryMgr_Vtbl {
     pub GetGUID: unsafe extern "system" fn(*mut core::ffi::c_void, TfGuidAtom, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub IsEqualTfGuidAtom: unsafe extern "system" fn(*mut core::ffi::c_void, TfGuidAtom, *const windows_core::GUID, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_comcat")]
+#[cfg(feature = "comcat")]
 pub trait ITfCategoryMgr_Impl: windows_core::IUnknownImpl {
     fn RegisterCategory(&self, rclsid: *const windows_core::GUID, rcatid: *const windows_core::GUID, rguid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn UnregisterCategory(&self, rclsid: *const windows_core::GUID, rcatid: *const windows_core::GUID, rguid: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -1454,7 +1454,7 @@ pub trait ITfCategoryMgr_Impl: windows_core::IUnknownImpl {
     fn GetGUID(&self, guidatom: TfGuidAtom) -> windows_core::Result<windows_core::GUID>;
     fn IsEqualTfGuidAtom(&self, guidatom: TfGuidAtom, rguid: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(feature = "Win32_comcat")]
+#[cfg(feature = "comcat")]
 impl ITfCategoryMgr_Vtbl {
     pub const fn new<Identity: ITfCategoryMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterCategory<Identity: ITfCategoryMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, rcatid: *const windows_core::GUID, rguid: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -1605,7 +1605,7 @@ impl ITfCategoryMgr_Vtbl {
         iid == &<ITfCategoryMgr as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_comcat")]
+#[cfg(feature = "comcat")]
 impl windows_core::RuntimeName for ITfCategoryMgr {}
 windows_core::imp::define_interface!(ITfCleanupContextDurationSink, ITfCleanupContextDurationSink_Vtbl, 0x45c35144_154e_4797_bed8_d33ae7bf8794);
 windows_core::imp::interface_hierarchy!(ITfCleanupContextDurationSink, windows_core::IUnknown);
@@ -1730,11 +1730,11 @@ impl windows_core::RuntimeName for ITfClientId {}
 windows_core::imp::define_interface!(ITfCompartment, ITfCompartment_Vtbl, 0xbb08f7a9_607a_4384_8623_056892b64371);
 windows_core::imp::interface_hierarchy!(ITfCompartment, windows_core::IUnknown);
 impl ITfCompartment {
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, tid: TfClientId, pvarvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), tid, core::mem::transmute(pvarvalue)) }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1746,21 +1746,21 @@ impl ITfCompartment {
 #[doc(hidden)]
 pub struct ITfCompartment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, TfClientId, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITfCompartment_Impl: windows_core::IUnknownImpl {
     fn SetValue(&self, tid: TfClientId, pvarvalue: *const super::oaidl::VARIANT) -> windows_core::Result<()>;
     fn GetValue(&self) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl ITfCompartment_Vtbl {
     pub const fn new<Identity: ITfCompartment_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetValue<Identity: ITfCompartment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: TfClientId, pvarvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -1787,7 +1787,7 @@ impl ITfCompartment_Vtbl {
         iid == &<ITfCompartment as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITfCompartment {}
 windows_core::imp::define_interface!(ITfCompartmentEventSink, ITfCompartmentEventSink_Vtbl, 0x743abd5f_f26d_48df_8cc5_238492419b64);
 windows_core::imp::interface_hierarchy!(ITfCompartmentEventSink, windows_core::IUnknown);
@@ -1832,7 +1832,7 @@ impl ITfCompartmentMgr {
     pub unsafe fn ClearCompartment(&self, tid: TfClientId, rguid: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ClearCompartment)(windows_core::Interface::as_raw(self), tid, rguid) }
     }
-    #[cfg(feature = "Win32_comcat")]
+    #[cfg(feature = "comcat")]
     pub unsafe fn EnumCompartments(&self) -> windows_core::Result<super::comcat::IEnumGUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1846,18 +1846,18 @@ pub struct ITfCompartmentMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCompartment: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearCompartment: unsafe extern "system" fn(*mut core::ffi::c_void, TfClientId, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_comcat")]
+    #[cfg(feature = "comcat")]
     pub EnumCompartments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_comcat"))]
+    #[cfg(not(feature = "comcat"))]
     EnumCompartments: usize,
 }
-#[cfg(feature = "Win32_comcat")]
+#[cfg(feature = "comcat")]
 pub trait ITfCompartmentMgr_Impl: windows_core::IUnknownImpl {
     fn GetCompartment(&self, rguid: *const windows_core::GUID) -> windows_core::Result<ITfCompartment>;
     fn ClearCompartment(&self, tid: TfClientId, rguid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn EnumCompartments(&self) -> windows_core::Result<super::comcat::IEnumGUID>;
 }
-#[cfg(feature = "Win32_comcat")]
+#[cfg(feature = "comcat")]
 impl ITfCompartmentMgr_Vtbl {
     pub const fn new<Identity: ITfCompartmentMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCompartment<Identity: ITfCompartmentMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguid: *const windows_core::GUID, ppcomp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1901,7 +1901,7 @@ impl ITfCompartmentMgr_Vtbl {
         iid == &<ITfCompartmentMgr as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_comcat")]
+#[cfg(feature = "comcat")]
 impl windows_core::RuntimeName for ITfCompartmentMgr {}
 windows_core::imp::define_interface!(ITfComposition, ITfComposition_Vtbl, 0x20168d64_5a8f_4a5a_b7bd_cfa29f4d0fd9);
 windows_core::imp::interface_hierarchy!(ITfComposition, windows_core::IUnknown);
@@ -2180,7 +2180,7 @@ impl ITfContext {
             (windows_core::Interface::vtable(self).EnumViews)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_textstor")]
+    #[cfg(feature = "textstor")]
     pub unsafe fn GetStatus(&self) -> windows_core::Result<TF_STATUS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2239,9 +2239,9 @@ pub struct ITfContext_Vtbl {
     pub GetEnd: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetActiveView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumViews: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_textstor")]
+    #[cfg(feature = "textstor")]
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TF_STATUS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_textstor"))]
+    #[cfg(not(feature = "textstor"))]
     GetStatus: usize,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAppProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2250,7 +2250,7 @@ pub struct ITfContext_Vtbl {
     pub GetDocumentMgr: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateRangeBackup: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_textstor")]
+#[cfg(feature = "textstor")]
 pub trait ITfContext_Impl: windows_core::IUnknownImpl {
     fn RequestEditSession(&self, tid: TfClientId, pes: windows_core::Ref<ITfEditSession>, dwflags: u32) -> windows_core::Result<windows_core::HRESULT>;
     fn InWriteSession(&self, tid: TfClientId) -> windows_core::Result<windows_core::BOOL>;
@@ -2268,7 +2268,7 @@ pub trait ITfContext_Impl: windows_core::IUnknownImpl {
     fn GetDocumentMgr(&self) -> windows_core::Result<ITfDocumentMgr>;
     fn CreateRangeBackup(&self, ec: TfEditCookie, prange: windows_core::Ref<ITfRange>) -> windows_core::Result<ITfRangeBackup>;
 }
-#[cfg(feature = "Win32_textstor")]
+#[cfg(feature = "textstor")]
 impl ITfContext_Vtbl {
     pub const fn new<Identity: ITfContext_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RequestEditSession<Identity: ITfContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: TfClientId, pes: *mut core::ffi::c_void, dwflags: u32, phrsession: *mut windows_core::HRESULT) -> windows_core::HRESULT {
@@ -2462,7 +2462,7 @@ impl ITfContext_Vtbl {
         iid == &<ITfContext as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_textstor")]
+#[cfg(feature = "textstor")]
 impl windows_core::RuntimeName for ITfContext {}
 windows_core::imp::define_interface!(ITfContextComposition, ITfContextComposition_Vtbl, 0xd40c8aae_ac92_4fc7_9a11_0ee0e23aa39b);
 windows_core::imp::interface_hierarchy!(ITfContextComposition, windows_core::IUnknown);
@@ -2584,28 +2584,28 @@ impl windows_core::RuntimeName for ITfContextComposition {}
 windows_core::imp::define_interface!(ITfContextKeyEventSink, ITfContextKeyEventSink_Vtbl, 0x0552ba5d_c835_4934_bf50_846aaa67432f);
 windows_core::imp::interface_hierarchy!(ITfContextKeyEventSink, windows_core::IUnknown);
 impl ITfContextKeyEventSink {
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn OnKeyDown(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OnKeyDown)(windows_core::Interface::as_raw(self), wparam, lparam, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn OnKeyUp(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OnKeyUp)(windows_core::Interface::as_raw(self), wparam, lparam, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn OnTestKeyDown(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OnTestKeyDown)(windows_core::Interface::as_raw(self), wparam, lparam, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn OnTestKeyUp(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2617,31 +2617,31 @@ impl ITfContextKeyEventSink {
 #[doc(hidden)]
 pub struct ITfContextKeyEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub OnKeyDown: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     OnKeyDown: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub OnKeyUp: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     OnKeyUp: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub OnTestKeyDown: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     OnTestKeyDown: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub OnTestKeyUp: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     OnTestKeyUp: usize,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait ITfContextKeyEventSink_Impl: windows_core::IUnknownImpl {
     fn OnKeyDown(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL>;
     fn OnKeyUp(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL>;
     fn OnTestKeyDown(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL>;
     fn OnTestKeyUp(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl ITfContextKeyEventSink_Vtbl {
     pub const fn new<Identity: ITfContextKeyEventSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnKeyDown<Identity: ITfContextKeyEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM, pfeaten: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -2704,44 +2704,44 @@ impl ITfContextKeyEventSink_Vtbl {
         iid == &<ITfContextKeyEventSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for ITfContextKeyEventSink {}
 windows_core::imp::define_interface!(ITfContextOwner, ITfContextOwner_Vtbl, 0xaa80e80c_2021_11d2_93e0_0060b067b86e);
 windows_core::imp::interface_hierarchy!(ITfContextOwner, windows_core::IUnknown);
 impl ITfContextOwner {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetACPFromPoint(&self, ptscreen: *const super::windef::POINT, dwflags: u32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetACPFromPoint)(windows_core::Interface::as_raw(self), ptscreen, dwflags, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetTextExt(&self, acpstart: i32, acpend: i32, prc: *mut super::windef::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), acpstart, acpend, prc as _, pfclipped as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetScreenExt(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetScreenExt)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_textstor")]
+    #[cfg(feature = "textstor")]
     pub unsafe fn GetStatus(&self) -> windows_core::Result<TF_STATUS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetWnd(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetWnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAttribute(&self, rguidattribute: *const windows_core::GUID) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2753,32 +2753,32 @@ impl ITfContextOwner {
 #[doc(hidden)]
 pub struct ITfContextOwner_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetACPFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::POINT, u32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetACPFromPoint: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetTextExt: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut super::windef::RECT, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetTextExt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetScreenExt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetScreenExt: usize,
-    #[cfg(feature = "Win32_textstor")]
+    #[cfg(feature = "textstor")]
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TF_STATUS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_textstor"))]
+    #[cfg(not(feature = "textstor"))]
     GetStatus: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetWnd: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetAttribute: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_textstor", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "textstor", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITfContextOwner_Impl: windows_core::IUnknownImpl {
     fn GetACPFromPoint(&self, ptscreen: *const super::windef::POINT, dwflags: u32) -> windows_core::Result<i32>;
     fn GetTextExt(&self, acpstart: i32, acpend: i32, prc: *mut super::windef::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::Result<()>;
@@ -2787,7 +2787,7 @@ pub trait ITfContextOwner_Impl: windows_core::IUnknownImpl {
     fn GetWnd(&self) -> windows_core::Result<super::windef::HWND>;
     fn GetAttribute(&self, rguidattribute: *const windows_core::GUID) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_textstor", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "textstor", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl ITfContextOwner_Vtbl {
     pub const fn new<Identity: ITfContextOwner_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetACPFromPoint<Identity: ITfContextOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptscreen: *const super::windef::POINT, dwflags: u32, pacp: *mut i32) -> windows_core::HRESULT {
@@ -2870,7 +2870,7 @@ impl ITfContextOwner_Vtbl {
         iid == &<ITfContextOwner as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_textstor", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "textstor", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITfContextOwner {}
 windows_core::imp::define_interface!(ITfContextOwnerCompositionServices, ITfContextOwnerCompositionServices_Vtbl, 0x86462810_593b_4916_9764_19c08e9ce110);
 impl core::ops::Deref for ITfContextOwnerCompositionServices {
@@ -3001,7 +3001,7 @@ impl ITfContextOwnerServices {
     pub unsafe fn OnAttributeChange(&self, rguidattribute: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnAttributeChange)(windows_core::Interface::as_raw(self), rguidattribute) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Serialize<P0, P1, P3>(&self, pprop: P0, prange: P1, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ITfProperty>,
@@ -3010,7 +3010,7 @@ impl ITfContextOwnerServices {
     {
         unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pprop.param().abi(), prange.param().abi(), phdr as _, pstream.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Unserialize<P0, P2, P3>(&self, pprop: P0, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P2, ploader: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ITfProperty>,
@@ -3039,18 +3039,18 @@ pub struct ITfContextOwnerServices_Vtbl {
     pub OnLayoutChange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub OnAttributeChange: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Serialize: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Unserialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const TF_PERSISTENT_PROPERTY_HEADER_ACP, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Unserialize: usize,
     pub ForceLoadProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait ITfContextOwnerServices_Impl: windows_core::IUnknownImpl {
     fn OnLayoutChange(&self) -> windows_core::Result<()>;
     fn OnStatusChange(&self, dwflags: u32) -> windows_core::Result<()>;
@@ -3060,7 +3060,7 @@ pub trait ITfContextOwnerServices_Impl: windows_core::IUnknownImpl {
     fn ForceLoadProperty(&self, pprop: windows_core::Ref<ITfProperty>) -> windows_core::Result<()>;
     fn CreateRange(&self, acpstart: i32, acpend: i32) -> windows_core::Result<ITfRangeACP>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl ITfContextOwnerServices_Vtbl {
     pub const fn new<Identity: ITfContextOwnerServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnLayoutChange<Identity: ITfContextOwnerServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3126,33 +3126,33 @@ impl ITfContextOwnerServices_Vtbl {
         iid == &<ITfContextOwnerServices as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for ITfContextOwnerServices {}
 windows_core::imp::define_interface!(ITfContextView, ITfContextView_Vtbl, 0x2433bf8e_0f9b_435c_ba2c_180611978c30);
 windows_core::imp::interface_hierarchy!(ITfContextView, windows_core::IUnknown);
 impl ITfContextView {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetRangeFromPoint(&self, ec: TfEditCookie, ppt: *const super::windef::POINT, dwflags: u32) -> windows_core::Result<ITfRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRangeFromPoint)(windows_core::Interface::as_raw(self), ec, ppt, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetTextExt<P1>(&self, ec: TfEditCookie, prange: P1, prc: *mut super::windef::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ITfRange>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), prc as _, pfclipped as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetScreenExt(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetScreenExt)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetWnd(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3164,31 +3164,31 @@ impl ITfContextView {
 #[doc(hidden)]
 pub struct ITfContextView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetRangeFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *const super::windef::POINT, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetRangeFromPoint: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetTextExt: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *mut core::ffi::c_void, *mut super::windef::RECT, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetTextExt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetScreenExt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetScreenExt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetWnd: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITfContextView_Impl: windows_core::IUnknownImpl {
     fn GetRangeFromPoint(&self, ec: TfEditCookie, ppt: *const super::windef::POINT, dwflags: u32) -> windows_core::Result<ITfRange>;
     fn GetTextExt(&self, ec: TfEditCookie, prange: windows_core::Ref<ITfRange>, prc: *mut super::windef::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetScreenExt(&self) -> windows_core::Result<super::windef::RECT>;
     fn GetWnd(&self) -> windows_core::Result<super::windef::HWND>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITfContextView_Vtbl {
     pub const fn new<Identity: ITfContextView_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRangeFromPoint<Identity: ITfContextView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: TfEditCookie, ppt: *const super::windef::POINT, dwflags: u32, pprange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3245,7 +3245,7 @@ impl ITfContextView_Vtbl {
         iid == &<ITfContextView as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITfContextView {}
 windows_core::imp::define_interface!(ITfCreatePropertyStore, ITfCreatePropertyStore_Vtbl, 0x2463fbf0_b0af_11d2_afc5_00105a2799b5);
 windows_core::imp::interface_hierarchy!(ITfCreatePropertyStore, windows_core::IUnknown);
@@ -3260,7 +3260,7 @@ impl ITfCreatePropertyStore {
             (windows_core::Interface::vtable(self).IsStoreSerializable)(windows_core::Interface::as_raw(self), guidprop, prange.param().abi(), ppropstore.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreatePropertyStore<P1, P3>(&self, guidprop: *const windows_core::GUID, prange: P1, cb: u32, pstream: P3) -> windows_core::Result<ITfPropertyStore>
     where
         P1: windows_core::Param<ITfRange>,
@@ -3277,17 +3277,17 @@ impl ITfCreatePropertyStore {
 pub struct ITfCreatePropertyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsStoreSerializable: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreatePropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreatePropertyStore: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait ITfCreatePropertyStore_Impl: windows_core::IUnknownImpl {
     fn IsStoreSerializable(&self, guidprop: *const windows_core::GUID, prange: windows_core::Ref<ITfRange>, ppropstore: windows_core::Ref<ITfPropertyStore>) -> windows_core::Result<windows_core::BOOL>;
     fn CreatePropertyStore(&self, guidprop: *const windows_core::GUID, prange: windows_core::Ref<ITfRange>, cb: u32, pstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<ITfPropertyStore>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl ITfCreatePropertyStore_Vtbl {
     pub const fn new<Identity: ITfCreatePropertyStore_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsStoreSerializable<Identity: ITfCreatePropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidprop: *const windows_core::GUID, prange: *mut core::ffi::c_void, ppropstore: *mut core::ffi::c_void, pfserializable: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -3324,7 +3324,7 @@ impl ITfCreatePropertyStore_Vtbl {
         iid == &<ITfCreatePropertyStore as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for ITfCreatePropertyStore {}
 windows_core::imp::define_interface!(ITfDisplayAttributeInfo, ITfDisplayAttributeInfo_Vtbl, 0x70528852_2f26_4aea_8c96_215150578932);
 windows_core::imp::interface_hierarchy!(ITfDisplayAttributeInfo, windows_core::IUnknown);
@@ -3341,11 +3341,11 @@ impl ITfDisplayAttributeInfo {
             (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetAttributeInfo(&self, pda: *mut TF_DISPLAYATTRIBUTE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAttributeInfo)(windows_core::Interface::as_raw(self), pda as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetAttributeInfo(&self, pda: *const TF_DISPLAYATTRIBUTE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAttributeInfo)(windows_core::Interface::as_raw(self), pda) }
     }
@@ -3359,17 +3359,17 @@ pub struct ITfDisplayAttributeInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetGUID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetAttributeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TF_DISPLAYATTRIBUTE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetAttributeInfo: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetAttributeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const TF_DISPLAYATTRIBUTE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetAttributeInfo: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITfDisplayAttributeInfo_Impl: windows_core::IUnknownImpl {
     fn GetGUID(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -3377,7 +3377,7 @@ pub trait ITfDisplayAttributeInfo_Impl: windows_core::IUnknownImpl {
     fn SetAttributeInfo(&self, pda: *const TF_DISPLAYATTRIBUTE) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITfDisplayAttributeInfo_Vtbl {
     pub const fn new<Identity: ITfDisplayAttributeInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGUID<Identity: ITfDisplayAttributeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -3435,7 +3435,7 @@ impl ITfDisplayAttributeInfo_Vtbl {
         iid == &<ITfDisplayAttributeInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITfDisplayAttributeInfo {}
 windows_core::imp::define_interface!(ITfDisplayAttributeMgr, ITfDisplayAttributeMgr_Vtbl, 0x8ded7393_5db1_475c_9e71_a39111b0ff67);
 windows_core::imp::interface_hierarchy!(ITfDisplayAttributeMgr, windows_core::IUnknown);
@@ -3996,7 +3996,7 @@ impl windows_core::RuntimeName for ITfFunctionProvider {}
 windows_core::imp::define_interface!(ITfInputProcessorProfileActivationSink, ITfInputProcessorProfileActivationSink_Vtbl, 0x71c6e74e_0f28_11d8_a82a_00065b84435c);
 windows_core::imp::interface_hierarchy!(ITfInputProcessorProfileActivationSink, windows_core::IUnknown);
 impl ITfInputProcessorProfileActivationSink {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub unsafe fn OnActivated(&self, dwprofiletype: u32, langid: super::winnt::LANGID, clsid: *const windows_core::GUID, catid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: super::minwindef::HKL, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnActivated)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, catid, guidprofile, hkl, dwflags) }
     }
@@ -4005,16 +4005,16 @@ impl ITfInputProcessorProfileActivationSink {
 #[doc(hidden)]
 pub struct ITfInputProcessorProfileActivationSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub OnActivated: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::LANGID, *const windows_core::GUID, *const windows_core::GUID, *const windows_core::GUID, super::minwindef::HKL, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "winnt")))]
     OnActivated: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub trait ITfInputProcessorProfileActivationSink_Impl: windows_core::IUnknownImpl {
     fn OnActivated(&self, dwprofiletype: u32, langid: super::winnt::LANGID, clsid: *const windows_core::GUID, catid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: super::minwindef::HKL, dwflags: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl ITfInputProcessorProfileActivationSink_Vtbl {
     pub const fn new<Identity: ITfInputProcessorProfileActivationSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnActivated<Identity: ITfInputProcessorProfileActivationSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwprofiletype: u32, langid: super::winnt::LANGID, clsid: *const windows_core::GUID, catid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: super::minwindef::HKL, dwflags: u32) -> windows_core::HRESULT {
@@ -4029,24 +4029,24 @@ impl ITfInputProcessorProfileActivationSink_Vtbl {
         iid == &<ITfInputProcessorProfileActivationSink as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl windows_core::RuntimeName for ITfInputProcessorProfileActivationSink {}
 windows_core::imp::define_interface!(ITfInputProcessorProfileMgr, ITfInputProcessorProfileMgr_Vtbl, 0x71c6e74c_0f28_11d8_a82a_00065b84435c);
 windows_core::imp::interface_hierarchy!(ITfInputProcessorProfileMgr, windows_core::IUnknown);
 impl ITfInputProcessorProfileMgr {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub unsafe fn ActivateProfile(&self, dwprofiletype: u32, langid: super::winnt::LANGID, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: super::minwindef::HKL, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ActivateProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl, dwflags) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub unsafe fn DeactivateProfile(&self, dwprofiletype: u32, langid: super::winnt::LANGID, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: super::minwindef::HKL, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeactivateProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl, dwflags) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub unsafe fn GetProfile(&self, dwprofiletype: u32, langid: super::winnt::LANGID, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: super::minwindef::HKL, pprofile: *mut TF_INPUTPROCESSORPROFILE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl, pprofile as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn EnumProfiles(&self, langid: super::winnt::LANGID) -> windows_core::Result<IEnumTfInputProcessorProfiles> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4056,15 +4056,15 @@ impl ITfInputProcessorProfileMgr {
     pub unsafe fn ReleaseInputProcessor(&self, rclsid: *const windows_core::GUID, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseInputProcessor)(windows_core::Interface::as_raw(self), rclsid, dwflags) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub unsafe fn RegisterProfile(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, pchdesc: *const u16, cchdesc: u32, pchiconfile: *const u16, cchfile: u32, uiconindex: u32, hklsubstitute: super::minwindef::HKL, dwpreferredlayout: u32, benabledbydefault: bool, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RegisterProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, pchdesc, cchdesc, pchiconfile, cchfile, uiconindex, hklsubstitute, dwpreferredlayout, benabledbydefault.into(), dwflags) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn UnregisterProfile(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnregisterProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, dwflags) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub unsafe fn GetActiveProfile(&self, catid: *const windows_core::GUID, pprofile: *mut TF_INPUTPROCESSORPROFILE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetActiveProfile)(windows_core::Interface::as_raw(self), catid, pprofile as _) }
     }
@@ -4073,37 +4073,37 @@ impl ITfInputProcessorProfileMgr {
 #[doc(hidden)]
 pub struct ITfInputProcessorProfileMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub ActivateProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::LANGID, *const windows_core::GUID, *const windows_core::GUID, super::minwindef::HKL, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "winnt")))]
     ActivateProfile: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub DeactivateProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::LANGID, *const windows_core::GUID, *const windows_core::GUID, super::minwindef::HKL, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "winnt")))]
     DeactivateProfile: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub GetProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::winnt::LANGID, *const windows_core::GUID, *const windows_core::GUID, super::minwindef::HKL, *mut TF_INPUTPROCESSORPROFILE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "winnt")))]
     GetProfile: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub EnumProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LANGID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     EnumProfiles: usize,
     pub ReleaseInputProcessor: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub RegisterProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID, *const u16, u32, *const u16, u32, u32, super::minwindef::HKL, u32, windows_core::BOOL, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "winnt")))]
     RegisterProfile: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub UnregisterProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     UnregisterProfile: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub GetActiveProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut TF_INPUTPROCESSORPROFILE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "winnt")))]
     GetActiveProfile: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub trait ITfInputProcessorProfileMgr_Impl: windows_core::IUnknownImpl {
     fn ActivateProfile(&self, dwprofiletype: u32, langid: super::winnt::LANGID, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: super::minwindef::HKL, dwflags: u32) -> windows_core::Result<()>;
     fn DeactivateProfile(&self, dwprofiletype: u32, langid: super::winnt::LANGID, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: super::minwindef::HKL, dwflags: u32) -> windows_core::Result<()>;
@@ -4114,7 +4114,7 @@ pub trait ITfInputProcessorProfileMgr_Impl: windows_core::IUnknownImpl {
     fn UnregisterProfile(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()>;
     fn GetActiveProfile(&self, catid: *const windows_core::GUID, pprofile: *mut TF_INPUTPROCESSORPROFILE) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl ITfInputProcessorProfileMgr_Vtbl {
     pub const fn new<Identity: ITfInputProcessorProfileMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivateProfile<Identity: ITfInputProcessorProfileMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwprofiletype: u32, langid: super::winnt::LANGID, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: super::minwindef::HKL, dwflags: u32) -> windows_core::HRESULT {
@@ -4202,12 +4202,12 @@ impl ITfInputProcessorProfileMgr_Vtbl {
         iid == &<ITfInputProcessorProfileMgr as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl windows_core::RuntimeName for ITfInputProcessorProfileMgr {}
 windows_core::imp::define_interface!(ITfInputProcessorProfileSubstituteLayout, ITfInputProcessorProfileSubstituteLayout_Vtbl, 0x4fd67194_1002_4513_bff2_c0ddf6258552);
 windows_core::imp::interface_hierarchy!(ITfInputProcessorProfileSubstituteLayout, windows_core::IUnknown);
 impl ITfInputProcessorProfileSubstituteLayout {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub unsafe fn GetSubstituteKeyboardLayout(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID) -> windows_core::Result<super::minwindef::HKL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4219,16 +4219,16 @@ impl ITfInputProcessorProfileSubstituteLayout {
 #[doc(hidden)]
 pub struct ITfInputProcessorProfileSubstituteLayout_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub GetSubstituteKeyboardLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID, *mut super::minwindef::HKL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "winnt")))]
     GetSubstituteKeyboardLayout: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub trait ITfInputProcessorProfileSubstituteLayout_Impl: windows_core::IUnknownImpl {
     fn GetSubstituteKeyboardLayout(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID) -> windows_core::Result<super::minwindef::HKL>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl ITfInputProcessorProfileSubstituteLayout_Vtbl {
     pub const fn new<Identity: ITfInputProcessorProfileSubstituteLayout_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSubstituteKeyboardLayout<Identity: ITfInputProcessorProfileSubstituteLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, phkl: *mut super::minwindef::HKL) -> windows_core::HRESULT {
@@ -4249,7 +4249,7 @@ impl ITfInputProcessorProfileSubstituteLayout_Vtbl {
         iid == &<ITfInputProcessorProfileSubstituteLayout as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl windows_core::RuntimeName for ITfInputProcessorProfileSubstituteLayout {}
 windows_core::imp::define_interface!(ITfInputProcessorProfiles, ITfInputProcessorProfiles_Vtbl, 0x1f02b6c5_7842_4ee6_8a0b_9a24183a95ca);
 windows_core::imp::interface_hierarchy!(ITfInputProcessorProfiles, windows_core::IUnknown);
@@ -4260,82 +4260,82 @@ impl ITfInputProcessorProfiles {
     pub unsafe fn Unregister(&self, rclsid: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Unregister)(windows_core::Interface::as_raw(self), rclsid) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn AddLanguageProfile(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, pchdesc: *const u16, cchdesc: u32, pchiconfile: *const u16, cchfile: u32, uiconindex: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, pchdesc, cchdesc, pchiconfile, cchfile, uiconindex) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn RemoveLanguageProfile(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile) }
     }
-    #[cfg(feature = "Win32_comcat")]
+    #[cfg(feature = "comcat")]
     pub unsafe fn EnumInputProcessorInfo(&self) -> windows_core::Result<super::comcat::IEnumGUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumInputProcessorInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetDefaultLanguageProfile(&self, langid: super::winnt::LANGID, catid: *const windows_core::GUID, pclsid: *mut windows_core::GUID, pguidprofile: *mut windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDefaultLanguageProfile)(windows_core::Interface::as_raw(self), langid, catid, pclsid as _, pguidprofile as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetDefaultLanguageProfile(&self, langid: super::winnt::LANGID, rclsid: *const windows_core::GUID, guidprofiles: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultLanguageProfile)(windows_core::Interface::as_raw(self), langid, rclsid, guidprofiles) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn ActivateLanguageProfile(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofiles: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ActivateLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofiles) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetActiveLanguageProfile(&self, rclsid: *const windows_core::GUID, plangid: *mut super::winnt::LANGID, pguidprofile: *mut windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetActiveLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, plangid as _, pguidprofile as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetLanguageProfileDescription(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLanguageProfileDescription)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetCurrentLanguage(&self) -> windows_core::Result<super::winnt::LANGID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentLanguage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn ChangeCurrentLanguage(&self, langid: super::winnt::LANGID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ChangeCurrentLanguage)(windows_core::Interface::as_raw(self), langid) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetLanguageList(&self, pplangid: *mut *mut super::winnt::LANGID, pulcount: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLanguageList)(windows_core::Interface::as_raw(self), pplangid as _, pulcount as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn EnumLanguageProfiles(&self, langid: super::winnt::LANGID) -> windows_core::Result<IEnumTfLanguageProfiles> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumLanguageProfiles)(windows_core::Interface::as_raw(self), langid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn EnableLanguageProfile(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, fenable: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnableLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, fenable.into()) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn IsEnabledLanguageProfile(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsEnabledLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn EnableLanguageProfileByDefault(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, fenable: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnableLanguageProfileByDefault)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, fenable.into()) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub unsafe fn SubstituteKeyboardLayout(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, hkl: super::minwindef::HKL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SubstituteKeyboardLayout)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, hkl) }
     }
@@ -4346,72 +4346,72 @@ pub struct ITfInputProcessorProfiles_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub AddLanguageProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID, *const u16, u32, *const u16, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     AddLanguageProfile: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub RemoveLanguageProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     RemoveLanguageProfile: usize,
-    #[cfg(feature = "Win32_comcat")]
+    #[cfg(feature = "comcat")]
     pub EnumInputProcessorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_comcat"))]
+    #[cfg(not(feature = "comcat"))]
     EnumInputProcessorInfo: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetDefaultLanguageProfile: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LANGID, *const windows_core::GUID, *mut windows_core::GUID, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetDefaultLanguageProfile: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetDefaultLanguageProfile: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LANGID, *const windows_core::GUID, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetDefaultLanguageProfile: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub ActivateLanguageProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     ActivateLanguageProfile: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetActiveLanguageProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::winnt::LANGID, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetActiveLanguageProfile: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetLanguageProfileDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetLanguageProfileDescription: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetCurrentLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::LANGID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetCurrentLanguage: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub ChangeCurrentLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LANGID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     ChangeCurrentLanguage: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetLanguageList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::winnt::LANGID, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetLanguageList: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub EnumLanguageProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LANGID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     EnumLanguageProfiles: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub EnableLanguageProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     EnableLanguageProfile: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub IsEnabledLanguageProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     IsEnabledLanguageProfile: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub EnableLanguageProfileByDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     EnableLanguageProfileByDefault: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "minwindef", feature = "winnt"))]
     pub SubstituteKeyboardLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID, super::minwindef::HKL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "minwindef", feature = "winnt")))]
     SubstituteKeyboardLayout: usize,
 }
-#[cfg(all(feature = "Win32_comcat", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "winnt"))]
 pub trait ITfInputProcessorProfiles_Impl: windows_core::IUnknownImpl {
     fn Register(&self, rclsid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn Unregister(&self, rclsid: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -4432,7 +4432,7 @@ pub trait ITfInputProcessorProfiles_Impl: windows_core::IUnknownImpl {
     fn EnableLanguageProfileByDefault(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, fenable: windows_core::BOOL) -> windows_core::Result<()>;
     fn SubstituteKeyboardLayout(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, hkl: super::minwindef::HKL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_comcat", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "winnt"))]
 impl ITfInputProcessorProfiles_Vtbl {
     pub const fn new<Identity: ITfInputProcessorProfiles_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Register<Identity: ITfInputProcessorProfiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -4599,7 +4599,7 @@ impl ITfInputProcessorProfiles_Vtbl {
         iid == &<ITfInputProcessorProfiles as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_comcat", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "winnt"))]
 impl windows_core::RuntimeName for ITfInputProcessorProfiles {}
 windows_core::imp::define_interface!(ITfInputProcessorProfilesEx, ITfInputProcessorProfilesEx_Vtbl, 0x892f230f_fe00_4a41_a98e_fcd6de0d35ef);
 impl core::ops::Deref for ITfInputProcessorProfilesEx {
@@ -4610,7 +4610,7 @@ impl core::ops::Deref for ITfInputProcessorProfilesEx {
 }
 windows_core::imp::interface_hierarchy!(ITfInputProcessorProfilesEx, windows_core::IUnknown, ITfInputProcessorProfiles);
 impl ITfInputProcessorProfilesEx {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetLanguageProfileDisplayName(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, pchfile: *const u16, cchfile: u32, uresid: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLanguageProfileDisplayName)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, pchfile, cchfile, uresid) }
     }
@@ -4619,16 +4619,16 @@ impl ITfInputProcessorProfilesEx {
 #[doc(hidden)]
 pub struct ITfInputProcessorProfilesEx_Vtbl {
     pub base__: ITfInputProcessorProfiles_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetLanguageProfileDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::winnt::LANGID, *const windows_core::GUID, *const u16, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetLanguageProfileDisplayName: usize,
 }
-#[cfg(all(feature = "Win32_comcat", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "winnt"))]
 pub trait ITfInputProcessorProfilesEx_Impl: ITfInputProcessorProfiles_Impl {
     fn SetLanguageProfileDisplayName(&self, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, pchfile: *const u16, cchfile: u32, uresid: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_comcat", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "winnt"))]
 impl ITfInputProcessorProfilesEx_Vtbl {
     pub const fn new<Identity: ITfInputProcessorProfilesEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetLanguageProfileDisplayName<Identity: ITfInputProcessorProfilesEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, pchfile: *const u16, cchfile: u32, uresid: u32) -> windows_core::HRESULT {
@@ -4646,7 +4646,7 @@ impl ITfInputProcessorProfilesEx_Vtbl {
         iid == &<ITfInputProcessorProfilesEx as windows_core::Interface>::IID || iid == &<ITfInputProcessorProfiles as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_comcat", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "winnt"))]
 impl windows_core::RuntimeName for ITfInputProcessorProfilesEx {}
 windows_core::imp::define_interface!(ITfInsertAtSelection, ITfInsertAtSelection_Vtbl, 0x55ce16ba_3014_41c1_9ceb_fade1446ac6c);
 windows_core::imp::interface_hierarchy!(ITfInsertAtSelection, windows_core::IUnknown);
@@ -4657,7 +4657,7 @@ impl ITfInsertAtSelection {
             (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), ec, dwflags, pchtext, cch, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn InsertEmbeddedAtSelection<P2>(&self, ec: TfEditCookie, dwflags: u32, pdataobject: P2) -> windows_core::Result<ITfRange>
     where
         P2: windows_core::Param<super::objidl::IDataObject>,
@@ -4673,17 +4673,17 @@ impl ITfInsertAtSelection {
 pub struct ITfInsertAtSelection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InsertTextAtSelection: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, u32, *const u16, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub InsertEmbeddedAtSelection: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     InsertEmbeddedAtSelection: usize,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait ITfInsertAtSelection_Impl: windows_core::IUnknownImpl {
     fn InsertTextAtSelection(&self, ec: TfEditCookie, dwflags: u32, pchtext: *const u16, cch: i32) -> windows_core::Result<ITfRange>;
     fn InsertEmbeddedAtSelection(&self, ec: TfEditCookie, dwflags: u32, pdataobject: windows_core::Ref<super::objidl::IDataObject>) -> windows_core::Result<ITfRange>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl ITfInsertAtSelection_Vtbl {
     pub const fn new<Identity: ITfInsertAtSelection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InsertTextAtSelection<Identity: ITfInsertAtSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: TfEditCookie, dwflags: u32, pchtext: *const u16, cch: i32, pprange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4720,7 +4720,7 @@ impl ITfInsertAtSelection_Vtbl {
         iid == &<ITfInsertAtSelection as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for ITfInsertAtSelection {}
 windows_core::imp::define_interface!(ITfKeyEventSink, ITfKeyEventSink_Vtbl, 0xaa80e7f5_2021_11d2_93e0_0060b067b86e);
 windows_core::imp::interface_hierarchy!(ITfKeyEventSink, windows_core::IUnknown);
@@ -4728,7 +4728,7 @@ impl ITfKeyEventSink {
     pub unsafe fn OnSetFocus(&self, fforeground: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnSetFocus)(windows_core::Interface::as_raw(self), fforeground.into()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn OnTestKeyDown<P0>(&self, pic: P0, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<ITfContext>,
@@ -4738,7 +4738,7 @@ impl ITfKeyEventSink {
             (windows_core::Interface::vtable(self).OnTestKeyDown)(windows_core::Interface::as_raw(self), pic.param().abi(), wparam, lparam, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn OnTestKeyUp<P0>(&self, pic: P0, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<ITfContext>,
@@ -4748,7 +4748,7 @@ impl ITfKeyEventSink {
             (windows_core::Interface::vtable(self).OnTestKeyUp)(windows_core::Interface::as_raw(self), pic.param().abi(), wparam, lparam, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn OnKeyDown<P0>(&self, pic: P0, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<ITfContext>,
@@ -4758,7 +4758,7 @@ impl ITfKeyEventSink {
             (windows_core::Interface::vtable(self).OnKeyDown)(windows_core::Interface::as_raw(self), pic.param().abi(), wparam, lparam, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn OnKeyUp<P0>(&self, pic: P0, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<ITfContext>,
@@ -4783,25 +4783,25 @@ impl ITfKeyEventSink {
 pub struct ITfKeyEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub OnTestKeyDown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     OnTestKeyDown: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub OnTestKeyUp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     OnTestKeyUp: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub OnKeyDown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     OnKeyDown: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub OnKeyUp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     OnKeyUp: usize,
     pub OnPreservedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait ITfKeyEventSink_Impl: windows_core::IUnknownImpl {
     fn OnSetFocus(&self, fforeground: windows_core::BOOL) -> windows_core::Result<()>;
     fn OnTestKeyDown(&self, pic: windows_core::Ref<ITfContext>, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL>;
@@ -4810,7 +4810,7 @@ pub trait ITfKeyEventSink_Impl: windows_core::IUnknownImpl {
     fn OnKeyUp(&self, pic: windows_core::Ref<ITfContext>, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL>;
     fn OnPreservedKey(&self, pic: windows_core::Ref<ITfContext>, rguid: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl ITfKeyEventSink_Vtbl {
     pub const fn new<Identity: ITfKeyEventSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnSetFocus<Identity: ITfKeyEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fforeground: windows_core::BOOL) -> windows_core::HRESULT {
@@ -4893,16 +4893,16 @@ impl ITfKeyEventSink_Vtbl {
         iid == &<ITfKeyEventSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for ITfKeyEventSink {}
 windows_core::imp::define_interface!(ITfKeyTraceEventSink, ITfKeyTraceEventSink_Vtbl, 0x1cd4c13b_1c36_4191_a70a_7f3e611f367d);
 windows_core::imp::interface_hierarchy!(ITfKeyTraceEventSink, windows_core::IUnknown);
 impl ITfKeyTraceEventSink {
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn OnKeyTraceDown(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnKeyTraceDown)(windows_core::Interface::as_raw(self), wparam, lparam) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn OnKeyTraceUp(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnKeyTraceUp)(windows_core::Interface::as_raw(self), wparam, lparam) }
     }
@@ -4911,21 +4911,21 @@ impl ITfKeyTraceEventSink {
 #[doc(hidden)]
 pub struct ITfKeyTraceEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub OnKeyTraceDown: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     OnKeyTraceDown: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub OnKeyTraceUp: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     OnKeyTraceUp: usize,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait ITfKeyTraceEventSink_Impl: windows_core::IUnknownImpl {
     fn OnKeyTraceDown(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<()>;
     fn OnKeyTraceUp(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl ITfKeyTraceEventSink_Vtbl {
     pub const fn new<Identity: ITfKeyTraceEventSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnKeyTraceDown<Identity: ITfKeyTraceEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::HRESULT {
@@ -4950,7 +4950,7 @@ impl ITfKeyTraceEventSink_Vtbl {
         iid == &<ITfKeyTraceEventSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for ITfKeyTraceEventSink {}
 windows_core::imp::define_interface!(ITfKeystrokeMgr, ITfKeystrokeMgr_Vtbl, 0xaa80e7f0_2021_11d2_93e0_0060b067b86e);
 windows_core::imp::interface_hierarchy!(ITfKeystrokeMgr, windows_core::IUnknown);
@@ -4970,28 +4970,28 @@ impl ITfKeystrokeMgr {
             (windows_core::Interface::vtable(self).GetForeground)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn TestKeyDown(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TestKeyDown)(windows_core::Interface::as_raw(self), wparam, lparam, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn TestKeyUp(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TestKeyUp)(windows_core::Interface::as_raw(self), wparam, lparam, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn KeyDown(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).KeyDown)(windows_core::Interface::as_raw(self), wparam, lparam, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn KeyUp(&self, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5045,21 +5045,21 @@ pub struct ITfKeystrokeMgr_Vtbl {
     pub AdviseKeyEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, TfClientId, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub UnadviseKeyEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, TfClientId) -> windows_core::HRESULT,
     pub GetForeground: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub TestKeyDown: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     TestKeyDown: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub TestKeyUp: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     TestKeyUp: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub KeyDown: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     KeyDown: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub KeyUp: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::WPARAM, super::minwindef::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     KeyUp: usize,
     pub GetPreservedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const TF_PRESERVEDKEY, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub IsPreservedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const TF_PRESERVEDKEY, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -5069,7 +5069,7 @@ pub struct ITfKeystrokeMgr_Vtbl {
     pub GetPreservedKeyDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SimulatePreservedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait ITfKeystrokeMgr_Impl: windows_core::IUnknownImpl {
     fn AdviseKeyEventSink(&self, tid: TfClientId, psink: windows_core::Ref<ITfKeyEventSink>, fforeground: windows_core::BOOL) -> windows_core::Result<()>;
     fn UnadviseKeyEventSink(&self, tid: TfClientId) -> windows_core::Result<()>;
@@ -5086,7 +5086,7 @@ pub trait ITfKeystrokeMgr_Impl: windows_core::IUnknownImpl {
     fn GetPreservedKeyDescription(&self, rguid: *const windows_core::GUID) -> windows_core::Result<windows_core::BSTR>;
     fn SimulatePreservedKey(&self, pic: windows_core::Ref<ITfContext>, rguid: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl ITfKeystrokeMgr_Vtbl {
     pub const fn new<Identity: ITfKeystrokeMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseKeyEventSink<Identity: ITfKeystrokeMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: TfClientId, psink: *mut core::ffi::c_void, fforeground: windows_core::BOOL) -> windows_core::HRESULT {
@@ -5249,12 +5249,12 @@ impl ITfKeystrokeMgr_Vtbl {
         iid == &<ITfKeystrokeMgr as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for ITfKeystrokeMgr {}
 windows_core::imp::define_interface!(ITfLanguageProfileNotifySink, ITfLanguageProfileNotifySink_Vtbl, 0x43c9fe15_f494_4c17_9de2_b8a4ac350aa8);
 windows_core::imp::interface_hierarchy!(ITfLanguageProfileNotifySink, windows_core::IUnknown);
 impl ITfLanguageProfileNotifySink {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn OnLanguageChange(&self, langid: super::winnt::LANGID) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5269,18 +5269,18 @@ impl ITfLanguageProfileNotifySink {
 #[doc(hidden)]
 pub struct ITfLanguageProfileNotifySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub OnLanguageChange: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LANGID, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     OnLanguageChange: usize,
     pub OnLanguageChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait ITfLanguageProfileNotifySink_Impl: windows_core::IUnknownImpl {
     fn OnLanguageChange(&self, langid: super::winnt::LANGID) -> windows_core::Result<windows_core::BOOL>;
     fn OnLanguageChanged(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl ITfLanguageProfileNotifySink_Vtbl {
     pub const fn new<Identity: ITfLanguageProfileNotifySink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnLanguageChange<Identity: ITfLanguageProfileNotifySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: super::winnt::LANGID, pfaccept: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -5311,24 +5311,24 @@ impl ITfLanguageProfileNotifySink_Vtbl {
         iid == &<ITfLanguageProfileNotifySink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for ITfLanguageProfileNotifySink {}
 windows_core::imp::define_interface!(ITfMessagePump, ITfMessagePump_Vtbl, 0x8f1b8ad8_0b6b_4874_90c5_bd76011e8f7c);
 windows_core::imp::interface_hierarchy!(ITfMessagePump, windows_core::IUnknown);
 impl ITfMessagePump {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub unsafe fn PeekMessage(&self, pmsg: *mut super::winuser::MSG, hwnd: super::windef::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PeekMessage)(windows_core::Interface::as_raw(self), pmsg as _, hwnd, wmsgfiltermin, wmsgfiltermax, wremovemsg, pfresult as _) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub unsafe fn GetMessage(&self, pmsg: *mut super::winuser::MSG, hwnd: super::windef::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), pmsg as _, hwnd, wmsgfiltermin, wmsgfiltermax, pfresult as _) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub unsafe fn PeekMessageW(&self, pmsg: *mut super::winuser::MSG, hwnd: super::windef::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PeekMessageW)(windows_core::Interface::as_raw(self), pmsg as _, hwnd, wmsgfiltermin, wmsgfiltermax, wremovemsg, pfresult as _) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub unsafe fn GetMessageW(&self, pmsg: *mut super::winuser::MSG, hwnd: super::windef::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMessageW)(windows_core::Interface::as_raw(self), pmsg as _, hwnd, wmsgfiltermin, wmsgfiltermax, pfresult as _) }
     }
@@ -5337,31 +5337,31 @@ impl ITfMessagePump {
 #[doc(hidden)]
 pub struct ITfMessagePump_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub PeekMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winuser::MSG, super::windef::HWND, u32, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser")))]
+    #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     PeekMessage: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub GetMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winuser::MSG, super::windef::HWND, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser")))]
+    #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     GetMessage: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub PeekMessageW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winuser::MSG, super::windef::HWND, u32, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser")))]
+    #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     PeekMessageW: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub GetMessageW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winuser::MSG, super::windef::HWND, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser")))]
+    #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     GetMessageW: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub trait ITfMessagePump_Impl: windows_core::IUnknownImpl {
     fn PeekMessage(&self, pmsg: *mut super::winuser::MSG, hwnd: super::windef::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetMessage(&self, pmsg: *mut super::winuser::MSG, hwnd: super::windef::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn PeekMessageW(&self, pmsg: *mut super::winuser::MSG, hwnd: super::windef::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetMessageW(&self, pmsg: *mut super::winuser::MSG, hwnd: super::windef::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl ITfMessagePump_Vtbl {
     pub const fn new<Identity: ITfMessagePump_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PeekMessage<Identity: ITfMessagePump_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: *mut super::winuser::MSG, hwnd: super::windef::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -5400,7 +5400,7 @@ impl ITfMessagePump_Vtbl {
         iid == &<ITfMessagePump as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl windows_core::RuntimeName for ITfMessagePump {}
 windows_core::imp::define_interface!(ITfMouseSink, ITfMouseSink_Vtbl, 0xa1adaaa2_3a24_449d_ac96_5183e7f5c217);
 windows_core::imp::interface_hierarchy!(ITfMouseSink, windows_core::IUnknown);
@@ -5563,7 +5563,7 @@ impl windows_core::RuntimeName for ITfMouseTrackerACP {}
 windows_core::imp::define_interface!(ITfPersistentPropertyLoaderACP, ITfPersistentPropertyLoaderACP_Vtbl, 0x4ef89150_0807_11d3_8df0_00105a2799b5);
 windows_core::imp::interface_hierarchy!(ITfPersistentPropertyLoaderACP, windows_core::IUnknown);
 impl ITfPersistentPropertyLoaderACP {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn LoadProperty(&self, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5575,16 +5575,16 @@ impl ITfPersistentPropertyLoaderACP {
 #[doc(hidden)]
 pub struct ITfPersistentPropertyLoaderACP_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub LoadProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const TF_PERSISTENT_PROPERTY_HEADER_ACP, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     LoadProperty: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait ITfPersistentPropertyLoaderACP_Impl: windows_core::IUnknownImpl {
     fn LoadProperty(&self, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP) -> windows_core::Result<super::objidlbase::IStream>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl ITfPersistentPropertyLoaderACP_Vtbl {
     pub const fn new<Identity: ITfPersistentPropertyLoaderACP_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LoadProperty<Identity: ITfPersistentPropertyLoaderACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5605,7 +5605,7 @@ impl ITfPersistentPropertyLoaderACP_Vtbl {
         iid == &<ITfPersistentPropertyLoaderACP as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for ITfPersistentPropertyLoaderACP {}
 windows_core::imp::define_interface!(ITfPreservedKeyNotifySink, ITfPreservedKeyNotifySink_Vtbl, 0x6f77c993_d2b1_446e_853e_5912efc8a286);
 windows_core::imp::interface_hierarchy!(ITfPreservedKeyNotifySink, windows_core::IUnknown);
@@ -5660,7 +5660,7 @@ impl ITfProperty {
     {
         unsafe { (windows_core::Interface::vtable(self).SetValueStore)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), ppropstore.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue<P1>(&self, ec: TfEditCookie, prange: P1, pvarvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ITfRange>,
@@ -5680,20 +5680,20 @@ pub struct ITfProperty_Vtbl {
     pub base__: ITfReadOnlyProperty_Vtbl,
     pub FindRange: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, TfAnchor) -> windows_core::HRESULT,
     pub SetValueStore: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *mut core::ffi::c_void, *const super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITfProperty_Impl: ITfReadOnlyProperty_Impl {
     fn FindRange(&self, ec: TfEditCookie, prange: windows_core::Ref<ITfRange>, pprange: windows_core::OutRef<ITfRange>, apos: TfAnchor) -> windows_core::Result<()>;
     fn SetValueStore(&self, ec: TfEditCookie, prange: windows_core::Ref<ITfRange>, ppropstore: windows_core::Ref<ITfPropertyStore>) -> windows_core::Result<()>;
     fn SetValue(&self, ec: TfEditCookie, prange: windows_core::Ref<ITfRange>, pvarvalue: *const super::oaidl::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self, ec: TfEditCookie, prange: windows_core::Ref<ITfRange>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl ITfProperty_Vtbl {
     pub const fn new<Identity: ITfProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FindRange<Identity: ITfProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: TfEditCookie, prange: *mut core::ffi::c_void, pprange: *mut *mut core::ffi::c_void, apos: TfAnchor) -> windows_core::HRESULT {
@@ -5732,7 +5732,7 @@ impl ITfProperty_Vtbl {
         iid == &<ITfProperty as windows_core::Interface>::IID || iid == &<ITfReadOnlyProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITfProperty {}
 windows_core::imp::define_interface!(ITfPropertyStore, ITfPropertyStore_Vtbl, 0x6834b120_88cb_11d2_bf45_00105a2799b5);
 windows_core::imp::interface_hierarchy!(ITfPropertyStore, windows_core::IUnknown);
@@ -5749,7 +5749,7 @@ impl ITfPropertyStore {
             (windows_core::Interface::vtable(self).GetDataType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetData(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5796,7 +5796,7 @@ impl ITfPropertyStore {
             (windows_core::Interface::vtable(self).GetPropertyRangeCreator)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Serialize<P0>(&self, pstream: P0) -> windows_core::Result<u32>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -5813,21 +5813,21 @@ pub struct ITfPropertyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetDataType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetData: usize,
     pub OnTextUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Shrink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Divide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPropertyRangeCreator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Serialize: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITfPropertyStore_Impl: windows_core::IUnknownImpl {
     fn GetType(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetDataType(&self) -> windows_core::Result<u32>;
@@ -5839,7 +5839,7 @@ pub trait ITfPropertyStore_Impl: windows_core::IUnknownImpl {
     fn GetPropertyRangeCreator(&self) -> windows_core::Result<windows_core::GUID>;
     fn Serialize(&self, pstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl ITfPropertyStore_Vtbl {
     pub const fn new<Identity: ITfPropertyStore_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetType<Identity: ITfPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -5967,12 +5967,12 @@ impl ITfPropertyStore_Vtbl {
         iid == &<ITfPropertyStore as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITfPropertyStore {}
 windows_core::imp::define_interface!(ITfQueryEmbedded, ITfQueryEmbedded_Vtbl, 0x0fab9bdb_d250_4169_84e5_6be118fdd7a8);
 windows_core::imp::interface_hierarchy!(ITfQueryEmbedded, windows_core::IUnknown);
 impl ITfQueryEmbedded {
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidl", feature = "wtypes"))]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::objidl::FORMATETC) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5984,16 +5984,16 @@ impl ITfQueryEmbedded {
 #[doc(hidden)]
 pub struct ITfQueryEmbedded_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidl", feature = "wtypes"))]
     pub QueryInsertEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::objidl::FORMATETC, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "objidl", feature = "wtypes")))]
     QueryInsertEmbedded: usize,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidl", feature = "wtypes"))]
 pub trait ITfQueryEmbedded_Impl: windows_core::IUnknownImpl {
     fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::objidl::FORMATETC) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidl", feature = "wtypes"))]
 impl ITfQueryEmbedded_Vtbl {
     pub const fn new<Identity: ITfQueryEmbedded_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInsertEmbedded<Identity: ITfQueryEmbedded_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidservice: *const windows_core::GUID, pformatetc: *const super::objidl::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -6014,7 +6014,7 @@ impl ITfQueryEmbedded_Vtbl {
         iid == &<ITfQueryEmbedded as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidl", feature = "wtypes"))]
 impl windows_core::RuntimeName for ITfQueryEmbedded {}
 windows_core::imp::define_interface!(ITfRange, ITfRange_Vtbl, 0xaa80e7ff_2021_11d2_93e0_0060b067b86e);
 windows_core::imp::interface_hierarchy!(ITfRange, windows_core::IUnknown);
@@ -6025,7 +6025,7 @@ impl ITfRange {
     pub unsafe fn SetText(&self, ec: TfEditCookie, dwflags: u32, pchtext: *const u16, cch: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), ec, dwflags, pchtext, cch) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetFormattedText(&self, ec: TfEditCookie) -> windows_core::Result<super::objidl::IDataObject> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6039,7 +6039,7 @@ impl ITfRange {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), ec, rguidservice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn InsertEmbedded<P2>(&self, ec: TfEditCookie, dwflags: u32, pdataobject: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<super::objidl::IDataObject>,
@@ -6152,14 +6152,14 @@ pub struct ITfRange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, u32, *mut u16, u32, *mut u32) -> windows_core::HRESULT,
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, u32, *const u16, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetFormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetFormattedText: usize,
     pub GetEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub InsertEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     InsertEmbedded: usize,
     pub ShiftStart: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, i32, *mut i32, *const TF_HALTCOND) -> windows_core::HRESULT,
     pub ShiftEnd: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, i32, *mut i32, *const TF_HALTCOND) -> windows_core::HRESULT,
@@ -6179,7 +6179,7 @@ pub struct ITfRange_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait ITfRange_Impl: windows_core::IUnknownImpl {
     fn GetText(&self, ec: TfEditCookie, dwflags: u32, pchtext: *mut u16, cchmax: u32, pcch: *mut u32) -> windows_core::Result<()>;
     fn SetText(&self, ec: TfEditCookie, dwflags: u32, pchtext: *const u16, cch: i32) -> windows_core::Result<()>;
@@ -6204,7 +6204,7 @@ pub trait ITfRange_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<ITfRange>;
     fn GetContext(&self) -> windows_core::Result<ITfContext>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl ITfRange_Vtbl {
     pub const fn new<Identity: ITfRange_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetText<Identity: ITfRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: TfEditCookie, dwflags: u32, pchtext: *mut u16, cchmax: u32, pcch: *mut u32) -> windows_core::HRESULT {
@@ -6435,7 +6435,7 @@ impl ITfRange_Vtbl {
         iid == &<ITfRange as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for ITfRange {}
 windows_core::imp::define_interface!(ITfRangeACP, ITfRangeACP_Vtbl, 0x057a6296_029b_4154_b79a_0d461d4ea94c);
 impl core::ops::Deref for ITfRangeACP {
@@ -6460,12 +6460,12 @@ pub struct ITfRangeACP_Vtbl {
     pub GetExtent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub SetExtent: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait ITfRangeACP_Impl: ITfRange_Impl {
     fn GetExtent(&self, pacpanchor: *mut i32, pcch: *mut i32) -> windows_core::Result<()>;
     fn SetExtent(&self, acpanchor: i32, cch: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl ITfRangeACP_Vtbl {
     pub const fn new<Identity: ITfRangeACP_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetExtent<Identity: ITfRangeACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pacpanchor: *mut i32, pcch: *mut i32) -> windows_core::HRESULT {
@@ -6486,7 +6486,7 @@ impl ITfRangeACP_Vtbl {
         iid == &<ITfRangeACP as windows_core::Interface>::IID || iid == &<ITfRange as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for ITfRangeACP {}
 windows_core::imp::define_interface!(ITfRangeBackup, ITfRangeBackup_Vtbl, 0x463a506d_6992_49d2_9b88_93d55e70bb16);
 windows_core::imp::interface_hierarchy!(ITfRangeBackup, windows_core::IUnknown);
@@ -6537,7 +6537,7 @@ impl ITfReadOnlyProperty {
     {
         unsafe { (windows_core::Interface::vtable(self).EnumRanges)(windows_core::Interface::as_raw(self), ec, core::mem::transmute(ppenum), ptargetrange.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue<P1>(&self, ec: TfEditCookie, prange: P1) -> windows_core::Result<super::oaidl::VARIANT>
     where
         P1: windows_core::Param<ITfRange>,
@@ -6560,20 +6560,20 @@ pub struct ITfReadOnlyProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub EnumRanges: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, TfEditCookie, *mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
     pub GetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITfReadOnlyProperty_Impl: windows_core::IUnknownImpl {
     fn GetType(&self) -> windows_core::Result<windows_core::GUID>;
     fn EnumRanges(&self, ec: TfEditCookie, ppenum: windows_core::OutRef<IEnumTfRanges>, ptargetrange: windows_core::Ref<ITfRange>) -> windows_core::Result<()>;
     fn GetValue(&self, ec: TfEditCookie, prange: windows_core::Ref<ITfRange>) -> windows_core::Result<super::oaidl::VARIANT>;
     fn GetContext(&self) -> windows_core::Result<ITfContext>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl ITfReadOnlyProperty_Vtbl {
     pub const fn new<Identity: ITfReadOnlyProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetType<Identity: ITfReadOnlyProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -6630,7 +6630,7 @@ impl ITfReadOnlyProperty_Vtbl {
         iid == &<ITfReadOnlyProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITfReadOnlyProperty {}
 windows_core::imp::define_interface!(ITfReadingInformationUIElement, ITfReadingInformationUIElement_Vtbl, 0xea1ea139_19df_11d7_a6d2_00065b84435c);
 impl core::ops::Deref for ITfReadingInformationUIElement {
@@ -6896,7 +6896,7 @@ impl windows_core::RuntimeName for ITfReverseConversionList {}
 windows_core::imp::define_interface!(ITfReverseConversionMgr, ITfReverseConversionMgr_Vtbl, 0xb643c236_c493_41b6_abb3_692412775cc4);
 windows_core::imp::interface_hierarchy!(ITfReverseConversionMgr, windows_core::IUnknown);
 impl ITfReverseConversionMgr {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetReverseConversion(&self, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, dwflag: u32) -> windows_core::Result<ITfReverseConversion> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6908,16 +6908,16 @@ impl ITfReverseConversionMgr {
 #[doc(hidden)]
 pub struct ITfReverseConversionMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetReverseConversion: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LANGID, *const windows_core::GUID, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetReverseConversion: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait ITfReverseConversionMgr_Impl: windows_core::IUnknownImpl {
     fn GetReverseConversion(&self, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, dwflag: u32) -> windows_core::Result<ITfReverseConversion>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl ITfReverseConversionMgr_Vtbl {
     pub const fn new<Identity: ITfReverseConversionMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetReverseConversion<Identity: ITfReverseConversionMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: super::winnt::LANGID, guidprofile: *const windows_core::GUID, dwflag: u32, ppreverseconversion: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6938,7 +6938,7 @@ impl ITfReverseConversionMgr_Vtbl {
         iid == &<ITfReverseConversionMgr as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for ITfReverseConversionMgr {}
 windows_core::imp::define_interface!(ITfSource, ITfSource_Vtbl, 0x4ea48a35_60ae_446f_8fd6_e6a8d82459f7);
 windows_core::imp::interface_hierarchy!(ITfSource, windows_core::IUnknown);
@@ -7322,7 +7322,7 @@ impl ITfThreadMgr {
     {
         unsafe { (windows_core::Interface::vtable(self).SetFocus)(windows_core::Interface::as_raw(self), pdimfocus.param().abi()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AssociateFocus<P1>(&self, hwnd: super::windef::HWND, pdimnew: P1) -> windows_core::Result<ITfDocumentMgr>
     where
         P1: windows_core::Param<ITfDocumentMgr>,
@@ -7367,16 +7367,16 @@ pub struct ITfThreadMgr_Vtbl {
     pub EnumDocumentMgrs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AssociateFocus: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AssociateFocus: usize,
     pub IsThreadFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetFunctionProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumFunctionProviders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetGlobalCompartment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITfThreadMgr_Impl: windows_core::IUnknownImpl {
     fn Activate(&self) -> windows_core::Result<TfClientId>;
     fn Deactivate(&self) -> windows_core::Result<()>;
@@ -7390,7 +7390,7 @@ pub trait ITfThreadMgr_Impl: windows_core::IUnknownImpl {
     fn EnumFunctionProviders(&self) -> windows_core::Result<IEnumTfFunctionProviders>;
     fn GetGlobalCompartment(&self) -> windows_core::Result<ITfCompartmentMgr>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITfThreadMgr_Vtbl {
     pub const fn new<Identity: ITfThreadMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Activate<Identity: ITfThreadMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptid: *mut TfClientId) -> windows_core::HRESULT {
@@ -7532,7 +7532,7 @@ impl ITfThreadMgr_Vtbl {
         iid == &<ITfThreadMgr as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITfThreadMgr {}
 windows_core::imp::define_interface!(ITfThreadMgr2, ITfThreadMgr2_Vtbl, 0x0ab198ef_6477_4ee8_8812_6780edb82d5e);
 windows_core::imp::interface_hierarchy!(ITfThreadMgr2, windows_core::IUnknown);
@@ -7932,12 +7932,12 @@ pub struct ITfThreadMgrEx_Vtbl {
     pub ActivateEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TfClientId, u32) -> windows_core::HRESULT,
     pub GetActiveFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITfThreadMgrEx_Impl: ITfThreadMgr_Impl {
     fn ActivateEx(&self, ptid: *mut TfClientId, dwflags: u32) -> windows_core::Result<()>;
     fn GetActiveFlags(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITfThreadMgrEx_Vtbl {
     pub const fn new<Identity: ITfThreadMgrEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivateEx<Identity: ITfThreadMgrEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptid: *mut TfClientId, dwflags: u32) -> windows_core::HRESULT {
@@ -7968,7 +7968,7 @@ impl ITfThreadMgrEx_Vtbl {
         iid == &<ITfThreadMgrEx as windows_core::Interface>::IID || iid == &<ITfThreadMgr as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITfThreadMgrEx {}
 windows_core::imp::define_interface!(ITfToolTipUIElement, ITfToolTipUIElement_Vtbl, 0x52b18b5c_555d_46b2_b00a_fa680144fbdb);
 impl core::ops::Deref for ITfToolTipUIElement {
@@ -8401,26 +8401,26 @@ pub const TF_CT_NONE: TF_DA_COLORTYPE = 0;
 pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = 1;
 pub type TF_DA_ATTR_INFO = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,
     pub Anonymous: TF_DA_COLOR_0,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for TF_DA_COLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union TF_DA_COLOR_0 {
     pub nIndex: i32,
     pub cr: super::windef::COLORREF,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for TF_DA_COLOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8433,7 +8433,7 @@ pub const TF_DISABLE_COMMANDING: u32 = 4;
 pub const TF_DISABLE_DICTATION: u32 = 2;
 pub const TF_DISABLE_SPEECH: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct TF_DISPLAYATTRIBUTE {
     pub crText: TF_DA_COLOR,
@@ -8443,7 +8443,7 @@ pub struct TF_DISPLAYATTRIBUTE {
     pub crLine: TF_DA_COLOR,
     pub bAttr: TF_DA_ATTR_INFO,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for TF_DISPLAYATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8491,7 +8491,7 @@ pub const TF_IAS_NO_DEFAULT_COMPOSITION: u32 = 2147483648;
 pub const TF_IAS_QUERYONLY: u32 = 2;
 pub const TF_IE_CORRECTION: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
@@ -8526,7 +8526,7 @@ pub const TF_IPP_FLAG_ENABLED: u32 = 2;
 pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4;
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: windows_core::GUID,
@@ -8588,18 +8588,18 @@ pub const TF_PROFILE_TIGRINYA: windows_core::GUID = windows_core::GUID::from_u12
 pub const TF_PROFILE_WUBI: windows_core::GUID = windows_core::GUID::from_u128(0x82590c13_f4dd_44f4_ba1d_8667246fdf8e);
 pub const TF_PROFILE_YI: windows_core::GUID = windows_core::GUID::from_u128(0x409c8376_007b_4357_ae8e_26316ee3fb0d);
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub struct TF_PROPERTYVAL {
     pub guidId: windows_core::GUID,
     pub varValue: super::oaidl::VARIANT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for TF_PROPERTYVAL {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for TF_PROPERTYVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8646,7 +8646,7 @@ pub const TF_SS_REGIONS: u32 = 2;
 pub const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16;
 pub const TF_SS_TKBPREDICTIONENABLE: u32 = 32;
 pub const TF_SS_TRANSITORY: u32 = 4;
-#[cfg(feature = "Win32_textstor")]
+#[cfg(feature = "textstor")]
 pub type TF_STATUS = super::textstor::TS_STATUS;
 pub const TF_ST_CORRECTION: u32 = 1;
 pub const TF_S_ASYNC: u32 = 262912;

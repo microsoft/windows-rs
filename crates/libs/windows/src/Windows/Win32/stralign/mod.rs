@@ -17,14 +17,14 @@ pub unsafe fn uaw_lstrlenW(string: *const u16) -> i32 {
     unsafe { uaw_lstrlenW(string) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn uaw_wcschr(string: *const u16, character: u16) -> super::winnt::PUWSTR {
     windows_core::link!("kernel32.dll" "C" fn uaw_wcschr(string : *const u16, character : u16) -> super::winnt::PUWSTR);
     unsafe { uaw_wcschr(string, character) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> super::winnt::PUWSTR {
     windows_core::link!("kernel32.dll" "C" fn uaw_wcscpy(destination : *mut u16, source : *const u16) -> super::winnt::PUWSTR);
@@ -43,7 +43,7 @@ pub unsafe fn uaw_wcslen(string: *const u16) -> usize {
     unsafe { uaw_wcslen(string) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn uaw_wcsrchr(string: *const u16, character: u16) -> super::winnt::PUWSTR {
     windows_core::link!("kernel32.dll" "C" fn uaw_wcsrchr(string : *const u16, character : u16) -> super::winnt::PUWSTR);

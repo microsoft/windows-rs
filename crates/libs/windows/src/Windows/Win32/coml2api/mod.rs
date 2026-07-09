@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateILockBytesOnHGlobal(hglobal: Option<super::minwindef::HGLOBAL>, fdeleteonrelease: bool) -> windows_core::Result<super::objidl::ILockBytes> {
     windows_core::link!("ole32.dll" "system" fn CreateILockBytesOnHGlobal(hglobal : super::minwindef::HGLOBAL, fdeleteonrelease : windows_core::BOOL, pplkbyt : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -12,7 +12,7 @@ pub unsafe fn FmtIdToPropStgName(pfmtid: *const windows_core::GUID, oszname: win
     windows_core::link!("ole32.dll" "system" fn FmtIdToPropStgName(pfmtid : *const windows_core::GUID, oszname : windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { FmtIdToPropStgName(pfmtid, core::mem::transmute(oszname)) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn GetConvertStg<P0>(pstg: P0) -> windows_core::HRESULT
 where
@@ -21,7 +21,7 @@ where
     windows_core::link!("ole32.dll" "system" fn GetConvertStg(pstg : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { GetConvertStg(pstg.param().abi()) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetHGlobalFromILockBytes<P0>(plkbyt: P0) -> windows_core::Result<super::minwindef::HGLOBAL>
 where
@@ -44,7 +44,7 @@ where
         PropStgNameToFmtId(oszname.param().abi(), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn ReadClassStg<P0>(pstg: P0) -> windows_core::Result<windows_core::GUID>
 where
@@ -56,7 +56,7 @@ where
         ReadClassStg(pstg.param().abi(), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn ReadClassStm<P0>(pstm: P0) -> windows_core::Result<windows_core::GUID>
 where
@@ -68,7 +68,7 @@ where
         ReadClassStm(pstm.param().abi(), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn StgCreateDocfile(pwcsname: Option<*const u16>, grfmode: u32, reserved: Option<u32>) -> windows_core::Result<super::objidl::IStorage> {
     windows_core::link!("ole32.dll" "system" fn StgCreateDocfile(pwcsname : *const u16, grfmode : u32, reserved : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -77,7 +77,7 @@ pub unsafe fn StgCreateDocfile(pwcsname: Option<*const u16>, grfmode: u32, reser
         StgCreateDocfile(pwcsname.unwrap_or(core::mem::zeroed()) as _, grfmode, reserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn StgCreateDocfileOnILockBytes<P0>(plkbyt: P0, grfmode: u32, reserved: u32) -> windows_core::Result<super::objidl::IStorage>
 where
@@ -89,7 +89,7 @@ where
         StgCreateDocfileOnILockBytes(plkbyt.param().abi(), grfmode, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_propidlbase"))]
+#[cfg(all(feature = "objidl", feature = "propidlbase"))]
 #[inline]
 pub unsafe fn StgCreatePropSetStg<P0>(pstorage: P0, dwreserved: Option<u32>) -> windows_core::Result<super::propidlbase::IPropertySetStorage>
 where
@@ -101,7 +101,7 @@ where
         StgCreatePropSetStg(pstorage.param().abi(), dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_propidlbase")]
+#[cfg(feature = "propidlbase")]
 #[inline]
 pub unsafe fn StgCreatePropStg<P0>(punk: P0, fmtid: *const windows_core::GUID, pclsid: *const windows_core::GUID, grfflags: u32, dwreserved: Option<u32>) -> windows_core::Result<super::propidlbase::IPropertyStorage>
 where
@@ -113,7 +113,7 @@ where
         StgCreatePropStg(punk.param().abi(), fmtid, pclsid, grfflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn StgCreateStorageEx(pwcsname: Option<*const u16>, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: Option<*mut STGOPTIONS>, psecuritydescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, riid: *const windows_core::GUID, ppobjectopen: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn StgCreateStorageEx(pwcsname : *const u16, grfmode : u32, stgfmt : u32, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -124,7 +124,7 @@ pub unsafe fn StgIsStorageFile(pwcsname: *const u16) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn StgIsStorageFile(pwcsname : *const u16) -> windows_core::HRESULT);
     unsafe { StgIsStorageFile(pwcsname) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn StgIsStorageILockBytes<P0>(plkbyt: P0) -> windows_core::HRESULT
 where
@@ -133,7 +133,7 @@ where
     windows_core::link!("ole32.dll" "system" fn StgIsStorageILockBytes(plkbyt : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { StgIsStorageILockBytes(plkbyt.param().abi()) }
 }
-#[cfg(feature = "Win32_propidlbase")]
+#[cfg(feature = "propidlbase")]
 #[inline]
 pub unsafe fn StgOpenPropStg<P0>(punk: P0, fmtid: *const windows_core::GUID, grfflags: u32, dwreserved: Option<u32>) -> windows_core::Result<super::propidlbase::IPropertyStorage>
 where
@@ -145,7 +145,7 @@ where
         StgOpenPropStg(punk.param().abi(), fmtid, grfflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn StgOpenStorage<P1>(pwcsname: Option<*const u16>, pstgpriority: P1, grfmode: u32, snbexclude: Option<*const windows_core::PCWSTR>, reserved: u32) -> windows_core::Result<super::objidl::IStorage>
 where
@@ -157,13 +157,13 @@ where
         StgOpenStorage(pwcsname.unwrap_or(core::mem::zeroed()) as _, pstgpriority.param().abi(), grfmode, snbexclude.unwrap_or(core::mem::zeroed()) as _, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn StgOpenStorageEx(pwcsname: *const u16, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: Option<*mut STGOPTIONS>, psecuritydescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, riid: *const windows_core::GUID, ppobjectopen: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn StgOpenStorageEx(pwcsname : *const u16, grfmode : u32, stgfmt : u32, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { StgOpenStorageEx(pwcsname, grfmode, stgfmt, grfattrs, pstgoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, riid, ppobjectopen as _) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn StgOpenStorageOnILockBytes<P0, P1>(plkbyt: P0, pstgpriority: P1, grfmode: u32, snbexclude: Option<*const windows_core::PCWSTR>, reserved: Option<u32>) -> windows_core::Result<super::objidl::IStorage>
 where
@@ -176,13 +176,13 @@ where
         StgOpenStorageOnILockBytes(plkbyt.param().abi(), pstgpriority.param().abi(), grfmode, snbexclude.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn StgSetTimes(lpszname: *const u16, pctime: Option<*const super::minwindef::FILETIME>, patime: Option<*const super::minwindef::FILETIME>, pmtime: Option<*const super::minwindef::FILETIME>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn StgSetTimes(lpszname : *const u16, pctime : *const super::minwindef::FILETIME, patime : *const super::minwindef::FILETIME, pmtime : *const super::minwindef::FILETIME) -> windows_core::HRESULT);
     unsafe { StgSetTimes(lpszname, pctime.unwrap_or(core::mem::zeroed()) as _, patime.unwrap_or(core::mem::zeroed()) as _, pmtime.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn WriteClassStg<P0>(pstg: P0, rclsid: *const windows_core::GUID) -> windows_core::HRESULT
 where
@@ -191,7 +191,7 @@ where
     windows_core::link!("ole32.dll" "system" fn WriteClassStg(pstg : *mut core::ffi::c_void, rclsid : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { WriteClassStg(pstg.param().abi(), rclsid) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn WriteClassStm<P0>(pstm: P0, rclsid: *const windows_core::GUID) -> windows_core::HRESULT
 where

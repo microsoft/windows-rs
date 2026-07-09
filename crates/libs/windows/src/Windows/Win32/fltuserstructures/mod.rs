@@ -103,7 +103,7 @@ pub struct FILTER_MESSAGE_HEADER {
 }
 pub const FILTER_NAME_MAX_CHARS: u32 = 255;
 #[repr(C)]
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILTER_REPLY_HEADER {
     pub Status: super::bcrypt::NTSTATUS,
@@ -182,15 +182,15 @@ pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = 2;
 pub const FilterFullInformation: FILTER_INFORMATION_CLASS = 0;
 pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = 0;
 pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = 1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HFILTER(pub super::winnt::HANDLE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HFILTER_INSTANCE(pub super::winnt::HANDLE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HFILTER_VOLUME(pub super::winnt::HANDLE);
@@ -345,17 +345,17 @@ impl Default for PFILTER_MESSAGE_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PFILTER_REPLY_HEADER(pub *mut FILTER_REPLY_HEADER);
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 impl PFILTER_REPLY_HEADER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 impl Default for PFILTER_REPLY_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

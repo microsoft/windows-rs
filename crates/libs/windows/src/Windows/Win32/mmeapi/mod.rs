@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn auxGetDevCapsA(udeviceid : usize, pac : *mut AUXCAPSA, cbac : u32) -> super::mmsyscom::MMRESULT);
     unsafe { auxGetDevCapsA(udeviceid, pac as _, cbac) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn auxGetDevCapsW(udeviceid : usize, pac : *mut AUXCAPSW, cbac : u32) -> super::mmsyscom::MMRESULT);
@@ -15,73 +15,73 @@ pub unsafe fn auxGetNumDevs() -> u32 {
     windows_core::link!("winmm.dll" "system" fn auxGetNumDevs() -> u32);
     unsafe { auxGetNumDevs() }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn auxGetVolume(udeviceid : u32, pdwvolume : *mut u32) -> super::mmsyscom::MMRESULT);
     unsafe { auxGetVolume(udeviceid, pdwvolume as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn auxOutMessage(udeviceid : u32, umsg : u32, dw1 : usize, dw2 : usize) -> super::mmsyscom::MMRESULT);
     unsafe { auxOutMessage(udeviceid, umsg, dw1.unwrap_or(core::mem::zeroed()) as _, dw2.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn auxSetVolume(udeviceid : u32, dwvolume : u32) -> super::mmsyscom::MMRESULT);
     unsafe { auxSetVolume(udeviceid, dwvolume) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: Option<*const core::ffi::c_void>) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiConnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> super::mmsyscom::MMRESULT);
     unsafe { midiConnect(hmi, hmo, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: Option<*const core::ffi::c_void>) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiDisconnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> super::mmsyscom::MMRESULT);
     unsafe { midiDisconnect(hmi, hmo, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInAddBuffer(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInAddBuffer(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiInAddBuffer(hmi, pmh as _, cbmh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInClose(hmi: HMIDIIN) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInClose(hmi : HMIDIIN) -> super::mmsyscom::MMRESULT);
     unsafe { midiInClose(hmi) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInGetDevCapsA(udeviceid : usize, pmic : *mut MIDIINCAPSA, cbmic : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiInGetDevCapsA(udeviceid, pmic as _, cbmic) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInGetDevCapsW(udeviceid : usize, pmic : *mut MIDIINCAPSW, cbmic : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiInGetDevCapsW(udeviceid, pmic as _, cbmic) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInGetErrorTextA(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u8]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInGetErrorTextA(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiInGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInGetErrorTextW(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u16]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PWSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiInGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInGetID(hmi: HMIDIIN, pudeviceid: *mut u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInGetID(hmi : HMIDIIN, pudeviceid : *mut u32) -> super::mmsyscom::MMRESULT);
@@ -92,91 +92,91 @@ pub unsafe fn midiInGetNumDevs() -> u32 {
     windows_core::link!("winmm.dll" "system" fn midiInGetNumDevs() -> u32);
     unsafe { midiInGetNumDevs() }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInMessage(hmi: Option<HMIDIIN>, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInMessage(hmi : HMIDIIN, umsg : u32, dw1 : usize, dw2 : usize) -> super::mmsyscom::MMRESULT);
     unsafe { midiInMessage(hmi.unwrap_or(core::mem::zeroed()) as _, umsg, dw1.unwrap_or(core::mem::zeroed()) as _, dw2.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInOpen(phmi : *mut HMIDIIN, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiInOpen(phmi as _, udeviceid, dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInPrepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInPrepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiInPrepareHeader(hmi, pmh as _, cbmh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInReset(hmi: HMIDIIN) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInReset(hmi : HMIDIIN) -> super::mmsyscom::MMRESULT);
     unsafe { midiInReset(hmi) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInStart(hmi: HMIDIIN) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInStart(hmi : HMIDIIN) -> super::mmsyscom::MMRESULT);
     unsafe { midiInStart(hmi) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInStop(hmi: HMIDIIN) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInStop(hmi : HMIDIIN) -> super::mmsyscom::MMRESULT);
     unsafe { midiInStop(hmi) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInUnprepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiInUnprepareHeader(hmi, pmh as _, cbmh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: u32, pwkya: *const u16, fucache: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutCacheDrumPatches(hmo : HMIDIOUT, upatch : u32, pwkya : *const u16, fucache : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutCacheDrumPatches(hmo, upatch, pwkya, fucache) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutCachePatches(hmo: HMIDIOUT, ubank: u32, pwpa: *const u16, fucache: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : u32, pwpa : *const u16, fucache : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutCachePatches(hmo, ubank, pwpa, fucache) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutClose(hmo: HMIDIOUT) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutClose(hmo : HMIDIOUT) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutClose(hmo) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutGetDevCapsA(udeviceid : usize, pmoc : *mut MIDIOUTCAPSA, cbmoc : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutGetDevCapsA(udeviceid, pmoc as _, cbmoc) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutGetDevCapsW(udeviceid : usize, pmoc : *mut MIDIOUTCAPSW, cbmoc : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutGetDevCapsW(udeviceid, pmoc as _, cbmoc) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutGetErrorTextA(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u8]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutGetErrorTextW(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u16]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutGetErrorTextW(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PWSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutGetID(hmo: HMIDIOUT, pudeviceid: *mut u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutGetID(hmo : HMIDIOUT, pudeviceid : *mut u32) -> super::mmsyscom::MMRESULT);
@@ -187,163 +187,163 @@ pub unsafe fn midiOutGetNumDevs() -> u32 {
     windows_core::link!("winmm.dll" "system" fn midiOutGetNumDevs() -> u32);
     unsafe { midiOutGetNumDevs() }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutGetVolume(hmo: Option<HMIDIOUT>, pdwvolume: *mut u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutGetVolume(hmo : HMIDIOUT, pdwvolume : *mut u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutGetVolume(hmo.unwrap_or(core::mem::zeroed()) as _, pdwvolume as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutLongMsg(hmo: HMIDIOUT, pmh: *const MIDIHDR, cbmh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutLongMsg(hmo : HMIDIOUT, pmh : *const MIDIHDR, cbmh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutLongMsg(hmo, pmh, cbmh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutMessage(hmo: Option<HMIDIOUT>, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutMessage(hmo : HMIDIOUT, umsg : u32, dw1 : usize, dw2 : usize) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutMessage(hmo.unwrap_or(core::mem::zeroed()) as _, umsg, dw1.unwrap_or(core::mem::zeroed()) as _, dw2.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutOpen(phmo : *mut HMIDIOUT, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutOpen(phmo as _, udeviceid, dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutPrepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutPrepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutPrepareHeader(hmo, pmh as _, cbmh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutReset(hmo: HMIDIOUT) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutReset(hmo : HMIDIOUT) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutReset(hmo) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutSetVolume(hmo: Option<HMIDIOUT>, dwvolume: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutSetVolume(hmo : HMIDIOUT, dwvolume : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutSetVolume(hmo.unwrap_or(core::mem::zeroed()) as _, dwvolume) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutShortMsg(hmo: HMIDIOUT, dwmsg: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutShortMsg(hmo : HMIDIOUT, dwmsg : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutShortMsg(hmo, dwmsg) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutUnprepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiOutUnprepareHeader(hmo, pmh as _, cbmh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiStreamClose(hms: HMIDISTRM) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiStreamClose(hms : HMIDISTRM) -> super::mmsyscom::MMRESULT);
     unsafe { midiStreamClose(hms) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: &mut [u32], dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiStreamOpen(phms : *mut HMIDISTRM, pudeviceid : *mut u32, cmidi : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiStreamOpen(phms as _, core::mem::transmute(pudeviceid.as_ptr()), pudeviceid.len().try_into().unwrap(), dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiStreamOut(hms: HMIDISTRM, pmh: *mut MIDIHDR, cbmh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiStreamOut(hms : HMIDISTRM, pmh : *mut MIDIHDR, cbmh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiStreamOut(hms, pmh as _, cbmh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiStreamPause(hms: HMIDISTRM) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiStreamPause(hms : HMIDISTRM) -> super::mmsyscom::MMRESULT);
     unsafe { midiStreamPause(hms) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiStreamPosition(hms: HMIDISTRM, lpmmt: *mut super::mmsyscom::MMTIME, cbmmt: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiStreamPosition(hms : HMIDISTRM, lpmmt : *mut super::mmsyscom::MMTIME, cbmmt : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiStreamPosition(hms, lpmmt as _, cbmmt) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiStreamProperty(hms: HMIDISTRM, lppropdata: *mut u8, dwproperty: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiStreamProperty(hms : HMIDISTRM, lppropdata : *mut u8, dwproperty : u32) -> super::mmsyscom::MMRESULT);
     unsafe { midiStreamProperty(hms, lppropdata as _, dwproperty) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiStreamRestart(hms: HMIDISTRM) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiStreamRestart(hms : HMIDISTRM) -> super::mmsyscom::MMRESULT);
     unsafe { midiStreamRestart(hms) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiStreamStop(hms: HMIDISTRM) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiStreamStop(hms : HMIDISTRM) -> super::mmsyscom::MMRESULT);
     unsafe { midiStreamStop(hms) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn mixerClose(hmx: HMIXER) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerClose(hmx : HMIXER) -> super::mmsyscom::MMRESULT);
     unsafe { mixerClose(hmx) }
 }
-#[cfg(all(feature = "Win32_mmsyscom", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmsyscom", feature = "windef"))]
 #[inline]
 pub unsafe fn mixerGetControlDetailsA(hmxobj: Option<HMIXEROBJ>, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerGetControlDetailsA(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
     unsafe { mixerGetControlDetailsA(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxcd as _, fdwdetails) }
 }
-#[cfg(all(feature = "Win32_mmsyscom", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmsyscom", feature = "windef"))]
 #[inline]
 pub unsafe fn mixerGetControlDetailsW(hmxobj: Option<HMIXEROBJ>, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerGetControlDetailsW(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
     unsafe { mixerGetControlDetailsW(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxcd as _, fdwdetails) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerGetDevCapsA(umxid : usize, pmxcaps : *mut MIXERCAPSA, cbmxcaps : u32) -> super::mmsyscom::MMRESULT);
     unsafe { mixerGetDevCapsA(umxid, pmxcaps as _, cbmxcaps) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerGetDevCapsW(umxid : usize, pmxcaps : *mut MIXERCAPSW, cbmxcaps : u32) -> super::mmsyscom::MMRESULT);
     unsafe { mixerGetDevCapsW(umxid, pmxcaps as _, cbmxcaps) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn mixerGetID(hmxobj: Option<HMIXEROBJ>, pumxid: *mut u32, fdwid: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerGetID(hmxobj : HMIXEROBJ, pumxid : *mut u32, fdwid : u32) -> super::mmsyscom::MMRESULT);
     unsafe { mixerGetID(hmxobj.unwrap_or(core::mem::zeroed()) as _, pumxid as _, fdwid) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn mixerGetLineControlsA(hmxobj: Option<HMIXEROBJ>, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerGetLineControlsA(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSA, fdwcontrols : u32) -> super::mmsyscom::MMRESULT);
     unsafe { mixerGetLineControlsA(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxlc as _, fdwcontrols) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn mixerGetLineControlsW(hmxobj: Option<HMIXEROBJ>, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerGetLineControlsW(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSW, fdwcontrols : u32) -> super::mmsyscom::MMRESULT);
     unsafe { mixerGetLineControlsW(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxlc as _, fdwcontrols) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn mixerGetLineInfoA(hmxobj: Option<HMIXEROBJ>, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerGetLineInfoA(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEA, fdwinfo : u32) -> super::mmsyscom::MMRESULT);
     unsafe { mixerGetLineInfoA(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxl as _, fdwinfo) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn mixerGetLineInfoW(hmxobj: Option<HMIXEROBJ>, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerGetLineInfoW(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEW, fdwinfo : u32) -> super::mmsyscom::MMRESULT);
@@ -359,55 +359,55 @@ pub unsafe fn mixerMessage(hmx: Option<HMIXER>, umsg: u32, dwparam1: Option<usiz
     windows_core::link!("winmm.dll" "system" fn mixerMessage(hmx : HMIXER, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
     unsafe { mixerMessage(hmx.unwrap_or(core::mem::zeroed()) as _, umsg, dwparam1.unwrap_or(core::mem::zeroed()) as _, dwparam2.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn mixerOpen(phmx: Option<*mut HMIXER>, umxid: u32, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerOpen(phmx : *mut HMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::mmsyscom::MMRESULT);
     unsafe { mixerOpen(phmx.unwrap_or(core::mem::zeroed()) as _, umxid, dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
-#[cfg(all(feature = "Win32_mmsyscom", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmsyscom", feature = "windef"))]
 #[inline]
 pub unsafe fn mixerSetControlDetails(hmxobj: Option<HMIXEROBJ>, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : *const MIXERCONTROLDETAILS, fdwdetails : u32) -> super::mmsyscom::MMRESULT);
     unsafe { mixerSetControlDetails(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxcd, fdwdetails) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInAddBuffer(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInAddBuffer(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveInAddBuffer(hwi, pwh as _, cbwh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInClose(hwi: HWAVEIN) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInClose(hwi : HWAVEIN) -> super::mmsyscom::MMRESULT);
     unsafe { waveInClose(hwi) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInGetDevCapsA(udeviceid : usize, pwic : *mut WAVEINCAPSA, cbwic : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveInGetDevCapsA(udeviceid, pwic as _, cbwic) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInGetDevCapsW(udeviceid : usize, pwic : *mut WAVEINCAPSW, cbwic : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveInGetDevCapsW(udeviceid, pwic as _, cbwic) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInGetErrorTextA(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u8]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInGetErrorTextA(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveInGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInGetErrorTextW(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u16]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PWSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveInGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInGetID(hwi: HWAVEIN, pudeviceid: *const u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInGetID(hwi : HWAVEIN, pudeviceid : *const u32) -> super::mmsyscom::MMRESULT);
@@ -418,91 +418,91 @@ pub unsafe fn waveInGetNumDevs() -> u32 {
     windows_core::link!("winmm.dll" "system" fn waveInGetNumDevs() -> u32);
     unsafe { waveInGetNumDevs() }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInGetPosition(hwi: HWAVEIN, pmmt: *mut super::mmsyscom::MMTIME, cbmmt: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInGetPosition(hwi : HWAVEIN, pmmt : *mut super::mmsyscom::MMTIME, cbmmt : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveInGetPosition(hwi, pmmt as _, cbmmt) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInMessage(hwi: Option<HWAVEIN>, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInMessage(hwi : HWAVEIN, umsg : u32, dw1 : usize, dw2 : usize) -> super::mmsyscom::MMRESULT);
     unsafe { waveInMessage(hwi.unwrap_or(core::mem::zeroed()) as _, umsg, dw1.unwrap_or(core::mem::zeroed()) as _, dw2.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInOpen(phwi: Option<*mut HWAVEIN>, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInOpen(phwi : *mut HWAVEIN, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveInOpen(phwi.unwrap_or(core::mem::zeroed()) as _, udeviceid, pwfx, dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInPrepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInPrepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveInPrepareHeader(hwi, pwh as _, cbwh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInReset(hwi: HWAVEIN) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInReset(hwi : HWAVEIN) -> super::mmsyscom::MMRESULT);
     unsafe { waveInReset(hwi) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInStart(hwi: HWAVEIN) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInStart(hwi : HWAVEIN) -> super::mmsyscom::MMRESULT);
     unsafe { waveInStart(hwi) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInStop(hwi: HWAVEIN) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInStop(hwi : HWAVEIN) -> super::mmsyscom::MMRESULT);
     unsafe { waveInStop(hwi) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInUnprepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInUnprepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveInUnprepareHeader(hwi, pwh as _, cbwh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutBreakLoop(hwo: HWAVEOUT) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutBreakLoop(hwo : HWAVEOUT) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutBreakLoop(hwo) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutClose(hwo: HWAVEOUT) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutClose(hwo : HWAVEOUT) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutClose(hwo) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutGetDevCapsA(udeviceid : usize, pwoc : *mut WAVEOUTCAPSA, cbwoc : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutGetDevCapsA(udeviceid, pwoc as _, cbwoc) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutGetDevCapsW(udeviceid : usize, pwoc : *mut WAVEOUTCAPSW, cbwoc : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutGetDevCapsW(udeviceid, pwoc as _, cbwoc) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutGetErrorTextA(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u8]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutGetErrorTextA(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutGetErrorTextW(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u16]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PWSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutGetID(hwo: HWAVEOUT, pudeviceid: *mut u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutGetID(hwo : HWAVEOUT, pudeviceid : *mut u32) -> super::mmsyscom::MMRESULT);
@@ -513,102 +513,102 @@ pub unsafe fn waveOutGetNumDevs() -> u32 {
     windows_core::link!("winmm.dll" "system" fn waveOutGetNumDevs() -> u32);
     unsafe { waveOutGetNumDevs() }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutGetPitch(hwo: HWAVEOUT, pdwpitch: *mut u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutGetPitch(hwo : HWAVEOUT, pdwpitch : *mut u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutGetPitch(hwo, pdwpitch as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutGetPlaybackRate(hwo: HWAVEOUT, pdwrate: *mut u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutGetPlaybackRate(hwo : HWAVEOUT, pdwrate : *mut u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutGetPlaybackRate(hwo, pdwrate as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutGetPosition(hwo: HWAVEOUT, pmmt: *mut super::mmsyscom::MMTIME, cbmmt: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutGetPosition(hwo : HWAVEOUT, pmmt : *mut super::mmsyscom::MMTIME, cbmmt : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutGetPosition(hwo, pmmt as _, cbmmt) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutGetVolume(hwo: Option<HWAVEOUT>, pdwvolume: *mut u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutGetVolume(hwo : HWAVEOUT, pdwvolume : *mut u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutGetVolume(hwo.unwrap_or(core::mem::zeroed()) as _, pdwvolume as _) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutMessage(hwo: Option<HWAVEOUT>, umsg: u32, dw1: usize, dw2: usize) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutMessage(hwo : HWAVEOUT, umsg : u32, dw1 : usize, dw2 : usize) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutMessage(hwo.unwrap_or(core::mem::zeroed()) as _, umsg, dw1, dw2) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutOpen(phwo: Option<*mut HWAVEOUT>, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutOpen(phwo : *mut HWAVEOUT, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutOpen(phwo.unwrap_or(core::mem::zeroed()) as _, udeviceid, pwfx, dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutPause(hwo: HWAVEOUT) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutPause(hwo : HWAVEOUT) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutPause(hwo) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutPrepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutPrepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutPrepareHeader(hwo, pwh as _, cbwh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutReset(hwo: HWAVEOUT) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutReset(hwo : HWAVEOUT) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutReset(hwo) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutRestart(hwo: HWAVEOUT) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutRestart(hwo : HWAVEOUT) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutRestart(hwo) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutSetPitch(hwo: HWAVEOUT, dwpitch: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutSetPitch(hwo : HWAVEOUT, dwpitch : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutSetPitch(hwo, dwpitch) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutSetPlaybackRate(hwo : HWAVEOUT, dwrate : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutSetPlaybackRate(hwo, dwrate) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutSetVolume(hwo: Option<HWAVEOUT>, dwvolume: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutSetVolume(hwo : HWAVEOUT, dwvolume : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutSetVolume(hwo.unwrap_or(core::mem::zeroed()) as _, dwvolume) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutUnprepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutUnprepareHeader(hwo, pwh as _, cbwh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutWrite(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> super::mmsyscom::MMRESULT);
     unsafe { waveOutWrite(hwo, pwh as _, cbwh) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type AUXCAPS = AUXCAPSA;
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type AUXCAPS2 = AUXCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct AUXCAPS2A {
     pub wMid: u16,
@@ -622,14 +622,14 @@ pub struct AUXCAPS2A {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for AUXCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct AUXCAPS2W {
     pub wMid: u16,
@@ -643,14 +643,14 @@ pub struct AUXCAPS2W {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for AUXCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct AUXCAPSA {
     pub wMid: u16,
@@ -661,14 +661,14 @@ pub struct AUXCAPSA {
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for AUXCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct AUXCAPSW {
     pub wMid: u16,
@@ -679,7 +679,7 @@ pub struct AUXCAPSW {
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for AUXCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -808,73 +808,73 @@ impl Default for HWAVEOUT {
     }
 }
 pub type KEYARRAY = [u16; 128];
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPAUXCAPS(pub LPAUXCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPAUXCAPS2(pub LPAUXCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPAUXCAPS2A(pub *mut AUXCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPAUXCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPAUXCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPAUXCAPS2W(pub *mut AUXCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPAUXCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPAUXCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPAUXCAPSA(pub *mut AUXCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPAUXCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPAUXCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPAUXCAPSW(pub *mut AUXCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPAUXCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPAUXCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1024,145 +1024,145 @@ impl Default for LPMIDIHDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMIDIINCAPS(pub LPMIDIINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMIDIINCAPS2(pub LPMIDIINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIDIINCAPS2A(pub *mut MIDIINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIDIINCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIDIINCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIDIINCAPS2W(pub *mut MIDIINCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIDIINCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIDIINCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIDIINCAPSA(pub *mut MIDIINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIDIINCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIDIINCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIDIINCAPSW(pub *mut MIDIINCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIDIINCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIDIINCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMIDIOUTCAPS(pub LPMIDIOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMIDIOUTCAPS2(pub LPMIDIOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIDIOUTCAPS2A(pub *mut MIDIOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIDIOUTCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIDIOUTCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIDIOUTCAPS2W(pub *mut MIDIOUTCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIDIOUTCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIDIOUTCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIDIOUTCAPSA(pub *mut MIDIOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIDIOUTCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIDIOUTCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIDIOUTCAPSW(pub *mut MIDIOUTCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIDIOUTCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIDIOUTCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1194,73 +1194,73 @@ impl Default for LPMIDIPROPTIMEDIV {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMIXERCAPS(pub LPMIXERCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMIXERCAPS2(pub LPMIXERCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIXERCAPS2A(pub *mut MIXERCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIXERCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIXERCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIXERCAPS2W(pub *mut MIXERCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIXERCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIXERCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIXERCAPSA(pub *mut MIXERCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIXERCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIXERCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIXERCAPSW(pub *mut MIXERCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIXERCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIXERCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1282,17 +1282,17 @@ impl Default for LPMIXERCONTROLA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIXERCONTROLDETAILS(pub *mut MIXERCONTROLDETAILS);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPMIXERCONTROLDETAILS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPMIXERCONTROLDETAILS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1379,21 +1379,21 @@ impl Default for LPMIXERCONTROLW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMIXERLINE(pub LPMIXERLINEA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIXERLINEA(pub *mut MIXERLINEA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIXERLINEA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIXERLINEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1428,17 +1428,17 @@ impl Default for LPMIXERLINECONTROLSW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMIXERLINEW(pub *mut MIXERLINEW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPMIXERLINEW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPMIXERLINEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1510,145 +1510,145 @@ impl Default for LPWAVEHDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPWAVEINCAPS(pub LPWAVEINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPWAVEINCAPS2(pub LPWAVEINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWAVEINCAPS2A(pub *mut WAVEINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPWAVEINCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPWAVEINCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWAVEINCAPS2W(pub *mut WAVEINCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPWAVEINCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPWAVEINCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWAVEINCAPSA(pub *mut WAVEINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPWAVEINCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPWAVEINCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWAVEINCAPSW(pub *mut WAVEINCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPWAVEINCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPWAVEINCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPWAVEOUTCAPS(pub LPWAVEOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPWAVEOUTCAPS2(pub LPWAVEOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWAVEOUTCAPS2A(pub *mut WAVEOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPWAVEOUTCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPWAVEOUTCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWAVEOUTCAPS2W(pub *mut WAVEOUTCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPWAVEOUTCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPWAVEOUTCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWAVEOUTCAPSA(pub *mut WAVEOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPWAVEOUTCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPWAVEOUTCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWAVEOUTCAPSW(pub *mut WAVEOUTCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl LPWAVEOUTCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for LPWAVEOUTCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1667,7 +1667,7 @@ pub const MHDR_DONE: u32 = 1;
 pub const MHDR_INQUEUE: u32 = 4;
 pub const MHDR_ISSTRM: u32 = 8;
 pub const MHDR_PREPARED: u32 = 2;
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type MIDICALLBACK = Option<unsafe extern "system" fn(hdrvr: super::mmsyscom::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub const MIDICAPS_CACHE: u32 = 4;
 pub const MIDICAPS_LRVOLUME: u32 = 2;
@@ -1713,12 +1713,12 @@ impl Default for MIDIHDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type MIDIINCAPS = MIDIINCAPSA;
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type MIDIINCAPS2 = MIDIINCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPS2A {
     pub wMid: u16,
@@ -1730,14 +1730,14 @@ pub struct MIDIINCAPS2A {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIDIINCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPS2W {
     pub wMid: u16,
@@ -1749,14 +1749,14 @@ pub struct MIDIINCAPS2W {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIDIINCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPSA {
     pub wMid: u16,
@@ -1765,14 +1765,14 @@ pub struct MIDIINCAPSA {
     pub szPname: [i8; 32],
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIDIINCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPSW {
     pub wMid: u16,
@@ -1781,19 +1781,19 @@ pub struct MIDIINCAPSW {
     pub szPname: [u16; 32],
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIDIINCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const MIDIMAPPER: u32 = 4294967295;
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type MIDIOUTCAPS = MIDIOUTCAPSA;
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type MIDIOUTCAPS2 = MIDIOUTCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPS2A {
     pub wMid: u16,
@@ -1809,14 +1809,14 @@ pub struct MIDIOUTCAPS2A {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIDIOUTCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPS2W {
     pub wMid: u16,
@@ -1832,14 +1832,14 @@ pub struct MIDIOUTCAPS2W {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIDIOUTCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPSA {
     pub wMid: u16,
@@ -1852,14 +1852,14 @@ pub struct MIDIOUTCAPSA {
     pub wChannelMask: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIDIOUTCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPSW {
     pub wMid: u16,
@@ -1872,7 +1872,7 @@ pub struct MIDIOUTCAPSW {
     pub wChannelMask: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIDIOUTCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1916,12 +1916,12 @@ pub const MIM_LONGDATA: u32 = 964;
 pub const MIM_LONGERROR: u32 = 966;
 pub const MIM_MOREDATA: u32 = 972;
 pub const MIM_OPEN: u32 = 961;
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type MIXERCAPS = MIXERCAPSA;
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type MIXERCAPS2 = MIXERCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPS2A {
     pub wMid: u16,
@@ -1934,14 +1934,14 @@ pub struct MIXERCAPS2A {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIXERCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPS2W {
     pub wMid: u16,
@@ -1954,14 +1954,14 @@ pub struct MIXERCAPS2W {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIXERCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPSA {
     pub wMid: u16,
@@ -1971,14 +1971,14 @@ pub struct MIXERCAPSA {
     pub fdwSupport: u32,
     pub cDestinations: u32,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIXERCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPSW {
     pub wMid: u16,
@@ -1988,7 +1988,7 @@ pub struct MIXERCAPSW {
     pub fdwSupport: u32,
     pub cDestinations: u32,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIXERCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2050,7 +2050,7 @@ impl Default for MIXERCONTROLA_1 {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS {
     pub cbStruct: u32,
@@ -2060,20 +2060,20 @@ pub struct MIXERCONTROLDETAILS {
     pub cbDetails: u32,
     pub paDetails: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MIXERCONTROLDETAILS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub union MIXERCONTROLDETAILS_0 {
     pub hwndOwner: super::windef::HWND,
     pub cMultipleItems: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MIXERCONTROLDETAILS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2231,10 +2231,10 @@ pub const MIXERCONTROL_CT_UNITS_MASK: u32 = 16711680;
 pub const MIXERCONTROL_CT_UNITS_PERCENT: u32 = 327680;
 pub const MIXERCONTROL_CT_UNITS_SIGNED: u32 = 131072;
 pub const MIXERCONTROL_CT_UNITS_UNSIGNED: u32 = 196608;
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type MIXERLINE = MIXERLINEA;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEA {
     pub cbStruct: u32,
@@ -2251,14 +2251,14 @@ pub struct MIXERLINEA {
     pub szName: [i8; 64],
     pub Target: MIXERLINEA_0,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIXERLINEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEA_0 {
     pub dwType: u32,
@@ -2268,7 +2268,7 @@ pub struct MIXERLINEA_0 {
     pub vDriverVersion: super::mmsyscom::MMVERSION,
     pub szPname: [i8; 32],
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIXERLINEA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2328,7 +2328,7 @@ impl Default for MIXERLINECONTROLSW_0 {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEW {
     pub cbStruct: u32,
@@ -2345,14 +2345,14 @@ pub struct MIXERLINEW {
     pub szName: [u16; 64],
     pub Target: MIXERLINEW_0,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIXERLINEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEW_0 {
     pub dwType: u32,
@@ -2362,7 +2362,7 @@ pub struct MIXERLINEW_0 {
     pub vDriverVersion: super::mmsyscom::MMVERSION,
     pub szPname: [u16; 32],
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for MIXERLINEW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2446,73 +2446,73 @@ pub const MOM_CLOSE: u32 = 968;
 pub const MOM_DONE: u32 = 969;
 pub const MOM_OPEN: u32 = 967;
 pub const MOM_POSITIONCB: u32 = 970;
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NPAUXCAPS(pub NPAUXCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NPAUXCAPS2(pub NPAUXCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPAUXCAPS2A(pub *mut AUXCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPAUXCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPAUXCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPAUXCAPS2W(pub *mut AUXCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPAUXCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPAUXCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPAUXCAPSA(pub *mut AUXCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPAUXCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPAUXCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPAUXCAPSW(pub *mut AUXCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPAUXCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPAUXCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2531,145 +2531,145 @@ impl Default for NPMIDIHDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NPMIDIINCAPS(pub NPMIDIINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NPMIDIINCAPS2(pub NPMIDIINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPMIDIINCAPS2A(pub *mut MIDIINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPMIDIINCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPMIDIINCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPMIDIINCAPS2W(pub *mut MIDIINCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPMIDIINCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPMIDIINCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPMIDIINCAPSA(pub *mut MIDIINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPMIDIINCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPMIDIINCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPMIDIINCAPSW(pub *mut MIDIINCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPMIDIINCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPMIDIINCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NPMIDIOUTCAPS(pub NPMIDIOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NPMIDIOUTCAPS2(pub NPMIDIOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPMIDIOUTCAPS2A(pub *mut MIDIOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPMIDIOUTCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPMIDIOUTCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPMIDIOUTCAPS2W(pub *mut MIDIOUTCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPMIDIOUTCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPMIDIOUTCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPMIDIOUTCAPSA(pub *mut MIDIOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPMIDIOUTCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPMIDIOUTCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPMIDIOUTCAPSW(pub *mut MIDIOUTCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPMIDIOUTCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPMIDIOUTCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2727,218 +2727,218 @@ impl Default for NPWAVEHDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NPWAVEINCAPS(pub NPWAVEINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NPWAVEINCAPS2(pub NPWAVEINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPWAVEINCAPS2A(pub *mut WAVEINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPWAVEINCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPWAVEINCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPWAVEINCAPS2W(pub *mut WAVEINCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPWAVEINCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPWAVEINCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPWAVEINCAPSA(pub *mut WAVEINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPWAVEINCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPWAVEINCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPWAVEINCAPSW(pub *mut WAVEINCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPWAVEINCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPWAVEINCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NPWAVEOUTCAPS(pub NPWAVEOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NPWAVEOUTCAPS2(pub NPWAVEOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPWAVEOUTCAPS2A(pub *mut WAVEOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPWAVEOUTCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPWAVEOUTCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPWAVEOUTCAPS2W(pub *mut WAVEOUTCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPWAVEOUTCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPWAVEOUTCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPWAVEOUTCAPSA(pub *mut WAVEOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPWAVEOUTCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPWAVEOUTCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPWAVEOUTCAPSW(pub *mut WAVEOUTCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl NPWAVEOUTCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for NPWAVEOUTCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type PATCHARRAY = [u16; 128];
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PAUXCAPS(pub PAUXCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PAUXCAPS2(pub PAUXCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PAUXCAPS2A(pub *mut AUXCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PAUXCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PAUXCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PAUXCAPS2W(pub *mut AUXCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PAUXCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PAUXCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PAUXCAPSA(pub *mut AUXCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PAUXCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PAUXCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PAUXCAPSW(pub *mut AUXCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PAUXCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PAUXCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2963,217 +2963,217 @@ impl Default for PMIDIHDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMIDIINCAPS(pub PMIDIINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMIDIINCAPS2(pub PMIDIINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDIINCAPS2A(pub *mut MIDIINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIDIINCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIDIINCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDIINCAPS2W(pub *mut MIDIINCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIDIINCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIDIINCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDIINCAPSA(pub *mut MIDIINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIDIINCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIDIINCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDIINCAPSW(pub *mut MIDIINCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIDIINCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIDIINCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMIDIOUTCAPS(pub PMIDIOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMIDIOUTCAPS2(pub PMIDIOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDIOUTCAPS2A(pub *mut MIDIOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIDIOUTCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIDIOUTCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDIOUTCAPS2W(pub *mut MIDIOUTCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIDIOUTCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIDIOUTCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDIOUTCAPSA(pub *mut MIDIOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIDIOUTCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIDIOUTCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDIOUTCAPSW(pub *mut MIDIOUTCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIDIOUTCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIDIOUTCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMIXERCAPS(pub PMIXERCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMIXERCAPS2(pub PMIXERCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIXERCAPS2A(pub *mut MIXERCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIXERCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIXERCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIXERCAPS2W(pub *mut MIXERCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIXERCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIXERCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIXERCAPSA(pub *mut MIXERCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIXERCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIXERCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIXERCAPSW(pub *mut MIXERCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIXERCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIXERCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3195,17 +3195,17 @@ impl Default for PMIXERCONTROLA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIXERCONTROLDETAILS(pub *mut MIXERCONTROLDETAILS);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PMIXERCONTROLDETAILS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PMIXERCONTROLDETAILS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3292,21 +3292,21 @@ impl Default for PMIXERCONTROLW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMIXERLINE(pub PMIXERLINEA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIXERLINEA(pub *mut MIXERLINEA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIXERLINEA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIXERLINEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3341,17 +3341,17 @@ impl Default for PMIXERLINECONTROLSW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIXERLINEW(pub *mut MIXERLINEW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PMIXERLINEW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PMIXERLINEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3409,151 +3409,151 @@ impl Default for PWAVEHDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PWAVEINCAPS(pub PWAVEINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PWAVEINCAPS2(pub PWAVEINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWAVEINCAPS2A(pub *mut WAVEINCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PWAVEINCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PWAVEINCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWAVEINCAPS2W(pub *mut WAVEINCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PWAVEINCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PWAVEINCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWAVEINCAPSA(pub *mut WAVEINCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PWAVEINCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PWAVEINCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWAVEINCAPSW(pub *mut WAVEINCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PWAVEINCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PWAVEINCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PWAVEOUTCAPS(pub PWAVEOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PWAVEOUTCAPS2(pub PWAVEOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWAVEOUTCAPS2A(pub *mut WAVEOUTCAPS2A);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PWAVEOUTCAPS2A {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PWAVEOUTCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWAVEOUTCAPS2W(pub *mut WAVEOUTCAPS2W);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PWAVEOUTCAPS2W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PWAVEOUTCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWAVEOUTCAPSA(pub *mut WAVEOUTCAPSA);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PWAVEOUTCAPSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PWAVEOUTCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWAVEOUTCAPSW(pub *mut WAVEOUTCAPSW);
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl PWAVEOUTCAPSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for PWAVEOUTCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type WAVECALLBACK = Option<unsafe extern "system" fn(hdrvr: super::mmsyscom::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub const WAVECAPS_LRVOLUME: u32 = 8;
 pub const WAVECAPS_PITCH: u32 = 1;
@@ -3598,12 +3598,12 @@ impl Default for WAVEHDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type WAVEINCAPS = WAVEINCAPSA;
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type WAVEINCAPS2 = WAVEINCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPS2A {
     pub wMid: u16,
@@ -3617,14 +3617,14 @@ pub struct WAVEINCAPS2A {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for WAVEINCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPS2W {
     pub wMid: u16,
@@ -3638,14 +3638,14 @@ pub struct WAVEINCAPS2W {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for WAVEINCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPSA {
     pub wMid: u16,
@@ -3656,14 +3656,14 @@ pub struct WAVEINCAPSA {
     pub wChannels: u16,
     pub wReserved1: u16,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for WAVEINCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPSW {
     pub wMid: u16,
@@ -3674,18 +3674,18 @@ pub struct WAVEINCAPSW {
     pub wChannels: u16,
     pub wReserved1: u16,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for WAVEINCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type WAVEOUTCAPS = WAVEOUTCAPSA;
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 pub type WAVEOUTCAPS2 = WAVEOUTCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPS2A {
     pub wMid: u16,
@@ -3700,14 +3700,14 @@ pub struct WAVEOUTCAPS2A {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for WAVEOUTCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPS2W {
     pub wMid: u16,
@@ -3722,14 +3722,14 @@ pub struct WAVEOUTCAPS2W {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for WAVEOUTCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPSA {
     pub wMid: u16,
@@ -3741,14 +3741,14 @@ pub struct WAVEOUTCAPSA {
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for WAVEOUTCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPSW {
     pub wMid: u16,
@@ -3760,7 +3760,7 @@ pub struct WAVEOUTCAPSW {
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 impl Default for WAVEOUTCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

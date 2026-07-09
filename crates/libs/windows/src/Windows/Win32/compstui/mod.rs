@@ -1,22 +1,22 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn CommonPropertySheetUIA(hwndowner: super::windef::HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: super::minwindef::LPARAM, presult: Option<*mut u32>) -> i32 {
     windows_core::link!("compstui.dll" "system" fn CommonPropertySheetUIA(hwndowner : super::windef::HWND, pfnpropsheetui : PFNPROPSHEETUI, lparam : super::minwindef::LPARAM, presult : *mut u32) -> i32);
     unsafe { CommonPropertySheetUIA(hwndowner, pfnpropsheetui, lparam, presult.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn CommonPropertySheetUIW(hwndowner: super::windef::HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: super::minwindef::LPARAM, presult: Option<*mut u32>) -> i32 {
     windows_core::link!("compstui.dll" "system" fn CommonPropertySheetUIW(hwndowner : super::windef::HWND, pfnpropsheetui : PFNPROPSHEETUI, lparam : super::minwindef::LPARAM, presult : *mut u32) -> i32);
     unsafe { CommonPropertySheetUIW(hwndowner, pfnpropsheetui, lparam, presult.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn GetCPSUIUserData(hdlg: super::windef::HWND) -> usize {
     windows_core::link!("compstui.dll" "system" fn GetCPSUIUserData(hdlg : super::windef::HWND) -> usize);
     unsafe { GetCPSUIUserData(hdlg) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SetCPSUIUserData(hdlg: super::windef::HWND, cpsuiuserdata: usize) -> windows_core::BOOL {
     windows_core::link!("compstui.dll" "system" fn SetCPSUIUserData(hdlg : super::windef::HWND, cpsuiuserdata : usize) -> windows_core::BOOL);
@@ -32,7 +32,7 @@ pub const CHKBOXS_NO_YES: u32 = 1;
 pub const CHKBOXS_OFF_ON: u32 = 2;
 pub const CHKBOXS_OFF_PDATA: u32 = 5;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy, Debug)]
 pub struct COMPROPSHEETUI {
     pub cbSize: u16,
@@ -52,7 +52,7 @@ pub struct COMPROPSHEETUI {
     pub OptItemVersion: u16,
     pub dwReserved: [usize; 4],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for COMPROPSHEETUI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -92,7 +92,7 @@ pub const CPSFUNC_SET_PSUIPAGE_TITLEA: u32 = 18;
 pub const CPSFUNC_SET_PSUIPAGE_TITLEW: u32 = 19;
 pub const CPSFUNC_SET_RESULT: u32 = 9;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct CPSUICBPARAM {
     pub cbSize: u16,
@@ -106,20 +106,20 @@ pub struct CPSUICBPARAM {
     pub UserData: usize,
     pub Result: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for CPSUICBPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union CPSUICBPARAM_0 {
     pub OldSel: i32,
     pub pOldSel: super::winnt::LPTSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for CPSUICBPARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -143,7 +143,7 @@ pub const CPSUICB_REASON_SEL_CHANGED: u32 = 0;
 pub const CPSUICB_REASON_SETACTIVE: u32 = 10;
 pub const CPSUICB_REASON_UNDO_CHANGES: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CPSUIDATABLOCK {
     pub cbData: u32,
@@ -154,18 +154,18 @@ pub const CPSUIF_ICONID_AS_HICON: u32 = 2;
 pub const CPSUIF_UPDATE_PERMISSION: u32 = 1;
 pub const CPSUI_CANCEL: u32 = 0;
 pub const CPSUI_OK: u32 = 1;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub const CPSUI_PDLGPAGE_ADVDOCPROP: PDLGPAGE = PDLGPAGE(2 as _);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub const CPSUI_PDLGPAGE_DOCPROP: PDLGPAGE = PDLGPAGE(1 as _);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub const CPSUI_PDLGPAGE_PRINTERPROP: PDLGPAGE = PDLGPAGE(3 as _);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub const CPSUI_PDLGPAGE_TREEVIEWONLY: PDLGPAGE = PDLGPAGE(4 as _);
 pub const CPSUI_REBOOTSYSTEM: u32 = 3;
 pub const CPSUI_RESTARTWINDOWS: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct DLGPAGE {
     pub cbSize: u16,
@@ -175,20 +175,20 @@ pub struct DLGPAGE {
     pub IconID: usize,
     pub Anonymous: DLGPAGE_0,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for DLGPAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union DLGPAGE_0 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::winnt::HANDLE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for DLGPAGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -292,7 +292,7 @@ pub const ERR_CPSUI_TOO_MANY_DLGPAGES: i32 = -15;
 pub const ERR_CPSUI_TOO_MANY_PROPSHEETPAGES: i32 = -9;
 pub const ERR_CPSUI_ZERO_OPTITEM: i32 = -44;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTCHKBOX {
     pub cbSize: u16,
@@ -304,14 +304,14 @@ pub struct EXTCHKBOX {
     pub wReserved: [u16; 4],
     pub dwReserved: [usize; 2],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for EXTCHKBOX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct EXTPUSH {
     pub cbSize: u16,
@@ -322,41 +322,41 @@ pub struct EXTPUSH {
     pub Anonymous2: EXTPUSH_1,
     pub dwReserved: [usize; 3],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for EXTPUSH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union EXTPUSH_0 {
     pub DlgProc: super::winuser::DLGPROC,
     pub pfnCallBack: super::minwindef::FARPROC,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for EXTPUSH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union EXTPUSH_1 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::winnt::HANDLE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for EXTPUSH_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub const HINSPSUIPAGE_FIRST: super::winnt::HANDLE = super::winnt::HANDLE(4294967294i64 as _);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub const HINSPSUIPAGE_LAST: super::winnt::HANDLE = super::winnt::HANDLE(4294967295i64 as _);
 pub const IDI_CPSUI_ADVANCE: u32 = 64058;
 pub const IDI_CPSUI_AUTOSEL: u32 = 64025;
@@ -686,7 +686,7 @@ pub const MAX_PROPSHEETUI_REASON_INDEX: u32 = 5;
 pub const MAX_PSUIPAGEINSERT_INDEX: u32 = 5;
 pub const MAX_RES_STR_CHARS: u32 = 160;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OIEXT {
     pub cbSize: u16,
@@ -695,7 +695,7 @@ pub struct OIEXT {
     pub pHelpFile: super::winnt::LPTSTR,
     pub dwReserved: [usize; 4],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for OIEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -705,7 +705,7 @@ pub const OIEXTF_ANSI_STRING: u32 = 1;
 pub const OPTCF_HIDE: u32 = 1;
 pub const OPTCF_MASK: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPTCOMBO {
     pub cbSize: u16,
@@ -715,7 +715,7 @@ pub struct OPTCOMBO {
     pub Sel: i32,
     pub dwReserved: [u32; 3],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for OPTCOMBO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -740,7 +740,7 @@ pub const OPTIF_OVERLAY_STOP_ICON: u32 = 8192;
 pub const OPTIF_OVERLAY_WARNING_ICON: u32 = 4096;
 pub const OPTIF_SEL_AS_HICON: u32 = 512;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct OPTITEM {
     pub cbSize: u16,
@@ -759,40 +759,40 @@ pub struct OPTITEM {
     pub pOIExt: POIEXT,
     pub dwReserved: [usize; 3],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for OPTITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union OPTITEM_0 {
     pub Sel: i32,
     pub pSel: super::winnt::LPTSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for OPTITEM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union OPTITEM_1 {
     pub pExtChkBox: PEXTCHKBOX,
     pub pExtPush: PEXTPUSH,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for OPTITEM_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPTPARAM {
     pub cbSize: u16,
@@ -803,7 +803,7 @@ pub struct OPTPARAM {
     pub lParam: super::minwindef::LPARAM,
     pub dwReserved: [usize; 2],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for OPTPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -821,7 +821,7 @@ pub const OPTTF_MASK: u32 = 3;
 pub const OPTTF_NOSPACE_BEFORE_POSTFIX: u32 = 2;
 pub const OPTTF_TYPE_DISABLED: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPTTYPE {
     pub cbSize: u16,
@@ -834,7 +834,7 @@ pub struct OPTTYPE {
     pub wReserved: [u16; 3],
     pub dwReserved: [usize; 3],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for OPTTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -849,105 +849,105 @@ pub const OTS_MASK: u32 = 255;
 pub const OTS_PUSH_ENABLE_ALWAYS: u32 = 128;
 pub const OTS_PUSH_INCL_SETUP_TITLE: u32 = 32;
 pub const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCOMPROPSHEETUI(pub *mut COMPROPSHEETUI);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl PCOMPROPSHEETUI {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PCOMPROPSHEETUI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCPSUICBPARAM(pub *mut CPSUICBPARAM);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl PCPSUICBPARAM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PCPSUICBPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCPSUIDATABLOCK(pub *mut CPSUIDATABLOCK);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PCPSUIDATABLOCK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PCPSUIDATABLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDLGPAGE(pub *mut DLGPAGE);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl PDLGPAGE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PDLGPAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEXTCHKBOX(pub *mut EXTCHKBOX);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PEXTCHKBOX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PEXTCHKBOX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEXTPUSH(pub *mut EXTPUSH);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl PEXTPUSH {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PEXTPUSH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PFNCOMPROPSHEET = Option<unsafe extern "system" fn(hcompropsheet: super::winnt::HANDLE, function: u32, lparam1: super::minwindef::LPARAM, lparam2: super::minwindef::LPARAM) -> isize>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PFNPROPSHEETUI = Option<unsafe extern "system" fn(ppsuiinfo: *mut PROPSHEETUI_INFO, lparam: super::minwindef::LPARAM) -> i32>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -962,152 +962,152 @@ impl Default for PINSERTPSUIPAGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POIEXT(pub *mut OIEXT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl POIEXT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for POIEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POPTCOMBO(pub *mut OPTCOMBO);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl POPTCOMBO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for POPTCOMBO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POPTITEM(pub *mut OPTITEM);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl POPTITEM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for POPTITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POPTPARAM(pub *mut OPTPARAM);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl POPTPARAM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for POPTPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POPTTYPE(pub *mut OPTTYPE);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl POPTTYPE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for POPTTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPROPSHEETUI_GETICON_INFO(pub *mut PROPSHEETUI_GETICON_INFO);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PPROPSHEETUI_GETICON_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PPROPSHEETUI_GETICON_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPROPSHEETUI_INFO(pub *mut PROPSHEETUI_INFO);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl PPROPSHEETUI_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for PPROPSHEETUI_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPROPSHEETUI_INFO_HEADER(pub *mut PROPSHEETUI_INFO_HEADER);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl PPROPSHEETUI_INFO_HEADER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for PPROPSHEETUI_INFO_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPSPINFO(pub *mut PSPINFO);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl PPSPINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for PPSPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPSHEETUI_GETICON_INFO {
     pub cbSize: u16,
@@ -1117,7 +1117,7 @@ pub struct PROPSHEETUI_GETICON_INFO {
     pub hIcon: super::windef::HICON,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PROPSHEETUI_INFO {
     pub cbSize: u16,
@@ -1131,7 +1131,7 @@ pub struct PROPSHEETUI_INFO {
     pub Result: usize,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETUI_INFO_HEADER {
     pub cbSize: u16,
@@ -1141,20 +1141,20 @@ pub struct PROPSHEETUI_INFO_HEADER {
     pub hInst: super::minwindef::HINSTANCE,
     pub Anonymous: PROPSHEETUI_INFO_HEADER_0,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for PROPSHEETUI_INFO_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETUI_INFO_HEADER_0 {
     pub hIcon: super::windef::HICON,
     pub IconID: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for PROPSHEETUI_INFO_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1167,24 +1167,24 @@ pub const PROPSHEETUI_REASON_GET_ICON: u32 = 4;
 pub const PROPSHEETUI_REASON_GET_INFO_HEADER: u32 = 1;
 pub const PROPSHEETUI_REASON_INIT: u32 = 0;
 pub const PROPSHEETUI_REASON_SET_RESULT: u32 = 3;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSETRESULT_INFO(pub *mut SETRESULT_INFO);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl PSETRESULT_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for PSETRESULT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PSPINFO {
     pub cbSize: u16,
@@ -1211,7 +1211,7 @@ pub const PUSHBUTTON_TYPE_DLGPROC: u32 = 0;
 pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2;
 pub const PUSHBUTTON_TYPE_HTSETUP: u32 = 3;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SETRESULT_INFO {
     pub cbSize: u16,
@@ -1237,5 +1237,5 @@ pub const TVOT_PUSHBUTTON: u32 = 8;
 pub const TVOT_SCROLLBAR: u32 = 4;
 pub const TVOT_TRACKBAR: u32 = 3;
 pub const TVOT_UDARROW: u32 = 2;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type _CPSUICALLBACK = Option<unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32>;

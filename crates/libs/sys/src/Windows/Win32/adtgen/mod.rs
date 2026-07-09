@@ -34,7 +34,7 @@ impl Default for AUDIT_IP_ADDRESS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct AUDIT_OBJECT_TYPE {
     pub ObjectType: windows_sys::core::GUID,
@@ -43,21 +43,21 @@ pub struct AUDIT_OBJECT_TYPE {
     pub AccessMask: super::winnt::ACCESS_MASK,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct AUDIT_OBJECT_TYPES {
     pub Count: u16,
     pub Flags: u16,
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for AUDIT_OBJECT_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct AUDIT_PARAM {
     pub Type: AUDIT_PARAM_TYPE,
@@ -66,14 +66,14 @@ pub struct AUDIT_PARAM {
     pub Anonymous: AUDIT_PARAM_0,
     pub Anonymous2: AUDIT_PARAM_1,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for AUDIT_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union AUDIT_PARAM_0 {
     pub Data0: usize,
@@ -85,27 +85,27 @@ pub union AUDIT_PARAM_0 {
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPES,
     pub pIpAddress: *mut AUDIT_IP_ADDRESS,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for AUDIT_PARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union AUDIT_PARAM_1 {
     pub Data1: usize,
     pub LogonId_HighPart: i32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for AUDIT_PARAM_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct AUDIT_PARAMS {
     pub Length: u32,
@@ -113,7 +113,7 @@ pub struct AUDIT_PARAMS {
     pub Count: u16,
     pub Parameters: *mut AUDIT_PARAM,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for AUDIT_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -132,7 +132,7 @@ pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
     pub ParameterCount: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
     pub Version: u32,
@@ -142,7 +142,7 @@ pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
     pub LinkId: super::winnt::LUID,
     pub u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for AUTHZ_AUDIT_EVENT_TYPE_OLD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -162,15 +162,15 @@ pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: u32 = 2;
 pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: u32 = 2;
 pub type PAUDIT_HANDLE = *mut *mut core::ffi::c_void;
 pub type PAUDIT_IP_ADDRESS = *mut AUDIT_IP_ADDRESS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PAUDIT_OBJECT_TYPE = *mut AUDIT_OBJECT_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PAUDIT_OBJECT_TYPES = *mut AUDIT_OBJECT_TYPES;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PAUDIT_PARAM = *mut AUDIT_PARAM;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PAUDIT_PARAMS = *mut AUDIT_PARAMS;
 pub type PAUTHZ_AUDIT_EVENT_TYPE_LEGACY = *mut AUTHZ_AUDIT_EVENT_TYPE_LEGACY;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PAUTHZ_AUDIT_EVENT_TYPE_OLD = *mut AUTHZ_AUDIT_EVENT_TYPE_OLD;
 pub type PAUTHZ_AUDIT_EVENT_TYPE_UNION = *mut AUTHZ_AUDIT_EVENT_TYPE_UNION;

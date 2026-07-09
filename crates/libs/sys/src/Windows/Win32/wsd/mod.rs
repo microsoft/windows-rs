@@ -122,10 +122,10 @@ pub type PCWSDXML_NAMESPACE = *const WSDXML_NAMESPACE;
 pub type PCWSDXML_TYPE = *const WSDXML_TYPE;
 pub type PWSD_CONFIG_ADDRESSES = *mut WSD_CONFIG_ADDRESSES;
 pub type PWSD_CONFIG_PARAM = *mut WSD_CONFIG_PARAM;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type PWSD_SECURITY_CERT_VALIDATION = *mut WSD_SECURITY_CERT_VALIDATION;
 pub type PWSD_SECURITY_HTTP_AUTH_SCHEMES = *mut u32;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type PWSD_SECURITY_SIGNATURE_VALIDATION = *mut WSD_SECURITY_SIGNATURE_VALIDATION;
 pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknown: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
 #[repr(C)]
@@ -952,7 +952,7 @@ impl Default for WSD_SCOPES {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy)]
 pub struct WSD_SECURITY_CERT_VALIDATION {
     pub certMatchArray: *mut super::wincrypt::PCCERT_CONTEXT,
@@ -964,14 +964,14 @@ pub struct WSD_SECURITY_CERT_VALIDATION {
     pub pbCertHash: *mut u8,
     pub dwCertHashSize: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for WSD_SECURITY_CERT_VALIDATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy)]
 pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub certMatchArray: *mut super::wincrypt::PCCERT_CONTEXT,
@@ -980,7 +980,7 @@ pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub hCertIssuerStore: super::wincrypt::HCERTSTORE,
     pub dwCertCheckOptions: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -994,7 +994,7 @@ pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2;
 pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 12;
 pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 11;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy)]
 pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub signingCertArray: *mut super::wincrypt::PCCERT_CONTEXT,
@@ -1002,7 +1002,7 @@ pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub hSigningCertStore: super::wincrypt::HCERTSTORE,
     pub dwFlags: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for WSD_SECURITY_SIGNATURE_VALIDATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1115,7 +1115,7 @@ impl Default for WSD_SOAP_MESSAGE {
 }
 pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: *mut core::ffi::c_void, session: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: windows_sys::core::HRESULT,
@@ -1123,7 +1123,7 @@ pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub messageParameters: *mut core::ffi::c_void,
     pub results: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

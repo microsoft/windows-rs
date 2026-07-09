@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesA<P0>(computername: P0, socketaddresses: &[super::ws2::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PSTR) -> u32
 where
@@ -7,7 +7,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesA(computername : windows_core::PCSTR, entrycount : u32, socketaddresses : *const super::ws2::SOCKET_ADDRESS, sitenames : *mut *mut windows_core::PSTR) -> u32);
     unsafe { DsAddressToSiteNamesA(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _) }
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesExA<P0>(computername: P0, socketaddresses: &[super::ws2::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PSTR, subnetnames: *mut *mut windows_core::PSTR) -> u32
 where
@@ -16,7 +16,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExA(computername : windows_core::PCSTR, entrycount : u32, socketaddresses : *const super::ws2::SOCKET_ADDRESS, sitenames : *mut *mut windows_core::PSTR, subnetnames : *mut *mut windows_core::PSTR) -> u32);
     unsafe { DsAddressToSiteNamesExA(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _, subnetnames as _) }
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesExW<P0>(computername: P0, socketaddresses: &[super::ws2::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PWSTR, subnetnames: *mut *mut windows_core::PWSTR) -> u32
 where
@@ -25,7 +25,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExW(computername : windows_core::PCWSTR, entrycount : u32, socketaddresses : *const super::ws2::SOCKET_ADDRESS, sitenames : *mut *mut windows_core::PWSTR, subnetnames : *mut *mut windows_core::PWSTR) -> u32);
     unsafe { DsAddressToSiteNamesExW(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _, subnetnames as _) }
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesW<P0>(computername: P0, socketaddresses: &[super::ws2::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PWSTR) -> u32
 where
@@ -54,7 +54,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsW(servername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, domainguid : *const windows_core::GUID, dsaguid : *const windows_core::GUID, dnshostname : windows_core::PCWSTR) -> u32);
     unsafe { DsDeregisterDnsHostRecordsW(servername.param().abi(), dnsdomainname.param().abi(), domainguid.unwrap_or(core::mem::zeroed()) as _, dsaguid.unwrap_or(core::mem::zeroed()) as _, dnshostname.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DsEnumerateDomainTrustsA<P0>(servername: P0, flags: u32, domains: *mut PDS_DOMAIN_TRUSTSA, domaincount: *mut u32) -> u32
 where
@@ -63,7 +63,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn DsEnumerateDomainTrustsA(servername : windows_core::PCSTR, flags : u32, domains : *mut PDS_DOMAIN_TRUSTSA, domaincount : *mut u32) -> u32);
     unsafe { DsEnumerateDomainTrustsA(servername.param().abi(), flags, domains as _, domaincount as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DsEnumerateDomainTrustsW<P0>(servername: P0, flags: u32, domains: *mut PDS_DOMAIN_TRUSTSW, domaincount: *mut u32) -> u32
 where
@@ -72,7 +72,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn DsEnumerateDomainTrustsW(servername : windows_core::PCWSTR, flags : u32, domains : *mut PDS_DOMAIN_TRUSTSW, domaincount : *mut u32) -> u32);
     unsafe { DsEnumerateDomainTrustsW(servername.param().abi(), flags, domains as _, domaincount as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DsGetDcCloseW(getdccontexthandle: super::winnt::HANDLE) {
     windows_core::link!("netapi32.dll" "system" fn DsGetDcCloseW(getdccontexthandle : super::winnt::HANDLE));
@@ -98,19 +98,19 @@ where
     windows_core::link!("netapi32.dll" "system" fn DsGetDcNameW(computername : windows_core::PCWSTR, domainname : windows_core::PCWSTR, domainguid : *const windows_core::GUID, sitename : windows_core::PCWSTR, flags : u32, domaincontrollerinfo : *mut PDOMAIN_CONTROLLER_INFOW) -> u32);
     unsafe { DsGetDcNameW(computername.param().abi(), domainname.param().abi(), domainguid.unwrap_or(core::mem::zeroed()) as _, sitename.param().abi(), flags, domaincontrollerinfo as _) }
 }
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "winnt", feature = "ws2"))]
 #[inline]
 pub unsafe fn DsGetDcNextA(getdccontexthandle: super::winnt::HANDLE, sockaddresscount: Option<*mut u32>, sockaddresses: *mut super::ws2::LPSOCKET_ADDRESS, dnshostname: *mut windows_core::PSTR) -> u32 {
     windows_core::link!("netapi32.dll" "system" fn DsGetDcNextA(getdccontexthandle : super::winnt::HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut super::ws2::LPSOCKET_ADDRESS, dnshostname : *mut windows_core::PSTR) -> u32);
     unsafe { DsGetDcNextA(getdccontexthandle, sockaddresscount.unwrap_or(core::mem::zeroed()) as _, sockaddresses as _, dnshostname as _) }
 }
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "winnt", feature = "ws2"))]
 #[inline]
 pub unsafe fn DsGetDcNextW(getdccontexthandle: super::winnt::HANDLE, sockaddresscount: Option<*mut u32>, sockaddresses: *mut super::ws2::LPSOCKET_ADDRESS, dnshostname: *mut windows_core::PWSTR) -> u32 {
     windows_core::link!("netapi32.dll" "system" fn DsGetDcNextW(getdccontexthandle : super::winnt::HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut super::ws2::LPSOCKET_ADDRESS, dnshostname : *mut windows_core::PWSTR) -> u32);
     unsafe { DsGetDcNextW(getdccontexthandle, sockaddresscount.unwrap_or(core::mem::zeroed()) as _, sockaddresses as _, dnshostname as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DsGetDcOpenA<P0, P2, P4>(dnsname: P0, optionflags: u32, sitename: P2, domainguid: Option<*const windows_core::GUID>, dnsforestname: P4, dcflags: u32, retgetdccontext: *mut super::winnt::HANDLE) -> u32
 where
@@ -121,7 +121,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn DsGetDcOpenA(dnsname : windows_core::PCSTR, optionflags : u32, sitename : windows_core::PCSTR, domainguid : *const windows_core::GUID, dnsforestname : windows_core::PCSTR, dcflags : u32, retgetdccontext : *mut super::winnt::HANDLE) -> u32);
     unsafe { DsGetDcOpenA(dnsname.param().abi(), optionflags, sitename.param().abi(), domainguid.unwrap_or(core::mem::zeroed()) as _, dnsforestname.param().abi(), dcflags, retgetdccontext as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DsGetDcOpenW<P0, P2, P4>(dnsname: P0, optionflags: u32, sitename: P2, domainguid: Option<*const windows_core::GUID>, dnsforestname: P4, dcflags: u32, retgetdccontext: *mut super::winnt::HANDLE) -> u32
 where
@@ -148,7 +148,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn DsGetDcSiteCoverageW(servername : windows_core::PCWSTR, entrycount : *mut u32, sitenames : *mut *mut windows_core::PWSTR) -> u32);
     unsafe { DsGetDcSiteCoverageW(servername.param().abi(), entrycount as _, sitenames as _) }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_ntsecapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsGetForestTrustInformationW<P0, P1>(servername: P0, trusteddomainname: P1, flags: u32, foresttrustinfo: *mut super::ntsecapi::PLSA_FOREST_TRUST_INFORMATION) -> u32
 where
@@ -174,7 +174,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn DsGetSiteNameW(computername : windows_core::PCWSTR, sitename : *mut windows_core::PWSTR) -> u32);
     unsafe { DsGetSiteNameW(computername.param().abi(), sitename as _) }
 }
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_minwindef", feature = "Win32_ntsecapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn DsMergeForestTrustInformationW<P0>(domainname: P0, newforesttrustinfo: *const super::ntsecapi::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo: Option<*const super::ntsecapi::LSA_FOREST_TRUST_INFORMATION>, mergedforesttrustinfo: *mut super::ntsecapi::PLSA_FOREST_TRUST_INFORMATION) -> u32
 where
@@ -248,7 +248,7 @@ pub const DS_DOMAIN_NATIVE_MODE: u32 = 16;
 pub const DS_DOMAIN_PRIMARY: u32 = 8;
 pub const DS_DOMAIN_TREE_ROOT: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSA {
     pub NetbiosDomainName: windows_core::PSTR,
@@ -261,7 +261,7 @@ pub struct DS_DOMAIN_TRUSTSA {
     pub DomainGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSW {
     pub NetbiosDomainName: windows_core::PWSTR,
@@ -343,33 +343,33 @@ impl Default for PDOMAIN_CONTROLLER_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDS_DOMAIN_TRUSTSA(pub *mut DS_DOMAIN_TRUSTSA);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDS_DOMAIN_TRUSTSA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDS_DOMAIN_TRUSTSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDS_DOMAIN_TRUSTSW(pub *mut DS_DOMAIN_TRUSTSW);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDS_DOMAIN_TRUSTSW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDS_DOMAIN_TRUSTSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

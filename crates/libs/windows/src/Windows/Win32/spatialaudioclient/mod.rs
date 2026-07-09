@@ -29,7 +29,7 @@ impl IAudioFormatEnumerator {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub unsafe fn GetFormat(&self, index: u32) -> windows_core::Result<*mut super::mmeapi::WAVEFORMATEX> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -42,17 +42,17 @@ impl IAudioFormatEnumerator {
 pub struct IAudioFormatEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub GetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut super::mmeapi::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mmeapi"))]
+    #[cfg(not(feature = "mmeapi"))]
     GetFormat: usize,
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub trait IAudioFormatEnumerator_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetFormat(&self, index: u32) -> windows_core::Result<*mut super::mmeapi::WAVEFORMATEX>;
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl IAudioFormatEnumerator_Vtbl {
     pub const fn new<Identity: IAudioFormatEnumerator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IAudioFormatEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
@@ -85,7 +85,7 @@ impl IAudioFormatEnumerator_Vtbl {
         iid == &<IAudioFormatEnumerator as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl windows_core::RuntimeName for IAudioFormatEnumerator {}
 windows_core::imp::define_interface!(ISpatialAudioClient, ISpatialAudioClient_Vtbl, 0xbbf8e066_aaaa_49be_9a4d_fd2a858ea27f);
 windows_core::imp::interface_hierarchy!(ISpatialAudioClient, windows_core::IUnknown);
@@ -111,22 +111,22 @@ impl ISpatialAudioClient {
             (windows_core::Interface::vtable(self).GetSupportedAudioObjectFormatEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub unsafe fn GetMaxFrameCount(&self, objectformat: *const super::mmeapi::WAVEFORMATEX) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxFrameCount)(windows_core::Interface::as_raw(self), objectformat, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub unsafe fn IsAudioObjectFormatSupported(&self, objectformat: *const super::mmeapi::WAVEFORMATEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsAudioObjectFormatSupported)(windows_core::Interface::as_raw(self), objectformat) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn IsSpatialAudioStreamAvailable(&self, streamuuid: *const windows_core::GUID, auxiliaryinfo: Option<*const super::propidlbase::PROPVARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsSpatialAudioStreamAvailable)(windows_core::Interface::as_raw(self), streamuuid, auxiliaryinfo.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ActivateSpatialAudioStream<T>(&self, activationparams: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -143,24 +143,24 @@ pub struct ISpatialAudioClient_Vtbl {
     pub GetNativeStaticObjectTypeMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioObjectType) -> windows_core::HRESULT,
     pub GetMaxDynamicObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetSupportedAudioObjectFormatEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub GetMaxFrameCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::mmeapi::WAVEFORMATEX, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mmeapi"))]
+    #[cfg(not(feature = "mmeapi"))]
     GetMaxFrameCount: usize,
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub IsAudioObjectFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::mmeapi::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mmeapi"))]
+    #[cfg(not(feature = "mmeapi"))]
     IsAudioObjectFormatSupported: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub IsSpatialAudioStreamAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     IsSpatialAudioStreamAvailable: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub ActivateSpatialAudioStream: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::propidlbase::PROPVARIANT, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     ActivateSpatialAudioStream: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpatialAudioClient_Impl: windows_core::IUnknownImpl {
     fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> windows_core::Result<()>;
     fn GetNativeStaticObjectTypeMask(&self) -> windows_core::Result<AudioObjectType>;
@@ -171,7 +171,7 @@ pub trait ISpatialAudioClient_Impl: windows_core::IUnknownImpl {
     fn IsSpatialAudioStreamAvailable(&self, streamuuid: *const windows_core::GUID, auxiliaryinfo: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
     fn ActivateSpatialAudioStream(&self, activationparams: *const super::propidlbase::PROPVARIANT, riid: *const windows_core::GUID, stream: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpatialAudioClient_Vtbl {
     pub const fn new<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStaticObjectPosition<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> windows_core::HRESULT {
@@ -262,7 +262,7 @@ impl ISpatialAudioClient_Vtbl {
         iid == &<ISpatialAudioClient as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpatialAudioClient {}
 windows_core::imp::define_interface!(ISpatialAudioClient2, ISpatialAudioClient2_Vtbl, 0xcaabe452_a66a_4bee_a93e_e320463f6a53);
 impl core::ops::Deref for ISpatialAudioClient2 {
@@ -273,14 +273,14 @@ impl core::ops::Deref for ISpatialAudioClient2 {
 }
 windows_core::imp::interface_hierarchy!(ISpatialAudioClient2, windows_core::IUnknown, ISpatialAudioClient);
 impl ISpatialAudioClient2 {
-    #[cfg(feature = "Win32_audiosessiontypes")]
+    #[cfg(feature = "audiosessiontypes")]
     pub unsafe fn IsOffloadCapable(&self, category: super::audiosessiontypes::AUDIO_STREAM_CATEGORY) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsOffloadCapable)(windows_core::Interface::as_raw(self), category, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi"))]
+    #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi"))]
     pub unsafe fn GetMaxFrameCountForCategory(&self, category: super::audiosessiontypes::AUDIO_STREAM_CATEGORY, offloadenabled: bool, objectformat: *const super::mmeapi::WAVEFORMATEX) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -292,21 +292,21 @@ impl ISpatialAudioClient2 {
 #[doc(hidden)]
 pub struct ISpatialAudioClient2_Vtbl {
     pub base__: ISpatialAudioClient_Vtbl,
-    #[cfg(feature = "Win32_audiosessiontypes")]
+    #[cfg(feature = "audiosessiontypes")]
     pub IsOffloadCapable: unsafe extern "system" fn(*mut core::ffi::c_void, super::audiosessiontypes::AUDIO_STREAM_CATEGORY, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_audiosessiontypes"))]
+    #[cfg(not(feature = "audiosessiontypes"))]
     IsOffloadCapable: usize,
-    #[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi"))]
+    #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi"))]
     pub GetMaxFrameCountForCategory: unsafe extern "system" fn(*mut core::ffi::c_void, super::audiosessiontypes::AUDIO_STREAM_CATEGORY, windows_core::BOOL, *const super::mmeapi::WAVEFORMATEX, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi")))]
+    #[cfg(not(all(feature = "audiosessiontypes", feature = "mmeapi")))]
     GetMaxFrameCountForCategory: usize,
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpatialAudioClient2_Impl: ISpatialAudioClient_Impl {
     fn IsOffloadCapable(&self, category: super::audiosessiontypes::AUDIO_STREAM_CATEGORY) -> windows_core::Result<windows_core::BOOL>;
     fn GetMaxFrameCountForCategory(&self, category: super::audiosessiontypes::AUDIO_STREAM_CATEGORY, offloadenabled: windows_core::BOOL, objectformat: *const super::mmeapi::WAVEFORMATEX) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpatialAudioClient2_Vtbl {
     pub const fn new<Identity: ISpatialAudioClient2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsOffloadCapable<Identity: ISpatialAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: super::audiosessiontypes::AUDIO_STREAM_CATEGORY, isoffloadcapable: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -343,7 +343,7 @@ impl ISpatialAudioClient2_Vtbl {
         iid == &<ISpatialAudioClient2 as windows_core::Interface>::IID || iid == &<ISpatialAudioClient as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpatialAudioClient2 {}
 windows_core::imp::define_interface!(ISpatialAudioObject, ISpatialAudioObject_Vtbl, 0xdde28967_521b_46e5_8f00_bd6f2bc8ab1d);
 impl core::ops::Deref for ISpatialAudioObject {
@@ -717,7 +717,7 @@ pub struct SpatialAudioClientActivationParams {
     pub minorVersion3: i32,
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "winnt"))]
 pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub ObjectFormat: *const super::mmeapi::WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -727,14 +727,14 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub EventHandle: super::winnt::HANDLE,
     pub NotifyObject: core::mem::ManuallyDrop<Option<ISpatialAudioObjectRenderStreamNotify>>,
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "winnt"))]
 impl Default for SpatialAudioObjectRenderStreamActivationParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "winnt"))]
 pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub ObjectFormat: *const super::mmeapi::WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -745,7 +745,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub NotifyObject: core::mem::ManuallyDrop<Option<ISpatialAudioObjectRenderStreamNotify>>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "winnt"))]
 impl Default for SpatialAudioObjectRenderStreamActivationParams2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

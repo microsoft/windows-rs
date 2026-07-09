@@ -2,467 +2,467 @@ windows_link::link!("wldap32.dll" "C" fn LdapGetLastError() -> u32);
 windows_link::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn LdapUTF8ToUnicode(lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32) -> i32);
 windows_link::link!("wldap32.dll" "C" fn LdapUnicodeToUTF8(lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PSTR, cchdest : i32) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ber_bvfree(bv : *mut LDAP_BERVAL));
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn cldap_open(hostname : windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn cldap_openA(hostname : windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn cldap_openW(hostname : windows_sys::core::PCWSTR, portnumber : u32) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_abandon(ld : *mut LDAP, msgid : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_add(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attrs : *mut *mut LDAPModA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_addA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attrs : *mut *mut LDAPModA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_addW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, attrs : *mut *mut LDAPModW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_add_ext(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attrs : *mut *mut LDAPModA, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_add_extA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attrs : *mut *mut LDAPModA, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_add_extW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, attrs : *mut *mut LDAPModW, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_add_ext_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attrs : *mut *mut LDAPModA, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_add_ext_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attrs : *mut *mut LDAPModA, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_add_ext_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, attrs : *mut *mut LDAPModW, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_add_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attrs : *mut *mut LDAPModA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_add_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attrs : *mut *mut LDAPModA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_add_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, attrs : *mut *mut LDAPModW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_bind(ld : *mut LDAP, dn : windows_sys::core::PCSTR, cred : *const i8, method : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_bindA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, cred : *const i8, method : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_bindW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, cred : *const u16, method : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_bind_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, cred : *const i8, method : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_bind_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, cred : *const i8, method : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_bind_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, cred : *const u16, method : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_check_filterA(ld : *mut LDAP, searchfilter : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_check_filterW(ld : *mut LDAP, searchfilter : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_cleanup(hinstance : super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_close_extended_op(ld : *mut LDAP, messagenumber : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compare(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compareA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compareW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, attr : windows_sys::core::PCWSTR, value : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_ext(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_extA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR, data : *const LDAP_BERVAL, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_extW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, attr : windows_sys::core::PCWSTR, value : windows_sys::core::PCWSTR, data : *const LDAP_BERVAL, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_ext_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_ext_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR, data : *const LDAP_BERVAL, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_ext_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, attr : windows_sys::core::PCWSTR, value : windows_sys::core::PCWSTR, data : *const LDAP_BERVAL, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, attr : windows_sys::core::PCWSTR, value : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_conn_from_msg(primaryconn : *mut LDAP, res : *mut LDAPMessage) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_connect(ld : *mut LDAP, timeout : *mut LDAP_TIMEVAL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_control_free(control : *mut LDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_control_freeA(controls : *mut LDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_control_freeW(control : *mut LDAPControlW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_controls_free(controls : *mut *mut LDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_controls_freeA(controls : *mut *mut LDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_controls_freeW(control : *mut *mut LDAPControlW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_count_entries(ld : *mut LDAP, res : *mut LDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_count_references(ld : *mut LDAP, res : *mut LDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_count_values(vals : *const super::winnt::PCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_count_valuesA(vals : *const super::winnt::PCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_count_valuesW(vals : *const super::winnt::PWCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_count_values_len(vals : *mut *mut LDAP_BERVAL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_create_page_control(externalhandle : *mut LDAP, pagesize : u32, cookie : *mut LDAP_BERVAL, iscritical : u8, control : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_create_page_controlA(externalhandle : *mut LDAP, pagesize : u32, cookie : *mut LDAP_BERVAL, iscritical : u8, control : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_create_page_controlW(externalhandle : *mut LDAP, pagesize : u32, cookie : *mut LDAP_BERVAL, iscritical : u8, control : *mut PLDAPControlW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_create_sort_control(externalhandle : *mut LDAP, sortkeys : *mut PLDAPSortKeyA, iscritical : u8, control : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_create_sort_controlA(externalhandle : *mut LDAP, sortkeys : *mut PLDAPSortKeyA, iscritical : u8, control : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_create_sort_controlW(externalhandle : *mut LDAP, sortkeys : *mut PLDAPSortKeyW, iscritical : u8, control : *mut PLDAPControlW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_create_vlv_controlA(externalhandle : *mut LDAP, vlvinfo : *mut LDAPVLVInfo, iscritical : u8, control : *mut PLDAPControlA) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_create_vlv_controlW(externalhandle : *mut LDAP, vlvinfo : *mut LDAPVLVInfo, iscritical : u8, control : *mut PLDAPControlW) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_delete(ld : *mut LDAP, dn : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_deleteA(ld : *mut LDAP, dn : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_deleteW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_delete_ext(ld : *mut LDAP, dn : windows_sys::core::PCSTR, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_delete_extA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_delete_extW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_delete_ext_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_delete_ext_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_delete_ext_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_delete_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_delete_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_delete_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_dn2ufn(dn : windows_sys::core::PCSTR) -> super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_dn2ufnA(dn : windows_sys::core::PCSTR) -> super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_dn2ufnW(dn : windows_sys::core::PCWSTR) -> super::winnt::PWCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_encode_sort_controlA(externalhandle : *mut LDAP, sortkeys : *mut PLDAPSortKeyA, control : *mut LDAPControlA, criticality : bool) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_encode_sort_controlW(externalhandle : *mut LDAP, sortkeys : *mut PLDAPSortKeyW, control : *mut LDAPControlW, criticality : bool) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_err2string(err : u32) -> super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_err2stringA(err : u32) -> super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_err2stringW(err : u32) -> super::winnt::PWCHAR);
 windows_link::link!("wldap32.dll" "C" fn ldap_escape_filter_element(sourcefilterelement : *const i8, sourcelength : u32, destfilterelement : *mut i8, destlength : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_escape_filter_elementA(sourcefilterelement : *const i8, sourcelength : u32, destfilterelement : *mut i8, destlength : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_escape_filter_elementW(sourcefilterelement : *const i8, sourcelength : u32, destfilterelement : *mut u16, destlength : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_explode_dn(dn : windows_sys::core::PCSTR, notypes : u32) -> *mut super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_explode_dnA(dn : windows_sys::core::PCSTR, notypes : u32) -> *mut super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_explode_dnW(dn : windows_sys::core::PCWSTR, notypes : u32) -> *mut super::winnt::PWCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_extended_operation(ld : *mut LDAP, oid : windows_sys::core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_extended_operationA(ld : *mut LDAP, oid : windows_sys::core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_extended_operationW(ld : *mut LDAP, oid : windows_sys::core::PCWSTR, data : *mut LDAP_BERVAL, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_extended_operation_sA(externalhandle : *mut LDAP, oid : windows_sys::core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, returnedoid : *mut super::winnt::PCHAR, returneddata : *mut *mut LDAP_BERVAL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_extended_operation_sW(externalhandle : *mut LDAP, oid : windows_sys::core::PCWSTR, data : *mut LDAP_BERVAL, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW, returnedoid : *mut super::winnt::PWCHAR, returneddata : *mut *mut LDAP_BERVAL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_first_attribute(ld : *mut LDAP, entry : *mut LDAPMessage, ptr : *mut *mut BerElement) -> super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_first_attributeA(ld : *mut LDAP, entry : *mut LDAPMessage, ptr : *mut *mut BerElement) -> super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_first_attributeW(ld : *mut LDAP, entry : *mut LDAPMessage, ptr : *mut *mut BerElement) -> super::winnt::PWCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_first_entry(ld : *mut LDAP, res : *mut LDAPMessage) -> *mut LDAPMessage);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_first_reference(ld : *mut LDAP, res : *mut LDAPMessage) -> *mut LDAPMessage);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_free_controls(controls : *mut *mut LDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_free_controlsA(controls : *mut *mut LDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_free_controlsW(controls : *mut *mut LDAPControlW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_dn(ld : *mut LDAP, entry : *mut LDAPMessage) -> super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_dnA(ld : *mut LDAP, entry : *mut LDAPMessage) -> super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_dnW(ld : *mut LDAP, entry : *mut LDAPMessage) -> super::winnt::PWCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_next_page(externalhandle : *mut LDAP, searchhandle : *mut ldapsearch, pagesize : u32, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_next_page_s(externalhandle : *mut LDAP, searchhandle : *mut ldapsearch, timeout : *mut LDAP_TIMEVAL, pagesize : u32, totalcount : *mut u32, results : *mut *mut LDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_option(ld : *mut LDAP, option : i32, outvalue : *mut core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_optionW(ld : *mut LDAP, option : i32, outvalue : *mut core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_paged_count(externalhandle : *mut LDAP, searchblock : *mut ldapsearch, totalcount : *mut u32, results : *mut LDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_values(ld : *mut LDAP, entry : *mut LDAPMessage, attr : windows_sys::core::PCSTR) -> *mut super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_valuesA(ld : *mut LDAP, entry : *mut LDAPMessage, attr : windows_sys::core::PCSTR) -> *mut super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_valuesW(ld : *mut LDAP, entry : *mut LDAPMessage, attr : windows_sys::core::PCWSTR) -> *mut super::winnt::PWCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_values_len(externalhandle : *mut LDAP, message : *mut LDAPMessage, attr : windows_sys::core::PCSTR) -> *mut *mut LDAP_BERVAL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_values_lenA(externalhandle : *mut LDAP, message : *mut LDAPMessage, attr : windows_sys::core::PCSTR) -> *mut *mut LDAP_BERVAL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_get_values_lenW(externalhandle : *mut LDAP, message : *mut LDAPMessage, attr : windows_sys::core::PCWSTR) -> *mut *mut LDAP_BERVAL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_init(hostname : windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_initA(hostname : windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_initW(hostname : windows_sys::core::PCWSTR, portnumber : u32) -> *mut LDAP);
 windows_link::link!("wldap32.dll" "C" fn ldap_memfree(block : *const i8));
 windows_link::link!("wldap32.dll" "C" fn ldap_memfreeA(block : *const i8));
 windows_link::link!("wldap32.dll" "C" fn ldap_memfreeW(block : *const u16));
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modify(ld : *mut LDAP, dn : windows_sys::core::PCSTR, mods : *mut *mut LDAPModA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modifyA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, mods : *mut *mut LDAPModA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modifyW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, mods : *mut *mut LDAPModW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modify_ext(ld : *mut LDAP, dn : windows_sys::core::PCSTR, mods : *mut *mut LDAPModA, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modify_extA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, mods : *mut *mut LDAPModA, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modify_extW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, mods : *mut *mut LDAPModW, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modify_ext_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, mods : *mut *mut LDAPModA, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modify_ext_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, mods : *mut *mut LDAPModA, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modify_ext_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, mods : *mut *mut LDAPModW, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modify_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, mods : *mut *mut LDAPModA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modify_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, mods : *mut *mut LDAPModA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modify_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, mods : *mut *mut LDAPModW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdn(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, newdistinguishedname : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdn2(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, newdistinguishedname : windows_sys::core::PCSTR, deleteoldrdn : i32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdn2A(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, newdistinguishedname : windows_sys::core::PCSTR, deleteoldrdn : i32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdn2W(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCWSTR, newdistinguishedname : windows_sys::core::PCWSTR, deleteoldrdn : i32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdn2_s(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, newdistinguishedname : windows_sys::core::PCSTR, deleteoldrdn : i32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdn2_sA(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, newdistinguishedname : windows_sys::core::PCSTR, deleteoldrdn : i32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdn2_sW(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCWSTR, newdistinguishedname : windows_sys::core::PCWSTR, deleteoldrdn : i32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdnA(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, newdistinguishedname : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdnW(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCWSTR, newdistinguishedname : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdn_s(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, newdistinguishedname : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdn_sA(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, newdistinguishedname : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_modrdn_sW(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCWSTR, newdistinguishedname : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_msgfree(res : *mut LDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_next_attribute(ld : *mut LDAP, entry : *mut LDAPMessage, ptr : *mut BerElement) -> super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_next_attributeA(ld : *mut LDAP, entry : *mut LDAPMessage, ptr : *mut BerElement) -> super::winnt::PCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_next_attributeW(ld : *mut LDAP, entry : *mut LDAPMessage, ptr : *mut BerElement) -> super::winnt::PWCHAR);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_next_entry(ld : *mut LDAP, entry : *mut LDAPMessage) -> *mut LDAPMessage);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_next_reference(ld : *mut LDAP, entry : *mut LDAPMessage) -> *mut LDAPMessage);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_open(hostname : windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_openA(hostname : windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_openW(hostname : windows_sys::core::PCWSTR, portnumber : u32) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_extended_resultA(connection : *mut LDAP, resultmessage : *mut LDAPMessage, resultoid : *mut windows_sys::core::PSTR, resultdata : *mut *mut LDAP_BERVAL, freeit : bool) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_extended_resultW(connection : *mut LDAP, resultmessage : *mut LDAPMessage, resultoid : *mut windows_sys::core::PWSTR, resultdata : *mut *mut LDAP_BERVAL, freeit : bool) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_page_control(externalhandle : *mut LDAP, servercontrols : *mut PLDAPControlA, totalcount : *mut u32, cookie : *mut *mut LDAP_BERVAL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_page_controlA(externalhandle : *mut LDAP, servercontrols : *mut PLDAPControlA, totalcount : *mut u32, cookie : *mut *mut LDAP_BERVAL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_page_controlW(externalhandle : *mut LDAP, servercontrols : *mut PLDAPControlW, totalcount : *mut u32, cookie : *mut *mut LDAP_BERVAL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_reference(connection : *mut LDAP, resultmessage : *mut LDAPMessage, referrals : *mut *mut super::winnt::PCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_referenceA(connection : *mut LDAP, resultmessage : *mut LDAPMessage, referrals : *mut *mut super::winnt::PCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_referenceW(connection : *mut LDAP, resultmessage : *mut LDAPMessage, referrals : *mut *mut super::winnt::PWCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_result(connection : *mut LDAP, resultmessage : *mut LDAPMessage, returncode : *mut u32, matcheddns : *mut windows_sys::core::PSTR, errormessage : *mut windows_sys::core::PSTR, referrals : *mut *mut windows_sys::core::PSTR, servercontrols : *mut *mut PLDAPControlA, freeit : bool) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_resultA(connection : *mut LDAP, resultmessage : *mut LDAPMessage, returncode : *mut u32, matcheddns : *mut windows_sys::core::PSTR, errormessage : *mut windows_sys::core::PSTR, referrals : *mut super::winnt::PZPSTR, servercontrols : *mut *mut PLDAPControlA, freeit : bool) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_resultW(connection : *mut LDAP, resultmessage : *mut LDAPMessage, returncode : *mut u32, matcheddns : *mut windows_sys::core::PWSTR, errormessage : *mut windows_sys::core::PWSTR, referrals : *mut super::winnt::PZPWSTR, servercontrols : *mut *mut PLDAPControlW, freeit : bool) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_sort_control(externalhandle : *mut LDAP, control : *mut PLDAPControlA, result : *mut u32, attribute : *mut super::winnt::PCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_sort_controlA(externalhandle : *mut LDAP, control : *mut PLDAPControlA, result : *mut u32, attribute : *mut super::winnt::PCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_sort_controlW(externalhandle : *mut LDAP, control : *mut PLDAPControlW, result : *mut u32, attribute : *mut super::winnt::PWCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_vlv_controlA(externalhandle : *mut LDAP, control : *mut PLDAPControlA, targetpos : *mut u32, listcount : *mut u32, context : *mut PBERVAL, errcode : *mut i32) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_parse_vlv_controlW(externalhandle : *mut LDAP, control : *mut PLDAPControlW, targetpos : *mut u32, listcount : *mut u32, context : *mut PBERVAL, errcode : *mut i32) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_perror(ld : *mut LDAP, msg : *const i8));
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_rename_ext(ld : *mut LDAP, dn : windows_sys::core::PCSTR, newrdn : windows_sys::core::PCSTR, newparent : windows_sys::core::PCSTR, deleteoldrdn : i32, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_rename_extA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, newrdn : windows_sys::core::PCSTR, newparent : windows_sys::core::PCSTR, deleteoldrdn : i32, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_rename_extW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, newrdn : windows_sys::core::PCWSTR, newparent : windows_sys::core::PCWSTR, deleteoldrdn : i32, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_rename_ext_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, newrdn : windows_sys::core::PCSTR, newparent : windows_sys::core::PCSTR, deleteoldrdn : i32, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_rename_ext_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, newrdn : windows_sys::core::PCSTR, newparent : windows_sys::core::PCSTR, deleteoldrdn : i32, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_rename_ext_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, newrdn : windows_sys::core::PCWSTR, newparent : windows_sys::core::PCWSTR, deleteoldrdn : i32, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_result(ld : *mut LDAP, msgid : u32, all : u32, timeout : *const LDAP_TIMEVAL, res : *mut PLDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_result2error(ld : *mut LDAP, res : *mut LDAPMessage, freeit : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_sasl_bindA(externalhandle : *mut LDAP, distname : windows_sys::core::PCSTR, authmechanism : windows_sys::core::PCSTR, cred : *const BERVAL, serverctrls : *mut PLDAPControlA, clientctrls : *mut PLDAPControlA, messagenumber : *mut i32) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_sasl_bindW(externalhandle : *mut LDAP, distname : windows_sys::core::PCWSTR, authmechanism : windows_sys::core::PCWSTR, cred : *const BERVAL, serverctrls : *mut PLDAPControlW, clientctrls : *mut PLDAPControlW, messagenumber : *mut i32) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_sasl_bind_sA(externalhandle : *mut LDAP, distname : windows_sys::core::PCSTR, authmechanism : windows_sys::core::PCSTR, cred : *const BERVAL, serverctrls : *mut PLDAPControlA, clientctrls : *mut PLDAPControlA, serverdata : *mut PBERVAL) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_sasl_bind_sW(externalhandle : *mut LDAP, distname : windows_sys::core::PCWSTR, authmechanism : windows_sys::core::PCWSTR, cred : *const BERVAL, serverctrls : *mut PLDAPControlW, clientctrls : *mut PLDAPControlW, serverdata : *mut PBERVAL) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const windows_sys::core::PCSTR, attrsonly : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_searchA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const windows_sys::core::PCSTR, attrsonly : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_searchW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *const windows_sys::core::PCWSTR, attrsonly : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_abandon_page(externalhandle : *mut LDAP, searchblock : *mut ldapsearch) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_ext(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const windows_sys::core::PCSTR, attrsonly : u32, servercontrols : *const PLDAPControlA, clientcontrols : *const PLDAPControlA, timelimit : u32, sizelimit : u32, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_extA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const windows_sys::core::PCSTR, attrsonly : u32, servercontrols : *const PLDAPControlA, clientcontrols : *const PLDAPControlA, timelimit : u32, sizelimit : u32, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_extW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *const windows_sys::core::PCWSTR, attrsonly : u32, servercontrols : *const PLDAPControlW, clientcontrols : *const PLDAPControlW, timelimit : u32, sizelimit : u32, messagenumber : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_ext_s(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const windows_sys::core::PCSTR, attrsonly : u32, servercontrols : *const PLDAPControlA, clientcontrols : *const PLDAPControlA, timeout : *mut LDAP_TIMEVAL, sizelimit : u32, res : *mut PLDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_ext_sA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const windows_sys::core::PCSTR, attrsonly : u32, servercontrols : *const PLDAPControlA, clientcontrols : *const PLDAPControlA, timeout : *mut LDAP_TIMEVAL, sizelimit : u32, res : *mut PLDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_ext_sW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *const windows_sys::core::PCWSTR, attrsonly : u32, servercontrols : *const PLDAPControlW, clientcontrols : *const PLDAPControlW, timeout : *mut LDAP_TIMEVAL, sizelimit : u32, res : *mut PLDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_init_page(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, scopeofsearch : u32, searchfilter : windows_sys::core::PCSTR, attributelist : *mut windows_sys::core::PSTR, attributesonly : u32, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut PLDAPSortKeyA) -> PLDAPSearch);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_init_pageA(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, scopeofsearch : u32, searchfilter : windows_sys::core::PCSTR, attributelist : *const windows_sys::core::PCSTR, attributesonly : u32, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut PLDAPSortKeyA) -> PLDAPSearch);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_init_pageW(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCWSTR, scopeofsearch : u32, searchfilter : windows_sys::core::PCWSTR, attributelist : *const windows_sys::core::PCWSTR, attributesonly : u32, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut PLDAPSortKeyW) -> PLDAPSearch);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_s(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const windows_sys::core::PCSTR, attrsonly : u32, res : *mut PLDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_sA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const windows_sys::core::PCSTR, attrsonly : u32, res : *mut *mut LDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_sW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *const windows_sys::core::PCWSTR, attrsonly : u32, res : *mut *mut LDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_st(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const windows_sys::core::PCSTR, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut PLDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_stA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const windows_sys::core::PCSTR, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut PLDAPMessage) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_search_stW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *const windows_sys::core::PCWSTR, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut PLDAPMessage) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_set_dbg_flags(newflags : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_set_dbg_routine(debugprintroutine : DBGPRINT));
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_set_option(ld : *mut LDAP, option : i32, invalue : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_set_optionW(ld : *mut LDAP, option : i32, invalue : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_simple_bind(ld : *mut LDAP, dn : windows_sys::core::PCSTR, passwd : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_simple_bindA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, passwd : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_simple_bindW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, passwd : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_simple_bind_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, passwd : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_simple_bind_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, passwd : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_simple_bind_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, passwd : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_sslinit(hostname : windows_sys::core::PCSTR, portnumber : u32, secure : i32) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_sslinitA(hostname : windows_sys::core::PCSTR, portnumber : u32, secure : i32) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_sslinitW(hostname : windows_sys::core::PCWSTR, portnumber : u32, secure : i32) -> *mut LDAP);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_start_tls_sA(externalhandle : *mut LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_start_tls_sW(externalhandle : *mut LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_startup(version : *mut LDAP_VERSION_INFO, instance : *mut super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_stop_tls_s(externalhandle : *mut LDAP) -> bool);
 windows_link::link!("wldap32.dll" "C" fn ldap_ufn2dn(ufn : windows_sys::core::PCSTR, pdn : *mut windows_sys::core::PSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_ufn2dnA(ufn : windows_sys::core::PCSTR, pdn : *mut windows_sys::core::PSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_ufn2dnW(ufn : windows_sys::core::PCWSTR, pdn : *mut windows_sys::core::PWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_unbind(ld : *mut LDAP) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_unbind_s(ld : *mut LDAP) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_value_free(vals : *const super::winnt::PCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_value_freeA(vals : *const super::winnt::PCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_value_freeW(vals : *const super::winnt::PWCHAR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_value_free_len(vals : *mut *mut LDAP_BERVAL) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type BERVAL = LDAP_BERVAL;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct BerElement {
     pub opaque: super::winnt::PCHAR,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for BerElement {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type BerValue = LDAP_BERVAL;
 pub type DBGPRINT = *mut u8;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type DEREFERENCECONNECTION = Option<unsafe extern "C" fn(primaryconnection: *mut LDAP, connectiontodereference: *mut LDAP) -> u32>;
 pub const LAPI_MAJOR_VER1: u32 = 1;
 pub const LAPI_MINOR_VER1: u32 = 1;
@@ -470,7 +470,7 @@ pub const LBER_TRANSLATE_STRINGS: u32 = 4;
 pub const LBER_USE_DER: u32 = 1;
 pub const LBER_USE_INDEFINITE_LEN: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAP {
     pub ld_sb: LDAP_0,
@@ -491,14 +491,14 @@ pub struct LDAP {
     pub ld_options: u32,
     pub ld_anonymousmaxvalrange: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAP_0 {
     pub sb_sd: usize,
@@ -506,7 +506,7 @@ pub struct LDAP_0 {
     pub sb_naddr: usize,
     pub Reserved2: [u8; 24],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -525,14 +525,14 @@ impl Default for LDAPAPIFeatureInfoA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: super::winnt::PWCHAR,
     pub ldapaif_version: i32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPAPIFeatureInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -554,7 +554,7 @@ impl Default for LDAPAPIInfoA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAPAPIInfoW {
     pub ldapai_info_version: i32,
@@ -564,42 +564,42 @@ pub struct LDAPAPIInfoW {
     pub ldapai_vendor_name: super::winnt::PWCHAR,
     pub ldapai_vendor_version: i32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPAPIInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAPControlA {
     pub ldctl_oid: super::winnt::PCHAR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: bool,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPControlA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAPControlW {
     pub ldctl_oid: super::winnt::PWCHAR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: bool,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPControlW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAPMessage {
     pub lm_msgid: u32,
@@ -616,61 +616,61 @@ pub struct LDAPMessage {
     pub lm_eom: bool,
     pub ConnectionReferenced: bool,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPMessage {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAPModA {
     pub mod_op: u32,
     pub mod_type: super::winnt::PCHAR,
     pub mod_vals: LDAPModA_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPModA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union LDAPModA_0 {
     pub modv_strvals: *mut super::winnt::PCHAR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPModA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAPModW {
     pub mod_op: u32,
     pub mod_type: super::winnt::PWCHAR,
     pub mod_vals: LDAPModW_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPModW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union LDAPModW_0 {
     pub modv_strvals: *mut super::winnt::PWCHAR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPModW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -678,35 +678,35 @@ impl Default for LDAPModW_0 {
 }
 pub type LDAPSearch = ldapsearch;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAPSortKeyA {
     pub sk_attrtype: super::winnt::PCHAR,
     pub sk_matchruleoid: super::winnt::PCHAR,
     pub sk_reverseorder: bool,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPSortKeyA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAPSortKeyW {
     pub sk_attrtype: super::winnt::PWCHAR,
     pub sk_matchruleoid: super::winnt::PWCHAR,
     pub sk_reverseorder: bool,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPSortKeyW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAPVLVInfo {
     pub ldvlv_version: i32,
@@ -718,7 +718,7 @@ pub struct LDAPVLVInfo {
     pub ldvlv_context: PBERVAL,
     pub ldvlv_extradata: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAPVLVInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -749,13 +749,13 @@ pub const LDAP_AUTH_SIMPLE: u32 = 128;
 pub const LDAP_AUTH_SSPI: u32 = 1158;
 pub const LDAP_AUTH_UNKNOWN: LDAP_RETCODE = 86;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LDAP_BERVAL {
     pub bv_len: u32,
     pub bv_val: super::winnt::PCHAR,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LDAP_BERVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -900,7 +900,7 @@ pub const LDAP_PORT: u32 = 389;
 pub const LDAP_PROTOCOL_ERROR: LDAP_RETCODE = 2;
 pub const LDAP_REFERRAL: LDAP_RETCODE = 10;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct LDAP_REFERRAL_CALLBACK {
     pub SizeOfCallbacks: u32,
@@ -981,40 +981,40 @@ pub const LDAP_VERSION_MAX: u32 = 3;
 pub const LDAP_VERSION_MIN: u32 = 2;
 pub const LDAP_VIRTUAL_LIST_VIEW_ERROR: LDAP_RETCODE = 76;
 pub const LDAP_VLVINFO_VERSION: u32 = 1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type NOTIFYOFNEWCONNECTION = Option<unsafe extern "C" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: *mut u16, hostname: *mut i8, newconnection: *mut LDAP, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentuser: *mut core::ffi::c_void, errorcodefrombind: u32) -> bool>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PBERVAL = *mut LDAP_BERVAL;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PLDAP = *mut LDAP;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PLDAPControlA = *mut LDAPControlA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PLDAPControlW = *mut LDAPControlW;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PLDAPMessage = *mut LDAPMessage;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PLDAPModA = *mut LDAPModA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PLDAPModW = *mut LDAPModW;
 pub type PLDAPSearch = *mut ldapsearch;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PLDAPSortKeyA = *mut LDAPSortKeyA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PLDAPSortKeyW = *mut LDAPSortKeyW;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PLDAPVLVInfo = *mut LDAPVLVInfo;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PLDAP_BERVAL = *mut LDAP_BERVAL;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PLDAP_REFERRAL_CALLBACK = *mut LDAP_REFERRAL_CALLBACK;
 pub type PLDAP_TIMEVAL = *mut LDAP_TIMEVAL;
 pub type PLDAP_VERSION_INFO = *mut LDAP_VERSION_INFO;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_schannel", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "schannel", feature = "wincrypt", feature = "winnt"))]
 pub type QUERYCLIENTCERT = Option<unsafe extern "C" fn(connection: *mut LDAP, trusted_cas: *mut super::schannel::SecPkgContext_IssuerListInfoEx, ppcertificate: *mut super::wincrypt::PCCERT_CONTEXT) -> bool>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type QUERYFORCONNECTION = Option<unsafe extern "C" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: *mut u16, hostname: *mut i8, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentusertoken: *mut core::ffi::c_void, connectiontouse: *mut PLDAP) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 pub type VERIFYSERVERCERT = Option<unsafe extern "C" fn(connection: *mut LDAP, pservercert: *mut super::wincrypt::PCCERT_CONTEXT) -> bool>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

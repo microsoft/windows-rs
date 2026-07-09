@@ -159,7 +159,7 @@ impl Default for HENHMETAFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub const HFILE_ERROR: super::minwindef::HFILE = super::minwindef::HFILE(0xFFFFFFFF_u32 as _);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

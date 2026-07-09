@@ -1,6 +1,6 @@
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objidlbase", feature = "winnt"))]
 windows_link::link!("xpsprint.dll" "system" fn StartXpsPrintJob(printername : windows_sys::core::PCWSTR, jobname : windows_sys::core::PCWSTR, outputfilename : windows_sys::core::PCWSTR, progressevent : super::winnt::HANDLE, completionevent : super::winnt::HANDLE, printablepageson : *const u8, printablepagesoncount : u32, xpsprintjob : *mut *mut core::ffi::c_void, documentstream : *mut *mut core::ffi::c_void, printticketstream : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("xpsprint.dll" "system" fn StartXpsPrintJob1(printername : windows_sys::core::PCWSTR, jobname : windows_sys::core::PCWSTR, outputfilename : windows_sys::core::PCWSTR, progressevent : super::winnt::HANDLE, completionevent : super::winnt::HANDLE, xpsprintjob : *mut *mut core::ffi::c_void, printcontentreceiver : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[repr(C)]
 #[derive(Clone, Copy)]

@@ -1,10 +1,10 @@
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy)]
 pub struct BOID {
     pub rgb: [super::rpc::byte; 16],
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for BOID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -58,7 +58,7 @@ pub const XACTRM_NOREADONLYPREPARES: XACTRM = 2;
 pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = 1;
 pub type XACTSTAT = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct XACTSTATS {
     pub cOpen: u32,
@@ -101,7 +101,7 @@ pub const XACTTC_SYNC: XACTTC = 2;
 pub const XACTTC_SYNC_PHASEONE: XACTTC = 1;
 pub const XACTTC_SYNC_PHASETWO: XACTTC = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Default)]
 pub struct XACTTRANSINFO {
     pub uow: XACTUOW,
@@ -112,5 +112,5 @@ pub struct XACTTRANSINFO {
     pub grfTCSupportedRetaining: u32,
     pub grfRMSupportedRetaining: u32,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub type XACTUOW = BOID;

@@ -3,23 +3,23 @@ pub const LOGTOKEN_SETUPAPI_APPLOG: u32 = 2;
 pub const LOGTOKEN_SETUPAPI_DEVLOG: u32 = 3;
 pub const LOGTOKEN_TYPE_MASK: u32 = 3;
 pub const LOGTOKEN_UNSPECIFIED: u32 = 0;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSP_LOG_TOKEN(pub *mut super::winnt::DWORDLONG);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PSP_LOG_TOKEN {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PSP_LOG_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SP_LOG_TOKEN(pub super::winnt::DWORDLONG);

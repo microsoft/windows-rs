@@ -566,7 +566,7 @@ pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     pub Id: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: super::winnt::EXCEPTION_RECORD64,
@@ -1204,9 +1204,9 @@ windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacks, windows_core::I
 pub struct DebugBaseEventCallbacks_Vtbl {
     pub base__: IDebugEventCallbacks_Vtbl,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait DebugBaseEventCallbacks_Impl: IDebugEventCallbacks_Impl {}
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl DebugBaseEventCallbacks_Vtbl {
     pub const fn new<Identity: DebugBaseEventCallbacks_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IDebugEventCallbacks_Vtbl::new::<Identity, OFFSET>() }
@@ -1215,7 +1215,7 @@ impl DebugBaseEventCallbacks_Vtbl {
         iid == &<DebugBaseEventCallbacks as windows_core::Interface>::IID || iid == &<IDebugEventCallbacks as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for DebugBaseEventCallbacks {}
 windows_core::imp::define_interface!(DebugBaseEventCallbacksWide, DebugBaseEventCallbacksWide_Vtbl, 0);
 impl core::ops::Deref for DebugBaseEventCallbacksWide {
@@ -1230,9 +1230,9 @@ windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacksWide, windows_cor
 pub struct DebugBaseEventCallbacksWide_Vtbl {
     pub base__: IDebugEventCallbacksWide_Vtbl,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait DebugBaseEventCallbacksWide_Impl: IDebugEventCallbacksWide_Impl {}
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl DebugBaseEventCallbacksWide_Vtbl {
     pub const fn new<Identity: DebugBaseEventCallbacksWide_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IDebugEventCallbacksWide_Vtbl::new::<Identity, OFFSET>() }
@@ -1241,7 +1241,7 @@ impl DebugBaseEventCallbacksWide_Vtbl {
         iid == &<DebugBaseEventCallbacksWide as windows_core::Interface>::IID || iid == &<IDebugEventCallbacksWide as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for DebugBaseEventCallbacksWide {}
 pub const ERROR_DBG_CANCELLED: u32 = 3221226695;
 pub const ERROR_DBG_TIMEOUT: u32 = 3221226932;
@@ -14914,7 +14914,7 @@ impl IDebugControl {
     {
         unsafe { (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetExtensionFunction<P1>(&self, handle: u64, funcname: P1) -> windows_core::Result<super::minwindef::FARPROC>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -14924,11 +14924,11 @@ impl IDebugControl {
             (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), api as _) }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), api as _) }
     }
@@ -15066,17 +15066,17 @@ pub struct IDebugControl_Vtbl {
     pub RemoveExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::minwindef::FARPROC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetExtensionFunction: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis32: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -15093,7 +15093,7 @@ pub struct IDebugControl_Vtbl {
     pub WaitForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetLastEventInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -15191,7 +15191,7 @@ pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
     fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()>;
     fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: windows_core::PSTR, descriptionsize: u32, descriptionused: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl_Vtbl {
     pub const fn new<Identity: IDebugControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16023,7 +16023,7 @@ impl IDebugControl_Vtbl {
         iid == &<IDebugControl as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl windows_core::RuntimeName for IDebugControl {}
 windows_core::imp::define_interface!(IDebugControl2, IDebugControl2_Vtbl, 0xd4366723_44df_4bed_8c7e_4c05424f4588);
 windows_core::imp::interface_hierarchy!(IDebugControl2, windows_core::IUnknown);
@@ -16414,7 +16414,7 @@ impl IDebugControl2 {
     {
         unsafe { (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetExtensionFunction<P1>(&self, handle: u64, funcname: P1) -> windows_core::Result<super::minwindef::FARPROC>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -16424,11 +16424,11 @@ impl IDebugControl2 {
             (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), api as _) }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), api as _) }
     }
@@ -16621,17 +16621,17 @@ pub struct IDebugControl2_Vtbl {
     pub RemoveExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::minwindef::FARPROC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetExtensionFunction: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis32: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -16656,7 +16656,7 @@ pub struct IDebugControl2_Vtbl {
     pub RemoveTextReplacements: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OutputTextReplacements: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -16762,7 +16762,7 @@ pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
     fn RemoveTextReplacements(&self) -> windows_core::Result<()>;
     fn OutputTextReplacements(&self, outputcontrol: u32, flags: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl2_Vtbl {
     pub const fn new<Identity: IDebugControl2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17674,7 +17674,7 @@ impl IDebugControl2_Vtbl {
         iid == &<IDebugControl2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl windows_core::RuntimeName for IDebugControl2 {}
 windows_core::imp::define_interface!(IDebugControl3, IDebugControl3_Vtbl, 0x7df74a86_b03f_407f_90ab_a20dadcead08);
 windows_core::imp::interface_hierarchy!(IDebugControl3, windows_core::IUnknown);
@@ -18065,7 +18065,7 @@ impl IDebugControl3 {
     {
         unsafe { (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetExtensionFunction<P1>(&self, handle: u64, funcname: P1) -> windows_core::Result<super::minwindef::FARPROC>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -18075,11 +18075,11 @@ impl IDebugControl3 {
             (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), api as _) }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), api as _) }
     }
@@ -18346,17 +18346,17 @@ pub struct IDebugControl3_Vtbl {
     pub RemoveExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::minwindef::FARPROC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetExtensionFunction: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis32: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -18394,7 +18394,7 @@ pub struct IDebugControl3_Vtbl {
     pub GetCurrentEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetNextEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -18513,7 +18513,7 @@ pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
     fn GetCurrentEventIndex(&self) -> windows_core::Result<u32>;
     fn SetNextEventIndex(&self, relation: u32, value: u32) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl3_Vtbl {
     pub const fn new<Identity: IDebugControl3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -19552,7 +19552,7 @@ impl IDebugControl3_Vtbl {
         iid == &<IDebugControl3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl windows_core::RuntimeName for IDebugControl3 {}
 windows_core::imp::define_interface!(IDebugControl4, IDebugControl4_Vtbl, 0x94e60ce9_9b41_4b19_9fc0_6d9eb35272b3);
 windows_core::imp::interface_hierarchy!(IDebugControl4, windows_core::IUnknown);
@@ -19943,7 +19943,7 @@ impl IDebugControl4 {
     {
         unsafe { (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetExtensionFunction<P1>(&self, handle: u64, funcname: P1) -> windows_core::Result<super::minwindef::FARPROC>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -19953,11 +19953,11 @@ impl IDebugControl4 {
             (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), api as _) }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), api as _) }
     }
@@ -20300,7 +20300,7 @@ impl IDebugControl4 {
     {
         unsafe { (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetExtensionFunctionWide<P1>(&self, handle: u64, funcname: P1) -> windows_core::Result<super::minwindef::FARPROC>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -20522,17 +20522,17 @@ pub struct IDebugControl4_Vtbl {
     pub RemoveExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::minwindef::FARPROC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetExtensionFunction: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis32: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -20595,9 +20595,9 @@ pub struct IDebugControl4_Vtbl {
     pub AddExtensionWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u64) -> windows_core::HRESULT,
     pub GetExtensionByPathWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtensionWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetExtensionFunctionWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut super::minwindef::FARPROC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetExtensionFunctionWide: usize,
     pub GetEventFilterTextWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterCommandWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -20626,7 +20626,7 @@ pub struct IDebugControl4_Vtbl {
     pub GetManagedStatusWide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ResetManagedStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl4_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -20798,7 +20798,7 @@ pub trait IDebugControl4_Impl: windows_core::IUnknownImpl {
     fn GetManagedStatusWide(&self, flags: *mut u32, whichstring: u32, string: windows_core::PWSTR, stringsize: u32, stringneeded: *mut u32) -> windows_core::Result<()>;
     fn ResetManagedStatus(&self, flags: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl4_Vtbl {
     pub const fn new<Identity: IDebugControl4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -22250,7 +22250,7 @@ impl IDebugControl4_Vtbl {
         iid == &<IDebugControl4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl windows_core::RuntimeName for IDebugControl4 {}
 windows_core::imp::define_interface!(IDebugControl5, IDebugControl5_Vtbl, 0xb2ffe162_2412_429f_8d1d_5bf6dd824696);
 windows_core::imp::interface_hierarchy!(IDebugControl5, windows_core::IUnknown);
@@ -22641,7 +22641,7 @@ impl IDebugControl5 {
     {
         unsafe { (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetExtensionFunction<P1>(&self, handle: u64, funcname: P1) -> windows_core::Result<super::minwindef::FARPROC>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -22651,11 +22651,11 @@ impl IDebugControl5 {
             (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), api as _) }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), api as _) }
     }
@@ -22998,7 +22998,7 @@ impl IDebugControl5 {
     {
         unsafe { (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetExtensionFunctionWide<P1>(&self, handle: u64, funcname: P1) -> windows_core::Result<super::minwindef::FARPROC>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -23238,17 +23238,17 @@ pub struct IDebugControl5_Vtbl {
     pub RemoveExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::minwindef::FARPROC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetExtensionFunction: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis32: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -23311,9 +23311,9 @@ pub struct IDebugControl5_Vtbl {
     pub AddExtensionWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u64) -> windows_core::HRESULT,
     pub GetExtensionByPathWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtensionWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetExtensionFunctionWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut super::minwindef::FARPROC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetExtensionFunctionWide: usize,
     pub GetEventFilterTextWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterCommandWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -23347,7 +23347,7 @@ pub struct IDebugControl5_Vtbl {
     pub OutputContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME_EX, u32, *const core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
     pub GetBreakpointByGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -23524,7 +23524,7 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
     fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl5_Vtbl {
     pub const fn new<Identity: IDebugControl5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -25017,7 +25017,7 @@ impl IDebugControl5_Vtbl {
         iid == &<IDebugControl5 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl windows_core::RuntimeName for IDebugControl5 {}
 windows_core::imp::define_interface!(IDebugControl6, IDebugControl6_Vtbl, 0xbc0d583f_126d_43a1_9cc4_a860ab1d537b);
 windows_core::imp::interface_hierarchy!(IDebugControl6, windows_core::IUnknown);
@@ -25408,7 +25408,7 @@ impl IDebugControl6 {
     {
         unsafe { (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetExtensionFunction<P1>(&self, handle: u64, funcname: P1) -> windows_core::Result<super::minwindef::FARPROC>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -25418,11 +25418,11 @@ impl IDebugControl6 {
             (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), api as _) }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), api as _) }
     }
@@ -25765,7 +25765,7 @@ impl IDebugControl6 {
     {
         unsafe { (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetExtensionFunctionWide<P1>(&self, handle: u64, funcname: P1) -> windows_core::Result<super::minwindef::FARPROC>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -26014,17 +26014,17 @@ pub struct IDebugControl6_Vtbl {
     pub RemoveExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::minwindef::FARPROC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetExtensionFunction: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis32: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -26087,9 +26087,9 @@ pub struct IDebugControl6_Vtbl {
     pub AddExtensionWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u64) -> windows_core::HRESULT,
     pub GetExtensionByPathWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtensionWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetExtensionFunctionWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut super::minwindef::FARPROC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetExtensionFunctionWide: usize,
     pub GetEventFilterTextWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterCommandWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -26125,7 +26125,7 @@ pub struct IDebugControl6_Vtbl {
     pub GetExecutionStatusEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetSynchronizationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -26304,7 +26304,7 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn GetExecutionStatusEx(&self) -> windows_core::Result<u32>;
     fn GetSynchronizationStatus(&self, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl6_Vtbl {
     pub const fn new<Identity: IDebugControl6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -27817,7 +27817,7 @@ impl IDebugControl6_Vtbl {
         iid == &<IDebugControl6 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl windows_core::RuntimeName for IDebugControl6 {}
 windows_core::imp::define_interface!(IDebugControl7, IDebugControl7_Vtbl, 0xb86fb3b1_80d4_475b_aea3_cf06539cf63a);
 windows_core::imp::interface_hierarchy!(IDebugControl7, windows_core::IUnknown);
@@ -28208,7 +28208,7 @@ impl IDebugControl7 {
     {
         unsafe { (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetExtensionFunction<P1>(&self, handle: u64, funcname: P1) -> windows_core::Result<super::minwindef::FARPROC>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -28218,11 +28218,11 @@ impl IDebugControl7 {
             (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), api as _) }
     }
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), api as _) }
     }
@@ -28565,7 +28565,7 @@ impl IDebugControl7 {
     {
         unsafe { (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetExtensionFunctionWide<P1>(&self, handle: u64, funcname: P1) -> windows_core::Result<super::minwindef::FARPROC>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -28817,17 +28817,17 @@ pub struct IDebugControl7_Vtbl {
     pub RemoveExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::minwindef::FARPROC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetExtensionFunction: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis32: usize,
-    #[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wdbgexts::WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wdbgexts", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "wdbgexts", feature = "winnt")))]
     GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -28890,9 +28890,9 @@ pub struct IDebugControl7_Vtbl {
     pub AddExtensionWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u64) -> windows_core::HRESULT,
     pub GetExtensionByPathWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtensionWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetExtensionFunctionWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut super::minwindef::FARPROC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetExtensionFunctionWide: usize,
     pub GetEventFilterTextWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterCommandWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -28929,7 +28929,7 @@ pub struct IDebugControl7_Vtbl {
     pub GetSynchronizationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetDebuggeeType2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -29109,7 +29109,7 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn GetSynchronizationStatus(&self, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> windows_core::Result<()>;
     fn GetDebuggeeType2(&self, flags: u32, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl7_Vtbl {
     pub const fn new<Identity: IDebugControl7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -30629,7 +30629,7 @@ impl IDebugControl7_Vtbl {
         iid == &<IDebugControl7 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl windows_core::RuntimeName for IDebugControl7 {}
 windows_core::imp::define_interface!(IDebugDataSpaces, IDebugDataSpaces_Vtbl, 0x88f7dfab_3ea7_4c3a_aefb_c4e8106173aa);
 windows_core::imp::interface_hierarchy!(IDebugDataSpaces, windows_core::IUnknown);
@@ -31043,7 +31043,7 @@ impl IDebugDataSpaces2 {
     pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32, filled: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FillPhysical)(windows_core::Interface::as_raw(self), start, size, pattern, patternsize, filled.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::winnt::MEMORY_BASIC_INFORMATION64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryVirtual)(windows_core::Interface::as_raw(self), offset, info as _) }
     }
@@ -31080,12 +31080,12 @@ pub struct IDebugDataSpaces2_Vtbl {
     pub ReadHandleData: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub FillVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub FillPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub QueryVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut super::winnt::MEMORY_BASIC_INFORMATION64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     QueryVirtual: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDebugDataSpaces2_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -31117,7 +31117,7 @@ pub trait IDebugDataSpaces2_Impl: windows_core::IUnknownImpl {
     fn FillPhysical(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::Result<()>;
     fn QueryVirtual(&self, offset: u64, info: *mut super::winnt::MEMORY_BASIC_INFORMATION64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDebugDataSpaces2_Vtbl {
     pub const fn new<Identity: IDebugDataSpaces2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugDataSpaces2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -31349,7 +31349,7 @@ impl IDebugDataSpaces2_Vtbl {
         iid == &<IDebugDataSpaces2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDebugDataSpaces2 {}
 windows_core::imp::define_interface!(IDebugDataSpaces3, IDebugDataSpaces3_Vtbl, 0x23f79d6c_8aaf_4f7c_a607_9995f5407e63);
 windows_core::imp::interface_hierarchy!(IDebugDataSpaces3, windows_core::IUnknown);
@@ -31447,11 +31447,11 @@ impl IDebugDataSpaces3 {
     pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32, filled: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FillPhysical)(windows_core::Interface::as_raw(self), start, size, pattern, patternsize, filled.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::winnt::MEMORY_BASIC_INFORMATION64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryVirtual)(windows_core::Interface::as_raw(self), offset, info as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut super::winnt::IMAGE_NT_HEADERS64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadImageNtHeaders)(windows_core::Interface::as_raw(self), imagebase, headers as _) }
     }
@@ -31503,20 +31503,20 @@ pub struct IDebugDataSpaces3_Vtbl {
     pub ReadHandleData: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub FillVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub FillPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub QueryVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut super::winnt::MEMORY_BASIC_INFORMATION64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     QueryVirtual: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub ReadImageNtHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut super::winnt::IMAGE_NT_HEADERS64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     ReadImageNtHeaders: usize,
     pub ReadTagged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub StartEnumTagged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetNextTagged: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     pub EndEnumTagged: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDebugDataSpaces3_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -31553,7 +31553,7 @@ pub trait IDebugDataSpaces3_Impl: windows_core::IUnknownImpl {
     fn GetNextTagged(&self, handle: u64, tag: *mut windows_core::GUID, size: *mut u32) -> windows_core::Result<()>;
     fn EndEnumTagged(&self, handle: u64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDebugDataSpaces3_Vtbl {
     pub const fn new<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -31826,7 +31826,7 @@ impl IDebugDataSpaces3_Vtbl {
         iid == &<IDebugDataSpaces3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDebugDataSpaces3 {}
 windows_core::imp::define_interface!(IDebugDataSpaces4, IDebugDataSpaces4_Vtbl, 0xd98ada1f_29e9_4ef5_a6c0_e53349883212);
 windows_core::imp::interface_hierarchy!(IDebugDataSpaces4, windows_core::IUnknown);
@@ -31924,11 +31924,11 @@ impl IDebugDataSpaces4 {
     pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32, filled: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FillPhysical)(windows_core::Interface::as_raw(self), start, size, pattern, patternsize, filled.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::winnt::MEMORY_BASIC_INFORMATION64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryVirtual)(windows_core::Interface::as_raw(self), offset, info as _) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut super::winnt::IMAGE_NT_HEADERS64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadImageNtHeaders)(windows_core::Interface::as_raw(self), imagebase, headers as _) }
     }
@@ -32016,13 +32016,13 @@ pub struct IDebugDataSpaces4_Vtbl {
     pub ReadHandleData: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub FillVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub FillPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub QueryVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut super::winnt::MEMORY_BASIC_INFORMATION64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     QueryVirtual: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub ReadImageNtHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut super::winnt::IMAGE_NT_HEADERS64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     ReadImageNtHeaders: usize,
     pub ReadTagged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub StartEnumTagged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -32039,7 +32039,7 @@ pub struct IDebugDataSpaces4_Vtbl {
     pub ReadPhysical2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub WritePhysical2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDebugDataSpaces4_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -32086,7 +32086,7 @@ pub trait IDebugDataSpaces4_Impl: windows_core::IUnknownImpl {
     fn ReadPhysical2(&self, offset: u64, flags: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
     fn WritePhysical2(&self, offset: u64, flags: u32, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDebugDataSpaces4_Vtbl {
     pub const fn new<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -32441,7 +32441,7 @@ impl IDebugDataSpaces4_Vtbl {
         iid == &<IDebugDataSpaces4 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDebugDataSpaces4 {}
 windows_core::imp::define_interface!(IDebugEventCallbacks, IDebugEventCallbacks_Vtbl, 0x337be28b_5036_4d72_b6bf_c45fbb9f2eaa);
 windows_core::imp::interface_hierarchy!(IDebugEventCallbacks, windows_core::IUnknown);
@@ -32467,7 +32467,7 @@ impl IDebugEventCallbacks {
     {
         unsafe { (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn Exception(&self, exception: *const super::winnt::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception, firstchance) }
     }
@@ -32525,9 +32525,9 @@ pub struct IDebugEventCallbacks_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Breakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub Exception: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::winnt::EXCEPTION_RECORD64, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     Exception: usize,
     pub CreateThread: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64) -> windows_core::HRESULT,
     pub ExitThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -32541,7 +32541,7 @@ pub struct IDebugEventCallbacks_Vtbl {
     pub ChangeEngineState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64) -> windows_core::HRESULT,
     pub ChangeSymbolState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDebugEventCallbacks_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -32561,7 +32561,7 @@ pub trait IDebugEventCallbacks_Impl: windows_core::IUnknownImpl {
     fn ChangeEngineState(&self, flags: u32, argument: u64) -> windows_core::Result<()>;
     fn ChangeSymbolState(&self, flags: u32, argument: u64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDebugEventCallbacks_Vtbl {
     pub const fn new<Identity: IDebugEventCallbacks_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugEventCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -32697,7 +32697,7 @@ impl IDebugEventCallbacks_Vtbl {
         iid == &<IDebugEventCallbacks as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDebugEventCallbacks {}
 windows_core::imp::define_interface!(IDebugEventCallbacksWide, IDebugEventCallbacksWide_Vtbl, 0x0690e046_9c23_45ac_a04f_987ac29ad0d3);
 windows_core::imp::interface_hierarchy!(IDebugEventCallbacksWide, windows_core::IUnknown);
@@ -32723,7 +32723,7 @@ impl IDebugEventCallbacksWide {
     {
         unsafe { (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn Exception(&self, exception: *const super::winnt::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception, firstchance) }
     }
@@ -32781,9 +32781,9 @@ pub struct IDebugEventCallbacksWide_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Breakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub Exception: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::winnt::EXCEPTION_RECORD64, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     Exception: usize,
     pub CreateThread: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64) -> windows_core::HRESULT,
     pub ExitThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -32797,7 +32797,7 @@ pub struct IDebugEventCallbacksWide_Vtbl {
     pub ChangeEngineState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64) -> windows_core::HRESULT,
     pub ChangeSymbolState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDebugEventCallbacksWide_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -32817,7 +32817,7 @@ pub trait IDebugEventCallbacksWide_Impl: windows_core::IUnknownImpl {
     fn ChangeEngineState(&self, flags: u32, argument: u64) -> windows_core::Result<()>;
     fn ChangeSymbolState(&self, flags: u32, argument: u64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDebugEventCallbacksWide_Vtbl {
     pub const fn new<Identity: IDebugEventCallbacksWide_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugEventCallbacksWide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -32953,7 +32953,7 @@ impl IDebugEventCallbacksWide_Vtbl {
         iid == &<IDebugEventCallbacksWide as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDebugEventCallbacksWide {}
 windows_core::imp::define_interface!(IDebugEventContextCallbacks, IDebugEventContextCallbacks_Vtbl, 0x61a4905b_23f9_4247_b3c5_53d087529ab7);
 windows_core::imp::interface_hierarchy!(IDebugEventContextCallbacks, windows_core::IUnknown);
@@ -32979,7 +32979,7 @@ impl IDebugEventContextCallbacks {
     {
         unsafe { (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi(), context, contextsize) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn Exception(&self, exception: *const super::winnt::EXCEPTION_RECORD64, firstchance: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception, firstchance, context, contextsize) }
     }
@@ -33037,9 +33037,9 @@ pub struct IDebugEventContextCallbacks_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Breakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub Exception: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::winnt::EXCEPTION_RECORD64, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     Exception: usize,
     pub CreateThread: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ExitThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -33053,7 +33053,7 @@ pub struct IDebugEventContextCallbacks_Vtbl {
     pub ChangeEngineState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ChangeSymbolState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDebugEventContextCallbacks_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -33073,7 +33073,7 @@ pub trait IDebugEventContextCallbacks_Impl: windows_core::IUnknownImpl {
     fn ChangeEngineState(&self, flags: u32, argument: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn ChangeSymbolState(&self, flags: u32, argument: u64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDebugEventContextCallbacks_Vtbl {
     pub const fn new<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -33225,7 +33225,7 @@ impl IDebugEventContextCallbacks_Vtbl {
         iid == &<IDebugEventContextCallbacks as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDebugEventContextCallbacks {}
 windows_core::imp::define_interface!(IDebugInputCallbacks, IDebugInputCallbacks_Vtbl, 0x9f50e42c_f136_499e_9a97_73036c94ed2d);
 windows_core::imp::interface_hierarchy!(IDebugInputCallbacks, windows_core::IUnknown);
@@ -46294,17 +46294,17 @@ impl Default for PDEBUG_LAST_EVENT_INFO_BREAKPOINT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDEBUG_LAST_EVENT_INFO_EXCEPTION(pub *mut DEBUG_LAST_EVENT_INFO_EXCEPTION);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDEBUG_LAST_EVENT_INFO_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -46712,33 +46712,33 @@ impl Default for PSYMBOL_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINDBG_EXTENSION_APIS32(pub *mut super::wdbgexts::WINDBG_EXTENSION_APIS32);
-#[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
 impl PWINDBG_EXTENSION_APIS32 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
 impl Default for PWINDBG_EXTENSION_APIS32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINDBG_EXTENSION_APIS64(pub *mut super::wdbgexts::WINDBG_EXTENSION_APIS64);
-#[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
 impl PWINDBG_EXTENSION_APIS64 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
 impl Default for PWINDBG_EXTENSION_APIS64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

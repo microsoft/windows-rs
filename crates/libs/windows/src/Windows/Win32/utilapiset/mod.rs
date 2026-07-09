@@ -8,7 +8,7 @@ pub unsafe fn DecodePointer(ptr: Option<*const core::ffi::c_void>) -> *mut core:
     windows_core::link!("kernel32.dll" "system" fn DecodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
     unsafe { DecodePointer(ptr.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DecodeRemotePointer(processhandle: super::winnt::HANDLE, ptr: Option<*const core::ffi::c_void>, decodedptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn DecodeRemotePointer(processhandle : super::winnt::HANDLE, ptr : *const core::ffi::c_void, decodedptr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -24,7 +24,7 @@ pub unsafe fn EncodePointer(ptr: Option<*const core::ffi::c_void>) -> *mut core:
     windows_core::link!("kernel32.dll" "system" fn EncodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
     unsafe { EncodePointer(ptr.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EncodeRemotePointer(processhandle: super::winnt::HANDLE, ptr: Option<*const core::ffi::c_void>, encodedptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn EncodeRemotePointer(processhandle : super::winnt::HANDLE, ptr : *const core::ffi::c_void, encodedptr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);

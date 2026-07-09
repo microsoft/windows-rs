@@ -9,7 +9,7 @@ pub const AURL_ENABLEEAURLS: u32 = 8;
 pub const AURL_ENABLEEMAILADDR: u32 = 2;
 pub const AURL_ENABLETELNO: u32 = 4;
 pub const AURL_ENABLEURL: u32 = 1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type AutoCorrectProc = Option<unsafe extern "system" fn(langid: super::winnt::LANGID, pszbefore: *const u16, pszafter: *mut u16, cchafter: i32, pcchreplaced: *mut i32) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -121,7 +121,7 @@ pub const CFU_UNDERLINETHICKLONGDASH: u32 = 18;
 pub const CFU_UNDERLINEWAVE: u32 = 8;
 pub const CFU_UNDERLINEWORD: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CHARFORMAT2A {
     pub Base: CHARFORMATA,
@@ -137,27 +137,27 @@ pub struct CHARFORMAT2A {
     pub bRevAuthor: u8,
     pub bUnderlineColor: u8,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for CHARFORMAT2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CHARFORMAT2A_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for CHARFORMAT2A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CHARFORMAT2W {
     pub Base: CHARFORMATW,
@@ -173,27 +173,27 @@ pub struct CHARFORMAT2W {
     pub bRevAuthor: u8,
     pub bUnderlineColor: u8,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for CHARFORMAT2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CHARFORMAT2W_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for CHARFORMAT2W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHARFORMATA {
     pub cbSize: u32,
@@ -206,14 +206,14 @@ pub struct CHARFORMATA {
     pub bPitchAndFamily: u8,
     pub szFaceName: [i8; 32],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for CHARFORMATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHARFORMATW {
     pub cbSize: u32,
@@ -226,7 +226,7 @@ pub struct CHARFORMATW {
     pub bPitchAndFamily: u8,
     pub szFaceName: [u16; 32],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for CHARFORMATW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -240,7 +240,7 @@ pub struct CHARRANGE {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "windef", feature = "winuser", feature = "wtypes"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLIPBOARDFORMAT {
     pub nmhdr: super::winuser::NMHDR,
@@ -248,14 +248,14 @@ pub struct CLIPBOARDFORMAT {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "windef", feature = "winuser", feature = "wtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct CLIPBOARDFORMAT {
     pub nmhdr: super::winuser::NMHDR,
     pub cf: super::wtypes::CLIPFORMAT,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMPCOLOR {
     pub crText: super::windef::COLORREF,
@@ -432,7 +432,7 @@ pub const EM_STREAMIN: u32 = 1097;
 pub const EM_STREAMOUT: u32 = 1098;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENCORRECTTEXT {
     pub nmhdr: super::winuser::NMHDR,
@@ -441,7 +441,7 @@ pub struct ENCORRECTTEXT {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENCORRECTTEXT {
     pub nmhdr: super::winuser::NMHDR,
@@ -450,7 +450,7 @@ pub struct ENCORRECTTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENDCOMPOSITIONNOTIFY {
     pub nmhdr: super::winuser::NMHDR,
@@ -458,7 +458,7 @@ pub struct ENDCOMPOSITIONNOTIFY {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENDCOMPOSITIONNOTIFY {
     pub nmhdr: super::winuser::NMHDR,
@@ -466,7 +466,7 @@ pub struct ENDCOMPOSITIONNOTIFY {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENDROPFILES {
     pub nmhdr: super::winuser::NMHDR,
@@ -476,7 +476,7 @@ pub struct ENDROPFILES {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENDROPFILES {
     pub nmhdr: super::winuser::NMHDR,
@@ -486,7 +486,7 @@ pub struct ENDROPFILES {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENLINK {
     pub nmhdr: super::winuser::NMHDR,
@@ -497,7 +497,7 @@ pub struct ENLINK {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENLINK {
     pub nmhdr: super::winuser::NMHDR,
@@ -508,14 +508,14 @@ pub struct ENLINK {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::winuser::NMHDR,
     pub szControl: *mut i8,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 impl Default for ENLOWFIRTF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -523,14 +523,14 @@ impl Default for ENLOWFIRTF {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::winuser::NMHDR,
     pub szControl: *mut i8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 impl Default for ENLOWFIRTF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -563,7 +563,7 @@ pub const ENM_STARTCOMPOSITION: u32 = 268435456;
 pub const ENM_UPDATE: u32 = 2;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENOLEOPFAILED {
     pub nmhdr: super::winuser::NMHDR,
@@ -573,7 +573,7 @@ pub struct ENOLEOPFAILED {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENOLEOPFAILED {
     pub nmhdr: super::winuser::NMHDR,
@@ -583,7 +583,7 @@ pub struct ENOLEOPFAILED {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENPROTECTED {
     pub nmhdr: super::winuser::NMHDR,
@@ -594,7 +594,7 @@ pub struct ENPROTECTED {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENPROTECTED {
     pub nmhdr: super::winuser::NMHDR,
@@ -605,7 +605,7 @@ pub struct ENPROTECTED {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENSAVECLIPBOARD {
     pub nmhdr: super::winuser::NMHDR,
@@ -614,7 +614,7 @@ pub struct ENSAVECLIPBOARD {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENSAVECLIPBOARD {
     pub nmhdr: super::winuser::NMHDR,
@@ -718,7 +718,7 @@ pub struct FINDTEXTW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FORMATRANGE {
     pub hdc: super::windef::HDC,
@@ -729,7 +729,7 @@ pub struct FORMATRANGE {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct FORMATRANGE {
     pub hdc: super::windef::HDC,
@@ -747,7 +747,7 @@ pub const GCM_RIGHTMOUSEDROP: u32 = 32768;
 pub const GCM_TOUCHMENU: u32 = 16384;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
@@ -756,7 +756,7 @@ pub struct GETCONTEXTMENUEX {
     pub pvReserved: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for GETCONTEXTMENUEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -764,7 +764,7 @@ impl Default for GETCONTEXTMENUEX {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
@@ -773,7 +773,7 @@ pub struct GETCONTEXTMENUEX {
     pub pvReserved: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for GETCONTEXTMENUEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -781,7 +781,7 @@ impl Default for GETCONTEXTMENUEX {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GETTEXTEX {
     pub cb: u32,
@@ -792,7 +792,7 @@ pub struct GETTEXTEX {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct GETTEXTEX {
     pub cb: u32,
@@ -809,7 +809,7 @@ pub struct GETTEXTLENGTHEX {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GROUPTYPINGCHANGE {
     pub nmhdr: super::winuser::NMHDR,
@@ -817,7 +817,7 @@ pub struct GROUPTYPINGCHANGE {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct GROUPTYPINGCHANGE {
     pub nmhdr: super::winuser::NMHDR,
@@ -912,7 +912,7 @@ pub const MAX_TAB_STOPS: u32 = 32;
 pub const MSFTEDIT_CLASS: windows_core::PCWSTR = windows_core::w!("RICHEDIT50W");
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSGFILTER {
     pub nmhdr: super::winuser::NMHDR,
@@ -922,7 +922,7 @@ pub struct MSGFILTER {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSGFILTER {
     pub nmhdr: super::winuser::NMHDR,
@@ -932,7 +932,7 @@ pub struct MSGFILTER {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::winuser::NMHDR,
@@ -940,7 +940,7 @@ pub struct OBJECTPOSITIONS {
     pub pcpPositions: *mut i32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 impl Default for OBJECTPOSITIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -948,7 +948,7 @@ impl Default for OBJECTPOSITIONS {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::winuser::NMHDR,
@@ -956,7 +956,7 @@ pub struct OBJECTPOSITIONS {
     pub pcpPositions: *mut i32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 impl Default for OBJECTPOSITIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1119,7 +1119,7 @@ pub struct REPASTESPECIAL {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REQRESIZE {
     pub nmhdr: super::winuser::NMHDR,
@@ -1127,7 +1127,7 @@ pub struct REQRESIZE {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct REQRESIZE {
     pub nmhdr: super::winuser::NMHDR,
@@ -1139,7 +1139,7 @@ pub const RICHEDIT_CLASSA: windows_core::PCSTR = windows_core::s!("RichEdit20A")
 pub const RICHEDIT_CLASSW: windows_core::PCWSTR = windows_core::w!("RichEdit20W");
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: i32,
@@ -1151,7 +1151,7 @@ pub struct RICHEDIT_IMAGE_PARAMETERS {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Default)]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: i32,
@@ -1176,7 +1176,7 @@ pub const SCF_USEUIRULES: u32 = 8;
 pub const SCF_WORD: u32 = 2;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SELCHANGE {
     pub nmhdr: super::winuser::NMHDR,
@@ -1185,7 +1185,7 @@ pub struct SELCHANGE {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct SELCHANGE {
     pub nmhdr: super::winuser::NMHDR,
@@ -1268,7 +1268,7 @@ pub const ST_NEWCHARS: u32 = 4;
 pub const ST_SELECTION: u32 = 2;
 pub const ST_UNICODE: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TABLECELLPARMS {
     pub dxWidth: i32,

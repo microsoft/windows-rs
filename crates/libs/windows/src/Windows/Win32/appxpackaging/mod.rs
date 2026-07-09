@@ -49,7 +49,7 @@ pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTION
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = 0;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
@@ -58,7 +58,7 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub blockMapHashAlgorithm: core::mem::ManuallyDrop<Option<super::urlmon::IUri>>,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
@@ -106,14 +106,14 @@ pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: AP
 pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = i32;
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: windows_core::BOOL,
     pub hashMethod: core::mem::ManuallyDrop<Option<super::urlmon::IUri>>,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     pub inputStream: core::mem::ManuallyDrop<Option<super::objidlbase::IStream>>,
@@ -140,7 +140,7 @@ pub const DX_FEATURE_LEVEL_UNSPECIFIED: DX_FEATURE_LEVEL = 0;
 windows_core::imp::define_interface!(IAppxAppInstallerReader, IAppxAppInstallerReader_Vtbl, 0xf35bc38c_1d2f_43db_a1f4_586430d1fed2);
 windows_core::imp::interface_hierarchy!(IAppxAppInstallerReader, windows_core::IUnknown);
 impl IAppxAppInstallerReader {
-    #[cfg(all(feature = "Win32_msxml", feature = "Win32_oaidl"))]
+    #[cfg(all(feature = "msxml", feature = "oaidl"))]
     pub unsafe fn GetXmlDom(&self) -> windows_core::Result<super::msxml::IXMLDOMDocument> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -152,16 +152,16 @@ impl IAppxAppInstallerReader {
 #[doc(hidden)]
 pub struct IAppxAppInstallerReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_msxml", feature = "Win32_oaidl"))]
+    #[cfg(all(feature = "msxml", feature = "oaidl"))]
     pub GetXmlDom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msxml", feature = "Win32_oaidl")))]
+    #[cfg(not(all(feature = "msxml", feature = "oaidl")))]
     GetXmlDom: usize,
 }
-#[cfg(all(feature = "Win32_msxml", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "msxml", feature = "oaidl"))]
 pub trait IAppxAppInstallerReader_Impl: windows_core::IUnknownImpl {
     fn GetXmlDom(&self) -> windows_core::Result<super::msxml::IXMLDOMDocument>;
 }
-#[cfg(all(feature = "Win32_msxml", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "msxml", feature = "oaidl"))]
 impl IAppxAppInstallerReader_Vtbl {
     pub const fn new<Identity: IAppxAppInstallerReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetXmlDom<Identity: IAppxAppInstallerReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -182,7 +182,7 @@ impl IAppxAppInstallerReader_Vtbl {
         iid == &<IAppxAppInstallerReader as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msxml", feature = "Win32_oaidl"))]
+#[cfg(all(feature = "msxml", feature = "oaidl"))]
 impl windows_core::RuntimeName for IAppxAppInstallerReader {}
 windows_core::imp::define_interface!(IAppxBlockMapBlock, IAppxBlockMapBlock_Vtbl, 0x75cf3930_3244_4fe0_a8c8_e0bcb270b889);
 windows_core::imp::interface_hierarchy!(IAppxBlockMapBlock, windows_core::IUnknown);
@@ -360,7 +360,7 @@ impl IAppxBlockMapFile {
             (windows_core::Interface::vtable(self).GetUncompressedSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn ValidateFileHash<P0>(&self, filestream: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -379,12 +379,12 @@ pub struct IAppxBlockMapFile_Vtbl {
     pub GetLocalFileHeaderSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetUncompressedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub ValidateFileHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     ValidateFileHash: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxBlockMapFile_Impl: windows_core::IUnknownImpl {
     fn GetBlocks(&self) -> windows_core::Result<IAppxBlockMapBlocksEnumerator>;
     fn GetLocalFileHeaderSize(&self) -> windows_core::Result<u32>;
@@ -392,7 +392,7 @@ pub trait IAppxBlockMapFile_Impl: windows_core::IUnknownImpl {
     fn GetUncompressedSize(&self) -> windows_core::Result<u64>;
     fn ValidateFileHash(&self, filestream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxBlockMapFile_Vtbl {
     pub const fn new<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBlocks<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocks: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -468,7 +468,7 @@ impl IAppxBlockMapFile_Vtbl {
         iid == &<IAppxBlockMapFile as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxBlockMapFile {}
 windows_core::imp::define_interface!(IAppxBlockMapFile2, IAppxBlockMapFile2_Vtbl, 0x54785f78_40e9_11ee_be56_0242ac120002);
 impl core::ops::Deref for IAppxBlockMapFile2 {
@@ -492,11 +492,11 @@ pub struct IAppxBlockMapFile2_Vtbl {
     pub base__: IAppxBlockMapFile_Vtbl,
     pub GetBlockSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxBlockMapFile2_Impl: IAppxBlockMapFile_Impl {
     fn GetBlockSize(&self) -> windows_core::Result<u64>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxBlockMapFile2_Vtbl {
     pub const fn new<Identity: IAppxBlockMapFile2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBlockSize<Identity: IAppxBlockMapFile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocksize: *mut u64) -> windows_core::HRESULT {
@@ -517,7 +517,7 @@ impl IAppxBlockMapFile2_Vtbl {
         iid == &<IAppxBlockMapFile2 as windows_core::Interface>::IID || iid == &<IAppxBlockMapFile as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxBlockMapFile2 {}
 windows_core::imp::define_interface!(IAppxBlockMapFilesEnumerator, IAppxBlockMapFilesEnumerator_Vtbl, 0x02b856a2_4262_4070_bacb_1a8cbbc42305);
 windows_core::imp::interface_hierarchy!(IAppxBlockMapFilesEnumerator, windows_core::IUnknown);
@@ -622,14 +622,14 @@ impl IAppxBlockMapReader {
             (windows_core::Interface::vtable(self).GetFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_urlmon")]
+    #[cfg(feature = "urlmon")]
     pub unsafe fn GetHashMethod(&self) -> windows_core::Result<super::urlmon::IUri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHashMethod)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -643,23 +643,23 @@ pub struct IAppxBlockMapReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_urlmon")]
+    #[cfg(feature = "urlmon")]
     pub GetHashMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_urlmon"))]
+    #[cfg(not(feature = "urlmon"))]
     GetHashMethod: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 pub trait IAppxBlockMapReader_Impl: windows_core::IUnknownImpl {
     fn GetFile(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<IAppxBlockMapFile>;
     fn GetFiles(&self) -> windows_core::Result<IAppxBlockMapFilesEnumerator>;
     fn GetHashMethod(&self) -> windows_core::Result<super::urlmon::IUri>;
     fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl IAppxBlockMapReader_Vtbl {
     pub const fn new<Identity: IAppxBlockMapReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFile<Identity: IAppxBlockMapReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, file: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -722,12 +722,12 @@ impl IAppxBlockMapReader_Vtbl {
         iid == &<IAppxBlockMapReader as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxBlockMapReader {}
 windows_core::imp::define_interface!(IAppxBundleFactory, IAppxBundleFactory_Vtbl, 0xbba65864_965f_4a5f_855f_f074bdbf3a7b);
 windows_core::imp::interface_hierarchy!(IAppxBundleFactory, windows_core::IUnknown);
 impl IAppxBundleFactory {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64) -> windows_core::Result<IAppxBundleWriter>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -737,7 +737,7 @@ impl IAppxBundleFactory {
             (windows_core::Interface::vtable(self).CreateBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateBundleReader<P0>(&self, inputstream: P0) -> windows_core::Result<IAppxBundleReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -747,7 +747,7 @@ impl IAppxBundleFactory {
             (windows_core::Interface::vtable(self).CreateBundleReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateBundleManifestReader<P0>(&self, inputstream: P0) -> windows_core::Result<IAppxBundleManifestReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -762,26 +762,26 @@ impl IAppxBundleFactory {
 #[doc(hidden)]
 pub struct IAppxBundleFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateBundleWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateBundleWriter: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateBundleReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateBundleReader: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateBundleManifestReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateBundleManifestReader: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxBundleFactory_Impl: windows_core::IUnknownImpl {
     fn CreateBundleWriter(&self, outputstream: windows_core::Ref<super::objidlbase::IStream>, bundleversion: u64) -> windows_core::Result<IAppxBundleWriter>;
     fn CreateBundleReader(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<IAppxBundleReader>;
     fn CreateBundleManifestReader(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<IAppxBundleManifestReader>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxBundleFactory_Vtbl {
     pub const fn new<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateBundleWriter<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -831,12 +831,12 @@ impl IAppxBundleFactory_Vtbl {
         iid == &<IAppxBundleFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxBundleFactory {}
 windows_core::imp::define_interface!(IAppxBundleFactory2, IAppxBundleFactory2_Vtbl, 0x7325b83d_0185_42c4_82ac_be34ab1a2a8a);
 windows_core::imp::interface_hierarchy!(IAppxBundleFactory2, windows_core::IUnknown);
 impl IAppxBundleFactory2 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateBundleReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> windows_core::Result<IAppxBundleReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -852,16 +852,16 @@ impl IAppxBundleFactory2 {
 #[doc(hidden)]
 pub struct IAppxBundleFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateBundleReader2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateBundleReader2: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxBundleFactory2_Impl: windows_core::IUnknownImpl {
     fn CreateBundleReader2(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxBundleFactory2_Vtbl {
     pub const fn new<Identity: IAppxBundleFactory2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateBundleReader2<Identity: IAppxBundleFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -882,7 +882,7 @@ impl IAppxBundleFactory2_Vtbl {
         iid == &<IAppxBundleFactory2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxBundleFactory2 {}
 windows_core::imp::define_interface!(IAppxBundleFactory3, IAppxBundleFactory3_Vtbl, 0xd11ea6b6_3909_4376_b7c4_10d50f5cf3ae);
 windows_core::imp::interface_hierarchy!(IAppxBundleFactory3, windows_core::IUnknown);
@@ -1514,7 +1514,7 @@ impl IAppxBundleManifestReader {
             (windows_core::Interface::vtable(self).GetPackageInfoItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1528,18 +1528,18 @@ pub struct IAppxBundleManifestReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPackageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPackageInfoItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxBundleManifestReader_Impl: windows_core::IUnknownImpl {
     fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId>;
     fn GetPackageInfoItems(&self) -> windows_core::Result<IAppxBundleManifestPackageInfoEnumerator>;
     fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxBundleManifestReader_Vtbl {
     pub const fn new<Identity: IAppxBundleManifestReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPackageId<Identity: IAppxBundleManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1589,7 +1589,7 @@ impl IAppxBundleManifestReader_Vtbl {
         iid == &<IAppxBundleManifestReader as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxBundleManifestReader {}
 windows_core::imp::define_interface!(IAppxBundleManifestReader2, IAppxBundleManifestReader2_Vtbl, 0x5517df70_033f_4af2_8213_87d766805c02);
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestReader2, windows_core::IUnknown);
@@ -1807,7 +1807,7 @@ impl windows_core::RuntimeName for IAppxBundleReader2 {}
 windows_core::imp::define_interface!(IAppxBundleWriter, IAppxBundleWriter_Vtbl, 0xec446fe8_bfec_4c64_ab4f_49f038f0c6d2);
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter, windows_core::IUnknown);
 impl IAppxBundleWriter {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPayloadPackage<P0, P1>(&self, filename: P0, packagestream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1823,18 +1823,18 @@ impl IAppxBundleWriter {
 #[doc(hidden)]
 pub struct IAppxBundleWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddPayloadPackage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddPayloadPackage: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxBundleWriter_Impl: windows_core::IUnknownImpl {
     fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxBundleWriter_Vtbl {
     pub const fn new<Identity: IAppxBundleWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPayloadPackage<Identity: IAppxBundleWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1859,12 +1859,12 @@ impl IAppxBundleWriter_Vtbl {
         iid == &<IAppxBundleWriter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxBundleWriter {}
 windows_core::imp::define_interface!(IAppxBundleWriter2, IAppxBundleWriter2_Vtbl, 0x6d8fe971_01cc_49a0_b685_233851279962);
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter2, windows_core::IUnknown);
 impl IAppxBundleWriter2 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1877,16 +1877,16 @@ impl IAppxBundleWriter2 {
 #[doc(hidden)]
 pub struct IAppxBundleWriter2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddExternalPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddExternalPackageReference: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxBundleWriter2_Impl: windows_core::IUnknownImpl {
     fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxBundleWriter2_Vtbl {
     pub const fn new<Identity: IAppxBundleWriter2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxBundleWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1901,12 +1901,12 @@ impl IAppxBundleWriter2_Vtbl {
         iid == &<IAppxBundleWriter2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxBundleWriter2 {}
 windows_core::imp::define_interface!(IAppxBundleWriter3, IAppxBundleWriter3_Vtbl, 0xad711152_f969_4193_82d5_9ddf2786d21a);
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter3, windows_core::IUnknown);
 impl IAppxBundleWriter3 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1925,18 +1925,18 @@ impl IAppxBundleWriter3 {
 #[doc(hidden)]
 pub struct IAppxBundleWriter3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddPackageReference: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxBundleWriter3_Impl: windows_core::IUnknownImpl {
     fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
     fn Close(&self, hashmethodstring: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxBundleWriter3_Vtbl {
     pub const fn new<Identity: IAppxBundleWriter3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPackageReference<Identity: IAppxBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1961,12 +1961,12 @@ impl IAppxBundleWriter3_Vtbl {
         iid == &<IAppxBundleWriter3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxBundleWriter3 {}
 windows_core::imp::define_interface!(IAppxBundleWriter4, IAppxBundleWriter4_Vtbl, 0x9cd9d523_5009_4c01_9882_dc029fbd47a3);
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter4, windows_core::IUnknown);
 impl IAppxBundleWriter4 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPayloadPackage<P0, P1>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1974,7 +1974,7 @@ impl IAppxBundleWriter4 {
     {
         unsafe { (windows_core::Interface::vtable(self).AddPayloadPackage)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi(), isdefaultapplicablepackage.into()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1982,7 +1982,7 @@ impl IAppxBundleWriter4 {
     {
         unsafe { (windows_core::Interface::vtable(self).AddPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi(), isdefaultapplicablepackage.into()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1995,26 +1995,26 @@ impl IAppxBundleWriter4 {
 #[doc(hidden)]
 pub struct IAppxBundleWriter4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddPayloadPackage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddPayloadPackage: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddPackageReference: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddExternalPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddExternalPackageReference: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxBundleWriter4_Impl: windows_core::IUnknownImpl {
     fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::objidlbase::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
     fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::objidlbase::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
     fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::objidlbase::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxBundleWriter4_Vtbl {
     pub const fn new<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPayloadPackage<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
@@ -2046,7 +2046,7 @@ impl IAppxBundleWriter4_Vtbl {
         iid == &<IAppxBundleWriter4 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxBundleWriter4 {}
 windows_core::imp::define_interface!(IAppxContentGroup, IAppxContentGroup_Vtbl, 0x328f6468_c04f_4e3c_b6fa_6b8d27f3003a);
 windows_core::imp::interface_hierarchy!(IAppxContentGroup, windows_core::IUnknown);
@@ -2449,7 +2449,7 @@ impl windows_core::RuntimeName for IAppxDigestProvider {}
 windows_core::imp::define_interface!(IAppxEncryptedBundleWriter, IAppxEncryptedBundleWriter_Vtbl, 0x80b0902f_7bf0_4117_b8c6_4279ef81ee77);
 windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter, windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPayloadPackageEncrypted<P0, P1>(&self, filename: P0, packagestream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2465,18 +2465,18 @@ impl IAppxEncryptedBundleWriter {
 #[doc(hidden)]
 pub struct IAppxEncryptedBundleWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddPayloadPackageEncrypted: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddPayloadPackageEncrypted: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxEncryptedBundleWriter_Impl: windows_core::IUnknownImpl {
     fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxEncryptedBundleWriter_Vtbl {
     pub const fn new<Identity: IAppxEncryptedBundleWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPayloadPackageEncrypted<Identity: IAppxEncryptedBundleWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2501,12 +2501,12 @@ impl IAppxEncryptedBundleWriter_Vtbl {
         iid == &<IAppxEncryptedBundleWriter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxEncryptedBundleWriter {}
 windows_core::imp::define_interface!(IAppxEncryptedBundleWriter2, IAppxEncryptedBundleWriter2_Vtbl, 0xe644be82_f0fa_42b8_a956_8d1cb48ee379);
 windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter2, windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter2 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2519,16 +2519,16 @@ impl IAppxEncryptedBundleWriter2 {
 #[doc(hidden)]
 pub struct IAppxEncryptedBundleWriter2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddExternalPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddExternalPackageReference: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxEncryptedBundleWriter2_Impl: windows_core::IUnknownImpl {
     fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxEncryptedBundleWriter2_Vtbl {
     pub const fn new<Identity: IAppxEncryptedBundleWriter2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxEncryptedBundleWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2543,12 +2543,12 @@ impl IAppxEncryptedBundleWriter2_Vtbl {
         iid == &<IAppxEncryptedBundleWriter2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxEncryptedBundleWriter2 {}
 windows_core::imp::define_interface!(IAppxEncryptedBundleWriter3, IAppxEncryptedBundleWriter3_Vtbl, 0x0d34deb3_5cae_4dd3_977c_504932a51d31);
 windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter3, windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter3 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPayloadPackageEncrypted<P0, P1>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2556,7 +2556,7 @@ impl IAppxEncryptedBundleWriter3 {
     {
         unsafe { (windows_core::Interface::vtable(self).AddPayloadPackageEncrypted)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi(), isdefaultapplicablepackage.into()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2569,21 +2569,21 @@ impl IAppxEncryptedBundleWriter3 {
 #[doc(hidden)]
 pub struct IAppxEncryptedBundleWriter3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddPayloadPackageEncrypted: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddPayloadPackageEncrypted: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddExternalPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddExternalPackageReference: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxEncryptedBundleWriter3_Impl: windows_core::IUnknownImpl {
     fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::objidlbase::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
     fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::objidlbase::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxEncryptedBundleWriter3_Vtbl {
     pub const fn new<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPayloadPackageEncrypted<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
@@ -2608,12 +2608,12 @@ impl IAppxEncryptedBundleWriter3_Vtbl {
         iid == &<IAppxEncryptedBundleWriter3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxEncryptedBundleWriter3 {}
 windows_core::imp::define_interface!(IAppxEncryptedPackageWriter, IAppxEncryptedPackageWriter_Vtbl, 0xf43d0b0b_1379_40e2_9b29_682ea2bf42af);
 windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter, windows_core::IUnknown);
 impl IAppxEncryptedPackageWriter {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPayloadFileEncrypted<P0, P2>(&self, filename: P0, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2629,18 +2629,18 @@ impl IAppxEncryptedPackageWriter {
 #[doc(hidden)]
 pub struct IAppxEncryptedPackageWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddPayloadFileEncrypted: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, APPX_COMPRESSION_OPTION, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddPayloadFileEncrypted: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxEncryptedPackageWriter_Impl: windows_core::IUnknownImpl {
     fn AddPayloadFileEncrypted(&self, filename: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxEncryptedPackageWriter_Vtbl {
     pub const fn new<Identity: IAppxEncryptedPackageWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPayloadFileEncrypted<Identity: IAppxEncryptedPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2665,12 +2665,12 @@ impl IAppxEncryptedPackageWriter_Vtbl {
         iid == &<IAppxEncryptedPackageWriter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxEncryptedPackageWriter {}
 windows_core::imp::define_interface!(IAppxEncryptedPackageWriter2, IAppxEncryptedPackageWriter2_Vtbl, 0x3e475447_3a25_40b5_8ad2_f953ae50c92d);
 windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter2, windows_core::IUnknown);
 impl IAppxEncryptedPackageWriter2 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPayloadFilesEncrypted(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(windows_core::Interface::as_raw(self), filecount, core::mem::transmute(payloadfiles), memorylimit) }
     }
@@ -2679,16 +2679,16 @@ impl IAppxEncryptedPackageWriter2 {
 #[doc(hidden)]
 pub struct IAppxEncryptedPackageWriter2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddPayloadFilesEncrypted: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddPayloadFilesEncrypted: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxEncryptedPackageWriter2_Impl: windows_core::IUnknownImpl {
     fn AddPayloadFilesEncrypted(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxEncryptedPackageWriter2_Vtbl {
     pub const fn new<Identity: IAppxEncryptedPackageWriter2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPayloadFilesEncrypted<Identity: IAppxEncryptedPackageWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
@@ -2703,12 +2703,12 @@ impl IAppxEncryptedPackageWriter2_Vtbl {
         iid == &<IAppxEncryptedPackageWriter2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxEncryptedPackageWriter2 {}
 windows_core::imp::define_interface!(IAppxEncryptionFactory, IAppxEncryptionFactory_Vtbl, 0x80e8e04d_8c88_44ae_a011_7cadf6fb2e72);
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory, windows_core::IUnknown);
 impl IAppxEncryptionFactory {
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2716,7 +2716,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn DecryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2724,7 +2724,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe { (windows_core::Interface::vtable(self).DecryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), keyinfo) }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1>(&self, outputstream: P0, manifeststream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2735,7 +2735,7 @@ impl IAppxEncryptionFactory {
             (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateEncryptedPackageReader<P0>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxPackageReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2745,7 +2745,7 @@ impl IAppxEncryptionFactory {
             (windows_core::Interface::vtable(self).CreateEncryptedPackageReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2753,7 +2753,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn DecryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2761,7 +2761,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe { (windows_core::Interface::vtable(self).DecryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), keyinfo) }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2771,7 +2771,7 @@ impl IAppxEncryptionFactory {
             (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateEncryptedBundleReader<P0>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxBundleReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2786,40 +2786,40 @@ impl IAppxEncryptionFactory {
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub EncryptPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     EncryptPackage: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub DecryptPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     DecryptPackage: usize,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub CreateEncryptedPackageWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     CreateEncryptedPackageWriter: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateEncryptedPackageReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateEncryptedPackageReader: usize,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub EncryptBundle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     EncryptBundle: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub DecryptBundle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     DecryptBundle: usize,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub CreateEncryptedBundleWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const APPX_ENCRYPTED_PACKAGE_SETTINGS, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     CreateEncryptedBundleWriter: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateEncryptedBundleReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateEncryptedBundleReader: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 pub trait IAppxEncryptionFactory_Impl: windows_core::IUnknownImpl {
     fn EncryptPackage(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, outputstream: windows_core::Ref<super::objidlbase::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
     fn DecryptPackage(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, outputstream: windows_core::Ref<super::objidlbase::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
@@ -2830,7 +2830,7 @@ pub trait IAppxEncryptionFactory_Impl: windows_core::IUnknownImpl {
     fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<super::objidlbase::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
     fn CreateEncryptedBundleReader(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxBundleReader>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl IAppxEncryptionFactory_Vtbl {
     pub const fn new<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
@@ -2921,12 +2921,12 @@ impl IAppxEncryptionFactory_Vtbl {
         iid == &<IAppxEncryptionFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxEncryptionFactory {}
 windows_core::imp::define_interface!(IAppxEncryptionFactory2, IAppxEncryptionFactory2_Vtbl, 0xc1b11eee_c4ba_4ab2_a55d_d015fe8ff64f);
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory2, windows_core::IUnknown);
 impl IAppxEncryptionFactory2 {
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2943,16 +2943,16 @@ impl IAppxEncryptionFactory2 {
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub CreateEncryptedPackageWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     CreateEncryptedPackageWriter: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 pub trait IAppxEncryptionFactory2_Impl: windows_core::IUnknownImpl {
     fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<super::objidlbase::IStream>, manifeststream: windows_core::Ref<super::objidlbase::IStream>, contentgroupmapstream: windows_core::Ref<super::objidlbase::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl IAppxEncryptionFactory2_Vtbl {
     pub const fn new<Identity: IAppxEncryptionFactory2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: IAppxEncryptionFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, manifeststream: *mut core::ffi::c_void, contentgroupmapstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2973,12 +2973,12 @@ impl IAppxEncryptionFactory2_Vtbl {
         iid == &<IAppxEncryptionFactory2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxEncryptionFactory2 {}
 windows_core::imp::define_interface!(IAppxEncryptionFactory3, IAppxEncryptionFactory3_Vtbl, 0x09edca37_cd64_47d6_b7e8_1cb11d4f7e05);
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory3, windows_core::IUnknown);
 impl IAppxEncryptionFactory3 {
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2986,7 +2986,7 @@ impl IAppxEncryptionFactory3 {
     {
         unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2998,7 +2998,7 @@ impl IAppxEncryptionFactory3 {
             (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), contentgroupmapstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3006,7 +3006,7 @@ impl IAppxEncryptionFactory3 {
     {
         unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3021,31 +3021,31 @@ impl IAppxEncryptionFactory3 {
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub EncryptPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     EncryptPackage: usize,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub CreateEncryptedPackageWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     CreateEncryptedPackageWriter: usize,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub EncryptBundle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     EncryptBundle: usize,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub CreateEncryptedBundleWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     CreateEncryptedBundleWriter: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 pub trait IAppxEncryptionFactory3_Impl: windows_core::IUnknownImpl {
     fn EncryptPackage(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, outputstream: windows_core::Ref<super::objidlbase::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
     fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<super::objidlbase::IStream>, manifeststream: windows_core::Ref<super::objidlbase::IStream>, contentgroupmapstream: windows_core::Ref<super::objidlbase::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
     fn EncryptBundle(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, outputstream: windows_core::Ref<super::objidlbase::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
     fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<super::objidlbase::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl IAppxEncryptionFactory3_Vtbl {
     pub const fn new<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
@@ -3096,12 +3096,12 @@ impl IAppxEncryptionFactory3_Vtbl {
         iid == &<IAppxEncryptionFactory3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxEncryptionFactory3 {}
 windows_core::imp::define_interface!(IAppxEncryptionFactory4, IAppxEncryptionFactory4_Vtbl, 0xa879611f_12fd_41fe_85d5_06ae779bbaf5);
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory4, windows_core::IUnknown);
 impl IAppxEncryptionFactory4 {
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3114,16 +3114,16 @@ impl IAppxEncryptionFactory4 {
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub EncryptPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, u64) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     EncryptPackage: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 pub trait IAppxEncryptionFactory4_Impl: windows_core::IUnknownImpl {
     fn EncryptPackage(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, outputstream: windows_core::Ref<super::objidlbase::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl IAppxEncryptionFactory4_Vtbl {
     pub const fn new<Identity: IAppxEncryptionFactory4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::HRESULT {
@@ -3138,12 +3138,12 @@ impl IAppxEncryptionFactory4_Vtbl {
         iid == &<IAppxEncryptionFactory4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxEncryptionFactory4 {}
 windows_core::imp::define_interface!(IAppxEncryptionFactory5, IAppxEncryptionFactory5_Vtbl, 0x68d6e77a_f446_480f_b0f0_d91a24c60746);
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory5, windows_core::IUnknown);
 impl IAppxEncryptionFactory5 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateEncryptedPackageReader2<P0, P2>(&self, inputstream: P0, keyinfo: Option<*const APPX_KEY_INFO>, expecteddigest: P2) -> windows_core::Result<IAppxPackageReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3154,7 +3154,7 @@ impl IAppxEncryptionFactory5 {
             (windows_core::Interface::vtable(self).CreateEncryptedPackageReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo.unwrap_or(core::mem::zeroed()) as _, expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateEncryptedBundleReader2<P0, P2>(&self, inputstream: P0, keyinfo: Option<*const APPX_KEY_INFO>, expecteddigest: P2) -> windows_core::Result<IAppxBundleReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3170,21 +3170,21 @@ impl IAppxEncryptionFactory5 {
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateEncryptedPackageReader2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateEncryptedPackageReader2: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateEncryptedBundleReader2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateEncryptedBundleReader2: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxEncryptionFactory5_Impl: windows_core::IUnknownImpl {
     fn CreateEncryptedPackageReader2(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
     fn CreateEncryptedBundleReader2(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxEncryptionFactory5_Vtbl {
     pub const fn new<Identity: IAppxEncryptionFactory5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateEncryptedPackageReader2<Identity: IAppxEncryptionFactory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: windows_core::PCWSTR, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3221,12 +3221,12 @@ impl IAppxEncryptionFactory5_Vtbl {
         iid == &<IAppxEncryptionFactory5 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxEncryptionFactory5 {}
 windows_core::imp::define_interface!(IAppxFactory, IAppxFactory_Vtbl, 0xbeb94909_e451_438b_b5a7_d79e767b75d8);
 windows_core::imp::interface_hierarchy!(IAppxFactory, windows_core::IUnknown);
 impl IAppxFactory {
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreatePackageWriter<P0>(&self, outputstream: P0, settings: *const APPX_PACKAGE_SETTINGS) -> windows_core::Result<IAppxPackageWriter>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3236,7 +3236,7 @@ impl IAppxFactory {
             (windows_core::Interface::vtable(self).CreatePackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), core::mem::transmute(settings), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreatePackageReader<P0>(&self, inputstream: P0) -> windows_core::Result<IAppxPackageReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3246,7 +3246,7 @@ impl IAppxFactory {
             (windows_core::Interface::vtable(self).CreatePackageReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateManifestReader<P0>(&self, inputstream: P0) -> windows_core::Result<IAppxManifestReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3256,7 +3256,7 @@ impl IAppxFactory {
             (windows_core::Interface::vtable(self).CreateManifestReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateBlockMapReader<P0>(&self, inputstream: P0) -> windows_core::Result<IAppxBlockMapReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3266,7 +3266,7 @@ impl IAppxFactory {
             (windows_core::Interface::vtable(self).CreateBlockMapReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateValidatedBlockMapReader<P0, P1>(&self, blockmapstream: P0, signaturefilename: P1) -> windows_core::Result<IAppxBlockMapReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3282,28 +3282,28 @@ impl IAppxFactory {
 #[doc(hidden)]
 pub struct IAppxFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub CreatePackageWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_PACKAGE_SETTINGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     CreatePackageWriter: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreatePackageReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreatePackageReader: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateManifestReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateManifestReader: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateBlockMapReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateBlockMapReader: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateValidatedBlockMapReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateValidatedBlockMapReader: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 pub trait IAppxFactory_Impl: windows_core::IUnknownImpl {
     fn CreatePackageWriter(&self, outputstream: windows_core::Ref<super::objidlbase::IStream>, settings: *const APPX_PACKAGE_SETTINGS) -> windows_core::Result<IAppxPackageWriter>;
     fn CreatePackageReader(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<IAppxPackageReader>;
@@ -3311,7 +3311,7 @@ pub trait IAppxFactory_Impl: windows_core::IUnknownImpl {
     fn CreateBlockMapReader(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<IAppxBlockMapReader>;
     fn CreateValidatedBlockMapReader(&self, blockmapstream: windows_core::Ref<super::objidlbase::IStream>, signaturefilename: &windows_core::PCWSTR) -> windows_core::Result<IAppxBlockMapReader>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl IAppxFactory_Vtbl {
     pub const fn new<Identity: IAppxFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreatePackageWriter<Identity: IAppxFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_PACKAGE_SETTINGS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3387,12 +3387,12 @@ impl IAppxFactory_Vtbl {
         iid == &<IAppxFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxFactory {}
 windows_core::imp::define_interface!(IAppxFactory2, IAppxFactory2_Vtbl, 0xf1346df2_c282_4e22_b918_743a929a8d55);
 windows_core::imp::interface_hierarchy!(IAppxFactory2, windows_core::IUnknown);
 impl IAppxFactory2 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateContentGroupMapReader<P0>(&self, inputstream: P0) -> windows_core::Result<IAppxContentGroupMapReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3402,7 +3402,7 @@ impl IAppxFactory2 {
             (windows_core::Interface::vtable(self).CreateContentGroupMapReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateSourceContentGroupMapReader<P0>(&self, inputstream: P0) -> windows_core::Result<IAppxSourceContentGroupMapReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3412,7 +3412,7 @@ impl IAppxFactory2 {
             (windows_core::Interface::vtable(self).CreateSourceContentGroupMapReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateContentGroupMapWriter<P0>(&self, stream: P0) -> windows_core::Result<IAppxContentGroupMapWriter>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3427,26 +3427,26 @@ impl IAppxFactory2 {
 #[doc(hidden)]
 pub struct IAppxFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateContentGroupMapReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateContentGroupMapReader: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateSourceContentGroupMapReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateSourceContentGroupMapReader: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateContentGroupMapWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateContentGroupMapWriter: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxFactory2_Impl: windows_core::IUnknownImpl {
     fn CreateContentGroupMapReader(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<IAppxContentGroupMapReader>;
     fn CreateSourceContentGroupMapReader(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<IAppxSourceContentGroupMapReader>;
     fn CreateContentGroupMapWriter(&self, stream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<IAppxContentGroupMapWriter>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxFactory2_Vtbl {
     pub const fn new<Identity: IAppxFactory2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateContentGroupMapReader<Identity: IAppxFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, contentgroupmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3496,12 +3496,12 @@ impl IAppxFactory2_Vtbl {
         iid == &<IAppxFactory2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxFactory2 {}
 windows_core::imp::define_interface!(IAppxFactory3, IAppxFactory3_Vtbl, 0x776b2c05_e21d_4e24_ba1a_cd529a8bfdbb);
 windows_core::imp::interface_hierarchy!(IAppxFactory3, windows_core::IUnknown);
 impl IAppxFactory3 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreatePackageReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> windows_core::Result<IAppxPackageReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3512,7 +3512,7 @@ impl IAppxFactory3 {
             (windows_core::Interface::vtable(self).CreatePackageReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateManifestReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> windows_core::Result<IAppxManifestReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3523,7 +3523,7 @@ impl IAppxFactory3 {
             (windows_core::Interface::vtable(self).CreateManifestReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateAppInstallerReader<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> windows_core::Result<IAppxAppInstallerReader>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -3539,26 +3539,26 @@ impl IAppxFactory3 {
 #[doc(hidden)]
 pub struct IAppxFactory3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreatePackageReader2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreatePackageReader2: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateManifestReader2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateManifestReader2: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateAppInstallerReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateAppInstallerReader: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxFactory3_Impl: windows_core::IUnknownImpl {
     fn CreatePackageReader2(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
     fn CreateManifestReader2(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxManifestReader>;
     fn CreateAppInstallerReader(&self, inputstream: windows_core::Ref<super::objidlbase::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxAppInstallerReader>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxFactory3_Vtbl {
     pub const fn new<Identity: IAppxFactory3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreatePackageReader2<Identity: IAppxFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3608,7 +3608,7 @@ impl IAppxFactory3_Vtbl {
         iid == &<IAppxFactory3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxFactory3 {}
 windows_core::imp::define_interface!(IAppxFactory4, IAppxFactory4_Vtbl, 0x92e50000_6934_4c8d_b472_229d431daddf);
 windows_core::imp::interface_hierarchy!(IAppxFactory4, windows_core::IUnknown);
@@ -3684,7 +3684,7 @@ impl IAppxFile {
             (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3700,12 +3700,12 @@ pub struct IAppxFile_Vtbl {
     pub GetContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxFile_Impl: windows_core::IUnknownImpl {
     fn GetCompressionOption(&self) -> windows_core::Result<APPX_COMPRESSION_OPTION>;
     fn GetContentType(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -3713,7 +3713,7 @@ pub trait IAppxFile_Impl: windows_core::IUnknownImpl {
     fn GetSize(&self) -> windows_core::Result<u64>;
     fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxFile_Vtbl {
     pub const fn new<Identity: IAppxFile_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCompressionOption<Identity: IAppxFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, compressionoption: *mut APPX_COMPRESSION_OPTION) -> windows_core::HRESULT {
@@ -3789,7 +3789,7 @@ impl IAppxFile_Vtbl {
         iid == &<IAppxFile as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxFile {}
 windows_core::imp::define_interface!(IAppxFile2, IAppxFile2_Vtbl, 0x0c830b3c_40e9_11ee_be56_0242ac120002);
 impl core::ops::Deref for IAppxFile2 {
@@ -3813,11 +3813,11 @@ pub struct IAppxFile2_Vtbl {
     pub base__: IAppxFile_Vtbl,
     pub GetBlockSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxFile2_Impl: IAppxFile_Impl {
     fn GetBlockSize(&self) -> windows_core::Result<u64>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxFile2_Vtbl {
     pub const fn new<Identity: IAppxFile2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBlockSize<Identity: IAppxFile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocksize: *mut u64) -> windows_core::HRESULT {
@@ -3838,7 +3838,7 @@ impl IAppxFile2_Vtbl {
         iid == &<IAppxFile2 as windows_core::Interface>::IID || iid == &<IAppxFile as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxFile2 {}
 windows_core::imp::define_interface!(IAppxFilesEnumerator, IAppxFilesEnumerator_Vtbl, 0xf007eeaf_9831_411c_9847_917cdc62d1fe);
 windows_core::imp::interface_hierarchy!(IAppxFilesEnumerator, windows_core::IUnknown);
@@ -5920,7 +5920,7 @@ impl IAppxManifestReader {
             (windows_core::Interface::vtable(self).GetApplications)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5940,12 +5940,12 @@ pub struct IAppxManifestReader_Vtbl {
     pub GetDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPrerequisite: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub GetApplications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxManifestReader_Impl: windows_core::IUnknownImpl {
     fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId>;
     fn GetProperties(&self) -> windows_core::Result<IAppxManifestProperties>;
@@ -5957,7 +5957,7 @@ pub trait IAppxManifestReader_Impl: windows_core::IUnknownImpl {
     fn GetApplications(&self) -> windows_core::Result<IAppxManifestApplicationsEnumerator>;
     fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxManifestReader_Vtbl {
     pub const fn new<Identity: IAppxManifestReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPackageId<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6085,7 +6085,7 @@ impl IAppxManifestReader_Vtbl {
         iid == &<IAppxManifestReader as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxManifestReader {}
 windows_core::imp::define_interface!(IAppxManifestReader2, IAppxManifestReader2_Vtbl, 0xd06f67bc_b31d_4eba_a8af_638e73e77b4d);
 impl core::ops::Deref for IAppxManifestReader2 {
@@ -6109,11 +6109,11 @@ pub struct IAppxManifestReader2_Vtbl {
     pub base__: IAppxManifestReader_Vtbl,
     pub GetQualifiedResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxManifestReader2_Impl: IAppxManifestReader_Impl {
     fn GetQualifiedResources(&self) -> windows_core::Result<IAppxManifestQualifiedResourcesEnumerator>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxManifestReader2_Vtbl {
     pub const fn new<Identity: IAppxManifestReader2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetQualifiedResources<Identity: IAppxManifestReader2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6134,7 +6134,7 @@ impl IAppxManifestReader2_Vtbl {
         iid == &<IAppxManifestReader2 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxManifestReader2 {}
 windows_core::imp::define_interface!(IAppxManifestReader3, IAppxManifestReader3_Vtbl, 0xc43825ab_69b7_400a_9709_cc37f5a72d24);
 impl core::ops::Deref for IAppxManifestReader3 {
@@ -6165,12 +6165,12 @@ pub struct IAppxManifestReader3_Vtbl {
     pub GetCapabilitiesByCapabilityClass: unsafe extern "system" fn(*mut core::ffi::c_void, APPX_CAPABILITY_CLASS_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTargetDeviceFamilies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxManifestReader3_Impl: IAppxManifestReader2_Impl {
     fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> windows_core::Result<IAppxManifestCapabilitiesEnumerator>;
     fn GetTargetDeviceFamilies(&self) -> windows_core::Result<IAppxManifestTargetDeviceFamiliesEnumerator>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxManifestReader3_Vtbl {
     pub const fn new<Identity: IAppxManifestReader3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCapabilitiesByCapabilityClass<Identity: IAppxManifestReader3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilityclass: APPX_CAPABILITY_CLASS_TYPE, capabilities: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6207,7 +6207,7 @@ impl IAppxManifestReader3_Vtbl {
         iid == &<IAppxManifestReader3 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID || iid == &<IAppxManifestReader2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxManifestReader3 {}
 windows_core::imp::define_interface!(IAppxManifestReader4, IAppxManifestReader4_Vtbl, 0x4579bb7c_741d_4161_b5a1_47bd3b78ad9b);
 impl core::ops::Deref for IAppxManifestReader4 {
@@ -6231,11 +6231,11 @@ pub struct IAppxManifestReader4_Vtbl {
     pub base__: IAppxManifestReader3_Vtbl,
     pub GetOptionalPackageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxManifestReader4_Impl: IAppxManifestReader3_Impl {
     fn GetOptionalPackageInfo(&self) -> windows_core::Result<IAppxManifestOptionalPackageInfo>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxManifestReader4_Vtbl {
     pub const fn new<Identity: IAppxManifestReader4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOptionalPackageInfo<Identity: IAppxManifestReader4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionalpackageinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6256,7 +6256,7 @@ impl IAppxManifestReader4_Vtbl {
         iid == &<IAppxManifestReader4 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID || iid == &<IAppxManifestReader2 as windows_core::Interface>::IID || iid == &<IAppxManifestReader3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxManifestReader4 {}
 windows_core::imp::define_interface!(IAppxManifestReader5, IAppxManifestReader5_Vtbl, 0x8d7ae132_a690_4c00_b75a_6aae1feaac80);
 windows_core::imp::interface_hierarchy!(IAppxManifestReader5, windows_core::IUnknown);
@@ -6690,7 +6690,7 @@ impl IAppxPackageEditor {
     {
         unsafe { (windows_core::Interface::vtable(self).SetWorkingDirectory)(windows_core::Interface::as_raw(self), workingdirectory.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateDeltaPackage<P0, P1, P2>(&self, updatedpackagestream: P0, baselinepackagestream: P1, deltapackagestream: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -6699,7 +6699,7 @@ impl IAppxPackageEditor {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateDeltaPackage)(windows_core::Interface::as_raw(self), updatedpackagestream.param().abi(), baselinepackagestream.param().abi(), deltapackagestream.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateDeltaPackageUsingBaselineBlockMap<P0, P1, P2, P3>(&self, updatedpackagestream: P0, baselineblockmapstream: P1, baselinepackagefullname: P2, deltapackagestream: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -6709,7 +6709,7 @@ impl IAppxPackageEditor {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateDeltaPackageUsingBaselineBlockMap)(windows_core::Interface::as_raw(self), updatedpackagestream.param().abi(), baselineblockmapstream.param().abi(), baselinepackagefullname.param().abi(), deltapackagestream.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn UpdatePackage<P0, P1>(&self, baselinepackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -6717,7 +6717,7 @@ impl IAppxPackageEditor {
     {
         unsafe { (windows_core::Interface::vtable(self).UpdatePackage)(windows_core::Interface::as_raw(self), baselinepackagestream.param().abi(), deltapackagestream.param().abi(), updateoption) }
     }
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn UpdateEncryptedPackage<P0, P1>(&self, baselineencryptedpackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -6725,7 +6725,7 @@ impl IAppxPackageEditor {
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateEncryptedPackage)(windows_core::Interface::as_raw(self), baselineencryptedpackagestream.param().abi(), deltapackagestream.param().abi(), updateoption, core::mem::transmute(settings), keyinfo) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn UpdatePackageManifest<P0, P1>(&self, packagestream: P0, updatedmanifeststream: P1, ispackageencrypted: bool, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -6739,28 +6739,28 @@ impl IAppxPackageEditor {
 pub struct IAppxPackageEditor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetWorkingDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateDeltaPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateDeltaPackage: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateDeltaPackageUsingBaselineBlockMap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateDeltaPackageUsingBaselineBlockMap: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub UpdatePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     UpdatePackage: usize,
-    #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub UpdateEncryptedPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
     UpdateEncryptedPackage: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub UpdatePackageManifest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     UpdatePackageManifest: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 pub trait IAppxPackageEditor_Impl: windows_core::IUnknownImpl {
     fn SetWorkingDirectory(&self, workingdirectory: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CreateDeltaPackage(&self, updatedpackagestream: windows_core::Ref<super::objidlbase::IStream>, baselinepackagestream: windows_core::Ref<super::objidlbase::IStream>, deltapackagestream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
@@ -6769,7 +6769,7 @@ pub trait IAppxPackageEditor_Impl: windows_core::IUnknownImpl {
     fn UpdateEncryptedPackage(&self, baselineencryptedpackagestream: windows_core::Ref<super::objidlbase::IStream>, deltapackagestream: windows_core::Ref<super::objidlbase::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
     fn UpdatePackageManifest(&self, packagestream: windows_core::Ref<super::objidlbase::IStream>, updatedmanifeststream: windows_core::Ref<super::objidlbase::IStream>, ispackageencrypted: windows_core::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl IAppxPackageEditor_Vtbl {
     pub const fn new<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetWorkingDirectory<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workingdirectory: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -6822,7 +6822,7 @@ impl IAppxPackageEditor_Vtbl {
         iid == &<IAppxPackageEditor as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxPackageEditor {}
 windows_core::imp::define_interface!(IAppxPackageReader, IAppxPackageReader_Vtbl, 0xb5c49650_99bc_481c_9a34_3d53a4106708);
 windows_core::imp::interface_hierarchy!(IAppxPackageReader, windows_core::IUnknown);
@@ -6957,7 +6957,7 @@ impl windows_core::RuntimeName for IAppxPackageReader {}
 windows_core::imp::define_interface!(IAppxPackageWriter, IAppxPackageWriter_Vtbl, 0x9099e33b_246f_41e4_881a_008eb613f858);
 windows_core::imp::interface_hierarchy!(IAppxPackageWriter, windows_core::IUnknown);
 impl IAppxPackageWriter {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPayloadFile<P0, P1, P3>(&self, filename: P0, contenttype: P1, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -6966,7 +6966,7 @@ impl IAppxPackageWriter {
     {
         unsafe { (windows_core::Interface::vtable(self).AddPayloadFile)(windows_core::Interface::as_raw(self), filename.param().abi(), contenttype.param().abi(), compressionoption, inputstream.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Close<P0>(&self, manifest: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -6978,21 +6978,21 @@ impl IAppxPackageWriter {
 #[doc(hidden)]
 pub struct IAppxPackageWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddPayloadFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, APPX_COMPRESSION_OPTION, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddPayloadFile: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Close: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxPackageWriter_Impl: windows_core::IUnknownImpl {
     fn AddPayloadFile(&self, filename: &windows_core::PCWSTR, contenttype: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
     fn Close(&self, manifest: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxPackageWriter_Vtbl {
     pub const fn new<Identity: IAppxPackageWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPayloadFile<Identity: IAppxPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, contenttype: windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7017,12 +7017,12 @@ impl IAppxPackageWriter_Vtbl {
         iid == &<IAppxPackageWriter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxPackageWriter {}
 windows_core::imp::define_interface!(IAppxPackageWriter2, IAppxPackageWriter2_Vtbl, 0x2cf5c4fd_e54c_4ea5_ba4e_f8c4b105a8c8);
 windows_core::imp::interface_hierarchy!(IAppxPackageWriter2, windows_core::IUnknown);
 impl IAppxPackageWriter2 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Close<P0, P1>(&self, manifest: P0, contentgroupmap: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -7035,16 +7035,16 @@ impl IAppxPackageWriter2 {
 #[doc(hidden)]
 pub struct IAppxPackageWriter2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Close: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxPackageWriter2_Impl: windows_core::IUnknownImpl {
     fn Close(&self, manifest: windows_core::Ref<super::objidlbase::IStream>, contentgroupmap: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxPackageWriter2_Vtbl {
     pub const fn new<Identity: IAppxPackageWriter2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Close<Identity: IAppxPackageWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifest: *mut core::ffi::c_void, contentgroupmap: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7059,12 +7059,12 @@ impl IAppxPackageWriter2_Vtbl {
         iid == &<IAppxPackageWriter2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxPackageWriter2 {}
 windows_core::imp::define_interface!(IAppxPackageWriter3, IAppxPackageWriter3_Vtbl, 0xa83aacd3_41c0_4501_b8a3_74164f50b2fd);
 windows_core::imp::interface_hierarchy!(IAppxPackageWriter3, windows_core::IUnknown);
 impl IAppxPackageWriter3 {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPayloadFiles(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddPayloadFiles)(windows_core::Interface::as_raw(self), filecount, core::mem::transmute(payloadfiles), memorylimit) }
     }
@@ -7073,16 +7073,16 @@ impl IAppxPackageWriter3 {
 #[doc(hidden)]
 pub struct IAppxPackageWriter3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub AddPayloadFiles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     AddPayloadFiles: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IAppxPackageWriter3_Impl: windows_core::IUnknownImpl {
     fn AddPayloadFiles(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IAppxPackageWriter3_Vtbl {
     pub const fn new<Identity: IAppxPackageWriter3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPayloadFiles<Identity: IAppxPackageWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
@@ -7097,7 +7097,7 @@ impl IAppxPackageWriter3_Vtbl {
         iid == &<IAppxPackageWriter3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IAppxPackageWriter3 {}
 windows_core::imp::define_interface!(IAppxPackagingDiagnosticEventSink, IAppxPackagingDiagnosticEventSink_Vtbl, 0x17239d47_6adb_45d2_80f6_f9cbc3bf059d);
 windows_core::imp::interface_hierarchy!(IAppxPackagingDiagnosticEventSink, windows_core::IUnknown);

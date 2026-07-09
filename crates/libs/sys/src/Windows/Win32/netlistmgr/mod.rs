@@ -33,7 +33,7 @@ pub const NLM_CONNECTIVITY_IPV6_LOCALNETWORK: NLM_CONNECTIVITY = 512;
 pub const NLM_CONNECTIVITY_IPV6_NOTRAFFIC: NLM_CONNECTIVITY = 2;
 pub const NLM_CONNECTIVITY_IPV6_SUBNET: NLM_CONNECTIVITY = 256;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct NLM_DATAPLAN_STATUS {
     pub InterfaceGuid: windows_sys::core::GUID,
@@ -101,7 +101,7 @@ impl Default for NLM_SOCKADDR {
 }
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct NLM_USAGE_DATA {
     pub UsageInMegabytes: u32,

@@ -42,19 +42,19 @@ windows_link::link!("bcrypt.dll" "system" fn BCryptOpenAlgorithmProvider(phalgor
 windows_link::link!("bcrypt.dll" "system" fn BCryptProcessMultiOperations(hobject : BCRYPT_HANDLE, operationtype : BCRYPT_MULTI_OPERATION_TYPE, poperations : *const core::ffi::c_void, cboperations : u32, dwflags : u32) -> NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptQueryContextConfiguration(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_CONTEXT_CONFIG) -> NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionConfiguration(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionProperty(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszproperty : windows_sys::core::PCWSTR, pcbvalue : *mut u32, ppbvalue : *mut super::minwindef::PUCHAR) -> NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptQueryProviderRegistration(pszprovider : windows_sys::core::PCWSTR, dwmode : u32, dwinterface : u32, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_PROVIDER_REG) -> NTSTATUS);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("bcrypt.dll" "system" fn BCryptRegisterConfigChangeNotify(phevent : *mut super::winnt::HANDLE) -> NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptRemoveContextFunction(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR) -> NTSTATUS);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("bcrypt.dll" "system" fn BCryptResolveProviders(pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszprovider : windows_sys::core::PCWSTR, dwmode : u32, dwflags : u32, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_PROVIDER_REFS) -> NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptSecretAgreement(hprivkey : BCRYPT_KEY_HANDLE, hpubkey : BCRYPT_KEY_HANDLE, phagreedsecret : *mut BCRYPT_SECRET_HANDLE, dwflags : u32) -> NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptSetContextFunctionProperty(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszproperty : windows_sys::core::PCWSTR, cbvalue : u32, pbvalue : *const u8) -> NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptSetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pbinput : *const u8, cbinput : u32, dwflags : u32) -> NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptSignHash(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbinput : *const u8, cbinput : u32, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> NTSTATUS);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("bcrypt.dll" "system" fn BCryptUnregisterConfigChangeNotify(hevent : super::winnt::HANDLE) -> NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptVerifySignature(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhash : *const u8, cbhash : u32, pbsignature : *const u8, cbsignature : u32, dwflags : u32) -> NTSTATUS);
 pub const BCRYPTBUFFER_VERSION: u32 = 0;
@@ -95,7 +95,7 @@ pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: u32 = 8;
 pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: u32 = 3;
 pub const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbSize: u32,
@@ -112,7 +112,7 @@ pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbData: u64,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -494,7 +494,7 @@ pub const BCRYPT_MLKEM_PUBLIC_BLOB: windows_sys::core::PCWSTR = windows_sys::cor
 pub const BCRYPT_MLKEM_PUBLIC_MAGIC: u32 = 1347112013;
 pub const BCRYPT_MULTI_FLAG: u32 = 64;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct BCRYPT_MULTI_HASH_OPERATION {
     pub iHash: u32,
@@ -502,7 +502,7 @@ pub struct BCRYPT_MULTI_HASH_OPERATION {
     pub pbBuffer: super::minwindef::PUCHAR,
     pub cbBuffer: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for BCRYPT_MULTI_HASH_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -519,14 +519,14 @@ pub type BCRYPT_MULTI_OPERATION_TYPE = i32;
 pub const BCRYPT_NO_CURVE_GENERATION_ALG_ID: ECC_CURVE_ALG_ID_ENUM = 0;
 pub const BCRYPT_NO_KEY_VALIDATION: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct BCRYPT_OAEP_PADDING_INFO {
     pub pszAlgId: windows_sys::core::PCWSTR,
     pub pbLabel: super::minwindef::PUCHAR,
     pub cbLabel: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for BCRYPT_OAEP_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -535,26 +535,26 @@ impl Default for BCRYPT_OAEP_PADDING_INFO {
 pub const BCRYPT_OBJECT_ALIGNMENT: u32 = 16;
 pub const BCRYPT_OBJECT_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("ObjectLength");
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct BCRYPT_OID {
     pub cbOID: u32,
     pub pbOID: super::minwindef::PUCHAR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for BCRYPT_OID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct BCRYPT_OID_LIST {
     pub dwOIDCount: u32,
     pub pOIDs: *mut BCRYPT_OID,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for BCRYPT_OID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -602,14 +602,14 @@ pub struct BCRYPT_PQDSA_KEY_BLOB {
     pub cbKey: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct BCRYPT_PQDSA_PADDING_INFO {
     pub pbCtx: super::minwindef::PUCHAR,
     pub cbCtx: u32,
     pub pszPrehashAlgId: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for BCRYPT_PQDSA_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -860,14 +860,14 @@ pub const CRYPT_PRIORITY_BOTTOM: u32 = 4294967295;
 pub const CRYPT_PRIORITY_TOP: u32 = 0;
 pub const CRYPT_PROCESS_ISOLATE: u32 = 65536;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_PROPERTY_REF {
     pub pszProperty: windows_sys::core::PWSTR,
     pub cbValue: u32,
     pub pbValue: super::minwindef::PUCHAR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRYPT_PROPERTY_REF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -885,7 +885,7 @@ impl Default for CRYPT_PROVIDERS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_REF {
     pub dwInterface: u32,
@@ -896,20 +896,20 @@ pub struct CRYPT_PROVIDER_REF {
     pub pUM: PCRYPT_IMAGE_REF,
     pub pKM: PCRYPT_IMAGE_REF,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRYPT_PROVIDER_REF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_REFS {
     pub cProviders: u32,
     pub rgpProviders: *mut PCRYPT_PROVIDER_REF,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRYPT_PROVIDER_REFS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -972,7 +972,7 @@ pub const MAX_HYBRID_KEY_EXCHANGE_BLOBS: u32 = 4;
 pub const MS_PLATFORM_CRYPTO_PROVIDER: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft Platform Crypto Provider");
 pub const MS_PRIMITIVE_PROVIDER: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft Primitive Provider");
 pub type NTSTATUS = i32;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PBCRYPT_AUTHENTICATED_CIPHER_MODE_INFO = *mut BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO;
 pub type PBCRYPT_DH_KEY_BLOB = *mut BCRYPT_DH_KEY_BLOB;
 pub type PBCRYPT_DSA_KEY_BLOB = *mut BCRYPT_DSA_KEY_BLOB;
@@ -994,17 +994,17 @@ pub type PCRYPT_CONTEXT_FUNCTION_PROVIDERS = *mut CRYPT_CONTEXT_FUNCTION_PROVIDE
 pub type PCRYPT_IMAGE_REF = *mut CRYPT_IMAGE_REF;
 pub type PCRYPT_IMAGE_REG = *mut CRYPT_IMAGE_REG;
 pub type PCRYPT_INTERFACE_REG = *mut CRYPT_INTERFACE_REG;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPT_PROPERTY_REF = *mut CRYPT_PROPERTY_REF;
 pub type PCRYPT_PROVIDERS = *mut CRYPT_PROVIDERS;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPT_PROVIDER_REF = *mut CRYPT_PROVIDER_REF;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPT_PROVIDER_REFS = *mut CRYPT_PROVIDER_REFS;
 pub type PCRYPT_PROVIDER_REG = *mut CRYPT_PROVIDER_REG;
 pub type PNTSTATUS = *mut NTSTATUS;
 pub type PSSL_ECCKEY_BLOB = *mut SSL_ECCKEY_BLOB;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PTLS_HYBRID_KEYEXCHANGE_BLOB = *mut TLS_HYBRID_KEYEXCHANGE_BLOB;
 pub type PTLS_KEM_CIPHERTEXT_BLOB = *mut TLS_KEM_CIPHERTEXT_BLOB;
 #[repr(C)]
@@ -1017,7 +1017,7 @@ pub const SSL_ECCPUBLIC_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!(
 pub const TLS_13_PRE_SHARED_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("TLS13PRESHAREDKEY");
 pub const TLS_HYBRID_KEYEXCHANGE: windows_sys::core::PCWSTR = windows_sys::core::w!("TLS_HYBRID_KEYEXCHANGE");
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct TLS_HYBRID_KEYEXCHANGE_BLOB {
     pub dwMagic: u32,
@@ -1026,7 +1026,7 @@ pub struct TLS_HYBRID_KEYEXCHANGE_BLOB {
     pub rgwszBlobTypes: [windows_sys::core::PCWSTR; 4],
     pub rgbBlobs: [super::minwindef::PUCHAR; 4],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for TLS_HYBRID_KEYEXCHANGE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

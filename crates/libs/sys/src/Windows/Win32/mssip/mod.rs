@@ -1,30 +1,30 @@
 windows_link::link!("crypt32.dll" "system" fn CryptSIPAddProvider(psnewprov : *mut SIP_ADD_NEWPROVIDER) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptSIPCreateIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pcbindirectdata : *mut u32, pindirectdata : *mut SIP_INDIRECT_DATA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptSIPGetCaps(psubjinfo : *const SIP_SUBJECTINFO, pcaps : *mut SIP_CAP_SET) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptSIPGetSealedDigest(psubjectinfo : *const SIP_SUBJECTINFO, psig : *const u8, dwsig : u32, pbdigest : *mut u8, pcbdigest : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptSIPGetSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, pdwencodingtype : *mut u32, dwindex : u32, pcbsigneddatamsg : *mut u32, pbsigneddatamsg : *mut u8) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptSIPLoad(pgsubject : *const windows_sys::core::GUID, dwflags : u32, psipdispatch : *mut SIP_DISPATCH_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptSIPPutSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwencodingtype : u32, pdwindex : *mut u32, cbsigneddatamsg : u32, pbsigneddatamsg : *mut u8) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptSIPRemoveProvider(pgprov : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptSIPRemoveSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwindex : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuid(filename : windows_sys::core::PCWSTR, hfilein : super::winnt::HANDLE, pgsubject : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename : windows_sys::core::PCWSTR, hfilein : super::winnt::HANDLE, pgsubject : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptSIPVerifyIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pindirectdata : *mut SIP_INDIRECT_DATA) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 pub type CRYPT_DIGEST_DATA = super::wincrypt::CRYPT_HASH_BLOB;
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 pub type LPSIP_DISPATCH_INFO = *mut SIP_DISPATCH_INFO;
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 pub type LPSIP_SUBJECTINFO = *mut SIP_SUBJECTINFO;
 pub const MSSIP_ADDINFO_BLOB: u32 = 3;
 pub const MSSIP_ADDINFO_CATMEMBER: u32 = 2;
@@ -50,21 +50,21 @@ impl Default for MS_ADDINFO_BLOB {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MS_ADDINFO_CATALOGMEMBER {
     pub cbStruct: u32,
     pub pStore: *mut super::mscat::CRYPTCATSTORE,
     pub pMember: *mut super::mscat::CRYPTCATMEMBER,
 }
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 impl Default for MS_ADDINFO_CATALOGMEMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MS_ADDINFO_DETACHEDSIG {
     pub cbStruct: u32,
@@ -72,37 +72,37 @@ pub struct MS_ADDINFO_DETACHEDSIG {
     pub cbSignatureObject: u32,
     pub pbSignatureObject: *mut u8,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MS_ADDINFO_DETACHEDSIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy)]
 pub struct MS_ADDINFO_FLAT {
     pub cbStruct: u32,
     pub pIndirectData: *mut SIP_INDIRECT_DATA,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for MS_ADDINFO_FLAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type PMS_ADDINFO_BLOB = *mut MS_ADDINFO_BLOB;
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 pub type PMS_ADDINFO_CATALOGMEMBER = *mut MS_ADDINFO_CATALOGMEMBER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PMS_ADDINFO_DETACHEDSIG = *mut MS_ADDINFO_DETACHEDSIG;
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 pub type PMS_ADDINFO_FLAT = *mut MS_ADDINFO_FLAT;
 pub type PSIP_ADD_NEWPROVIDER = *mut SIP_ADD_NEWPROVIDER;
 pub type PSIP_CAP_SET = PSIP_CAP_SET_V3;
 pub type PSIP_CAP_SET_V2 = *mut SIP_CAP_SET_V2;
 pub type PSIP_CAP_SET_V3 = *mut SIP_CAP_SET_V3;
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 pub type PSIP_INDIRECT_DATA = *mut SIP_INDIRECT_DATA;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -163,7 +163,7 @@ impl Default for SIP_CAP_SET_V3_0 {
 pub const SIP_CAP_SET_VERSION_2: u32 = 2;
 pub const SIP_CAP_SET_VERSION_3: u32 = 3;
 #[repr(C)]
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
@@ -174,14 +174,14 @@ pub struct SIP_DISPATCH_INFO {
     pub pfVerify: pCryptSIPVerifyIndirectData,
     pub pfRemove: pCryptSIPRemoveSignedDataMsg,
 }
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 impl Default for SIP_DISPATCH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Default)]
 pub struct SIP_INDIRECT_DATA {
     pub Data: super::wincrypt::CRYPT_ATTRIBUTE_TYPE_VALUE,
@@ -190,7 +190,7 @@ pub struct SIP_INDIRECT_DATA {
 }
 pub const SIP_MAX_MAGIC_NUMBER: u32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SIP_SUBJECTINFO {
     pub cbSize: u32,
@@ -212,14 +212,14 @@ pub struct SIP_SUBJECTINFO {
     pub Anonymous: SIP_SUBJECTINFO_0,
     pub pClientData: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 impl Default for SIP_SUBJECTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union SIP_SUBJECTINFO_0 {
     pub psFlat: *mut MS_ADDINFO_FLAT,
@@ -227,7 +227,7 @@ pub union SIP_SUBJECTINFO_0 {
     pub psBlob: *mut MS_ADDINFO_BLOB,
     pub psDetachedSig: *mut MS_ADDINFO_DETACHEDSIG,
 }
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 impl Default for SIP_SUBJECTINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -244,20 +244,20 @@ pub const SPC_INC_PE_RESOURCES_FLAG: u32 = 128;
 pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1;
 pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1;
 pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048;
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 pub type pCryptSIPCreateIndirectData = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 pub type pCryptSIPGetCaps = Option<unsafe extern "system" fn(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 pub type pCryptSIPGetSealedDigest = Option<unsafe extern "system" fn(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 pub type pCryptSIPGetSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut u32, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 pub type pCryptSIPPutSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: u32, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 pub type pCryptSIPRemoveSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 pub type pCryptSIPVerifyIndirectData = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type pfnIsFileSupported = Option<unsafe extern "system" fn(hfile: super::winnt::HANDLE, pgsubject: *mut windows_sys::core::GUID) -> windows_sys::core::BOOL>;
 pub type pfnIsFileSupportedName = Option<unsafe extern "system" fn(pwszfilename: *mut u16, pgsubject: *mut windows_sys::core::GUID) -> windows_sys::core::BOOL>;

@@ -3,7 +3,7 @@ pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const core::ffi::c_void, strea
     windows_core::link!("dbghelp.dll" "system" fn MiniDumpReadDumpStream(baseofdump : *const core::ffi::c_void, streamnumber : u32, dir : *mut PMINIDUMP_DIRECTORY, streampointer : *mut *mut core::ffi::c_void, streamsize : *mut u32) -> windows_core::BOOL);
     unsafe { MiniDumpReadDumpStream(baseofdump, streamnumber, dir as _, streampointer as _, streamsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
 #[inline]
 pub unsafe fn MiniDumpWriteDump(hprocess: super::winnt::HANDLE, processid: u32, hfile: super::winnt::HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: Option<*const MINIDUMP_EXCEPTION_INFORMATION>, userstreamparam: Option<*const MINIDUMP_USER_STREAM_INFORMATION>, callbackparam: Option<*const MINIDUMP_CALLBACK_INFORMATION>) -> windows_core::BOOL {
     windows_core::link!("dbghelp.dll" "system" fn MiniDumpWriteDump(hprocess : super::winnt::HANDLE, processid : u32, hfile : super::winnt::HANDLE, dumptype : MINIDUMP_TYPE, exceptionparam : *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam : *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam : *const MINIDUMP_CALLBACK_INFORMATION) -> windows_core::BOOL);
@@ -67,14 +67,14 @@ pub const KernelMinidumpStatusCallback: MINIDUMP_CALLBACK_TYPE = 8;
 pub const LastReservedStream: MINIDUMP_STREAM_TYPE = 65535;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
 #[derive(Clone, Copy, Debug)]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -82,21 +82,21 @@ impl Default for MINIDUMP_CALLBACK_INFORMATION {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_INPUT {
     pub ProcessId: u32,
@@ -104,14 +104,14 @@ pub struct MINIDUMP_CALLBACK_INPUT {
     pub CallbackType: u32,
     pub Anonymous: MINIDUMP_CALLBACK_INPUT_0,
 }
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub Status: windows_core::HRESULT,
@@ -128,7 +128,7 @@ pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub VmPostRead: MINIDUMP_VM_POST_READ_CALLBACK,
     pub CompressedMemoryStreamFinish: MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK,
 }
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_INPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -136,13 +136,13 @@ impl Default for MINIDUMP_CALLBACK_INPUT_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
     pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -150,7 +150,7 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub ModuleWriteFlags: u32,
@@ -166,7 +166,7 @@ pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub Status: windows_core::HRESULT,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -174,7 +174,7 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
     pub MemoryBase: u64,
@@ -182,7 +182,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: windows_core::BOOL,
@@ -190,7 +190,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
     pub VmRegion: MINIDUMP_MEMORY_INFO,
@@ -198,7 +198,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
     pub VmQueryStatus: windows_core::HRESULT,
@@ -206,7 +206,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: windows_core::HRESULT,
@@ -214,13 +214,13 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
     pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -228,7 +228,7 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub ModuleWriteFlags: u32,
@@ -244,7 +244,7 @@ pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub Status: windows_core::HRESULT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -252,7 +252,7 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
     pub MemoryBase: u64,
@@ -260,7 +260,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: windows_core::BOOL,
@@ -268,7 +268,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
     pub VmRegion: MINIDUMP_MEMORY_INFO,
@@ -276,7 +276,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
     pub VmQueryStatus: windows_core::HRESULT,
@@ -284,13 +284,13 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: windows_core::HRESULT,
     pub VmReadBytesCompleted: u32,
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
 pub type MINIDUMP_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(callbackparam: *mut core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> windows_core::BOOL>;
 pub type MINIDUMP_CALLBACK_TYPE = i32;
 #[repr(C, packed(4))]
@@ -301,7 +301,7 @@ pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
     pub MaxParallelism: u32,
@@ -312,7 +312,7 @@ pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
     pub MaxParallelism: u32,
@@ -345,7 +345,7 @@ impl Default for MINIDUMP_EXCEPTION {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
@@ -354,7 +354,7 @@ pub struct MINIDUMP_EXCEPTION_INFORMATION {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
@@ -483,7 +483,7 @@ pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
     pub ThreadId: u32,
 }
 #[repr(C, packed(4))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_IO_CALLBACK {
     pub Handle: super::winnt::HANDLE,
@@ -491,7 +491,7 @@ pub struct MINIDUMP_IO_CALLBACK {
     pub Buffer: *mut core::ffi::c_void,
     pub BufferBytes: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MINIDUMP_IO_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -599,7 +599,7 @@ pub struct MINIDUMP_MISC_INFO_2 {
     pub ProcessorCurrentIdleState: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MINIDUMP_MISC_INFO_3 {
     pub SizeOfInfo: u32,
@@ -620,7 +620,7 @@ pub struct MINIDUMP_MISC_INFO_3 {
     pub TimeZone: super::timezoneapi::TIME_ZONE_INFORMATION,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MINIDUMP_MISC_INFO_4 {
     pub SizeOfInfo: u32,
@@ -642,14 +642,14 @@ pub struct MINIDUMP_MISC_INFO_4 {
     pub BuildString: [u16; 260],
     pub DbgBldStr: [u16; 40],
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for MINIDUMP_MISC_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MISC_INFO_5 {
     pub SizeOfInfo: u32,
@@ -673,16 +673,16 @@ pub struct MINIDUMP_MISC_INFO_5 {
     pub XStateData: XSTATE_CONFIG_FEATURE_MSC_INFO,
     pub ProcessCookie: u32,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
 impl Default for MINIDUMP_MISC_INFO_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
 pub type MINIDUMP_MISC_INFO_N = MINIDUMP_MISC_INFO_5;
 #[repr(C, packed(4))]
-#[cfg(feature = "Win32_verrsrc")]
+#[cfg(feature = "verrsrc")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MODULE {
     pub BaseOfImage: u64,
@@ -697,7 +697,7 @@ pub struct MINIDUMP_MODULE {
     pub Reserved1: u64,
 }
 #[repr(C, packed(4))]
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MODULE_CALLBACK {
     pub FullPath: super::winnt::PWCHAR,
@@ -711,20 +711,20 @@ pub struct MINIDUMP_MODULE_CALLBACK {
     pub MiscRecord: *mut core::ffi::c_void,
     pub SizeOfMiscRecord: u32,
 }
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 impl Default for MINIDUMP_MODULE_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_verrsrc")]
+#[cfg(feature = "verrsrc")]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MODULE_LIST {
     pub NumberOfModules: u32,
     pub Modules: [MINIDUMP_MODULE; 0],
 }
-#[cfg(feature = "Win32_verrsrc")]
+#[cfg(feature = "verrsrc")]
 impl Default for MINIDUMP_MODULE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1094,7 +1094,7 @@ pub struct MINIDUMP_THREAD {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -1105,7 +1105,7 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackEnd: u64,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1113,7 +1113,7 @@ impl Default for MINIDUMP_THREAD_CALLBACK {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -1124,7 +1124,7 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackEnd: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1132,7 +1132,7 @@ impl Default for MINIDUMP_THREAD_CALLBACK {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -1144,7 +1144,7 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackEnd: u64,
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1164,7 +1164,7 @@ pub struct MINIDUMP_THREAD_EX {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
@@ -1177,7 +1177,7 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreEnd: u64,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1185,7 +1185,7 @@ impl Default for MINIDUMP_THREAD_EX_CALLBACK {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
@@ -1198,7 +1198,7 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreEnd: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1206,7 +1206,7 @@ impl Default for MINIDUMP_THREAD_EX_CALLBACK {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
@@ -1220,7 +1220,7 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreEnd: u64,
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1474,49 +1474,49 @@ impl Default for PCPU_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_CALLBACK_INFORMATION(pub *mut MINIDUMP_CALLBACK_INFORMATION);
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
 impl PMINIDUMP_CALLBACK_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
 impl Default for PMINIDUMP_CALLBACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_CALLBACK_INPUT(pub *mut MINIDUMP_CALLBACK_INPUT);
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 impl PMINIDUMP_CALLBACK_INPUT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 impl Default for PMINIDUMP_CALLBACK_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_CALLBACK_OUTPUT(pub *mut MINIDUMP_CALLBACK_OUTPUT);
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl PMINIDUMP_CALLBACK_OUTPUT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl Default for PMINIDUMP_CALLBACK_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1535,17 +1535,17 @@ impl Default for PMINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK(pub *mut MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK);
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl PMINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl Default for PMINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1577,17 +1577,17 @@ impl Default for PMINIDUMP_EXCEPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_EXCEPTION_INFORMATION(pub *mut MINIDUMP_EXCEPTION_INFORMATION);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PMINIDUMP_EXCEPTION_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PMINIDUMP_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1749,17 +1749,17 @@ impl Default for PMINIDUMP_INCLUDE_THREAD_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_IO_CALLBACK(pub *mut MINIDUMP_IO_CALLBACK);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PMINIDUMP_IO_CALLBACK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PMINIDUMP_IO_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1869,113 +1869,113 @@ impl Default for PMINIDUMP_MISC_INFO_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_MISC_INFO_3(pub *mut MINIDUMP_MISC_INFO_3);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl PMINIDUMP_MISC_INFO_3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for PMINIDUMP_MISC_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_MISC_INFO_4(pub *mut MINIDUMP_MISC_INFO_4);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl PMINIDUMP_MISC_INFO_4 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 impl Default for PMINIDUMP_MISC_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_MISC_INFO_5(pub *mut MINIDUMP_MISC_INFO_5);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
 impl PMINIDUMP_MISC_INFO_5 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
 impl Default for PMINIDUMP_MISC_INFO_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_MISC_INFO_N(pub *mut MINIDUMP_MISC_INFO_N);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
 impl PMINIDUMP_MISC_INFO_N {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_timezoneapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
 impl Default for PMINIDUMP_MISC_INFO_N {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_verrsrc")]
+#[cfg(feature = "verrsrc")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_MODULE(pub *mut MINIDUMP_MODULE);
-#[cfg(feature = "Win32_verrsrc")]
+#[cfg(feature = "verrsrc")]
 impl PMINIDUMP_MODULE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_verrsrc")]
+#[cfg(feature = "verrsrc")]
 impl Default for PMINIDUMP_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_MODULE_CALLBACK(pub *mut MINIDUMP_MODULE_CALLBACK);
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 impl PMINIDUMP_MODULE_CALLBACK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_verrsrc", feature = "Win32_winnt"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
 impl Default for PMINIDUMP_MODULE_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_verrsrc")]
+#[cfg(feature = "verrsrc")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_MODULE_LIST(pub *mut MINIDUMP_MODULE_LIST);
-#[cfg(feature = "Win32_verrsrc")]
+#[cfg(feature = "verrsrc")]
 impl PMINIDUMP_MODULE_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_verrsrc")]
+#[cfg(feature = "verrsrc")]
 impl Default for PMINIDUMP_MODULE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2176,17 +2176,17 @@ impl Default for PMINIDUMP_THREAD {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_THREAD_CALLBACK(pub *mut MINIDUMP_THREAD_CALLBACK);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PMINIDUMP_THREAD_CALLBACK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PMINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2205,17 +2205,17 @@ impl Default for PMINIDUMP_THREAD_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMINIDUMP_THREAD_EX_CALLBACK(pub *mut MINIDUMP_THREAD_EX_CALLBACK);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PMINIDUMP_THREAD_EX_CALLBACK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PMINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2429,17 +2429,17 @@ impl Default for PMINIDUMP_VM_QUERY_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PXSTATE_CONFIG_FEATURE_MSC_INFO(pub *mut XSTATE_CONFIG_FEATURE_MSC_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PXSTATE_CONFIG_FEATURE_MSC_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PXSTATE_CONFIG_FEATURE_MSC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2482,7 +2482,7 @@ pub const VmQueryCallback: MINIDUMP_CALLBACK_TYPE = 18;
 pub const VmStartCallback: MINIDUMP_CALLBACK_TYPE = 17;
 pub const WriteKernelMinidumpCallback: MINIDUMP_CALLBACK_TYPE = 7;
 #[repr(C, packed(4))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct XSTATE_CONFIG_FEATURE_MSC_INFO {
     pub SizeOfInfo: u32,
@@ -2490,7 +2490,7 @@ pub struct XSTATE_CONFIG_FEATURE_MSC_INFO {
     pub EnabledFeatures: u64,
     pub Features: [super::winnt::XSTATE_FEATURE; 64],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for XSTATE_CONFIG_FEATURE_MSC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -15,7 +15,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetReplExportDirDel(servername : windows_core::PCWSTR, dirname : windows_core::PCWSTR) -> u32);
     unsafe { NetReplExportDirDel(servername.param().abi(), dirname.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetReplExportDirEnum<P0>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32
 where
@@ -24,7 +24,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetReplExportDirEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
     unsafe { NetReplExportDirEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resumehandle as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetReplExportDirGetInfo<P0, P1>(servername: P0, dirname: P1, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -61,7 +61,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetReplExportDirUnlock(servername : windows_core::PCWSTR, dirname : windows_core::PCWSTR, unlockforce : u32) -> u32);
     unsafe { NetReplExportDirUnlock(servername.param().abi(), dirname.param().abi(), unlockforce) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetReplGetInfo<P0>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -87,7 +87,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetReplImportDirDel(servername : windows_core::PCWSTR, dirname : windows_core::PCWSTR) -> u32);
     unsafe { NetReplImportDirDel(servername.param().abi(), dirname.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetReplImportDirEnum<P0>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32
 where
@@ -96,7 +96,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetReplImportDirEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
     unsafe { NetReplImportDirEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resumehandle as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetReplImportDirGetInfo<P0, P1>(servername: P0, dirname: P1, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where

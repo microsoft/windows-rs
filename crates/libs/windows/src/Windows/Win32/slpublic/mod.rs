@@ -71,7 +71,7 @@ pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: HSLC, pproductskuid: Optio
         SLGenerateOfflineInstallationIdEx(hslc, pproductskuid.unwrap_or(core::mem::zeroed()) as _, pactivationinfo.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn SLGetApplicationInformation<P2>(hslc: HSLC, papplicationid: *const SLID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut super::minwindef::PBYTE) -> windows_core::HRESULT
 where
@@ -93,7 +93,7 @@ pub unsafe fn SLGetInstalledProductKeyIds(hslc: HSLC, pproductskuid: *const SLID
     windows_core::link!("slc.dll" "system" fn SLGetInstalledProductKeyIds(hslc : HSLC, pproductskuid : *const SLID, pnproductkeyids : *mut u32, ppproductkeyids : *mut *mut SLID) -> windows_core::HRESULT);
     unsafe { SLGetInstalledProductKeyIds(hslc, pproductskuid, pnproductkeyids as _, ppproductkeyids as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn SLGetLicense(hslc: HSLC, plicensefileid: *const SLID, pcblicensefile: *mut u32, ppblicensefile: *mut super::minwindef::PBYTE) -> windows_core::HRESULT {
     windows_core::link!("slc.dll" "system" fn SLGetLicense(hslc : HSLC, plicensefileid : *const SLID, pcblicensefile : *mut u32, ppblicensefile : *mut super::minwindef::PBYTE) -> windows_core::HRESULT);
@@ -107,7 +107,7 @@ pub unsafe fn SLGetLicenseFileId(hslc: HSLC, pblicenseblob: &[u8]) -> windows_co
         SLGetLicenseFileId(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn SLGetLicenseInformation<P2>(hslc: HSLC, psllicenseid: *const SLID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut super::minwindef::PBYTE) -> windows_core::HRESULT
 where
@@ -136,7 +136,7 @@ where
         SLGetPKeyId(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn SLGetPKeyInformation<P2>(hslc: HSLC, ppkeyid: *const SLID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut super::minwindef::PBYTE) -> windows_core::HRESULT
 where
@@ -145,7 +145,7 @@ where
     windows_core::link!("slc.dll" "system" fn SLGetPKeyInformation(hslc : HSLC, ppkeyid : *const SLID, pwszvaluename : windows_core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut super::minwindef::PBYTE) -> windows_core::HRESULT);
     unsafe { SLGetPKeyInformation(hslc, ppkeyid, pwszvaluename.param().abi(), pedatatype.unwrap_or(core::mem::zeroed()) as _, pcbvalue as _, ppbvalue as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn SLGetPolicyInformation<P1>(hslc: HSLC, pwszvaluename: P1, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut super::minwindef::PBYTE) -> windows_core::HRESULT
 where
@@ -165,7 +165,7 @@ where
         SLGetPolicyInformationDWORD(hslc, pwszvaluename.param().abi(), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn SLGetProductSkuInformation<P2>(hslc: HSLC, pproductskuid: *const SLID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut super::minwindef::PBYTE) -> windows_core::HRESULT
 where
@@ -203,7 +203,7 @@ where
         SLGetServerStatus(pwszserverurl.param().abi(), pwszacquisitiontype.param().abi(), pwszproxyserver.param().abi(), wproxyport.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn SLGetServiceInformation<P1>(hslc: HSLC, pwszvaluename: P1, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut super::minwindef::PBYTE) -> windows_core::HRESULT
 where
@@ -212,7 +212,7 @@ where
     windows_core::link!("slc.dll" "system" fn SLGetServiceInformation(hslc : HSLC, pwszvaluename : windows_core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut super::minwindef::PBYTE) -> windows_core::HRESULT);
     unsafe { SLGetServiceInformation(hslc, pwszvaluename.param().abi(), pedatatype.unwrap_or(core::mem::zeroed()) as _, pcbvalue as _, ppbvalue as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn SLGetWindowsInformation<P0>(pwszvaluename: P0, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut super::minwindef::PBYTE) -> windows_core::HRESULT
 where
@@ -273,7 +273,7 @@ where
     windows_core::link!("api-ms-win-core-slapi-l1-1-0.dll" "system" fn SLQueryLicenseValueFromApp(valuename : windows_core::PCWSTR, valuetype : *mut u32, databuffer : *mut core::ffi::c_void, datasize : u32, resultdatasize : *mut u32) -> windows_core::HRESULT);
     unsafe { SLQueryLicenseValueFromApp(valuename.param().abi(), valuetype.unwrap_or(core::mem::zeroed()) as _, databuffer.unwrap_or(core::mem::zeroed()) as _, datasize, resultdatasize as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SLRegisterEvent<P1>(hslc: Option<HSLC>, pwszeventid: P1, papplicationid: *const SLID, hevent: super::winnt::HANDLE) -> windows_core::HRESULT
 where
@@ -305,7 +305,7 @@ pub unsafe fn SLUninstallProofOfPurchase(hslc: HSLC, ppkeyid: *const SLID) -> wi
     windows_core::link!("slc.dll" "system" fn SLUninstallProofOfPurchase(hslc : HSLC, ppkeyid : *const SLID) -> windows_core::HRESULT);
     unsafe { SLUninstallProofOfPurchase(hslc, ppkeyid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SLUnregisterEvent<P1>(hslc: Option<HSLC>, pwszeventid: P1, papplicationid: *const SLID, hevent: super::winnt::HANDLE) -> windows_core::HRESULT
 where

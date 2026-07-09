@@ -1,5 +1,5 @@
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DDDIARG_CREATERESOURCE {
     pub Format: D3DDDIFORMAT,
@@ -16,14 +16,14 @@ pub struct D3DDDIARG_CREATERESOURCE {
     pub Flags: D3DDDI_RESOURCEFLAGS,
     pub Rotation: D3DDDI_ROTATION,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DDDIARG_CREATERESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Format: D3DDDIFORMAT,
@@ -41,7 +41,7 @@ pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Rotation: D3DDDI_ROTATION,
     pub Flags2: D3DDDI_RESOURCEFLAGS2,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DDDIARG_CREATERESOURCE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -353,7 +353,7 @@ pub struct D3DDDI_ALLOCATIONINFO_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONINFO2 {
     pub hAllocation: D3DKMT_HANDLE,
@@ -366,52 +366,52 @@ pub struct D3DDDI_ALLOCATIONINFO2 {
     pub Anonymous2: D3DDDI_ALLOCATIONINFO2_2,
     pub Reserved: [usize; 5],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DDDI_ALLOCATIONINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_0 {
     pub hSection: super::winnt::HANDLE,
     pub pSystemMem: *const core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DDDI_ALLOCATIONINFO2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_1 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO2_1_0,
     pub Value: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DDDI_ALLOCATIONINFO2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3DDDI_ALLOCATIONINFO2_1_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_2 {
     pub Priority: u32,
     pub Unused: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DDDI_ALLOCATIONINFO2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1356,7 +1356,7 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
@@ -1364,14 +1364,14 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0,
     pub SharedHandle: D3DKMT_HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0,
@@ -1382,39 +1382,39 @@ pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub PeriodicMonitoredFence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     pub InitialState: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     pub MaxCount: u32,
     pub InitialCount: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     pub FenceValue: u64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub Event: super::winnt::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     pub InitialFenceValue: u64,
@@ -1423,14 +1423,14 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     pub EngineAffinity: u32,
     pub Padding: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub hAdapter: D3DKMT_HANDLE,
@@ -1441,19 +1441,19 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub EngineAffinity: u32,
     pub Padding: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     pub Reserved: [u64; 8],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1786,7 +1786,7 @@ pub const D3DKMT_CROSS_ADAPTER_RESOURCE_PITCH_ALIGNMENT: u32 = 128;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMT_HANDLE(pub u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMT_PTR_TYPE(pub super::winnt::HANDLE);
@@ -1871,61 +1871,61 @@ pub const DXGKDDI_INTERFACE_VERSION_WDDM3_2: u32 = 69640;
 pub const DXGKDDI_INTERFACE_VERSION_WIN7: u32 = 8197;
 pub const DXGKDDI_INTERFACE_VERSION_WIN8: u32 = 12302;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_HEAD {
     pub Luid: GPUP_DRIVER_ESCAPE_INPUT,
     pub Type: DXGKVGPU_ESCAPE_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_INITIALIZE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub VmGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_PAUSE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub DeviceLuid: super::winnt::LUID,
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DXGKVGPU_ESCAPE_PAUSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DXGKVGPU_ESCAPE_PAUSE_0 {
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0_0,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DXGKVGPU_ESCAPE_PAUSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_PAUSE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub PowerState: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
@@ -1933,19 +1933,19 @@ pub struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     pub Size: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_RELEASE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_RESUME {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
@@ -1962,7 +1962,7 @@ pub const DXGKVGPU_ESCAPE_TYPE_RELEASE: DXGKVGPU_ESCAPE_TYPE = 3;
 pub const DXGKVGPU_ESCAPE_TYPE_RESUME: DXGKVGPU_ESCAPE_TYPE = 7;
 pub const DXGKVGPU_ESCAPE_TYPE_WRITE_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
@@ -2272,7 +2272,7 @@ pub type DXGK_PTE_PAGE_SIZE = i32;
 pub const DXGK_PTE_PAGE_TABLE_PAGE_4KB: DXGK_PTE_PAGE_SIZE = 0;
 pub const DXGK_PTE_PAGE_TABLE_PAGE_64KB: DXGK_PTE_PAGE_SIZE = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GPUP_DRIVER_ESCAPE_INPUT {
     pub vfLUID: super::winnt::LUID,
@@ -2317,17 +2317,17 @@ impl Default for PD3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PGPUP_DRIVER_ESCAPE_INPUT(pub *mut GPUP_DRIVER_ESCAPE_INPUT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PGPUP_DRIVER_ESCAPE_INPUT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PGPUP_DRIVER_ESCAPE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

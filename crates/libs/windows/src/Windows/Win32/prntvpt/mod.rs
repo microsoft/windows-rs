@@ -3,13 +3,13 @@ pub unsafe fn PTCloseProvider(hprovider: HPTPROVIDER) -> windows_core::HRESULT {
     windows_core::link!("prntvpt.dll" "system" fn PTCloseProvider(hprovider : HPTPROVIDER) -> windows_core::HRESULT);
     unsafe { PTCloseProvider(hprovider) }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "objidlbase", feature = "windef", feature = "wingdi"))]
 #[inline]
 pub unsafe fn PTConvertDevModeToPrintTicket(hprovider: HPTPROVIDER, cbdevmode: u32, pdevmode: super::wingdi::PDEVMODE, scope: EPrintTicketScope, pprintticket: &Option<super::objidlbase::IStream>) -> windows_core::HRESULT {
     windows_core::link!("prntvpt.dll" "system" fn PTConvertDevModeToPrintTicket(hprovider : HPTPROVIDER, cbdevmode : u32, pdevmode : super::wingdi::PDEVMODE, scope : EPrintTicketScope, pprintticket : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PTConvertDevModeToPrintTicket(hprovider, cbdevmode, pdevmode, scope, core::mem::transmute_copy(pprintticket)) }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "objidlbase", feature = "windef", feature = "wingdi"))]
 #[inline]
 pub unsafe fn PTConvertPrintTicketToDevMode<P1>(hprovider: HPTPROVIDER, pprintticket: P1, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut super::wingdi::PDEVMODE, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::HRESULT
 where
@@ -18,7 +18,7 @@ where
     windows_core::link!("prntvpt.dll" "system" fn PTConvertPrintTicketToDevMode(hprovider : HPTPROVIDER, pprintticket : *mut core::ffi::c_void, basedevmodetype : EDefaultDevmodeType, scope : EPrintTicketScope, pcbdevmode : *mut u32, ppdevmode : *mut super::wingdi::PDEVMODE, pbstrerrormessage : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PTConvertPrintTicketToDevMode(hprovider, pprintticket.param().abi(), basedevmodetype, scope, pcbdevmode as _, ppdevmode as _, pbstrerrormessage.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn PTGetPrintCapabilities<P1>(hprovider: HPTPROVIDER, pprintticket: P1, pcapabilities: &Option<super::objidlbase::IStream>, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::HRESULT
 where
@@ -27,7 +27,7 @@ where
     windows_core::link!("prntvpt.dll" "system" fn PTGetPrintCapabilities(hprovider : HPTPROVIDER, pprintticket : *mut core::ffi::c_void, pcapabilities : *mut core::ffi::c_void, pbstrerrormessage : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PTGetPrintCapabilities(hprovider, pprintticket.param().abi(), core::mem::transmute_copy(pcapabilities), pbstrerrormessage.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn PTGetPrintDeviceCapabilities<P1>(hprovider: HPTPROVIDER, pprintticket: P1, pdevicecapabilities: &Option<super::objidlbase::IStream>, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::HRESULT
 where
@@ -36,7 +36,7 @@ where
     windows_core::link!("prntvpt.dll" "system" fn PTGetPrintDeviceCapabilities(hprovider : HPTPROVIDER, pprintticket : *mut core::ffi::c_void, pdevicecapabilities : *mut core::ffi::c_void, pbstrerrormessage : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PTGetPrintDeviceCapabilities(hprovider, pprintticket.param().abi(), core::mem::transmute_copy(pdevicecapabilities), pbstrerrormessage.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn PTGetPrintDeviceResources<P1, P2>(hprovider: HPTPROVIDER, pszlocalename: P1, pprintticket: P2, pdeviceresources: &Option<super::objidlbase::IStream>, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::HRESULT
 where
@@ -46,7 +46,7 @@ where
     windows_core::link!("prntvpt.dll" "system" fn PTGetPrintDeviceResources(hprovider : HPTPROVIDER, pszlocalename : windows_core::PCWSTR, pprintticket : *mut core::ffi::c_void, pdeviceresources : *mut core::ffi::c_void, pbstrerrormessage : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PTGetPrintDeviceResources(hprovider, pszlocalename.param().abi(), pprintticket.param().abi(), core::mem::transmute_copy(pdeviceresources), pbstrerrormessage.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn PTMergeAndValidatePrintTicket<P1, P2>(hprovider: HPTPROVIDER, pbaseticket: P1, pdeltaticket: P2, scope: EPrintTicketScope, presultticket: &Option<super::objidlbase::IStream>, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::HRESULT
 where

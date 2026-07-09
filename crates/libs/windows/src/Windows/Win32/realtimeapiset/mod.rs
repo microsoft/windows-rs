@@ -44,13 +44,13 @@ pub unsafe fn QueryInterruptTimePrecise() -> u64 {
         result__
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn QueryProcessCycleTime(processhandle: super::winnt::HANDLE, cycletime: *mut u64) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn QueryProcessCycleTime(processhandle : super::winnt::HANDLE, cycletime : *mut u64) -> windows_core::BOOL);
     unsafe { QueryProcessCycleTime(processhandle, cycletime as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn QueryThreadCycleTime(threadhandle: super::winnt::HANDLE, cycletime: *mut u64) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn QueryThreadCycleTime(threadhandle : super::winnt::HANDLE, cycletime : *mut u64) -> windows_core::BOOL);

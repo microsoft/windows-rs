@@ -145,18 +145,18 @@ pub const FR_PROP_PENDINFOTOKEN: u32 = 8;
 pub const FR_PROP_STATUS: u32 = 4;
 pub const FR_PROP_STATUSINFOCOUNT: u32 = 2;
 pub const FR_PROP_STATUSSTRING: u32 = 5;
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertConfig, ICertConfig_Vtbl, 0x372fce34_4324_11d0_8810_00a0c903b83c);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertConfig {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertConfig, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertConfig {
     pub unsafe fn Reset(&self, index: i32) -> windows_core::Result<i32> {
         unsafe {
@@ -183,7 +183,7 @@ impl ICertConfig {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertConfig_Vtbl {
@@ -193,14 +193,14 @@ pub struct ICertConfig_Vtbl {
     pub GetField: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetConfig: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertConfig_Impl: super::oaidl::IDispatch_Impl {
     fn Reset(&self, index: i32) -> windows_core::Result<i32>;
     fn Next(&self) -> windows_core::Result<i32>;
     fn GetField(&self, strfieldname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn GetConfig(&self, flags: i32) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertConfig_Vtbl {
     pub const fn new<Identity: ICertConfig_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Reset<Identity: ICertConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pcount: *mut i32) -> windows_core::HRESULT {
@@ -263,37 +263,37 @@ impl ICertConfig_Vtbl {
         iid == &<ICertConfig as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertConfig {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertConfig2, ICertConfig2_Vtbl, 0x7a18edde_7e78_4163_8ded_78e2c9cee924);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertConfig2 {
     type Target = ICertConfig;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertConfig2, windows_core::IUnknown, super::oaidl::IDispatch, ICertConfig);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertConfig2 {
     pub unsafe fn SetSharedFolder(&self, strsharedfolder: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSharedFolder)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strsharedfolder)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertConfig2_Vtbl {
     pub base__: ICertConfig_Vtbl,
     pub SetSharedFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertConfig2_Impl: ICertConfig_Impl {
     fn SetSharedFolder(&self, strsharedfolder: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertConfig2_Vtbl {
     pub const fn new<Identity: ICertConfig2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetSharedFolder<Identity: ICertConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsharedfolder: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -308,20 +308,20 @@ impl ICertConfig2_Vtbl {
         iid == &<ICertConfig2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertConfig as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertConfig2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertGetConfig, ICertGetConfig_Vtbl, 0xc7ea09c0_ce17_11d0_8833_00a0c903b83c);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertGetConfig {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertGetConfig, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertGetConfig {
     pub unsafe fn GetConfig(&self, flags: i32) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -330,18 +330,18 @@ impl ICertGetConfig {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertGetConfig_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
     pub GetConfig: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertGetConfig_Impl: super::oaidl::IDispatch_Impl {
     fn GetConfig(&self, flags: i32) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertGetConfig_Vtbl {
     pub const fn new<Identity: ICertGetConfig_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetConfig<Identity: ICertGetConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, pstrout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -362,20 +362,20 @@ impl ICertGetConfig_Vtbl {
         iid == &<ICertGetConfig as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertGetConfig {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertRequest, ICertRequest_Vtbl, 0x014e4840_5523_11d0_8812_00a0c903b83c);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertRequest {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertRequest, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertRequest {
     pub unsafe fn Submit(&self, flags: i32, strrequest: &windows_core::BSTR, strattributes: &windows_core::BSTR, strconfig: &windows_core::BSTR) -> windows_core::Result<i32> {
         unsafe {
@@ -420,7 +420,7 @@ impl ICertRequest {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertRequest_Vtbl {
@@ -433,7 +433,7 @@ pub struct ICertRequest_Vtbl {
     pub GetCACertificate: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertRequest_Impl: super::oaidl::IDispatch_Impl {
     fn Submit(&self, flags: i32, strrequest: &windows_core::BSTR, strattributes: &windows_core::BSTR, strconfig: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn RetrievePending(&self, requestid: i32, strconfig: &windows_core::BSTR) -> windows_core::Result<i32>;
@@ -443,7 +443,7 @@ pub trait ICertRequest_Impl: super::oaidl::IDispatch_Impl {
     fn GetCACertificate(&self, fexchangecertificate: i32, strconfig: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn GetCertificate(&self, flags: i32) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertRequest_Vtbl {
     pub const fn new<Identity: ICertRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Submit<Identity: ICertRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, strrequest: *mut core::ffi::c_void, strattributes: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, pdisposition: *mut i32) -> windows_core::HRESULT {
@@ -545,20 +545,20 @@ impl ICertRequest_Vtbl {
         iid == &<ICertRequest as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertRequest {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertRequest2, ICertRequest2_Vtbl, 0xa4772988_4a85_4fa9_824e_b5cf5c16405a);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertRequest2 {
     type Target = ICertRequest;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertRequest2, windows_core::IUnknown, super::oaidl::IDispatch, ICertRequest);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertRequest2 {
     pub unsafe fn GetIssuedCertificate(&self, strconfig: &windows_core::BSTR, requestid: i32, strserialnumber: &windows_core::BSTR) -> windows_core::Result<i32> {
         unsafe {
@@ -572,7 +572,7 @@ impl ICertRequest2 {
             (windows_core::Interface::vtable(self).GetErrorMessageText)(windows_core::Interface::as_raw(self), hrmessage, flags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -591,7 +591,7 @@ impl ICertRequest2 {
             (windows_core::Interface::vtable(self).GetCAPropertyDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), propid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetFullResponseProperty(&self, propid: i32, propindex: i32, proptype: i32, flags: i32) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -599,25 +599,25 @@ impl ICertRequest2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertRequest2_Vtbl {
     pub base__: ICertRequest_Vtbl,
     pub GetIssuedCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetErrorMessageText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub GetCAProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, i32, i32, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     GetCAProperty: usize,
     pub GetCAPropertyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub GetCAPropertyDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub GetFullResponseProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     GetFullResponseProperty: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertRequest2_Impl: ICertRequest_Impl {
     fn GetIssuedCertificate(&self, strconfig: &windows_core::BSTR, requestid: i32, strserialnumber: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn GetErrorMessageText(&self, hrmessage: i32, flags: i32) -> windows_core::Result<windows_core::BSTR>;
@@ -626,7 +626,7 @@ pub trait ICertRequest2_Impl: ICertRequest_Impl {
     fn GetCAPropertyDisplayName(&self, strconfig: &windows_core::BSTR, propid: i32) -> windows_core::Result<windows_core::BSTR>;
     fn GetFullResponseProperty(&self, propid: i32, propindex: i32, proptype: i32, flags: i32) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertRequest2_Vtbl {
     pub const fn new<Identity: ICertRequest2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetIssuedCertificate<Identity: ICertRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: i32, strserialnumber: *mut core::ffi::c_void, pdisposition: *mut i32) -> windows_core::HRESULT {
@@ -715,20 +715,20 @@ impl ICertRequest2_Vtbl {
         iid == &<ICertRequest2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertRequest2 {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertRequest3, ICertRequest3_Vtbl, 0xafc8f92b_33a2_4861_bf36_2933b7cd67b3);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertRequest3 {
     type Target = ICertRequest2;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertRequest3, windows_core::IUnknown, super::oaidl::IDispatch, ICertRequest, ICertRequest2);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertRequest3 {
     pub unsafe fn SetCredential(&self, hwnd: i32, authtype: X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCredential)(windows_core::Interface::as_raw(self), hwnd, authtype, core::mem::transmute_copy(strcredential), core::mem::transmute_copy(strpassword)) }
@@ -745,7 +745,7 @@ impl ICertRequest3 {
             (windows_core::Interface::vtable(self).GetIssuedCertificate2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strrequestid), core::mem::transmute_copy(strserialnumber), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn GetRefreshPolicy(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -753,7 +753,7 @@ impl ICertRequest3 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertRequest3_Vtbl {
@@ -761,19 +761,19 @@ pub struct ICertRequest3_Vtbl {
     pub SetCredential: unsafe extern "system" fn(*mut core::ffi::c_void, i32, X509EnrollmentAuthFlags, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRequestIdString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetIssuedCertificate2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub GetRefreshPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     GetRefreshPolicy: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertRequest3_Impl: ICertRequest2_Impl {
     fn SetCredential(&self, hwnd: i32, authtype: X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetRequestIdString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetIssuedCertificate2(&self, strconfig: &windows_core::BSTR, strrequestid: &windows_core::BSTR, strserialnumber: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn GetRefreshPolicy(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertRequest3_Vtbl {
     pub const fn new<Identity: ICertRequest3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetCredential<Identity: ICertRequest3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: i32, authtype: X509EnrollmentAuthFlags, strcredential: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -830,7 +830,7 @@ impl ICertRequest3_Vtbl {
         iid == &<ICertRequest3 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertRequest as windows_core::Interface>::IID || iid == &<ICertRequest2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertRequest3 {}
 pub const X509AuthAnonymous: X509EnrollmentAuthFlags = 1;
 pub const X509AuthCertificate: X509EnrollmentAuthFlags = 8;

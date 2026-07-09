@@ -88,51 +88,51 @@ windows_link::link!("clusapi.dll" "system" fn ClusterRegBatchReadCommand(hbatchn
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCloseBatch(hregbatch : *const _HREGBATCH, bcommit : windows_sys::core::BOOL, failedcommandnumber : *mut i32) -> i32);
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCloseBatchEx(hregbatch : *const _HREGBATCH, flags : u32, failedcommandnumber : *mut i32) -> i32);
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport : *const _HREGBATCHPORT) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCloseKey(hkey : super::minwindef::HKEY) -> i32);
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatch(hregreadbatch : *const _HREGREADBATCH, phregreadbatchreply : *mut HREGREADBATCHREPLY) -> i32);
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatchEx(hregreadbatch : *const _HREGREADBATCH, flags : u32, phregreadbatchreply : *mut HREGREADBATCHREPLY) -> i32);
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatchReply(hregreadbatchreply : *const _HREGREADBATCHREPLY) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCreateBatch(hkey : super::minwindef::HKEY, phregbatch : *mut HREGBATCH) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCreateBatchNotifyPort(hkey : super::minwindef::HKEY, phbatchnotifyport : *mut HREGBATCHPORT) -> i32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winreg"))]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCreateKey(hkey : super::minwindef::HKEY, lpszsubkey : windows_sys::core::PCWSTR, dwoptions : u32, samdesired : super::winreg::REGSAM, lpsecurityattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, phkresult : *mut super::minwindef::HKEY, lpdwdisposition : *mut u32) -> i32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winreg"))]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCreateKeyEx(hkey : super::minwindef::HKEY, lpsubkey : windows_sys::core::PCWSTR, dwoptions : u32, samdesired : super::winreg::REGSAM, lpsecurityattributes : *mut super::minwinbase::SECURITY_ATTRIBUTES, phkresult : *mut super::minwindef::HKEY, lpdwdisposition : *mut u32, lpszreason : windows_sys::core::PCWSTR) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegCreateReadBatch(hkey : super::minwindef::HKEY, phregreadbatch : *mut HREGREADBATCH) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegDeleteKey(hkey : super::minwindef::HKEY, lpszsubkey : windows_sys::core::PCWSTR) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegDeleteKeyEx(hkey : super::minwindef::HKEY, lpsubkey : windows_sys::core::PCWSTR, lpszreason : windows_sys::core::PCWSTR) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegDeleteValue(hkey : super::minwindef::HKEY, lpszvaluename : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegDeleteValueEx(hkey : super::minwindef::HKEY, lpszvaluename : windows_sys::core::PCWSTR, lpszreason : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegEnumKey(hkey : super::minwindef::HKEY, dwindex : u32, lpszname : windows_sys::core::PWSTR, lpcchname : *mut u32, lpftlastwritetime : *mut super::minwindef::FILETIME) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegEnumValue(hkey : super::minwindef::HKEY, dwindex : u32, lpszvaluename : windows_sys::core::PWSTR, lpcchvaluename : *mut u32, lpdwtype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> u32);
 windows_link::link!("clusapi.dll" "system" fn ClusterRegGetBatchNotification(hbatchnotify : *const _HREGBATCHPORT, phbatchnotification : *mut HREGBATCHNOTIFICATION) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegGetKeySecurity(hkey : super::minwindef::HKEY, requestedinformation : super::winnt::SECURITY_INFORMATION, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegOpenKey(hkey : super::minwindef::HKEY, lpszsubkey : windows_sys::core::PCWSTR, samdesired : super::winreg::REGSAM, phkresult : *mut super::minwindef::HKEY) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegQueryInfoKey(hkey : super::minwindef::HKEY, lpcsubkeys : *const u32, lpcchmaxsubkeylen : *const u32, lpcvalues : *const u32, lpcchmaxvaluenamelen : *const u32, lpcbmaxvaluelen : *const u32, lpcbsecuritydescriptor : *const u32, lpftlastwritetime : *const super::minwindef::FILETIME) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegQueryValue(hkey : super::minwindef::HKEY, lpszvaluename : windows_sys::core::PCWSTR, lpdwvaluetype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> i32);
 windows_link::link!("clusapi.dll" "system" fn ClusterRegReadBatchAddCommand(hregreadbatch : *const _HREGREADBATCH, wzsubkeyname : windows_sys::core::PCWSTR, wzvaluename : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("clusapi.dll" "system" fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply : *const _HREGREADBATCHREPLY, pbatchcommand : *mut CLUSTER_READ_BATCH_COMMAND) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurity(hkey : super::minwindef::HKEY, securityinformation : super::winnt::SECURITY_INFORMATION, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurityEx(hkey : super::minwindef::HKEY, securityinformation : super::winnt::SECURITY_INFORMATION, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, lpszreason : windows_sys::core::PCWSTR) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegSetValue(hkey : super::minwindef::HKEY, lpszvaluename : windows_sys::core::PCWSTR, dwtype : u32, lpdata : *const u8, cbdata : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("clusapi.dll" "system" fn ClusterRegSetValueEx(hkey : super::minwindef::HKEY, lpszvaluename : windows_sys::core::PCWSTR, dwtype : u32, lpdata : *const u8, cbdata : u32, lpszreason : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("clusapi.dll" "system" fn ClusterRegSyncDatabase(hcluster : *const _HCLUSTER, flags : u32) -> i32);
 windows_link::link!("clusapi.dll" "system" fn ClusterRemoveAffinityRule(hcluster : *mut _HCLUSTER, rulename : windows_sys::core::PCWSTR) -> u32);
@@ -199,37 +199,37 @@ windows_link::link!("clusapi.dll" "system" fn GetClusterFromNetInterface(hnetint
 windows_link::link!("clusapi.dll" "system" fn GetClusterFromNetwork(hnetwork : *const _HNETWORK) -> HCLUSTER);
 windows_link::link!("clusapi.dll" "system" fn GetClusterFromNode(hnode : *const _HNODE) -> HCLUSTER);
 windows_link::link!("clusapi.dll" "system" fn GetClusterFromResource(hresource : *const _HRESOURCE) -> HCLUSTER);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 windows_link::link!("clusapi.dll" "system" fn GetClusterGroupKey(hgroup : *const _HGROUP, samdesired : super::winreg::REGSAM) -> super::minwindef::HKEY);
 windows_link::link!("clusapi.dll" "system" fn GetClusterGroupState(hgroup : *const _HGROUP, lpsznodename : windows_sys::core::PWSTR, lpcchnodename : *mut u32) -> CLUSTER_GROUP_STATE);
 windows_link::link!("clusapi.dll" "system" fn GetClusterInformation(hcluster : *const _HCLUSTER, lpszclustername : windows_sys::core::PWSTR, lpcchclustername : *mut u32, lpclusterinfo : *mut CLUSTERVERSIONINFO) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 windows_link::link!("clusapi.dll" "system" fn GetClusterKey(hcluster : *const _HCLUSTER, samdesired : super::winreg::REGSAM) -> super::minwindef::HKEY);
 windows_link::link!("clusapi.dll" "system" fn GetClusterNetInterface(hcluster : *const _HCLUSTER, lpsznodename : windows_sys::core::PCWSTR, lpsznetworkname : windows_sys::core::PCWSTR, lpszinterfacename : windows_sys::core::PWSTR, lpcchinterfacename : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 windows_link::link!("clusapi.dll" "system" fn GetClusterNetInterfaceKey(hnetinterface : *const _HNETINTERFACE, samdesired : super::winreg::REGSAM) -> super::minwindef::HKEY);
 windows_link::link!("clusapi.dll" "system" fn GetClusterNetInterfaceState(hnetinterface : *const _HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE);
 windows_link::link!("clusapi.dll" "system" fn GetClusterNetworkId(hnetwork : *const _HNETWORK, lpsznetworkid : windows_sys::core::PWSTR, lpcchname : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 windows_link::link!("clusapi.dll" "system" fn GetClusterNetworkKey(hnetwork : *const _HNETWORK, samdesired : super::winreg::REGSAM) -> super::minwindef::HKEY);
 windows_link::link!("clusapi.dll" "system" fn GetClusterNetworkState(hnetwork : *const _HNETWORK) -> CLUSTER_NETWORK_STATE);
 windows_link::link!("clusapi.dll" "system" fn GetClusterNodeId(hnode : *const _HNODE, lpsznodeid : windows_sys::core::PWSTR, lpcchname : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 windows_link::link!("clusapi.dll" "system" fn GetClusterNodeKey(hnode : *const _HNODE, samdesired : super::winreg::REGSAM) -> super::minwindef::HKEY);
 windows_link::link!("clusapi.dll" "system" fn GetClusterNodeState(hnode : *const _HNODE) -> CLUSTER_NODE_STATE);
 windows_link::link!("clusapi.dll" "system" fn GetClusterNotify(hchange : *const _HCHANGE, lpdwnotifykey : *mut usize, lpdwfiltertype : *mut u32, lpszname : windows_sys::core::PWSTR, lpcchname : *mut u32, dwmilliseconds : u32) -> u32);
 windows_link::link!("clusapi.dll" "system" fn GetClusterNotifyV2(hchange : *const _HCHANGE, lpdwnotifykey : *mut usize, pfilterandtype : *mut NOTIFY_FILTER_AND_TYPE, buffer : *mut u8, lpbbuffersize : *mut u32, lpszobjectid : windows_sys::core::PWSTR, lpcchobjectid : *mut u32, lpszparentid : windows_sys::core::PWSTR, lpcchparentid : *mut u32, lpszname : windows_sys::core::PWSTR, lpcchname : *mut u32, lpsztype : windows_sys::core::PWSTR, lpcchtype : *mut u32, dwmilliseconds : u32) -> u32);
 windows_link::link!("clusapi.dll" "system" fn GetClusterQuorumResource(hcluster : *const _HCLUSTER, lpszresourcename : windows_sys::core::PWSTR, lpcchresourcename : *mut u32, lpszdevicename : windows_sys::core::PWSTR, lpcchdevicename : *mut u32, lpdwmaxquorumlogsize : *mut u32) -> u32);
 windows_link::link!("clusapi.dll" "system" fn GetClusterResourceDependencyExpression(hresource : *const _HRESOURCE, lpszdependencyexpression : windows_sys::core::PWSTR, lpcchdependencyexpression : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 windows_link::link!("clusapi.dll" "system" fn GetClusterResourceKey(hresource : *const _HRESOURCE, samdesired : super::winreg::REGSAM) -> super::minwindef::HKEY);
 windows_link::link!("clusapi.dll" "system" fn GetClusterResourceNetworkName(hresource : *const _HRESOURCE, lpbuffer : windows_sys::core::PWSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("clusapi.dll" "system" fn GetClusterResourceState(hresource : *const _HRESOURCE, lpsznodename : windows_sys::core::PWSTR, lpcchnodename : *mut u32, lpszgroupname : windows_sys::core::PWSTR, lpcchgroupname : *mut u32) -> CLUSTER_RESOURCE_STATE);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 windows_link::link!("clusapi.dll" "system" fn GetClusterResourceTypeKey(hcluster : *const _HCLUSTER, lpsztypename : windows_sys::core::PCWSTR, samdesired : super::winreg::REGSAM) -> super::minwindef::HKEY);
 windows_link::link!("clusapi.dll" "system" fn GetNodeCloudTypeDW(ppsznodename : windows_sys::core::PCWSTR, nodecloudtype : *mut u32) -> u32);
 windows_link::link!("clusapi.dll" "system" fn GetNodeClusterState(lpsznodename : windows_sys::core::PCWSTR, pdwclusterstate : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("clusapi.dll" "system" fn GetNotifyEventHandle(hchange : *const _HCHANGE, lphtargetevent : *mut super::winnt::HANDLE) -> u32);
 windows_link::link!("clusapi.dll" "system" fn IsFileOnClusterSharedVolume(lpszpathname : windows_sys::core::PCWSTR, pbfileisonsharedvolume : *mut windows_sys::core::BOOL) -> u32);
 windows_link::link!("clusapi.dll" "system" fn MoveClusterGroup(hgroup : *const _HGROUP, hdestinationnode : *const _HNODE) -> u32);
@@ -264,9 +264,9 @@ windows_link::link!("clusapi.dll" "system" fn OpenClusterResourceEx(hcluster : *
 windows_link::link!("clusapi.dll" "system" fn PauseClusterNode(hnode : *const _HNODE) -> u32);
 windows_link::link!("clusapi.dll" "system" fn PauseClusterNodeEx(hnode : *const _HNODE, bdrainnode : windows_sys::core::BOOL, dwpauseflags : u32, hnodedraintarget : *const _HNODE) -> u32);
 windows_link::link!("clusapi.dll" "system" fn PauseClusterNodeEx2(hnode : *const _HNODE, bdrainnode : windows_sys::core::BOOL, dwpauseflags : u32, hnodedraintarget : *const _HNODE, lpszreason : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("clusapi.dll" "system" fn RegisterClusterNotify(hchange : *const _HCHANGE, dwfiltertype : u32, hobject : super::winnt::HANDLE, dwnotifykey : usize) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("clusapi.dll" "system" fn RegisterClusterNotifyV2(hchange : *const _HCHANGE, filter : NOTIFY_FILTER_AND_TYPE, hobject : super::winnt::HANDLE, dwnotifykey : usize) -> u32);
 windows_link::link!("clusapi.dll" "system" fn RegisterClusterResourceTypeNotifyV2(hchange : *mut _HCHANGE, hcluster : *mut _HCLUSTER, flags : i64, restypename : windows_sys::core::PCWSTR, dwnotifykey : usize) -> u32);
 windows_link::link!("clusapi.dll" "system" fn RemoveClusterGroupDependency(hgroup : *const _HGROUP, hdependson : *const _HGROUP) -> u32);
@@ -663,7 +663,7 @@ pub const CLUSCTL_GROUP_GET_FLAGS: CLUSCTL_GROUP_CODES = 50331657;
 pub const CLUSCTL_GROUP_GET_ID: CLUSCTL_GROUP_CODES = 50331705;
 pub const CLUSCTL_GROUP_GET_LAST_MOVE_TIME: CLUSCTL_GROUP_CODES = 50332377;
 #[repr(C)]
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[derive(Clone, Copy, Default)]
 pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     pub GetTickCount64: u64,
@@ -970,7 +970,7 @@ impl Default for CLUSPROP_BINARY {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CLUSPROP_BUFFER_HELPER {
     pub pb: *mut u8,
@@ -1002,7 +1002,7 @@ pub union CLUSPROP_BUFFER_HELPER {
     pub pPartitionInfoValueEx2: PCLUSPROP_PARTITION_INFO_EX2,
     pub pFileTimeValue: PCLUSPROP_FILETIME,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for CLUSPROP_BUFFER_HELPER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1022,13 +1022,13 @@ impl Default for CLUSPROP_DWORD {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_FILETIME {
     pub Base: CLUSPROP_VALUE,
     pub ft: super::minwindef::FILETIME,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CLUSPROP_FILETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1188,26 +1188,26 @@ impl Default for CLUSPROP_SCSI_ADDRESS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_SECURITY_DESCRIPTOR {
     pub Base: CLUSPROP_VALUE,
     pub Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for CLUSPROP_SECURITY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
     pub sd: super::winnt::SECURITY_DESCRIPTOR_RELATIVE,
     pub rgbSecurityDescriptor: [u8; 0],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for CLUSPROP_SECURITY_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3163,41 +3163,41 @@ pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM = Option<unsafe extern "system" fn(hnod
 pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hnode: *const _HNODE, dwtype: u32, poptions: *const core::ffi::c_void) -> HNODEENUMEX>;
 pub type PCLUSAPI_CLUSTER_OPEN_ENUM = Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, dwtype: u32) -> HCLUSENUM>;
 pub type PCLUSAPI_CLUSTER_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, dwtype: u32, poptions: *const core::ffi::c_void) -> HCLUSENUMEX>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_CLOSE_KEY = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_CREATE_BATCH = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, phregbatch: *mut HREGBATCH) -> i32>;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winreg"))]
 pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, lpszsubkey: windows_sys::core::PCWSTR, dwoptions: u32, samdesired: super::winreg::REGSAM, lpsecurityattributes: *const super::minwinbase::SECURITY_ATTRIBUTES, phkresult: *mut super::minwindef::HKEY, lpdwdisposition: *mut u32) -> i32>;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winreg"))]
 pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY_EX = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, lpszsubkey: windows_sys::core::PCWSTR, dwoptions: u32, samdesired: super::winreg::REGSAM, lpsecurityattributes: *const super::minwinbase::SECURITY_ATTRIBUTES, phkresult: *mut super::minwindef::HKEY, lpdwdisposition: *mut u32, lpszreason: windows_sys::core::PCWSTR) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, lpszsubkey: windows_sys::core::PCWSTR) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY_EX = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, lpsubkey: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, lpszvaluename: windows_sys::core::PCWSTR) -> u32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE_EX = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, lpszvaluename: windows_sys::core::PCWSTR, lpszreason: windows_sys::core::PCWSTR) -> u32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_ENUM_KEY = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, dwindex: u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32, lpftlastwritetime: *mut super::minwindef::FILETIME) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_ENUM_VALUE = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, dwindex: u32, lpszvaluename: windows_sys::core::PWSTR, lpcchvaluename: *mut u32, lpdwtype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, requestedinformation: super::winnt::SECURITY_INFORMATION, psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> i32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 pub type PCLUSAPI_CLUSTER_REG_OPEN_KEY = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, lpszsubkey: windows_sys::core::PCWSTR, samdesired: super::winreg::REGSAM, phkresult: *mut super::minwindef::HKEY) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::minwindef::FILETIME) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_QUERY_VALUE = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, lpszvaluename: windows_sys::core::PCWSTR, lpdwvaluetype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> i32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, securityinformation: super::winnt::SECURITY_INFORMATION, psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR) -> i32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY_EX = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, securityinformation: super::winnt::SECURITY_INFORMATION, psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, lpszreason: windows_sys::core::PCWSTR) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_SET_VALUE = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, lpszvaluename: windows_sys::core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSAPI_CLUSTER_REG_SET_VALUE_EX = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, lpszvaluename: windows_sys::core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32, lpszreason: windows_sys::core::PCWSTR) -> u32>;
 pub type PCLUSAPI_CLUSTER_REG_SYNC_DATABASE = Option<unsafe extern "system" fn(hcluster: *mut _HCLUSTER, flags: u32) -> i32>;
 pub type PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: *mut _HCLUSTER, rulename: windows_sys::core::PCWSTR) -> u32>;
@@ -3258,36 +3258,36 @@ pub type PCLUSAPI_GET_CLUSTER_FROM_NETWORK = Option<unsafe extern "system" fn(hn
 pub type PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE = Option<unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE) -> HCLUSTER>;
 pub type PCLUSAPI_GET_CLUSTER_FROM_NODE = Option<unsafe extern "system" fn(hnode: *const _HNODE) -> HCLUSTER>;
 pub type PCLUSAPI_GET_CLUSTER_FROM_RESOURCE = Option<unsafe extern "system" fn(hresource: *const _HRESOURCE) -> HCLUSTER>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_GROUP_KEY = Option<unsafe extern "system" fn(hgroup: *mut _HGROUP, samdesired: super::winreg::REGSAM) -> super::minwindef::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_GROUP_STATE = Option<unsafe extern "system" fn(hgroup: *const _HGROUP, lpsznodename: windows_sys::core::PWSTR, lpcchnodename: *mut u32) -> CLUSTER_GROUP_STATE>;
 pub type PCLUSAPI_GET_CLUSTER_INFORMATION = Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszclustername: windows_sys::core::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: *mut CLUSTERVERSIONINFO) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_KEY = Option<unsafe extern "system" fn(hcluster: *mut _HCLUSTER, samdesired: super::winreg::REGSAM) -> super::minwindef::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_NETWORK_ID = Option<unsafe extern "system" fn(hnetwork: *const _HNETWORK, lpsznetworkid: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_NETWORK_KEY = Option<unsafe extern "system" fn(hnetwork: *const _HNETWORK, samdesired: super::winreg::REGSAM) -> super::minwindef::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_NETWORK_STATE = Option<unsafe extern "system" fn(hnetwork: *const _HNETWORK) -> CLUSTER_NETWORK_STATE>;
 pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE = Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: windows_sys::core::PCWSTR, lpsznetworkname: windows_sys::core::PCWSTR, lpszinterfacename: windows_sys::core::PWSTR, lpcchinterfacename: *mut u32) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY = Option<unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE, samdesired: super::winreg::REGSAM) -> super::minwindef::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE = Option<unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE>;
 pub type PCLUSAPI_GET_CLUSTER_NODE_ID = Option<unsafe extern "system" fn(hnode: *const _HNODE, lpsznodeid: windows_sys::core::PWSTR, lpcchname: *mut u32) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_NODE_KEY = Option<unsafe extern "system" fn(hnode: *mut _HNODE, samdesired: super::winreg::REGSAM) -> super::minwindef::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_NODE_STATE = Option<unsafe extern "system" fn(hnode: *const _HNODE) -> CLUSTER_NODE_STATE>;
 pub type PCLUSAPI_GET_CLUSTER_NOTIFY = Option<unsafe extern "system" fn(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32>;
 pub type PCLUSAPI_GET_CLUSTER_NOTIFY_V2 = Option<unsafe extern "system" fn(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: *mut NOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpcchbuffersize: *mut u32, lpszobjectid: windows_sys::core::PWSTR, lpcchobjectid: *mut u32, lpszparentid: windows_sys::core::PWSTR, lpcchparentid: *mut u32, lpszname: windows_sys::core::PWSTR, lpcchname: *mut u32, lpsztype: windows_sys::core::PWSTR, lpcchtype: *mut u32, dwmilliseconds: u32) -> u32>;
 pub type PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE = Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcename: windows_sys::core::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: windows_sys::core::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32>;
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszdependencyexpression: windows_sys::core::PWSTR, lpcchdependencyexpression: *mut u32) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_KEY = Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE, samdesired: super::winreg::REGSAM) -> super::minwindef::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME = Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, lpbuffer: windows_sys::core::PWSTR, nsize: *mut u32) -> windows_sys::core::BOOL>;
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_STATE = Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, lpsznodename: windows_sys::core::PWSTR, lpcchnodename: *mut u32, lpszgroupname: windows_sys::core::PWSTR, lpcchgroupname: *mut u32) -> CLUSTER_RESOURCE_STATE>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY = Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsztypename: windows_sys::core::PCWSTR, samdesired: super::winreg::REGSAM) -> super::minwindef::HKEY>;
 pub type PCLUSAPI_GET_NODE_CLUSTER_STATE = Option<unsafe extern "system" fn(lpsznodename: windows_sys::core::PCWSTR, pdwclusterstate: *mut u32) -> u32>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2 = Option<unsafe extern "system" fn(hchange: *const _HCHANGE, lphtargetevent: *mut super::winnt::HANDLE) -> u32>;
 pub type PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME = Option<unsafe extern "system" fn(lpszpathname: windows_sys::core::PCWSTR, pbfileisonsharedvolume: *mut windows_sys::core::BOOL) -> u32>;
 pub type PCLUSAPI_MOVE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32>;
@@ -3314,9 +3314,9 @@ pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode
 pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: *const _HNODE, bdrainnode: windows_sys::core::BOOL, dwpauseflags: u32, hnodedraintarget: *const _HNODE, lpszreason: windows_sys::core::PCWSTR) -> u32>;
 pub type PCLUSAPI_PFN_REASON_HANDLER = Option<unsafe extern "system" fn(lpparameter: *const core::ffi::c_void, hcluster: *const _HCLUSTER, szreason: windows_sys::core::PWSTR, lpsize: *mut u32) -> windows_sys::core::BOOL>;
 pub type PCLUSAPI_REASON_HANDLER = *mut CLUSAPI_REASON_HANDLER;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY = Option<unsafe extern "system" fn(hchange: *const _HCHANGE, dwfiltertype: u32, hobject: super::winnt::HANDLE, dwnotifykey: usize) -> u32>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2 = Option<unsafe extern "system" fn(hchange: *const _HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: super::winnt::HANDLE, dwnotifykey: usize) -> u32>;
 pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY = Option<unsafe extern "system" fn(hgroup: *const _HGROUP, hdependson: *const _HGROUP) -> u32>;
 pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroup: *const _HGROUP, hdependson: *const _HGROUP, lpszreason: windows_sys::core::PCWSTR) -> u32>;
@@ -3359,18 +3359,18 @@ pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION_EX = Option<unsafe extern "sys
 pub type PCLUSAPI_SET_REASON_HANDLER = Option<unsafe extern "system" fn(lphandler: *const CLUSAPI_REASON_HANDLER) -> PCLUSAPI_REASON_HANDLER>;
 pub type PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE = Option<unsafe extern "system" fn(guidsnapshotset: windows_sys::core::GUID, lpszvolumename: windows_sys::core::PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32>;
 pub type PCLUSAPI_SetClusterName = Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznewclustername: windows_sys::core::PCWSTR) -> u32>;
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 pub type PCLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT = *mut CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT;
 pub type PCLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT = *mut CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT;
 pub type PCLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT = *mut CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT;
 pub type PCLUSGROUP_TYPE = *mut CLUSGROUP_TYPE;
 pub type PCLUSPROP_BINARY = *mut CLUSPROP_BINARY;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PCLUSPROP_BUFFER_HELPER = *mut CLUSPROP_BUFFER_HELPER;
 pub type PCLUSPROP_DISK_NUMBER = *mut CLUSPROP_DWORD;
 pub type PCLUSPROP_DISK_SIGNATURE = *mut CLUSPROP_DWORD;
 pub type PCLUSPROP_DWORD = *mut CLUSPROP_DWORD;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSPROP_FILETIME = *mut CLUSPROP_FILETIME;
 pub type PCLUSPROP_FTSET_INFO = *mut CLUSPROP_FTSET_INFO;
 pub type PCLUSPROP_LARGE_INTEGER = *mut CLUSPROP_LARGE_INTEGER;
@@ -3385,7 +3385,7 @@ pub type PCLUSPROP_REQUIRED_DEPENDENCY = *mut CLUSPROP_REQUIRED_DEPENDENCY;
 pub type PCLUSPROP_RESOURCE_CLASS = *mut CLUSPROP_RESOURCE_CLASS;
 pub type PCLUSPROP_RESOURCE_CLASS_INFO = *mut CLUSPROP_RESOURCE_CLASS_INFO;
 pub type PCLUSPROP_SCSI_ADDRESS = *mut CLUSPROP_SCSI_ADDRESS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCLUSPROP_SECURITY_DESCRIPTOR = *mut CLUSPROP_SECURITY_DESCRIPTOR;
 pub type PCLUSPROP_SYNTAX = *mut CLUSPROP_SYNTAX;
 pub type PCLUSPROP_SZ = *mut CLUSPROP_SZ;
@@ -3411,9 +3411,9 @@ pub type PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT = Option<unsafe extern "system" fn
 pub type PCLUSTER_REG_CLOSE_READ_BATCH = Option<unsafe extern "system" fn(hregreadbatch: *const _HREGREADBATCH, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32>;
 pub type PCLUSTER_REG_CLOSE_READ_BATCH_EX = Option<unsafe extern "system" fn(hregreadbatch: *const _HREGREADBATCH, flags: u32, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32>;
 pub type PCLUSTER_REG_CLOSE_READ_BATCH_REPLY = Option<unsafe extern "system" fn(hregreadbatchreply: *const _HREGREADBATCHREPLY) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, phbatchnotifyport: *mut HREGBATCHPORT) -> i32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCLUSTER_REG_CREATE_READ_BATCH = Option<unsafe extern "system" fn(hkey: super::minwindef::HKEY, phregreadbatch: *mut HREGREADBATCH) -> i32>;
 pub type PCLUSTER_REG_GET_BATCH_NOTIFICATION = Option<unsafe extern "system" fn(hbatchnotify: *const _HREGBATCHPORT, phbatchnotification: *mut HREGBATCHNOTIFICATION) -> i32>;
 pub type PCLUSTER_REG_READ_BATCH_ADD_COMMAND = Option<unsafe extern "system" fn(hregreadbatch: *const _HREGREADBATCH, wzsubkeyname: windows_sys::core::PCWSTR, wzvaluename: windows_sys::core::PCWSTR) -> i32>;

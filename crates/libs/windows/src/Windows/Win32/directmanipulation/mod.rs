@@ -269,14 +269,14 @@ pub struct IDirectManipulationCompositorPartner(pub u8);
 windows_core::imp::define_interface!(IDirectManipulationContent, IDirectManipulationContent_Vtbl, 0xb89962cb_3d89_442b_bb58_5098fa0f9f16);
 windows_core::imp::interface_hierarchy!(IDirectManipulationContent, windows_core::IUnknown);
 impl IDirectManipulationContent {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetContentRect(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetContentRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetContentRect(&self, contentsize: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetContentRect)(windows_core::Interface::as_raw(self), contentsize) }
     }
@@ -313,13 +313,13 @@ impl IDirectManipulationContent {
 #[doc(hidden)]
 pub struct IDirectManipulationContent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetContentRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetContentRect: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetContentRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetContentRect: usize,
     pub GetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -328,7 +328,7 @@ pub struct IDirectManipulationContent_Vtbl {
     pub GetContentTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, u32) -> windows_core::HRESULT,
     pub SyncContentTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const f32, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IDirectManipulationContent_Impl: windows_core::IUnknownImpl {
     fn GetContentRect(&self) -> windows_core::Result<super::windef::RECT>;
     fn SetContentRect(&self, contentsize: *const super::windef::RECT) -> windows_core::Result<()>;
@@ -339,7 +339,7 @@ pub trait IDirectManipulationContent_Impl: windows_core::IUnknownImpl {
     fn GetContentTransform(&self, matrix: *mut f32, pointcount: u32) -> windows_core::Result<()>;
     fn SyncContentTransform(&self, matrix: *const f32, pointcount: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IDirectManipulationContent_Vtbl {
     pub const fn new<Identity: IDirectManipulationContent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetContentRect<Identity: IDirectManipulationContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentsize: *mut super::windef::RECT) -> windows_core::HRESULT {
@@ -412,7 +412,7 @@ impl IDirectManipulationContent_Vtbl {
         iid == &<IDirectManipulationContent as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IDirectManipulationContent {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -632,19 +632,19 @@ impl windows_core::RuntimeName for IDirectManipulationInteractionEventHandler {}
 windows_core::imp::define_interface!(IDirectManipulationManager, IDirectManipulationManager_Vtbl, 0xfbf5d3b4_70c7_4163_9322_5a6f660d6fbc);
 windows_core::imp::interface_hierarchy!(IDirectManipulationManager, windows_core::IUnknown);
 impl IDirectManipulationManager {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Activate(&self, window: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), window) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn Deactivate(&self, window: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self), window) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RegisterHitTestTarget(&self, window: super::windef::HWND, hittestwindow: Option<super::windef::HWND>, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RegisterHitTestTarget)(windows_core::Interface::as_raw(self), window, hittestwindow.unwrap_or(core::mem::zeroed()) as _, r#type) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub unsafe fn ProcessInput(&self, message: *const super::winuser::MSG) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -658,7 +658,7 @@ impl IDirectManipulationManager {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetUpdateManager)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn CreateViewport<P0, T>(&self, frameinfo: P0, window: super::windef::HWND) -> windows_core::Result<T>
     where
         P0: windows_core::Param<IDirectManipulationFrameInfoProvider>,
@@ -680,30 +680,30 @@ impl IDirectManipulationManager {
 #[doc(hidden)]
 pub struct IDirectManipulationManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Activate: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     Deactivate: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RegisterHitTestTarget: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, super::windef::HWND, DIRECTMANIPULATION_HITTEST_TYPE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RegisterHitTestTarget: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+    #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub ProcessInput: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::winuser::MSG, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser")))]
+    #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     ProcessInput: usize,
     pub GetUpdateManager: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub CreateViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::windef::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     CreateViewport: usize,
     pub CreateContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub trait IDirectManipulationManager_Impl: windows_core::IUnknownImpl {
     fn Activate(&self, window: super::windef::HWND) -> windows_core::Result<()>;
     fn Deactivate(&self, window: super::windef::HWND) -> windows_core::Result<()>;
@@ -713,7 +713,7 @@ pub trait IDirectManipulationManager_Impl: windows_core::IUnknownImpl {
     fn CreateViewport(&self, frameinfo: windows_core::Ref<IDirectManipulationFrameInfoProvider>, window: super::windef::HWND, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateContent(&self, frameinfo: windows_core::Ref<IDirectManipulationFrameInfoProvider>, clsid: *const windows_core::GUID, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl IDirectManipulationManager_Vtbl {
     pub const fn new<Identity: IDirectManipulationManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Activate<Identity: IDirectManipulationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: super::windef::HWND) -> windows_core::HRESULT {
@@ -779,7 +779,7 @@ impl IDirectManipulationManager_Vtbl {
         iid == &<IDirectManipulationManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl windows_core::RuntimeName for IDirectManipulationManager {}
 windows_core::imp::define_interface!(IDirectManipulationManager2, IDirectManipulationManager2_Vtbl, 0xfa1005e9_3d16_484c_bfc9_62b61e56ec4e);
 impl core::ops::Deref for IDirectManipulationManager2 {
@@ -804,11 +804,11 @@ pub struct IDirectManipulationManager2_Vtbl {
     pub base__: IDirectManipulationManager_Vtbl,
     pub CreateBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub trait IDirectManipulationManager2_Impl: IDirectManipulationManager_Impl {
     fn CreateBehavior(&self, clsid: *const windows_core::GUID, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl IDirectManipulationManager2_Vtbl {
     pub const fn new<Identity: IDirectManipulationManager2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateBehavior<Identity: IDirectManipulationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsid: *const windows_core::GUID, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -823,7 +823,7 @@ impl IDirectManipulationManager2_Vtbl {
         iid == &<IDirectManipulationManager2 as windows_core::Interface>::IID || iid == &<IDirectManipulationManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl windows_core::RuntimeName for IDirectManipulationManager2 {}
 windows_core::imp::define_interface!(IDirectManipulationManager3, IDirectManipulationManager3_Vtbl, 0x2cb6b33d_ffe8_488c_b750_fbdfe88dca8c);
 impl core::ops::Deref for IDirectManipulationManager3 {
@@ -848,11 +848,11 @@ pub struct IDirectManipulationManager3_Vtbl {
     pub base__: IDirectManipulationManager2_Vtbl,
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub trait IDirectManipulationManager3_Impl: IDirectManipulationManager2_Impl {
     fn GetService(&self, clsid: *const windows_core::GUID, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl IDirectManipulationManager3_Vtbl {
     pub const fn new<Identity: IDirectManipulationManager3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetService<Identity: IDirectManipulationManager3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsid: *const windows_core::GUID, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -867,7 +867,7 @@ impl IDirectManipulationManager3_Vtbl {
         iid == &<IDirectManipulationManager3 as windows_core::Interface>::IID || iid == &<IDirectManipulationManager as windows_core::Interface>::IID || iid == &<IDirectManipulationManager2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl windows_core::RuntimeName for IDirectManipulationManager3 {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1054,7 +1054,7 @@ impl windows_core::RuntimeName for IDirectManipulationUpdateHandler {}
 windows_core::imp::define_interface!(IDirectManipulationUpdateManager, IDirectManipulationUpdateManager_Vtbl, 0xb0ae62fd_be34_46e7_9caa_d361facbb9cc);
 windows_core::imp::interface_hierarchy!(IDirectManipulationUpdateManager, windows_core::IUnknown);
 impl IDirectManipulationUpdateManager {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn RegisterWaitHandleCallback<P1>(&self, handle: super::winnt::HANDLE, eventhandler: P1) -> windows_core::Result<u32>
     where
         P1: windows_core::Param<IDirectManipulationUpdateHandler>,
@@ -1078,20 +1078,20 @@ impl IDirectManipulationUpdateManager {
 #[doc(hidden)]
 pub struct IDirectManipulationUpdateManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub RegisterWaitHandleCallback: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     RegisterWaitHandleCallback: usize,
     pub UnregisterWaitHandleCallback: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDirectManipulationUpdateManager_Impl: windows_core::IUnknownImpl {
     fn RegisterWaitHandleCallback(&self, handle: super::winnt::HANDLE, eventhandler: windows_core::Ref<IDirectManipulationUpdateHandler>) -> windows_core::Result<u32>;
     fn UnregisterWaitHandleCallback(&self, cookie: u32) -> windows_core::Result<()>;
     fn Update(&self, frameinfo: windows_core::Ref<IDirectManipulationFrameInfoProvider>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDirectManipulationUpdateManager_Vtbl {
     pub const fn new<Identity: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterWaitHandleCallback<Identity: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: super::winnt::HANDLE, eventhandler: *mut core::ffi::c_void, cookie: *mut u32) -> windows_core::HRESULT {
@@ -1129,7 +1129,7 @@ impl IDirectManipulationUpdateManager_Vtbl {
         iid == &<IDirectManipulationUpdateManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDirectManipulationUpdateManager {}
 windows_core::imp::define_interface!(IDirectManipulationViewport, IDirectManipulationViewport_Vtbl, 0x28b85a3d_60a0_48bd_9ba1_5ce8d9ea3a6d);
 windows_core::imp::interface_hierarchy!(IDirectManipulationViewport, windows_core::IUnknown);
@@ -1167,14 +1167,14 @@ impl IDirectManipulationViewport {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), id) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetViewportRect(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetViewportRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetViewportRect(&self, viewport: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetViewportRect)(windows_core::Interface::as_raw(self), viewport) }
     }
@@ -1224,7 +1224,7 @@ impl IDirectManipulationViewport {
     pub unsafe fn SetChaining(&self, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetChaining)(windows_core::Interface::as_raw(self), enabledtypes) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AddEventHandler<P1>(&self, window: Option<super::windef::HWND>, eventhandler: P1) -> windows_core::Result<u32>
     where
         P1: windows_core::Param<IDirectManipulationViewportEventHandler>,
@@ -1262,13 +1262,13 @@ pub struct IDirectManipulationViewport_Vtbl {
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIRECTMANIPULATION_STATUS) -> windows_core::HRESULT,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetViewportRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetViewportRect: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetViewportRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetViewportRect: usize,
     pub ZoomToRect: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetViewportTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const f32, u32) -> windows_core::HRESULT,
@@ -1282,9 +1282,9 @@ pub struct IDirectManipulationViewport_Vtbl {
     pub ActivateConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, DIRECTMANIPULATION_CONFIGURATION) -> windows_core::HRESULT,
     pub SetManualGesture: unsafe extern "system" fn(*mut core::ffi::c_void, DIRECTMANIPULATION_GESTURE_CONFIGURATION) -> windows_core::HRESULT,
     pub SetChaining: unsafe extern "system" fn(*mut core::ffi::c_void, DIRECTMANIPULATION_MOTION_TYPES) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AddEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AddEventHandler: usize,
     pub RemoveEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetInputMode: unsafe extern "system" fn(*mut core::ffi::c_void, DIRECTMANIPULATION_INPUT_MODE) -> windows_core::HRESULT,
@@ -1292,7 +1292,7 @@ pub struct IDirectManipulationViewport_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Abandon: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IDirectManipulationViewport_Impl: windows_core::IUnknownImpl {
     fn Enable(&self) -> windows_core::Result<()>;
     fn Disable(&self) -> windows_core::Result<()>;
@@ -1323,7 +1323,7 @@ pub trait IDirectManipulationViewport_Impl: windows_core::IUnknownImpl {
     fn Stop(&self) -> windows_core::Result<()>;
     fn Abandon(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IDirectManipulationViewport_Vtbl {
     pub const fn new<Identity: IDirectManipulationViewport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Enable<Identity: IDirectManipulationViewport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1548,7 +1548,7 @@ impl IDirectManipulationViewport_Vtbl {
         iid == &<IDirectManipulationViewport as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IDirectManipulationViewport {}
 windows_core::imp::define_interface!(IDirectManipulationViewport2, IDirectManipulationViewport2_Vtbl, 0x923ccaac_61e1_4385_b726_017af189882a);
 impl core::ops::Deref for IDirectManipulationViewport2 {
@@ -1583,13 +1583,13 @@ pub struct IDirectManipulationViewport2_Vtbl {
     pub RemoveBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub RemoveAllBehaviors: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IDirectManipulationViewport2_Impl: IDirectManipulationViewport_Impl {
     fn AddBehavior(&self, behavior: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
     fn RemoveBehavior(&self, cookie: u32) -> windows_core::Result<()>;
     fn RemoveAllBehaviors(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IDirectManipulationViewport2_Vtbl {
     pub const fn new<Identity: IDirectManipulationViewport2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddBehavior<Identity: IDirectManipulationViewport2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, behavior: *mut core::ffi::c_void, cookie: *mut u32) -> windows_core::HRESULT {
@@ -1627,7 +1627,7 @@ impl IDirectManipulationViewport2_Vtbl {
         iid == &<IDirectManipulationViewport2 as windows_core::Interface>::IID || iid == &<IDirectManipulationViewport as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IDirectManipulationViewport2 {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

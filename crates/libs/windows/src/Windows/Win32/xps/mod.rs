@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objidlbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn StartXpsPrintJob<P0, P1, P2>(printername: P0, jobname: P1, outputfilename: P2, progressevent: super::winnt::HANDLE, completionevent: super::winnt::HANDLE, printablepageson: *const u8, printablepagesoncount: u32, xpsprintjob: *mut Option<IXpsPrintJob>, documentstream: *mut Option<IXpsPrintJobStream>, printticketstream: *mut Option<IXpsPrintJobStream>) -> windows_core::HRESULT
 where
@@ -9,7 +9,7 @@ where
     windows_core::link!("xpsprint.dll" "system" fn StartXpsPrintJob(printername : windows_core::PCWSTR, jobname : windows_core::PCWSTR, outputfilename : windows_core::PCWSTR, progressevent : super::winnt::HANDLE, completionevent : super::winnt::HANDLE, printablepageson : *const u8, printablepagesoncount : u32, xpsprintjob : *mut *mut core::ffi::c_void, documentstream : *mut *mut core::ffi::c_void, printticketstream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { StartXpsPrintJob(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent, completionevent, printablepageson, printablepagesoncount, core::mem::transmute(xpsprintjob), core::mem::transmute(documentstream), core::mem::transmute(printticketstream)) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn StartXpsPrintJob1<P0, P1, P2>(printername: P0, jobname: P1, outputfilename: P2, progressevent: super::winnt::HANDLE, completionevent: super::winnt::HANDLE, xpsprintjob: *mut Option<IXpsPrintJob>, printcontentreceiver: *mut Option<IXpsOMPackageTarget>) -> windows_core::HRESULT
 where
@@ -180,7 +180,7 @@ pub struct IXpsOMCanvas_Vtbl {
     pub SetDictionaryResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 pub trait IXpsOMCanvas_Impl: IXpsOMVisual_Impl {
     fn GetVisuals(&self) -> windows_core::Result<IXpsOMVisualCollection>;
     fn GetUseAliasedEdgeMode(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -196,7 +196,7 @@ pub trait IXpsOMCanvas_Impl: IXpsOMVisual_Impl {
     fn SetDictionaryResource(&self, remotedictionaryresource: windows_core::Ref<IXpsOMRemoteDictionaryResource>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMCanvas>;
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 impl IXpsOMCanvas_Vtbl {
     pub const fn new<Identity: IXpsOMCanvas_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetVisuals<Identity: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visuals: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -346,7 +346,7 @@ impl IXpsOMCanvas_Vtbl {
         iid == &<IXpsOMCanvas as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 impl windows_core::RuntimeName for IXpsOMCanvas {}
 windows_core::imp::define_interface!(IXpsOMColorProfileResource, IXpsOMColorProfileResource_Vtbl, 0x67bd7d69_1eef_4bb1_b5e7_6f4f87be8abe);
 impl core::ops::Deref for IXpsOMColorProfileResource {
@@ -357,14 +357,14 @@ impl core::ops::Deref for IXpsOMColorProfileResource {
 }
 windows_core::imp::interface_hierarchy!(IXpsOMColorProfileResource, windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl IXpsOMColorProfileResource {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn SetContent<P0, P1>(&self, sourcestream: P0, partname: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -377,21 +377,21 @@ impl IXpsOMColorProfileResource {
 #[doc(hidden)]
 pub struct IXpsOMColorProfileResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     SetContent: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMColorProfileResource_Impl: IXpsOMResource_Impl {
     fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
     fn SetContent(&self, sourcestream: windows_core::Ref<super::objidlbase::IStream>, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMColorProfileResource_Vtbl {
     pub const fn new<Identity: IXpsOMColorProfileResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStream<Identity: IXpsOMColorProfileResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -418,7 +418,7 @@ impl IXpsOMColorProfileResource_Vtbl {
         iid == &<IXpsOMColorProfileResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMColorProfileResource {}
 windows_core::imp::define_interface!(IXpsOMColorProfileResourceCollection, IXpsOMColorProfileResourceCollection_Vtbl, 0x12759630_5fba_4283_8f7d_cca849809edb);
 windows_core::imp::interface_hierarchy!(IXpsOMColorProfileResourceCollection, windows_core::IUnknown);
@@ -456,7 +456,7 @@ impl IXpsOMColorProfileResourceCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), object.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn GetByPartName<P0>(&self, partname: P0) -> windows_core::Result<IXpsOMColorProfileResource>
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -477,12 +477,12 @@ pub struct IXpsOMColorProfileResourceCollection_Vtbl {
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub GetByPartName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     GetByPartName: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMColorProfileResourceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMColorProfileResource>;
@@ -492,7 +492,7 @@ pub trait IXpsOMColorProfileResourceCollection_Impl: windows_core::IUnknownImpl 
     fn Append(&self, object: windows_core::Ref<IXpsOMColorProfileResource>) -> windows_core::Result<()>;
     fn GetByPartName(&self, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<IXpsOMColorProfileResource>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMColorProfileResourceCollection_Vtbl {
     pub const fn new<Identity: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
@@ -570,7 +570,7 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
         iid == &<IXpsOMColorProfileResourceCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMColorProfileResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMCoreProperties, IXpsOMCoreProperties_Vtbl, 0x3340fe8f_4027_4aa1_8f5f_d35ae45fe597);
 impl core::ops::Deref for IXpsOMCoreProperties {
@@ -623,14 +623,14 @@ impl IXpsOMCoreProperties {
     {
         unsafe { (windows_core::Interface::vtable(self).SetContentType)(windows_core::Interface::as_raw(self), contenttype.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub unsafe fn GetCreated(&self) -> windows_core::Result<super::minwinbase::SYSTEMTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCreated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub unsafe fn SetCreated(&self, created: *const super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCreated)(windows_core::Interface::as_raw(self), created) }
     }
@@ -706,25 +706,25 @@ impl IXpsOMCoreProperties {
     {
         unsafe { (windows_core::Interface::vtable(self).SetLastModifiedBy)(windows_core::Interface::as_raw(self), lastmodifiedby.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub unsafe fn GetLastPrinted(&self) -> windows_core::Result<super::minwinbase::SYSTEMTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLastPrinted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub unsafe fn SetLastPrinted(&self, lastprinted: *const super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLastPrinted)(windows_core::Interface::as_raw(self), lastprinted) }
     }
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub unsafe fn GetModified(&self) -> windows_core::Result<super::minwinbase::SYSTEMTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetModified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub unsafe fn SetModified(&self, modified: *const super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetModified)(windows_core::Interface::as_raw(self), modified) }
     }
@@ -794,13 +794,13 @@ pub struct IXpsOMCoreProperties_Vtbl {
     pub SetContentStatus: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetContentType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub GetCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwinbase"))]
+    #[cfg(not(feature = "minwinbase"))]
     GetCreated: usize,
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub SetCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwinbase"))]
+    #[cfg(not(feature = "minwinbase"))]
     SetCreated: usize,
     pub GetCreator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetCreator: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -814,21 +814,21 @@ pub struct IXpsOMCoreProperties_Vtbl {
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetLastModifiedBy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetLastModifiedBy: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub GetLastPrinted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwinbase"))]
+    #[cfg(not(feature = "minwinbase"))]
     GetLastPrinted: usize,
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub SetLastPrinted: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwinbase"))]
+    #[cfg(not(feature = "minwinbase"))]
     SetLastPrinted: usize,
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub GetModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwinbase"))]
+    #[cfg(not(feature = "minwinbase"))]
     GetModified: usize,
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub SetModified: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::minwinbase::SYSTEMTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwinbase"))]
+    #[cfg(not(feature = "minwinbase"))]
     SetModified: usize,
     pub GetRevision: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetRevision: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -840,7 +840,7 @@ pub struct IXpsOMCoreProperties_Vtbl {
     pub SetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMCoreProperties_Impl: IXpsOMPart_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMPackage>;
     fn GetCategory(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -877,7 +877,7 @@ pub trait IXpsOMCoreProperties_Impl: IXpsOMPart_Impl {
     fn SetVersion(&self, version: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMCoreProperties>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "urlmon"))]
 impl IXpsOMCoreProperties_Vtbl {
     pub const fn new<Identity: IXpsOMCoreProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1234,7 +1234,7 @@ impl IXpsOMCoreProperties_Vtbl {
         iid == &<IXpsOMCoreProperties as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMCoreProperties {}
 windows_core::imp::define_interface!(IXpsOMDashCollection, IXpsOMDashCollection_Vtbl, 0x081613f4_74eb_48f2_83b3_37a9ce2d7dc6);
 windows_core::imp::interface_hierarchy!(IXpsOMDashCollection, windows_core::IUnknown);
@@ -1634,7 +1634,7 @@ pub struct IXpsOMDocument_Vtbl {
     pub GetSignatureBlockResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMDocument_Impl: IXpsOMPart_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMDocumentSequence>;
     fn GetPageReferences(&self) -> windows_core::Result<IXpsOMPageReferenceCollection>;
@@ -1645,7 +1645,7 @@ pub trait IXpsOMDocument_Impl: IXpsOMPart_Impl {
     fn GetSignatureBlockResources(&self) -> windows_core::Result<IXpsOMSignatureBlockResourceCollection>;
     fn Clone(&self) -> windows_core::Result<IXpsOMDocument>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMDocument_Vtbl {
     pub const fn new<Identity: IXpsOMDocument_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1748,7 +1748,7 @@ impl IXpsOMDocument_Vtbl {
         iid == &<IXpsOMDocument as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMDocument {}
 windows_core::imp::define_interface!(IXpsOMDocumentCollection, IXpsOMDocumentCollection_Vtbl, 0xd1c87f0d_e947_4754_8a25_971478f7e83e);
 windows_core::imp::interface_hierarchy!(IXpsOMDocumentCollection, windows_core::IUnknown);
@@ -1914,14 +1914,14 @@ pub struct IXpsOMDocumentSequence_Vtbl {
     pub GetPrintTicketResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPrintTicketResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMDocumentSequence_Impl: IXpsOMPart_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMPackage>;
     fn GetDocuments(&self) -> windows_core::Result<IXpsOMDocumentCollection>;
     fn GetPrintTicketResource(&self) -> windows_core::Result<IXpsOMPrintTicketResource>;
     fn SetPrintTicketResource(&self, printticketresource: windows_core::Ref<IXpsOMPrintTicketResource>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMDocumentSequence_Vtbl {
     pub const fn new<Identity: IXpsOMDocumentSequence_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMDocumentSequence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1978,7 +1978,7 @@ impl IXpsOMDocumentSequence_Vtbl {
         iid == &<IXpsOMDocumentSequence as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMDocumentSequence {}
 windows_core::imp::define_interface!(IXpsOMDocumentStructureResource, IXpsOMDocumentStructureResource_Vtbl, 0x85febc8a_6b63_48a9_af07_7064e4ecff30);
 impl core::ops::Deref for IXpsOMDocumentStructureResource {
@@ -1995,14 +1995,14 @@ impl IXpsOMDocumentStructureResource {
             (windows_core::Interface::vtable(self).GetOwner)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn SetContent<P0, P1>(&self, sourcestream: P0, partname: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2016,22 +2016,22 @@ impl IXpsOMDocumentStructureResource {
 pub struct IXpsOMDocumentStructureResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     SetContent: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMDocumentStructureResource_Impl: IXpsOMResource_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMDocument>;
     fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
     fn SetContent(&self, sourcestream: windows_core::Ref<super::objidlbase::IStream>, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMDocumentStructureResource_Vtbl {
     pub const fn new<Identity: IXpsOMDocumentStructureResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMDocumentStructureResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2075,7 +2075,7 @@ impl IXpsOMDocumentStructureResource_Vtbl {
         iid == &<IXpsOMDocumentStructureResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMDocumentStructureResource {}
 windows_core::imp::define_interface!(IXpsOMFontResource, IXpsOMFontResource_Vtbl, 0xa8c45708_47d9_4af4_8d20_33b48c9b8485);
 impl core::ops::Deref for IXpsOMFontResource {
@@ -2086,14 +2086,14 @@ impl core::ops::Deref for IXpsOMFontResource {
 }
 windows_core::imp::interface_hierarchy!(IXpsOMFontResource, windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl IXpsOMFontResource {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn SetContent<P0, P2>(&self, sourcestream: P0, embeddingoption: XPS_FONT_EMBEDDING, partname: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -2112,23 +2112,23 @@ impl IXpsOMFontResource {
 #[doc(hidden)]
 pub struct IXpsOMFontResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XPS_FONT_EMBEDDING, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     SetContent: usize,
     pub GetEmbeddingOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_FONT_EMBEDDING) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMFontResource_Impl: IXpsOMResource_Impl {
     fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
     fn SetContent(&self, sourcestream: windows_core::Ref<super::objidlbase::IStream>, embeddingoption: XPS_FONT_EMBEDDING, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<()>;
     fn GetEmbeddingOption(&self) -> windows_core::Result<XPS_FONT_EMBEDDING>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMFontResource_Vtbl {
     pub const fn new<Identity: IXpsOMFontResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStream<Identity: IXpsOMFontResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, readerstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2172,7 +2172,7 @@ impl IXpsOMFontResource_Vtbl {
         iid == &<IXpsOMFontResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMFontResource {}
 windows_core::imp::define_interface!(IXpsOMFontResourceCollection, IXpsOMFontResourceCollection_Vtbl, 0x70b4a6bb_88d4_4fa8_aaf9_6d9c596fdbad);
 windows_core::imp::interface_hierarchy!(IXpsOMFontResourceCollection, windows_core::IUnknown);
@@ -2210,7 +2210,7 @@ impl IXpsOMFontResourceCollection {
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index) }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn GetByPartName<P0>(&self, partname: P0) -> windows_core::Result<IXpsOMFontResource>
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -2231,12 +2231,12 @@ pub struct IXpsOMFontResourceCollection_Vtbl {
     pub InsertAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub GetByPartName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     GetByPartName: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMFontResourceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMFontResource>;
@@ -2246,7 +2246,7 @@ pub trait IXpsOMFontResourceCollection_Impl: windows_core::IUnknownImpl {
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
     fn GetByPartName(&self, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<IXpsOMFontResource>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMFontResourceCollection_Vtbl {
     pub const fn new<Identity: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
@@ -2324,7 +2324,7 @@ impl IXpsOMFontResourceCollection_Vtbl {
         iid == &<IXpsOMFontResourceCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMFontResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMGeometry, IXpsOMGeometry_Vtbl, 0x64fcf3d7_4d58_44ba_ad73_a13af6492072);
 impl core::ops::Deref for IXpsOMGeometry {
@@ -3100,7 +3100,7 @@ pub struct IXpsOMGlyphs_Vtbl {
     pub GetGlyphsEditor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 pub trait IXpsOMGlyphs_Impl: IXpsOMVisual_Impl {
     fn GetUnicodeString(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetGlyphIndexCount(&self) -> windows_core::Result<u32>;
@@ -3130,7 +3130,7 @@ pub trait IXpsOMGlyphs_Impl: IXpsOMVisual_Impl {
     fn GetGlyphsEditor(&self) -> windows_core::Result<IXpsOMGlyphsEditor>;
     fn Clone(&self) -> windows_core::Result<IXpsOMGlyphs>;
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 impl IXpsOMGlyphs_Vtbl {
     pub const fn new<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetUnicodeString<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicodestring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -3432,7 +3432,7 @@ impl IXpsOMGlyphs_Vtbl {
         iid == &<IXpsOMGlyphs as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 impl windows_core::RuntimeName for IXpsOMGlyphs {}
 windows_core::imp::define_interface!(IXpsOMGlyphsEditor, IXpsOMGlyphsEditor_Vtbl, 0xa5ab8616_5b16_4b9f_9629_89b323ed7909);
 windows_core::imp::interface_hierarchy!(IXpsOMGlyphsEditor, windows_core::IUnknown);
@@ -4333,14 +4333,14 @@ impl core::ops::Deref for IXpsOMImageResource {
 }
 windows_core::imp::interface_hierarchy!(IXpsOMImageResource, windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl IXpsOMImageResource {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn SetContent<P0, P2>(&self, sourcestream: P0, imagetype: XPS_IMAGE_TYPE, partname: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -4359,23 +4359,23 @@ impl IXpsOMImageResource {
 #[doc(hidden)]
 pub struct IXpsOMImageResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XPS_IMAGE_TYPE, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     SetContent: usize,
     pub GetImageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_IMAGE_TYPE) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMImageResource_Impl: IXpsOMResource_Impl {
     fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
     fn SetContent(&self, sourcestream: windows_core::Ref<super::objidlbase::IStream>, imagetype: XPS_IMAGE_TYPE, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<()>;
     fn GetImageType(&self) -> windows_core::Result<XPS_IMAGE_TYPE>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMImageResource_Vtbl {
     pub const fn new<Identity: IXpsOMImageResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStream<Identity: IXpsOMImageResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, readerstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4419,7 +4419,7 @@ impl IXpsOMImageResource_Vtbl {
         iid == &<IXpsOMImageResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMImageResource {}
 windows_core::imp::define_interface!(IXpsOMImageResourceCollection, IXpsOMImageResourceCollection_Vtbl, 0x7a4a1a71_9cde_4b71_b33f_62de843eabfe);
 windows_core::imp::interface_hierarchy!(IXpsOMImageResourceCollection, windows_core::IUnknown);
@@ -4457,7 +4457,7 @@ impl IXpsOMImageResourceCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), object.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn GetByPartName<P0>(&self, partname: P0) -> windows_core::Result<IXpsOMImageResource>
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -4478,12 +4478,12 @@ pub struct IXpsOMImageResourceCollection_Vtbl {
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub GetByPartName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     GetByPartName: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMImageResourceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMImageResource>;
@@ -4493,7 +4493,7 @@ pub trait IXpsOMImageResourceCollection_Impl: windows_core::IUnknownImpl {
     fn Append(&self, object: windows_core::Ref<IXpsOMImageResource>) -> windows_core::Result<()>;
     fn GetByPartName(&self, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<IXpsOMImageResource>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMImageResourceCollection_Vtbl {
     pub const fn new<Identity: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
@@ -4571,7 +4571,7 @@ impl IXpsOMImageResourceCollection_Vtbl {
         iid == &<IXpsOMImageResourceCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMImageResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMLinearGradientBrush, IXpsOMLinearGradientBrush_Vtbl, 0x005e279f_c30d_40ff_93ec_1950d3c528db);
 impl core::ops::Deref for IXpsOMLinearGradientBrush {
@@ -4848,7 +4848,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreatePackageFromFile)(windows_core::Interface::as_raw(self), filename.param().abi(), reuseobjects.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreatePackageFromStream<P0>(&self, stream: P0, reuseobjects: bool) -> windows_core::Result<IXpsOMPackage>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -4858,7 +4858,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreatePackageFromStream)(windows_core::Interface::as_raw(self), stream.param().abi(), reuseobjects.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateStoryFragmentsResource<P0, P1>(&self, acquiredstream: P0, parturi: P1) -> windows_core::Result<IXpsOMStoryFragmentsResource>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -4869,7 +4869,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateStoryFragmentsResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateDocumentStructureResource<P0, P1>(&self, acquiredstream: P0, parturi: P1) -> windows_core::Result<IXpsOMDocumentStructureResource>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -4880,7 +4880,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateDocumentStructureResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateSignatureBlockResource<P0, P1>(&self, acquiredstream: P0, parturi: P1) -> windows_core::Result<IXpsOMSignatureBlockResource>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -4891,7 +4891,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateSignatureBlockResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn CreateRemoteDictionaryResource<P0, P1>(&self, dictionary: P0, parturi: P1) -> windows_core::Result<IXpsOMRemoteDictionaryResource>
     where
         P0: windows_core::Param<IXpsOMDictionary>,
@@ -4902,7 +4902,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateRemoteDictionaryResource)(windows_core::Interface::as_raw(self), dictionary.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateRemoteDictionaryResourceFromStream<P0, P1, P2>(&self, dictionarymarkupstream: P0, dictionaryparturi: P1, resources: P2) -> windows_core::Result<IXpsOMRemoteDictionaryResource>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -4920,7 +4920,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreatePartResources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn CreateDocumentSequence<P0>(&self, parturi: P0) -> windows_core::Result<IXpsOMDocumentSequence>
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -4930,7 +4930,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateDocumentSequence)(windows_core::Interface::as_raw(self), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn CreateDocument<P0>(&self, parturi: P0) -> windows_core::Result<IXpsOMDocument>
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -4946,7 +4946,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreatePageReference)(windows_core::Interface::as_raw(self), advisorypagedimensions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn CreatePage<P1, P2>(&self, pagedimensions: *const XPS_SIZE, language: P1, parturi: P2) -> windows_core::Result<IXpsOMPage>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -4957,7 +4957,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreatePage)(windows_core::Interface::as_raw(self), pagedimensions, language.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreatePageFromStream<P0, P1, P2>(&self, pagemarkupstream: P0, parturi: P1, resources: P2, reuseobjects: bool) -> windows_core::Result<IXpsOMPage>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -5017,7 +5017,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateSolidColorBrush)(windows_core::Interface::as_raw(self), color, colorprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateColorProfileResource<P0, P1>(&self, acquiredstream: P0, parturi: P1) -> windows_core::Result<IXpsOMColorProfileResource>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -5043,7 +5043,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateVisualBrush)(windows_core::Interface::as_raw(self), viewbox, viewport, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateImageResource<P0, P2>(&self, acquiredstream: P0, contenttype: XPS_IMAGE_TYPE, parturi: P2) -> windows_core::Result<IXpsOMImageResource>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -5054,7 +5054,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateImageResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), contenttype, parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreatePrintTicketResource<P0, P1>(&self, acquiredstream: P0, parturi: P1) -> windows_core::Result<IXpsOMPrintTicketResource>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -5065,7 +5065,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreatePrintTicketResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateFontResource<P0, P2>(&self, acquiredstream: P0, fontembedding: XPS_FONT_EMBEDDING, parturi: P2, isobfsourcestream: bool) -> windows_core::Result<IXpsOMFontResource>
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -5105,7 +5105,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateRadialGradientBrush)(windows_core::Interface::as_raw(self), gradstop1.param().abi(), gradstop2.param().abi(), centerpoint, gradientorigin, radiisizes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn CreateCoreProperties<P0>(&self, parturi: P0) -> windows_core::Result<IXpsOMCoreProperties>
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -5127,7 +5127,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreatePartUriCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "minwinbase", feature = "msopc", feature = "urlmon"))]
     pub unsafe fn CreatePackageWriterOnFile<P0, P5, P6, P7, P8, P9>(&self, filename: P0, securityattributes: *const super::minwinbase::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: bool, interleaving: XPS_INTERLEAVING, documentsequencepartname: P5, coreproperties: P6, packagethumbnail: P7, documentsequenceprintticket: P8, discardcontrolpartname: P9) -> windows_core::Result<IXpsOMPackageWriter>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -5142,7 +5142,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreatePackageWriterOnFile)(windows_core::Interface::as_raw(self), filename.param().abi(), securityattributes, flagsandattributes, optimizemarkupsize.into(), interleaving, documentsequencepartname.param().abi(), coreproperties.param().abi(), packagethumbnail.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreatePackageWriterOnStream<P0, P3, P4, P5, P6, P7>(&self, outputstream: P0, optimizemarkupsize: bool, interleaving: XPS_INTERLEAVING, documentsequencepartname: P3, coreproperties: P4, packagethumbnail: P5, documentsequenceprintticket: P6, discardcontrolpartname: P7) -> windows_core::Result<IXpsOMPackageWriter>
     where
         P0: windows_core::Param<super::objidlbase::ISequentialStream>,
@@ -5157,7 +5157,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreatePackageWriterOnStream)(windows_core::Interface::as_raw(self), outputstream.param().abi(), optimizemarkupsize.into(), interleaving, documentsequencepartname.param().abi(), coreproperties.param().abi(), packagethumbnail.param().abi(), documentsequenceprintticket.param().abi(), discardcontrolpartname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn CreatePartUri<P0>(&self, uri: P0) -> windows_core::Result<super::msopc::IOpcPartUri>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -5167,7 +5167,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreatePartUri)(windows_core::Interface::as_raw(self), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn CreateReadOnlyStreamOnFile<P0>(&self, filename: P0) -> windows_core::Result<super::objidlbase::IStream>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -5184,47 +5184,47 @@ pub struct IXpsOMObjectFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreatePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreatePackageFromFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreatePackageFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreatePackageFromStream: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreateStoryFragmentsResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreateStoryFragmentsResource: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreateDocumentStructureResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreateDocumentStructureResource: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreateSignatureBlockResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreateSignatureBlockResource: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub CreateRemoteDictionaryResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     CreateRemoteDictionaryResource: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreateRemoteDictionaryResourceFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreateRemoteDictionaryResourceFromStream: usize,
     pub CreatePartResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub CreateDocumentSequence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     CreateDocumentSequence: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub CreateDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     CreateDocument: usize,
     pub CreatePageReference: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_SIZE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub CreatePage: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_SIZE, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     CreatePage: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreatePageFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreatePageFromStream: usize,
     pub CreateCanvas: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateGlyphs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5233,51 +5233,51 @@ pub struct IXpsOMObjectFactory_Vtbl {
     pub CreateGeometryFigure: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_POINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateMatrixTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_MATRIX, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateSolidColorBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_COLOR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreateColorProfileResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreateColorProfileResource: usize,
     pub CreateImageBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const XPS_RECT, *const XPS_RECT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateVisualBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_RECT, *const XPS_RECT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreateImageResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XPS_IMAGE_TYPE, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreateImageResource: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreatePrintTicketResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreatePrintTicketResource: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreateFontResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XPS_FONT_EMBEDDING, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreateFontResource: usize,
     pub CreateGradientStop: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_COLOR, *mut core::ffi::c_void, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateLinearGradientBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const XPS_POINT, *const XPS_POINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateRadialGradientBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const XPS_POINT, *const XPS_POINT, *const XPS_SIZE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub CreateCoreProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     CreateCoreProperties: usize,
     pub CreateDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreatePartUriCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "minwinbase", feature = "msopc", feature = "urlmon"))]
     pub CreatePackageWriterOnFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::minwinbase::SECURITY_ATTRIBUTES, u32, windows_core::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "msopc", feature = "urlmon")))]
     CreatePackageWriterOnFile: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreatePackageWriterOnStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreatePackageWriterOnStream: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub CreatePartUri: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     CreatePartUri: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub CreateReadOnlyStreamOnFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     CreateReadOnlyStreamOnFile: usize,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMObjectFactory_Impl: windows_core::IUnknownImpl {
     fn CreatePackage(&self) -> windows_core::Result<IXpsOMPackage>;
     fn CreatePackageFromFile(&self, filename: &windows_core::PCWSTR, reuseobjects: windows_core::BOOL) -> windows_core::Result<IXpsOMPackage>;
@@ -5317,7 +5317,7 @@ pub trait IXpsOMObjectFactory_Impl: windows_core::IUnknownImpl {
     fn CreatePartUri(&self, uri: &windows_core::PCWSTR) -> windows_core::Result<super::msopc::IOpcPartUri>;
     fn CreateReadOnlyStreamOnFile(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<super::objidlbase::IStream>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMObjectFactory_Vtbl {
     pub const fn new<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreatePackage<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5809,7 +5809,7 @@ impl IXpsOMObjectFactory_Vtbl {
         iid == &<IXpsOMObjectFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMObjectFactory {}
 windows_core::imp::define_interface!(IXpsOMPackage, IXpsOMPackage_Vtbl, 0x18c3df65_81e1_4674_91dc_fc452f5a416f);
 windows_core::imp::interface_hierarchy!(IXpsOMPackage, windows_core::IUnknown);
@@ -5838,14 +5838,14 @@ impl IXpsOMPackage {
     {
         unsafe { (windows_core::Interface::vtable(self).SetCoreProperties)(windows_core::Interface::as_raw(self), coreproperties.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn GetDiscardControlPartName(&self) -> windows_core::Result<super::msopc::IOpcPartUri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDiscardControlPartName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn SetDiscardControlPartName<P0>(&self, discardcontrolparturi: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -5864,14 +5864,14 @@ impl IXpsOMPackage {
     {
         unsafe { (windows_core::Interface::vtable(self).SetThumbnailResource)(windows_core::Interface::as_raw(self), imageresource.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub unsafe fn WriteToFile<P0>(&self, filename: P0, securityattributes: *const super::minwinbase::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).WriteToFile)(windows_core::Interface::as_raw(self), filename.param().abi(), securityattributes, flagsandattributes, optimizemarkupsize.into()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn WriteToStream<P0>(&self, stream: P0, optimizemarkupsize: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::ISequentialStream>,
@@ -5887,26 +5887,26 @@ pub struct IXpsOMPackage_Vtbl {
     pub SetDocumentSequence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCoreProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCoreProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub GetDiscardControlPartName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     GetDiscardControlPartName: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub SetDiscardControlPartName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     SetDiscardControlPartName: usize,
     pub GetThumbnailResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetThumbnailResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwinbase")]
+    #[cfg(feature = "minwinbase")]
     pub WriteToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::minwinbase::SECURITY_ATTRIBUTES, u32, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwinbase"))]
+    #[cfg(not(feature = "minwinbase"))]
     WriteToFile: usize,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub WriteToStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     WriteToStream: usize,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMPackage_Impl: windows_core::IUnknownImpl {
     fn GetDocumentSequence(&self) -> windows_core::Result<IXpsOMDocumentSequence>;
     fn SetDocumentSequence(&self, documentsequence: windows_core::Ref<IXpsOMDocumentSequence>) -> windows_core::Result<()>;
@@ -5919,7 +5919,7 @@ pub trait IXpsOMPackage_Impl: windows_core::IUnknownImpl {
     fn WriteToFile(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::minwinbase::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL) -> windows_core::Result<()>;
     fn WriteToStream(&self, stream: windows_core::Ref<super::objidlbase::ISequentialStream>, optimizemarkupsize: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMPackage_Vtbl {
     pub const fn new<Identity: IXpsOMPackage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDocumentSequence<Identity: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6024,12 +6024,12 @@ impl IXpsOMPackage_Vtbl {
         iid == &<IXpsOMPackage as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMPackage {}
 windows_core::imp::define_interface!(IXpsOMPackageTarget, IXpsOMPackageTarget_Vtbl, 0x219a9db0_4959_47d0_8034_b1ce84f41a4d);
 windows_core::imp::interface_hierarchy!(IXpsOMPackageTarget, windows_core::IUnknown);
 impl IXpsOMPackageTarget {
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn CreateXpsOMPackageWriter<P0, P1, P2>(&self, documentsequencepartname: P0, documentsequenceprintticket: P1, discardcontrolpartname: P2) -> windows_core::Result<IXpsOMPackageWriter>
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -6046,16 +6046,16 @@ impl IXpsOMPackageTarget {
 #[doc(hidden)]
 pub struct IXpsOMPackageTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub CreateXpsOMPackageWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     CreateXpsOMPackageWriter: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMPackageTarget_Impl: windows_core::IUnknownImpl {
     fn CreateXpsOMPackageWriter(&self, documentsequencepartname: windows_core::Ref<super::msopc::IOpcPartUri>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMPackageTarget_Vtbl {
     pub const fn new<Identity: IXpsOMPackageTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateXpsOMPackageWriter<Identity: IXpsOMPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequencepartname: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6076,12 +6076,12 @@ impl IXpsOMPackageTarget_Vtbl {
         iid == &<IXpsOMPackageTarget as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMPackageTarget {}
 windows_core::imp::define_interface!(IXpsOMPackageWriter, IXpsOMPackageWriter_Vtbl, 0x4e2aa182_a443_42c6_b41b_4f8e9de73ff9);
 windows_core::imp::interface_hierarchy!(IXpsOMPackageWriter, windows_core::IUnknown);
 impl IXpsOMPackageWriter {
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn StartNewDocument<P0, P1, P2, P3, P4>(&self, documentpartname: P0, documentprintticket: P1, documentstructure: P2, signatureblockresources: P3, restrictedfonts: P4) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -6122,16 +6122,16 @@ impl IXpsOMPackageWriter {
 #[doc(hidden)]
 pub struct IXpsOMPackageWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub StartNewDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     StartNewDocument: usize,
     pub AddPage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const XPS_SIZE, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMPackageWriter_Impl: windows_core::IUnknownImpl {
     fn StartNewDocument(&self, documentpartname: windows_core::Ref<super::msopc::IOpcPartUri>, documentprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, documentstructure: windows_core::Ref<IXpsOMDocumentStructureResource>, signatureblockresources: windows_core::Ref<IXpsOMSignatureBlockResourceCollection>, restrictedfonts: windows_core::Ref<IXpsOMPartUriCollection>) -> windows_core::Result<()>;
     fn AddPage(&self, page: windows_core::Ref<IXpsOMPage>, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: windows_core::Ref<IXpsOMPartUriCollection>, storyfragments: windows_core::Ref<IXpsOMStoryFragmentsResource>, pageprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, pagethumbnail: windows_core::Ref<IXpsOMImageResource>) -> windows_core::Result<()>;
@@ -6139,7 +6139,7 @@ pub trait IXpsOMPackageWriter_Impl: windows_core::IUnknownImpl {
     fn Close(&self) -> windows_core::Result<()>;
     fn IsClosed(&self) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMPackageWriter_Vtbl {
     pub const fn new<Identity: IXpsOMPackageWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartNewDocument<Identity: IXpsOMPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentpartname: *mut core::ffi::c_void, documentprintticket: *mut core::ffi::c_void, documentstructure: *mut core::ffi::c_void, signatureblockresources: *mut core::ffi::c_void, restrictedfonts: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6191,7 +6191,7 @@ impl IXpsOMPackageWriter_Vtbl {
         iid == &<IXpsOMPackageWriter as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMPackageWriter {}
 windows_core::imp::define_interface!(IXpsOMPage, IXpsOMPage_Vtbl, 0xd3e18888_f120_4fee_8c68_35296eae91d4);
 impl core::ops::Deref for IXpsOMPage {
@@ -6304,7 +6304,7 @@ impl IXpsOMPage {
     {
         unsafe { (windows_core::Interface::vtable(self).SetDictionaryResource)(windows_core::Interface::as_raw(self), remotedictionaryresource.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Write<P0>(&self, stream: P0, optimizemarkupsize: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::ISequentialStream>,
@@ -6347,14 +6347,14 @@ pub struct IXpsOMPage_Vtbl {
     pub SetDictionaryLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDictionaryResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDictionaryResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Write: usize,
     pub GenerateUnusedLookupKey: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_OBJECT_TYPE, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMPage_Impl: IXpsOMPart_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMPageReference>;
     fn GetVisuals(&self) -> windows_core::Result<IXpsOMVisualCollection>;
@@ -6379,7 +6379,7 @@ pub trait IXpsOMPage_Impl: IXpsOMPart_Impl {
     fn GenerateUnusedLookupKey(&self, r#type: XPS_OBJECT_TYPE) -> windows_core::Result<windows_core::PWSTR>;
     fn Clone(&self) -> windows_core::Result<IXpsOMPage>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMPage_Vtbl {
     pub const fn new<Identity: IXpsOMPage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagereference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6622,7 +6622,7 @@ impl IXpsOMPage_Vtbl {
         iid == &<IXpsOMPage as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMPage {}
 windows_core::imp::define_interface!(IXpsOMPageReference, IXpsOMPageReference_Vtbl, 0xed360180_6f92_4998_890d_2f208531a0a0);
 windows_core::imp::interface_hierarchy!(IXpsOMPageReference, windows_core::IUnknown);
@@ -7085,14 +7085,14 @@ impl windows_core::RuntimeName for IXpsOMPageReferenceCollection {}
 windows_core::imp::define_interface!(IXpsOMPart, IXpsOMPart_Vtbl, 0x74eb2f0b_a91e_4486_afac_0fabeca3dfc6);
 windows_core::imp::interface_hierarchy!(IXpsOMPart, windows_core::IUnknown);
 impl IXpsOMPart {
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn GetPartName(&self) -> windows_core::Result<super::msopc::IOpcPartUri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPartName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn SetPartName<P0>(&self, parturi: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -7104,21 +7104,21 @@ impl IXpsOMPart {
 #[doc(hidden)]
 pub struct IXpsOMPart_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub GetPartName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     GetPartName: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub SetPartName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     SetPartName: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMPart_Impl: windows_core::IUnknownImpl {
     fn GetPartName(&self) -> windows_core::Result<super::msopc::IOpcPartUri>;
     fn SetPartName(&self, parturi: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMPart_Vtbl {
     pub const fn new<Identity: IXpsOMPart_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPartName<Identity: IXpsOMPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parturi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7149,7 +7149,7 @@ impl IXpsOMPart_Vtbl {
         iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMPart {}
 windows_core::imp::define_interface!(IXpsOMPartResources, IXpsOMPartResources_Vtbl, 0xf4cf7729_4864_4275_99b3_a8717163ecaf);
 windows_core::imp::interface_hierarchy!(IXpsOMPartResources, windows_core::IUnknown);
@@ -7266,14 +7266,14 @@ impl IXpsOMPartUriCollection {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<super::msopc::IOpcPartUri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn InsertAt<P1>(&self, index: u32, parturi: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -7283,14 +7283,14 @@ impl IXpsOMPartUriCollection {
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index) }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn SetAt<P1>(&self, index: u32, parturi: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::msopc::IOpcPartUri>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, parturi.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn Append<P0>(&self, parturi: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -7303,25 +7303,25 @@ impl IXpsOMPartUriCollection {
 pub struct IXpsOMPartUriCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     GetAt: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub InsertAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     InsertAt: usize,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     SetAt: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     Append: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMPartUriCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<super::msopc::IOpcPartUri>;
@@ -7330,7 +7330,7 @@ pub trait IXpsOMPartUriCollection_Impl: windows_core::IUnknownImpl {
     fn SetAt(&self, index: u32, parturi: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<()>;
     fn Append(&self, parturi: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMPartUriCollection_Vtbl {
     pub const fn new<Identity: IXpsOMPartUriCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMPartUriCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
@@ -7395,7 +7395,7 @@ impl IXpsOMPartUriCollection_Vtbl {
         iid == &<IXpsOMPartUriCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMPartUriCollection {}
 windows_core::imp::define_interface!(IXpsOMPath, IXpsOMPath_Vtbl, 0x37d38bb6_3ee9_4110_9312_14b194163337);
 impl core::ops::Deref for IXpsOMPath {
@@ -7647,7 +7647,7 @@ pub struct IXpsOMPath_Vtbl {
     pub SetFillBrushLookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 pub trait IXpsOMPath_Impl: IXpsOMVisual_Impl {
     fn GetGeometry(&self) -> windows_core::Result<IXpsOMGeometry>;
     fn GetGeometryLocal(&self) -> windows_core::Result<IXpsOMGeometry>;
@@ -7687,7 +7687,7 @@ pub trait IXpsOMPath_Impl: IXpsOMVisual_Impl {
     fn SetFillBrushLookup(&self, lookup: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMPath>;
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 impl IXpsOMPath_Vtbl {
     pub const fn new<Identity: IXpsOMPath_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGeometry<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8083,7 +8083,7 @@ impl IXpsOMPath_Vtbl {
         iid == &<IXpsOMPath as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 impl windows_core::RuntimeName for IXpsOMPath {}
 windows_core::imp::define_interface!(IXpsOMPrintTicketResource, IXpsOMPrintTicketResource_Vtbl, 0xe7ff32d2_34aa_499b_bbe9_9cd4ee6c59f7);
 impl core::ops::Deref for IXpsOMPrintTicketResource {
@@ -8094,14 +8094,14 @@ impl core::ops::Deref for IXpsOMPrintTicketResource {
 }
 windows_core::imp::interface_hierarchy!(IXpsOMPrintTicketResource, windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl IXpsOMPrintTicketResource {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn SetContent<P0, P1>(&self, sourcestream: P0, partname: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -8114,21 +8114,21 @@ impl IXpsOMPrintTicketResource {
 #[doc(hidden)]
 pub struct IXpsOMPrintTicketResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     SetContent: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMPrintTicketResource_Impl: IXpsOMResource_Impl {
     fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
     fn SetContent(&self, sourcestream: windows_core::Ref<super::objidlbase::IStream>, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMPrintTicketResource_Vtbl {
     pub const fn new<Identity: IXpsOMPrintTicketResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStream<Identity: IXpsOMPrintTicketResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8155,7 +8155,7 @@ impl IXpsOMPrintTicketResource_Vtbl {
         iid == &<IXpsOMPrintTicketResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMPrintTicketResource {}
 windows_core::imp::define_interface!(IXpsOMRadialGradientBrush, IXpsOMRadialGradientBrush_Vtbl, 0x75f207e5_08bf_413c_96b1_b82b4064176b);
 impl core::ops::Deref for IXpsOMRadialGradientBrush {
@@ -8334,12 +8334,12 @@ pub struct IXpsOMRemoteDictionaryResource_Vtbl {
     pub GetDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMRemoteDictionaryResource_Impl: IXpsOMResource_Impl {
     fn GetDictionary(&self) -> windows_core::Result<IXpsOMDictionary>;
     fn SetDictionary(&self, dictionary: windows_core::Ref<IXpsOMDictionary>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMRemoteDictionaryResource_Vtbl {
     pub const fn new<Identity: IXpsOMRemoteDictionaryResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDictionary<Identity: IXpsOMRemoteDictionaryResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8370,7 +8370,7 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
         iid == &<IXpsOMRemoteDictionaryResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMRemoteDictionaryResource {}
 windows_core::imp::define_interface!(IXpsOMRemoteDictionaryResourceCollection, IXpsOMRemoteDictionaryResourceCollection_Vtbl, 0x5c38db61_7fec_464a_87bd_41e3bef018be);
 windows_core::imp::interface_hierarchy!(IXpsOMRemoteDictionaryResourceCollection, windows_core::IUnknown);
@@ -8408,7 +8408,7 @@ impl IXpsOMRemoteDictionaryResourceCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), object.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn GetByPartName<P0>(&self, partname: P0) -> windows_core::Result<IXpsOMRemoteDictionaryResource>
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -8429,12 +8429,12 @@ pub struct IXpsOMRemoteDictionaryResourceCollection_Vtbl {
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub GetByPartName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     GetByPartName: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMRemoteDictionaryResourceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMRemoteDictionaryResource>;
@@ -8444,7 +8444,7 @@ pub trait IXpsOMRemoteDictionaryResourceCollection_Impl: windows_core::IUnknownI
     fn Append(&self, object: windows_core::Ref<IXpsOMRemoteDictionaryResource>) -> windows_core::Result<()>;
     fn GetByPartName(&self, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<IXpsOMRemoteDictionaryResource>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
     pub const fn new<Identity: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
@@ -8522,7 +8522,7 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
         iid == &<IXpsOMRemoteDictionaryResourceCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMRemoteDictionaryResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMResource, IXpsOMResource_Vtbl, 0xda2ac0a2_73a2_4975_ad14_74097c3ff3a5);
 impl core::ops::Deref for IXpsOMResource {
@@ -8537,9 +8537,9 @@ windows_core::imp::interface_hierarchy!(IXpsOMResource, windows_core::IUnknown, 
 pub struct IXpsOMResource_Vtbl {
     pub base__: IXpsOMPart_Vtbl,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMResource_Impl: IXpsOMPart_Impl {}
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMResource_Vtbl {
     pub const fn new<Identity: IXpsOMResource_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IXpsOMPart_Vtbl::new::<Identity, OFFSET>() }
@@ -8548,7 +8548,7 @@ impl IXpsOMResource_Vtbl {
         iid == &<IXpsOMResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMResource {}
 windows_core::imp::define_interface!(IXpsOMShareable, IXpsOMShareable_Vtbl, 0x7137398f_2fc1_454d_8c6a_2c3115a16ece);
 windows_core::imp::interface_hierarchy!(IXpsOMShareable, windows_core::IUnknown);
@@ -8625,14 +8625,14 @@ impl IXpsOMSignatureBlockResource {
             (windows_core::Interface::vtable(self).GetOwner)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn SetContent<P0, P1>(&self, sourcestream: P0, partname: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -8646,22 +8646,22 @@ impl IXpsOMSignatureBlockResource {
 pub struct IXpsOMSignatureBlockResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     SetContent: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMSignatureBlockResource_Impl: IXpsOMResource_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMDocument>;
     fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
     fn SetContent(&self, sourcestream: windows_core::Ref<super::objidlbase::IStream>, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMSignatureBlockResource_Vtbl {
     pub const fn new<Identity: IXpsOMSignatureBlockResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMSignatureBlockResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8705,7 +8705,7 @@ impl IXpsOMSignatureBlockResource_Vtbl {
         iid == &<IXpsOMSignatureBlockResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMSignatureBlockResource {}
 windows_core::imp::define_interface!(IXpsOMSignatureBlockResourceCollection, IXpsOMSignatureBlockResourceCollection_Vtbl, 0xab8f5d8e_351b_4d33_aaed_fa56f0022931);
 windows_core::imp::interface_hierarchy!(IXpsOMSignatureBlockResourceCollection, windows_core::IUnknown);
@@ -8743,7 +8743,7 @@ impl IXpsOMSignatureBlockResourceCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), signatureblockresource.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn GetByPartName<P0>(&self, partname: P0) -> windows_core::Result<IXpsOMSignatureBlockResource>
     where
         P0: windows_core::Param<super::msopc::IOpcPartUri>,
@@ -8764,12 +8764,12 @@ pub struct IXpsOMSignatureBlockResourceCollection_Vtbl {
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub GetByPartName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     GetByPartName: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMSignatureBlockResourceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<IXpsOMSignatureBlockResource>;
@@ -8779,7 +8779,7 @@ pub trait IXpsOMSignatureBlockResourceCollection_Impl: windows_core::IUnknownImp
     fn Append(&self, signatureblockresource: windows_core::Ref<IXpsOMSignatureBlockResource>) -> windows_core::Result<()>;
     fn GetByPartName(&self, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<IXpsOMSignatureBlockResource>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMSignatureBlockResourceCollection_Vtbl {
     pub const fn new<Identity: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
@@ -8857,7 +8857,7 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
         iid == &<IXpsOMSignatureBlockResourceCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMSignatureBlockResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMSolidColorBrush, IXpsOMSolidColorBrush_Vtbl, 0xa06f9f05_3be9_4763_98a8_094fc672e488);
 impl core::ops::Deref for IXpsOMSolidColorBrush {
@@ -8959,14 +8959,14 @@ impl IXpsOMStoryFragmentsResource {
             (windows_core::Interface::vtable(self).GetOwner)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn SetContent<P0, P1>(&self, sourcestream: P0, partname: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -8980,22 +8980,22 @@ impl IXpsOMStoryFragmentsResource {
 pub struct IXpsOMStoryFragmentsResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     SetContent: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMStoryFragmentsResource_Impl: IXpsOMResource_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMPageReference>;
     fn GetStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
     fn SetContent(&self, sourcestream: windows_core::Ref<super::objidlbase::IStream>, partname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMStoryFragmentsResource_Vtbl {
     pub const fn new<Identity: IXpsOMStoryFragmentsResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMStoryFragmentsResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9039,12 +9039,12 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
         iid == &<IXpsOMStoryFragmentsResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_objidlbase", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMStoryFragmentsResource {}
 windows_core::imp::define_interface!(IXpsOMThumbnailGenerator, IXpsOMThumbnailGenerator_Vtbl, 0x15b873d5_1971_41e8_83a3_6578403064c7);
 windows_core::imp::interface_hierarchy!(IXpsOMThumbnailGenerator, windows_core::IUnknown);
 impl IXpsOMThumbnailGenerator {
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub unsafe fn GenerateThumbnail<P0, P3>(&self, page: P0, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: P3) -> windows_core::Result<IXpsOMImageResource>
     where
         P0: windows_core::Param<IXpsOMPage>,
@@ -9060,16 +9060,16 @@ impl IXpsOMThumbnailGenerator {
 #[doc(hidden)]
 pub struct IXpsOMThumbnailGenerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub GenerateThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XPS_IMAGE_TYPE, XPS_THUMBNAIL_SIZE, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msopc", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     GenerateThumbnail: usize,
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMThumbnailGenerator_Impl: windows_core::IUnknownImpl {
     fn GenerateThumbnail(&self, page: windows_core::Ref<IXpsOMPage>, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: windows_core::Ref<super::msopc::IOpcPartUri>) -> windows_core::Result<IXpsOMImageResource>;
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl IXpsOMThumbnailGenerator_Vtbl {
     pub const fn new<Identity: IXpsOMThumbnailGenerator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GenerateThumbnail<Identity: IXpsOMThumbnailGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, page: *mut core::ffi::c_void, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: *mut core::ffi::c_void, imageresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9090,7 +9090,7 @@ impl IXpsOMThumbnailGenerator_Vtbl {
         iid == &<IXpsOMThumbnailGenerator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msopc", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMThumbnailGenerator {}
 windows_core::imp::define_interface!(IXpsOMTileBrush, IXpsOMTileBrush_Vtbl, 0x0fc2328d_d722_4a54_b2ec_be90218a789e);
 impl core::ops::Deref for IXpsOMTileBrush {
@@ -9441,14 +9441,14 @@ impl IXpsOMVisual {
     pub unsafe fn SetIsHyperlinkTarget(&self, ishyperlink: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetIsHyperlinkTarget)(windows_core::Interface::as_raw(self), ishyperlink.into()) }
     }
-    #[cfg(feature = "Win32_urlmon")]
+    #[cfg(feature = "urlmon")]
     pub unsafe fn GetHyperlinkNavigateUri(&self) -> windows_core::Result<super::urlmon::IUri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHyperlinkNavigateUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_urlmon")]
+    #[cfg(feature = "urlmon")]
     pub unsafe fn SetHyperlinkNavigateUri<P0>(&self, hyperlinkuri: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::urlmon::IUri>,
@@ -9493,18 +9493,18 @@ pub struct IXpsOMVisual_Vtbl {
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetIsHyperlinkTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetIsHyperlinkTarget: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_urlmon")]
+    #[cfg(feature = "urlmon")]
     pub GetHyperlinkNavigateUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_urlmon"))]
+    #[cfg(not(feature = "urlmon"))]
     GetHyperlinkNavigateUri: usize,
-    #[cfg(feature = "Win32_urlmon")]
+    #[cfg(feature = "urlmon")]
     pub SetHyperlinkNavigateUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_urlmon"))]
+    #[cfg(not(feature = "urlmon"))]
     SetHyperlinkNavigateUri: usize,
     pub GetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 pub trait IXpsOMVisual_Impl: IXpsOMShareable_Impl {
     fn GetTransform(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
     fn GetTransformLocal(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
@@ -9532,7 +9532,7 @@ pub trait IXpsOMVisual_Impl: IXpsOMShareable_Impl {
     fn GetLanguage(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetLanguage(&self, language: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 impl IXpsOMVisual_Vtbl {
     pub const fn new<Identity: IXpsOMVisual_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTransform<Identity: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrixtransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9802,7 +9802,7 @@ impl IXpsOMVisual_Vtbl {
         iid == &<IXpsOMVisual as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_urlmon")]
+#[cfg(feature = "urlmon")]
 impl windows_core::RuntimeName for IXpsOMVisual {}
 windows_core::imp::define_interface!(IXpsOMVisualBrush, IXpsOMVisualBrush_Vtbl, 0x97e294af_5b37_46b4_8057_874d2f64119b);
 impl core::ops::Deref for IXpsOMVisualBrush {
@@ -10122,35 +10122,35 @@ impl IXpsPrintJob_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IXpsPrintJob {}
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(IXpsPrintJobStream, IXpsPrintJobStream_Vtbl, 0x7a77dc5f_45d6_4dff_9307_d8cb846347ca);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl core::ops::Deref for IXpsPrintJobStream {
     type Target = super::objidlbase::ISequentialStream;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 windows_core::imp::interface_hierarchy!(IXpsPrintJobStream, windows_core::IUnknown, super::objidlbase::ISequentialStream);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IXpsPrintJobStream {
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsPrintJobStream_Vtbl {
     pub base__: super::objidlbase::ISequentialStream_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IXpsPrintJobStream_Impl: super::objidlbase::ISequentialStream_Impl {
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IXpsPrintJobStream_Vtbl {
     pub const fn new<Identity: IXpsPrintJobStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Close<Identity: IXpsPrintJobStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10165,7 +10165,7 @@ impl IXpsPrintJobStream_Vtbl {
         iid == &<IXpsPrintJobStream as windows_core::Interface>::IID || iid == &<super::objidlbase::ISequentialStream as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IXpsPrintJobStream {}
 #[repr(C)]
 #[derive(Clone, Copy)]

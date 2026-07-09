@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn CreateXmlReader<P2>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::HRESULT
 where
@@ -7,7 +7,7 @@ where
     windows_core::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CreateXmlReader(riid, ppvobject as _, pmalloc.param().abi()) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<P0, P1, P4>(pinputstream: P0, pmalloc: P1, nencodingcodepage: u32, fencodinghint: bool, pwszbaseuri: P4) -> windows_core::Result<windows_core::IUnknown>
 where
@@ -21,7 +21,7 @@ where
         CreateXmlReaderInputWithEncodingCodePage(pinputstream.param().abi(), pmalloc.param().abi(), nencodingcodepage, fencodinghint.into(), pwszbaseuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn CreateXmlReaderInputWithEncodingName<P0, P1, P2, P4>(pinputstream: P0, pmalloc: P1, pwszencodingname: P2, fencodinghint: bool, pwszbaseuri: P4) -> windows_core::Result<windows_core::IUnknown>
 where
@@ -36,7 +36,7 @@ where
         CreateXmlReaderInputWithEncodingName(pinputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), fencodinghint.into(), pwszbaseuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn CreateXmlWriter<P2>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::HRESULT
 where
@@ -45,7 +45,7 @@ where
     windows_core::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CreateXmlWriter(riid, ppvobject as _, pmalloc.param().abi()) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<P0, P1>(poutputstream: P0, pmalloc: P1, nencodingcodepage: u32) -> windows_core::Result<windows_core::IUnknown>
 where
@@ -58,7 +58,7 @@ where
         CreateXmlWriterOutputWithEncodingCodePage(poutputstream.param().abi(), pmalloc.param().abi(), nencodingcodepage, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn CreateXmlWriterOutputWithEncodingName<P0, P1, P2>(poutputstream: P0, pmalloc: P1, pwszencodingname: P2) -> windows_core::Result<windows_core::IUnknown>
 where

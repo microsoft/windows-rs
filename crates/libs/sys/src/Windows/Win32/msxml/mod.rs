@@ -725,7 +725,7 @@ pub type XHR_CERT_IGNORE_FLAG = i32;
 pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = 128;
 pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = 256;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct XHR_COOKIE {
     pub pwszUrl: *mut u16,
@@ -735,7 +735,7 @@ pub struct XHR_COOKIE {
     pub ftExpires: super::minwindef::FILETIME,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for XHR_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

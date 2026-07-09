@@ -268,7 +268,7 @@ impl ITextStoreACP {
             (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pchtext, cch, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetFormattedText(&self, acpstart: i32, acpend: i32) -> windows_core::Result<super::objidl::IDataObject> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -282,14 +282,14 @@ impl ITextStoreACP {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), acppos, rguidservice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidl", feature = "wtypes"))]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::objidl::FORMATETC) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryInsertEmbedded)(windows_core::Interface::as_raw(self), pguidservice, pformatetc, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn InsertEmbedded<P3>(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: P3) -> windows_core::Result<TS_TEXTCHANGE>
     where
         P3: windows_core::Param<super::objidl::IDataObject>,
@@ -302,7 +302,7 @@ impl ITextStoreACP {
     pub unsafe fn InsertTextAtSelection(&self, dwflags: u32, pchtext: *const u16, cch: u32, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, pchtext, cch, pacpstart as _, pacpend as _, pchange as _) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn InsertEmbeddedAtSelection<P1>(&self, dwflags: u32, pdataobject: P1, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IDataObject>,
@@ -321,7 +321,7 @@ impl ITextStoreACP {
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, cfilterattrs: u32, pafilterattrs: *const TS_ATTRID, dwflags: u32, pacpnext: *mut i32, pffound: *mut windows_core::BOOL, plfoundoffset: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), acpstart, acphalt, cfilterattrs, pafilterattrs, dwflags, pacpnext as _, pffound as _, plfoundoffset as _) }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(paattrvals), pcfetched as _) }
     }
@@ -337,25 +337,25 @@ impl ITextStoreACP {
             (windows_core::Interface::vtable(self).GetActiveView)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetACPFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::windef::POINT, dwflags: u32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetACPFromPoint)(windows_core::Interface::as_raw(self), vcview, ptscreen, dwflags, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetTextExt(&self, vcview: TsViewCookie, acpstart: i32, acpend: i32, prc: *mut super::windef::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), vcview, acpstart, acpend, prc as _, pfclipped as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetScreenExt)(windows_core::Interface::as_raw(self), vcview, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetWnd(&self, vcview: TsViewCookie) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -376,52 +376,52 @@ pub struct ITextStoreACP_Vtbl {
     pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const TS_SELECTION_ACP) -> windows_core::HRESULT,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut u16, u32, *mut u32, *mut TS_RUNINFO, u32, *mut u32, *mut i32) -> windows_core::HRESULT,
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, i32, *const u16, u32, *mut TS_TEXTCHANGE) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetFormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetFormattedText: usize,
     pub GetEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidl", feature = "wtypes"))]
     pub QueryInsertEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::objidl::FORMATETC, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "objidl", feature = "wtypes")))]
     QueryInsertEmbedded: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub InsertEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, i32, *mut core::ffi::c_void, *mut TS_TEXTCHANGE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     InsertEmbedded: usize,
     pub InsertTextAtSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u16, u32, *mut i32, *mut i32, *mut TS_TEXTCHANGE) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub InsertEmbeddedAtSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut i32, *mut i32, *mut TS_TEXTCHANGE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     InsertEmbeddedAtSelection: usize,
     pub RequestSupportedAttrs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const TS_ATTRID) -> windows_core::HRESULT,
     pub RequestAttrsAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub RequestAttrsTransitioningAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub FindNextAttrTransition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, *const TS_ATTRID, u32, *mut i32, *mut windows_core::BOOL, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub RetrieveRequestedAttrs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut TS_ATTRVAL, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     RetrieveRequestedAttrs: usize,
     pub GetEndACP: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetActiveView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TsViewCookie) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetACPFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, TsViewCookie, *const super::windef::POINT, u32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetACPFromPoint: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetTextExt: unsafe extern "system" fn(*mut core::ffi::c_void, TsViewCookie, i32, i32, *mut super::windef::RECT, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetTextExt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetScreenExt: unsafe extern "system" fn(*mut core::ffi::c_void, TsViewCookie, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetScreenExt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetWnd: unsafe extern "system" fn(*mut core::ffi::c_void, TsViewCookie, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetWnd: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITextStoreACP_Impl: windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -450,7 +450,7 @@ pub trait ITextStoreACP_Impl: windows_core::IUnknownImpl {
     fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::windef::RECT>;
     fn GetWnd(&self, vcview: TsViewCookie) -> windows_core::Result<super::windef::HWND>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl ITextStoreACP_Vtbl {
     pub const fn new<Identity: ITextStoreACP_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
@@ -709,7 +709,7 @@ impl ITextStoreACP_Vtbl {
         iid == &<ITextStoreACP as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITextStoreACP {}
 windows_core::imp::define_interface!(ITextStoreACP2, ITextStoreACP2_Vtbl, 0xf86ad89f_5fe4_4b8d_bb9f_ef3797a84f1f);
 windows_core::imp::interface_hierarchy!(ITextStoreACP2, windows_core::IUnknown);
@@ -756,7 +756,7 @@ impl ITextStoreACP2 {
             (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pchtext, cch, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetFormattedText(&self, acpstart: i32, acpend: i32) -> windows_core::Result<super::objidl::IDataObject> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -770,14 +770,14 @@ impl ITextStoreACP2 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), acppos, rguidservice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidl", feature = "wtypes"))]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::objidl::FORMATETC) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryInsertEmbedded)(windows_core::Interface::as_raw(self), pguidservice, pformatetc, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn InsertEmbedded<P3>(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: P3) -> windows_core::Result<TS_TEXTCHANGE>
     where
         P3: windows_core::Param<super::objidl::IDataObject>,
@@ -790,7 +790,7 @@ impl ITextStoreACP2 {
     pub unsafe fn InsertTextAtSelection(&self, dwflags: u32, pchtext: *const u16, cch: u32, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, pchtext, cch, pacpstart as _, pacpend as _, pchange as _) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn InsertEmbeddedAtSelection<P1>(&self, dwflags: u32, pdataobject: P1, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IDataObject>,
@@ -809,7 +809,7 @@ impl ITextStoreACP2 {
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, cfilterattrs: u32, pafilterattrs: *const TS_ATTRID, dwflags: u32, pacpnext: *mut i32, pffound: *mut windows_core::BOOL, plfoundoffset: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), acpstart, acphalt, cfilterattrs, pafilterattrs, dwflags, pacpnext as _, pffound as _, plfoundoffset as _) }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(paattrvals), pcfetched as _) }
     }
@@ -825,18 +825,18 @@ impl ITextStoreACP2 {
             (windows_core::Interface::vtable(self).GetActiveView)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetACPFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::windef::POINT, dwflags: u32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetACPFromPoint)(windows_core::Interface::as_raw(self), vcview, ptscreen, dwflags, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetTextExt(&self, vcview: TsViewCookie, acpstart: i32, acpend: i32, prc: *mut super::windef::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), vcview, acpstart, acpend, prc as _, pfclipped as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -857,48 +857,48 @@ pub struct ITextStoreACP2_Vtbl {
     pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const TS_SELECTION_ACP) -> windows_core::HRESULT,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut u16, u32, *mut u32, *mut TS_RUNINFO, u32, *mut u32, *mut i32) -> windows_core::HRESULT,
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, i32, *const u16, u32, *mut TS_TEXTCHANGE) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetFormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetFormattedText: usize,
     pub GetEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidl", feature = "wtypes"))]
     pub QueryInsertEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::objidl::FORMATETC, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "objidl", feature = "wtypes")))]
     QueryInsertEmbedded: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub InsertEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, i32, *mut core::ffi::c_void, *mut TS_TEXTCHANGE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     InsertEmbedded: usize,
     pub InsertTextAtSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u16, u32, *mut i32, *mut i32, *mut TS_TEXTCHANGE) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub InsertEmbeddedAtSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut i32, *mut i32, *mut TS_TEXTCHANGE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     InsertEmbeddedAtSelection: usize,
     pub RequestSupportedAttrs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const TS_ATTRID) -> windows_core::HRESULT,
     pub RequestAttrsAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub RequestAttrsTransitioningAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub FindNextAttrTransition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, *const TS_ATTRID, u32, *mut i32, *mut windows_core::BOOL, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub RetrieveRequestedAttrs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut TS_ATTRVAL, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     RetrieveRequestedAttrs: usize,
     pub GetEndACP: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetActiveView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TsViewCookie) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetACPFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, TsViewCookie, *const super::windef::POINT, u32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetACPFromPoint: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetTextExt: unsafe extern "system" fn(*mut core::ffi::c_void, TsViewCookie, i32, i32, *mut super::windef::RECT, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetTextExt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetScreenExt: unsafe extern "system" fn(*mut core::ffi::c_void, TsViewCookie, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetScreenExt: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITextStoreACP2_Impl: windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -926,7 +926,7 @@ pub trait ITextStoreACP2_Impl: windows_core::IUnknownImpl {
     fn GetTextExt(&self, vcview: TsViewCookie, acpstart: i32, acpend: i32, prc: *mut super::windef::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::windef::RECT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl ITextStoreACP2_Vtbl {
     pub const fn new<Identity: ITextStoreACP2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
@@ -1172,7 +1172,7 @@ impl ITextStoreACP2_Vtbl {
         iid == &<ITextStoreACP2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITextStoreACP2 {}
 windows_core::imp::define_interface!(ITextStoreACPSink, ITextStoreACPSink_Vtbl, 0x22d44c94_a419_4542_a272_ae26093ececf);
 windows_core::imp::interface_hierarchy!(ITextStoreACPSink, windows_core::IUnknown);
@@ -1346,7 +1346,7 @@ impl ITextStoreAnchor {
     {
         unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, pastart.param().abi(), paend.param().abi(), pchtext, cch) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetFormattedText<P0, P1>(&self, pastart: P0, paend: P1) -> windows_core::Result<super::objidl::IDataObject>
     where
         P0: windows_core::Param<IAnchor>,
@@ -1365,7 +1365,7 @@ impl ITextStoreAnchor {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), dwflags, papos.param().abi(), rguidservice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn InsertEmbedded<P1, P2, P3>(&self, dwflags: u32, pastart: P1, paend: P2, pdataobject: P3) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IAnchor>,
@@ -1396,7 +1396,7 @@ impl ITextStoreAnchor {
     {
         unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), pastart.param().abi(), pahalt.param().abi(), cfilterattrs, pafilterattrs, dwflags, pffound as _, plfoundoffset as _) }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(paattrvals), pcfetched as _) }
     }
@@ -1418,14 +1418,14 @@ impl ITextStoreAnchor {
             (windows_core::Interface::vtable(self).GetActiveView)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetAnchorFromPoint(&self, vcview: TsViewCookie, ptscreen: *const super::windef::POINT, dwflags: u32) -> windows_core::Result<IAnchor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAnchorFromPoint)(windows_core::Interface::as_raw(self), vcview, ptscreen, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetTextExt<P1, P2>(&self, vcview: TsViewCookie, pastart: P1, paend: P2, prc: *mut super::windef::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IAnchor>,
@@ -1433,21 +1433,21 @@ impl ITextStoreAnchor {
     {
         unsafe { (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), vcview, pastart.param().abi(), paend.param().abi(), prc as _, pfclipped as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetScreenExt)(windows_core::Interface::as_raw(self), vcview, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetWnd(&self, vcview: TsViewCookie) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetWnd)(windows_core::Interface::as_raw(self), vcview, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidl", feature = "wtypes"))]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::objidl::FORMATETC) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1457,7 +1457,7 @@ impl ITextStoreAnchor {
     pub unsafe fn InsertTextAtSelection(&self, dwflags: u32, pchtext: *const u16, cch: u32, ppastart: *mut Option<IAnchor>, ppaend: *mut Option<IAnchor>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, pchtext, cch, core::mem::transmute(ppastart), core::mem::transmute(ppaend)) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn InsertEmbeddedAtSelection<P1>(&self, dwflags: u32, pdataobject: P1, ppastart: *mut Option<IAnchor>, ppaend: *mut Option<IAnchor>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IDataObject>,
@@ -1478,53 +1478,53 @@ pub struct ITextStoreAnchor_Vtbl {
     pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const TS_SELECTION_ANCHOR) -> windows_core::HRESULT,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut u16, u32, *mut u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *const u16, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetFormattedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetFormattedText: usize,
     pub GetEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub InsertEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     InsertEmbedded: usize,
     pub RequestSupportedAttrs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const TS_ATTRID) -> windows_core::HRESULT,
     pub RequestAttrsAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub RequestAttrsTransitioningAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub FindNextAttrTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const TS_ATTRID, u32, *mut windows_core::BOOL, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub RetrieveRequestedAttrs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut TS_ATTRVAL, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     RetrieveRequestedAttrs: usize,
     pub GetStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetEnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetActiveView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TsViewCookie) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetAnchorFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, TsViewCookie, *const super::windef::POINT, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetAnchorFromPoint: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetTextExt: unsafe extern "system" fn(*mut core::ffi::c_void, TsViewCookie, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::windef::RECT, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetTextExt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetScreenExt: unsafe extern "system" fn(*mut core::ffi::c_void, TsViewCookie, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetScreenExt: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetWnd: unsafe extern "system" fn(*mut core::ffi::c_void, TsViewCookie, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetWnd: usize,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "objidl", feature = "wtypes"))]
     pub QueryInsertEmbedded: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::objidl::FORMATETC, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "objidl", feature = "wtypes")))]
     QueryInsertEmbedded: usize,
     pub InsertTextAtSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u16, u32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub InsertEmbeddedAtSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     InsertEmbeddedAtSelection: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITextStoreAnchor_Impl: windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -1554,7 +1554,7 @@ pub trait ITextStoreAnchor_Impl: windows_core::IUnknownImpl {
     fn InsertTextAtSelection(&self, dwflags: u32, pchtext: *const u16, cch: u32, ppastart: windows_core::OutRef<IAnchor>, ppaend: windows_core::OutRef<IAnchor>) -> windows_core::Result<()>;
     fn InsertEmbeddedAtSelection(&self, dwflags: u32, pdataobject: windows_core::Ref<super::objidl::IDataObject>, ppastart: windows_core::OutRef<IAnchor>, ppaend: windows_core::OutRef<IAnchor>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl ITextStoreAnchor_Vtbl {
     pub const fn new<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
@@ -1814,7 +1814,7 @@ impl ITextStoreAnchor_Vtbl {
         iid == &<ITextStoreAnchor as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITextStoreAnchor {}
 windows_core::imp::define_interface!(ITextStoreAnchorSink, ITextStoreAnchorSink_Vtbl, 0xaa80e905_2021_11d2_93e0_0060b067b86e);
 windows_core::imp::interface_hierarchy!(ITextStoreAnchorSink, windows_core::IUnknown);
@@ -1953,19 +1953,19 @@ pub const TS_AS_STATUS_CHANGE: u32 = 16;
 pub const TS_AS_TEXT_CHANGE: u32 = 1;
 pub type TS_ATTRID = windows_core::GUID;
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub struct TS_ATTRVAL {
     pub idAttr: TS_ATTRID,
     pub dwOverlapId: u32,
     pub varValue: super::oaidl::VARIANT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for TS_ATTRVAL {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for TS_ATTRVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

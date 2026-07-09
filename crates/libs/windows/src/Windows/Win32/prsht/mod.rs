@@ -1,10 +1,10 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[inline]
 pub unsafe fn CreatePropertySheetPageA(constpropsheetpagepointer: LPCPROPSHEETPAGEA) -> HPROPSHEETPAGE {
     windows_core::link!("comctl32.dll" "system" fn CreatePropertySheetPageA(constpropsheetpagepointer : LPCPROPSHEETPAGEA) -> HPROPSHEETPAGE);
     unsafe { CreatePropertySheetPageA(constpropsheetpagepointer) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[inline]
 pub unsafe fn CreatePropertySheetPageW(constpropsheetpagepointer: LPCPROPSHEETPAGEW) -> HPROPSHEETPAGE {
     windows_core::link!("comctl32.dll" "system" fn CreatePropertySheetPageW(constpropsheetpagepointer : LPCPROPSHEETPAGEW) -> HPROPSHEETPAGE);
@@ -15,13 +15,13 @@ pub unsafe fn DestroyPropertySheetPage(param0: *mut _PSP) -> windows_core::BOOL 
     windows_core::link!("comctl32.dll" "system" fn DestroyPropertySheetPage(param0 : *mut _PSP) -> windows_core::BOOL);
     unsafe { DestroyPropertySheetPage(param0 as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[inline]
 pub unsafe fn PropertySheetA(param0: LPCPROPSHEETHEADERA) -> isize {
     windows_core::link!("comctl32.dll" "system" fn PropertySheetA(param0 : LPCPROPSHEETHEADERA) -> isize);
     unsafe { PropertySheetA(param0) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[inline]
 pub unsafe fn PropertySheetW(param0: LPCPROPSHEETHEADERW) -> isize {
     windows_core::link!("comctl32.dll" "system" fn PropertySheetW(param0 : LPCPROPSHEETHEADERW) -> isize);
@@ -42,469 +42,469 @@ impl Default for HPROPSHEETPAGE {
 }
 pub const ID_PSREBOOTSYSTEM: u32 = 3;
 pub const ID_PSRESTARTWINDOWS: u32 = 2;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPCPROPSHEETHEADERA(pub LPCPROPSHEETHEADERA_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETHEADERA_V1(pub *const PROPSHEETHEADERA_V1);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETHEADERA_V1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETHEADERA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETHEADERA_V2(pub *const PROPSHEETHEADERA_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETHEADERA_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETHEADERA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPCPROPSHEETHEADERW(pub LPCPROPSHEETHEADERW_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETHEADERW_V1(pub *const PROPSHEETHEADERW_V1);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETHEADERW_V1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETHEADERW_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETHEADERW_V2(pub *const PROPSHEETHEADERW_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETHEADERW_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETHEADERW_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPCPROPSHEETPAGEA(pub LPCPROPSHEETPAGEA_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPCPROPSHEETPAGEA_LATEST(pub LPCPROPSHEETPAGEA_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETPAGEA_V1(pub *const PROPSHEETPAGEA_V1);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETPAGEA_V1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETPAGEA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETPAGEA_V2(pub *const PROPSHEETPAGEA_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETPAGEA_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETPAGEA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETPAGEA_V3(pub *const PROPSHEETPAGEA_V3);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETPAGEA_V3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETPAGEA_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETPAGEA_V4(pub *const PROPSHEETPAGEA_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETPAGEA_V4 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETPAGEA_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPCPROPSHEETPAGEW(pub LPCPROPSHEETPAGEW_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPCPROPSHEETPAGEW_LATEST(pub LPCPROPSHEETPAGEW_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETPAGEW_V1(pub *const PROPSHEETPAGEW_V1);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETPAGEW_V1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETPAGEW_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETPAGEW_V2(pub *const PROPSHEETPAGEW_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETPAGEW_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETPAGEW_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETPAGEW_V3(pub *const PROPSHEETPAGEW_V3);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETPAGEW_V3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETPAGEW_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCPROPSHEETPAGEW_V4(pub *const PROPSHEETPAGEW_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPCPROPSHEETPAGEW_V4 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPCPROPSHEETPAGEW_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPFNADDPROPSHEETPAGE = Option<unsafe extern "system" fn(param0: *mut _PSP, param1: super::minwindef::LPARAM) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPFNADDPROPSHEETPAGES = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: LPFNADDPROPSHEETPAGE, param2: super::minwindef::LPARAM) -> windows_core::BOOL>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type LPFNPSPCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, umsg: u32, ppsp: *mut PROPSHEETPAGEA_V4) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type LPFNPSPCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, umsg: u32, ppsp: *mut PROPSHEETPAGEW_V4) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPPROPSHEETHEADERA(pub LPPROPSHEETHEADERA_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETHEADERA_V1(pub *mut PROPSHEETHEADERA_V1);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETHEADERA_V1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETHEADERA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETHEADERA_V2(pub *mut PROPSHEETHEADERA_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETHEADERA_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETHEADERA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPPROPSHEETHEADERW(pub LPPROPSHEETHEADERW_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETHEADERW_V1(pub *mut PROPSHEETHEADERW_V1);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETHEADERW_V1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETHEADERW_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETHEADERW_V2(pub *mut PROPSHEETHEADERW_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETHEADERW_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETHEADERW_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPPROPSHEETPAGEA(pub LPPROPSHEETPAGEA_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPPROPSHEETPAGEA_LATEST(pub LPPROPSHEETPAGEA_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETPAGEA_V1(pub *mut PROPSHEETPAGEA_V1);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETPAGEA_V1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETPAGEA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETPAGEA_V2(pub *mut PROPSHEETPAGEA_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETPAGEA_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETPAGEA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETPAGEA_V3(pub *mut PROPSHEETPAGEA_V3);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETPAGEA_V3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETPAGEA_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETPAGEA_V4(pub *mut PROPSHEETPAGEA_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETPAGEA_V4 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETPAGEA_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPPROPSHEETPAGEW(pub LPPROPSHEETPAGEW_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPPROPSHEETPAGEW_LATEST(pub LPPROPSHEETPAGEW_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETPAGEW_V1(pub *mut PROPSHEETPAGEW_V1);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETPAGEW_V1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETPAGEW_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETPAGEW_V2(pub *mut PROPSHEETPAGEW_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETPAGEW_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETPAGEW_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETPAGEW_V3(pub *mut PROPSHEETPAGEW_V3);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETPAGEW_V3 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETPAGEW_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROPSHEETPAGEW_V4(pub *mut PROPSHEETPAGEW_V4);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl LPPROPSHEETPAGEW_V4 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for LPPROPSHEETPAGEW_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPSHNOTIFY(pub *mut PSHNOTIFY);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl LPPSHNOTIFY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl Default for LPPSHNOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const MAXPROPPAGES: u32 = 100;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PFNPROPSHEETCALLBACK = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: super::minwindef::LPARAM) -> i32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PROPSHEETHEADERA = PROPSHEETHEADERA_V2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETHEADERA_V1 {
     pub dwSize: u32,
@@ -518,53 +518,53 @@ pub struct PROPSHEETHEADERA_V1 {
     pub Anonymous3: PROPSHEETHEADERA_V1_2,
     pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V1_0 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERA_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V1_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERA_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V1_2 {
     pub ppsp: LPCPROPSHEETPAGEA,
     pub phpage: *mut HPROPSHEETPAGE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERA_V1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETHEADERA_V2 {
     pub dwSize: u32,
@@ -581,81 +581,81 @@ pub struct PROPSHEETHEADERA_V2 {
     pub hplWatermark: super::windef::HPALETTE,
     pub Anonymous5: PROPSHEETHEADERA_V2_4,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_0 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERA_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERA_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_2 {
     pub ppsp: LPCPROPSHEETPAGEA,
     pub phpage: *mut HPROPSHEETPAGE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERA_V2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_3 {
     pub hbmWatermark: super::windef::HBITMAP,
     pub pszbmWatermark: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERA_V2_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_4 {
     pub hbmHeader: super::windef::HBITMAP,
     pub pszbmHeader: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERA_V2_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PROPSHEETHEADERW = PROPSHEETHEADERW_V2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETHEADERW_V1 {
     pub dwSize: u32,
@@ -669,53 +669,53 @@ pub struct PROPSHEETHEADERW_V1 {
     pub Anonymous3: PROPSHEETHEADERW_V1_2,
     pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERW_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V1_0 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERW_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V1_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERW_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V1_2 {
     pub ppsp: LPCPROPSHEETPAGEW,
     pub phpage: *mut HPROPSHEETPAGE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERW_V1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETHEADERW_V2 {
     pub dwSize: u32,
@@ -732,72 +732,72 @@ pub struct PROPSHEETHEADERW_V2 {
     pub hplWatermark: super::windef::HPALETTE,
     pub Anonymous5: PROPSHEETHEADERW_V2_4,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERW_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_0 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERW_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERW_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_2 {
     pub ppsp: LPCPROPSHEETPAGEW,
     pub phpage: *mut HPROPSHEETPAGE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERW_V2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_3 {
     pub hbmWatermark: super::windef::HBITMAP,
     pub pszbmWatermark: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERW_V2_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_4 {
     pub hbmHeader: super::windef::HBITMAP,
     pub pszbmHeader: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETHEADERW_V2_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -811,12 +811,12 @@ pub const PROPSHEETHEADER_V1_SIZE: u32 = 72;
 pub const PROPSHEETHEADER_V2_SIZE: u32 = 52;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const PROPSHEETHEADER_V2_SIZE: u32 = 96;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PROPSHEETPAGEA = PROPSHEETPAGEA_V4;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PROPSHEETPAGEA_LATEST = PROPSHEETPAGEA_V4;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEA_V1 {
     pub dwSize: u32,
@@ -830,40 +830,40 @@ pub struct PROPSHEETPAGEA_V1 {
     pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V1_0 {
     pub pszTemplate: windows_core::PCSTR,
     pub pResource: PROPSHEETPAGE_RESOURCE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V1_1 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEA_V2 {
     pub dwSize: u32,
@@ -879,40 +879,40 @@ pub struct PROPSHEETPAGEA_V2 {
     pub pszHeaderTitle: windows_core::PCSTR,
     pub pszHeaderSubTitle: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V2_0 {
     pub pszTemplate: windows_core::PCSTR,
     pub pResource: PROPSHEETPAGE_RESOURCE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V2_1 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEA_V3 {
     pub dwSize: u32,
@@ -929,40 +929,40 @@ pub struct PROPSHEETPAGEA_V3 {
     pub pszHeaderSubTitle: windows_core::PCSTR,
     pub hActCtx: super::winnt::HANDLE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V3_0 {
     pub pszTemplate: windows_core::PCSTR,
     pub pResource: PROPSHEETPAGE_RESOURCE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V3_1 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEA_V4 {
     pub dwSize: u32,
@@ -980,57 +980,57 @@ pub struct PROPSHEETPAGEA_V4 {
     pub hActCtx: super::winnt::HANDLE,
     pub Anonymous3: PROPSHEETPAGEA_V4_2,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V4_0 {
     pub pszTemplate: windows_core::PCSTR,
     pub pResource: PROPSHEETPAGE_RESOURCE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V4_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V4_1 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V4_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V4_2 {
     pub hbmHeader: super::windef::HBITMAP,
     pub pszbmHeader: windows_core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEA_V4_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PROPSHEETPAGEW = PROPSHEETPAGEW_V4;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PROPSHEETPAGEW_LATEST = PROPSHEETPAGEW_V4;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEW_V1 {
     pub dwSize: u32,
@@ -1044,40 +1044,40 @@ pub struct PROPSHEETPAGEW_V1 {
     pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V1_0 {
     pub pszTemplate: windows_core::PCWSTR,
     pub pResource: PROPSHEETPAGE_RESOURCE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V1_1 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEW_V2 {
     pub dwSize: u32,
@@ -1093,40 +1093,40 @@ pub struct PROPSHEETPAGEW_V2 {
     pub pszHeaderTitle: windows_core::PCWSTR,
     pub pszHeaderSubTitle: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V2_0 {
     pub pszTemplate: windows_core::PCWSTR,
     pub pResource: PROPSHEETPAGE_RESOURCE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V2_1 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEW_V3 {
     pub dwSize: u32,
@@ -1143,40 +1143,40 @@ pub struct PROPSHEETPAGEW_V3 {
     pub pszHeaderSubTitle: windows_core::PCWSTR,
     pub hActCtx: super::winnt::HANDLE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V3_0 {
     pub pszTemplate: windows_core::PCWSTR,
     pub pResource: PROPSHEETPAGE_RESOURCE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V3_1 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEW_V4 {
     pub dwSize: u32,
@@ -1194,52 +1194,52 @@ pub struct PROPSHEETPAGEW_V4 {
     pub hActCtx: super::winnt::HANDLE,
     pub Anonymous3: PROPSHEETPAGEW_V4_2,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V4_0 {
     pub pszTemplate: windows_core::PCWSTR,
     pub pResource: PROPSHEETPAGE_RESOURCE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V4_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V4_1 {
     pub hIcon: super::windef::HICON,
     pub pszIcon: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V4_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V4_2 {
     pub hbmHeader: super::windef::HBITMAP,
     pub pszbmHeader: windows_core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for PROPSHEETPAGEW_V4_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winuser")]
+#[cfg(feature = "winuser")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PROPSHEETPAGE_RESOURCE(pub super::winuser::LPCDLGTEMPLATE);
@@ -1269,7 +1269,7 @@ pub const PSCB_BUTTONPRESSED: u32 = 3;
 pub const PSCB_INITIALIZED: u32 = 1;
 pub const PSCB_PRECREATE: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PSHNOTIFY {
     pub hdr: super::winuser::NMHDR,

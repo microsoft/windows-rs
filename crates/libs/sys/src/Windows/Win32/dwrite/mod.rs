@@ -73,10 +73,10 @@ pub const DWRITE_COLOR_COMPOSITE_SRC_IN: DWRITE_COLOR_COMPOSITE_MODE = 5;
 pub const DWRITE_COLOR_COMPOSITE_SRC_OUT: DWRITE_COLOR_COMPOSITE_MODE = 7;
 pub const DWRITE_COLOR_COMPOSITE_SRC_OVER: DWRITE_COLOR_COMPOSITE_MODE = 3;
 pub const DWRITE_COLOR_COMPOSITE_XOR: DWRITE_COLOR_COMPOSITE_MODE = 11;
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 pub type DWRITE_COLOR_F = super::dxgi::D3DCOLORVALUE;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy)]
 pub struct DWRITE_COLOR_GLYPH_RUN {
     pub glyphRun: DWRITE_GLYPH_RUN,
@@ -86,14 +86,14 @@ pub struct DWRITE_COLOR_GLYPH_RUN {
     pub runColor: DWRITE_COLOR_F,
     pub paletteIndex: u16,
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl Default for DWRITE_COLOR_GLYPH_RUN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_COLOR_GLYPH_RUN1 {
     pub Base: DWRITE_COLOR_GLYPH_RUN,
@@ -366,7 +366,7 @@ pub const DWRITE_FONT_WEIGHT_ULTRA_BLACK: DWRITE_FONT_WEIGHT = 950;
 pub const DWRITE_FONT_WEIGHT_ULTRA_BOLD: DWRITE_FONT_WEIGHT = 800;
 pub const DWRITE_FONT_WEIGHT_ULTRA_LIGHT: DWRITE_FONT_WEIGHT = 200;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub imageData: *const core::ffi::c_void,
@@ -379,7 +379,7 @@ pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub verticalTopOrigin: super::dcommon::D2D_POINT_2L,
     pub verticalBottomOrigin: super::dcommon::D2D_POINT_2L,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 impl Default for DWRITE_GLYPH_IMAGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -572,7 +572,7 @@ pub const DWRITE_PAINT_ATTRIBUTES_NONE: DWRITE_PAINT_ATTRIBUTES = 0;
 pub const DWRITE_PAINT_ATTRIBUTES_USES_PALETTE: DWRITE_PAINT_ATTRIBUTES = 1;
 pub const DWRITE_PAINT_ATTRIBUTES_USES_TEXT_COLOR: DWRITE_PAINT_ATTRIBUTES = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_PAINT_COLOR {
     pub value: DWRITE_COLOR_F,
@@ -581,20 +581,20 @@ pub struct DWRITE_PAINT_COLOR {
     pub colorAttributes: DWRITE_PAINT_ATTRIBUTES,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 #[derive(Clone, Copy)]
 pub struct DWRITE_PAINT_ELEMENT {
     pub paintType: DWRITE_PAINT_TYPE,
     pub paint: DWRITE_PAINT_ELEMENT_0,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 impl Default for DWRITE_PAINT_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 #[derive(Clone, Copy)]
 pub union DWRITE_PAINT_ELEMENT_0 {
     pub layers: DWRITE_PAINT_ELEMENT_0_0,
@@ -608,7 +608,7 @@ pub union DWRITE_PAINT_ELEMENT_0 {
     pub transform: DWRITE_MATRIX,
     pub composite: DWRITE_PAINT_ELEMENT_0_7,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 impl Default for DWRITE_PAINT_ELEMENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -620,7 +620,7 @@ pub struct DWRITE_PAINT_ELEMENT_0_0 {
     pub childCount: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_PAINT_ELEMENT_0_1 {
     pub glyphIndex: u32,
@@ -666,7 +666,7 @@ pub struct DWRITE_PAINT_ELEMENT_0_5 {
     pub glyphIndex: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_PAINT_ELEMENT_0_6 {
     pub glyphIndex: u32,
@@ -1138,7 +1138,7 @@ pub struct DWRITE_SHAPING_TEXT_PROPERTIES {
 }
 pub const DWRITE_STANDARD_FONT_AXIS_COUNT: u32 = 5;
 #[repr(C)]
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 #[derive(Clone, Copy)]
 pub struct DWRITE_STRIKETHROUGH {
     pub width: f32,
@@ -1149,7 +1149,7 @@ pub struct DWRITE_STRIKETHROUGH {
     pub localeName: *const u16,
     pub measuringMode: super::dcommon::DWRITE_MEASURING_MODE,
 }
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 impl Default for DWRITE_STRIKETHROUGH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1214,7 +1214,7 @@ impl Default for DWRITE_TYPOGRAPHIC_FEATURES {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 #[derive(Clone, Copy)]
 pub struct DWRITE_UNDERLINE {
     pub width: f32,
@@ -1226,7 +1226,7 @@ pub struct DWRITE_UNDERLINE {
     pub localeName: *const u16,
     pub measuringMode: super::dcommon::DWRITE_MEASURING_MODE,
 }
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 impl Default for DWRITE_UNDERLINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

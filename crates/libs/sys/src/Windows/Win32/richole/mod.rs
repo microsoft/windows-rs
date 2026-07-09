@@ -4,7 +4,7 @@ pub const RECO_DRAG: u32 = 4;
 pub const RECO_DROP: u32 = 1;
 pub const RECO_PASTE: u32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct REOBJECT {
     pub cbStruct: u32,
@@ -18,7 +18,7 @@ pub struct REOBJECT {
     pub dwFlags: u32,
     pub dwUser: u32,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef"))]
 impl Default for REOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

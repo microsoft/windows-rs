@@ -1,18 +1,18 @@
-#[cfg(all(feature = "Win32_hidclass", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "hidclass", feature = "minwindef"))]
 pub type EVT_VHF_ASYNC_OPERATION = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void, vhfoperationhandle: VHFOPERATIONHANDLE, vhfoperationcontext: *const core::ffi::c_void, hidtransferpacket: *const super::hidclass::HID_XFER_PACKET)>;
 pub type EVT_VHF_CLEANUP = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void)>;
 pub type EVT_VHF_READY_FOR_NEXT_READ_REPORT = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void)>;
-#[cfg(all(feature = "Win32_hidclass", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "hidclass", feature = "minwindef"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEVT_VHF_ASYNC_OPERATION(pub *mut EVT_VHF_ASYNC_OPERATION);
-#[cfg(all(feature = "Win32_hidclass", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "hidclass", feature = "minwindef"))]
 impl PEVT_VHF_ASYNC_OPERATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_hidclass", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "hidclass", feature = "minwindef"))]
 impl Default for PEVT_VHF_ASYNC_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -44,17 +44,17 @@ impl Default for PEVT_VHF_READY_FOR_NEXT_READ_REPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_hidclass", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PVHF_CONFIG(pub *mut VHF_CONFIG);
-#[cfg(all(feature = "Win32_hidclass", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
 impl PVHF_CONFIG {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_hidclass", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
 impl Default for PVHF_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -87,7 +87,7 @@ impl Default for VHFOPERATIONHANDLE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_hidclass", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VHF_CONFIG {
     pub Size: u32,
@@ -111,7 +111,7 @@ pub struct VHF_CONFIG {
     pub HardwareIDsLength: u16,
     pub HardwareIDs: windows_core::PWSTR,
 }
-#[cfg(all(feature = "Win32_hidclass", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
 impl Default for VHF_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -8,19 +8,19 @@ pub unsafe fn RasClearLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32) -> u32
     windows_core::link!("rasapi32.dll" "system" fn RasClearLinkStatistics(hrasconn : HRASCONN, dwsubentry : u32) -> u32);
     unsafe { RasClearLinkStatistics(hrasconn, dwsubentry) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RasConnectionNotificationA(param0: HRASCONN, param1: super::winnt::HANDLE, param2: u32) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasConnectionNotificationA(param0 : HRASCONN, param1 : super::winnt::HANDLE, param2 : u32) -> u32);
     unsafe { RasConnectionNotificationA(param0, param1, param2) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RasConnectionNotificationW(param0: HRASCONN, param1: super::winnt::HANDLE, param2: u32) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasConnectionNotificationW(param0 : HRASCONN, param1 : super::winnt::HANDLE, param2 : u32) -> u32);
     unsafe { RasConnectionNotificationW(param0, param1, param2) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasCreatePhonebookEntryA<P1>(param0: super::windef::HWND, param1: P1) -> u32
 where
@@ -29,7 +29,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasCreatePhonebookEntryA(param0 : super::windef::HWND, param1 : windows_core::PCSTR) -> u32);
     unsafe { RasCreatePhonebookEntryA(param0, param1.param().abi()) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasCreatePhonebookEntryW<P1>(param0: super::windef::HWND, param1: P1) -> u32
 where
@@ -74,7 +74,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasDeleteSubEntryW(pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, dwsubentryid : u32) -> u32);
     unsafe { RasDeleteSubEntryW(pszphonebook.param().abi(), pszentry.param().abi(), dwsubentryid) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasDialA<P1>(param0: Option<*const tagRASDIALEXTENSIONS>, param1: P1, param2: *const tagRASDIALPARAMSA, param3: u32, param4: Option<*const core::ffi::c_void>, param5: *mut HRASCONN) -> u32
 where
@@ -83,7 +83,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasDialA(param0 : *const tagRASDIALEXTENSIONS, param1 : windows_core::PCSTR, param2 : *const tagRASDIALPARAMSA, param3 : u32, param4 : *const core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
     unsafe { RasDialA(param0.unwrap_or(core::mem::zeroed()) as _, param1.param().abi(), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5 as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasDialW<P1>(param0: Option<*const tagRASDIALEXTENSIONS>, param1: P1, param2: *const tagRASDIALPARAMSW, param3: u32, param4: Option<*const core::ffi::c_void>, param5: *mut HRASCONN) -> u32
 where
@@ -92,7 +92,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasDialW(param0 : *const tagRASDIALEXTENSIONS, param1 : windows_core::PCWSTR, param2 : *const tagRASDIALPARAMSW, param3 : u32, param4 : *const core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
     unsafe { RasDialW(param0.unwrap_or(core::mem::zeroed()) as _, param1.param().abi(), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5 as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasEditPhonebookEntryA<P1, P2>(param0: super::windef::HWND, param1: P1, param2: P2) -> u32
 where
@@ -102,7 +102,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasEditPhonebookEntryA(param0 : super::windef::HWND, param1 : windows_core::PCSTR, param2 : windows_core::PCSTR) -> u32);
     unsafe { RasEditPhonebookEntryA(param0, param1.param().abi(), param2.param().abi()) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasEditPhonebookEntryW<P1, P2>(param0: super::windef::HWND, param1: P1, param2: P2) -> u32
 where
@@ -122,13 +122,13 @@ pub unsafe fn RasEnumAutodialAddressesW(lpprasautodialaddresses: Option<*mut win
     windows_core::link!("rasapi32.dll" "system" fn RasEnumAutodialAddressesW(lpprasautodialaddresses : *mut windows_core::PWSTR, lpdwcbrasautodialaddresses : *mut u32, lpdwcrasautodialaddresses : *mut u32) -> u32);
     unsafe { RasEnumAutodialAddressesW(lpprasautodialaddresses.unwrap_or(core::mem::zeroed()) as _, lpdwcbrasautodialaddresses as _, lpdwcrasautodialaddresses as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RasEnumConnectionsA(param0: Option<*mut tagRASCONNA>, param1: *mut u32, param2: *mut u32) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasEnumConnectionsA(param0 : *mut tagRASCONNA, param1 : *mut u32, param2 : *mut u32) -> u32);
     unsafe { RasEnumConnectionsA(param0.unwrap_or(core::mem::zeroed()) as _, param1 as _, param2 as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RasEnumConnectionsW(param0: Option<*mut tagRASCONNW>, param1: *mut u32, param2: *mut u32) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasEnumConnectionsW(param0 : *mut tagRASCONNW, param1 : *mut u32, param2 : *mut u32) -> u32);
@@ -208,13 +208,13 @@ pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut core::ffi::c_void, 
     windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialParamW(param0 : u32, param1 : *mut core::ffi::c_void, param2 : *mut u32) -> u32);
     unsafe { RasGetAutodialParamW(param0, param1 as _, param2 as _) }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[inline]
 pub unsafe fn RasGetConnectStatusA(param0: HRASCONN, param1: *mut tagRASCONNSTATUSA) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetConnectStatusA(param0 : HRASCONN, param1 : *mut tagRASCONNSTATUSA) -> u32);
     unsafe { RasGetConnectStatusA(param0, param1 as _) }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[inline]
 pub unsafe fn RasGetConnectStatusW(param0: HRASCONN, param1: *mut tagRASCONNSTATUSW) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetConnectStatusW(param0 : HRASCONN, param1 : *mut tagRASCONNSTATUSW) -> u32);
@@ -271,7 +271,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasGetCustomAuthDataW(pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, pbcustomauthdata : *mut u8, pdwsizeofcustomauthdata : *mut u32) -> u32);
     unsafe { RasGetCustomAuthDataW(pszphonebook.param().abi(), pszentry.param().abi(), pbcustomauthdata.unwrap_or(core::mem::zeroed()) as _, pdwsizeofcustomauthdata as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RasGetEapUserDataA<P1, P2>(htoken: Option<super::winnt::HANDLE>, pszphonebook: P1, pszentry: P2, pbeapdata: Option<*mut u8>, pdwsizeofeapdata: *mut u32) -> u32
 where
@@ -281,7 +281,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasGetEapUserDataA(htoken : super::winnt::HANDLE, pszphonebook : windows_core::PCSTR, pszentry : windows_core::PCSTR, pbeapdata : *mut u8, pdwsizeofeapdata : *mut u32) -> u32);
     unsafe { RasGetEapUserDataA(htoken.unwrap_or(core::mem::zeroed()) as _, pszphonebook.param().abi(), pszentry.param().abi(), pbeapdata.unwrap_or(core::mem::zeroed()) as _, pdwsizeofeapdata as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RasGetEapUserDataW<P1, P2>(htoken: Option<super::winnt::HANDLE>, pszphonebook: P1, pszentry: P2, pbeapdata: Option<*mut u8>, pdwsizeofeapdata: *mut u32) -> u32
 where
@@ -291,7 +291,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasGetEapUserDataW(htoken : super::winnt::HANDLE, pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, pbeapdata : *mut u8, pdwsizeofeapdata : *mut u32) -> u32);
     unsafe { RasGetEapUserDataW(htoken.unwrap_or(core::mem::zeroed()) as _, pszphonebook.param().abi(), pszentry.param().abi(), pbeapdata.unwrap_or(core::mem::zeroed()) as _, pdwsizeofeapdata as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasGetEapUserIdentityA<P0, P1>(pszphonebook: P0, pszentry: P1, dwflags: u32, hwnd: super::windef::HWND, ppraseapuseridentity: *mut *mut tagRASEAPUSERIDENTITYA) -> u32
 where
@@ -301,7 +301,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasGetEapUserIdentityA(pszphonebook : windows_core::PCSTR, pszentry : windows_core::PCSTR, dwflags : u32, hwnd : super::windef::HWND, ppraseapuseridentity : *mut *mut tagRASEAPUSERIDENTITYA) -> u32);
     unsafe { RasGetEapUserIdentityA(pszphonebook.param().abi(), pszentry.param().abi(), dwflags, hwnd, ppraseapuseridentity as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasGetEapUserIdentityW<P0, P1>(pszphonebook: P0, pszentry: P1, dwflags: u32, hwnd: super::windef::HWND, ppraseapuseridentity: *mut *mut tagRASEAPUSERIDENTITYW) -> u32
 where
@@ -327,7 +327,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsW(param0 : windows_core::PCWSTR, param1 : *mut tagRASDIALPARAMSW, param2 : *mut windows_core::BOOL) -> u32);
     unsafe { RasGetEntryDialParamsW(param0.param().abi(), param1 as _, param2 as _) }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[inline]
 pub unsafe fn RasGetEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: Option<*mut tagRASENTRYA>, param3: *mut u32, param4: Option<*mut u8>, param5: Option<*mut u32>) -> u32
 where
@@ -337,7 +337,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *mut tagRASENTRYA, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
     unsafe { RasGetEntryPropertiesA(param0.param().abi(), param1.param().abi(), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[inline]
 pub unsafe fn RasGetEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: Option<*mut tagRASENTRYW>, param3: *mut u32, param4: Option<*mut u8>, param5: Option<*mut u32>) -> u32
 where
@@ -372,7 +372,7 @@ pub unsafe fn RasGetProjectionInfoA(param0: HRASCONN, param1: tagRASPROJECTION, 
     windows_core::link!("rasapi32.dll" "system" fn RasGetProjectionInfoA(param0 : HRASCONN, param1 : tagRASPROJECTION, param2 : *mut core::ffi::c_void, param3 : *mut u32) -> u32);
     unsafe { RasGetProjectionInfoA(param0, param1, param2 as _, param3 as _) }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[inline]
 pub unsafe fn RasGetProjectionInfoEx(hrasconn: HRASCONN, prasprojection: Option<*mut RAS_PROJECTION_INFO>, lpdwsize: *mut u32) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetProjectionInfoEx(hrasconn : HRASCONN, prasprojection : *mut RAS_PROJECTION_INFO, lpdwsize : *mut u32) -> u32);
@@ -421,7 +421,7 @@ pub unsafe fn RasHangUpW(param0: HRASCONN) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasHangUpW(param0 : HRASCONN) -> u32);
     unsafe { RasHangUpW(param0) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasInvokeEapUI(param0: HRASCONN, param1: u32, param2: *const tagRASDIALEXTENSIONS, param3: super::windef::HWND) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasInvokeEapUI(param0 : HRASCONN, param1 : u32, param2 : *const tagRASDIALEXTENSIONS, param3 : super::windef::HWND) -> u32);
@@ -519,7 +519,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataW(pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
     unsafe { RasSetCustomAuthDataW(pszphonebook.param().abi(), pszentry.param().abi(), core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RasSetEapUserDataA<P1, P2>(htoken: Option<super::winnt::HANDLE>, pszphonebook: P1, pszentry: P2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32
 where
@@ -529,7 +529,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasSetEapUserDataA(htoken : super::winnt::HANDLE, pszphonebook : windows_core::PCSTR, pszentry : windows_core::PCSTR, pbeapdata : *const u8, dwsizeofeapdata : u32) -> u32);
     unsafe { RasSetEapUserDataA(htoken.unwrap_or(core::mem::zeroed()) as _, pszphonebook.param().abi(), pszentry.param().abi(), pbeapdata, dwsizeofeapdata) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn RasSetEapUserDataW<P1, P2>(htoken: Option<super::winnt::HANDLE>, pszphonebook: P1, pszentry: P2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32
 where
@@ -555,7 +555,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsW(param0 : windows_core::PCWSTR, param1 : *const tagRASDIALPARAMSW, param2 : windows_core::BOOL) -> u32);
     unsafe { RasSetEntryDialParamsW(param0.param().abi(), param1, param2.into()) }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[inline]
 pub unsafe fn RasSetEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: *const tagRASENTRYA, param3: u32, param4: Option<*const u8>, param5: u32) -> u32
 where
@@ -565,7 +565,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *const tagRASENTRYA, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
     unsafe { RasSetEntryPropertiesA(param0.param().abi(), param1.param().abi(), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5) }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[inline]
 pub unsafe fn RasSetEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: *const tagRASENTRYW, param3: u32, param4: Option<*const u8>, param5: u32) -> u32
 where
@@ -593,7 +593,7 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : u32, param3 : *const tagRASSUBENTRYW, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
     unsafe { RasSetSubEntryPropertiesW(param0.param().abi(), param1.param().abi(), param2, param3, param4, param5.unwrap_or(core::mem::zeroed()) as _, param6) }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[inline]
 pub unsafe fn RasUpdateConnection(hrasconn: HRASCONN, lprasupdateconn: *const tagRASUPDATECONN) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasUpdateConnection(hrasconn : HRASCONN, lprasupdateconn : *const tagRASUPDATECONN) -> u32);
@@ -648,18 +648,18 @@ pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED2: IKEV2_ID_PAYLOAD_TYPE = 6;
 pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED3: IKEV2_ID_PAYLOAD_TYPE = 7;
 pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED4: IKEV2_ID_PAYLOAD_TYPE = 8;
 pub const IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR: IKEV2_ID_PAYLOAD_TYPE = 3;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type ORASADFUNC = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: windows_core::PCSTR, param2: u32, param3: *mut u32) -> windows_core::BOOL>;
 pub type PFNRASFREEBUFFER = Option<unsafe extern "system" fn(pbufer: *mut u8) -> u32>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFNRASGETBUFFER = Option<unsafe extern "system" fn(ppbuffer: *mut super::minwindef::PBYTE, pdwsize: *mut u32) -> u32>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFNRASRECEIVEBUFFER = Option<unsafe extern "system" fn(hport: super::winnt::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32, dwtimeout: u32, hevent: super::winnt::HANDLE) -> u32>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFNRASRETRIEVEBUFFER = Option<unsafe extern "system" fn(hport: super::winnt::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32) -> u32>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFNRASSENDBUFFER = Option<unsafe extern "system" fn(hport: super::winnt::HANDLE, pbuffer: *mut u8, dwsize: u32) -> u32>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFNRASSETCOMMSETTINGS = Option<unsafe extern "system" fn(hport: super::winnt::HANDLE, prascommsettings: *mut tagRASCOMMSETTINGS, pvreserved: *mut core::ffi::c_void) -> u32>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -674,49 +674,49 @@ impl Default for PRASDEVSPECIFICINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRASIKEV2_PROJECTION_INFO(pub *mut RASIKEV2_PROJECTION_INFO);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl PRASIKEV2_PROJECTION_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for PRASIKEV2_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRASPPP_PROJECTION_INFO(pub *mut RASPPP_PROJECTION_INFO);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl PRASPPP_PROJECTION_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for PRASPPP_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRAS_PROJECTION_INFO(pub *mut RAS_PROJECTION_INFO);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl PRAS_PROJECTION_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for PRAS_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -738,9 +738,9 @@ impl Default for PRAS_STATS {
 pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = 2;
 pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = 1;
 pub const RASADFLG_PositionDlg: u32 = 1;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type RASADFUNCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: windows_core::PCSTR, param2: *mut tagRASADPARAMS, param3: *mut u32) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type RASADFUNCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: windows_core::PCWSTR, param2: *mut tagRASADPARAMS, param3: *mut u32) -> windows_core::BOOL>;
 pub const RASADP_ConnectionQueryTimeout: u32 = 4;
 pub const RASADP_DisableConnectionQuery: u32 = 0;
@@ -935,7 +935,7 @@ pub const RASIDS_Disabled: u32 = 4294967295;
 pub const RASIDS_UseGlobalValue: u32 = 0;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub struct RASIKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
@@ -955,7 +955,7 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub ipv6ServerAddresses: *mut RASIPV6ADDR,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for RASIKEV2_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -963,7 +963,7 @@ impl Default for RASIKEV2_PROJECTION_INFO {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub struct RASIKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
@@ -983,7 +983,7 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub ipv6ServerAddresses: *mut RASIPV6ADDR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for RASIKEV2_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1004,9 +1004,9 @@ pub struct RASIPADDR {
     pub d: u8,
 }
 pub const RASIPO_VJ: u32 = 1;
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 pub type RASIPV4ADDR = super::inaddr::IN_ADDR;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type RASIPV6ADDR = super::in6addr::IN6_ADDR;
 pub const RASLCPAD_CHAP_MD5: u32 = 5;
 pub const RASLCPAD_CHAP_MS: u32 = 128;
@@ -1031,7 +1031,7 @@ pub const RASNP_Ipv6: u32 = 8;
 pub const RASNP_Ipx: u32 = 2;
 pub const RASNP_NetBEUI: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct RASPPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
@@ -1058,7 +1058,7 @@ pub struct RASPPP_PROJECTION_INFO {
     pub dwCcpOptions: u32,
     pub dwCcpServerOptions: u32,
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for RASPPP_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1091,27 +1091,27 @@ pub const RAS_MaxReplyMessage: u32 = 1024;
 pub const RAS_MaxUserData: u32 = 200;
 pub const RAS_MaxX25Address: u32 = 200;
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub struct RAS_PROJECTION_INFO {
     pub version: RASAPIVERSION,
     pub r#type: RASPROJECTION_INFO_TYPE,
     pub Anonymous: RAS_PROJECTION_INFO_0,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for RAS_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub union RAS_PROJECTION_INFO_0 {
     pub ppp: RASPPP_PROJECTION_INFO,
     pub ikev2: RASIKEV2_PROJECTION_INFO,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for RAS_PROJECTION_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1159,10 +1159,10 @@ pub const RDEOPT_UsePrefixSuffix: u32 = 1;
 pub const REN_AllUsers: u32 = 1;
 pub const REN_User: u32 = 0;
 pub type RasCustomDeleteEntryNotifyFn = Option<unsafe extern "system" fn(lpszphonebook: windows_core::PCWSTR, lpszentry: windows_core::PCWSTR, dwflags: u32) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type RasCustomDialFn = Option<unsafe extern "system" fn(hinstdll: super::minwindef::HINSTANCE, lprasdialextensions: *mut tagRASDIALEXTENSIONS, lpszphonebook: windows_core::PCWSTR, lprasdialparams: *mut tagRASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut core::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32>;
 pub type RasCustomHangUpFn = Option<unsafe extern "system" fn(hrasconn: HRASCONN) -> u32>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type RasCustomScriptExecuteFn = Option<unsafe extern "system" fn(hport: super::winnt::HANDLE, lpszphonebook: windows_core::PCWSTR, lpszentryname: windows_core::PCWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: super::windef::HWND, prasdialparams: *mut tagRASDIALPARAMSA, pvreserved: *mut core::ffi::c_void) -> u32>;
 pub const VS_Default: u32 = 0;
 pub const VS_GREOnly: u32 = 9;
@@ -1181,7 +1181,7 @@ pub const VS_SstpOnly: u32 = 5;
 pub const WM_RASDIALEVENT: u32 = 52429;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct tagRASADPARAMS {
     pub dwSize: u32,
@@ -1192,7 +1192,7 @@ pub struct tagRASADPARAMS {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct tagRASADPARAMS {
     pub dwSize: u32,
@@ -1264,7 +1264,7 @@ pub struct tagRASCOMMSETTINGS {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct tagRASCONNA {
     pub dwSize: u32,
@@ -1280,7 +1280,7 @@ pub struct tagRASCONNA {
     pub guidCorrelationId: windows_core::GUID,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for tagRASCONNA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1288,7 +1288,7 @@ impl Default for tagRASCONNA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct tagRASCONNA {
     pub dwSize: u32,
@@ -1304,7 +1304,7 @@ pub struct tagRASCONNA {
     pub guidCorrelationId: windows_core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for tagRASCONNA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1312,7 +1312,7 @@ impl Default for tagRASCONNA {
 }
 pub type tagRASCONNSTATE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub struct tagRASCONNSTATUSA {
     pub dwSize: u32,
@@ -1325,14 +1325,14 @@ pub struct tagRASCONNSTATUSA {
     pub remoteEndPoint: tagRASTUNNELENDPOINT,
     pub rasconnsubstate: tagRASCONNSUBSTATE,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for tagRASCONNSTATUSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub struct tagRASCONNSTATUSW {
     pub dwSize: u32,
@@ -1345,7 +1345,7 @@ pub struct tagRASCONNSTATUSW {
     pub remoteEndPoint: tagRASTUNNELENDPOINT,
     pub rasconnsubstate: tagRASCONNSUBSTATE,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for tagRASCONNSTATUSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1354,7 +1354,7 @@ impl Default for tagRASCONNSTATUSW {
 pub type tagRASCONNSUBSTATE = i32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct tagRASCONNW {
     pub dwSize: u32,
@@ -1370,7 +1370,7 @@ pub struct tagRASCONNW {
     pub guidCorrelationId: windows_core::GUID,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for tagRASCONNW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1378,7 +1378,7 @@ impl Default for tagRASCONNW {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct tagRASCONNW {
     pub dwSize: u32,
@@ -1394,7 +1394,7 @@ pub struct tagRASCONNW {
     pub guidCorrelationId: windows_core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for tagRASCONNW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1430,7 +1430,7 @@ impl Default for tagRASCREDENTIALSW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct tagRASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: u32,
@@ -1438,7 +1438,7 @@ pub struct tagRASCUSTOMSCRIPTEXTENSIONS {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct tagRASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: u32,
@@ -1470,7 +1470,7 @@ impl Default for tagRASDEVINFOW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct tagRASDIALEXTENSIONS {
     pub dwSize: u32,
@@ -1484,7 +1484,7 @@ pub struct tagRASDIALEXTENSIONS {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct tagRASDIALEXTENSIONS {
     pub dwSize: u32,
@@ -1635,7 +1635,7 @@ impl Default for tagRASEAPUSERIDENTITYW {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct tagRASENTRYA {
     pub dwSize: u32,
@@ -1700,7 +1700,7 @@ pub struct tagRASENTRYA {
     pub IdrType: IKEV2_ID_PAYLOAD_TYPE,
     pub fDisableIKEv2Fragmentation: windows_core::BOOL,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for tagRASENTRYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1733,7 +1733,7 @@ impl Default for tagRASENTRYNAMEW {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct tagRASENTRYW {
     pub dwSize: u32,
@@ -1798,7 +1798,7 @@ pub struct tagRASENTRYW {
     pub IdrType: IKEV2_ID_PAYLOAD_TYPE,
     pub fDisableIKEv2Fragmentation: windows_core::BOOL,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for tagRASENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1993,33 +1993,33 @@ impl Default for tagRASSUBENTRYW {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub struct tagRASTUNNELENDPOINT {
     pub dwType: u32,
     pub Anonymous: tagRASTUNNELENDPOINT_0,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for tagRASTUNNELENDPOINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub union tagRASTUNNELENDPOINT_0 {
     pub ipv4: RASIPV4ADDR,
     pub ipv6: RASIPV6ADDR,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for tagRASTUNNELENDPOINT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub struct tagRASUPDATECONN {
     pub version: RASAPIVERSION,
@@ -2029,7 +2029,7 @@ pub struct tagRASUPDATECONN {
     pub localEndPoint: tagRASTUNNELENDPOINT,
     pub remoteEndPoint: tagRASTUNNELENDPOINT,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for tagRASUPDATECONN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

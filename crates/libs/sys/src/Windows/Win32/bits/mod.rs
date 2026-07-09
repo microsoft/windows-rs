@@ -262,7 +262,7 @@ pub const BG_JOB_STATE_TRANSFERRED: BG_JOB_STATE = 6;
 pub const BG_JOB_STATE_TRANSFERRING: BG_JOB_STATE = 2;
 pub const BG_JOB_STATE_TRANSIENT_ERROR: BG_JOB_STATE = 5;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct BG_JOB_TIMES {
     pub CreationTime: super::minwindef::FILETIME,

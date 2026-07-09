@@ -280,7 +280,7 @@ impl IFhReassociation {
     pub unsafe fn ScanTargetForConfigurations(&self, targeturl: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ScanTargetForConfigurations)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(targeturl)) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetConfigurationDetails(&self, index: u32, username: *mut windows_core::BSTR, pcname: *mut windows_core::BSTR, backuptime: *mut super::minwindef::FILETIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetConfigurationDetails)(windows_core::Interface::as_raw(self), index, core::mem::transmute(username), core::mem::transmute(pcname), backuptime as _) }
     }
@@ -297,14 +297,14 @@ pub struct IFhReassociation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ValidateTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut FH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT,
     pub ScanTargetForConfigurations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetConfigurationDetails: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::minwindef::FILETIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetConfigurationDetails: usize,
     pub SelectConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PerformReassociation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IFhReassociation_Impl: windows_core::IUnknownImpl {
     fn ValidateTarget(&self, targeturl: &windows_core::BSTR) -> windows_core::Result<FH_DEVICE_VALIDATION_RESULT>;
     fn ScanTargetForConfigurations(&self, targeturl: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -312,7 +312,7 @@ pub trait IFhReassociation_Impl: windows_core::IUnknownImpl {
     fn SelectConfiguration(&self, index: u32) -> windows_core::Result<()>;
     fn PerformReassociation(&self, overwriteifexists: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IFhReassociation_Vtbl {
     pub const fn new<Identity: IFhReassociation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ValidateTarget<Identity: IFhReassociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targeturl: *mut core::ffi::c_void, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT {
@@ -364,7 +364,7 @@ impl IFhReassociation_Vtbl {
         iid == &<IFhReassociation as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IFhReassociation {}
 windows_core::imp::define_interface!(IFhScopeIterator, IFhScopeIterator_Vtbl, 0x3197abce_532a_44c6_8615_f3666566a720);
 windows_core::imp::interface_hierarchy!(IFhScopeIterator, windows_core::IUnknown);

@@ -80,10 +80,10 @@ pub const DWRITE_COLOR_COMPOSITE_SRC_IN: DWRITE_COLOR_COMPOSITE_MODE = 5;
 pub const DWRITE_COLOR_COMPOSITE_SRC_OUT: DWRITE_COLOR_COMPOSITE_MODE = 7;
 pub const DWRITE_COLOR_COMPOSITE_SRC_OVER: DWRITE_COLOR_COMPOSITE_MODE = 3;
 pub const DWRITE_COLOR_COMPOSITE_XOR: DWRITE_COLOR_COMPOSITE_MODE = 11;
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 pub type DWRITE_COLOR_F = super::dxgi::D3DCOLORVALUE;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Debug, PartialEq)]
 pub struct DWRITE_COLOR_GLYPH_RUN {
     pub glyphRun: DWRITE_GLYPH_RUN,
@@ -93,14 +93,14 @@ pub struct DWRITE_COLOR_GLYPH_RUN {
     pub runColor: DWRITE_COLOR_F,
     pub paletteIndex: u16,
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl Default for DWRITE_COLOR_GLYPH_RUN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct DWRITE_COLOR_GLYPH_RUN1 {
     pub Base: DWRITE_COLOR_GLYPH_RUN,
@@ -373,7 +373,7 @@ pub const DWRITE_FONT_WEIGHT_ULTRA_BLACK: DWRITE_FONT_WEIGHT = 950;
 pub const DWRITE_FONT_WEIGHT_ULTRA_BOLD: DWRITE_FONT_WEIGHT = 800;
 pub const DWRITE_FONT_WEIGHT_ULTRA_LIGHT: DWRITE_FONT_WEIGHT = 200;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub imageData: *const core::ffi::c_void,
@@ -386,7 +386,7 @@ pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub verticalTopOrigin: super::dcommon::D2D_POINT_2L,
     pub verticalBottomOrigin: super::dcommon::D2D_POINT_2L,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 impl Default for DWRITE_GLYPH_IMAGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -579,7 +579,7 @@ pub const DWRITE_PAINT_ATTRIBUTES_NONE: DWRITE_PAINT_ATTRIBUTES = 0;
 pub const DWRITE_PAINT_ATTRIBUTES_USES_PALETTE: DWRITE_PAINT_ATTRIBUTES = 1;
 pub const DWRITE_PAINT_ATTRIBUTES_USES_TEXT_COLOR: DWRITE_PAINT_ATTRIBUTES = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_PAINT_COLOR {
     pub value: DWRITE_COLOR_F,
@@ -588,20 +588,20 @@ pub struct DWRITE_PAINT_COLOR {
     pub colorAttributes: DWRITE_PAINT_ATTRIBUTES,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 #[derive(Clone, Copy)]
 pub struct DWRITE_PAINT_ELEMENT {
     pub paintType: DWRITE_PAINT_TYPE,
     pub paint: DWRITE_PAINT_ELEMENT_0,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 impl Default for DWRITE_PAINT_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 #[derive(Clone, Copy)]
 pub union DWRITE_PAINT_ELEMENT_0 {
     pub layers: DWRITE_PAINT_ELEMENT_0_0,
@@ -615,7 +615,7 @@ pub union DWRITE_PAINT_ELEMENT_0 {
     pub transform: DWRITE_MATRIX,
     pub composite: DWRITE_PAINT_ELEMENT_0_7,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 impl Default for DWRITE_PAINT_ELEMENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -627,7 +627,7 @@ pub struct DWRITE_PAINT_ELEMENT_0_0 {
     pub childCount: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_1 {
     pub glyphIndex: u32,
@@ -673,7 +673,7 @@ pub struct DWRITE_PAINT_ELEMENT_0_5 {
     pub glyphIndex: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_6 {
     pub glyphIndex: u32,
@@ -1145,7 +1145,7 @@ pub struct DWRITE_SHAPING_TEXT_PROPERTIES {
 }
 pub const DWRITE_STANDARD_FONT_AXIS_COUNT: u32 = 5;
 #[repr(C)]
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_STRIKETHROUGH {
     pub width: f32,
@@ -1156,7 +1156,7 @@ pub struct DWRITE_STRIKETHROUGH {
     pub localeName: *const u16,
     pub measuringMode: super::dcommon::DWRITE_MEASURING_MODE,
 }
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 impl Default for DWRITE_STRIKETHROUGH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1221,7 +1221,7 @@ impl Default for DWRITE_TYPOGRAPHIC_FEATURES {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_UNDERLINE {
     pub width: f32,
@@ -1233,7 +1233,7 @@ pub struct DWRITE_UNDERLINE {
     pub localeName: *const u16,
     pub measuringMode: super::dcommon::DWRITE_MEASURING_MODE,
 }
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 impl Default for DWRITE_UNDERLINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1258,7 +1258,7 @@ pub const FACILITY_DWRITE: u32 = 2200;
 windows_core::imp::define_interface!(IDWriteAsyncResult, IDWriteAsyncResult_Vtbl, 0xce25f8fd_863b_4d13_9651_c1f88dc73fe2);
 windows_core::imp::interface_hierarchy!(IDWriteAsyncResult, windows_core::IUnknown);
 impl IDWriteAsyncResult {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetWaitHandle(&self) -> super::winnt::HANDLE {
         unsafe { (windows_core::Interface::vtable(self).GetWaitHandle)(windows_core::Interface::as_raw(self)) }
     }
@@ -1270,18 +1270,18 @@ impl IDWriteAsyncResult {
 #[doc(hidden)]
 pub struct IDWriteAsyncResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetWaitHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::winnt::HANDLE,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetWaitHandle: usize,
     pub GetResult: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDWriteAsyncResult_Impl: windows_core::IUnknownImpl {
     fn GetWaitHandle(&self) -> super::winnt::HANDLE;
     fn GetResult(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDWriteAsyncResult_Vtbl {
     pub const fn new<Identity: IDWriteAsyncResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetWaitHandle<Identity: IDWriteAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::winnt::HANDLE {
@@ -1306,19 +1306,19 @@ impl IDWriteAsyncResult_Vtbl {
         iid == &<IDWriteAsyncResult as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDWriteAsyncResult {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget, IDWriteBitmapRenderTarget_Vtbl, 0x5e5a32a3_8dff_4773_9ff6_0696eab77267);
 windows_core::imp::interface_hierarchy!(IDWriteBitmapRenderTarget, windows_core::IUnknown);
 impl IDWriteBitmapRenderTarget {
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dcommon", feature = "windef"))]
     pub unsafe fn DrawGlyphRun<P4>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: P4, textcolor: super::windef::COLORREF, blackboxrect: Option<*mut super::windef::RECT>) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IDWriteRenderingParams>,
     {
         unsafe { (windows_core::Interface::vtable(self).DrawGlyphRun)(windows_core::Interface::as_raw(self), baselineoriginx, baselineoriginy, measuringmode, core::mem::transmute(glyphrun), renderingparams.param().abi(), textcolor, blackboxrect.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetMemoryDC(&self) -> super::windef::HDC {
         unsafe { (windows_core::Interface::vtable(self).GetMemoryDC)(windows_core::Interface::as_raw(self)) }
     }
@@ -1334,7 +1334,7 @@ impl IDWriteBitmapRenderTarget {
     pub unsafe fn SetCurrentTransform(&self, transform: Option<*const DWRITE_MATRIX>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentTransform)(windows_core::Interface::as_raw(self), transform.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetSize(&self) -> windows_core::Result<super::windef::SIZE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1349,25 +1349,25 @@ impl IDWriteBitmapRenderTarget {
 #[doc(hidden)]
 pub struct IDWriteBitmapRenderTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dcommon", feature = "windef"))]
     pub DrawGlyphRun: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, super::dcommon::DWRITE_MEASURING_MODE, *const DWRITE_GLYPH_RUN, *mut core::ffi::c_void, super::windef::COLORREF, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dcommon", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "dcommon", feature = "windef")))]
     DrawGlyphRun: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetMemoryDC: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::windef::HDC,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetMemoryDC: usize,
     pub GetPixelsPerDip: unsafe extern "system" fn(*mut core::ffi::c_void) -> f32,
     pub SetPixelsPerDip: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub GetCurrentTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_MATRIX) -> windows_core::HRESULT,
     pub SetCurrentTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_MATRIX) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::SIZE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetSize: usize,
     pub Resize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 pub trait IDWriteBitmapRenderTarget_Impl: windows_core::IUnknownImpl {
     fn DrawGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: windows_core::Ref<IDWriteRenderingParams>, textcolor: super::windef::COLORREF, blackboxrect: *mut super::windef::RECT) -> windows_core::Result<()>;
     fn GetMemoryDC(&self) -> super::windef::HDC;
@@ -1378,7 +1378,7 @@ pub trait IDWriteBitmapRenderTarget_Impl: windows_core::IUnknownImpl {
     fn GetSize(&self) -> windows_core::Result<super::windef::SIZE>;
     fn Resize(&self, width: u32, height: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 impl IDWriteBitmapRenderTarget_Vtbl {
     pub const fn new<Identity: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DrawGlyphRun<Identity: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: *mut core::ffi::c_void, textcolor: super::windef::COLORREF, blackboxrect: *mut super::windef::RECT) -> windows_core::HRESULT {
@@ -1451,7 +1451,7 @@ impl IDWriteBitmapRenderTarget_Vtbl {
         iid == &<IDWriteBitmapRenderTarget as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget1, IDWriteBitmapRenderTarget1_Vtbl, 0x791e8298_3ef3_4230_9880_c9bdecc42064);
 impl core::ops::Deref for IDWriteBitmapRenderTarget1 {
@@ -1476,12 +1476,12 @@ pub struct IDWriteBitmapRenderTarget1_Vtbl {
     pub GetTextAntialiasMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_TEXT_ANTIALIAS_MODE,
     pub SetTextAntialiasMode: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_TEXT_ANTIALIAS_MODE) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 pub trait IDWriteBitmapRenderTarget1_Impl: IDWriteBitmapRenderTarget_Impl {
     fn GetTextAntialiasMode(&self) -> DWRITE_TEXT_ANTIALIAS_MODE;
     fn SetTextAntialiasMode(&self, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 impl IDWriteBitmapRenderTarget1_Vtbl {
     pub const fn new<Identity: IDWriteBitmapRenderTarget1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTextAntialiasMode<Identity: IDWriteBitmapRenderTarget1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_TEXT_ANTIALIAS_MODE {
@@ -1506,7 +1506,7 @@ impl IDWriteBitmapRenderTarget1_Vtbl {
         iid == &<IDWriteBitmapRenderTarget1 as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget1 {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget2, IDWriteBitmapRenderTarget2_Vtbl, 0xc553a742_fc01_44da_a66e_b8b9ed6c3995);
 impl core::ops::Deref for IDWriteBitmapRenderTarget2 {
@@ -1530,11 +1530,11 @@ pub struct IDWriteBitmapRenderTarget2_Vtbl {
     pub base__: IDWriteBitmapRenderTarget1_Vtbl,
     pub GetBitmapData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_BITMAP_DATA_BGRA32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 pub trait IDWriteBitmapRenderTarget2_Impl: IDWriteBitmapRenderTarget1_Impl {
     fn GetBitmapData(&self) -> windows_core::Result<DWRITE_BITMAP_DATA_BGRA32>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 impl IDWriteBitmapRenderTarget2_Vtbl {
     pub const fn new<Identity: IDWriteBitmapRenderTarget2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBitmapData<Identity: IDWriteBitmapRenderTarget2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapdata: *mut DWRITE_BITMAP_DATA_BGRA32) -> windows_core::HRESULT {
@@ -1555,7 +1555,7 @@ impl IDWriteBitmapRenderTarget2_Vtbl {
         iid == &<IDWriteBitmapRenderTarget2 as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget1 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget2 {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget3, IDWriteBitmapRenderTarget3_Vtbl, 0xaeec37db_c337_40f1_8e2a_9a41b167b238);
 impl core::ops::Deref for IDWriteBitmapRenderTarget3 {
@@ -1569,11 +1569,11 @@ impl IDWriteBitmapRenderTarget3 {
     pub unsafe fn GetPaintFeatureLevel(&self) -> DWRITE_PAINT_FEATURE_LEVEL {
         unsafe { (windows_core::Interface::vtable(self).GetPaintFeatureLevel)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dcommon", feature = "windef"))]
     pub unsafe fn DrawPaintGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphimageformat: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, textcolor: super::windef::COLORREF, colorpaletteindex: u32, blackboxrect: Option<*mut super::windef::RECT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawPaintGlyphRun)(windows_core::Interface::as_raw(self), baselineoriginx, baselineoriginy, measuringmode, core::mem::transmute(glyphrun), glyphimageformat, textcolor, colorpaletteindex, blackboxrect.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dcommon", feature = "windef"))]
     pub unsafe fn DrawGlyphRunWithColorSupport<P4>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: P4, textcolor: super::windef::COLORREF, colorpaletteindex: u32, blackboxrect: Option<*mut super::windef::RECT>) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IDWriteRenderingParams>,
@@ -1586,22 +1586,22 @@ impl IDWriteBitmapRenderTarget3 {
 pub struct IDWriteBitmapRenderTarget3_Vtbl {
     pub base__: IDWriteBitmapRenderTarget2_Vtbl,
     pub GetPaintFeatureLevel: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_PAINT_FEATURE_LEVEL,
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dcommon", feature = "windef"))]
     pub DrawPaintGlyphRun: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, super::dcommon::DWRITE_MEASURING_MODE, *const DWRITE_GLYPH_RUN, super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, super::windef::COLORREF, u32, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dcommon", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "dcommon", feature = "windef")))]
     DrawPaintGlyphRun: usize,
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dcommon", feature = "windef"))]
     pub DrawGlyphRunWithColorSupport: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, super::dcommon::DWRITE_MEASURING_MODE, *const DWRITE_GLYPH_RUN, *mut core::ffi::c_void, super::windef::COLORREF, u32, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dcommon", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "dcommon", feature = "windef")))]
     DrawGlyphRunWithColorSupport: usize,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 pub trait IDWriteBitmapRenderTarget3_Impl: IDWriteBitmapRenderTarget2_Impl {
     fn GetPaintFeatureLevel(&self) -> DWRITE_PAINT_FEATURE_LEVEL;
     fn DrawPaintGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphimageformat: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, textcolor: super::windef::COLORREF, colorpaletteindex: u32, blackboxrect: *mut super::windef::RECT) -> windows_core::Result<()>;
     fn DrawGlyphRunWithColorSupport(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: windows_core::Ref<IDWriteRenderingParams>, textcolor: super::windef::COLORREF, colorpaletteindex: u32, blackboxrect: *mut super::windef::RECT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 impl IDWriteBitmapRenderTarget3_Vtbl {
     pub const fn new<Identity: IDWriteBitmapRenderTarget3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPaintFeatureLevel<Identity: IDWriteBitmapRenderTarget3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_PAINT_FEATURE_LEVEL {
@@ -1633,7 +1633,7 @@ impl IDWriteBitmapRenderTarget3_Vtbl {
         iid == &<IDWriteBitmapRenderTarget3 as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget1 as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget3 {}
 windows_core::imp::define_interface!(IDWriteColorGlyphRunEnumerator, IDWriteColorGlyphRunEnumerator_Vtbl, 0xd31fbe17_f157_41a2_8d24_cb779e0560e8);
 windows_core::imp::interface_hierarchy!(IDWriteColorGlyphRunEnumerator, windows_core::IUnknown);
@@ -1644,7 +1644,7 @@ impl IDWriteColorGlyphRunEnumerator {
             (windows_core::Interface::vtable(self).MoveNext)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetCurrentRun(&self) -> windows_core::Result<*mut DWRITE_COLOR_GLYPH_RUN> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1657,17 +1657,17 @@ impl IDWriteColorGlyphRunEnumerator {
 pub struct IDWriteColorGlyphRunEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetCurrentRun: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut DWRITE_COLOR_GLYPH_RUN) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetCurrentRun: usize,
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 pub trait IDWriteColorGlyphRunEnumerator_Impl: windows_core::IUnknownImpl {
     fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCurrentRun(&self) -> windows_core::Result<*mut DWRITE_COLOR_GLYPH_RUN>;
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl IDWriteColorGlyphRunEnumerator_Vtbl {
     pub const fn new<Identity: IDWriteColorGlyphRunEnumerator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MoveNext<Identity: IDWriteColorGlyphRunEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasrun: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -1704,7 +1704,7 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
         iid == &<IDWriteColorGlyphRunEnumerator as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 impl windows_core::RuntimeName for IDWriteColorGlyphRunEnumerator {}
 windows_core::imp::define_interface!(IDWriteColorGlyphRunEnumerator1, IDWriteColorGlyphRunEnumerator1_Vtbl, 0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35);
 impl core::ops::Deref for IDWriteColorGlyphRunEnumerator1 {
@@ -1715,7 +1715,7 @@ impl core::ops::Deref for IDWriteColorGlyphRunEnumerator1 {
 }
 windows_core::imp::interface_hierarchy!(IDWriteColorGlyphRunEnumerator1, windows_core::IUnknown, IDWriteColorGlyphRunEnumerator);
 impl IDWriteColorGlyphRunEnumerator1 {
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "dcommon", feature = "dxgi"))]
     pub unsafe fn GetCurrentRun(&self) -> windows_core::Result<*mut DWRITE_COLOR_GLYPH_RUN1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1727,16 +1727,16 @@ impl IDWriteColorGlyphRunEnumerator1 {
 #[doc(hidden)]
 pub struct IDWriteColorGlyphRunEnumerator1_Vtbl {
     pub base__: IDWriteColorGlyphRunEnumerator_Vtbl,
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "dcommon", feature = "dxgi"))]
     pub GetCurrentRun: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut DWRITE_COLOR_GLYPH_RUN1) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dcommon", feature = "Win32_dxgi")))]
+    #[cfg(not(all(feature = "dcommon", feature = "dxgi")))]
     GetCurrentRun: usize,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 pub trait IDWriteColorGlyphRunEnumerator1_Impl: IDWriteColorGlyphRunEnumerator_Impl {
     fn GetCurrentRun(&self) -> windows_core::Result<*mut DWRITE_COLOR_GLYPH_RUN1>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 impl IDWriteColorGlyphRunEnumerator1_Vtbl {
     pub const fn new<Identity: IDWriteColorGlyphRunEnumerator1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCurrentRun<Identity: IDWriteColorGlyphRunEnumerator1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorglyphrun: *mut *mut DWRITE_COLOR_GLYPH_RUN1) -> windows_core::HRESULT {
@@ -1757,7 +1757,7 @@ impl IDWriteColorGlyphRunEnumerator1_Vtbl {
         iid == &<IDWriteColorGlyphRunEnumerator1 as windows_core::Interface>::IID || iid == &<IDWriteColorGlyphRunEnumerator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 impl windows_core::RuntimeName for IDWriteColorGlyphRunEnumerator1 {}
 windows_core::imp::define_interface!(IDWriteFactory, IDWriteFactory_Vtbl, 0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48);
 windows_core::imp::interface_hierarchy!(IDWriteFactory, windows_core::IUnknown);
@@ -1786,7 +1786,7 @@ impl IDWriteFactory {
     {
         unsafe { (windows_core::Interface::vtable(self).UnregisterFontCollectionLoader)(windows_core::Interface::as_raw(self), fontcollectionloader.param().abi()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateFontFileReference<P0>(&self, filepath: P0, lastwritetime: Option<*const super::minwindef::FILETIME>) -> windows_core::Result<IDWriteFontFile>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1817,7 +1817,7 @@ impl IDWriteFactory {
             (windows_core::Interface::vtable(self).CreateRenderingParams)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn CreateMonitorRenderingParams(&self, monitor: super::windef::HMONITOR) -> windows_core::Result<IDWriteRenderingParams> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1907,7 +1907,7 @@ impl IDWriteFactory {
             (windows_core::Interface::vtable(self).CreateNumberSubstitution)(windows_core::Interface::as_raw(self), substitutionmethod, localename.param().abi(), ignoreuseroverride.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: Option<*const DWRITE_MATRIX>, renderingmode: DWRITE_RENDERING_MODE, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32) -> windows_core::Result<IDWriteGlyphRunAnalysis> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1923,16 +1923,16 @@ pub struct IDWriteFactory_Vtbl {
     pub CreateCustomFontCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RegisterFontCollectionLoader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnregisterFontCollectionLoader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub CreateFontFileReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::minwindef::FILETIME, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     CreateFontFileReference: usize,
     pub CreateCustomFontFileReference: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFontFace: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_FACE_TYPE, u32, *const *mut core::ffi::c_void, u32, DWRITE_FONT_SIMULATIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateRenderingParams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub CreateMonitorRenderingParams: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HMONITOR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     CreateMonitorRenderingParams: usize,
     pub CreateCustomRenderingParams: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, DWRITE_PIXEL_GEOMETRY, DWRITE_RENDERING_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RegisterFontFileLoader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1945,12 +1945,12 @@ pub struct IDWriteFactory_Vtbl {
     pub CreateEllipsisTrimmingSign: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateTextAnalyzer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateNumberSubstitution: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_NUMBER_SUBSTITUTION_METHOD, windows_core::PCWSTR, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub CreateGlyphRunAnalysis: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_GLYPH_RUN, f32, *const DWRITE_MATRIX, DWRITE_RENDERING_MODE, super::dcommon::DWRITE_MEASURING_MODE, f32, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     CreateGlyphRunAnalysis: usize,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 pub trait IDWriteFactory_Impl: windows_core::IUnknownImpl {
     fn GetSystemFontCollection(&self, fontcollection: windows_core::OutRef<IDWriteFontCollection>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
     fn CreateCustomFontCollection(&self, collectionloader: windows_core::Ref<IDWriteFontCollectionLoader>, collectionkey: *const core::ffi::c_void, collectionkeysize: u32) -> windows_core::Result<IDWriteFontCollection>;
@@ -1974,7 +1974,7 @@ pub trait IDWriteFactory_Impl: windows_core::IUnknownImpl {
     fn CreateNumberSubstitution(&self, substitutionmethod: DWRITE_NUMBER_SUBSTITUTION_METHOD, localename: &windows_core::PCWSTR, ignoreuseroverride: windows_core::BOOL) -> windows_core::Result<IDWriteNumberSubstitution>;
     fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32) -> windows_core::Result<IDWriteGlyphRunAnalysis>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl IDWriteFactory_Vtbl {
     pub const fn new<Identity: IDWriteFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSystemFontCollection<Identity: IDWriteFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontcollection: *mut *mut core::ffi::c_void, checkforupdates: windows_core::BOOL) -> windows_core::HRESULT {
@@ -2228,7 +2228,7 @@ impl IDWriteFactory_Vtbl {
         iid == &<IDWriteFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFactory {}
 windows_core::imp::define_interface!(IDWriteFactory1, IDWriteFactory1_Vtbl, 0x30572f99_dac6_41db_a16e_0486307e606a);
 impl core::ops::Deref for IDWriteFactory1 {
@@ -2256,12 +2256,12 @@ pub struct IDWriteFactory1_Vtbl {
     pub GetEudcFontCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub CreateCustomRenderingParams: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, DWRITE_PIXEL_GEOMETRY, DWRITE_RENDERING_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 pub trait IDWriteFactory1_Impl: IDWriteFactory_Impl {
     fn GetEudcFontCollection(&self, fontcollection: windows_core::OutRef<IDWriteFontCollection>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
     fn CreateCustomRenderingParams(&self, gamma: f32, enhancedcontrast: f32, enhancedcontrastgrayscale: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE) -> windows_core::Result<IDWriteRenderingParams1>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl IDWriteFactory1_Vtbl {
     pub const fn new<Identity: IDWriteFactory1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEudcFontCollection<Identity: IDWriteFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontcollection: *mut *mut core::ffi::c_void, checkforupdates: windows_core::BOOL) -> windows_core::HRESULT {
@@ -2292,7 +2292,7 @@ impl IDWriteFactory1_Vtbl {
         iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFactory1 {}
 windows_core::imp::define_interface!(IDWriteFactory2, IDWriteFactory2_Vtbl, 0x0439fc60_ca44_4994_8dee_3a9af7b732ec);
 impl core::ops::Deref for IDWriteFactory2 {
@@ -2315,7 +2315,7 @@ impl IDWriteFactory2 {
             (windows_core::Interface::vtable(self).CreateFontFallbackBuilder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn TranslateColorGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: Option<*const DWRITE_GLYPH_RUN_DESCRIPTION>, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, worldtodevicetransform: Option<*const DWRITE_MATRIX>, colorpaletteindex: u32) -> windows_core::Result<IDWriteColorGlyphRunEnumerator> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2328,7 +2328,7 @@ impl IDWriteFactory2 {
             (windows_core::Interface::vtable(self).CreateCustomRenderingParams)(windows_core::Interface::as_raw(self), gamma, enhancedcontrast, grayscaleenhancedcontrast, cleartypelevel, pixelgeometry, renderingmode, gridfitmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: Option<*const DWRITE_MATRIX>, renderingmode: DWRITE_RENDERING_MODE, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> windows_core::Result<IDWriteGlyphRunAnalysis> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2342,17 +2342,17 @@ pub struct IDWriteFactory2_Vtbl {
     pub base__: IDWriteFactory1_Vtbl,
     pub GetSystemFontFallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFontFallbackBuilder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub TranslateColorGlyphRun: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, *const DWRITE_GLYPH_RUN, *const DWRITE_GLYPH_RUN_DESCRIPTION, super::dcommon::DWRITE_MEASURING_MODE, *const DWRITE_MATRIX, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     TranslateColorGlyphRun: usize,
     pub CreateCustomRenderingParams: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, DWRITE_PIXEL_GEOMETRY, DWRITE_RENDERING_MODE, DWRITE_GRID_FIT_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub CreateGlyphRunAnalysis: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_GLYPH_RUN, *const DWRITE_MATRIX, DWRITE_RENDERING_MODE, super::dcommon::DWRITE_MEASURING_MODE, DWRITE_GRID_FIT_MODE, DWRITE_TEXT_ANTIALIAS_MODE, f32, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     CreateGlyphRunAnalysis: usize,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 pub trait IDWriteFactory2_Impl: IDWriteFactory1_Impl {
     fn GetSystemFontFallback(&self) -> windows_core::Result<IDWriteFontFallback>;
     fn CreateFontFallbackBuilder(&self) -> windows_core::Result<IDWriteFontFallbackBuilder>;
@@ -2360,7 +2360,7 @@ pub trait IDWriteFactory2_Impl: IDWriteFactory1_Impl {
     fn CreateCustomRenderingParams(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE) -> windows_core::Result<IDWriteRenderingParams2>;
     fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> windows_core::Result<IDWriteGlyphRunAnalysis>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl IDWriteFactory2_Vtbl {
     pub const fn new<Identity: IDWriteFactory2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSystemFontFallback<Identity: IDWriteFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfallback: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2436,7 +2436,7 @@ impl IDWriteFactory2_Vtbl {
         iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFactory2 {}
 windows_core::imp::define_interface!(IDWriteFactory3, IDWriteFactory3_Vtbl, 0x9a1b41c3_d3bb_466a_87fc_fe67556a3b65);
 impl core::ops::Deref for IDWriteFactory3 {
@@ -2447,7 +2447,7 @@ impl core::ops::Deref for IDWriteFactory3 {
 }
 windows_core::imp::interface_hierarchy!(IDWriteFactory3, windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2);
 impl IDWriteFactory3 {
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: Option<*const DWRITE_MATRIX>, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> windows_core::Result<IDWriteGlyphRunAnalysis> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2460,7 +2460,7 @@ impl IDWriteFactory3 {
             (windows_core::Interface::vtable(self).CreateCustomRenderingParams)(windows_core::Interface::as_raw(self), gamma, enhancedcontrast, grayscaleenhancedcontrast, cleartypelevel, pixelgeometry, renderingmode, gridfitmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateFontFaceReference<P0>(&self, filepath: P0, lastwritetime: Option<*const super::minwindef::FILETIME>, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontFaceReference>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2514,14 +2514,14 @@ impl IDWriteFactory3 {
 #[doc(hidden)]
 pub struct IDWriteFactory3_Vtbl {
     pub base__: IDWriteFactory2_Vtbl,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub CreateGlyphRunAnalysis: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_GLYPH_RUN, *const DWRITE_MATRIX, DWRITE_RENDERING_MODE1, super::dcommon::DWRITE_MEASURING_MODE, DWRITE_GRID_FIT_MODE, DWRITE_TEXT_ANTIALIAS_MODE, f32, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     CreateGlyphRunAnalysis: usize,
     pub CreateCustomRenderingParams: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, DWRITE_PIXEL_GEOMETRY, DWRITE_RENDERING_MODE1, DWRITE_GRID_FIT_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub CreateFontFaceReference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::minwindef::FILETIME, u32, DWRITE_FONT_SIMULATIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     CreateFontFaceReference: usize,
     pub CreateFontFaceReference2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, DWRITE_FONT_SIMULATIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSystemFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2530,7 +2530,7 @@ pub struct IDWriteFactory3_Vtbl {
     pub GetSystemFontCollection: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetFontDownloadQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 pub trait IDWriteFactory3_Impl: IDWriteFactory2_Impl {
     fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> windows_core::Result<IDWriteGlyphRunAnalysis>;
     fn CreateCustomRenderingParams(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE1, gridfitmode: DWRITE_GRID_FIT_MODE) -> windows_core::Result<IDWriteRenderingParams3>;
@@ -2542,7 +2542,7 @@ pub trait IDWriteFactory3_Impl: IDWriteFactory2_Impl {
     fn GetSystemFontCollection(&self, includedownloadablefonts: windows_core::BOOL, fontcollection: windows_core::OutRef<IDWriteFontCollection1>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetFontDownloadQueue(&self) -> windows_core::Result<IDWriteFontDownloadQueue>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl IDWriteFactory3_Vtbl {
     pub const fn new<Identity: IDWriteFactory3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateGlyphRunAnalysis<Identity: IDWriteFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32, glyphrunanalysis: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2664,7 +2664,7 @@ impl IDWriteFactory3_Vtbl {
         iid == &<IDWriteFactory3 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFactory3 {}
 windows_core::imp::define_interface!(IDWriteFactory4, IDWriteFactory4_Vtbl, 0x4b0b5bd3_0797_4549_8ac5_fe915cc53856);
 impl core::ops::Deref for IDWriteFactory4 {
@@ -2675,14 +2675,14 @@ impl core::ops::Deref for IDWriteFactory4 {
 }
 windows_core::imp::interface_hierarchy!(IDWriteFactory4, windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3);
 impl IDWriteFactory4 {
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn TranslateColorGlyphRun(&self, baselineorigin: windows_numerics::Vector2, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: Option<*const DWRITE_GLYPH_RUN_DESCRIPTION>, desiredglyphimageformats: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, worldanddpitransform: Option<*const DWRITE_MATRIX>, colorpaletteindex: u32) -> windows_core::Result<IDWriteColorGlyphRunEnumerator1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TranslateColorGlyphRun)(windows_core::Interface::as_raw(self), core::mem::transmute(baselineorigin), core::mem::transmute(glyphrun), glyphrundescription.unwrap_or(core::mem::zeroed()) as _, desiredglyphimageformats, measuringmode, worldanddpitransform.unwrap_or(core::mem::zeroed()) as _, colorpaletteindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn ComputeGlyphOrigins(&self, glyphrun: *const DWRITE_GLYPH_RUN, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, baselineorigin: windows_numerics::Vector2, worldanddpitransform: Option<*const DWRITE_MATRIX>) -> windows_core::Result<windows_numerics::Vector2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2700,23 +2700,23 @@ impl IDWriteFactory4 {
 #[doc(hidden)]
 pub struct IDWriteFactory4_Vtbl {
     pub base__: IDWriteFactory3_Vtbl,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub TranslateColorGlyphRun: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2, *const DWRITE_GLYPH_RUN, *const DWRITE_GLYPH_RUN_DESCRIPTION, super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, super::dcommon::DWRITE_MEASURING_MODE, *const DWRITE_MATRIX, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     TranslateColorGlyphRun: usize,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub ComputeGlyphOrigins: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_GLYPH_RUN, super::dcommon::DWRITE_MEASURING_MODE, windows_numerics::Vector2, *const DWRITE_MATRIX, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     ComputeGlyphOrigins: usize,
     pub ComputeGlyphOrigins2: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_GLYPH_RUN, windows_numerics::Vector2, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 pub trait IDWriteFactory4_Impl: IDWriteFactory3_Impl {
     fn TranslateColorGlyphRun(&self, baselineorigin: &windows_numerics::Vector2, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> windows_core::Result<IDWriteColorGlyphRunEnumerator1>;
     fn ComputeGlyphOrigins(&self, glyphrun: *const DWRITE_GLYPH_RUN, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, baselineorigin: &windows_numerics::Vector2, worldanddpitransform: *const DWRITE_MATRIX) -> windows_core::Result<windows_numerics::Vector2>;
     fn ComputeGlyphOrigins2(&self, glyphrun: *const DWRITE_GLYPH_RUN, baselineorigin: &windows_numerics::Vector2) -> windows_core::Result<windows_numerics::Vector2>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl IDWriteFactory4_Vtbl {
     pub const fn new<Identity: IDWriteFactory4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TranslateColorGlyphRun<Identity: IDWriteFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineorigin: windows_numerics::Vector2, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2766,7 +2766,7 @@ impl IDWriteFactory4_Vtbl {
         iid == &<IDWriteFactory4 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFactory4 {}
 windows_core::imp::define_interface!(IDWriteFactory5, IDWriteFactory5_Vtbl, 0x958db99a_be2a_4f09_af7d_65189803d1d3);
 impl core::ops::Deref for IDWriteFactory5 {
@@ -2819,7 +2819,7 @@ pub struct IDWriteFactory5_Vtbl {
     pub AnalyzeContainerType: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> DWRITE_CONTAINER_TYPE,
     pub UnpackFontFile: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_CONTAINER_TYPE, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 pub trait IDWriteFactory5_Impl: IDWriteFactory4_Impl {
     fn CreateFontSetBuilder(&self) -> windows_core::Result<IDWriteFontSetBuilder1>;
     fn CreateInMemoryFontFileLoader(&self) -> windows_core::Result<IDWriteInMemoryFontFileLoader>;
@@ -2827,7 +2827,7 @@ pub trait IDWriteFactory5_Impl: IDWriteFactory4_Impl {
     fn AnalyzeContainerType(&self, filedata: *const core::ffi::c_void, filedatasize: u32) -> DWRITE_CONTAINER_TYPE;
     fn UnpackFontFile(&self, containertype: DWRITE_CONTAINER_TYPE, filedata: *const core::ffi::c_void, filedatasize: u32) -> windows_core::Result<IDWriteFontFileStream>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl IDWriteFactory5_Vtbl {
     pub const fn new<Identity: IDWriteFactory5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateFontSetBuilder<Identity: IDWriteFactory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontsetbuilder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2897,7 +2897,7 @@ impl IDWriteFactory5_Vtbl {
         iid == &<IDWriteFactory5 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory3 as windows_core::Interface>::IID || iid == &<IDWriteFactory4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFactory5 {}
 windows_core::imp::define_interface!(IDWriteFactory6, IDWriteFactory6_Vtbl, 0xf3744d80_21f7_42eb_b35d_995bc72fc223);
 impl core::ops::Deref for IDWriteFactory6 {
@@ -2977,7 +2977,7 @@ pub struct IDWriteFactory6_Vtbl {
     pub CreateFontSetBuilder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateTextFormat: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *const DWRITE_FONT_AXIS_VALUE, u32, f32, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 pub trait IDWriteFactory6_Impl: IDWriteFactory5_Impl {
     fn CreateFontFaceReference(&self, fontfile: windows_core::Ref<IDWriteFontFile>, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<IDWriteFontFaceReference1>;
     fn CreateFontResource(&self, fontfile: windows_core::Ref<IDWriteFontFile>, faceindex: u32) -> windows_core::Result<IDWriteFontResource>;
@@ -2987,7 +2987,7 @@ pub trait IDWriteFactory6_Impl: IDWriteFactory5_Impl {
     fn CreateFontSetBuilder(&self) -> windows_core::Result<IDWriteFontSetBuilder2>;
     fn CreateTextFormat(&self, fontfamilyname: &windows_core::PCWSTR, fontcollection: windows_core::Ref<IDWriteFontCollection>, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, fontsize: f32, localename: &windows_core::PCWSTR) -> windows_core::Result<IDWriteTextFormat3>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl IDWriteFactory6_Vtbl {
     pub const fn new<Identity: IDWriteFactory6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateFontFaceReference<Identity: IDWriteFactory6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfile: *mut core::ffi::c_void, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, fontfacereference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3089,7 +3089,7 @@ impl IDWriteFactory6_Vtbl {
         iid == &<IDWriteFactory6 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory3 as windows_core::Interface>::IID || iid == &<IDWriteFactory4 as windows_core::Interface>::IID || iid == &<IDWriteFactory5 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFactory6 {}
 windows_core::imp::define_interface!(IDWriteFactory7, IDWriteFactory7_Vtbl, 0x35d0e0b3_9076_4d2e_a016_a91b568a06b4);
 impl core::ops::Deref for IDWriteFactory7 {
@@ -3120,12 +3120,12 @@ pub struct IDWriteFactory7_Vtbl {
     pub GetSystemFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSystemFontCollection: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, DWRITE_FONT_FAMILY_MODEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 pub trait IDWriteFactory7_Impl: IDWriteFactory6_Impl {
     fn GetSystemFontSet(&self, includedownloadablefonts: windows_core::BOOL) -> windows_core::Result<IDWriteFontSet2>;
     fn GetSystemFontCollection(&self, includedownloadablefonts: windows_core::BOOL, fontfamilymodel: DWRITE_FONT_FAMILY_MODEL) -> windows_core::Result<IDWriteFontCollection3>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl IDWriteFactory7_Vtbl {
     pub const fn new<Identity: IDWriteFactory7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSystemFontSet<Identity: IDWriteFactory7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, includedownloadablefonts: windows_core::BOOL, fontset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3162,7 +3162,7 @@ impl IDWriteFactory7_Vtbl {
         iid == &<IDWriteFactory7 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory3 as windows_core::Interface>::IID || iid == &<IDWriteFactory4 as windows_core::Interface>::IID || iid == &<IDWriteFactory5 as windows_core::Interface>::IID || iid == &<IDWriteFactory6 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFactory7 {}
 windows_core::imp::define_interface!(IDWriteFactory8, IDWriteFactory8_Vtbl, 0xee0a7fb5_def4_4c23_a454_c9c7dc878398);
 impl core::ops::Deref for IDWriteFactory8 {
@@ -3173,7 +3173,7 @@ impl core::ops::Deref for IDWriteFactory8 {
 }
 windows_core::imp::interface_hierarchy!(IDWriteFactory8, windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5, IDWriteFactory6, IDWriteFactory7);
 impl IDWriteFactory8 {
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn TranslateColorGlyphRun(&self, baselineorigin: windows_numerics::Vector2, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: Option<*const DWRITE_GLYPH_RUN_DESCRIPTION>, desiredglyphimageformats: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, paintfeaturelevel: DWRITE_PAINT_FEATURE_LEVEL, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, worldanddpitransform: Option<*const DWRITE_MATRIX>, colorpaletteindex: u32) -> windows_core::Result<IDWriteColorGlyphRunEnumerator1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3185,16 +3185,16 @@ impl IDWriteFactory8 {
 #[doc(hidden)]
 pub struct IDWriteFactory8_Vtbl {
     pub base__: IDWriteFactory7_Vtbl,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub TranslateColorGlyphRun: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2, *const DWRITE_GLYPH_RUN, *const DWRITE_GLYPH_RUN_DESCRIPTION, super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, DWRITE_PAINT_FEATURE_LEVEL, super::dcommon::DWRITE_MEASURING_MODE, *const DWRITE_MATRIX, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     TranslateColorGlyphRun: usize,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 pub trait IDWriteFactory8_Impl: IDWriteFactory7_Impl {
     fn TranslateColorGlyphRun(&self, baselineorigin: &windows_numerics::Vector2, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, paintfeaturelevel: DWRITE_PAINT_FEATURE_LEVEL, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> windows_core::Result<IDWriteColorGlyphRunEnumerator1>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl IDWriteFactory8_Vtbl {
     pub const fn new<Identity: IDWriteFactory8_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TranslateColorGlyphRun<Identity: IDWriteFactory8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineorigin: windows_numerics::Vector2, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, paintfeaturelevel: DWRITE_PAINT_FEATURE_LEVEL, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorenumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3215,7 +3215,7 @@ impl IDWriteFactory8_Vtbl {
         iid == &<IDWriteFactory8 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory3 as windows_core::Interface>::IID || iid == &<IDWriteFactory4 as windows_core::Interface>::IID || iid == &<IDWriteFactory5 as windows_core::Interface>::IID || iid == &<IDWriteFactory6 as windows_core::Interface>::IID || iid == &<IDWriteFactory7 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFactory8 {}
 windows_core::imp::define_interface!(IDWriteFont, IDWriteFont_Vtbl, 0xacd16696_8c14_4f5d_877e_fe3fc1d32737);
 windows_core::imp::interface_hierarchy!(IDWriteFont, windows_core::IUnknown);
@@ -3916,7 +3916,7 @@ impl core::ops::Deref for IDWriteFontCollection3 {
 }
 windows_core::imp::interface_hierarchy!(IDWriteFontCollection3, windows_core::IUnknown, IDWriteFontCollection, IDWriteFontCollection1, IDWriteFontCollection2);
 impl IDWriteFontCollection3 {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetExpirationEvent(&self) -> super::winnt::HANDLE {
         unsafe { (windows_core::Interface::vtable(self).GetExpirationEvent)(windows_core::Interface::as_raw(self)) }
     }
@@ -3925,16 +3925,16 @@ impl IDWriteFontCollection3 {
 #[doc(hidden)]
 pub struct IDWriteFontCollection3_Vtbl {
     pub base__: IDWriteFontCollection2_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetExpirationEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::winnt::HANDLE,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetExpirationEvent: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDWriteFontCollection3_Impl: IDWriteFontCollection2_Impl {
     fn GetExpirationEvent(&self) -> super::winnt::HANDLE;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDWriteFontCollection3_Vtbl {
     pub const fn new<Identity: IDWriteFontCollection3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetExpirationEvent<Identity: IDWriteFontCollection3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::winnt::HANDLE {
@@ -3949,7 +3949,7 @@ impl IDWriteFontCollection3_Vtbl {
         iid == &<IDWriteFontCollection3 as windows_core::Interface>::IID || iid == &<IDWriteFontCollection as windows_core::Interface>::IID || iid == &<IDWriteFontCollection1 as windows_core::Interface>::IID || iid == &<IDWriteFontCollection2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDWriteFontCollection3 {}
 windows_core::imp::define_interface!(IDWriteFontCollectionLoader, IDWriteFontCollectionLoader_Vtbl, 0xcca920e4_52f0_492b_bfa8_29c72ee0a468);
 windows_core::imp::interface_hierarchy!(IDWriteFontCollectionLoader, windows_core::IUnknown);
@@ -4180,14 +4180,14 @@ impl IDWriteFontFace {
             (windows_core::Interface::vtable(self).ReleaseFontTable)(windows_core::Interface::as_raw(self), tablecontext);
         }
     }
-    #[cfg(feature = "Win32_d2d")]
+    #[cfg(feature = "d2d")]
     pub unsafe fn GetGlyphRunOutline<P7>(&self, emsize: f32, glyphindices: *const u16, glyphadvances: Option<*const f32>, glyphoffsets: Option<*const DWRITE_GLYPH_OFFSET>, glyphcount: u32, issideways: bool, isrighttoleft: bool, geometrysink: P7) -> windows_core::HRESULT
     where
         P7: windows_core::Param<super::d2d::ID2D1SimplifiedGeometrySink>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetGlyphRunOutline)(windows_core::Interface::as_raw(self), emsize, glyphindices, glyphadvances.unwrap_or(core::mem::zeroed()) as _, glyphoffsets.unwrap_or(core::mem::zeroed()) as _, glyphcount, issideways.into(), isrighttoleft.into(), geometrysink.param().abi()) }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn GetRecommendedRenderingMode<P3>(&self, emsize: f32, pixelsperdip: f32, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, renderingparams: P3) -> windows_core::Result<DWRITE_RENDERING_MODE>
     where
         P3: windows_core::Param<IDWriteRenderingParams>,
@@ -4219,18 +4219,18 @@ pub struct IDWriteFontFace_Vtbl {
     pub GetGlyphIndices: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32, u32, *mut u16) -> windows_core::HRESULT,
     pub TryGetFontTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32, *mut *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub ReleaseFontTable: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void),
-    #[cfg(feature = "Win32_d2d")]
+    #[cfg(feature = "d2d")]
     pub GetGlyphRunOutline: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *const u16, *const f32, *const DWRITE_GLYPH_OFFSET, u32, windows_core::BOOL, windows_core::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d2d"))]
+    #[cfg(not(feature = "d2d"))]
     GetGlyphRunOutline: usize,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub GetRecommendedRenderingMode: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, super::dcommon::DWRITE_MEASURING_MODE, *mut core::ffi::c_void, *mut DWRITE_RENDERING_MODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     GetRecommendedRenderingMode: usize,
     pub GetGdiCompatibleMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, *const DWRITE_MATRIX, *mut DWRITE_FONT_METRICS) -> windows_core::HRESULT,
     pub GetGdiCompatibleGlyphMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, *const DWRITE_MATRIX, windows_core::BOOL, *const u16, u32, *mut DWRITE_GLYPH_METRICS, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon"))]
+#[cfg(all(feature = "d2d", feature = "dcommon"))]
 pub trait IDWriteFontFace_Impl: windows_core::IUnknownImpl {
     fn GetType(&self) -> DWRITE_FONT_FACE_TYPE;
     fn GetFiles(&self, numberoffiles: *mut u32, fontfiles: windows_core::OutRef<IDWriteFontFile>) -> windows_core::Result<()>;
@@ -4248,7 +4248,7 @@ pub trait IDWriteFontFace_Impl: windows_core::IUnknownImpl {
     fn GetGdiCompatibleMetrics(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, fontfacemetrics: *mut DWRITE_FONT_METRICS) -> windows_core::Result<()>;
     fn GetGdiCompatibleGlyphMetrics(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL, glyphindices: *const u16, glyphcount: u32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon"))]
+#[cfg(all(feature = "d2d", feature = "dcommon"))]
 impl IDWriteFontFace_Vtbl {
     pub const fn new<Identity: IDWriteFontFace_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetType<Identity: IDWriteFontFace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_FONT_FACE_TYPE {
@@ -4370,7 +4370,7 @@ impl IDWriteFontFace_Vtbl {
         iid == &<IDWriteFontFace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon"))]
+#[cfg(all(feature = "d2d", feature = "dcommon"))]
 impl windows_core::RuntimeName for IDWriteFontFace {}
 windows_core::imp::define_interface!(IDWriteFontFace1, IDWriteFontFace1_Vtbl, 0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf);
 impl core::ops::Deref for IDWriteFontFace1 {
@@ -4414,7 +4414,7 @@ impl IDWriteFontFace1 {
     pub unsafe fn HasKerningPairs(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).HasKerningPairs)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn GetRecommendedRenderingMode(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: Option<*const DWRITE_MATRIX>, issideways: bool, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::dcommon::DWRITE_MEASURING_MODE) -> windows_core::Result<DWRITE_RENDERING_MODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4441,14 +4441,14 @@ pub struct IDWriteFontFace1_Vtbl {
     pub GetGdiCompatibleGlyphAdvances: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, *const DWRITE_MATRIX, windows_core::BOOL, windows_core::BOOL, u32, *const u16, *mut i32) -> windows_core::HRESULT,
     pub GetKerningPairAdjustments: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u16, *mut i32) -> windows_core::HRESULT,
     pub HasKerningPairs: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub GetRecommendedRenderingMode: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, *const DWRITE_MATRIX, windows_core::BOOL, DWRITE_OUTLINE_THRESHOLD, super::dcommon::DWRITE_MEASURING_MODE, *mut DWRITE_RENDERING_MODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     GetRecommendedRenderingMode: usize,
     pub GetVerticalGlyphVariants: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u16, *mut u16) -> windows_core::HRESULT,
     pub HasVerticalGlyphVariants: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon"))]
+#[cfg(all(feature = "d2d", feature = "dcommon"))]
 pub trait IDWriteFontFace1_Impl: IDWriteFontFace_Impl {
     fn GetMetrics(&self, fontmetrics: *mut DWRITE_FONT_METRICS1);
     fn GetGdiCompatibleMetrics(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, fontmetrics: *mut DWRITE_FONT_METRICS1) -> windows_core::Result<()>;
@@ -4463,7 +4463,7 @@ pub trait IDWriteFontFace1_Impl: IDWriteFontFace_Impl {
     fn GetVerticalGlyphVariants(&self, glyphcount: u32, nominalglyphindices: *const u16, verticalglyphindices: *mut u16) -> windows_core::Result<()>;
     fn HasVerticalGlyphVariants(&self) -> windows_core::BOOL;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon"))]
+#[cfg(all(feature = "d2d", feature = "dcommon"))]
 impl IDWriteFontFace1_Vtbl {
     pub const fn new<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMetrics<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontmetrics: *mut DWRITE_FONT_METRICS1) {
@@ -4564,7 +4564,7 @@ impl IDWriteFontFace1_Vtbl {
         iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon"))]
+#[cfg(all(feature = "d2d", feature = "dcommon"))]
 impl windows_core::RuntimeName for IDWriteFontFace1 {}
 windows_core::imp::define_interface!(IDWriteFontFace2, IDWriteFontFace2_Vtbl, 0xd8b768ff_64bc_4e66_982b_ec8e87f693f7);
 impl core::ops::Deref for IDWriteFontFace2 {
@@ -4584,11 +4584,11 @@ impl IDWriteFontFace2 {
     pub unsafe fn GetPaletteEntryCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetPaletteEntryCount)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetPaletteEntries(&self, colorpaletteindex: u32, firstentryindex: u32, paletteentries: &mut [DWRITE_COLOR_F]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPaletteEntries)(windows_core::Interface::as_raw(self), colorpaletteindex, firstentryindex, paletteentries.len().try_into().unwrap(), core::mem::transmute(paletteentries.as_ptr())) }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn GetRecommendedRenderingMode<P7>(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: Option<*const DWRITE_MATRIX>, issideways: bool, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, renderingparams: P7, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::HRESULT
     where
         P7: windows_core::Param<IDWriteRenderingParams>,
@@ -4603,16 +4603,16 @@ pub struct IDWriteFontFace2_Vtbl {
     pub IsColorFont: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub GetColorPaletteCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetPaletteEntryCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetPaletteEntries: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut DWRITE_COLOR_F) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetPaletteEntries: usize,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub GetRecommendedRenderingMode: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, *const DWRITE_MATRIX, windows_core::BOOL, DWRITE_OUTLINE_THRESHOLD, super::dcommon::DWRITE_MEASURING_MODE, *mut core::ffi::c_void, *mut DWRITE_RENDERING_MODE, *mut DWRITE_GRID_FIT_MODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     GetRecommendedRenderingMode: usize,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 pub trait IDWriteFontFace2_Impl: IDWriteFontFace1_Impl {
     fn IsColorFont(&self) -> windows_core::BOOL;
     fn GetColorPaletteCount(&self) -> u32;
@@ -4620,7 +4620,7 @@ pub trait IDWriteFontFace2_Impl: IDWriteFontFace1_Impl {
     fn GetPaletteEntries(&self, colorpaletteindex: u32, firstentryindex: u32, entrycount: u32, paletteentries: *mut DWRITE_COLOR_F) -> windows_core::Result<()>;
     fn GetRecommendedRenderingMode(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<IDWriteRenderingParams>, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 impl IDWriteFontFace2_Vtbl {
     pub const fn new<Identity: IDWriteFontFace2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsColorFont<Identity: IDWriteFontFace2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -4666,7 +4666,7 @@ impl IDWriteFontFace2_Vtbl {
         iid == &<IDWriteFontFace2 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 impl windows_core::RuntimeName for IDWriteFontFace2 {}
 windows_core::imp::define_interface!(IDWriteFontFace3, IDWriteFontFace3_Vtbl, 0xd37d7598_09be_4222_a236_2081341cc1f2);
 impl core::ops::Deref for IDWriteFontFace3 {
@@ -4717,7 +4717,7 @@ impl IDWriteFontFace3 {
     pub unsafe fn HasCharacter(&self, unicodevalue: u32) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).HasCharacter)(windows_core::Interface::as_raw(self), unicodevalue) }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn GetRecommendedRenderingMode<P7>(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: Option<*const DWRITE_MATRIX>, issideways: bool, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, renderingparams: P7, renderingmode: *mut DWRITE_RENDERING_MODE1, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::HRESULT
     where
         P7: windows_core::Param<IDWriteRenderingParams>,
@@ -4756,16 +4756,16 @@ pub struct IDWriteFontFace3_Vtbl {
     pub GetFaceNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetInformationalStrings: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_INFORMATIONAL_STRING_ID, *mut *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub HasCharacter: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::BOOL,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub GetRecommendedRenderingMode: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, *const DWRITE_MATRIX, windows_core::BOOL, DWRITE_OUTLINE_THRESHOLD, super::dcommon::DWRITE_MEASURING_MODE, *mut core::ffi::c_void, *mut DWRITE_RENDERING_MODE1, *mut DWRITE_GRID_FIT_MODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     GetRecommendedRenderingMode: usize,
     pub IsCharacterLocal: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::BOOL,
     pub IsGlyphLocal: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::BOOL,
     pub AreCharactersLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, u32, windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub AreGlyphsLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, u32, windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 pub trait IDWriteFontFace3_Impl: IDWriteFontFace2_Impl {
     fn GetFontFaceReference(&self) -> windows_core::Result<IDWriteFontFaceReference>;
     fn GetPanose(&self, panose: *mut DWRITE_PANOSE);
@@ -4782,7 +4782,7 @@ pub trait IDWriteFontFace3_Impl: IDWriteFontFace2_Impl {
     fn AreCharactersLocal(&self, characters: *const u16, charactercount: u32, enqueueifnotlocal: windows_core::BOOL) -> windows_core::Result<windows_core::BOOL>;
     fn AreGlyphsLocal(&self, glyphindices: *const u16, glyphcount: u32, enqueueifnotlocal: windows_core::BOOL) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 impl IDWriteFontFace3_Vtbl {
     pub const fn new<Identity: IDWriteFontFace3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFontFaceReference<Identity: IDWriteFontFace3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfacereference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4921,7 +4921,7 @@ impl IDWriteFontFace3_Vtbl {
         iid == &<IDWriteFontFace3 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 impl windows_core::RuntimeName for IDWriteFontFace3 {}
 windows_core::imp::define_interface!(IDWriteFontFace4, IDWriteFontFace4_Vtbl, 0x27f2a904_4eb8_441d_9678_0563f53e3e2f);
 impl core::ops::Deref for IDWriteFontFace4 {
@@ -4932,18 +4932,18 @@ impl core::ops::Deref for IDWriteFontFace4 {
 }
 windows_core::imp::interface_hierarchy!(IDWriteFontFace4, windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3);
 impl IDWriteFontFace4 {
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn GetGlyphImageFormats(&self) -> super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS {
         unsafe { (windows_core::Interface::vtable(self).GetGlyphImageFormats)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn GetGlyphImageFormats2(&self, glyphid: u16, pixelsperemfirst: u32, pixelsperemlast: u32) -> windows_core::Result<super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGlyphImageFormats2)(windows_core::Interface::as_raw(self), glyphid, pixelsperemfirst, pixelsperemlast, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dcommon", feature = "windef"))]
     pub unsafe fn GetGlyphImageData(&self, glyphid: u16, pixelsperem: u32, glyphimageformat: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetGlyphImageData)(windows_core::Interface::as_raw(self), glyphid, pixelsperem, glyphimageformat, glyphdata as _, glyphdatacontext as _) }
     }
@@ -4957,28 +4957,28 @@ impl IDWriteFontFace4 {
 #[doc(hidden)]
 pub struct IDWriteFontFace4_Vtbl {
     pub base__: IDWriteFontFace3_Vtbl,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub GetGlyphImageFormats: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     GetGlyphImageFormats: usize,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub GetGlyphImageFormats2: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u32, u32, *mut super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     GetGlyphImageFormats2: usize,
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_windef"))]
+    #[cfg(all(feature = "dcommon", feature = "windef"))]
     pub GetGlyphImageData: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u32, super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, *mut DWRITE_GLYPH_IMAGE_DATA, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dcommon", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "dcommon", feature = "windef")))]
     GetGlyphImageData: usize,
     pub ReleaseGlyphImageData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 pub trait IDWriteFontFace4_Impl: IDWriteFontFace3_Impl {
     fn GetGlyphImageFormats(&self) -> super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS;
     fn GetGlyphImageFormats2(&self, glyphid: u16, pixelsperemfirst: u32, pixelsperemlast: u32) -> windows_core::Result<super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS>;
     fn GetGlyphImageData(&self, glyphid: u16, pixelsperem: u32, glyphimageformat: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn ReleaseGlyphImageData(&self, glyphdatacontext: *mut core::ffi::c_void);
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 impl IDWriteFontFace4_Vtbl {
     pub const fn new<Identity: IDWriteFontFace4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGlyphImageFormats<Identity: IDWriteFontFace4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS {
@@ -5023,7 +5023,7 @@ impl IDWriteFontFace4_Vtbl {
         iid == &<IDWriteFontFace4 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as windows_core::Interface>::IID || iid == &<IDWriteFontFace3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFontFace4 {}
 windows_core::imp::define_interface!(IDWriteFontFace5, IDWriteFontFace5_Vtbl, 0x98eff3a5_b667_479a_b145_e2fa5b9fdc29);
 impl core::ops::Deref for IDWriteFontFace5 {
@@ -5066,7 +5066,7 @@ pub struct IDWriteFontFace5_Vtbl {
     pub GetFontResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Equals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::BOOL,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 pub trait IDWriteFontFace5_Impl: IDWriteFontFace4_Impl {
     fn GetFontAxisValueCount(&self) -> u32;
     fn GetFontAxisValues(&self, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<()>;
@@ -5074,7 +5074,7 @@ pub trait IDWriteFontFace5_Impl: IDWriteFontFace4_Impl {
     fn GetFontResource(&self) -> windows_core::Result<IDWriteFontResource>;
     fn Equals(&self, fontface: windows_core::Ref<IDWriteFontFace>) -> windows_core::BOOL;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 impl IDWriteFontFace5_Vtbl {
     pub const fn new<Identity: IDWriteFontFace5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFontAxisValueCount<Identity: IDWriteFontFace5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
@@ -5126,7 +5126,7 @@ impl IDWriteFontFace5_Vtbl {
         iid == &<IDWriteFontFace5 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as windows_core::Interface>::IID || iid == &<IDWriteFontFace3 as windows_core::Interface>::IID || iid == &<IDWriteFontFace4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFontFace5 {}
 windows_core::imp::define_interface!(IDWriteFontFace6, IDWriteFontFace6_Vtbl, 0xc4b1fe1b_6e84_47d5_b54c_a597981b06ad);
 impl core::ops::Deref for IDWriteFontFace6 {
@@ -5157,12 +5157,12 @@ pub struct IDWriteFontFace6_Vtbl {
     pub GetFamilyNames: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_FAMILY_MODEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFaceNames: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_FAMILY_MODEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 pub trait IDWriteFontFace6_Impl: IDWriteFontFace5_Impl {
     fn GetFamilyNames(&self, fontfamilymodel: DWRITE_FONT_FAMILY_MODEL) -> windows_core::Result<IDWriteLocalizedStrings>;
     fn GetFaceNames(&self, fontfamilymodel: DWRITE_FONT_FAMILY_MODEL) -> windows_core::Result<IDWriteLocalizedStrings>;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 impl IDWriteFontFace6_Vtbl {
     pub const fn new<Identity: IDWriteFontFace6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFamilyNames<Identity: IDWriteFontFace6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfamilymodel: DWRITE_FONT_FAMILY_MODEL, names: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5199,7 +5199,7 @@ impl IDWriteFontFace6_Vtbl {
         iid == &<IDWriteFontFace6 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as windows_core::Interface>::IID || iid == &<IDWriteFontFace3 as windows_core::Interface>::IID || iid == &<IDWriteFontFace4 as windows_core::Interface>::IID || iid == &<IDWriteFontFace5 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFontFace6 {}
 windows_core::imp::define_interface!(IDWriteFontFace7, IDWriteFontFace7_Vtbl, 0x3945b85b_bc95_40f7_b72c_8b73bfc7e13b);
 impl core::ops::Deref for IDWriteFontFace7 {
@@ -5210,11 +5210,11 @@ impl core::ops::Deref for IDWriteFontFace7 {
 }
 windows_core::imp::interface_hierarchy!(IDWriteFontFace7, windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4, IDWriteFontFace5, IDWriteFontFace6);
 impl IDWriteFontFace7 {
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn GetPaintFeatureLevel(&self, glyphimageformat: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS) -> DWRITE_PAINT_FEATURE_LEVEL {
         unsafe { (windows_core::Interface::vtable(self).GetPaintFeatureLevel)(windows_core::Interface::as_raw(self), glyphimageformat) }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn CreatePaintReader(&self, glyphimageformat: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, paintfeaturelevel: DWRITE_PAINT_FEATURE_LEVEL) -> windows_core::Result<IDWritePaintReader> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5226,21 +5226,21 @@ impl IDWriteFontFace7 {
 #[doc(hidden)]
 pub struct IDWriteFontFace7_Vtbl {
     pub base__: IDWriteFontFace6_Vtbl,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub GetPaintFeatureLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS) -> DWRITE_PAINT_FEATURE_LEVEL,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     GetPaintFeatureLevel: usize,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub CreatePaintReader: unsafe extern "system" fn(*mut core::ffi::c_void, super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, DWRITE_PAINT_FEATURE_LEVEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     CreatePaintReader: usize,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 pub trait IDWriteFontFace7_Impl: IDWriteFontFace6_Impl {
     fn GetPaintFeatureLevel(&self, glyphimageformat: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS) -> DWRITE_PAINT_FEATURE_LEVEL;
     fn CreatePaintReader(&self, glyphimageformat: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS, paintfeaturelevel: DWRITE_PAINT_FEATURE_LEVEL) -> windows_core::Result<IDWritePaintReader>;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 impl IDWriteFontFace7_Vtbl {
     pub const fn new<Identity: IDWriteFontFace7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPaintFeatureLevel<Identity: IDWriteFontFace7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphimageformat: super::dcommon::DWRITE_GLYPH_IMAGE_FORMATS) -> DWRITE_PAINT_FEATURE_LEVEL {
@@ -5271,7 +5271,7 @@ impl IDWriteFontFace7_Vtbl {
         iid == &<IDWriteFontFace7 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as windows_core::Interface>::IID || iid == &<IDWriteFontFace3 as windows_core::Interface>::IID || iid == &<IDWriteFontFace4 as windows_core::Interface>::IID || iid == &<IDWriteFontFace5 as windows_core::Interface>::IID || iid == &<IDWriteFontFace6 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef"))]
 impl windows_core::RuntimeName for IDWriteFontFace7 {}
 windows_core::imp::define_interface!(IDWriteFontFaceReference, IDWriteFontFaceReference_Vtbl, 0x5e7fa7ca_dde3_424c_89f0_9fcd6fed58cd);
 windows_core::imp::interface_hierarchy!(IDWriteFontFaceReference, windows_core::IUnknown);
@@ -5312,7 +5312,7 @@ impl IDWriteFontFaceReference {
     pub unsafe fn GetFileSize(&self) -> u64 {
         unsafe { (windows_core::Interface::vtable(self).GetFileSize)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetFileTime(&self) -> windows_core::Result<super::minwindef::FILETIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5347,9 +5347,9 @@ pub struct IDWriteFontFaceReference_Vtbl {
     pub GetFontFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLocalFileSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
     pub GetFileSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetFileTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::minwindef::FILETIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetFileTime: usize,
     pub GetLocality: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_LOCALITY,
     pub EnqueueFontDownloadRequest: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5357,7 +5357,7 @@ pub struct IDWriteFontFaceReference_Vtbl {
     pub EnqueueGlyphDownloadRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, u32) -> windows_core::HRESULT,
     pub EnqueueFileFragmentDownloadRequest: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IDWriteFontFaceReference_Impl: windows_core::IUnknownImpl {
     fn CreateFontFace(&self) -> windows_core::Result<IDWriteFontFace3>;
     fn CreateFontFaceWithSimulations(&self, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontFace3>;
@@ -5374,7 +5374,7 @@ pub trait IDWriteFontFaceReference_Impl: windows_core::IUnknownImpl {
     fn EnqueueGlyphDownloadRequest(&self, glyphindices: *const u16, glyphcount: u32) -> windows_core::Result<()>;
     fn EnqueueFileFragmentDownloadRequest(&self, fileoffset: u64, fragmentsize: u64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IDWriteFontFaceReference_Vtbl {
     pub const fn new<Identity: IDWriteFontFaceReference_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateFontFace<Identity: IDWriteFontFaceReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5507,7 +5507,7 @@ impl IDWriteFontFaceReference_Vtbl {
         iid == &<IDWriteFontFaceReference as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IDWriteFontFaceReference {}
 windows_core::imp::define_interface!(IDWriteFontFaceReference1, IDWriteFontFaceReference1_Vtbl, 0xc081fe77_2fd1_41ac_a5a3_34983c4ba61a);
 impl core::ops::Deref for IDWriteFontFaceReference1 {
@@ -5539,13 +5539,13 @@ pub struct IDWriteFontFaceReference1_Vtbl {
     pub GetFontAxisValueCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetFontAxisValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_FONT_AXIS_VALUE, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IDWriteFontFaceReference1_Impl: IDWriteFontFaceReference_Impl {
     fn CreateFontFace(&self) -> windows_core::Result<IDWriteFontFace5>;
     fn GetFontAxisValueCount(&self) -> u32;
     fn GetFontAxisValues(&self, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IDWriteFontFaceReference1_Vtbl {
     pub const fn new<Identity: IDWriteFontFaceReference1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateFontFace<Identity: IDWriteFontFaceReference1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5583,7 +5583,7 @@ impl IDWriteFontFaceReference1_Vtbl {
         iid == &<IDWriteFontFaceReference1 as windows_core::Interface>::IID || iid == &<IDWriteFontFaceReference as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IDWriteFontFaceReference1 {}
 windows_core::imp::define_interface!(IDWriteFontFallback, IDWriteFontFallback_Vtbl, 0xefa008f9_f7a1_48bf_b05c_f224713cc0ff);
 windows_core::imp::interface_hierarchy!(IDWriteFontFallback, windows_core::IUnknown);
@@ -7121,7 +7121,7 @@ impl core::ops::Deref for IDWriteFontSet2 {
 }
 windows_core::imp::interface_hierarchy!(IDWriteFontSet2, windows_core::IUnknown, IDWriteFontSet, IDWriteFontSet1);
 impl IDWriteFontSet2 {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetExpirationEvent(&self) -> super::winnt::HANDLE {
         unsafe { (windows_core::Interface::vtable(self).GetExpirationEvent)(windows_core::Interface::as_raw(self)) }
     }
@@ -7130,16 +7130,16 @@ impl IDWriteFontSet2 {
 #[doc(hidden)]
 pub struct IDWriteFontSet2_Vtbl {
     pub base__: IDWriteFontSet1_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetExpirationEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::winnt::HANDLE,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetExpirationEvent: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDWriteFontSet2_Impl: IDWriteFontSet1_Impl {
     fn GetExpirationEvent(&self) -> super::winnt::HANDLE;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDWriteFontSet2_Vtbl {
     pub const fn new<Identity: IDWriteFontSet2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetExpirationEvent<Identity: IDWriteFontSet2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::winnt::HANDLE {
@@ -7154,7 +7154,7 @@ impl IDWriteFontSet2_Vtbl {
         iid == &<IDWriteFontSet2 as windows_core::Interface>::IID || iid == &<IDWriteFontSet as windows_core::Interface>::IID || iid == &<IDWriteFontSet1 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDWriteFontSet2 {}
 windows_core::imp::define_interface!(IDWriteFontSet3, IDWriteFontSet3_Vtbl, 0x7c073ef2_a7f4_4045_8c32_8ab8ae640f90);
 impl core::ops::Deref for IDWriteFontSet3 {
@@ -7183,13 +7183,13 @@ pub struct IDWriteFontSet3_Vtbl {
     pub GetFontSourceNameLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetFontSourceName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDWriteFontSet3_Impl: IDWriteFontSet2_Impl {
     fn GetFontSourceType(&self, fontindex: u32) -> DWRITE_FONT_SOURCE_TYPE;
     fn GetFontSourceNameLength(&self, listindex: u32) -> u32;
     fn GetFontSourceName(&self, listindex: u32, stringbuffer: *mut u16, stringbuffersize: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDWriteFontSet3_Vtbl {
     pub const fn new<Identity: IDWriteFontSet3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFontSourceType<Identity: IDWriteFontSet3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontindex: u32) -> DWRITE_FONT_SOURCE_TYPE {
@@ -7221,7 +7221,7 @@ impl IDWriteFontSet3_Vtbl {
         iid == &<IDWriteFontSet3 as windows_core::Interface>::IID || iid == &<IDWriteFontSet as windows_core::Interface>::IID || iid == &<IDWriteFontSet1 as windows_core::Interface>::IID || iid == &<IDWriteFontSet2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDWriteFontSet3 {}
 windows_core::imp::define_interface!(IDWriteFontSet4, IDWriteFontSet4_Vtbl, 0xeec175fc_bea9_4c86_8b53_ccbdd7df0c82);
 impl core::ops::Deref for IDWriteFontSet4 {
@@ -7252,12 +7252,12 @@ pub struct IDWriteFontSet4_Vtbl {
     pub ConvertWeightStretchStyleToFontAxisValues: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_FONT_AXIS_VALUE, u32, DWRITE_FONT_WEIGHT, DWRITE_FONT_STRETCH, DWRITE_FONT_STYLE, f32, *mut DWRITE_FONT_AXIS_VALUE) -> u32,
     pub GetMatchingFonts: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const DWRITE_FONT_AXIS_VALUE, u32, DWRITE_FONT_SIMULATIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IDWriteFontSet4_Impl: IDWriteFontSet3_Impl {
     fn ConvertWeightStretchStyleToFontAxisValues(&self, inputaxisvalues: *const DWRITE_FONT_AXIS_VALUE, inputaxiscount: u32, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE, fontsize: f32, outputaxisvalues: *mut DWRITE_FONT_AXIS_VALUE) -> u32;
     fn GetMatchingFonts(&self, familyname: &windows_core::PCWSTR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, allowedsimulations: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontSet4>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IDWriteFontSet4_Vtbl {
     pub const fn new<Identity: IDWriteFontSet4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConvertWeightStretchStyleToFontAxisValues<Identity: IDWriteFontSet4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputaxisvalues: *const DWRITE_FONT_AXIS_VALUE, inputaxiscount: u32, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE, fontsize: f32, outputaxisvalues: *mut DWRITE_FONT_AXIS_VALUE) -> u32 {
@@ -7288,7 +7288,7 @@ impl IDWriteFontSet4_Vtbl {
         iid == &<IDWriteFontSet4 as windows_core::Interface>::IID || iid == &<IDWriteFontSet as windows_core::Interface>::IID || iid == &<IDWriteFontSet1 as windows_core::Interface>::IID || iid == &<IDWriteFontSet2 as windows_core::Interface>::IID || iid == &<IDWriteFontSet3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDWriteFontSet4 {}
 windows_core::imp::define_interface!(IDWriteFontSetBuilder, IDWriteFontSetBuilder_Vtbl, 0x2f642afe_9c68_4f40_b8be_457401afcb3d);
 windows_core::imp::interface_hierarchy!(IDWriteFontSetBuilder, windows_core::IUnknown);
@@ -7479,35 +7479,35 @@ impl windows_core::RuntimeName for IDWriteFontSetBuilder2 {}
 windows_core::imp::define_interface!(IDWriteGdiInterop, IDWriteGdiInterop_Vtbl, 0x1edd9491_9853_4299_898f_6432983b6f3a);
 windows_core::imp::interface_hierarchy!(IDWriteGdiInterop, windows_core::IUnknown);
 impl IDWriteGdiInterop {
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn CreateFontFromLOGFONT(&self, logfont: *const super::wingdi::LOGFONTW) -> windows_core::Result<IDWriteFont> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFontFromLOGFONT)(windows_core::Interface::as_raw(self), logfont, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn ConvertFontToLOGFONT<P0>(&self, font: P0, logfont: *mut super::wingdi::LOGFONTW, issystemfont: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDWriteFont>,
     {
         unsafe { (windows_core::Interface::vtable(self).ConvertFontToLOGFONT)(windows_core::Interface::as_raw(self), font.param().abi(), logfont as _, issystemfont as _) }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn ConvertFontFaceToLOGFONT<P0>(&self, font: P0, logfont: *mut super::wingdi::LOGFONTW) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDWriteFontFace>,
     {
         unsafe { (windows_core::Interface::vtable(self).ConvertFontFaceToLOGFONT)(windows_core::Interface::as_raw(self), font.param().abi(), logfont as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn CreateFontFaceFromHdc(&self, hdc: super::windef::HDC) -> windows_core::Result<IDWriteFontFace> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFontFaceFromHdc)(windows_core::Interface::as_raw(self), hdc, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn CreateBitmapRenderTarget(&self, hdc: Option<super::windef::HDC>, width: u32, height: u32) -> windows_core::Result<IDWriteBitmapRenderTarget> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7519,28 +7519,28 @@ impl IDWriteGdiInterop {
 #[doc(hidden)]
 pub struct IDWriteGdiInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub CreateFontFromLOGFONT: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wingdi::LOGFONTW, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     CreateFontFromLOGFONT: usize,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub ConvertFontToLOGFONT: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wingdi::LOGFONTW, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     ConvertFontToLOGFONT: usize,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub ConvertFontFaceToLOGFONT: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wingdi::LOGFONTW) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     ConvertFontFaceToLOGFONT: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub CreateFontFaceFromHdc: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     CreateFontFaceFromHdc: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub CreateBitmapRenderTarget: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HDC, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     CreateBitmapRenderTarget: usize,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 pub trait IDWriteGdiInterop_Impl: windows_core::IUnknownImpl {
     fn CreateFontFromLOGFONT(&self, logfont: *const super::wingdi::LOGFONTW) -> windows_core::Result<IDWriteFont>;
     fn ConvertFontToLOGFONT(&self, font: windows_core::Ref<IDWriteFont>, logfont: *mut super::wingdi::LOGFONTW, issystemfont: *mut windows_core::BOOL) -> windows_core::Result<()>;
@@ -7548,7 +7548,7 @@ pub trait IDWriteGdiInterop_Impl: windows_core::IUnknownImpl {
     fn CreateFontFaceFromHdc(&self, hdc: super::windef::HDC) -> windows_core::Result<IDWriteFontFace>;
     fn CreateBitmapRenderTarget(&self, hdc: super::windef::HDC, width: u32, height: u32) -> windows_core::Result<IDWriteBitmapRenderTarget>;
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 impl IDWriteGdiInterop_Vtbl {
     pub const fn new<Identity: IDWriteGdiInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateFontFromLOGFONT<Identity: IDWriteGdiInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfont: *const super::wingdi::LOGFONTW, font: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7612,7 +7612,7 @@ impl IDWriteGdiInterop_Vtbl {
         iid == &<IDWriteGdiInterop as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 impl windows_core::RuntimeName for IDWriteGdiInterop {}
 windows_core::imp::define_interface!(IDWriteGdiInterop1, IDWriteGdiInterop1_Vtbl, 0x4556be70_3abd_4f70_90be_421780a6f515);
 impl core::ops::Deref for IDWriteGdiInterop1 {
@@ -7623,7 +7623,7 @@ impl core::ops::Deref for IDWriteGdiInterop1 {
 }
 windows_core::imp::interface_hierarchy!(IDWriteGdiInterop1, windows_core::IUnknown, IDWriteGdiInterop);
 impl IDWriteGdiInterop1 {
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn CreateFontFromLOGFONT<P1>(&self, logfont: *const super::wingdi::LOGFONTW, fontcollection: P1) -> windows_core::Result<IDWriteFont>
     where
         P1: windows_core::Param<IDWriteFontCollection>,
@@ -7633,21 +7633,21 @@ impl IDWriteGdiInterop1 {
             (windows_core::Interface::vtable(self).CreateFontFromLOGFONT)(windows_core::Interface::as_raw(self), logfont, fontcollection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn GetFontSignature<P0>(&self, font: P0, fontsignature: *mut super::wingdi::FONTSIGNATURE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDWriteFont>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetFontSignature)(windows_core::Interface::as_raw(self), font.param().abi(), fontsignature as _) }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn GetFontSignature2<P0>(&self, fontface: P0, fontsignature: *mut super::wingdi::FONTSIGNATURE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDWriteFontFace>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetFontSignature2)(windows_core::Interface::as_raw(self), fontface.param().abi(), fontsignature as _) }
     }
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub unsafe fn GetMatchingFontsByLOGFONT<P1>(&self, logfont: *const super::wingdi::LOGFONT, fontset: P1) -> windows_core::Result<IDWriteFontSet>
     where
         P1: windows_core::Param<IDWriteFontSet>,
@@ -7662,31 +7662,31 @@ impl IDWriteGdiInterop1 {
 #[doc(hidden)]
 pub struct IDWriteGdiInterop1_Vtbl {
     pub base__: IDWriteGdiInterop_Vtbl,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub CreateFontFromLOGFONT: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wingdi::LOGFONTW, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     CreateFontFromLOGFONT: usize,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub GetFontSignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wingdi::FONTSIGNATURE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     GetFontSignature: usize,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub GetFontSignature2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::wingdi::FONTSIGNATURE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     GetFontSignature2: usize,
-    #[cfg(feature = "Win32_wingdi")]
+    #[cfg(feature = "wingdi")]
     pub GetMatchingFontsByLOGFONT: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wingdi::LOGFONT, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wingdi"))]
+    #[cfg(not(feature = "wingdi"))]
     GetMatchingFontsByLOGFONT: usize,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 pub trait IDWriteGdiInterop1_Impl: IDWriteGdiInterop_Impl {
     fn CreateFontFromLOGFONT(&self, logfont: *const super::wingdi::LOGFONTW, fontcollection: windows_core::Ref<IDWriteFontCollection>) -> windows_core::Result<IDWriteFont>;
     fn GetFontSignature(&self, font: windows_core::Ref<IDWriteFont>, fontsignature: *mut super::wingdi::FONTSIGNATURE) -> windows_core::Result<()>;
     fn GetFontSignature2(&self, fontface: windows_core::Ref<IDWriteFontFace>, fontsignature: *mut super::wingdi::FONTSIGNATURE) -> windows_core::Result<()>;
     fn GetMatchingFontsByLOGFONT(&self, logfont: *const super::wingdi::LOGFONT, fontset: windows_core::Ref<IDWriteFontSet>) -> windows_core::Result<IDWriteFontSet>;
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 impl IDWriteGdiInterop1_Vtbl {
     pub const fn new<Identity: IDWriteGdiInterop1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateFontFromLOGFONT<Identity: IDWriteGdiInterop1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfont: *const super::wingdi::LOGFONTW, fontcollection: *mut core::ffi::c_void, font: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7737,19 +7737,19 @@ impl IDWriteGdiInterop1_Vtbl {
         iid == &<IDWriteGdiInterop1 as windows_core::Interface>::IID || iid == &<IDWriteGdiInterop as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 impl windows_core::RuntimeName for IDWriteGdiInterop1 {}
 windows_core::imp::define_interface!(IDWriteGlyphRunAnalysis, IDWriteGlyphRunAnalysis_Vtbl, 0x7d97dbf7_e085_42d4_81e3_6a883bded118);
 windows_core::imp::interface_hierarchy!(IDWriteGlyphRunAnalysis, windows_core::IUnknown);
 impl IDWriteGlyphRunAnalysis {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetAlphaTextureBounds(&self, texturetype: DWRITE_TEXTURE_TYPE) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAlphaTextureBounds)(windows_core::Interface::as_raw(self), texturetype, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn CreateAlphaTexture(&self, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *const super::windef::RECT, alphavalues: &mut [u8]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateAlphaTexture)(windows_core::Interface::as_raw(self), texturetype, texturebounds, core::mem::transmute(alphavalues.as_ptr()), alphavalues.len().try_into().unwrap()) }
     }
@@ -7764,23 +7764,23 @@ impl IDWriteGlyphRunAnalysis {
 #[doc(hidden)]
 pub struct IDWriteGlyphRunAnalysis_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetAlphaTextureBounds: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_TEXTURE_TYPE, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetAlphaTextureBounds: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub CreateAlphaTexture: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_TEXTURE_TYPE, *const super::windef::RECT, *mut u8, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     CreateAlphaTexture: usize,
     pub GetAlphaBlendParams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut f32, *mut f32, *mut f32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IDWriteGlyphRunAnalysis_Impl: windows_core::IUnknownImpl {
     fn GetAlphaTextureBounds(&self, texturetype: DWRITE_TEXTURE_TYPE) -> windows_core::Result<super::windef::RECT>;
     fn CreateAlphaTexture(&self, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *const super::windef::RECT, alphavalues: *mut u8, buffersize: u32) -> windows_core::Result<()>;
     fn GetAlphaBlendParams(&self, renderingparams: windows_core::Ref<IDWriteRenderingParams>, blendgamma: *mut f32, blendenhancedcontrast: *mut f32, blendcleartypelevel: *mut f32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IDWriteGlyphRunAnalysis_Vtbl {
     pub const fn new<Identity: IDWriteGlyphRunAnalysis_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAlphaTextureBounds<Identity: IDWriteGlyphRunAnalysis_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *mut super::windef::RECT) -> windows_core::HRESULT {
@@ -7818,7 +7818,7 @@ impl IDWriteGlyphRunAnalysis_Vtbl {
         iid == &<IDWriteGlyphRunAnalysis as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IDWriteGlyphRunAnalysis {}
 windows_core::imp::define_interface!(IDWriteInMemoryFontFileLoader, IDWriteInMemoryFontFileLoader_Vtbl, 0xdc102f47_a12d_4b1c_822d_9e117e33043f);
 impl core::ops::Deref for IDWriteInMemoryFontFileLoader {
@@ -7995,7 +7995,7 @@ impl IDWriteLocalFontFileLoader {
     pub unsafe fn GetFilePathFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32, filepath: &mut [u16]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFilePathFromKey)(windows_core::Interface::as_raw(self), fontfilereferencekey, fontfilereferencekeysize, core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetLastWriteTimeFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<super::minwindef::FILETIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8009,18 +8009,18 @@ pub struct IDWriteLocalFontFileLoader_Vtbl {
     pub base__: IDWriteFontFileLoader_Vtbl,
     pub GetFilePathLengthFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetFilePathFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut u16, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetLastWriteTimeFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut super::minwindef::FILETIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetLastWriteTimeFromKey: usize,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IDWriteLocalFontFileLoader_Impl: IDWriteFontFileLoader_Impl {
     fn GetFilePathLengthFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<u32>;
     fn GetFilePathFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32, filepath: *mut u16, filepathsize: u32) -> windows_core::Result<()>;
     fn GetLastWriteTimeFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<super::minwindef::FILETIME>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IDWriteLocalFontFileLoader_Vtbl {
     pub const fn new<Identity: IDWriteLocalFontFileLoader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFilePathLengthFromKey<Identity: IDWriteLocalFontFileLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32, filepathlength: *mut u32) -> windows_core::HRESULT {
@@ -8064,7 +8064,7 @@ impl IDWriteLocalFontFileLoader_Vtbl {
         iid == &<IDWriteLocalFontFileLoader as windows_core::Interface>::IID || iid == &<IDWriteFontFileLoader as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IDWriteLocalFontFileLoader {}
 windows_core::imp::define_interface!(IDWriteLocalizedStrings, IDWriteLocalizedStrings_Vtbl, 0x08256209_099a_4b34_b86d_c22b110e7771);
 windows_core::imp::interface_hierarchy!(IDWriteLocalizedStrings, windows_core::IUnknown);
@@ -8201,37 +8201,37 @@ impl windows_core::RuntimeName for IDWriteNumberSubstitution {}
 windows_core::imp::define_interface!(IDWritePaintReader, IDWritePaintReader_Vtbl, 0x8128e912_3b97_42a5_ab6c_24aad3a86e54);
 windows_core::imp::interface_hierarchy!(IDWritePaintReader, windows_core::IUnknown);
 impl IDWritePaintReader {
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "dcommon", feature = "dxgi"))]
     pub unsafe fn SetCurrentGlyph(&self, glyphindex: u32, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32, clipbox: *mut super::dcommon::D2D_RECT_F, glyphattributes: Option<*mut DWRITE_PAINT_ATTRIBUTES>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentGlyph)(windows_core::Interface::as_raw(self), glyphindex, paintelement as _, structsize, clipbox as _, glyphattributes.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn SetTextColor(&self, textcolor: *const DWRITE_COLOR_F) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTextColor)(windows_core::Interface::as_raw(self), textcolor) }
     }
     pub unsafe fn SetColorPaletteIndex(&self, colorpaletteindex: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetColorPaletteIndex)(windows_core::Interface::as_raw(self), colorpaletteindex) }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn SetCustomColorPalette(&self, paletteentries: &[DWRITE_COLOR_F]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCustomColorPalette)(windows_core::Interface::as_raw(self), core::mem::transmute(paletteentries.as_ptr()), paletteentries.len().try_into().unwrap()) }
     }
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "dcommon", feature = "dxgi"))]
     pub unsafe fn MoveToFirstChild(&self, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MoveToFirstChild)(windows_core::Interface::as_raw(self), paintelement as _, structsize) }
     }
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "dcommon", feature = "dxgi"))]
     pub unsafe fn MoveToNextSibling(&self, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MoveToNextSibling)(windows_core::Interface::as_raw(self), paintelement as _, structsize) }
     }
     pub unsafe fn MoveToParent(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MoveToParent)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "d2d", feature = "dxgi"))]
     pub unsafe fn GetGradientStops(&self, firstgradientstopindex: u32, gradientstops: &mut [super::d2d::D2D1_GRADIENT_STOP]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetGradientStops)(windows_core::Interface::as_raw(self), firstgradientstopindex, gradientstops.len().try_into().unwrap(), core::mem::transmute(gradientstops.as_ptr())) }
     }
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub unsafe fn GetGradientStopColors(&self, firstgradientstopindex: u32, gradientstopcolors: &mut [DWRITE_PAINT_COLOR]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetGradientStopColors)(windows_core::Interface::as_raw(self), firstgradientstopindex, gradientstopcolors.len().try_into().unwrap(), core::mem::transmute(gradientstopcolors.as_ptr())) }
     }
@@ -8240,38 +8240,38 @@ impl IDWritePaintReader {
 #[doc(hidden)]
 pub struct IDWritePaintReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "dcommon", feature = "dxgi"))]
     pub SetCurrentGlyph: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DWRITE_PAINT_ELEMENT, u32, *mut super::dcommon::D2D_RECT_F, *mut DWRITE_PAINT_ATTRIBUTES) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dcommon", feature = "Win32_dxgi")))]
+    #[cfg(not(all(feature = "dcommon", feature = "dxgi")))]
     SetCurrentGlyph: usize,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub SetTextColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_COLOR_F) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     SetTextColor: usize,
     pub SetColorPaletteIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub SetCustomColorPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_COLOR_F, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     SetCustomColorPalette: usize,
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "dcommon", feature = "dxgi"))]
     pub MoveToFirstChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_PAINT_ELEMENT, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dcommon", feature = "Win32_dxgi")))]
+    #[cfg(not(all(feature = "dcommon", feature = "dxgi")))]
     MoveToFirstChild: usize,
-    #[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "dcommon", feature = "dxgi"))]
     pub MoveToNextSibling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_PAINT_ELEMENT, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dcommon", feature = "Win32_dxgi")))]
+    #[cfg(not(all(feature = "dcommon", feature = "dxgi")))]
     MoveToNextSibling: usize,
     pub MoveToParent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dxgi"))]
+    #[cfg(all(feature = "d2d", feature = "dxgi"))]
     pub GetGradientStops: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::d2d::D2D1_GRADIENT_STOP) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2d", feature = "Win32_dxgi")))]
+    #[cfg(not(all(feature = "d2d", feature = "dxgi")))]
     GetGradientStops: usize,
-    #[cfg(feature = "Win32_dxgi")]
+    #[cfg(feature = "dxgi")]
     pub GetGradientStopColors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DWRITE_PAINT_COLOR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi"))]
+    #[cfg(not(feature = "dxgi"))]
     GetGradientStopColors: usize,
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 pub trait IDWritePaintReader_Impl: windows_core::IUnknownImpl {
     fn SetCurrentGlyph(&self, glyphindex: u32, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32, clipbox: *mut super::dcommon::D2D_RECT_F, glyphattributes: *mut DWRITE_PAINT_ATTRIBUTES) -> windows_core::Result<()>;
     fn SetTextColor(&self, textcolor: *const DWRITE_COLOR_F) -> windows_core::Result<()>;
@@ -8283,7 +8283,7 @@ pub trait IDWritePaintReader_Impl: windows_core::IUnknownImpl {
     fn GetGradientStops(&self, firstgradientstopindex: u32, gradientstopcount: u32, gradientstops: *mut super::d2d::D2D1_GRADIENT_STOP) -> windows_core::Result<()>;
     fn GetGradientStopColors(&self, firstgradientstopindex: u32, gradientstopcount: u32, gradientstopcolors: *mut DWRITE_PAINT_COLOR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 impl IDWritePaintReader_Vtbl {
     pub const fn new<Identity: IDWritePaintReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetCurrentGlyph<Identity: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphindex: u32, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32, clipbox: *mut super::dcommon::D2D_RECT_F, glyphattributes: *mut DWRITE_PAINT_ATTRIBUTES) -> windows_core::HRESULT {
@@ -8357,7 +8357,7 @@ impl IDWritePaintReader_Vtbl {
         iid == &<IDWritePaintReader as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 impl windows_core::RuntimeName for IDWritePaintReader {}
 windows_core::imp::define_interface!(IDWritePixelSnapping, IDWritePixelSnapping_Vtbl, 0xeaf3a2da_ecf4_4d24_b644_b34f6842024b);
 windows_core::imp::interface_hierarchy!(IDWritePixelSnapping, windows_core::IUnknown);
@@ -11196,21 +11196,21 @@ impl core::ops::Deref for IDWriteTextRenderer {
 }
 windows_core::imp::interface_hierarchy!(IDWriteTextRenderer, windows_core::IUnknown, IDWritePixelSnapping);
 impl IDWriteTextRenderer {
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn DrawGlyphRun<P6>(&self, clientdrawingcontext: Option<*const core::ffi::c_void>, baselineoriginx: f32, baselineoriginy: f32, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: P6) -> windows_core::HRESULT
     where
         P6: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).DrawGlyphRun)(windows_core::Interface::as_raw(self), clientdrawingcontext.unwrap_or(core::mem::zeroed()) as _, baselineoriginx, baselineoriginy, measuringmode, core::mem::transmute(glyphrun), glyphrundescription, clientdrawingeffect.param().abi()) }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn DrawUnderline<P4>(&self, clientdrawingcontext: Option<*const core::ffi::c_void>, baselineoriginx: f32, baselineoriginy: f32, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: P4) -> windows_core::HRESULT
     where
         P4: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).DrawUnderline)(windows_core::Interface::as_raw(self), clientdrawingcontext.unwrap_or(core::mem::zeroed()) as _, baselineoriginx, baselineoriginy, underline, clientdrawingeffect.param().abi()) }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn DrawStrikethrough<P4>(&self, clientdrawingcontext: Option<*const core::ffi::c_void>, baselineoriginx: f32, baselineoriginy: f32, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: P4) -> windows_core::HRESULT
     where
         P4: windows_core::Param<windows_core::IUnknown>,
@@ -11229,28 +11229,28 @@ impl IDWriteTextRenderer {
 #[doc(hidden)]
 pub struct IDWriteTextRenderer_Vtbl {
     pub base__: IDWritePixelSnapping_Vtbl,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub DrawGlyphRun: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, super::dcommon::DWRITE_MEASURING_MODE, *const DWRITE_GLYPH_RUN, *const DWRITE_GLYPH_RUN_DESCRIPTION, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     DrawGlyphRun: usize,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub DrawUnderline: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, *const DWRITE_UNDERLINE, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     DrawUnderline: usize,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub DrawStrikethrough: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, *const DWRITE_STRIKETHROUGH, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     DrawStrikethrough: usize,
     pub DrawInlineObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, *mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 pub trait IDWriteTextRenderer_Impl: IDWritePixelSnapping_Impl {
     fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DrawStrikethrough(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DrawInlineObject(&self, clientdrawingcontext: *const core::ffi::c_void, originx: f32, originy: f32, inlineobject: windows_core::Ref<IDWriteInlineObject>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 impl IDWriteTextRenderer_Vtbl {
     pub const fn new<Identity: IDWriteTextRenderer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DrawGlyphRun<Identity: IDWriteTextRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11289,7 +11289,7 @@ impl IDWriteTextRenderer_Vtbl {
         iid == &<IDWriteTextRenderer as windows_core::Interface>::IID || iid == &<IDWritePixelSnapping as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 impl windows_core::RuntimeName for IDWriteTextRenderer {}
 windows_core::imp::define_interface!(IDWriteTextRenderer1, IDWriteTextRenderer1_Vtbl, 0xd3e0e934_22a0_427e_aae4_7d9574b59db1);
 impl core::ops::Deref for IDWriteTextRenderer1 {
@@ -11300,21 +11300,21 @@ impl core::ops::Deref for IDWriteTextRenderer1 {
 }
 windows_core::imp::interface_hierarchy!(IDWriteTextRenderer1, windows_core::IUnknown, IDWritePixelSnapping, IDWriteTextRenderer);
 impl IDWriteTextRenderer1 {
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn DrawGlyphRun<P7>(&self, clientdrawingcontext: Option<*const core::ffi::c_void>, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: P7) -> windows_core::HRESULT
     where
         P7: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).DrawGlyphRun)(windows_core::Interface::as_raw(self), clientdrawingcontext.unwrap_or(core::mem::zeroed()) as _, baselineoriginx, baselineoriginy, orientationangle, measuringmode, core::mem::transmute(glyphrun), glyphrundescription, clientdrawingeffect.param().abi()) }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn DrawUnderline<P5>(&self, clientdrawingcontext: Option<*const core::ffi::c_void>, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: P5) -> windows_core::HRESULT
     where
         P5: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).DrawUnderline)(windows_core::Interface::as_raw(self), clientdrawingcontext.unwrap_or(core::mem::zeroed()) as _, baselineoriginx, baselineoriginy, orientationangle, underline, clientdrawingeffect.param().abi()) }
     }
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub unsafe fn DrawStrikethrough<P5>(&self, clientdrawingcontext: Option<*const core::ffi::c_void>, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: P5) -> windows_core::HRESULT
     where
         P5: windows_core::Param<windows_core::IUnknown>,
@@ -11333,28 +11333,28 @@ impl IDWriteTextRenderer1 {
 #[doc(hidden)]
 pub struct IDWriteTextRenderer1_Vtbl {
     pub base__: IDWriteTextRenderer_Vtbl,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub DrawGlyphRun: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, DWRITE_GLYPH_ORIENTATION_ANGLE, super::dcommon::DWRITE_MEASURING_MODE, *const DWRITE_GLYPH_RUN, *const DWRITE_GLYPH_RUN_DESCRIPTION, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     DrawGlyphRun: usize,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub DrawUnderline: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, DWRITE_GLYPH_ORIENTATION_ANGLE, *const DWRITE_UNDERLINE, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     DrawUnderline: usize,
-    #[cfg(feature = "Win32_dcommon")]
+    #[cfg(feature = "dcommon")]
     pub DrawStrikethrough: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, DWRITE_GLYPH_ORIENTATION_ANGLE, *const DWRITE_STRIKETHROUGH, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dcommon"))]
+    #[cfg(not(feature = "dcommon"))]
     DrawStrikethrough: usize,
     pub DrawInlineObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, DWRITE_GLYPH_ORIENTATION_ANGLE, *mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 pub trait IDWriteTextRenderer1_Impl: IDWriteTextRenderer_Impl {
     fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DrawStrikethrough(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DrawInlineObject(&self, clientdrawingcontext: *const core::ffi::c_void, originx: f32, originy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, inlineobject: windows_core::Ref<IDWriteInlineObject>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 impl IDWriteTextRenderer1_Vtbl {
     pub const fn new<Identity: IDWriteTextRenderer1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DrawGlyphRun<Identity: IDWriteTextRenderer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: super::dcommon::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11393,7 +11393,7 @@ impl IDWriteTextRenderer1_Vtbl {
         iid == &<IDWriteTextRenderer1 as windows_core::Interface>::IID || iid == &<IDWritePixelSnapping as windows_core::Interface>::IID || iid == &<IDWriteTextRenderer as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dcommon")]
+#[cfg(feature = "dcommon")]
 impl windows_core::RuntimeName for IDWriteTextRenderer1 {}
 windows_core::imp::define_interface!(IDWriteTypography, IDWriteTypography_Vtbl, 0x55f1112b_1dc2_4b3c_9541_f46894ed85b6);
 windows_core::imp::interface_hierarchy!(IDWriteTypography, windows_core::IUnknown);

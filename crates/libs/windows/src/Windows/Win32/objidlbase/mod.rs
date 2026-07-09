@@ -314,7 +314,7 @@ pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUE
 pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 0;
 pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COSERVERINFO {
     pub dwReserved1: u32,
@@ -322,7 +322,7 @@ pub struct COSERVERINFO {
     pub pAuthInfo: *mut super::wtypesbase::COAUTHINFO,
     pub dwReserved2: u32,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for COSERVERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -894,14 +894,14 @@ impl windows_core::RuntimeName for IChannelHook {}
 windows_core::imp::define_interface!(IClientSecurity, IClientSecurity_Vtbl, 0x0000013d_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IClientSecurity, windows_core::IUnknown);
 impl IClientSecurity {
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub unsafe fn QueryBlanket<P0>(&self, pproxy: P0, pauthnsvc: *mut u32, pauthzsvc: Option<*mut u32>, pserverprincname: *mut *mut super::wtypesbase::OLECHAR, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pauthinfo: *mut *mut core::ffi::c_void, pcapabilites: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).QueryBlanket)(windows_core::Interface::as_raw(self), pproxy.param().abi(), pauthnsvc as _, pauthzsvc.unwrap_or(core::mem::zeroed()) as _, pserverprincname as _, pauthnlevel.unwrap_or(core::mem::zeroed()) as _, pimplevel.unwrap_or(core::mem::zeroed()) as _, pauthinfo as _, pcapabilites.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub unsafe fn SetBlanket<P0>(&self, pproxy: P0, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: *const super::wtypesbase::OLECHAR, dwauthnlevel: u32, dwimplevel: u32, pauthinfo: Option<*const core::ffi::c_void>, dwcapabilities: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -922,23 +922,23 @@ impl IClientSecurity {
 #[doc(hidden)]
 pub struct IClientSecurity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub QueryBlanket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *mut u32, *mut *mut super::wtypesbase::OLECHAR, *mut u32, *mut u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypesbase"))]
+    #[cfg(not(feature = "wtypesbase"))]
     QueryBlanket: usize,
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub SetBlanket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *const super::wtypesbase::OLECHAR, u32, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypesbase"))]
+    #[cfg(not(feature = "wtypesbase"))]
     SetBlanket: usize,
     pub CopyProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 pub trait IClientSecurity_Impl: windows_core::IUnknownImpl {
     fn QueryBlanket(&self, pproxy: windows_core::Ref<windows_core::IUnknown>, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut super::wtypesbase::OLECHAR, pauthnlevel: *mut u32, pimplevel: *mut u32, pauthinfo: *mut *mut core::ffi::c_void, pcapabilites: *mut u32) -> windows_core::Result<()>;
     fn SetBlanket(&self, pproxy: windows_core::Ref<windows_core::IUnknown>, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: *const super::wtypesbase::OLECHAR, dwauthnlevel: u32, dwimplevel: u32, pauthinfo: *const core::ffi::c_void, dwcapabilities: u32) -> windows_core::Result<()>;
     fn CopyProxy(&self, pproxy: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl IClientSecurity_Vtbl {
     pub const fn new<Identity: IClientSecurity_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryBlanket<Identity: IClientSecurity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproxy: *mut core::ffi::c_void, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut super::wtypesbase::OLECHAR, pauthnlevel: *mut u32, pimplevel: *mut u32, pauthinfo: *mut *mut core::ffi::c_void, pcapabilites: *mut u32) -> windows_core::HRESULT {
@@ -976,7 +976,7 @@ impl IClientSecurity_Vtbl {
         iid == &<IClientSecurity as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IClientSecurity {}
 windows_core::imp::define_interface!(IComThreadingInfo, IComThreadingInfo_Vtbl, 0x000001ce_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IComThreadingInfo, windows_core::IUnknown);
@@ -1798,11 +1798,11 @@ pub struct IMarshalingStream_Vtbl {
     pub base__: IStream_Vtbl,
     pub GetMarshalingContextAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, CO_MARSHALING_CONTEXT_ATTRIBUTES, *mut usize) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IMarshalingStream_Impl: IStream_Impl {
     fn GetMarshalingContextAttribute(&self, attribute: CO_MARSHALING_CONTEXT_ATTRIBUTES) -> windows_core::Result<usize>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IMarshalingStream_Vtbl {
     pub const fn new<Identity: IMarshalingStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMarshalingContextAttribute<Identity: IMarshalingStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attribute: CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> windows_core::HRESULT {
@@ -1823,7 +1823,7 @@ impl IMarshalingStream_Vtbl {
         iid == &<IMarshalingStream as windows_core::Interface>::IID || iid == &<ISequentialStream as windows_core::Interface>::IID || iid == &<IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IMarshalingStream {}
 windows_core::imp::define_interface!(IMultiQI, IMultiQI_Vtbl, 0x00000020_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IMultiQI, windows_core::IUnknown);
@@ -2780,7 +2780,7 @@ impl windows_core::RuntimeName for ISequentialStream {}
 windows_core::imp::define_interface!(IServerSecurity, IServerSecurity_Vtbl, 0x0000013e_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IServerSecurity, windows_core::IUnknown);
 impl IServerSecurity {
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub unsafe fn QueryBlanket(&self, pauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: *mut *mut super::wtypesbase::OLECHAR, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pprivs: *mut *mut core::ffi::c_void, pcapabilities: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryBlanket)(windows_core::Interface::as_raw(self), pauthnsvc.unwrap_or(core::mem::zeroed()) as _, pauthzsvc.unwrap_or(core::mem::zeroed()) as _, pserverprincname as _, pauthnlevel.unwrap_or(core::mem::zeroed()) as _, pimplevel.unwrap_or(core::mem::zeroed()) as _, pprivs as _, pcapabilities.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -2798,22 +2798,22 @@ impl IServerSecurity {
 #[doc(hidden)]
 pub struct IServerSecurity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub QueryBlanket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut *mut super::wtypesbase::OLECHAR, *mut u32, *mut u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypesbase"))]
+    #[cfg(not(feature = "wtypesbase"))]
     QueryBlanket: usize,
     pub ImpersonateClient: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RevertToSelf: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsImpersonating: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 pub trait IServerSecurity_Impl: windows_core::IUnknownImpl {
     fn QueryBlanket(&self, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut super::wtypesbase::OLECHAR, pauthnlevel: *mut u32, pimplevel: *mut u32, pprivs: *mut *mut core::ffi::c_void, pcapabilities: *mut u32) -> windows_core::Result<()>;
     fn ImpersonateClient(&self) -> windows_core::Result<()>;
     fn RevertToSelf(&self) -> windows_core::Result<()>;
     fn IsImpersonating(&self) -> windows_core::BOOL;
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl IServerSecurity_Vtbl {
     pub const fn new<Identity: IServerSecurity_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryBlanket<Identity: IServerSecurity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut super::wtypesbase::OLECHAR, pauthnlevel: *mut u32, pimplevel: *mut u32, pprivs: *mut *mut core::ffi::c_void, pcapabilities: *mut u32) -> windows_core::HRESULT {
@@ -2852,7 +2852,7 @@ impl IServerSecurity_Vtbl {
         iid == &<IServerSecurity as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IServerSecurity {}
 windows_core::imp::define_interface!(IStdMarshalInfo, IStdMarshalInfo_Vtbl, 0x00000018_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IStdMarshalInfo, windows_core::IUnknown);
@@ -2927,7 +2927,7 @@ impl IStream {
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnlockRegion)(windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), pstatstg as _, grfstatflag) }
     }
@@ -2949,13 +2949,13 @@ pub struct IStream_Vtbl {
     pub Revert: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LockRegion: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32) -> windows_core::HRESULT,
     pub UnlockRegion: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub Stat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STATSTG, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     Stat: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IStream_Impl: ISequentialStream_Impl {
     fn Seek(&self, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> windows_core::Result<()>;
     fn SetSize(&self, libnewsize: u64) -> windows_core::Result<()>;
@@ -2967,7 +2967,7 @@ pub trait IStream_Impl: ISequentialStream_Impl {
     fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IStream>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IStream_Vtbl {
     pub const fn new<Identity: IStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Seek<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> windows_core::HRESULT {
@@ -3047,7 +3047,7 @@ impl IStream_Vtbl {
         iid == &<IStream as windows_core::Interface>::IID || iid == &<ISequentialStream as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IStream {}
 windows_core::imp::define_interface!(ISupportActivateAsActivatorPackaged, ISupportActivateAsActivatorPackaged_Vtbl, 0x765d1df2_f0af_4ef8_aa50_84789ca330ed);
 windows_core::imp::interface_hierarchy!(ISupportActivateAsActivatorPackaged, windows_core::IUnknown);
@@ -3356,7 +3356,7 @@ impl core::ops::Deref for ISynchronizeEvent {
 }
 windows_core::imp::interface_hierarchy!(ISynchronizeEvent, windows_core::IUnknown, ISynchronizeHandle);
 impl ISynchronizeEvent {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetEventHandle(&self, ph: *const super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEventHandle)(windows_core::Interface::as_raw(self), ph) }
     }
@@ -3365,16 +3365,16 @@ impl ISynchronizeEvent {
 #[doc(hidden)]
 pub struct ISynchronizeEvent_Vtbl {
     pub base__: ISynchronizeHandle_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetEventHandle: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait ISynchronizeEvent_Impl: ISynchronizeHandle_Impl {
     fn SetEventHandle(&self, ph: *const super::winnt::HANDLE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl ISynchronizeEvent_Vtbl {
     pub const fn new<Identity: ISynchronizeEvent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetEventHandle<Identity: ISynchronizeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ph: *const super::winnt::HANDLE) -> windows_core::HRESULT {
@@ -3389,12 +3389,12 @@ impl ISynchronizeEvent_Vtbl {
         iid == &<ISynchronizeEvent as windows_core::Interface>::IID || iid == &<ISynchronizeHandle as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for ISynchronizeEvent {}
 windows_core::imp::define_interface!(ISynchronizeHandle, ISynchronizeHandle_Vtbl, 0x00000031_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(ISynchronizeHandle, windows_core::IUnknown);
 impl ISynchronizeHandle {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetHandle(&self) -> windows_core::Result<super::winnt::HANDLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3406,16 +3406,16 @@ impl ISynchronizeHandle {
 #[doc(hidden)]
 pub struct ISynchronizeHandle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetHandle: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait ISynchronizeHandle_Impl: windows_core::IUnknownImpl {
     fn GetHandle(&self) -> windows_core::Result<super::winnt::HANDLE>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl ISynchronizeHandle_Vtbl {
     pub const fn new<Identity: ISynchronizeHandle_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetHandle<Identity: ISynchronizeHandle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ph: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
@@ -3436,7 +3436,7 @@ impl ISynchronizeHandle_Vtbl {
         iid == &<ISynchronizeHandle as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for ISynchronizeHandle {}
 windows_core::imp::define_interface!(ISynchronizeMutex, ISynchronizeMutex_Vtbl, 0x00000025_0000_0000_c000_000000000046);
 impl core::ops::Deref for ISynchronizeMutex {
@@ -3601,17 +3601,17 @@ impl Default for PSOLE_AUTHENTICATION_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSOLE_AUTHENTICATION_SERVICE(pub *mut SOLE_AUTHENTICATION_SERVICE);
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl PSOLE_AUTHENTICATION_SERVICE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for PSOLE_AUTHENTICATION_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3680,7 +3680,7 @@ impl Default for SOLE_AUTHENTICATION_LIST {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOLE_AUTHENTICATION_SERVICE {
     pub dwAuthnSvc: u32,
@@ -3688,14 +3688,14 @@ pub struct SOLE_AUTHENTICATION_SERVICE {
     pub pPrincipalName: *mut super::wtypesbase::OLECHAR,
     pub hr: windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for SOLE_AUTHENTICATION_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STATSTG {
     pub pwcsName: windows_core::PWSTR,

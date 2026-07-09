@@ -20,7 +20,7 @@ pub struct HITRANGE {
 windows_core::imp::define_interface!(IConditionFactory, IConditionFactory_Vtbl, 0xa5efe073_b16f_474f_9f3e_9f8b497a3e08);
 windows_core::imp::interface_hierarchy!(IConditionFactory, windows_core::IUnknown);
 impl IConditionFactory {
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub unsafe fn MakeNot<P0>(&self, pcsub: P0, fsimplify: bool) -> windows_core::Result<super::structuredquerycondition::ICondition>
     where
         P0: windows_core::Param<super::structuredquerycondition::ICondition>,
@@ -30,7 +30,7 @@ impl IConditionFactory {
             (windows_core::Interface::vtable(self).MakeNot)(windows_core::Interface::as_raw(self), pcsub.param().abi(), fsimplify.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "objidlbase", feature = "structuredquerycondition"))]
     pub unsafe fn MakeAndOr<P1>(&self, ct: super::structuredquerycondition::CONDITION_TYPE, peusubs: P1, fsimplify: bool) -> windows_core::Result<super::structuredquerycondition::ICondition>
     where
         P1: windows_core::Param<super::objidlbase::IEnumUnknown>,
@@ -40,7 +40,7 @@ impl IConditionFactory {
             (windows_core::Interface::vtable(self).MakeAndOr)(windows_core::Interface::as_raw(self), ct, peusubs.param().abi(), fsimplify.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn MakeLeaf<P0, P2, P4, P5, P6>(&self, pszpropertyname: P0, cop: super::structuredquerycondition::CONDITION_OPERATION, pszvaluetype: P2, ppropvar: *const super::propidlbase::PROPVARIANT, ppropertynameterm: P4, poperationterm: P5, pvalueterm: P6, fexpand: bool) -> windows_core::Result<super::structuredquerycondition::ICondition>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -54,7 +54,7 @@ impl IConditionFactory {
             (windows_core::Interface::vtable(self).MakeLeaf)(windows_core::Interface::as_raw(self), pszpropertyname.param().abi(), cop, pszvaluetype.param().abi(), core::mem::transmute(ppropvar), ppropertynameterm.param().abi(), poperationterm.param().abi(), pvalueterm.param().abi(), fexpand.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "minwinbase", feature = "objidl", feature = "structuredquerycondition"))]
     pub unsafe fn Resolve<P0>(&self, pc: P0, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: Option<*const super::minwinbase::SYSTEMTIME>) -> windows_core::Result<super::structuredquerycondition::ICondition>
     where
         P0: windows_core::Param<super::structuredquerycondition::ICondition>,
@@ -69,31 +69,31 @@ impl IConditionFactory {
 #[doc(hidden)]
 pub struct IConditionFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub MakeNot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition")))]
+    #[cfg(not(all(feature = "objidl", feature = "structuredquerycondition")))]
     MakeNot: usize,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "objidlbase", feature = "structuredquerycondition"))]
     pub MakeAndOr: unsafe extern "system" fn(*mut core::ffi::c_void, super::structuredquerycondition::CONDITION_TYPE, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_structuredquerycondition")))]
+    #[cfg(not(all(feature = "objidl", feature = "objidlbase", feature = "structuredquerycondition")))]
     MakeAndOr: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
     pub MakeLeaf: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::structuredquerycondition::CONDITION_OPERATION, windows_core::PCWSTR, *const super::propidlbase::PROPVARIANT, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase")))]
     MakeLeaf: usize,
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "minwinbase", feature = "objidl", feature = "structuredquerycondition"))]
     pub Resolve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, STRUCTURED_QUERY_RESOLVE_OPTION, *const super::minwinbase::SYSTEMTIME, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwinbase", feature = "Win32_objidl", feature = "Win32_structuredquerycondition")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "objidl", feature = "structuredquerycondition")))]
     Resolve: usize,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IConditionFactory_Impl: windows_core::IUnknownImpl {
     fn MakeNot(&self, pcsub: windows_core::Ref<super::structuredquerycondition::ICondition>, fsimplify: windows_core::BOOL) -> windows_core::Result<super::structuredquerycondition::ICondition>;
     fn MakeAndOr(&self, ct: super::structuredquerycondition::CONDITION_TYPE, peusubs: windows_core::Ref<super::objidlbase::IEnumUnknown>, fsimplify: windows_core::BOOL) -> windows_core::Result<super::structuredquerycondition::ICondition>;
     fn MakeLeaf(&self, pszpropertyname: &windows_core::PCWSTR, cop: super::structuredquerycondition::CONDITION_OPERATION, pszvaluetype: &windows_core::PCWSTR, ppropvar: *const super::propidlbase::PROPVARIANT, ppropertynameterm: windows_core::Ref<super::structuredquerycondition::IRichChunk>, poperationterm: windows_core::Ref<super::structuredquerycondition::IRichChunk>, pvalueterm: windows_core::Ref<super::structuredquerycondition::IRichChunk>, fexpand: windows_core::BOOL) -> windows_core::Result<super::structuredquerycondition::ICondition>;
     fn Resolve(&self, pc: windows_core::Ref<super::structuredquerycondition::ICondition>, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::minwinbase::SYSTEMTIME) -> windows_core::Result<super::structuredquerycondition::ICondition>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
 impl IConditionFactory_Vtbl {
     pub const fn new<Identity: IConditionFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MakeNot<Identity: IConditionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcsub: *mut core::ffi::c_void, fsimplify: windows_core::BOOL, ppcresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -156,7 +156,7 @@ impl IConditionFactory_Vtbl {
         iid == &<IConditionFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IConditionFactory {}
 windows_core::imp::define_interface!(IConditionFactory2, IConditionFactory2_Vtbl, 0x71d222e1_432f_429e_8c13_b6dafde5077a);
 impl core::ops::Deref for IConditionFactory2 {
@@ -174,7 +174,7 @@ impl IConditionFactory2 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateTrueFalse)(windows_core::Interface::as_raw(self), fval.into(), cco, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub unsafe fn CreateNegation<P0, T>(&self, pcsub: P0, cco: CONDITION_CREATION_OPTIONS) -> windows_core::Result<T>
     where
         P0: windows_core::Param<super::structuredquerycondition::ICondition>,
@@ -183,7 +183,7 @@ impl IConditionFactory2 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateNegation)(windows_core::Interface::as_raw(self), pcsub.param().abi(), cco, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_objectarray", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objectarray", feature = "structuredquerycondition"))]
     pub unsafe fn CreateCompoundFromObjectArray<P1, T>(&self, ct: super::structuredquerycondition::CONDITION_TYPE, poasubs: P1, cco: CONDITION_CREATION_OPTIONS) -> windows_core::Result<T>
     where
         P1: windows_core::Param<super::objectarray::IObjectArray>,
@@ -192,7 +192,7 @@ impl IConditionFactory2 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateCompoundFromObjectArray)(windows_core::Interface::as_raw(self), ct, poasubs.param().abi(), cco, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub unsafe fn CreateCompoundFromArray<T>(&self, ct: super::structuredquerycondition::CONDITION_TYPE, ppcondsubs: *const Option<super::structuredquerycondition::ICondition>, csubs: u32, cco: CONDITION_CREATION_OPTIONS) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -200,7 +200,7 @@ impl IConditionFactory2 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateCompoundFromArray)(windows_core::Interface::as_raw(self), ct, core::mem::transmute(ppcondsubs), csubs, cco, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_structuredquerycondition", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "structuredquerycondition", feature = "wtypes"))]
     pub unsafe fn CreateStringLeaf<P2, P3, T>(&self, propkey: *const super::wtypes::PROPERTYKEY, cop: super::structuredquerycondition::CONDITION_OPERATION, pszvalue: P2, pszlocalename: P3, cco: CONDITION_CREATION_OPTIONS) -> windows_core::Result<T>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -210,7 +210,7 @@ impl IConditionFactory2 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateStringLeaf)(windows_core::Interface::as_raw(self), propkey, cop, pszvalue.param().abi(), pszlocalename.param().abi(), cco, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_structuredquerycondition", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "structuredquerycondition", feature = "wtypes"))]
     pub unsafe fn CreateIntegerLeaf<T>(&self, propkey: *const super::wtypes::PROPERTYKEY, cop: super::structuredquerycondition::CONDITION_OPERATION, lvalue: i32, cco: CONDITION_CREATION_OPTIONS) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -218,7 +218,7 @@ impl IConditionFactory2 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateIntegerLeaf)(windows_core::Interface::as_raw(self), propkey, cop, lvalue, cco, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_structuredquerycondition", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "structuredquerycondition", feature = "wtypes"))]
     pub unsafe fn CreateBooleanLeaf<T>(&self, propkey: *const super::wtypes::PROPERTYKEY, cop: super::structuredquerycondition::CONDITION_OPERATION, fvalue: bool, cco: CONDITION_CREATION_OPTIONS) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -226,7 +226,7 @@ impl IConditionFactory2 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateBooleanLeaf)(windows_core::Interface::as_raw(self), propkey, cop, fvalue.into(), cco, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreateLeaf<P3, P4, P5, P6, P7, T>(&self, propkey: *const super::wtypes::PROPERTYKEY, cop: super::structuredquerycondition::CONDITION_OPERATION, propvar: *const super::propidlbase::PROPVARIANT, pszsemantictype: P3, pszlocalename: P4, ppropertynameterm: P5, poperationterm: P6, pvalueterm: P7, cco: CONDITION_CREATION_OPTIONS) -> windows_core::Result<T>
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
@@ -239,7 +239,7 @@ impl IConditionFactory2 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateLeaf)(windows_core::Interface::as_raw(self), propkey, cop, core::mem::transmute(propvar), pszsemantictype.param().abi(), pszlocalename.param().abi(), ppropertynameterm.param().abi(), poperationterm.param().abi(), pvalueterm.param().abi(), cco, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "minwinbase", feature = "objidl", feature = "structuredquerycondition"))]
     pub unsafe fn ResolveCondition<P0, T>(&self, pc: P0, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: Option<*const super::minwinbase::SYSTEMTIME>) -> windows_core::Result<T>
     where
         P0: windows_core::Param<super::structuredquerycondition::ICondition>,
@@ -254,40 +254,40 @@ impl IConditionFactory2 {
 pub struct IConditionFactory2_Vtbl {
     pub base__: IConditionFactory_Vtbl,
     pub CreateTrueFalse: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, CONDITION_CREATION_OPTIONS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub CreateNegation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CONDITION_CREATION_OPTIONS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition")))]
+    #[cfg(not(all(feature = "objidl", feature = "structuredquerycondition")))]
     CreateNegation: usize,
-    #[cfg(all(feature = "Win32_objectarray", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objectarray", feature = "structuredquerycondition"))]
     pub CreateCompoundFromObjectArray: unsafe extern "system" fn(*mut core::ffi::c_void, super::structuredquerycondition::CONDITION_TYPE, *mut core::ffi::c_void, CONDITION_CREATION_OPTIONS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objectarray", feature = "Win32_structuredquerycondition")))]
+    #[cfg(not(all(feature = "objectarray", feature = "structuredquerycondition")))]
     CreateCompoundFromObjectArray: usize,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub CreateCompoundFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, super::structuredquerycondition::CONDITION_TYPE, *const *mut core::ffi::c_void, u32, CONDITION_CREATION_OPTIONS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition")))]
+    #[cfg(not(all(feature = "objidl", feature = "structuredquerycondition")))]
     CreateCompoundFromArray: usize,
-    #[cfg(all(feature = "Win32_structuredquerycondition", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "structuredquerycondition", feature = "wtypes"))]
     pub CreateStringLeaf: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, super::structuredquerycondition::CONDITION_OPERATION, windows_core::PCWSTR, windows_core::PCWSTR, CONDITION_CREATION_OPTIONS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_structuredquerycondition", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "structuredquerycondition", feature = "wtypes")))]
     CreateStringLeaf: usize,
-    #[cfg(all(feature = "Win32_structuredquerycondition", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "structuredquerycondition", feature = "wtypes"))]
     pub CreateIntegerLeaf: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, super::structuredquerycondition::CONDITION_OPERATION, i32, CONDITION_CREATION_OPTIONS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_structuredquerycondition", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "structuredquerycondition", feature = "wtypes")))]
     CreateIntegerLeaf: usize,
-    #[cfg(all(feature = "Win32_structuredquerycondition", feature = "Win32_wtypes"))]
+    #[cfg(all(feature = "structuredquerycondition", feature = "wtypes"))]
     pub CreateBooleanLeaf: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, super::structuredquerycondition::CONDITION_OPERATION, windows_core::BOOL, CONDITION_CREATION_OPTIONS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_structuredquerycondition", feature = "Win32_wtypes")))]
+    #[cfg(not(all(feature = "structuredquerycondition", feature = "wtypes")))]
     CreateBooleanLeaf: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
     pub CreateLeaf: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, super::structuredquerycondition::CONDITION_OPERATION, *const super::propidlbase::PROPVARIANT, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, CONDITION_CREATION_OPTIONS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase")))]
     CreateLeaf: usize,
-    #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "minwinbase", feature = "objidl", feature = "structuredquerycondition"))]
     pub ResolveCondition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, STRUCTURED_QUERY_RESOLVE_OPTION, *const super::minwinbase::SYSTEMTIME, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwinbase", feature = "Win32_objidl", feature = "Win32_structuredquerycondition")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "objidl", feature = "structuredquerycondition")))]
     ResolveCondition: usize,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objectarray", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objectarray", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IConditionFactory2_Impl: IConditionFactory_Impl {
     fn CreateTrueFalse(&self, fval: windows_core::BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateNegation(&self, pcsub: windows_core::Ref<super::structuredquerycondition::ICondition>, cco: CONDITION_CREATION_OPTIONS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -299,7 +299,7 @@ pub trait IConditionFactory2_Impl: IConditionFactory_Impl {
     fn CreateLeaf(&self, propkey: *const super::wtypes::PROPERTYKEY, cop: super::structuredquerycondition::CONDITION_OPERATION, propvar: *const super::propidlbase::PROPVARIANT, pszsemantictype: &windows_core::PCWSTR, pszlocalename: &windows_core::PCWSTR, ppropertynameterm: windows_core::Ref<super::structuredquerycondition::IRichChunk>, poperationterm: windows_core::Ref<super::structuredquerycondition::IRichChunk>, pvalueterm: windows_core::Ref<super::structuredquerycondition::IRichChunk>, cco: CONDITION_CREATION_OPTIONS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn ResolveCondition(&self, pc: windows_core::Ref<super::structuredquerycondition::ICondition>, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::minwinbase::SYSTEMTIME, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objectarray", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objectarray", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
 impl IConditionFactory2_Vtbl {
     pub const fn new<Identity: IConditionFactory2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateTrueFalse<Identity: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fval: windows_core::BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -373,7 +373,7 @@ impl IConditionFactory2_Vtbl {
         iid == &<IConditionFactory2 as windows_core::Interface>::IID || iid == &<IConditionFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objectarray", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objectarray", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IConditionFactory2 {}
 windows_core::imp::define_interface!(IConditionGenerator, IConditionGenerator_Vtbl, 0x92d2cc58_4386_45a3_b98c_7e0ce64a4117);
 windows_core::imp::interface_hierarchy!(IConditionGenerator, windows_core::IUnknown);
@@ -384,7 +384,7 @@ impl IConditionGenerator {
     {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pschemaprovider.param().abi()) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn RecognizeNamedEntities<P0, P2>(&self, pszinputstring: P0, lciduserlocale: super::winnt::LCID, ptokencollection: P2, pnamedentities: &Option<INamedEntityCollector>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -392,7 +392,7 @@ impl IConditionGenerator {
     {
         unsafe { (windows_core::Interface::vtable(self).RecognizeNamedEntities)(windows_core::Interface::as_raw(self), pszinputstring.param().abi(), lciduserlocale, ptokencollection.param().abi(), core::mem::transmute_copy(pnamedentities)) }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub unsafe fn GenerateForLeaf<P0, P1, P3, P4, P5, P6, P7, P8>(&self, pconditionfactory: P0, pszpropertyname: P1, cop: super::structuredquerycondition::CONDITION_OPERATION, pszvaluetype: P3, pszvalue: P4, pszvalue2: P5, ppropertynameterm: P6, poperationterm: P7, pvalueterm: P8, automaticwildcard: bool, pnostringquery: *mut windows_core::BOOL) -> windows_core::Result<super::structuredquerycondition::ICondition>
     where
         P0: windows_core::Param<IConditionFactory>,
@@ -409,7 +409,7 @@ impl IConditionGenerator {
             (windows_core::Interface::vtable(self).GenerateForLeaf)(windows_core::Interface::as_raw(self), pconditionfactory.param().abi(), pszpropertyname.param().abi(), cop, pszvaluetype.param().abi(), pszvalue.param().abi(), pszvalue2.param().abi(), ppropertynameterm.param().abi(), poperationterm.param().abi(), pvalueterm.param().abi(), automaticwildcard.into(), pnostringquery as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn DefaultPhrase<P0>(&self, pszvaluetype: P0, ppropvar: *const super::propidlbase::PROPVARIANT, fuseenglish: bool) -> windows_core::Result<windows_core::PWSTR>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -425,27 +425,27 @@ impl IConditionGenerator {
 pub struct IConditionGenerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub RecognizeNamedEntities: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::winnt::LCID, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     RecognizeNamedEntities: usize,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub GenerateForLeaf: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, super::structuredquerycondition::CONDITION_OPERATION, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition")))]
+    #[cfg(not(all(feature = "objidl", feature = "structuredquerycondition")))]
     GenerateForLeaf: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub DefaultPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::propidlbase::PROPVARIANT, windows_core::BOOL, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     DefaultPhrase: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IConditionGenerator_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, pschemaprovider: windows_core::Ref<ISchemaProvider>) -> windows_core::Result<()>;
     fn RecognizeNamedEntities(&self, pszinputstring: &windows_core::PCWSTR, lciduserlocale: super::winnt::LCID, ptokencollection: windows_core::Ref<ITokenCollection>, pnamedentities: windows_core::OutRef<INamedEntityCollector>) -> windows_core::Result<()>;
     fn GenerateForLeaf(&self, pconditionfactory: windows_core::Ref<IConditionFactory>, pszpropertyname: &windows_core::PCWSTR, cop: super::structuredquerycondition::CONDITION_OPERATION, pszvaluetype: &windows_core::PCWSTR, pszvalue: &windows_core::PCWSTR, pszvalue2: &windows_core::PCWSTR, ppropertynameterm: windows_core::Ref<super::structuredquerycondition::IRichChunk>, poperationterm: windows_core::Ref<super::structuredquerycondition::IRichChunk>, pvalueterm: windows_core::Ref<super::structuredquerycondition::IRichChunk>, automaticwildcard: windows_core::BOOL, pnostringquery: *mut windows_core::BOOL) -> windows_core::Result<super::structuredquerycondition::ICondition>;
     fn DefaultPhrase(&self, pszvaluetype: &windows_core::PCWSTR, ppropvar: *const super::propidlbase::PROPVARIANT, fuseenglish: windows_core::BOOL) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IConditionGenerator_Vtbl {
     pub const fn new<Identity: IConditionGenerator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pschemaprovider: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -496,7 +496,7 @@ impl IConditionGenerator_Vtbl {
         iid == &<IConditionGenerator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IConditionGenerator {}
 windows_core::imp::define_interface!(IEntity, IEntity_Vtbl, 0x24264891_e80b_4fd3_b7ce_4ff2fae8931f);
 windows_core::imp::interface_hierarchy!(IEntity, windows_core::IUnknown);
@@ -682,7 +682,7 @@ impl windows_core::RuntimeName for IEntity {}
 windows_core::imp::define_interface!(IInterval, IInterval_Vtbl, 0x6bf0a714_3c18_430b_8b5d_83b1c234d3db);
 windows_core::imp::interface_hierarchy!(IInterval, windows_core::IUnknown);
 impl IInterval {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetLimits(&self, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::propidlbase::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLimits)(windows_core::Interface::as_raw(self), pilklower as _, core::mem::transmute(ppropvarlower), pilkupper as _, core::mem::transmute(ppropvarupper)) }
     }
@@ -691,16 +691,16 @@ impl IInterval {
 #[doc(hidden)]
 pub struct IInterval_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetLimits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut INTERVAL_LIMIT_KIND, *mut super::propidlbase::PROPVARIANT, *mut INTERVAL_LIMIT_KIND, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetLimits: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInterval_Impl: windows_core::IUnknownImpl {
     fn GetLimits(&self, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::propidlbase::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IInterval_Vtbl {
     pub const fn new<Identity: IInterval_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetLimits<Identity: IInterval_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::propidlbase::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
@@ -715,7 +715,7 @@ impl IInterval_Vtbl {
         iid == &<IInterval as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInterval {}
 pub const ILK_EXPLICIT_EXCLUDED: INTERVAL_LIMIT_KIND = 1;
 pub const ILK_EXPLICIT_INCLUDED: INTERVAL_LIMIT_KIND = 0;
@@ -855,7 +855,7 @@ impl windows_core::RuntimeName for INamedEntityCollector {}
 windows_core::imp::define_interface!(IQueryParser, IQueryParser_Vtbl, 0x2ebdee67_3505_43f8_9946_ea44abc8e5b0);
 windows_core::imp::interface_hierarchy!(IQueryParser, windows_core::IUnknown);
 impl IQueryParser {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Parse<P0, P1>(&self, pszinputstring: P0, pcustomproperties: P1) -> windows_core::Result<IQuerySolution>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -866,18 +866,18 @@ impl IQueryParser {
             (windows_core::Interface::vtable(self).Parse)(windows_core::Interface::as_raw(self), pszinputstring.param().abi(), pcustomproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetOption)(windows_core::Interface::as_raw(self), option, core::mem::transmute(poptionvalue)) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOption)(windows_core::Interface::as_raw(self), option, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetMultiOption<P1>(&self, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: P1, poptionvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -890,7 +890,7 @@ impl IQueryParser {
             (windows_core::Interface::vtable(self).GetSchemaProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub unsafe fn RestateToString<P0>(&self, pcondition: P0, fuseenglish: bool) -> windows_core::Result<windows_core::PWSTR>
     where
         P0: windows_core::Param<super::structuredquerycondition::ICondition>,
@@ -910,7 +910,7 @@ impl IQueryParser {
             (windows_core::Interface::vtable(self).ParsePropertyValue)(windows_core::Interface::as_raw(self), pszpropertyname.param().abi(), pszinputstring.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub unsafe fn RestatePropertyValueToString<P0>(&self, pcondition: P0, fuseenglish: bool, ppszpropertyname: *mut windows_core::PWSTR, ppszquerystring: *mut windows_core::PWSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::structuredquerycondition::ICondition>,
@@ -922,34 +922,34 @@ impl IQueryParser {
 #[doc(hidden)]
 pub struct IQueryParser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Parse: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub SetOption: unsafe extern "system" fn(*mut core::ffi::c_void, STRUCTURED_QUERY_SINGLE_OPTION, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     SetOption: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetOption: unsafe extern "system" fn(*mut core::ffi::c_void, STRUCTURED_QUERY_SINGLE_OPTION, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetOption: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub SetMultiOption: unsafe extern "system" fn(*mut core::ffi::c_void, STRUCTURED_QUERY_MULTIOPTION, windows_core::PCWSTR, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     SetMultiOption: usize,
     pub GetSchemaProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub RestateToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition")))]
+    #[cfg(not(all(feature = "objidl", feature = "structuredquerycondition")))]
     RestateToString: usize,
     pub ParsePropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub RestatePropertyValueToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition")))]
+    #[cfg(not(all(feature = "objidl", feature = "structuredquerycondition")))]
     RestatePropertyValueToString: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IQueryParser_Impl: windows_core::IUnknownImpl {
     fn Parse(&self, pszinputstring: &windows_core::PCWSTR, pcustomproperties: windows_core::Ref<super::objidlbase::IEnumUnknown>) -> windows_core::Result<IQuerySolution>;
     fn SetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
@@ -960,7 +960,7 @@ pub trait IQueryParser_Impl: windows_core::IUnknownImpl {
     fn ParsePropertyValue(&self, pszpropertyname: &windows_core::PCWSTR, pszinputstring: &windows_core::PCWSTR) -> windows_core::Result<IQuerySolution>;
     fn RestatePropertyValueToString(&self, pcondition: windows_core::Ref<super::structuredquerycondition::ICondition>, fuseenglish: windows_core::BOOL, ppszpropertyname: *mut windows_core::PWSTR, ppszquerystring: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
 impl IQueryParser_Vtbl {
     pub const fn new<Identity: IQueryParser_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Parse<Identity: IQueryParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszinputstring: windows_core::PCWSTR, pcustomproperties: *mut core::ffi::c_void, ppsolution: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1057,12 +1057,12 @@ impl IQueryParser_Vtbl {
         iid == &<IQueryParser as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IQueryParser {}
 windows_core::imp::define_interface!(IQueryParserManager, IQueryParserManager_Vtbl, 0xa879e3c4_af77_44fb_8f37_ebd1487cf920);
 windows_core::imp::interface_hierarchy!(IQueryParserManager, windows_core::IUnknown);
 impl IQueryParserManager {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn CreateLoadedParser<P0, T>(&self, pszcatalog: P0, langidforkeywords: super::winnt::LANGID) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1077,7 +1077,7 @@ impl IQueryParserManager {
     {
         unsafe { (windows_core::Interface::vtable(self).InitializeOptions)(windows_core::Interface::as_raw(self), funderstandnqs.into(), fautowildcard.into(), pqueryparser.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetOption(&self, option: QUERY_PARSER_MANAGER_OPTION, poptionvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetOption)(windows_core::Interface::as_raw(self), option, core::mem::transmute(poptionvalue)) }
     }
@@ -1086,23 +1086,23 @@ impl IQueryParserManager {
 #[doc(hidden)]
 pub struct IQueryParserManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub CreateLoadedParser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::winnt::LANGID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     CreateLoadedParser: usize,
     pub InitializeOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub SetOption: unsafe extern "system" fn(*mut core::ffi::c_void, QUERY_PARSER_MANAGER_OPTION, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     SetOption: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IQueryParserManager_Impl: windows_core::IUnknownImpl {
     fn CreateLoadedParser(&self, pszcatalog: &windows_core::PCWSTR, langidforkeywords: super::winnt::LANGID, riid: *const windows_core::GUID, ppqueryparser: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn InitializeOptions(&self, funderstandnqs: windows_core::BOOL, fautowildcard: windows_core::BOOL, pqueryparser: windows_core::Ref<IQueryParser>) -> windows_core::Result<()>;
     fn SetOption(&self, option: QUERY_PARSER_MANAGER_OPTION, poptionvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IQueryParserManager_Vtbl {
     pub const fn new<Identity: IQueryParserManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateLoadedParser<Identity: IQueryParserManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcatalog: windows_core::PCWSTR, langidforkeywords: super::winnt::LANGID, riid: *const windows_core::GUID, ppqueryparser: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1134,7 +1134,7 @@ impl IQueryParserManager_Vtbl {
         iid == &<IQueryParserManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IQueryParserManager {}
 windows_core::imp::define_interface!(IQuerySolution, IQuerySolution_Vtbl, 0xd6ebc66b_8921_4193_afdd_a1789fb7ff57);
 impl core::ops::Deref for IQuerySolution {
@@ -1145,7 +1145,7 @@ impl core::ops::Deref for IQuerySolution {
 }
 windows_core::imp::interface_hierarchy!(IQuerySolution, windows_core::IUnknown, IConditionFactory);
 impl IQuerySolution {
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub unsafe fn GetQuery(&self, ppquerynode: Option<*mut Option<super::structuredquerycondition::ICondition>>, ppmaintype: Option<*mut Option<IEntity>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetQuery)(windows_core::Interface::as_raw(self), ppquerynode.unwrap_or(core::mem::zeroed()) as _, ppmaintype.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -1156,7 +1156,7 @@ impl IQuerySolution {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetErrors)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetLexicalData(&self, ppszinputstring: *mut windows_core::PWSTR, pptokens: Option<*mut Option<ITokenCollection>>, plcid: Option<*mut super::winnt::LCID>, ppwordbreaker: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLexicalData)(windows_core::Interface::as_raw(self), ppszinputstring as _, pptokens.unwrap_or(core::mem::zeroed()) as _, plcid.unwrap_or(core::mem::zeroed()) as _, ppwordbreaker.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -1165,23 +1165,23 @@ impl IQuerySolution {
 #[doc(hidden)]
 pub struct IQuerySolution_Vtbl {
     pub base__: IConditionFactory_Vtbl,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition"))]
+    #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub GetQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_structuredquerycondition")))]
+    #[cfg(not(all(feature = "objidl", feature = "structuredquerycondition")))]
     GetQuery: usize,
     pub GetErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetLexicalData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut *mut core::ffi::c_void, *mut super::winnt::LCID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetLexicalData: usize,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IQuerySolution_Impl: IConditionFactory_Impl {
     fn GetQuery(&self, ppquerynode: windows_core::OutRef<super::structuredquerycondition::ICondition>, ppmaintype: windows_core::OutRef<IEntity>) -> windows_core::Result<()>;
     fn GetErrors(&self, riid: *const windows_core::GUID, ppparseerrors: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetLexicalData(&self, ppszinputstring: *mut windows_core::PWSTR, pptokens: windows_core::OutRef<ITokenCollection>, plcid: *mut super::winnt::LCID, ppwordbreaker: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IQuerySolution_Vtbl {
     pub const fn new<Identity: IQuerySolution_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetQuery<Identity: IQuerySolution_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppquerynode: *mut *mut core::ffi::c_void, ppmaintype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1213,7 +1213,7 @@ impl IQuerySolution_Vtbl {
         iid == &<IQuerySolution as windows_core::Interface>::IID || iid == &<IConditionFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_structuredquerycondition", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IQuerySolution {}
 windows_core::imp::define_interface!(IRelationship, IRelationship_Vtbl, 0x2769280b_5108_498c_9c7f_a51239b63147);
 windows_core::imp::interface_hierarchy!(IRelationship, windows_core::IUnknown);
@@ -1412,7 +1412,7 @@ impl ISchemaProvider {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).MetaData)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn Localize<P1>(&self, lcid: super::winnt::LCID, pschemalocalizersupport: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ISchemaLocalizerSupport>,
@@ -1442,14 +1442,14 @@ pub struct ISchemaProvider_Vtbl {
     pub RootEntity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetEntity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MetaData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub Localize: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LCID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     Localize: usize,
     pub SaveBinary: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub LookupAuthoredNamedEntity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, u32, *mut u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait ISchemaProvider_Impl: windows_core::IUnknownImpl {
     fn Entities(&self, riid: *const windows_core::GUID, pentities: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn RootEntity(&self) -> windows_core::Result<IEntity>;
@@ -1459,7 +1459,7 @@ pub trait ISchemaProvider_Impl: windows_core::IUnknownImpl {
     fn SaveBinary(&self, pszschemabinarypath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn LookupAuthoredNamedEntity(&self, pentity: windows_core::Ref<IEntity>, pszinputstring: &windows_core::PCWSTR, ptokencollection: windows_core::Ref<ITokenCollection>, ctokensbegin: u32, pctokenslength: *mut u32, ppszvalue: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl ISchemaProvider_Vtbl {
     pub const fn new<Identity: ISchemaProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Entities<Identity: ISchemaProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pentities: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1531,7 +1531,7 @@ impl ISchemaProvider_Vtbl {
         iid == &<ISchemaProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for ISchemaProvider {}
 windows_core::imp::define_interface!(ITokenCollection, ITokenCollection_Vtbl, 0x22d8b4f2_f577_4adb_a335_c2ae88416fab);
 windows_core::imp::interface_hierarchy!(ITokenCollection, windows_core::IUnknown);

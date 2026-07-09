@@ -196,7 +196,7 @@ pub unsafe fn WsCreateXmlSecurityToken(tokenxml: Option<*const WS_XML_BUFFER>, t
     windows_core::link!("webservices.dll" "system" fn WsCreateXmlSecurityToken(tokenxml : *const WS_XML_BUFFER, tokenkey : *const WS_SECURITY_KEY_HANDLE, properties : *const WS_XML_SECURITY_TOKEN_PROPERTY, propertycount : u32, token : *mut *mut WS_SECURITY_TOKEN, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsCreateXmlSecurityToken(tokenxml.unwrap_or(core::mem::zeroed()) as _, tokenkey.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(properties.map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.map_or(0, |slice| slice.len().try_into().unwrap()), token as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn WsDateTimeToFileTime(datetime: *const WS_DATETIME, filetime: *mut super::minwindef::FILETIME, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsDateTimeToFileTime(datetime : *const WS_DATETIME, filetime : *mut super::minwindef::FILETIME, error : *const WS_ERROR) -> windows_core::HRESULT);
@@ -222,7 +222,7 @@ pub unsafe fn WsEndWriterCanonicalization(writer: *const WS_XML_WRITER, error: O
     windows_core::link!("webservices.dll" "system" fn WsEndWriterCanonicalization(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsEndWriterCanonicalization(writer, error.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn WsFileTimeToDateTime(filetime: *const super::minwindef::FILETIME, datetime: *mut WS_DATETIME, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsFileTimeToDateTime(filetime : *const super::minwindef::FILETIME, datetime : *mut WS_DATETIME, error : *const WS_ERROR) -> windows_core::HRESULT);
@@ -1121,7 +1121,7 @@ pub type WS_CALL_PROPERTY_ID = i32;
 pub const WS_CALL_PROPERTY_RECEIVE_MESSAGE_CONTEXT: WS_CALL_PROPERTY_ID = 2;
 pub const WS_CALL_PROPERTY_SEND_MESSAGE_CONTEXT: WS_CALL_PROPERTY_ID = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
     pub keyHandle: WS_SECURITY_KEY_HANDLE,
@@ -1129,16 +1129,16 @@ pub struct WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
     pub keySpec: u32,
 }
 pub const WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = 3;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type WS_CERTIFICATE_VALIDATION_CALLBACK = Option<unsafe extern "system" fn(certcontext: *const super::wincrypt::CERT_CONTEXT, state: *const core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug)]
 pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     pub callback: WS_CERTIFICATE_VALIDATION_CALLBACK,
     pub state: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1162,7 +1162,7 @@ pub const WS_CERT_FAILURE_INVALID_DATE: i32 = 2;
 pub const WS_CERT_FAILURE_REVOCATION_OFFLINE: i32 = 16;
 pub const WS_CERT_FAILURE_UNTRUSTED_ROOT: i32 = 4;
 pub const WS_CERT_FAILURE_WRONG_USAGE: i32 = 8;
-#[cfg(all(feature = "Win32_schannel", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "schannel", feature = "wincrypt"))]
 pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(certissuerlistnotificationcallbackstate: *const core::ffi::c_void, issuerlist: *const super::schannel::SecPkgContext_IssuerListInfoEx, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1172,7 +1172,7 @@ pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
 }
 pub const WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = 7;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug)]
 pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub authenticator: WS_SAML_AUTHENTICATOR,
@@ -1182,7 +1182,7 @@ pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub samlValidator: WS_VALIDATE_SAML_CALLBACK,
     pub samlValidatorCallbackState: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1367,7 +1367,7 @@ pub type WS_CREATE_DECODER_CALLBACK = Option<unsafe extern "system" fn(createcon
 pub type WS_CREATE_ENCODER_CALLBACK = Option<unsafe extern "system" fn(createcontext: *const core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecontext: *const core::ffi::c_void, encodercontext: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_CREATE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_schannel", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "schannel", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug)]
 pub struct WS_CUSTOM_CERT_CREDENTIAL {
     pub credential: WS_CERT_CREDENTIAL,
@@ -1376,7 +1376,7 @@ pub struct WS_CUSTOM_CERT_CREDENTIAL {
     pub certIssuerListNotificationCallback: WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK,
     pub certIssuerListNotificationCallbackState: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_schannel", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "schannel", feature = "wincrypt"))]
 impl Default for WS_CUSTOM_CERT_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1457,13 +1457,13 @@ pub const WS_DATETIME_FORMAT_UTC: WS_DATETIME_FORMAT = 0;
 pub const WS_DATETIME_TYPE: WS_TYPE = 12;
 pub const WS_DATETIME_VALUE_TYPE: WS_VALUE_TYPE = 12;
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct WS_DECIMAL_DESCRIPTION {
     pub minValue: super::wtypes::DECIMAL,
     pub maxValue: super::wtypes::DECIMAL,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for WS_DECIMAL_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1783,7 +1783,7 @@ pub type WS_FREE_ENCODER_CALLBACK = Option<unsafe extern "system" fn(encodercont
 pub type WS_FREE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void)>;
 pub const WS_FROM_HEADER: WS_HEADER_TYPE = 5;
 pub const WS_FULL_FAULT_DISCLOSURE: WS_FAULT_DISCLOSURE = 1;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type WS_GET_CERT_CALLBACK = Option<unsafe extern "system" fn(getcertcallbackstate: *const core::ffi::c_void, targetaddress: *const WS_ENDPOINT_ADDRESS, viauri: *const WS_STRING, cert: *mut *mut super::wincrypt::CERT_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_GET_LISTENER_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
@@ -2408,7 +2408,7 @@ impl Default for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
 }
 pub const WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = 9;
 #[repr(C)]
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
     pub keyHandle: WS_SECURITY_KEY_HANDLE,
@@ -4008,13 +4008,13 @@ pub struct WS_XML_DATETIME_TEXT {
     pub value: WS_DATETIME,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct WS_XML_DECIMAL_TEXT {
     pub text: WS_XML_TEXT,
     pub value: super::wtypes::DECIMAL,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for WS_XML_DECIMAL_TEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

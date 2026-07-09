@@ -1,28 +1,28 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: super::winnt::PSECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: super::winnt::SECURITY_INFORMATION, stringsecuritydescriptor: *mut windows_core::PSTR, stringsecuritydescriptorlen: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor : super::winnt::PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : super::winnt::SECURITY_INFORMATION, stringsecuritydescriptor : *mut windows_core::PSTR, stringsecuritydescriptorlen : *mut u32) -> windows_core::BOOL);
     unsafe { ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor, requestedstringsdrevision, securityinformation, stringsecuritydescriptor as _, stringsecuritydescriptorlen.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: super::winnt::PSECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: super::winnt::SECURITY_INFORMATION, stringsecuritydescriptor: *mut windows_core::PWSTR, stringsecuritydescriptorlen: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor : super::winnt::PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : super::winnt::SECURITY_INFORMATION, stringsecuritydescriptor : *mut windows_core::PWSTR, stringsecuritydescriptorlen : *mut u32) -> windows_core::BOOL);
     unsafe { ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor, requestedstringsdrevision, securityinformation, stringsecuritydescriptor as _, stringsecuritydescriptorlen.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ConvertSidToStringSidA(sid: super::winnt::PSID, stringsid: *mut windows_core::PSTR) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ConvertSidToStringSidA(sid : super::winnt::PSID, stringsid : *mut windows_core::PSTR) -> windows_core::BOOL);
     unsafe { ConvertSidToStringSidA(sid, stringsid as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ConvertSidToStringSidW(sid: super::winnt::PSID, stringsid: *mut windows_core::PWSTR) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ConvertSidToStringSidW(sid : super::winnt::PSID, stringsid : *mut windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { ConvertSidToStringSidW(sid, stringsid as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: *mut super::winnt::PSECURITY_DESCRIPTOR, securitydescriptorsize: Option<*mut u32>) -> windows_core::BOOL
 where
@@ -31,7 +31,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor : windows_core::PCSTR, stringsdrevision : u32, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR, securitydescriptorsize : *mut u32) -> windows_core::BOOL);
     unsafe { ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor.param().abi(), stringsdrevision, securitydescriptor as _, securitydescriptorsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: *mut super::winnt::PSECURITY_DESCRIPTOR, securitydescriptorsize: Option<*mut u32>) -> windows_core::BOOL
 where
@@ -40,7 +40,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor : windows_core::PCWSTR, stringsdrevision : u32, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR, securitydescriptorsize : *mut u32) -> windows_core::BOOL);
     unsafe { ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor.param().abi(), stringsdrevision, securitydescriptor as _, securitydescriptorsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ConvertStringSidToSidA<P0>(stringsid: P0, sid: *mut super::winnt::PSID) -> windows_core::BOOL
 where
@@ -49,7 +49,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn ConvertStringSidToSidA(stringsid : windows_core::PCSTR, sid : *mut super::winnt::PSID) -> windows_core::BOOL);
     unsafe { ConvertStringSidToSidA(stringsid.param().abi(), sid as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ConvertStringSidToSidW<P0>(stringsid: P0, sid: *mut super::winnt::PSID) -> windows_core::BOOL
 where

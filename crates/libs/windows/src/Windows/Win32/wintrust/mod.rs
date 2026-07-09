@@ -1,58 +1,58 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn OpenPersonalTrustDBDialog(hwndparent: Option<super::windef::HWND>) -> windows_core::BOOL {
     windows_core::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialog(hwndparent : super::windef::HWND) -> windows_core::BOOL);
     unsafe { OpenPersonalTrustDBDialog(hwndparent.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn OpenPersonalTrustDBDialogEx(hwndparent: Option<super::windef::HWND>, dwflags: u32, pvreserved: Option<*mut *mut core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialogEx(hwndparent : super::windef::HWND, dwflags : u32, pvreserved : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { OpenPersonalTrustDBDialogEx(hwndparent.unwrap_or(core::mem::zeroed()) as _, dwflags, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WTHelperCertCheckValidSignature(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT {
     windows_core::link!("wintrust.dll" "system" fn WTHelperCertCheckValidSignature(pprovdata : *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT);
     unsafe { WTHelperCertCheckValidSignature(pprovdata as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[inline]
 pub unsafe fn WTHelperCertIsSelfSigned(dwencoding: u32, pcert: *mut super::wincrypt::CERT_INFO) -> windows_core::BOOL {
     windows_core::link!("wintrust.dll" "system" fn WTHelperCertIsSelfSigned(dwencoding : u32, pcert : *mut super::wincrypt::CERT_INFO) -> windows_core::BOOL);
     unsafe { WTHelperCertIsSelfSigned(dwencoding, pcert as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[inline]
 pub unsafe fn WTHelperGetProvCertFromChain(psgnr: *mut CRYPT_PROVIDER_SGNR, idxcert: u32) -> *mut CRYPT_PROVIDER_CERT {
     windows_core::link!("wintrust.dll" "system" fn WTHelperGetProvCertFromChain(psgnr : *mut CRYPT_PROVIDER_SGNR, idxcert : u32) -> *mut CRYPT_PROVIDER_CERT);
     unsafe { WTHelperGetProvCertFromChain(psgnr as _, idxcert) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WTHelperGetProvPrivateDataFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA, pgproviderid: *mut windows_core::GUID) -> *mut CRYPT_PROVIDER_PRIVDATA {
     windows_core::link!("wintrust.dll" "system" fn WTHelperGetProvPrivateDataFromChain(pprovdata : *mut CRYPT_PROVIDER_DATA, pgproviderid : *mut windows_core::GUID) -> *mut CRYPT_PROVIDER_PRIVDATA);
     unsafe { WTHelperGetProvPrivateDataFromChain(pprovdata as _, pgproviderid as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WTHelperGetProvSignerFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: bool, idxcountersigner: u32) -> *mut CRYPT_PROVIDER_SGNR {
     windows_core::link!("wintrust.dll" "system" fn WTHelperGetProvSignerFromChain(pprovdata : *mut CRYPT_PROVIDER_DATA, idxsigner : u32, fcountersigner : windows_core::BOOL, idxcountersigner : u32) -> *mut CRYPT_PROVIDER_SGNR);
     unsafe { WTHelperGetProvSignerFromChain(pprovdata as _, idxsigner, fcountersigner.into(), idxcountersigner) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WTHelperProvDataFromStateData(hstatedata: super::winnt::HANDLE) -> *mut CRYPT_PROVIDER_DATA {
     windows_core::link!("wintrust.dll" "system" fn WTHelperProvDataFromStateData(hstatedata : super::winnt::HANDLE) -> *mut CRYPT_PROVIDER_DATA);
     unsafe { WTHelperProvDataFromStateData(hstatedata) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn WinVerifyTrust(hwnd: super::windef::HWND, pgactionid: *mut windows_core::GUID, pwvtdata: *mut core::ffi::c_void) -> i32 {
     windows_core::link!("wintrust.dll" "system" fn WinVerifyTrust(hwnd : super::windef::HWND, pgactionid : *mut windows_core::GUID, pwvtdata : *mut core::ffi::c_void) -> i32);
     unsafe { WinVerifyTrust(hwnd, pgactionid as _, pwvtdata as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WinVerifyTrustEx(hwnd: super::windef::HWND, pgactionid: *mut windows_core::GUID, pwintrustdata: *mut WINTRUST_DATA) -> i32 {
     windows_core::link!("wintrust.dll" "system" fn WinVerifyTrustEx(hwnd : super::windef::HWND, pgactionid : *mut windows_core::GUID, pwintrustdata : *mut WINTRUST_DATA) -> i32);
@@ -82,7 +82,7 @@ pub unsafe fn WintrustGetRegPolicyFlags() -> u32 {
         result__
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WintrustLoadFunctionPointers(pgactionid: *mut windows_core::GUID, ppfns: *mut CRYPT_PROVIDER_FUNCTIONS) -> windows_core::BOOL {
     windows_core::link!("wintrust.dll" "system" fn WintrustLoadFunctionPointers(pgactionid : *mut windows_core::GUID, ppfns : *mut CRYPT_PROVIDER_FUNCTIONS) -> windows_core::BOOL);
@@ -120,7 +120,7 @@ pub const CAT_MEMBERINFO2_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2223
 pub const CAT_MEMBERINFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.2.2");
 pub const CAT_MEMBERINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2222 as _);
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CAT_NAMEVALUE {
     pub pwszTag: windows_core::PWSTR,
@@ -148,7 +148,7 @@ pub const CPD_UISTATE_MODE_MASK: u32 = 3;
 pub const CPD_UISTATE_MODE_PROMPT: u32 = 0;
 pub const CPD_USE_NT5_CHAIN_FLAG: u32 = 2147483648;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPT_PROVIDER_CERT {
     pub cbStruct: u32,
@@ -167,14 +167,14 @@ pub struct CRYPT_PROVIDER_CERT {
     pub fIsCyclic: windows_core::BOOL,
     pub pChainElement: super::wincrypt::PCERT_CHAIN_ELEMENT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for CRYPT_PROVIDER_CERT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_DATA {
     pub cbStruct: u32,
@@ -211,19 +211,19 @@ pub struct CRYPT_PROVIDER_DATA {
     pub pSigState: *mut CRYPT_PROVIDER_SIGSTATE,
     pub pSigSettings: *mut WINTRUST_SIGNATURE_SETTINGS,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 impl Default for CRYPT_PROVIDER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CRYPT_PROVIDER_DATA_0 {
     pub pPDSip: *mut PROVDATA_SIP,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 impl Default for CRYPT_PROVIDER_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -243,7 +243,7 @@ impl Default for CRYPT_PROVIDER_DEFUSAGE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug)]
 pub struct CRYPT_PROVIDER_FUNCTIONS {
     pub cbStruct: u32,
@@ -263,7 +263,7 @@ pub struct CRYPT_PROVIDER_FUNCTIONS {
     pub psUIpfns: *mut CRYPT_PROVUI_FUNCS,
     pub pfnCleanupPolicy: PFN_PROVIDER_CLEANUP_CALL,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 impl Default for CRYPT_PROVIDER_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -297,7 +297,7 @@ impl Default for CRYPT_PROVIDER_REGDEFUSAGE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPT_PROVIDER_SGNR {
     pub cbStruct: u32,
@@ -311,14 +311,14 @@ pub struct CRYPT_PROVIDER_SGNR {
     pub pasCounterSigners: *mut Self,
     pub pChainContext: super::wincrypt::PCCERT_CHAIN_CONTEXT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for CRYPT_PROVIDER_SGNR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPT_PROVIDER_SIGSTATE {
     pub cbStruct: u32,
@@ -334,7 +334,7 @@ pub struct CRYPT_PROVIDER_SIGSTATE {
     pub fCheckedSealing: windows_core::BOOL,
     pub pSealingSignature: *mut SEALING_SIGNATURE_ATTRIBUTE,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for CRYPT_PROVIDER_SIGSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -359,7 +359,7 @@ impl Default for CRYPT_PROVUI_DATA {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug)]
 pub struct CRYPT_PROVUI_FUNCS {
     pub cbStruct: u32,
@@ -369,7 +369,7 @@ pub struct CRYPT_PROVUI_FUNCS {
     pub pfnOnAdvancedClick: PFN_PROVUI_CALL,
     pub pfnOnAdvancedClickDefault: PFN_PROVUI_CALL,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 impl Default for CRYPT_PROVUI_FUNCS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -402,7 +402,7 @@ impl Default for CRYPT_TRUST_REG_ENTRY {
 }
 pub const DWACTION_ALLOCANDFILL: u32 = 1;
 pub const DWACTION_FREE: u32 = 2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCATADMIN(pub super::winnt::HANDLE);
@@ -426,33 +426,33 @@ impl Default for LPWIN_CERTIFICATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWIN_SPUB_TRUSTED_PUBLISHER_DATA(pub *mut WIN_SPUB_TRUSTED_PUBLISHER_DATA);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPWIN_SPUB_TRUSTED_PUBLISHER_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPWIN_SPUB_TRUSTED_PUBLISHER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT(pub *mut WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPWIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPWIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -471,33 +471,33 @@ impl Default for LPWIN_TRUST_ACTDATA_SUBJECT_ONLY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWIN_TRUST_SUBJECT_FILE(pub *mut WIN_TRUST_SUBJECT_FILE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPWIN_TRUST_SUBJECT_FILE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPWIN_TRUST_SUBJECT_FILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWIN_TRUST_SUBJECT_FILE_AND_DISPLAY(pub *mut WIN_TRUST_SUBJECT_FILE_AND_DISPLAY);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPWIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPWIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -529,49 +529,49 @@ impl Default for PCAT_MEMBERINFO2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCAT_NAMEVALUE(pub *mut CAT_NAMEVALUE);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PCAT_NAMEVALUE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PCAT_NAMEVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCRYPT_PROVIDER_CERT(pub *mut CRYPT_PROVIDER_CERT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl PCRYPT_PROVIDER_CERT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for PCRYPT_PROVIDER_CERT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCRYPT_PROVIDER_DATA(pub *mut CRYPT_PROVIDER_DATA);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 impl PCRYPT_PROVIDER_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 impl Default for PCRYPT_PROVIDER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -590,17 +590,17 @@ impl Default for PCRYPT_PROVIDER_DEFUSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCRYPT_PROVIDER_FUNCTIONS(pub *mut CRYPT_PROVIDER_FUNCTIONS);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 impl PCRYPT_PROVIDER_FUNCTIONS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 impl Default for PCRYPT_PROVIDER_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -632,33 +632,33 @@ impl Default for PCRYPT_PROVIDER_REGDEFUSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCRYPT_PROVIDER_SGNR(pub *mut CRYPT_PROVIDER_SGNR);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl PCRYPT_PROVIDER_SGNR {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for PCRYPT_PROVIDER_SGNR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCRYPT_PROVIDER_SIGSTATE(pub *mut CRYPT_PROVIDER_SIGSTATE);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PCRYPT_PROVIDER_SIGSTATE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PCRYPT_PROVIDER_SIGSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -677,17 +677,17 @@ impl Default for PCRYPT_PROVUI_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCRYPT_PROVUI_FUNCS(pub *mut CRYPT_PROVUI_FUNCS);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 impl PCRYPT_PROVUI_FUNCS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 impl Default for PCRYPT_PROVUI_FUNCS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -720,34 +720,34 @@ impl Default for PCRYPT_TRUST_REG_ENTRY {
     }
 }
 pub type PFN_ALLOCANDFILLDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: *const i8, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> windows_core::BOOL>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_CPD_ADD_CERT = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: windows_core::BOOL, idxcountersigner: u32, pcert2add: *const super::wincrypt::CERT_CONTEXT) -> windows_core::BOOL>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_CPD_ADD_PRIVDATA = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, pprivdata2add: *const CRYPT_PROVIDER_PRIVDATA) -> windows_core::BOOL>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_CPD_ADD_SGNR = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, fcountersigner: windows_core::BOOL, idxsigner: u32, psgnr2add: *const CRYPT_PROVIDER_SGNR) -> windows_core::BOOL>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_CPD_ADD_STORE = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, hstore2add: super::wincrypt::HCERTSTORE) -> windows_core::BOOL>;
 pub type PFN_CPD_MEM_ALLOC = Option<unsafe extern "system" fn(cbsize: u32) -> *mut core::ffi::c_void>;
 pub type PFN_CPD_MEM_FREE = Option<unsafe extern "system" fn(pvmem2free: *const core::ffi::c_void)>;
 pub type PFN_FREEDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: *const i8, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> windows_core::BOOL>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_PROVIDER_CERTCHKPOLICY_CALL = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersignerchain: windows_core::BOOL, idxcountersigner: u32) -> windows_core::BOOL>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_PROVIDER_CERTTRUST_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_PROVIDER_CLEANUP_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_PROVIDER_FINALPOLICY_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_PROVIDER_INIT_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_PROVIDER_OBJTRUST_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_PROVIDER_SIGTRUST_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_PROVIDER_TESTFINALPOLICY_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PFN_PROVUI_CALL = Option<unsafe extern "system" fn(hwndsecuritydialog: super::windef::HWND, pprovdata: *const CRYPT_PROVIDER_DATA) -> windows_core::BOOL>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -762,24 +762,24 @@ impl Default for PINTENT_TO_SEAL_ATTRIBUTE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPROVDATA_SIP(pub *mut PROVDATA_SIP);
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "winnt"))]
 impl PPROVDATA_SIP {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "winnt"))]
 impl Default for PPROVDATA_SIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROVDATA_SIP {
     pub cbStruct: u32,
@@ -790,39 +790,39 @@ pub struct PROVDATA_SIP {
     pub psSipCATSubjectInfo: *mut super::mssip::SIP_SUBJECTINFO,
     pub psIndirectData: *mut super::mssip::SIP_INDIRECT_DATA,
 }
-#[cfg(all(feature = "Win32_mscat", feature = "Win32_mssip", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "winnt"))]
 impl Default for PROVDATA_SIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSEALING_SIGNATURE_ATTRIBUTE(pub *mut SEALING_SIGNATURE_ATTRIBUTE);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PSEALING_SIGNATURE_ATTRIBUTE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PSEALING_SIGNATURE_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSEALING_TIMESTAMP_ATTRIBUTE(pub *mut SEALING_TIMESTAMP_ATTRIBUTE);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PSEALING_TIMESTAMP_ATTRIBUTE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PSEALING_TIMESTAMP_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -841,81 +841,81 @@ impl Default for PSPC_FINANCIAL_CRITERIA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSPC_IMAGE(pub *mut SPC_IMAGE);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PSPC_IMAGE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PSPC_IMAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSPC_INDIRECT_DATA_CONTENT(pub *mut SPC_INDIRECT_DATA_CONTENT);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PSPC_INDIRECT_DATA_CONTENT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PSPC_INDIRECT_DATA_CONTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSPC_LINK(pub *mut SPC_LINK);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PSPC_LINK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PSPC_LINK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSPC_PE_IMAGE_DATA(pub *mut SPC_PE_IMAGE_DATA);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PSPC_PE_IMAGE_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PSPC_PE_IMAGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSPC_SERIALIZED_OBJECT(pub *mut SPC_SERIALIZED_OBJECT);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PSPC_SERIALIZED_OBJECT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PSPC_SERIALIZED_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -934,33 +934,33 @@ impl Default for PSPC_SIGINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSPC_SP_AGENCY_INFO(pub *mut SPC_SP_AGENCY_INFO);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PSPC_SP_AGENCY_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PSPC_SP_AGENCY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSPC_SP_OPUS_INFO(pub *mut SPC_SP_OPUS_INFO);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PSPC_SP_OPUS_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PSPC_SP_OPUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -992,49 +992,49 @@ impl Default for PWINTRUST_BLOB_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINTRUST_CATALOG_INFO(pub *mut WINTRUST_CATALOG_INFO);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl PWINTRUST_CATALOG_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl Default for PWINTRUST_CATALOG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINTRUST_CERT_INFO(pub *mut WINTRUST_CERT_INFO);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl PWINTRUST_CERT_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for PWINTRUST_CERT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINTRUST_DATA(pub *mut WINTRUST_DATA);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl PWINTRUST_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl Default for PWINTRUST_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1053,88 +1053,88 @@ impl Default for PWINTRUST_DETACHED_SIG_BLOBS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINTRUST_DETACHED_SIG_FILE_HANDLES(pub *mut WINTRUST_DETACHED_SIG_FILE_HANDLES);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWINTRUST_DETACHED_SIG_FILE_HANDLES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWINTRUST_DETACHED_SIG_FILE_HANDLES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINTRUST_DETACHED_SIG_INFO(pub *mut WINTRUST_DETACHED_SIG_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWINTRUST_DETACHED_SIG_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWINTRUST_DETACHED_SIG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINTRUST_FILE_INFO(pub *mut WINTRUST_FILE_INFO);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PWINTRUST_FILE_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PWINTRUST_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINTRUST_SGNR_INFO(pub *mut WINTRUST_SGNR_INFO);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PWINTRUST_SGNR_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PWINTRUST_SGNR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINTRUST_SIGNATURE_SETTINGS(pub *mut WINTRUST_SIGNATURE_SETTINGS);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PWINTRUST_SIGNATURE_SETTINGS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PWINTRUST_SIGNATURE_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEALING_SIGNATURE_ATTRIBUTE {
     pub version: u32,
@@ -1144,7 +1144,7 @@ pub struct SEALING_SIGNATURE_ATTRIBUTE {
 }
 pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2011 as _);
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEALING_TIMESTAMP_ATTRIBUTE {
     pub version: u32,
@@ -1169,7 +1169,7 @@ pub const SPC_FINANCIAL_CRITERIA_OBJID: windows_core::PCSTR = windows_core::s!("
 pub const SPC_FINANCIAL_CRITERIA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2002 as _);
 pub const SPC_GLUE_RDN_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.25");
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPC_IMAGE {
     pub pImageLink: *mut SPC_LINK,
@@ -1178,14 +1178,14 @@ pub struct SPC_IMAGE {
     pub EnhancedMetafile: super::wincrypt::CRYPT_DATA_BLOB,
     pub GifFile: super::wincrypt::CRYPT_DATA_BLOB,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for SPC_IMAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPC_INDIRECT_DATA_CONTENT {
     pub Data: super::wincrypt::CRYPT_ATTRIBUTE_TYPE_VALUE,
@@ -1198,27 +1198,27 @@ pub const SPC_INDIVIDUAL_SP_KEY_PURPOSE_OBJID: windows_core::PCSTR = windows_cor
 pub const SPC_JAVA_CLASS_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.20");
 pub const SPC_JAVA_CLASS_DATA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2009 as _);
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy)]
 pub struct SPC_LINK {
     pub dwLinkChoice: u32,
     pub Anonymous: SPC_LINK_0,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for SPC_LINK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy)]
 pub union SPC_LINK_0 {
     pub pwszUrl: windows_core::PWSTR,
     pub Moniker: SPC_SERIALIZED_OBJECT,
     pub pwszFile: windows_core::PWSTR,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for SPC_LINK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1231,7 +1231,7 @@ pub const SPC_MINIMAL_CRITERIA_STRUCT: windows_core::PCSTR = windows_core::PCSTR
 pub const SPC_MONIKER_LINK_CHOICE: u32 = 2;
 pub const SPC_NATURAL_AUTH_PLUGIN_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.96.1.1");
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPC_PE_IMAGE_DATA {
     pub Flags: super::wincrypt::CRYPT_BIT_BLOB,
@@ -1244,13 +1244,13 @@ pub const SPC_PE_IMAGE_PAGE_HASHES_V2_OBJID: windows_core::PCSTR = windows_core:
 pub const SPC_RAW_FILE_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.18");
 pub const SPC_RELAXED_PE_MARKER_CHECK_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.6.1");
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPC_SERIALIZED_OBJECT {
     pub ClassId: SPC_UUID,
     pub SerializedData: super::wincrypt::CRYPT_DATA_BLOB,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for SPC_SERIALIZED_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1270,7 +1270,7 @@ pub struct SPC_SIGINFO {
 pub const SPC_SIGINFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.30");
 pub const SPC_SIGINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2130 as _);
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPC_SP_AGENCY_INFO {
     pub pPolicyInformation: *mut SPC_LINK,
@@ -1278,7 +1278,7 @@ pub struct SPC_SP_AGENCY_INFO {
     pub pLogoImage: PSPC_IMAGE,
     pub pLogoLink: *mut SPC_LINK,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for SPC_SP_AGENCY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1287,14 +1287,14 @@ impl Default for SPC_SP_AGENCY_INFO {
 pub const SPC_SP_AGENCY_INFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.10");
 pub const SPC_SP_AGENCY_INFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2000 as _);
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPC_SP_OPUS_INFO {
     pub pwszProgramName: windows_core::PCWSTR,
     pub pMoreInfo: *mut SPC_LINK,
     pub pPublisherInfo: *mut SPC_LINK,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for SPC_SP_OPUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1365,7 +1365,7 @@ impl Default for WINTRUST_BLOB_INFO {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINTRUST_CATALOG_INFO {
     pub cbStruct: u32,
@@ -1379,14 +1379,14 @@ pub struct WINTRUST_CATALOG_INFO {
     pub pcCatalogContext: super::wincrypt::PCCTL_CONTEXT,
     pub hCatAdmin: HCATADMIN,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl Default for WINTRUST_CATALOG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINTRUST_CERT_INFO {
     pub cbStruct: u32,
@@ -1397,7 +1397,7 @@ pub struct WINTRUST_CERT_INFO {
     pub dwFlags: u32,
     pub psftVerifyAsOf: *mut super::minwindef::FILETIME,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 impl Default for WINTRUST_CERT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1405,7 +1405,7 @@ impl Default for WINTRUST_CERT_INFO {
 }
 pub const WINTRUST_CONFIG_REGPATH: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Cryptography\\Wintrust\\Config");
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINTRUST_DATA {
     pub cbStruct: u32,
@@ -1422,14 +1422,14 @@ pub struct WINTRUST_DATA {
     pub dwUIContext: u32,
     pub pSignatureSettings: *mut WINTRUST_SIGNATURE_SETTINGS,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl Default for WINTRUST_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union WINTRUST_DATA_0 {
     pub pFile: *mut WINTRUST_FILE_INFO,
@@ -1439,7 +1439,7 @@ pub union WINTRUST_DATA_0 {
     pub pCert: *mut WINTRUST_CERT_INFO,
     pub pDetachedSig: *mut WINTRUST_DETACHED_SIG_INFO,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl Default for WINTRUST_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1461,41 +1461,41 @@ impl Default for WINTRUST_DETACHED_SIG_BLOBS {
 pub const WINTRUST_DETACHED_SIG_CHOICE_BLOB: u32 = 2;
 pub const WINTRUST_DETACHED_SIG_CHOICE_HANDLE: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINTRUST_DETACHED_SIG_FILE_HANDLES {
     pub hContentFile: super::winnt::HANDLE,
     pub hSignatureFile: super::winnt::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WINTRUST_DETACHED_SIG_INFO {
     pub cbStruct: u32,
     pub dwUnionChoice: u32,
     pub Anonymous: WINTRUST_DETACHED_SIG_INFO_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WINTRUST_DETACHED_SIG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union WINTRUST_DETACHED_SIG_INFO_0 {
     pub pDetachedSigHandles: *mut WINTRUST_DETACHED_SIG_FILE_HANDLES,
     pub pDetachedSigBlobs: *mut WINTRUST_DETACHED_SIG_BLOBS,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WINTRUST_DETACHED_SIG_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINTRUST_FILE_INFO {
     pub cbStruct: u32,
@@ -1503,7 +1503,7 @@ pub struct WINTRUST_FILE_INFO {
     pub hFile: super::winnt::HANDLE,
     pub pgKnownSubject: *mut windows_core::GUID,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WINTRUST_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1514,7 +1514,7 @@ pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_VALUE_NAME: windows_core::PCWSTR = wind
 pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760;
 pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("MaxHeaderBytesToMap");
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINTRUST_SGNR_INFO {
     pub cbStruct: u32,
@@ -1523,14 +1523,14 @@ pub struct WINTRUST_SGNR_INFO {
     pub chStores: u32,
     pub pahStores: *mut super::wincrypt::HCERTSTORE,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for WINTRUST_SGNR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINTRUST_SIGNATURE_SETTINGS {
     pub cbStruct: u32,
@@ -1560,21 +1560,21 @@ pub const WIN_CERT_TYPE_RESERVED_1: u32 = 3;
 pub const WIN_CERT_TYPE_TS_STACK_SIGNED: u32 = 4;
 pub const WIN_CERT_TYPE_X509: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIN_SPUB_TRUSTED_PUBLISHER_DATA {
     pub hClientToken: super::winnt::HANDLE,
     pub lpCertificate: LPWIN_CERTIFICATE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     pub hClientToken: super::winnt::HANDLE,
     pub SubjectType: *mut windows_core::GUID,
     pub Subject: WIN_TRUST_SUBJECT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1605,14 +1605,14 @@ impl Default for WIN_TRUST_SUBJECT {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIN_TRUST_SUBJECT_FILE {
     pub hFile: super::winnt::HANDLE,
     pub lpPath: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     pub hFile: super::winnt::HANDLE,

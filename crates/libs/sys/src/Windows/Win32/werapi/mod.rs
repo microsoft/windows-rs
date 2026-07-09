@@ -1,6 +1,6 @@
 windows_link::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : windows_sys::core::PCWSTR, ballusers : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "C" fn WerFreeString(pwszstr : windows_sys::core::PCWSTR));
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::winnt::HANDLE, pdwflags : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn WerRegisterAdditionalProcess(processid : u32, captureextrainfoforthreadid : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn WerRegisterAppLocalDump(localappdatarelativepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
@@ -10,19 +10,19 @@ windows_link::link!("kernel32.dll" "system" fn WerRegisterFile(pwzfile : windows
 windows_link::link!("kernel32.dll" "system" fn WerRegisterMemoryBlock(pvaddress : *const core::ffi::c_void, dwsize : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll : windows_sys::core::PCWSTR, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : windows_sys::core::PCWSTR, ballusers : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wer.dll" "system" fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::winnt::HANDLE, hthread : super::winnt::HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wer.dll" "system" fn WerReportAddFile(hreporthandle : HREPORT, pwzpath : windows_sys::core::PCWSTR, repfiletype : WER_FILE_TYPE, dwfileflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wer.dll" "system" fn WerReportCloseHandle(hreporthandle : HREPORT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("wer.dll" "system" fn WerReportCreate(pwzeventtype : windows_sys::core::PCWSTR, reptype : WER_REPORT_TYPE, preportinformation : *const WER_REPORT_INFORMATION, phreporthandle : *mut HREPORT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wer.dll" "system" fn WerReportSetParameter(hreporthandle : HREPORT, dwparamid : u32, pwzname : windows_sys::core::PCWSTR, pwzvalue : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wer.dll" "system" fn WerReportSetUIOption(hreporthandle : HREPORT, repuitypeid : WER_REPORT_UI, pwzvalue : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("wer.dll" "system" fn WerReportSubmit(hreporthandle : HREPORT, consent : WER_CONSENT, dwflags : u32, psubmitresult : *mut WER_SUBMIT_RESULT) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn WerSetFlags(dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "C" fn WerStoreClose(hreportstore : HREPORTSTORE));
@@ -32,11 +32,11 @@ windows_link::link!("wer.dll" "C" fn WerStoreGetReportCount(hreportstore : HREPO
 windows_link::link!("wer.dll" "C" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut u64) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "C" fn WerStoreOpen(repstoretype : REPORT_STORE_TYPES, phreportstore : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "C" fn WerStorePurge() -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV1(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V1) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV2(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V2) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV3(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V3) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "C" fn WerStoreUploadReport(hreportstore : HREPORTSTORE, pszreportkey : windows_sys::core::PCWSTR, dwflags : u32, psubmitresult : *mut WER_SUBMIT_RESULT) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn WerUnregisterAdditionalProcess(processid : u32) -> windows_sys::core::HRESULT);
@@ -52,46 +52,46 @@ pub const E_STORE_MACHINE_ARCHIVE: REPORT_STORE_TYPES = 2;
 pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = 3;
 pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = 0;
 pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = 1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HREPORT = super::winnt::HANDLE;
 pub type HREPORTSTORE = *mut core::ffi::c_void;
 pub const PACKAGED_APPCRASH_EVENT: windows_sys::core::PCWSTR = windows_sys::core::w!("MoAppCrash");
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCWER_DUMP_CUSTOM_OPTIONS_V3 = *const WER_DUMP_CUSTOM_OPTIONS_V3;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PCWER_REPORT_INFORMATION_V4 = *const WER_REPORT_INFORMATION_V4;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PCWER_REPORT_INFORMATION_V5 = *const WER_REPORT_INFORMATION_V5;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut windows_sys::core::BOOL, pwszdebuggerlaunch: windows_sys::core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut windows_sys::core::BOOL, pwszeventname: windows_sys::core::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: windows_sys::core::PWSTR, pchname: *mut u32, pwszvalue: windows_sys::core::PWSTR, pchvalue: *mut u32) -> windows_sys::core::HRESULT>;
 pub type PHREPORTSTORE = *mut *mut core::ffi::c_void;
 pub type PWER_DUMP_CUSTOM_OPTIONS = *mut WER_DUMP_CUSTOM_OPTIONS;
 pub type PWER_DUMP_CUSTOM_OPTIONS_V2 = *mut WER_DUMP_CUSTOM_OPTIONS_V2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWER_DUMP_CUSTOM_OPTIONS_V3 = *mut WER_DUMP_CUSTOM_OPTIONS_V3;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWER_EXCEPTION_INFORMATION = *mut WER_EXCEPTION_INFORMATION;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PWER_REPORT_INFORMATION = *mut WER_REPORT_INFORMATION;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PWER_REPORT_INFORMATION_V3 = *mut WER_REPORT_INFORMATION_V3;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PWER_REPORT_INFORMATION_V4 = *mut WER_REPORT_INFORMATION_V4;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PWER_REPORT_INFORMATION_V5 = *mut WER_REPORT_INFORMATION_V5;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PWER_REPORT_METADATA_V1 = *mut WER_REPORT_METADATA_V1;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PWER_REPORT_METADATA_V2 = *mut WER_REPORT_METADATA_V2;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PWER_REPORT_METADATA_V3 = *mut WER_REPORT_METADATA_V3;
 pub type PWER_REPORT_PARAMETER = WER_REPORT_PARAMETER;
 pub type PWER_REPORT_SIGNATURE = *mut WER_REPORT_SIGNATURE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PWER_RUNTIME_EXCEPTION_INFORMATION = *mut WER_RUNTIME_EXCEPTION_INFORMATION;
 pub type PWER_SUBMIT_RESULT = *mut WER_SUBMIT_RESULT;
 pub type REPORT_STORE_TYPES = i32;
@@ -141,7 +141,7 @@ impl Default for WER_DUMP_CUSTOM_OPTIONS_V2 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub dwSize: u32,
@@ -161,7 +161,7 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub hSnapshot: super::winnt::HANDLE,
     pub dwThreadID: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WER_DUMP_CUSTOM_OPTIONS_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -180,13 +180,13 @@ pub const WER_DUMP_MASK_THREADFLAGS_EX: u32 = 8;
 pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1;
 pub type WER_DUMP_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: super::winnt::PEXCEPTION_POINTERS,
     pub bClientPointers: windows_sys::core::BOOL,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WER_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -244,7 +244,7 @@ pub const WER_P8: u32 = 8;
 pub const WER_P9: u32 = 9;
 pub type WER_REGISTER_FILE_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WER_REPORT_INFORMATION {
     pub dwSize: u32,
@@ -256,14 +256,14 @@ pub struct WER_REPORT_INFORMATION {
     pub wzDescription: [u16; 512],
     pub hwndParent: super::windef::HWND,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for WER_REPORT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WER_REPORT_INFORMATION_V3 {
     pub dwSize: u32,
@@ -277,14 +277,14 @@ pub struct WER_REPORT_INFORMATION_V3 {
     pub wzNamespacePartner: [u16; 64],
     pub wzNamespaceGroup: [u16; 64],
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for WER_REPORT_INFORMATION_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WER_REPORT_INFORMATION_V4 {
     pub dwSize: u32,
@@ -301,14 +301,14 @@ pub struct WER_REPORT_INFORMATION_V4 {
     pub hSnapshot: super::winnt::HANDLE,
     pub hDeleteFilesImpersonationToken: super::winnt::HANDLE,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for WER_REPORT_INFORMATION_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WER_REPORT_INFORMATION_V5 {
     pub dwSize: u32,
@@ -326,14 +326,14 @@ pub struct WER_REPORT_INFORMATION_V5 {
     pub hDeleteFilesImpersonationToken: super::winnt::HANDLE,
     pub submitResultMax: WER_SUBMIT_RESULT,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for WER_REPORT_INFORMATION_V5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct WER_REPORT_METADATA_V1 {
     pub Signature: WER_REPORT_SIGNATURE,
@@ -343,7 +343,7 @@ pub struct WER_REPORT_METADATA_V1 {
     pub SizeInBytes: u64,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct WER_REPORT_METADATA_V2 {
     pub Signature: WER_REPORT_SIGNATURE,
@@ -358,14 +358,14 @@ pub struct WER_REPORT_METADATA_V2 {
     pub SizeOfFileNames: u32,
     pub FileNames: *mut u16,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for WER_REPORT_METADATA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct WER_REPORT_METADATA_V3 {
     pub Signature: WER_REPORT_SIGNATURE,
@@ -386,7 +386,7 @@ pub struct WER_REPORT_METADATA_V3 {
     pub BucketIdString: [u16; 260],
     pub LegacyBucketId: u64,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for WER_REPORT_METADATA_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -420,7 +420,7 @@ pub const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: windows_sys::core::PCSTR = wind
 pub const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: windows_sys::core::PCSTR = windows_sys::core::s!("OutOfProcessExceptionEventCallback");
 pub const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: windows_sys::core::PCSTR = windows_sys::core::s!("OutOfProcessExceptionEventSignatureCallback");
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub dwSize: u32,
@@ -432,7 +432,7 @@ pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub bIsFatal: windows_sys::core::BOOL,
     pub dwReserved: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WER_RUNTIME_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

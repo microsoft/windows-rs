@@ -7,7 +7,7 @@ impl ICoreInputInterop {
     {
         unsafe { (windows_core::Interface::vtable(self).SetInputSource)(windows_core::Interface::as_raw(self), value.param().abi()) }
     }
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn SetMessageHandled(&self, value: super::rpc::boolean) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMessageHandled)(windows_core::Interface::as_raw(self), value) }
     }
@@ -17,17 +17,17 @@ impl ICoreInputInterop {
 pub struct ICoreInputInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetInputSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub SetMessageHandled: unsafe extern "system" fn(*mut core::ffi::c_void, super::rpc::boolean) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     SetMessageHandled: usize,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait ICoreInputInterop_Impl: windows_core::IUnknownImpl {
     fn SetInputSource(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetMessageHandled(&self, value: super::rpc::boolean) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl ICoreInputInterop_Vtbl {
     pub const fn new<Identity: ICoreInputInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetInputSource<Identity: ICoreInputInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -52,19 +52,19 @@ impl ICoreInputInterop_Vtbl {
         iid == &<ICoreInputInterop as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ICoreInputInterop {}
 windows_core::imp::define_interface!(ICoreInputInterop2, ICoreInputInterop2_Vtbl, 0xb8a2acd7_a0f0_40ee_8ee7_c82f59cc5cd4);
 windows_core::imp::interface_hierarchy!(ICoreInputInterop2, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreInputInterop2 {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn WindowHandle(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WindowHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ChangeHostingContext(&self, newparentwindow: super::windef::HWND, newviewinstanceid: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ChangeHostingContext)(windows_core::Interface::as_raw(self), newparentwindow, newviewinstanceid) }
     }
@@ -73,21 +73,21 @@ impl ICoreInputInterop2 {
 #[doc(hidden)]
 pub struct ICoreInputInterop2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub WindowHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     WindowHandle: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ChangeHostingContext: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ChangeHostingContext: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ICoreInputInterop2_Impl: windows_core::IUnknownImpl {
     fn WindowHandle(&self) -> windows_core::Result<super::windef::HWND>;
     fn ChangeHostingContext(&self, newparentwindow: super::windef::HWND, newviewinstanceid: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ICoreInputInterop2_Vtbl {
     pub const fn new<Identity: ICoreInputInterop2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn WindowHandle<Identity: ICoreInputInterop2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: *mut super::windef::HWND) -> windows_core::HRESULT {
@@ -118,7 +118,7 @@ impl ICoreInputInterop2_Vtbl {
         iid == &<ICoreInputInterop2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ICoreInputInterop2 {}
 windows_core::imp::define_interface!(ICoreWindowAdapterInterop, ICoreWindowAdapterInterop_Vtbl, 0x7a5b6fd1_cd73_4b6c_9cf4_2e869eaf470a);
 windows_core::imp::interface_hierarchy!(ICoreWindowAdapterInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -307,7 +307,7 @@ impl windows_core::RuntimeName for ICoreWindowAdapterInterop {}
 windows_core::imp::define_interface!(ICoreWindowComponentInterop, ICoreWindowComponentInterop_Vtbl, 0x0576ab31_a310_4c40_ba31_fd37e0298dfa);
 windows_core::imp::interface_hierarchy!(ICoreWindowComponentInterop, windows_core::IUnknown);
 impl ICoreWindowComponentInterop {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ConfigureComponentInput<P2>(&self, hostviewinstanceid: u32, hwndhost: super::windef::HWND, inputsourcevisual: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -325,18 +325,18 @@ impl ICoreWindowComponentInterop {
 #[doc(hidden)]
 pub struct ICoreWindowComponentInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ConfigureComponentInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::windef::HWND, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ConfigureComponentInput: usize,
     pub GetViewInstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ICoreWindowComponentInterop_Impl: windows_core::IUnknownImpl {
     fn ConfigureComponentInput(&self, hostviewinstanceid: u32, hwndhost: super::windef::HWND, inputsourcevisual: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetViewInstanceId(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ICoreWindowComponentInterop_Vtbl {
     pub const fn new<Identity: ICoreWindowComponentInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConfigureComponentInput<Identity: ICoreWindowComponentInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostviewinstanceid: u32, hwndhost: super::windef::HWND, inputsourcevisual: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -367,19 +367,19 @@ impl ICoreWindowComponentInterop_Vtbl {
         iid == &<ICoreWindowComponentInterop as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ICoreWindowComponentInterop {}
 windows_core::imp::define_interface!(ICoreWindowInterop, ICoreWindowInterop_Vtbl, 0x45d64a29_a63e_4cb6_b498_5781d298cb4f);
 windows_core::imp::interface_hierarchy!(ICoreWindowInterop, windows_core::IUnknown);
 impl ICoreWindowInterop {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn WindowHandle(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WindowHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn SetMessageHandled(&self, value: super::rpc::boolean) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMessageHandled)(windows_core::Interface::as_raw(self), value) }
     }
@@ -388,21 +388,21 @@ impl ICoreWindowInterop {
 #[doc(hidden)]
 pub struct ICoreWindowInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub WindowHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     WindowHandle: usize,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub SetMessageHandled: unsafe extern "system" fn(*mut core::ffi::c_void, super::rpc::boolean) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     SetMessageHandled: usize,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_windef"))]
+#[cfg(all(feature = "rpc", feature = "windef"))]
 pub trait ICoreWindowInterop_Impl: windows_core::IUnknownImpl {
     fn WindowHandle(&self) -> windows_core::Result<super::windef::HWND>;
     fn SetMessageHandled(&self, value: super::rpc::boolean) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_windef"))]
+#[cfg(all(feature = "rpc", feature = "windef"))]
 impl ICoreWindowInterop_Vtbl {
     pub const fn new<Identity: ICoreWindowInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn WindowHandle<Identity: ICoreWindowInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: *mut super::windef::HWND) -> windows_core::HRESULT {
@@ -433,5 +433,5 @@ impl ICoreWindowInterop_Vtbl {
         iid == &<ICoreWindowInterop as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_windef"))]
+#[cfg(all(feature = "rpc", feature = "windef"))]
 impl windows_core::RuntimeName for ICoreWindowInterop {}

@@ -1,5 +1,5 @@
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CPTABLEINFO {
     pub CodePage: u16,
@@ -15,7 +15,7 @@ pub struct CPTABLEINFO {
     pub DBCSRanges: super::super::Win32::minwindef::PUSHORT,
     pub DBCSOffsets: super::super::Win32::minwindef::PUSHORT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CPTABLEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23,7 +23,7 @@ impl Default for CPTABLEINFO {
 }
 pub const MAXIMUM_LEADBYTES: u32 = 12;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct NLSTABLEINFO {
     pub OemTableInfo: CPTABLEINFO,
@@ -31,20 +31,20 @@ pub struct NLSTABLEINFO {
     pub UpperCaseTable: super::super::Win32::minwindef::PUSHORT,
     pub LowerCaseTable: super::super::Win32::minwindef::PUSHORT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for NLSTABLEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCPTABLEINFO = *mut CPTABLEINFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PNLSTABLEINFO = *mut NLSTABLEINFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PRTL_NLS_STATE = *mut RTL_NLS_STATE;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct RTL_NLS_STATE {
     pub DefaultAcpTableInfo: CPTABLEINFO,
@@ -57,7 +57,7 @@ pub struct RTL_NLS_STATE {
     pub UnicodeUpcaseTable844: super::super::Win32::minwindef::PUSHORT,
     pub UnicodeLowercaseTable844: super::super::Win32::minwindef::PUSHORT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for RTL_NLS_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

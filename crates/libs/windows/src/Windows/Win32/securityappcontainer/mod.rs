@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetAppContainerNamedObjectPath(token: Option<super::winnt::HANDLE>, appcontainersid: Option<super::winnt::PSID>, objectpath: Option<&mut [u16]>, returnlength: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetAppContainerNamedObjectPath(token : super::winnt::HANDLE, appcontainersid : super::winnt::PSID, objectpathlength : u32, objectpath : windows_core::PWSTR, returnlength : *mut u32) -> windows_core::BOOL);

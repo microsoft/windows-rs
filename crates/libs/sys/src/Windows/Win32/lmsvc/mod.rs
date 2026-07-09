@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetServiceControl(servername : windows_sys::core::PCWSTR, service : windows_sys::core::PCWSTR, opcode : u32, arg : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetServiceEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetServiceGetInfo(servername : windows_sys::core::PCWSTR, service : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetServiceInstall(servername : windows_sys::core::PCWSTR, service : windows_sys::core::PCWSTR, argc : u32, argv : *const windows_sys::core::PCWSTR, bufptr : *mut super::minwindef::LPBYTE) -> u32);
 pub const LM20_SERVICE_ACTIVE: u32 = 0;
 pub const LM20_SERVICE_CONTINUE_PENDING: u32 = 4;

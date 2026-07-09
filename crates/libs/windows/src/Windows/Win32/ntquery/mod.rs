@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn BindIFilterFromStorage<P0, P1>(pstg: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
@@ -8,7 +8,7 @@ where
     windows_core::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { BindIFilterFromStorage(pstg.param().abi(), punkouter.param().abi(), ppiunk as _) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn BindIFilterFromStream<P0, P1>(pstm: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where

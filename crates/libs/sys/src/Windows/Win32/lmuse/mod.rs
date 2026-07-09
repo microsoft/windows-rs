@@ -1,9 +1,9 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("netapi32.dll" "system" fn NetUseAdd(servername : super::winnt::LPTSTR, levelflags : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetUseDel(uncservername : windows_sys::core::PCWSTR, usename : windows_sys::core::PCWSTR, forcelevelflags : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetUseEnum(uncservername : windows_sys::core::PCWSTR, levelflags : u32, bufptr : *mut super::minwindef::LPBYTE, preferedmaximumsize : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetUseGetInfo(uncservername : windows_sys::core::PCWSTR, usename : windows_sys::core::PCWSTR, levelflags : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -25,9 +25,9 @@ pub type LPUSE_INFO_0 = *mut USE_INFO_0;
 pub type LPUSE_INFO_1 = *mut USE_INFO_1;
 pub type LPUSE_INFO_2 = *mut USE_INFO_2;
 pub type LPUSE_INFO_3 = *mut USE_INFO_3;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPUSE_INFO_4 = *mut USE_INFO_4;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPUSE_INFO_5 = *mut USE_INFO_5;
 pub const NoneFlag: TRANSPORT_INFO_FLAG = 0;
 pub type PBLOCK_NTLM_INFO = *mut BLOCK_NTLM_INFO;
@@ -41,9 +41,9 @@ pub type PUSE_INFO_0 = *mut USE_INFO_0;
 pub type PUSE_INFO_1 = *mut USE_INFO_1;
 pub type PUSE_INFO_2 = *mut USE_INFO_2;
 pub type PUSE_INFO_3 = *mut USE_INFO_3;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PUSE_INFO_4 = *mut USE_INFO_4;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PUSE_INFO_5 = *mut USE_INFO_5;
 pub type PUSE_OPTION_BLOCK_NTLM_PARAMETERS = *mut USE_OPTION_BLOCK_NTLM_PARAMETERS;
 pub type PUSE_OPTION_DEFERRED_CONNECTION_PARAMETERS = *mut USE_OPTION_DEFERRED_CONNECTION_PARAMETERS;
@@ -150,21 +150,21 @@ pub struct USE_INFO_3 {
     pub ui3_flags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct USE_INFO_4 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: u32,
     pub ui4_auth_identity: super::minwindef::PBYTE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for USE_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct USE_INFO_5 {
     pub ui4_ui3: USE_INFO_3,
@@ -175,7 +175,7 @@ pub struct USE_INFO_5 {
     pub ui5_use_options_length: u32,
     pub ui5_use_options: super::minwindef::PBYTE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for USE_INFO_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

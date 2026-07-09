@@ -199,7 +199,7 @@ impl IEnumSearchScopeRules_Vtbl {
 }
 impl windows_core::RuntimeName for IEnumSearchScopeRules {}
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INCREMENTAL_ACCESS_INFO {
     pub dwSize: u32,
@@ -220,7 +220,7 @@ impl IOpLockStatus {
             (windows_core::Interface::vtable(self).IsOplockBroken)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetOplockEventHandle(&self) -> windows_core::Result<super::winnt::HANDLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -234,18 +234,18 @@ pub struct IOpLockStatus_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsOplockValid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub IsOplockBroken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetOplockEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetOplockEventHandle: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait IOpLockStatus_Impl: windows_core::IUnknownImpl {
     fn IsOplockValid(&self) -> windows_core::Result<windows_core::BOOL>;
     fn IsOplockBroken(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetOplockEventHandle(&self) -> windows_core::Result<super::winnt::HANDLE>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl IOpLockStatus_Vtbl {
     pub const fn new<Identity: IOpLockStatus_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsOplockValid<Identity: IOpLockStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisoplockvalid: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -295,12 +295,12 @@ impl IOpLockStatus_Vtbl {
         iid == &<IOpLockStatus as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IOpLockStatus {}
 windows_core::imp::define_interface!(IProtocolHandlerSite, IProtocolHandlerSite_Vtbl, 0x0b63e385_9ccc_11d0_bcdb_00805fccce04);
 windows_core::imp::interface_hierarchy!(IProtocolHandlerSite, windows_core::IUnknown);
 impl IProtocolHandlerSite {
-    #[cfg(feature = "Win32_filter")]
+    #[cfg(feature = "filter")]
     pub unsafe fn GetFilter<P1, P2>(&self, pclsidobj: *const windows_core::GUID, pcwszcontenttype: P1, pcwszextension: P2) -> windows_core::Result<super::filter::IFilter>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -316,16 +316,16 @@ impl IProtocolHandlerSite {
 #[doc(hidden)]
 pub struct IProtocolHandlerSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_filter")]
+    #[cfg(feature = "filter")]
     pub GetFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_filter"))]
+    #[cfg(not(feature = "filter"))]
     GetFilter: usize,
 }
-#[cfg(feature = "Win32_filter")]
+#[cfg(feature = "filter")]
 pub trait IProtocolHandlerSite_Impl: windows_core::IUnknownImpl {
     fn GetFilter(&self, pclsidobj: *const windows_core::GUID, pcwszcontenttype: &windows_core::PCWSTR, pcwszextension: &windows_core::PCWSTR) -> windows_core::Result<super::filter::IFilter>;
 }
-#[cfg(feature = "Win32_filter")]
+#[cfg(feature = "filter")]
 impl IProtocolHandlerSite_Vtbl {
     pub const fn new<Identity: IProtocolHandlerSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFilter<Identity: IProtocolHandlerSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclsidobj: *const windows_core::GUID, pcwszcontenttype: windows_core::PCWSTR, pcwszextension: windows_core::PCWSTR, ppfilter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -346,24 +346,24 @@ impl IProtocolHandlerSite_Vtbl {
         iid == &<IProtocolHandlerSite as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_filter")]
+#[cfg(feature = "filter")]
 impl windows_core::RuntimeName for IProtocolHandlerSite {}
 windows_core::imp::define_interface!(IRowsetEvents, IRowsetEvents_Vtbl, 0x1551aea5_5d66_4b11_86f5_d5634cb211b9);
 windows_core::imp::interface_hierarchy!(IRowsetEvents, windows_core::IUnknown);
 impl IRowsetEvents {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnNewItem(&self, itemid: *const super::propidlbase::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnNewItem)(windows_core::Interface::as_raw(self), core::mem::transmute(itemid), newitemstate) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnChangedItem(&self, itemid: *const super::propidlbase::PROPVARIANT, rowsetitemstate: ROWSETEVENT_ITEMSTATE, changeditemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnChangedItem)(windows_core::Interface::as_raw(self), core::mem::transmute(itemid), rowsetitemstate, changeditemstate) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnDeletedItem(&self, itemid: *const super::propidlbase::PROPVARIANT, deleteditemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnDeletedItem)(windows_core::Interface::as_raw(self), core::mem::transmute(itemid), deleteditemstate) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnRowsetEvent(&self, eventtype: ROWSETEVENT_TYPE, eventdata: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnRowsetEvent)(windows_core::Interface::as_raw(self), eventtype, core::mem::transmute(eventdata)) }
     }
@@ -372,31 +372,31 @@ impl IRowsetEvents {
 #[doc(hidden)]
 pub struct IRowsetEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub OnNewItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::propidlbase::PROPVARIANT, ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     OnNewItem: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub OnChangedItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::propidlbase::PROPVARIANT, ROWSETEVENT_ITEMSTATE, ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     OnChangedItem: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub OnDeletedItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::propidlbase::PROPVARIANT, ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     OnDeletedItem: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub OnRowsetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, ROWSETEVENT_TYPE, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     OnRowsetEvent: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRowsetEvents_Impl: windows_core::IUnknownImpl {
     fn OnNewItem(&self, itemid: *const super::propidlbase::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::Result<()>;
     fn OnChangedItem(&self, itemid: *const super::propidlbase::PROPVARIANT, rowsetitemstate: ROWSETEVENT_ITEMSTATE, changeditemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::Result<()>;
     fn OnDeletedItem(&self, itemid: *const super::propidlbase::PROPVARIANT, deleteditemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::Result<()>;
     fn OnRowsetEvent(&self, eventtype: ROWSETEVENT_TYPE, eventdata: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IRowsetEvents_Vtbl {
     pub const fn new<Identity: IRowsetEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnNewItem<Identity: IRowsetEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itemid: *const super::propidlbase::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT {
@@ -435,7 +435,7 @@ impl IRowsetEvents_Vtbl {
         iid == &<IRowsetEvents as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRowsetEvents {}
 windows_core::imp::define_interface!(IRowsetPrioritization, IRowsetPrioritization_Vtbl, 0x42811652_079d_481b_87a2_09a69ecc5f44);
 windows_core::imp::interface_hierarchy!(IRowsetPrioritization, windows_core::IUnknown);
@@ -504,7 +504,7 @@ impl ISearchCatalogManager {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetParameter<P0>(&self, pszname: P0) -> windows_core::Result<*mut super::propidlbase::PROPVARIANT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -514,7 +514,7 @@ impl ISearchCatalogManager {
             (windows_core::Interface::vtable(self).GetParameter)(windows_core::Interface::as_raw(self), pszname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetParameter<P0>(&self, pszname: P0, pvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -617,7 +617,7 @@ impl ISearchCatalogManager {
     {
         unsafe { (windows_core::Interface::vtable(self).SetExtensionClusion)(windows_core::Interface::as_raw(self), pszextension.param().abi(), fexclude.into()) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn EnumerateExcludedExtensions(&self) -> windows_core::Result<super::objidlbase::IEnumString> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -651,13 +651,13 @@ impl ISearchCatalogManager {
 pub struct ISearchCatalogManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetParameter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetParameter: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub SetParameter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     SetParameter: usize,
     pub GetCatalogStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CatalogStatus, *mut CatalogPausedReason) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -677,16 +677,16 @@ pub struct ISearchCatalogManager_Vtbl {
     pub GetItemsChangedSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut windows_core::GUID, *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     pub UnregisterViewForNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetExtensionClusion: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub EnumerateExcludedExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     EnumerateExcludedExtensions: usize,
     pub GetQueryHelper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDiacriticSensitivity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub DiacriticSensitivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetCrawlScopeManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISearchCatalogManager_Impl: windows_core::IUnknownImpl {
     fn Name(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetParameter(&self, pszname: &windows_core::PCWSTR) -> windows_core::Result<*mut super::propidlbase::PROPVARIANT>;
@@ -715,7 +715,7 @@ pub trait ISearchCatalogManager_Impl: windows_core::IUnknownImpl {
     fn DiacriticSensitivity(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetCrawlScopeManager(&self) -> windows_core::Result<ISearchCrawlScopeManager>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl ISearchCatalogManager_Vtbl {
     pub const fn new<Identity: ISearchCatalogManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -986,7 +986,7 @@ impl ISearchCatalogManager_Vtbl {
         iid == &<ISearchCatalogManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISearchCatalogManager {}
 windows_core::imp::define_interface!(ISearchCatalogManager2, ISearchCatalogManager2_Vtbl, 0x7ac3286d_4d1d_4817_84fc_c1c85e3af0d9);
 impl core::ops::Deref for ISearchCatalogManager2 {
@@ -1010,11 +1010,11 @@ pub struct ISearchCatalogManager2_Vtbl {
     pub base__: ISearchCatalogManager_Vtbl,
     pub PrioritizeMatchingURLs: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, PRIORITIZE_FLAGS) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISearchCatalogManager2_Impl: ISearchCatalogManager_Impl {
     fn PrioritizeMatchingURLs(&self, pszpattern: &windows_core::PCWSTR, dwprioritizeflags: PRIORITIZE_FLAGS) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl ISearchCatalogManager2_Vtbl {
     pub const fn new<Identity: ISearchCatalogManager2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PrioritizeMatchingURLs<Identity: ISearchCatalogManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpattern: windows_core::PCWSTR, dwprioritizeflags: PRIORITIZE_FLAGS) -> windows_core::HRESULT {
@@ -1029,7 +1029,7 @@ impl ISearchCatalogManager2_Vtbl {
         iid == &<ISearchCatalogManager2 as windows_core::Interface>::IID || iid == &<ISearchCatalogManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISearchCatalogManager2 {}
 windows_core::imp::define_interface!(ISearchCatalogManager3, ISearchCatalogManager3_Vtbl, 0xde837e8f_634f_4ab0_bdfc_9fc3a1fc50dc);
 impl core::ops::Deref for ISearchCatalogManager3 {
@@ -1053,11 +1053,11 @@ pub struct ISearchCatalogManager3_Vtbl {
     pub base__: ISearchCatalogManager2_Vtbl,
     pub IsContainsSemanticSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISearchCatalogManager3_Impl: ISearchCatalogManager2_Impl {
     fn IsContainsSemanticSupported(&self) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl ISearchCatalogManager3_Vtbl {
     pub const fn new<Identity: ISearchCatalogManager3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsContainsSemanticSupported<Identity: ISearchCatalogManager3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iscontainssemanticsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -1078,7 +1078,7 @@ impl ISearchCatalogManager3_Vtbl {
         iid == &<ISearchCatalogManager3 as windows_core::Interface>::IID || iid == &<ISearchCatalogManager as windows_core::Interface>::IID || iid == &<ISearchCatalogManager2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISearchCatalogManager3 {}
 windows_core::imp::define_interface!(ISearchCrawlScopeManager, ISearchCrawlScopeManager_Vtbl, 0xab310581_ac80_11d1_8df3_00c04fb6ef55);
 windows_core::imp::interface_hierarchy!(ISearchCrawlScopeManager, windows_core::IUnknown);
@@ -1393,7 +1393,7 @@ impl core::ops::Deref for ISearchCrawlScopeManager2 {
 }
 windows_core::imp::interface_hierarchy!(ISearchCrawlScopeManager2, windows_core::IUnknown, ISearchCrawlScopeManager);
 impl ISearchCrawlScopeManager2 {
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetVersion(&self, plversion: *mut *mut i32, phfilemapping: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), plversion as _, phfilemapping as _) }
     }
@@ -1402,16 +1402,16 @@ impl ISearchCrawlScopeManager2 {
 #[doc(hidden)]
 pub struct ISearchCrawlScopeManager2_Vtbl {
     pub base__: ISearchCrawlScopeManager_Vtbl,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub GetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut i32, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     GetVersion: usize,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait ISearchCrawlScopeManager2_Impl: ISearchCrawlScopeManager_Impl {
     fn GetVersion(&self, plversion: *mut *mut i32, phfilemapping: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl ISearchCrawlScopeManager2_Vtbl {
     pub const fn new<Identity: ISearchCrawlScopeManager2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetVersion<Identity: ISearchCrawlScopeManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plversion: *mut *mut i32, phfilemapping: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
@@ -1426,7 +1426,7 @@ impl ISearchCrawlScopeManager2_Vtbl {
         iid == &<ISearchCrawlScopeManager2 as windows_core::Interface>::IID || iid == &<ISearchCrawlScopeManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for ISearchCrawlScopeManager2 {}
 windows_core::imp::define_interface!(ISearchItemsChangedSink, ISearchItemsChangedSink_Vtbl, 0xab310581_ac80_11d1_8df3_00c04fb6ef58);
 windows_core::imp::interface_hierarchy!(ISearchItemsChangedSink, windows_core::IUnknown);
@@ -1443,7 +1443,7 @@ impl ISearchItemsChangedSink {
     {
         unsafe { (windows_core::Interface::vtable(self).StoppedMonitoringScope)(windows_core::Interface::as_raw(self), pszurl.param().abi()) }
     }
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub unsafe fn OnItemsChanged(&self, dwnumberofchanges: u32, rgdatachangeentries: *const SEARCH_ITEM_CHANGE, rgdwdocids: *mut u32, rghrcompletioncodes: *mut windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnItemsChanged)(windows_core::Interface::as_raw(self), dwnumberofchanges, rgdatachangeentries, rgdwdocids as _, rghrcompletioncodes as _) }
     }
@@ -1454,18 +1454,18 @@ pub struct ISearchItemsChangedSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartedMonitoringScope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub StoppedMonitoringScope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub OnItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const SEARCH_ITEM_CHANGE, *mut u32, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypesbase"))]
+    #[cfg(not(feature = "wtypesbase"))]
     OnItemsChanged: usize,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 pub trait ISearchItemsChangedSink_Impl: windows_core::IUnknownImpl {
     fn StartedMonitoringScope(&self, pszurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn StoppedMonitoringScope(&self, pszurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnItemsChanged(&self, dwnumberofchanges: u32, rgdatachangeentries: *const SEARCH_ITEM_CHANGE, rgdwdocids: *mut u32, rghrcompletioncodes: *mut windows_core::HRESULT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl ISearchItemsChangedSink_Vtbl {
     pub const fn new<Identity: ISearchItemsChangedSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartedMonitoringScope<Identity: ISearchItemsChangedSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszurl: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -1497,7 +1497,7 @@ impl ISearchItemsChangedSink_Vtbl {
         iid == &<ISearchItemsChangedSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for ISearchItemsChangedSink {}
 windows_core::imp::define_interface!(ISearchLanguageSupport, ISearchLanguageSupport_Vtbl, 0x24c3cbaa_ebc1_491a_9ef1_9f6d8deb1b8f);
 windows_core::imp::interface_hierarchy!(ISearchLanguageSupport, windows_core::IUnknown);
@@ -1511,7 +1511,7 @@ impl ISearchLanguageSupport {
             (windows_core::Interface::vtable(self).GetDiacriticSensitivity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn LoadWordBreaker<T>(&self, lcid: super::winnt::LCID, plcidused: *mut super::winnt::LCID) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -1519,7 +1519,7 @@ impl ISearchLanguageSupport {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).LoadWordBreaker)(windows_core::Interface::as_raw(self), lcid, &T::IID, &mut result__, plcidused as _).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn LoadStemmer<T>(&self, lcid: super::winnt::LCID, plcidused: *mut super::winnt::LCID) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -1544,17 +1544,17 @@ pub struct ISearchLanguageSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDiacriticSensitivity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetDiacriticSensitivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub LoadWordBreaker: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LCID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut super::winnt::LCID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     LoadWordBreaker: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub LoadStemmer: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LCID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut super::winnt::LCID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     LoadStemmer: usize,
     pub IsPrefixNormalized: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub trait ISearchLanguageSupport_Impl: windows_core::IUnknownImpl {
     fn SetDiacriticSensitivity(&self, fdiacriticsensitive: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDiacriticSensitivity(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -1562,7 +1562,7 @@ pub trait ISearchLanguageSupport_Impl: windows_core::IUnknownImpl {
     fn LoadStemmer(&self, lcid: super::winnt::LCID, riid: *const windows_core::GUID, ppstemmer: *mut *mut core::ffi::c_void, plcidused: *mut super::winnt::LCID) -> windows_core::Result<()>;
     fn IsPrefixNormalized(&self, pwcsquerytoken: &windows_core::PCWSTR, cwcquerytoken: u32, pwcsdocumenttoken: &windows_core::PCWSTR, cwcdocumenttoken: u32) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl ISearchLanguageSupport_Vtbl {
     pub const fn new<Identity: ISearchLanguageSupport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDiacriticSensitivity<Identity: ISearchLanguageSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdiacriticsensitive: windows_core::BOOL) -> windows_core::HRESULT {
@@ -1620,7 +1620,7 @@ impl ISearchLanguageSupport_Vtbl {
         iid == &<ISearchLanguageSupport as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for ISearchLanguageSupport {}
 windows_core::imp::define_interface!(ISearchManager, ISearchManager_Vtbl, 0xab310581_ac80_11d1_8df3_00c04fb6ef69);
 windows_core::imp::interface_hierarchy!(ISearchManager, windows_core::IUnknown);
@@ -1634,7 +1634,7 @@ impl ISearchManager {
     pub unsafe fn GetIndexerVersion(&self, pdwmajor: *mut u32, pdwminor: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetIndexerVersion)(windows_core::Interface::as_raw(self), pdwmajor as _, pdwminor as _) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetParameter<P0>(&self, pszname: P0) -> windows_core::Result<*mut super::propidlbase::PROPVARIANT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1644,7 +1644,7 @@ impl ISearchManager {
             (windows_core::Interface::vtable(self).GetParameter)(windows_core::Interface::as_raw(self), pszname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetParameter<P0>(&self, pszname: P0, pvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1716,13 +1716,13 @@ pub struct ISearchManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIndexerVersionStr: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetIndexerVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetParameter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetParameter: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub SetParameter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     SetParameter: usize,
     pub ProxyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub BypassList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -1734,7 +1734,7 @@ pub struct ISearchManager_Vtbl {
     pub LocalBypass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub PortNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISearchManager_Impl: windows_core::IUnknownImpl {
     fn GetIndexerVersionStr(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetIndexerVersion(&self, pdwmajor: *mut u32, pdwminor: *mut u32) -> windows_core::Result<()>;
@@ -1750,7 +1750,7 @@ pub trait ISearchManager_Impl: windows_core::IUnknownImpl {
     fn LocalBypass(&self) -> windows_core::Result<windows_core::BOOL>;
     fn PortNumber(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl ISearchManager_Vtbl {
     pub const fn new<Identity: ISearchManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetIndexerVersionStr<Identity: ISearchManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszversionstring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1906,7 +1906,7 @@ impl ISearchManager_Vtbl {
         iid == &<ISearchManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISearchManager {}
 windows_core::imp::define_interface!(ISearchManager2, ISearchManager2_Vtbl, 0xdbab3f73_db19_4a79_bfc0_a61a93886ddf);
 impl core::ops::Deref for ISearchManager2 {
@@ -1940,12 +1940,12 @@ pub struct ISearchManager2_Vtbl {
     pub CreateCatalog: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteCatalog: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISearchManager2_Impl: ISearchManager_Impl {
     fn CreateCatalog(&self, pszcatalog: &windows_core::PCWSTR) -> windows_core::Result<ISearchCatalogManager>;
     fn DeleteCatalog(&self, pszcatalog: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl ISearchManager2_Vtbl {
     pub const fn new<Identity: ISearchManager2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateCatalog<Identity: ISearchManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcatalog: windows_core::PCWSTR, ppcatalogmanager: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1976,7 +1976,7 @@ impl ISearchManager2_Vtbl {
         iid == &<ISearchManager2 as windows_core::Interface>::IID || iid == &<ISearchManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISearchManager2 {}
 windows_core::imp::define_interface!(ISearchNotifyInlineSite, ISearchNotifyInlineSite_Vtbl, 0xb5702e61_e75c_4b64_82a1_6cb4f832fccf);
 windows_core::imp::interface_hierarchy!(ISearchNotifyInlineSite, windows_core::IUnknown);
@@ -2106,7 +2106,7 @@ impl ISearchProtocol {
     {
         unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), ptimeoutinfo, pprotocolhandlersite.param().abi(), pproxyinfo) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateAccessor<P0>(&self, pcwszurl: P0, pauthenticationinfo: *const AUTHENTICATION_INFO, pincrementalaccessinfo: *const INCREMENTAL_ACCESS_INFO, piteminfo: *const ITEM_INFO) -> windows_core::Result<IUrlAccessor>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2131,21 +2131,21 @@ impl ISearchProtocol {
 pub struct ISearchProtocol_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *const TIMEOUT_INFO, *mut core::ffi::c_void, *const PROXY_INFO) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub CreateAccessor: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const AUTHENTICATION_INFO, *const INCREMENTAL_ACCESS_INFO, *const ITEM_INFO, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     CreateAccessor: usize,
     pub CloseAccessor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShutDown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait ISearchProtocol_Impl: windows_core::IUnknownImpl {
     fn Init(&self, ptimeoutinfo: *const TIMEOUT_INFO, pprotocolhandlersite: windows_core::Ref<IProtocolHandlerSite>, pproxyinfo: *const PROXY_INFO) -> windows_core::Result<()>;
     fn CreateAccessor(&self, pcwszurl: &windows_core::PCWSTR, pauthenticationinfo: *const AUTHENTICATION_INFO, pincrementalaccessinfo: *const INCREMENTAL_ACCESS_INFO, piteminfo: *const ITEM_INFO) -> windows_core::Result<IUrlAccessor>;
     fn CloseAccessor(&self, paccessor: windows_core::Ref<IUrlAccessor>) -> windows_core::Result<()>;
     fn ShutDown(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl ISearchProtocol_Vtbl {
     pub const fn new<Identity: ISearchProtocol_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Init<Identity: ISearchProtocol_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimeoutinfo: *const TIMEOUT_INFO, pprotocolhandlersite: *mut core::ffi::c_void, pproxyinfo: *const PROXY_INFO) -> windows_core::HRESULT {
@@ -2190,7 +2190,7 @@ impl ISearchProtocol_Vtbl {
         iid == &<ISearchProtocol as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for ISearchProtocol {}
 windows_core::imp::define_interface!(ISearchProtocol2, ISearchProtocol2_Vtbl, 0x7789f0b2_b5b2_4722_8b65_5dbd150697a9);
 impl core::ops::Deref for ISearchProtocol2 {
@@ -2201,7 +2201,7 @@ impl core::ops::Deref for ISearchProtocol2 {
 }
 windows_core::imp::interface_hierarchy!(ISearchProtocol2, windows_core::IUnknown, ISearchProtocol);
 impl ISearchProtocol2 {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
     pub unsafe fn CreateAccessorEx<P0>(&self, pcwszurl: P0, pauthenticationinfo: *const AUTHENTICATION_INFO, pincrementalaccessinfo: *const INCREMENTAL_ACCESS_INFO, piteminfo: *const ITEM_INFO, puserdata: *const super::wtypesbase::BLOB) -> windows_core::Result<IUrlAccessor>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2216,16 +2216,16 @@ impl ISearchProtocol2 {
 #[doc(hidden)]
 pub struct ISearchProtocol2_Vtbl {
     pub base__: ISearchProtocol_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
     pub CreateAccessorEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const AUTHENTICATION_INFO, *const INCREMENTAL_ACCESS_INFO, *const ITEM_INFO, *const super::wtypesbase::BLOB, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypesbase")))]
     CreateAccessorEx: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 pub trait ISearchProtocol2_Impl: ISearchProtocol_Impl {
     fn CreateAccessorEx(&self, pcwszurl: &windows_core::PCWSTR, pauthenticationinfo: *const AUTHENTICATION_INFO, pincrementalaccessinfo: *const INCREMENTAL_ACCESS_INFO, piteminfo: *const ITEM_INFO, puserdata: *const super::wtypesbase::BLOB) -> windows_core::Result<IUrlAccessor>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 impl ISearchProtocol2_Vtbl {
     pub const fn new<Identity: ISearchProtocol2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateAccessorEx<Identity: ISearchProtocol2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcwszurl: windows_core::PCWSTR, pauthenticationinfo: *const AUTHENTICATION_INFO, pincrementalaccessinfo: *const INCREMENTAL_ACCESS_INFO, piteminfo: *const ITEM_INFO, puserdata: *const super::wtypesbase::BLOB, ppaccessor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2246,7 +2246,7 @@ impl ISearchProtocol2_Vtbl {
         iid == &<ISearchProtocol2 as windows_core::Interface>::IID || iid == &<ISearchProtocol as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISearchProtocol2 {}
 windows_core::imp::define_interface!(ISearchProtocolThreadContext, ISearchProtocolThreadContext_Vtbl, 0xc73106e1_ac80_11d1_8df3_00c04fb6ef4f);
 windows_core::imp::interface_hierarchy!(ISearchProtocolThreadContext, windows_core::IUnknown);
@@ -2315,22 +2315,22 @@ impl ISearchQueryHelper {
             (windows_core::Interface::vtable(self).ConnectionString)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetQueryContentLocale(&self, lcid: super::winnt::LCID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetQueryContentLocale)(windows_core::Interface::as_raw(self), lcid) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn QueryContentLocale(&self) -> windows_core::Result<super::winnt::LCID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryContentLocale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetQueryKeywordLocale(&self, lcid: super::winnt::LCID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetQueryKeywordLocale)(windows_core::Interface::as_raw(self), lcid) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn QueryKeywordLocale(&self) -> windows_core::Result<super::winnt::LCID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2412,7 +2412,7 @@ impl ISearchQueryHelper {
             (windows_core::Interface::vtable(self).GenerateSQLFromUserQuery)(windows_core::Interface::as_raw(self), pszquery.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WriteProperties(&self, itemid: ITEMID, dwnumberofcolumns: u32, pcolumns: *const super::wtypes::PROPERTYKEY, pvalues: *const SEARCH_COLUMN_PROPERTIES, pftgathermodifiedtime: *const super::minwindef::FILETIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WriteProperties)(windows_core::Interface::as_raw(self), itemid, dwnumberofcolumns, pcolumns, core::mem::transmute(pvalues), pftgathermodifiedtime) }
     }
@@ -2431,21 +2431,21 @@ impl ISearchQueryHelper {
 pub struct ISearchQueryHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectionString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetQueryContentLocale: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LCID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetQueryContentLocale: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub QueryContentLocale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::LCID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     QueryContentLocale: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetQueryKeywordLocale: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::LCID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetQueryKeywordLocale: usize,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub QueryKeywordLocale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::winnt::LCID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     QueryKeywordLocale: usize,
     pub SetQueryTermExpansion: unsafe extern "system" fn(*mut core::ffi::c_void, SEARCH_TERM_EXPANSION) -> windows_core::HRESULT,
     pub QueryTermExpansion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SEARCH_TERM_EXPANSION) -> windows_core::HRESULT,
@@ -2460,14 +2460,14 @@ pub struct ISearchQueryHelper_Vtbl {
     pub SetQuerySorting: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub QuerySorting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GenerateSQLFromUserQuery: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub WriteProperties: unsafe extern "system" fn(*mut core::ffi::c_void, ITEMID, u32, *const super::wtypes::PROPERTYKEY, *const SEARCH_COLUMN_PROPERTIES, *const super::minwindef::FILETIME) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     WriteProperties: usize,
     pub SetQueryMaxResults: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub QueryMaxResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISearchQueryHelper_Impl: windows_core::IUnknownImpl {
     fn ConnectionString(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetQueryContentLocale(&self, lcid: super::winnt::LCID) -> windows_core::Result<()>;
@@ -2491,7 +2491,7 @@ pub trait ISearchQueryHelper_Impl: windows_core::IUnknownImpl {
     fn SetQueryMaxResults(&self, cmaxresults: i32) -> windows_core::Result<()>;
     fn QueryMaxResults(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISearchQueryHelper_Vtbl {
     pub const fn new<Identity: ISearchQueryHelper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConnectionString<Identity: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszconnectionstring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -2715,7 +2715,7 @@ impl ISearchQueryHelper_Vtbl {
         iid == &<ISearchQueryHelper as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISearchQueryHelper {}
 windows_core::imp::define_interface!(ISearchRoot, ISearchRoot_Vtbl, 0x04c18ccf_1f57_4cbd_88cc_3900f5195ce3);
 windows_core::imp::interface_hierarchy!(ISearchRoot, windows_core::IUnknown);
@@ -3223,7 +3223,7 @@ impl windows_core::RuntimeName for ISearchScopeRule {}
 windows_core::imp::define_interface!(ISearchViewChangedSink, ISearchViewChangedSink_Vtbl, 0xab310581_ac80_11d1_8df3_00c04fb6ef65);
 windows_core::imp::interface_hierarchy!(ISearchViewChangedSink, windows_core::IUnknown);
 impl ISearchViewChangedSink {
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub unsafe fn OnChange(&self, pdwdocid: *const ITEMID, pchange: *const SEARCH_ITEM_CHANGE, pfinview: *const windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnChange)(windows_core::Interface::as_raw(self), pdwdocid, pchange, pfinview) }
     }
@@ -3232,16 +3232,16 @@ impl ISearchViewChangedSink {
 #[doc(hidden)]
 pub struct ISearchViewChangedSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub OnChange: unsafe extern "system" fn(*mut core::ffi::c_void, *const ITEMID, *const SEARCH_ITEM_CHANGE, *const windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypesbase"))]
+    #[cfg(not(feature = "wtypesbase"))]
     OnChange: usize,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 pub trait ISearchViewChangedSink_Impl: windows_core::IUnknownImpl {
     fn OnChange(&self, pdwdocid: *const ITEMID, pchange: *const SEARCH_ITEM_CHANGE, pfinview: *const windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl ISearchViewChangedSink_Vtbl {
     pub const fn new<Identity: ISearchViewChangedSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnChange<Identity: ISearchViewChangedSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwdocid: *const ITEMID, pchange: *const SEARCH_ITEM_CHANGE, pfinview: *const windows_core::BOOL) -> windows_core::HRESULT {
@@ -3256,7 +3256,7 @@ impl ISearchViewChangedSink_Vtbl {
         iid == &<ISearchViewChangedSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for ISearchViewChangedSink {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -3273,7 +3273,7 @@ pub struct ITEM_INFO {
 windows_core::imp::define_interface!(IUrlAccessor, IUrlAccessor_Vtbl, 0x0b63e318_9ccc_11d0_bcdb_00805fccce04);
 windows_core::imp::interface_hierarchy!(IUrlAccessor, windows_core::IUnknown);
 impl IUrlAccessor {
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddRequestParameter(&self, pspec: *const super::propidlbase::PROPSPEC, pvar: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddRequestParameter)(windows_core::Interface::as_raw(self), pspec, core::mem::transmute(pvar)) }
     }
@@ -3298,7 +3298,7 @@ impl IUrlAccessor {
             (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetLastModified(&self) -> windows_core::Result<super::minwindef::FILETIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3320,14 +3320,14 @@ impl IUrlAccessor {
             (windows_core::Interface::vtable(self).GetSecurityProvider)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn BindToStream(&self) -> windows_core::Result<super::objidlbase::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BindToStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_filter")]
+    #[cfg(feature = "filter")]
     pub unsafe fn BindToFilter(&self) -> windows_core::Result<super::filter::IFilter> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3339,33 +3339,33 @@ impl IUrlAccessor {
 #[doc(hidden)]
 pub struct IUrlAccessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub AddRequestParameter: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::propidlbase::PROPSPEC, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     AddRequestParameter: usize,
     pub GetDocFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, u32, *mut u32) -> windows_core::HRESULT,
     pub GetCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, u32, *mut u32) -> windows_core::HRESULT,
     pub IsDirectory: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetLastModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::minwindef::FILETIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetLastModified: usize,
     pub GetFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSecurityDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
     pub GetRedirectedURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSecurityProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub BindToStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     BindToStream: usize,
-    #[cfg(feature = "Win32_filter")]
+    #[cfg(feature = "filter")]
     pub BindToFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_filter"))]
+    #[cfg(not(feature = "filter"))]
     BindToFilter: usize,
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUrlAccessor_Impl: windows_core::IUnknownImpl {
     fn AddRequestParameter(&self, pspec: *const super::propidlbase::PROPSPEC, pvar: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<()>;
     fn GetDocFormat(&self, wszdocformat: *mut u16, dwsize: u32, pdwlength: *mut u32) -> windows_core::Result<()>;
@@ -3381,7 +3381,7 @@ pub trait IUrlAccessor_Impl: windows_core::IUnknownImpl {
     fn BindToStream(&self) -> windows_core::Result<super::objidlbase::IStream>;
     fn BindToFilter(&self) -> windows_core::Result<super::filter::IFilter>;
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IUrlAccessor_Vtbl {
     pub const fn new<Identity: IUrlAccessor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddRequestParameter<Identity: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pspec: *const super::propidlbase::PROPSPEC, pvar: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
@@ -3519,7 +3519,7 @@ impl IUrlAccessor_Vtbl {
         iid == &<IUrlAccessor as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUrlAccessor {}
 windows_core::imp::define_interface!(IUrlAccessor2, IUrlAccessor2_Vtbl, 0xc7310734_ac80_11d1_8df3_00c04fb6ef4f);
 impl core::ops::Deref for IUrlAccessor2 {
@@ -3548,13 +3548,13 @@ pub struct IUrlAccessor2_Vtbl {
     pub IsDocument: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCodePage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUrlAccessor2_Impl: IUrlAccessor_Impl {
     fn GetDisplayUrl(&self, wszdocurl: *mut u16, dwsize: u32, pdwlength: *mut u32) -> windows_core::Result<()>;
     fn IsDocument(&self) -> windows_core::Result<()>;
     fn GetCodePage(&self, wszcodepage: *mut u16, dwsize: u32, pdwlength: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IUrlAccessor2_Vtbl {
     pub const fn new<Identity: IUrlAccessor2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDisplayUrl<Identity: IUrlAccessor2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszdocurl: *mut u16, dwsize: u32, pdwlength: *mut u32) -> windows_core::HRESULT {
@@ -3586,7 +3586,7 @@ impl IUrlAccessor2_Vtbl {
         iid == &<IUrlAccessor2 as windows_core::Interface>::IID || iid == &<IUrlAccessor as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUrlAccessor2 {}
 windows_core::imp::define_interface!(IUrlAccessor3, IUrlAccessor3_Vtbl, 0x6fbc7005_0455_4874_b8ff_7439450241a3);
 impl core::ops::Deref for IUrlAccessor3 {
@@ -3597,7 +3597,7 @@ impl core::ops::Deref for IUrlAccessor3 {
 }
 windows_core::imp::interface_hierarchy!(IUrlAccessor3, windows_core::IUnknown, IUrlAccessor, IUrlAccessor2);
 impl IUrlAccessor3 {
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub unsafe fn GetImpersonationSidBlobs<P0>(&self, pcwszurl: P0, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::wtypesbase::BLOB) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -3609,16 +3609,16 @@ impl IUrlAccessor3 {
 #[doc(hidden)]
 pub struct IUrlAccessor3_Vtbl {
     pub base__: IUrlAccessor2_Vtbl,
-    #[cfg(feature = "Win32_wtypesbase")]
+    #[cfg(feature = "wtypesbase")]
     pub GetImpersonationSidBlobs: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut *mut super::wtypesbase::BLOB) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypesbase"))]
+    #[cfg(not(feature = "wtypesbase"))]
     GetImpersonationSidBlobs: usize,
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUrlAccessor3_Impl: IUrlAccessor2_Impl {
     fn GetImpersonationSidBlobs(&self, pcwszurl: &windows_core::PCWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::wtypesbase::BLOB) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IUrlAccessor3_Vtbl {
     pub const fn new<Identity: IUrlAccessor3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetImpersonationSidBlobs<Identity: IUrlAccessor3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcwszurl: windows_core::PCWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::wtypesbase::BLOB) -> windows_core::HRESULT {
@@ -3633,7 +3633,7 @@ impl IUrlAccessor3_Vtbl {
         iid == &<IUrlAccessor3 as windows_core::Interface>::IID || iid == &<IUrlAccessor as windows_core::Interface>::IID || iid == &<IUrlAccessor2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUrlAccessor3 {}
 windows_core::imp::define_interface!(IUrlAccessor4, IUrlAccessor4_Vtbl, 0x5cc51041_c8d2_41d7_bca3_9e9e286297dc);
 impl core::ops::Deref for IUrlAccessor4 {
@@ -3650,7 +3650,7 @@ impl IUrlAccessor4 {
             (windows_core::Interface::vtable(self).ShouldIndexItemContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn ShouldIndexProperty(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3663,17 +3663,17 @@ impl IUrlAccessor4 {
 pub struct IUrlAccessor4_Vtbl {
     pub base__: IUrlAccessor3_Vtbl,
     pub ShouldIndexItemContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub ShouldIndexProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::wtypes::PROPERTYKEY, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     ShouldIndexProperty: usize,
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUrlAccessor4_Impl: IUrlAccessor3_Impl {
     fn ShouldIndexItemContent(&self) -> windows_core::Result<windows_core::BOOL>;
     fn ShouldIndexProperty(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl IUrlAccessor4_Vtbl {
     pub const fn new<Identity: IUrlAccessor4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ShouldIndexItemContent<Identity: IUrlAccessor4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfindexcontent: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -3710,7 +3710,7 @@ impl IUrlAccessor4_Vtbl {
         iid == &<IUrlAccessor4 as windows_core::Interface>::IID || iid == &<IUrlAccessor as windows_core::Interface>::IID || iid == &<IUrlAccessor2 as windows_core::Interface>::IID || iid == &<IUrlAccessor3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_filter", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "filter", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUrlAccessor4 {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -3754,18 +3754,18 @@ pub const SEARCH_CHANGE_SEMANTICS_DIRECTORY: SEARCH_KIND_OF_CHANGE = 262144;
 pub const SEARCH_CHANGE_SEMANTICS_SHALLOW: SEARCH_KIND_OF_CHANGE = 524288;
 pub const SEARCH_CHANGE_SEMANTICS_UPDATE_SECURITY: SEARCH_KIND_OF_CHANGE = 4194304;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct SEARCH_COLUMN_PROPERTIES {
     pub Value: super::propidlbase::PROPVARIANT,
     pub lcid: super::winnt::LCID,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for SEARCH_COLUMN_PROPERTIES {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SEARCH_COLUMN_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3777,7 +3777,7 @@ pub const SEARCH_INDEXING_PHASE_GATHERER: SEARCH_INDEXING_PHASE = 0;
 pub const SEARCH_INDEXING_PHASE_PERSISTED: SEARCH_INDEXING_PHASE = 2;
 pub const SEARCH_INDEXING_PHASE_QUERYABLE: SEARCH_INDEXING_PHASE = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEARCH_ITEM_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
@@ -3786,7 +3786,7 @@ pub struct SEARCH_ITEM_CHANGE {
     pub lpwszURL: windows_core::PWSTR,
     pub lpwszOldURL: windows_core::PWSTR,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for SEARCH_ITEM_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn NetUseAdd(servername: Option<super::winnt::LPTSTR>, levelflags: u32, buf: *mut u8, parm_err: Option<*mut u32>) -> u32 {
     windows_core::link!("netapi32.dll" "system" fn NetUseAdd(servername : super::winnt::LPTSTR, levelflags : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
@@ -13,7 +13,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetUseDel(uncservername : windows_core::PCWSTR, usename : windows_core::PCWSTR, forcelevelflags : u32) -> u32);
     unsafe { NetUseDel(uncservername.param().abi(), usename.param().abi(), forcelevelflags) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetUseEnum<P0>(uncservername: P0, levelflags: u32, bufptr: *mut super::minwindef::LPBYTE, preferedmaximumsize: u32, entriesread: Option<*mut u32>, totalentries: *mut u32, resumehandle: Option<*mut u32>) -> u32
 where
@@ -22,7 +22,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetUseEnum(uncservername : windows_core::PCWSTR, levelflags : u32, bufptr : *mut super::minwindef::LPBYTE, preferedmaximumsize : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
     unsafe { NetUseEnum(uncservername.param().abi(), levelflags, bufptr as _, preferedmaximumsize, entriesread.unwrap_or(core::mem::zeroed()) as _, totalentries as _, resumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetUseGetInfo<P0, P1>(uncservername: P0, usename: P1, levelflags: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -100,33 +100,33 @@ impl Default for LPUSE_INFO_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPUSE_INFO_4(pub *mut USE_INFO_4);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPUSE_INFO_4 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPUSE_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPUSE_INFO_5(pub *mut USE_INFO_5);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPUSE_INFO_5 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPUSE_INFO_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -276,33 +276,33 @@ impl Default for PUSE_INFO_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSE_INFO_4(pub *mut USE_INFO_4);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PUSE_INFO_4 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PUSE_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSE_INFO_5(pub *mut USE_INFO_5);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PUSE_INFO_5 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PUSE_INFO_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -458,7 +458,7 @@ pub struct USE_INFO_3 {
     pub ui3_flags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USE_INFO_4 {
     pub ui4_ui3: USE_INFO_3,
@@ -466,7 +466,7 @@ pub struct USE_INFO_4 {
     pub ui4_auth_identity: super::minwindef::PBYTE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USE_INFO_5 {
     pub ui4_ui3: USE_INFO_3,

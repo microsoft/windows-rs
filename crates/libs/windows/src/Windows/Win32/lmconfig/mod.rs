@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetConfigGet<P0, P1, P2>(server: P0, component: P1, parameter: P2, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -9,7 +9,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetConfigGet(server : windows_core::PCWSTR, component : windows_core::PCWSTR, parameter : windows_core::PCWSTR, bufptr : *mut super::minwindef::LPBYTE) -> u32);
     unsafe { NetConfigGet(server.param().abi(), component.param().abi(), parameter.param().abi(), bufptr as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetConfigGetAll<P0, P1>(server: P0, component: P1, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where

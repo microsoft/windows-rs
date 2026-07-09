@@ -1,10 +1,10 @@
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCompareStringOrdinal(string1 : windows_sys::core::HSTRING, string2 : windows_sys::core::HSTRING, result : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsConcatString(string1 : windows_sys::core::HSTRING, string2 : windows_sys::core::HSTRING, newstring : *mut windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateString(sourcestring : *const u16, length : u32, string : *mut windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_hstring")]
+#[cfg(feature = "hstring")]
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateStringReference(sourcestring : windows_sys::core::PCWSTR, length : u32, hstringheader : *mut super::hstring::HSTRING_HEADER, string : *mut windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteString(string : windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_hstring")]
+#[cfg(feature = "hstring")]
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteStringBuffer(bufferhandle : super::hstring::HSTRING_BUFFER) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDuplicateString(string : windows_sys::core::HSTRING, newstring : *mut windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsGetStringLen(string : windows_sys::core::HSTRING) -> u32);
@@ -12,9 +12,9 @@ windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn Window
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsInspectString(targethstring : usize, machine : u16, callback : PINSPECT_HSTRING_CALLBACK, context : *const core::ffi::c_void, length : *mut u32, targetstringaddress : *mut usize) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-1.dll" "system" fn WindowsInspectString2(targethstring : u64, machine : u16, callback : PINSPECT_HSTRING_CALLBACK2, context : *const core::ffi::c_void, length : *mut u32, targetstringaddress : *mut u64) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsIsStringEmpty(string : windows_sys::core::HSTRING) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_hstring")]
+#[cfg(feature = "hstring")]
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsPreallocateStringBuffer(length : u32, charbuffer : *mut *mut u16, bufferhandle : *mut super::hstring::HSTRING_BUFFER) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_hstring")]
+#[cfg(feature = "hstring")]
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsPromoteStringBuffer(bufferhandle : super::hstring::HSTRING_BUFFER, string : *mut windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsReplaceString(string : windows_sys::core::HSTRING, stringreplaced : windows_sys::core::HSTRING, stringreplacewith : windows_sys::core::HSTRING, newstring : *mut windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsStringHasEmbeddedNull(string : windows_sys::core::HSTRING, hasembednull : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);

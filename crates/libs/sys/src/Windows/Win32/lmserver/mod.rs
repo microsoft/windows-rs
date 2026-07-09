@@ -1,18 +1,18 @@
 windows_link::link!("netapi32.dll" "system" fn NetServerComputerNameAdd(servername : windows_sys::core::PCWSTR, emulateddomainname : windows_sys::core::PCWSTR, emulatedservername : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetServerComputerNameDel(servername : windows_sys::core::PCWSTR, emulatedservername : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetServerDiskEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetServerEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, servertype : u32, domain : windows_sys::core::PCWSTR, resume_handle : *mut u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetServerGetInfo(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetServerSetInfo(servername : windows_sys::core::PCWSTR, level : u32, buf : *mut u8, parmerror : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetServerTransportAdd(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *const u8) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetServerTransportAddEx(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut u8) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetServerTransportDel(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut u8) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetServerTransportEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-#[cfg(feature = "Win32_winsvc")]
+#[cfg(feature = "winsvc")]
 windows_link::link!("advapi32.dll" "system" fn SetServiceBits(hservicestatus : super::winsvc::SERVICE_STATUS_HANDLE, dwservicebits : u32, bsetbitson : windows_sys::core::BOOL, bupdateimmediately : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 pub type LPSERVER_INFO_100 = *mut SERVER_INFO_100;
 pub type LPSERVER_INFO_1005 = *mut SERVER_INFO_1005;
@@ -118,13 +118,13 @@ pub type LPSERVER_INFO_502 = *mut SERVER_INFO_502;
 pub type LPSERVER_INFO_503 = *mut SERVER_INFO_503;
 pub type LPSERVER_INFO_598 = *mut SERVER_INFO_598;
 pub type LPSERVER_INFO_599 = *mut SERVER_INFO_599;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPSERVER_TRANSPORT_INFO_0 = *mut SERVER_TRANSPORT_INFO_0;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPSERVER_TRANSPORT_INFO_1 = *mut SERVER_TRANSPORT_INFO_1;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPSERVER_TRANSPORT_INFO_2 = *mut SERVER_TRANSPORT_INFO_2;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPSERVER_TRANSPORT_INFO_3 = *mut SERVER_TRANSPORT_INFO_3;
 pub const MAJOR_VERSION_MASK: u32 = 15;
 pub type PSERVER_INFO_100 = *mut SERVER_INFO_100;
@@ -231,13 +231,13 @@ pub type PSERVER_INFO_502 = *mut SERVER_INFO_502;
 pub type PSERVER_INFO_503 = *mut SERVER_INFO_503;
 pub type PSERVER_INFO_598 = *mut SERVER_INFO_598;
 pub type PSERVER_INFO_599 = *mut SERVER_INFO_599;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PSERVER_TRANSPORT_INFO_0 = *mut SERVER_TRANSPORT_INFO_0;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PSERVER_TRANSPORT_INFO_1 = *mut SERVER_TRANSPORT_INFO_1;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PSERVER_TRANSPORT_INFO_2 = *mut SERVER_TRANSPORT_INFO_2;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PSERVER_TRANSPORT_INFO_3 = *mut SERVER_TRANSPORT_INFO_3;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1054,7 +1054,7 @@ impl Default for SERVER_INFO_599 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_numberofvcs: u32,
@@ -1063,14 +1063,14 @@ pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_transportaddresslength: u32,
     pub svti0_networkaddress: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for SERVER_TRANSPORT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_numberofvcs: u32,
@@ -1080,14 +1080,14 @@ pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_networkaddress: windows_sys::core::PWSTR,
     pub svti1_domain: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for SERVER_TRANSPORT_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_numberofvcs: u32,
@@ -1098,14 +1098,14 @@ pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_domain: windows_sys::core::PWSTR,
     pub svti2_flags: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for SERVER_TRANSPORT_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct SERVER_TRANSPORT_INFO_3 {
     pub svti3_numberofvcs: u32,
@@ -1118,7 +1118,7 @@ pub struct SERVER_TRANSPORT_INFO_3 {
     pub svti3_passwordlength: u32,
     pub svti3_password: [u8; 256],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for SERVER_TRANSPORT_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn PlaySoundA<P0>(pszsound: P0, hmod: Option<super::minwindef::HMODULE>, fdwsound: u32) -> windows_core::BOOL
 where
@@ -7,7 +7,7 @@ where
     windows_core::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_core::PCSTR, hmod : super::minwindef::HMODULE, fdwsound : u32) -> windows_core::BOOL);
     unsafe { PlaySoundA(pszsound.param().abi(), hmod.unwrap_or(core::mem::zeroed()) as _, fdwsound) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn PlaySoundW<P0>(pszsound: P0, hmod: Option<super::minwindef::HMODULE>, fdwsound: u32) -> windows_core::BOOL
 where

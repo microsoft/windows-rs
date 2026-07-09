@@ -1,7 +1,7 @@
 windows_link::link!("windowscodecs.dll" "system" fn WICConvertBitmapSource(dstformat : REFWICPixelFormatGUID, pisrc : *mut core::ffi::c_void, ppidst : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("windowscodecs.dll" "system" fn WICCreateBitmapFromSection(width : u32, height : u32, pixelformat : REFWICPixelFormatGUID, hsection : super::winnt::HANDLE, stride : u32, offset : u32, ppibitmap : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("windowscodecs.dll" "system" fn WICCreateBitmapFromSectionEx(width : u32, height : u32, pixelformat : REFWICPixelFormatGUID, hsection : super::winnt::HANDLE, stride : u32, offset : u32, desiredaccesslevel : WICSectionAccessLevel, ppibitmap : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("windowscodecs.dll" "system" fn WICMapGuidToShortName(guid : *const windows_sys::core::GUID, cchname : u32, wzname : *mut u16, pcchactual : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("windowscodecs.dll" "system" fn WICMapSchemaToName(guidmetadataformat : *const windows_sys::core::GUID, pwzschema : windows_sys::core::PCWSTR, cchname : u32, wzname : *mut u16, pcchactual : *mut u32) -> windows_sys::core::HRESULT);
@@ -326,7 +326,7 @@ pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = 1;
 pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = 0;
 pub type WICDdsDimension = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
 pub struct WICDdsFormatInfo {
     pub DxgiFormat: super::dxgi::DXGI_FORMAT,
@@ -335,7 +335,7 @@ pub struct WICDdsFormatInfo {
     pub BlockHeight: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
 pub struct WICDdsParameters {
     pub Width: u32,
@@ -416,7 +416,7 @@ pub const WICHeifOrientation: WICHeifProperties = 1;
 pub type WICHeifProperties = i32;
 pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = 2147483647;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
 #[derive(Clone, Copy, Default)]
 pub struct WICImageParameters {
     pub PixelFormat: super::dcommon::D2D1_PIXEL_FORMAT,

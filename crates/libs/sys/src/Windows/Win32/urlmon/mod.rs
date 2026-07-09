@@ -1,12 +1,12 @@
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn CoGetClassObjectFromURL(rclassid : *const windows_sys::core::GUID, szcode : windows_sys::core::PCWSTR, dwfileversionms : u32, dwfileversionls : u32, sztype : windows_sys::core::PCWSTR, pbindctx : *mut core::ffi::c_void, dwclscontext : u32, pvreserved : *const core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CoInternetCombineIUri(pbaseuri : *mut core::ffi::c_void, prelativeuri : *mut core::ffi::c_void, dwcombineflags : u32, ppcombineduri : *mut *mut core::ffi::c_void, dwreserved : usize) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CoInternetCombineUrl(pwzbaseurl : windows_sys::core::PCWSTR, pwzrelativeurl : windows_sys::core::PCWSTR, dwcombineflags : u32, pszresult : windows_sys::core::PWSTR, cchresult : u32, pcchresult : *mut u32, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CoInternetCombineUrlEx(pbaseuri : *mut core::ffi::c_void, pwzrelativeurl : windows_sys::core::PCWSTR, dwcombineflags : u32, ppcombineduri : *mut *mut core::ffi::c_void, dwreserved : usize) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CoInternetCompareUrl(pwzurl1 : windows_sys::core::PCWSTR, pwzurl2 : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 windows_link::link!("urlmon.dll" "system" fn CoInternetCreateSecurityManager(psp : *mut core::ffi::c_void, ppsm : *mut *mut core::ffi::c_void, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_servprov")]
+#[cfg(feature = "servprov")]
 windows_link::link!("urlmon.dll" "system" fn CoInternetCreateZoneManager(psp : *mut core::ffi::c_void, ppzm : *mut *mut core::ffi::c_void, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CoInternetGetProtocolFlags(pwzurl : windows_sys::core::PCWSTR, pdwflags : *mut u32, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CoInternetGetSecurityUrl(pwszurl : windows_sys::core::PCWSTR, ppwszsecurl : *mut windows_sys::core::PWSTR, psuaction : PSUACTION, dwreserved : u32) -> windows_sys::core::HRESULT);
@@ -22,84 +22,84 @@ windows_link::link!("urlmon.dll" "system" fn CoInternetQueryInfo(pwzurl : window
 windows_link::link!("urlmon.dll" "system" fn CoInternetSetFeatureEnabled(featureentry : INTERNETFEATURELIST, dwflags : u32, fenable : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CompareSecurityIds(pbsecurityid1 : *const u8, dwlen1 : u32, pbsecurityid2 : *const u8, dwlen2 : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CompatFlagsFromClsid(pclsid : *const windows_sys::core::GUID, pdwcompatflags : *mut u32, pdwmiscstatusflags : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 windows_link::link!("urlmon.dll" "system" fn CopyBindInfo(pcbisrc : *const BINDINFO, pbidest : *mut BINDINFO) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 windows_link::link!("urlmon.dll" "system" fn CopyStgMedium(pcstgmedsrc : *const super::objidl::STGMEDIUM, pstgmeddest : *mut super::objidl::STGMEDIUM) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn CreateAsyncBindCtx(reserved : u32, pbscb : *mut core::ffi::c_void, pefetc : *mut core::ffi::c_void, ppbc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn CreateAsyncBindCtxEx(pbc : *mut core::ffi::c_void, dwoptions : u32, pbscb : *mut core::ffi::c_void, penum : *mut core::ffi::c_void, ppbc : *mut *mut core::ffi::c_void, reserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidl", feature = "wtypes"))]
 windows_link::link!("urlmon.dll" "system" fn CreateFormatEnumerator(cfmtetc : u32, rgfmtetc : *const super::objidl::FORMATETC, ppenumfmtetc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CreateIUriBuilder(piuri : *mut core::ffi::c_void, dwflags : u32, dwreserved : usize, ppiuribuilder : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn CreateURLMoniker(pmkctx : *mut core::ffi::c_void, szurl : windows_sys::core::PCWSTR, ppmk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn CreateURLMonikerEx(pmkctx : *mut core::ffi::c_void, szurl : windows_sys::core::PCWSTR, ppmk : *mut *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn CreateURLMonikerEx2(pmkctx : *mut core::ffi::c_void, puri : *mut core::ffi::c_void, ppmk : *mut *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CreateUri(pwzuri : windows_sys::core::PCWSTR, dwflags : u32, dwreserved : usize, ppuri : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CreateUriFromMultiByteString(pszansiinputuri : windows_sys::core::PCSTR, dwencodingflags : u32, dwcodepage : u32, dwcreateflags : u32, dwreserved : usize, ppuri : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn CreateUriWithFragment(pwzuri : windows_sys::core::PCWSTR, pwzfragment : windows_sys::core::PCWSTR, dwflags : u32, dwreserved : usize, ppuri : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "windef", feature = "winnt", feature = "wtypes"))]
 windows_link::link!("urlmon.dll" "system" fn FaultInIEFeature(hwnd : super::windef::HWND, pclassspec : *const super::wtypes::uCLSSPEC, pquery : *mut super::wtypes::QUERYCONTEXT, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 windows_link::link!("urlmon.dll" "system" fn FindMediaType(rgsztypes : windows_sys::core::PCSTR, rgcftypes : *mut super::wtypes::CLIPFORMAT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn FindMediaTypeClass(pbc : *mut core::ffi::c_void, sztype : windows_sys::core::PCSTR, pclsid : *mut windows_sys::core::GUID, reserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn FindMimeFromData(pbc : *mut core::ffi::c_void, pwzurl : windows_sys::core::PCWSTR, pbuffer : *const core::ffi::c_void, cbsize : u32, pwzmimeproposed : windows_sys::core::PCWSTR, dwmimeflags : u32, ppwzmimeout : *mut windows_sys::core::PWSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn GetClassFileOrMime(pbc : *mut core::ffi::c_void, szfilename : windows_sys::core::PCWSTR, pbuffer : *const core::ffi::c_void, cbsize : u32, szmime : windows_sys::core::PCWSTR, dwreserved : u32, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn GetClassURL(szurl : windows_sys::core::PCWSTR, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 windows_link::link!("urlmon.dll" "system" fn GetComponentIDFromCLSSPEC(pclassspec : *const super::wtypes::uCLSSPEC, ppszcomponentid : *mut windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn GetSoftwareUpdateInfo(szdistunit : windows_sys::core::PCWSTR, psdi : *mut SOFTDISTINFO) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn HlinkGoBack(punk : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn HlinkGoForward(punk : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn HlinkNavigateMoniker(punk : *mut core::ffi::c_void, pmktarget : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn HlinkNavigateString(punk : *mut core::ffi::c_void, sztarget : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn HlinkSimpleNavigateToMoniker(pmktarget : *mut core::ffi::c_void, szlocation : windows_sys::core::PCWSTR, sztargetframename : windows_sys::core::PCWSTR, punk : *mut core::ffi::c_void, pbc : *mut core::ffi::c_void, param5 : *mut core::ffi::c_void, grfhlnf : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn HlinkSimpleNavigateToString(sztarget : windows_sys::core::PCWSTR, szlocation : windows_sys::core::PCWSTR, sztargetframename : windows_sys::core::PCWSTR, punk : *mut core::ffi::c_void, pbc : *mut core::ffi::c_void, param5 : *mut core::ffi::c_void, grfhlnf : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn IEGetUserPrivateNamespaceName() -> windows_sys::core::PWSTR);
 windows_link::link!("urlmon.dll" "system" fn IEInstallScope(pdwscope : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn IsAsyncMoniker(pmk : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn IsLoggingEnabledA(pszurl : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("urlmon.dll" "system" fn IsLoggingEnabledW(pwszurl : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn IsValidURL(pbc : *mut core::ffi::c_void, szurl : windows_sys::core::PCWSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn MkParseDisplayNameEx(pbc : *mut core::ffi::c_void, szdisplayname : windows_sys::core::PCWSTR, pcheaten : *mut u32, ppmk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn ObtainUserAgentString(dwoption : u32, pszuaout : windows_sys::core::PSTR, cbsize : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn RegisterBindStatusCallback(pbc : *mut core::ffi::c_void, pbscb : *mut core::ffi::c_void, ppbscbprev : *mut *mut core::ffi::c_void, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn RegisterFormatEnumerator(pbc : *mut core::ffi::c_void, pefetc : *mut core::ffi::c_void, reserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn RegisterMediaTypeClass(pbc : *mut core::ffi::c_void, ctypes : u32, rgsztypes : *const windows_sys::core::PCSTR, rgclsid : *const windows_sys::core::GUID, reserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 windows_link::link!("urlmon.dll" "system" fn RegisterMediaTypes(ctypes : u32, rgsztypes : *const windows_sys::core::PCSTR, rgcftypes : *mut super::wtypes::CLIPFORMAT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 windows_link::link!("urlmon.dll" "system" fn ReleaseBindInfo(pbindinfo : *mut BINDINFO));
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn RevokeBindStatusCallback(pbc : *mut core::ffi::c_void, pbscb : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn RevokeFormatEnumerator(pbc : *mut core::ffi::c_void, pefetc : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("urlmon.dll" "system" fn SetAccessForIEAppContainer(hobject : super::winnt::HANDLE, ieobjecttype : IEObjectType, dwaccessmask : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn SetSoftwareUpdateAdvertisementState(szdistunit : windows_sys::core::PCWSTR, dwadstate : u32, dwadvertisedversionms : u32, dwadvertisedversionls : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn URLDownloadToCacheFileA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR, param2 : windows_sys::core::PSTR, cchfilename : u32, param4 : u32, param5 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn URLDownloadToCacheFileW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : windows_sys::core::PWSTR, cchfilename : u32, param4 : u32, param5 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn URLDownloadToFileA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR, param2 : windows_sys::core::PCSTR, param3 : u32, param4 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn URLDownloadToFileW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : windows_sys::core::PCWSTR, param3 : u32, param4 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 windows_link::link!("urlmon.dll" "system" fn URLOpenBlockingStreamA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR, param2 : *mut *mut core::ffi::c_void, param3 : u32, param4 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 windows_link::link!("urlmon.dll" "system" fn URLOpenBlockingStreamW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : *mut *mut core::ffi::c_void, param3 : u32, param4 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn URLOpenPullStreamA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn URLOpenPullStreamW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -107,7 +107,7 @@ windows_link::link!("urlmon.dll" "system" fn URLOpenStreamA(param0 : *mut core::
 windows_link::link!("urlmon.dll" "system" fn URLOpenStreamW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn UrlMkGetSessionOption(dwoption : u32, pbuffer : *mut core::ffi::c_void, dwbufferlength : u32, pdwbufferlengthout : *mut u32, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn UrlMkSetSessionOption(dwoption : u32, pbuffer : *const core::ffi::c_void, dwbufferlength : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 windows_link::link!("urlmon.dll" "system" fn WriteHitLogging(lplogginginfo : *const HIT_LOGGING_INFO) -> windows_sys::core::BOOL);
 pub type AUTHENTICATEF = i32;
 pub const AUTHENTICATEF_BASIC: AUTHENTICATEF = 2;
@@ -191,7 +191,7 @@ pub const BINDHANDLETYPES_APPCACHE: BINDHANDLETYPES = 0;
 pub const BINDHANDLETYPES_COUNT: BINDHANDLETYPES = 2;
 pub const BINDHANDLETYPES_DEPENDENCY: BINDHANDLETYPES = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 #[derive(Clone, Copy)]
 pub struct BINDINFO {
     pub cbSize: u32,
@@ -209,7 +209,7 @@ pub struct BINDINFO {
     pub pUnk: *mut core::ffi::c_void,
     pub dwReserved: u32,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_windef", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl Default for BINDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -456,7 +456,7 @@ pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8;
 pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 #[derive(Clone, Copy)]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: u32,
@@ -465,7 +465,7 @@ pub struct HIT_LOGGING_INFO {
     pub EndTime: super::minwinbase::SYSTEMTIME,
     pub lpszExtendedInfo: windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 impl Default for HIT_LOGGING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -514,7 +514,7 @@ pub const INET_E_USE_EXTEND_BINDING: windows_sys::core::HRESULT = 0x800C0017_u32
 pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: windows_sys::core::HRESULT = 0x800C001D_u32 as _;
 pub type INTERNETFEATURELIST = i32;
 pub type LPCODEBASEHOLD = *mut CODEBASEHOLD;
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 pub type LPHIT_LOGGING_INFO = *mut HIT_LOGGING_INFO;
 pub type LPPROTOCOL_ARGUMENT = *mut PROTOCOL_ARGUMENT;
 pub type LPREMFORMATETC = *mut RemFORMATETC;
@@ -749,14 +749,14 @@ pub const SZM_DELETE: SZM_FLAGS = 1;
 pub type SZM_FLAGS = i32;
 pub const S_ASYNCHRONOUS: u32 = 262632;
 #[repr(C)]
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[derive(Clone, Copy)]
 pub struct StartParam {
     pub iid: windows_sys::core::GUID,
     pub pIBindCtx: *mut core::ffi::c_void,
     pub pItf: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl Default for StartParam {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

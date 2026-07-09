@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn FlsAlloc(lpcallback : super::winnt::PFLS_CALLBACK_FUNCTION) -> u32);
 windows_link::link!("kernel32.dll" "system" fn FlsFree(dwflsindex : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn FlsGetValue(dwflsindex : u32) -> *mut core::ffi::c_void);

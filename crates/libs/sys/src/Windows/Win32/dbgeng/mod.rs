@@ -544,7 +544,7 @@ pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     pub Id: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: super::winnt::EXCEPTION_RECORD64,
@@ -1217,7 +1217,7 @@ pub type PDEBUG_GET_TEXT_COMPLETIONS_IN = *mut DEBUG_GET_TEXT_COMPLETIONS_IN;
 pub type PDEBUG_GET_TEXT_COMPLETIONS_OUT = *mut DEBUG_GET_TEXT_COMPLETIONS_OUT;
 pub type PDEBUG_HANDLE_DATA_BASIC = *mut DEBUG_HANDLE_DATA_BASIC;
 pub type PDEBUG_LAST_EVENT_INFO_BREAKPOINT = *mut DEBUG_LAST_EVENT_INFO_BREAKPOINT;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PDEBUG_LAST_EVENT_INFO_EXCEPTION = *mut DEBUG_LAST_EVENT_INFO_EXCEPTION;
 pub type PDEBUG_LAST_EVENT_INFO_EXIT_PROCESS = *mut DEBUG_LAST_EVENT_INFO_EXIT_PROCESS;
 pub type PDEBUG_LAST_EVENT_INFO_EXIT_THREAD = *mut DEBUG_LAST_EVENT_INFO_EXIT_THREAD;
@@ -1261,9 +1261,9 @@ pub struct PROCESS_NAME_ENTRY {
 pub type PSTACK_SRC_INFO = *mut STACK_SRC_INFO;
 pub type PSTACK_SYM_FRAME_INFO = *mut STACK_SYM_FRAME_INFO;
 pub type PSYMBOL_INFO_EX = *mut SYMBOL_INFO_EX;
-#[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
 pub type PWINDBG_EXTENSION_APIS32 = *mut super::wdbgexts::WINDBG_EXTENSION_APIS32;
-#[cfg(all(feature = "Win32_wdbgexts", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
 pub type PWINDBG_EXTENSION_APIS64 = *mut super::wdbgexts::WINDBG_EXTENSION_APIS64;
 pub const STACK_FRAME_TYPE_IGNORE: u32 = 255;
 pub const STACK_FRAME_TYPE_INIT: u32 = 0;

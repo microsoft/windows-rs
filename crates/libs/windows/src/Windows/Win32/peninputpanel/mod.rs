@@ -52,11 +52,11 @@ pub const HandwrittenTextInsertion: windows_core::GUID = windows_core::GUID::fro
 windows_core::imp::define_interface!(IHandwrittenTextInsertion, IHandwrittenTextInsertion_Vtbl, 0x56fdea97_ecd6_43e7_aa3a_816be7785860);
 windows_core::imp::interface_hierarchy!(IHandwrittenTextInsertion, windows_core::IUnknown);
 impl IHandwrittenTextInsertion {
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "oaidl", feature = "winnt"))]
     pub unsafe fn InsertRecognitionResultsArray(&self, psaalternates: *const super::oaidl::SAFEARRAY, locale: super::winnt::LCID, falternatecontainsautospacinginformation: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InsertRecognitionResultsArray)(windows_core::Interface::as_raw(self), psaalternates, locale, falternatecontainsautospacinginformation.into()) }
     }
-    #[cfg(all(feature = "Win32_msinkaut", feature = "Win32_oaidl", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "msinkaut", feature = "oaidl", feature = "winnt"))]
     pub unsafe fn InsertInkRecognitionResult<P0>(&self, piinkrecoresult: P0, locale: super::winnt::LCID, falternatecontainsautospacinginformation: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::msinkaut::IInkRecognitionResult>,
@@ -68,21 +68,21 @@ impl IHandwrittenTextInsertion {
 #[doc(hidden)]
 pub struct IHandwrittenTextInsertion_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "oaidl", feature = "winnt"))]
     pub InsertRecognitionResultsArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY, super::winnt::LCID, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "oaidl", feature = "winnt")))]
     InsertRecognitionResultsArray: usize,
-    #[cfg(all(feature = "Win32_msinkaut", feature = "Win32_oaidl", feature = "Win32_winnt"))]
+    #[cfg(all(feature = "msinkaut", feature = "oaidl", feature = "winnt"))]
     pub InsertInkRecognitionResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::winnt::LCID, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_msinkaut", feature = "Win32_oaidl", feature = "Win32_winnt")))]
+    #[cfg(not(all(feature = "msinkaut", feature = "oaidl", feature = "winnt")))]
     InsertInkRecognitionResult: usize,
 }
-#[cfg(all(feature = "Win32_msinkaut", feature = "Win32_oaidl", feature = "Win32_winnt"))]
+#[cfg(all(feature = "msinkaut", feature = "oaidl", feature = "winnt"))]
 pub trait IHandwrittenTextInsertion_Impl: windows_core::IUnknownImpl {
     fn InsertRecognitionResultsArray(&self, psaalternates: *const super::oaidl::SAFEARRAY, locale: super::winnt::LCID, falternatecontainsautospacinginformation: windows_core::BOOL) -> windows_core::Result<()>;
     fn InsertInkRecognitionResult(&self, piinkrecoresult: windows_core::Ref<super::msinkaut::IInkRecognitionResult>, locale: super::winnt::LCID, falternatecontainsautospacinginformation: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_msinkaut", feature = "Win32_oaidl", feature = "Win32_winnt"))]
+#[cfg(all(feature = "msinkaut", feature = "oaidl", feature = "winnt"))]
 impl IHandwrittenTextInsertion_Vtbl {
     pub const fn new<Identity: IHandwrittenTextInsertion_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InsertRecognitionResultsArray<Identity: IHandwrittenTextInsertion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psaalternates: *const super::oaidl::SAFEARRAY, locale: super::winnt::LCID, falternatecontainsautospacinginformation: windows_core::BOOL) -> windows_core::HRESULT {
@@ -107,7 +107,7 @@ impl IHandwrittenTextInsertion_Vtbl {
         iid == &<IHandwrittenTextInsertion as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msinkaut", feature = "Win32_oaidl", feature = "Win32_winnt"))]
+#[cfg(all(feature = "msinkaut", feature = "oaidl", feature = "winnt"))]
 impl windows_core::RuntimeName for IHandwrittenTextInsertion {}
 windows_core::imp::define_interface!(IInputPanelWindowHandle, IInputPanelWindowHandle_Vtbl, 0x4af81847_fdc4_4fc3_ad0b_422479c1b935);
 windows_core::imp::interface_hierarchy!(IInputPanelWindowHandle, windows_core::IUnknown);
@@ -197,20 +197,20 @@ impl IInputPanelWindowHandle_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IInputPanelWindowHandle {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IPenInputPanel, IPenInputPanel_Vtbl, 0xfa7a4083_5747_4040_a182_0b0e9fd4fac7);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for IPenInputPanel {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(IPenInputPanel, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IPenInputPanel {
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Busy(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -253,14 +253,14 @@ impl IPenInputPanel {
     pub unsafe fn SetDefaultPanel(&self, defaultpanel: PanelType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultPanel)(windows_core::Interface::as_raw(self), defaultpanel) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn Visible(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Visible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetVisible(&self, visible: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), visible) }
     }
@@ -306,14 +306,14 @@ impl IPenInputPanel {
     pub unsafe fn SetHorizontalOffset(&self, horizontaloffset: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHorizontalOffset)(windows_core::Interface::as_raw(self), horizontaloffset) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn AutoShow(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoShow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn SetAutoShow(&self, autoshow: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAutoShow)(windows_core::Interface::as_raw(self), autoshow) }
     }
@@ -326,19 +326,19 @@ impl IPenInputPanel {
     pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub unsafe fn EnableTsf(&self, enable: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnableTsf)(windows_core::Interface::as_raw(self), enable) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenInputPanel_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Busy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Busy: usize,
     pub Factoid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFactoid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -348,13 +348,13 @@ pub struct IPenInputPanel_Vtbl {
     pub SetCurrentPanel: unsafe extern "system" fn(*mut core::ffi::c_void, PanelType) -> windows_core::HRESULT,
     pub DefaultPanel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PanelType) -> windows_core::HRESULT,
     pub SetDefaultPanel: unsafe extern "system" fn(*mut core::ffi::c_void, PanelType) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     Visible: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetVisible: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetVisible: usize,
     pub Top: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Left: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -364,23 +364,23 @@ pub struct IPenInputPanel_Vtbl {
     pub SetVerticalOffset: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub HorizontalOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetHorizontalOffset: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub AutoShow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     AutoShow: usize,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub SetAutoShow: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     SetAutoShow: usize,
     pub MoveTo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub CommitPendingInput: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wtypes")]
+    #[cfg(feature = "wtypes")]
     pub EnableTsf: unsafe extern "system" fn(*mut core::ffi::c_void, super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wtypes"))]
+    #[cfg(not(feature = "wtypes"))]
     EnableTsf: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPenInputPanel_Impl: super::oaidl::IDispatch_Impl {
     fn Busy(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL>;
     fn Factoid(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -408,7 +408,7 @@ pub trait IPenInputPanel_Impl: super::oaidl::IDispatch_Impl {
     fn Refresh(&self) -> windows_core::Result<()>;
     fn EnableTsf(&self, enable: super::wtypes::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPenInputPanel_Vtbl {
     pub const fn new<Identity: IPenInputPanel_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Busy<Identity: IPenInputPanel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busy: *mut super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -672,19 +672,19 @@ impl IPenInputPanel_Vtbl {
         iid == &<IPenInputPanel as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPenInputPanel {}
 windows_core::imp::define_interface!(ITextInputPanel, ITextInputPanel_Vtbl, 0x6b6a65a5_6af3_46c2_b6ea_56cd1f80df71);
 windows_core::imp::interface_hierarchy!(ITextInputPanel, windows_core::IUnknown);
 impl ITextInputPanel {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AttachedEditWindow(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttachedEditWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetAttachedEditWindow(&self, attachededitwindow: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAttachedEditWindow)(windows_core::Interface::as_raw(self), attachededitwindow) }
     }
@@ -757,7 +757,7 @@ impl ITextInputPanel {
     pub unsafe fn SetInPlaceVisibleOnFocus(&self, visible: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetInPlaceVisibleOnFocus)(windows_core::Interface::as_raw(self), visible.into()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn InPlaceBoundingRectangle(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -805,13 +805,13 @@ impl ITextInputPanel {
 #[doc(hidden)]
 pub struct ITextInputPanel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AttachedEditWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AttachedEditWindow: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetAttachedEditWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetAttachedEditWindow: usize,
     pub CurrentInteractionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InteractionMode) -> windows_core::HRESULT,
     pub DefaultInPlaceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InPlaceState) -> windows_core::HRESULT,
@@ -827,9 +827,9 @@ pub struct ITextInputPanel_Vtbl {
     pub SetExpandPostInsertionCorrection: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub InPlaceVisibleOnFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetInPlaceVisibleOnFocus: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub InPlaceBoundingRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     InPlaceBoundingRectangle: usize,
     pub PopUpCorrectionHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub PopDownCorrectionHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -840,7 +840,7 @@ pub struct ITextInputPanel_Vtbl {
     pub Advise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITextInputPanel_Impl: windows_core::IUnknownImpl {
     fn AttachedEditWindow(&self) -> windows_core::Result<super::windef::HWND>;
     fn SetAttachedEditWindow(&self, attachededitwindow: super::windef::HWND) -> windows_core::Result<()>;
@@ -868,7 +868,7 @@ pub trait ITextInputPanel_Impl: windows_core::IUnknownImpl {
     fn Advise(&self, eventsink: windows_core::Ref<ITextInputPanelEventSink>, eventmask: u32) -> windows_core::Result<()>;
     fn Unadvise(&self, eventsink: windows_core::Ref<ITextInputPanelEventSink>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITextInputPanel_Vtbl {
     pub const fn new<Identity: ITextInputPanel_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AttachedEditWindow<Identity: ITextInputPanel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attachededitwindow: *mut super::windef::HWND) -> windows_core::HRESULT {
@@ -1132,7 +1132,7 @@ impl ITextInputPanel_Vtbl {
         iid == &<ITextInputPanel as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITextInputPanel {}
 windows_core::imp::define_interface!(ITextInputPanelEventSink, ITextInputPanelEventSink_Vtbl, 0x27560408_8e64_4fe1_804e_421201584b31);
 windows_core::imp::interface_hierarchy!(ITextInputPanelEventSink, windows_core::IUnknown);
@@ -1143,11 +1143,11 @@ impl ITextInputPanelEventSink {
     pub unsafe fn InPlaceStateChanged(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InPlaceStateChanged)(windows_core::Interface::as_raw(self), oldinplacestate, newinplacestate) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn InPlaceSizeChanging(&self, oldboundingrectangle: super::windef::RECT, newboundingrectangle: super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InPlaceSizeChanging)(windows_core::Interface::as_raw(self), core::mem::transmute(oldboundingrectangle), core::mem::transmute(newboundingrectangle)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn InPlaceSizeChanged(&self, oldboundingrectangle: super::windef::RECT, newboundingrectangle: super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InPlaceSizeChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(oldboundingrectangle), core::mem::transmute(newboundingrectangle)) }
     }
@@ -1169,11 +1169,11 @@ impl ITextInputPanelEventSink {
     pub unsafe fn InPlaceVisibilityChanged(&self, oldvisible: bool, newvisible: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InPlaceVisibilityChanged)(windows_core::Interface::as_raw(self), oldvisible.into(), newvisible.into()) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn TextInserting(&self, ink: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TextInserting)(windows_core::Interface::as_raw(self), ink) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn TextInserted(&self, ink: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TextInserted)(windows_core::Interface::as_raw(self), ink) }
     }
@@ -1184,13 +1184,13 @@ pub struct ITextInputPanelEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InPlaceStateChanging: unsafe extern "system" fn(*mut core::ffi::c_void, InPlaceState, InPlaceState) -> windows_core::HRESULT,
     pub InPlaceStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, InPlaceState, InPlaceState) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub InPlaceSizeChanging: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::RECT, super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     InPlaceSizeChanging: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub InPlaceSizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::RECT, super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     InPlaceSizeChanged: usize,
     pub InputAreaChanging: unsafe extern "system" fn(*mut core::ffi::c_void, PanelInputArea, PanelInputArea) -> windows_core::HRESULT,
     pub InputAreaChanged: unsafe extern "system" fn(*mut core::ffi::c_void, PanelInputArea, PanelInputArea) -> windows_core::HRESULT,
@@ -1198,16 +1198,16 @@ pub struct ITextInputPanelEventSink_Vtbl {
     pub CorrectionModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, CorrectionMode, CorrectionMode) -> windows_core::HRESULT,
     pub InPlaceVisibilityChanging: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub InPlaceVisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub TextInserting: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     TextInserting: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub TextInserted: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     TextInserted: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oaidl", feature = "windef"))]
 pub trait ITextInputPanelEventSink_Impl: windows_core::IUnknownImpl {
     fn InPlaceStateChanging(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_core::Result<()>;
     fn InPlaceStateChanged(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_core::Result<()>;
@@ -1222,7 +1222,7 @@ pub trait ITextInputPanelEventSink_Impl: windows_core::IUnknownImpl {
     fn TextInserting(&self, ink: *const super::oaidl::SAFEARRAY) -> windows_core::Result<()>;
     fn TextInserted(&self, ink: *const super::oaidl::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oaidl", feature = "windef"))]
 impl ITextInputPanelEventSink_Vtbl {
     pub const fn new<Identity: ITextInputPanelEventSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InPlaceStateChanging<Identity: ITextInputPanelEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_core::HRESULT {
@@ -1317,7 +1317,7 @@ impl ITextInputPanelEventSink_Vtbl {
         iid == &<ITextInputPanelEventSink as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oaidl", feature = "windef"))]
 impl windows_core::RuntimeName for ITextInputPanelEventSink {}
 windows_core::imp::define_interface!(ITextInputPanelRunInfo, ITextInputPanelRunInfo_Vtbl, 0x9f424568_1920_48cc_9811_a993cbf5adba);
 windows_core::imp::interface_hierarchy!(ITextInputPanelRunInfo, windows_core::IUnknown);
@@ -1388,26 +1388,26 @@ pub const PenInputPanel: windows_core::GUID = windows_core::GUID::from_u128(0xf7
 pub const PenInputPanel_Internal: windows_core::GUID = windows_core::GUID::from_u128(0x802b1fb9_056b_4720_b0cc_80d23b71171e);
 pub const TextInputPanel: windows_core::GUID = windows_core::GUID::from_u128(0xf9b189d7_228b_4f2b_8650_b97f59e02c8c);
 pub type VisualState = i32;
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(_IPenInputPanelEvents, _IPenInputPanelEvents_Vtbl, 0xb7e489da_3719_439f_848f_e7acbd820f17);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for _IPenInputPanelEvents {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(_IPenInputPanelEvents, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IPenInputPanelEvents_Vtbl {
     pub base__: super::oaidl::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _IPenInputPanelEvents_Impl: super::oaidl::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _IPenInputPanelEvents_Vtbl {
     pub const fn new<Identity: _IPenInputPanelEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::oaidl::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -1416,5 +1416,5 @@ impl _IPenInputPanelEvents_Vtbl {
         iid == &<_IPenInputPanelEvents as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _IPenInputPanelEvents {}

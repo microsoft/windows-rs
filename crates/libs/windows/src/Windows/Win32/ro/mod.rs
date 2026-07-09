@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_restrictederrorinfo")]
+#[cfg(feature = "restrictederrorinfo")]
 #[inline]
 pub unsafe fn GetRestrictedErrorInfo() -> windows_core::Result<super::restrictederrorinfo::IRestrictedErrorInfo> {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn GetRestrictedErrorInfo(pprestrictederrorinfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -62,7 +62,7 @@ pub unsafe fn RoGetApartmentIdentifier() -> windows_core::Result<u64> {
         RoGetApartmentIdentifier(&mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn RoGetBufferMarshaler() -> windows_core::Result<super::objidlbase::IMarshal> {
     windows_core::link!("api-ms-win-core-winrt-robuffer-l1-1-0.dll" "system" fn RoGetBufferMarshaler(buffermarshaler : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -79,7 +79,7 @@ pub unsafe fn RoGetErrorReportingFlags() -> windows_core::Result<u32> {
         RoGetErrorReportingFlags(&mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_restrictederrorinfo")]
+#[cfg(feature = "restrictederrorinfo")]
 #[inline]
 pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: windows_core::HRESULT) -> windows_core::Result<super::restrictederrorinfo::IRestrictedErrorInfo> {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoGetMatchingRestrictedErrorInfo(hrin : windows_core::HRESULT, pprestrictederrorinfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -140,7 +140,7 @@ pub unsafe fn RoParameterizedTypeExtraGetTypeSignature(extra: ROPARAMIIDHANDLE) 
     windows_core::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoParameterizedTypeExtraGetTypeSignature(extra : ROPARAMIIDHANDLE) -> windows_core::PCSTR);
     unsafe { RoParameterizedTypeExtraGetTypeSignature(extra) }
 }
-#[cfg(feature = "Win32_activation")]
+#[cfg(feature = "activation")]
 #[inline]
 pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const windows_core::HSTRING, activationfactorycallbacks: *const PFNGETACTIVATIONFACTORY, count: u32) -> windows_core::Result<RO_REGISTRATION_COOKIE> {
     windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterActivationFactories(activatableclassids : *const *mut core::ffi::c_void, activationfactorycallbacks : *const PFNGETACTIVATIONFACTORY, count : u32, cookie : *mut RO_REGISTRATION_COOKIE) -> windows_core::HRESULT);
@@ -149,7 +149,7 @@ pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const windows_
         RoRegisterActivationFactories(core::mem::transmute(activatableclassids), activationfactorycallbacks, count, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn RoRegisterForApartmentShutdown<P0>(callbackobject: P0, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::HRESULT
 where
@@ -158,7 +158,7 @@ where
     windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterForApartmentShutdown(callbackobject : *mut core::ffi::c_void, apartmentidentifier : *mut u64, regcookie : *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::HRESULT);
     unsafe { RoRegisterForApartmentShutdown(callbackobject.param().abi(), apartmentidentifier as _, regcookie as _) }
 }
-#[cfg(feature = "Win32_restrictederrorinfo")]
+#[cfg(feature = "restrictederrorinfo")]
 #[inline]
 pub unsafe fn RoReportFailedDelegate<P0, P1>(punkdelegate: P0, prestrictederrorinfo: P1) -> windows_core::HRESULT
 where
@@ -168,7 +168,7 @@ where
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportFailedDelegate(punkdelegate : *mut core::ffi::c_void, prestrictederrorinfo : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { RoReportFailedDelegate(punkdelegate.param().abi(), prestrictederrorinfo.param().abi()) }
 }
-#[cfg(feature = "Win32_restrictederrorinfo")]
+#[cfg(feature = "restrictederrorinfo")]
 #[inline]
 pub unsafe fn RoReportUnhandledError<P0>(prestrictederrorinfo: P0) -> windows_core::HRESULT
 where
@@ -177,7 +177,7 @@ where
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportUnhandledError(prestrictederrorinfo : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { RoReportUnhandledError(prestrictederrorinfo.param().abi()) }
 }
-#[cfg(feature = "Win32_restrictederrorinfo")]
+#[cfg(feature = "restrictederrorinfo")]
 #[inline]
 pub unsafe fn RoResolveRestrictedErrorInfoReference<P0>(reference: P0) -> windows_core::Result<super::restrictederrorinfo::IRestrictedErrorInfo>
 where
@@ -222,7 +222,7 @@ pub unsafe fn RoUnregisterForApartmentShutdown(regcookie: APARTMENT_SHUTDOWN_REG
     windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoUnregisterForApartmentShutdown(regcookie : APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::HRESULT);
     unsafe { RoUnregisterForApartmentShutdown(regcookie) }
 }
-#[cfg(feature = "Win32_restrictederrorinfo")]
+#[cfg(feature = "restrictederrorinfo")]
 #[inline]
 pub unsafe fn SetRestrictedErrorInfo<P0>(prestrictederrorinfo: P0) -> windows_core::HRESULT
 where
@@ -250,7 +250,7 @@ pub const ForceExceptions: RoErrorReportingFlags = 2;
 windows_core::imp::define_interface!(IBufferByteAccess, IBufferByteAccess_Vtbl, 0x905a0fef_bc53_11df_8c49_001e4fc686da);
 windows_core::imp::interface_hierarchy!(IBufferByteAccess, windows_core::IUnknown);
 impl IBufferByteAccess {
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn Buffer(&self) -> windows_core::Result<*mut super::rpc::byte> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -262,16 +262,16 @@ impl IBufferByteAccess {
 #[doc(hidden)]
 pub struct IBufferByteAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub Buffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::rpc::byte) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     Buffer: usize,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait IBufferByteAccess_Impl: windows_core::IUnknownImpl {
     fn Buffer(&self) -> windows_core::Result<*mut super::rpc::byte>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl IBufferByteAccess_Vtbl {
     pub const fn new<Identity: IBufferByteAccess_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Buffer<Identity: IBufferByteAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut super::rpc::byte) -> windows_core::HRESULT {
@@ -292,7 +292,7 @@ impl IBufferByteAccess_Vtbl {
         iid == &<IBufferByteAccess as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for IBufferByteAccess {}
 windows_core::imp::define_interface!(IRoMetaDataLocator, IRoMetaDataLocator_Vtbl);
 impl IRoMetaDataLocator {
@@ -514,7 +514,7 @@ impl IRoSimpleMetaDataBuilder {
 }
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512;
 pub const None: RoErrorReportingFlags = 0;
-#[cfg(feature = "Win32_activation")]
+#[cfg(feature = "activation")]
 pub type PFNGETACTIVATIONFACTORY = Option<unsafe extern "system" fn(param0: windows_core::Ref<windows_core::HSTRING>, param1: windows_core::OutRef<super::activation::IActivationFactory>) -> windows_core::HRESULT>;
 pub type PINSPECT_MEMORY_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> windows_core::HRESULT>;
 #[repr(transparent)]

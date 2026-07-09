@@ -2,37 +2,37 @@ windows_link::link!("ntdll.dll" "system" fn RtlEthernetAddressToStringA(addr : *
 windows_link::link!("ntdll.dll" "system" fn RtlEthernetAddressToStringW(addr : *const DL_EUI48, s : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
 windows_link::link!("ntdll.dll" "system" fn RtlEthernetStringToAddressA(s : windows_sys::core::PCSTR, terminator : *mut windows_sys::core::PCSTR, addr : *mut DL_EUI48) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlEthernetStringToAddressW(s : windows_sys::core::PCWSTR, terminator : *mut windows_sys::core::PCWSTR, addr : *mut DL_EUI48) -> i32);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringA(addr : *const super::inaddr::IN_ADDR, s : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExA(address : *const super::inaddr::IN_ADDR, port : u16, addressstring : windows_sys::core::PSTR, addressstringlength : *mut u32) -> i32);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExW(address : *const super::inaddr::IN_ADDR, port : u16, addressstring : windows_sys::core::PWSTR, addressstringlength : *mut u32) -> i32);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringW(addr : *const super::inaddr::IN_ADDR, s : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_sys::core::PCSTR, strict : bool, terminator : *mut windows_sys::core::PCSTR, addr : *mut super::inaddr::IN_ADDR) -> i32);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExA(addressstring : windows_sys::core::PCSTR, strict : bool, address : *mut super::inaddr::IN_ADDR, port : *mut u16) -> i32);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExW(addressstring : windows_sys::core::PCWSTR, strict : bool, address : *mut super::inaddr::IN_ADDR, port : *mut u16) -> i32);
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_sys::core::PCWSTR, strict : bool, terminator : *mut windows_sys::core::PCWSTR, addr : *mut super::inaddr::IN_ADDR) -> i32);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringA(addr : *const super::in6addr::IN6_ADDR, s : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExA(address : *const super::in6addr::IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_sys::core::PSTR, addressstringlength : *mut u32) -> i32);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExW(address : *const super::in6addr::IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_sys::core::PWSTR, addressstringlength : *mut u32) -> i32);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringW(addr : *const super::in6addr::IN6_ADDR, s : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressA(s : windows_sys::core::PCSTR, terminator : *mut windows_sys::core::PCSTR, addr : *mut super::in6addr::IN6_ADDR) -> i32);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressExA(addressstring : windows_sys::core::PCSTR, address : *mut super::in6addr::IN6_ADDR, scopeid : *mut u32, port : *mut u16) -> i32);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressExW(addressstring : windows_sys::core::PCWSTR, address : *mut super::in6addr::IN6_ADDR, scopeid : *mut u32, port : *mut u16) -> i32);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressW(s : windows_sys::core::PCWSTR, terminator : *mut windows_sys::core::PCWSTR, addr : *mut super::in6addr::IN6_ADDR) -> i32);
 pub const ASSOCIATE_NAMERES_CONTEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x59a38b67_d4fe_46e1_ba3c_87ea74ca3049);
 #[repr(C)]
@@ -195,7 +195,7 @@ pub const SOCKET_INFO_CONNECTION_ENCRYPTED: u32 = 2;
 pub const SOCKET_INFO_CONNECTION_IMPERSONATED: u32 = 4;
 pub const SOCKET_INFO_CONNECTION_SECURED: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy)]
 pub struct SOCKET_PEER_TARGET_NAME {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
@@ -203,7 +203,7 @@ pub struct SOCKET_PEER_TARGET_NAME {
     pub PeerTargetNameStringLen: u32,
     pub AllStrings: [u16; 0],
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 impl Default for SOCKET_PEER_TARGET_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -239,7 +239,7 @@ pub struct SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
     pub SaLookupContext: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
@@ -247,7 +247,7 @@ pub struct SOCKET_SECURITY_QUERY_TEMPLATE {
     pub PeerTokenAccessMask: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,

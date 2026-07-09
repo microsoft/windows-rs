@@ -1,40 +1,40 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WFDCancelOpenSession(hsessionhandle: super::winnt::HANDLE) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WFDCancelOpenSession(hsessionhandle : super::winnt::HANDLE) -> u32);
     unsafe { WFDCancelOpenSession(hsessionhandle) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WFDCloseHandle(hclienthandle: super::winnt::HANDLE) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WFDCloseHandle(hclienthandle : super::winnt::HANDLE) -> u32);
     unsafe { WFDCloseHandle(hclienthandle) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WFDCloseSession(hsessionhandle: super::winnt::HANDLE) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WFDCloseSession(hsessionhandle : super::winnt::HANDLE) -> u32);
     unsafe { WFDCloseSession(hsessionhandle) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WFDOpenHandle(dwclientversion: u32, pdwnegotiatedversion: *mut u32, phclienthandle: *mut super::winnt::HANDLE) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WFDOpenHandle(dwclientversion : u32, pdwnegotiatedversion : *mut u32, phclienthandle : *mut super::winnt::HANDLE) -> u32);
     unsafe { WFDOpenHandle(dwclientversion, pdwnegotiatedversion as _, phclienthandle as _) }
 }
-#[cfg(all(feature = "Win32_windot11", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 #[inline]
 pub unsafe fn WFDOpenLegacySession(hclienthandle: super::winnt::HANDLE, plegacymacaddress: *const super::windot11::DOT11_MAC_ADDRESS, phsessionhandle: *mut super::winnt::HANDLE, pguidsessioninterface: *mut windows_core::GUID) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WFDOpenLegacySession(hclienthandle : super::winnt::HANDLE, plegacymacaddress : *const super::windot11::DOT11_MAC_ADDRESS, phsessionhandle : *mut super::winnt::HANDLE, pguidsessioninterface : *mut windows_core::GUID) -> u32);
     unsafe { WFDOpenLegacySession(hclienthandle, plegacymacaddress, phsessionhandle as _, pguidsessioninterface as _) }
 }
-#[cfg(all(feature = "Win32_windot11", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 #[inline]
 pub unsafe fn WFDStartOpenSession(hclienthandle: super::winnt::HANDLE, pdeviceaddress: *const super::windot11::DOT11_MAC_ADDRESS, pvcontext: Option<*const core::ffi::c_void>, pfncallback: WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle: *mut super::winnt::HANDLE) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WFDStartOpenSession(hclienthandle : super::winnt::HANDLE, pdeviceaddress : *const super::windot11::DOT11_MAC_ADDRESS, pvcontext : *const core::ffi::c_void, pfncallback : WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle : *mut super::winnt::HANDLE) -> u32);
     unsafe { WFDStartOpenSession(hclienthandle, pdeviceaddress, pvcontext.unwrap_or(core::mem::zeroed()) as _, pfncallback, phsessionhandle as _) }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[inline]
 pub unsafe fn WFDUpdateDeviceVisibility(pdeviceaddress: *const super::windot11::DOT11_MAC_ADDRESS) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WFDUpdateDeviceVisibility(pdeviceaddress : *const super::windot11::DOT11_MAC_ADDRESS) -> u32);
@@ -45,25 +45,25 @@ pub unsafe fn WlanAllocateMemory(dwmemorysize: u32) -> *mut core::ffi::c_void {
     windows_core::link!("wlanapi.dll" "system" fn WlanAllocateMemory(dwmemorysize : u32) -> *mut core::ffi::c_void);
     unsafe { WlanAllocateMemory(dwmemorysize) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanCloseHandle(hclienthandle: super::winnt::HANDLE, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanCloseHandle(hclienthandle : super::winnt::HANDLE, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanCloseHandle(hclienthandle, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_windot11", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objectheader", feature = "windot11", feature = "winnt"))]
 #[inline]
 pub unsafe fn WlanConnect(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanConnect(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, pconnectionparameters : *const WLAN_CONNECTION_PARAMETERS, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanConnect(hclienthandle, pinterfaceguid, pconnectionparameters, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_windot11", feature = "Win32_winnt"))]
+#[cfg(all(feature = "objectheader", feature = "windot11", feature = "winnt"))]
 #[inline]
 pub unsafe fn WlanConnect2(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS_V2, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanConnect2(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, pconnectionparameters : *const WLAN_CONNECTION_PARAMETERS_V2, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanConnect2(hclienthandle, pinterfaceguid, pconnectionparameters, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanDeleteProfile<P2>(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, preserved: Option<*const core::ffi::c_void>) -> u32
 where
@@ -72,25 +72,25 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanDeleteProfile(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanDeleteProfile(hclienthandle, pinterfaceguid, strprofilename.param().abi(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanDeviceServiceCommand(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, pdeviceserviceguid: *const windows_core::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: Option<*const core::ffi::c_void>, dwoutbuffersize: u32, poutbuffer: Option<*mut core::ffi::c_void>, pdwbytesreturned: *mut u32) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanDeviceServiceCommand(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, pdeviceserviceguid : *const windows_core::GUID, dwopcode : u32, dwinbuffersize : u32, pinbuffer : *const core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut core::ffi::c_void, pdwbytesreturned : *mut u32) -> u32);
     unsafe { WlanDeviceServiceCommand(hclienthandle, pinterfaceguid, pdeviceserviceguid, dwopcode, dwinbuffersize, pinbuffer.unwrap_or(core::mem::zeroed()) as _, dwoutbuffersize, poutbuffer.unwrap_or(core::mem::zeroed()) as _, pdwbytesreturned as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanDisconnect(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanDisconnect(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanDisconnect(hclienthandle, pinterfaceguid, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanEnumInterfaces(hclienthandle: super::winnt::HANDLE, preserved: Option<*const core::ffi::c_void>, ppinterfacelist: *mut PWLAN_INTERFACE_INFO_LIST) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanEnumInterfaces(hclienthandle : super::winnt::HANDLE, preserved : *const core::ffi::c_void, ppinterfacelist : *mut PWLAN_INTERFACE_INFO_LIST) -> u32);
     unsafe { WlanEnumInterfaces(hclienthandle, preserved.unwrap_or(core::mem::zeroed()) as _, ppinterfacelist as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanExtractPsdIEDataList<P3>(hclienthandle: super::winnt::HANDLE, prawiedata: &[u8], strformat: P3, preserved: Option<*const core::ffi::c_void>, pppsdiedatalist: *mut PWLAN_RAW_DATA_LIST) -> u32
 where
@@ -104,37 +104,37 @@ pub unsafe fn WlanFreeMemory(pmemory: *const core::ffi::c_void) {
     windows_core::link!("wlanapi.dll" "system" fn WlanFreeMemory(pmemory : *const core::ffi::c_void));
     unsafe { WlanFreeMemory(pmemory) }
 }
-#[cfg(all(feature = "Win32_windot11", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 #[inline]
 pub unsafe fn WlanGetAvailableNetworkList(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, dwflags: u32, preserved: Option<*const core::ffi::c_void>, ppavailablenetworklist: *mut PWLAN_AVAILABLE_NETWORK_LIST) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, dwflags : u32, preserved : *const core::ffi::c_void, ppavailablenetworklist : *mut PWLAN_AVAILABLE_NETWORK_LIST) -> u32);
     unsafe { WlanGetAvailableNetworkList(hclienthandle, pinterfaceguid, dwflags, preserved.unwrap_or(core::mem::zeroed()) as _, ppavailablenetworklist as _) }
 }
-#[cfg(all(feature = "Win32_windot11", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 #[inline]
 pub unsafe fn WlanGetAvailableNetworkList2(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, dwflags: u32, preserved: Option<*const core::ffi::c_void>, ppavailablenetworklist: *mut PWLAN_AVAILABLE_NETWORK_LIST_V2) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList2(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, dwflags : u32, preserved : *const core::ffi::c_void, ppavailablenetworklist : *mut PWLAN_AVAILABLE_NETWORK_LIST_V2) -> u32);
     unsafe { WlanGetAvailableNetworkList2(hclienthandle, pinterfaceguid, dwflags, preserved.unwrap_or(core::mem::zeroed()) as _, ppavailablenetworklist as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanGetFilterList(hclienthandle: super::winnt::HANDLE, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, preserved: Option<*const core::ffi::c_void>, ppnetworklist: *mut PDOT11_NETWORK_LIST) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanGetFilterList(hclienthandle : super::winnt::HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, preserved : *const core::ffi::c_void, ppnetworklist : *mut PDOT11_NETWORK_LIST) -> u32);
     unsafe { WlanGetFilterList(hclienthandle, wlanfilterlisttype, preserved.unwrap_or(core::mem::zeroed()) as _, ppnetworklist as _) }
 }
-#[cfg(all(feature = "Win32_windot11", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 #[inline]
 pub unsafe fn WlanGetInterfaceCapability(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, preserved: Option<*const core::ffi::c_void>, ppcapability: *mut PWLAN_INTERFACE_CAPABILITY) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanGetInterfaceCapability(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, preserved : *const core::ffi::c_void, ppcapability : *mut PWLAN_INTERFACE_CAPABILITY) -> u32);
     unsafe { WlanGetInterfaceCapability(hclienthandle, pinterfaceguid, preserved.unwrap_or(core::mem::zeroed()) as _, ppcapability as _) }
 }
-#[cfg(all(feature = "Win32_windot11", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 #[inline]
 pub unsafe fn WlanGetNetworkBssList(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, pdot11ssid: Option<*const DOT11_SSID>, dot11bsstype: DOT11_BSS_TYPE, bsecurityenabled: bool, preserved: Option<*const core::ffi::c_void>, ppwlanbsslist: *mut PWLAN_BSS_LIST) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanGetNetworkBssList(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, pdot11ssid : *const DOT11_SSID, dot11bsstype : DOT11_BSS_TYPE, bsecurityenabled : windows_core::BOOL, preserved : *const core::ffi::c_void, ppwlanbsslist : *mut PWLAN_BSS_LIST) -> u32);
     unsafe { WlanGetNetworkBssList(hclienthandle, pinterfaceguid, pdot11ssid.unwrap_or(core::mem::zeroed()) as _, dot11bsstype, bsecurityenabled.into(), preserved.unwrap_or(core::mem::zeroed()) as _, ppwlanbsslist as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanGetProfile<P2>(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, preserved: Option<*const core::ffi::c_void>, pstrprofilexml: *mut windows_core::PWSTR, pdwflags: Option<*mut u32>, pdwgrantedaccess: Option<*mut u32>) -> u32
 where
@@ -143,7 +143,7 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanGetProfile(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, preserved : *const core::ffi::c_void, pstrprofilexml : *mut windows_core::PWSTR, pdwflags : *mut u32, pdwgrantedaccess : *mut u32) -> u32);
     unsafe { WlanGetProfile(hclienthandle, pinterfaceguid, strprofilename.param().abi(), preserved.unwrap_or(core::mem::zeroed()) as _, pstrprofilexml as _, pdwflags.unwrap_or(core::mem::zeroed()) as _, pdwgrantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WlanGetProfileCustomUserData<P2>(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, preserved: Option<*const core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut super::minwindef::PBYTE) -> u32
 where
@@ -152,109 +152,109 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanGetProfileCustomUserData(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut super::minwindef::PBYTE) -> u32);
     unsafe { WlanGetProfileCustomUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), preserved.unwrap_or(core::mem::zeroed()) as _, pdwdatasize as _, ppdata as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanGetProfileList(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, preserved: Option<*const core::ffi::c_void>, ppprofilelist: *mut PWLAN_PROFILE_INFO_LIST) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanGetProfileList(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, preserved : *const core::ffi::c_void, ppprofilelist : *mut PWLAN_PROFILE_INFO_LIST) -> u32);
     unsafe { WlanGetProfileList(hclienthandle, pinterfaceguid, preserved.unwrap_or(core::mem::zeroed()) as _, ppprofilelist as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanGetSecuritySettings(hclienthandle: super::winnt::HANDLE, securableobject: WLAN_SECURABLE_OBJECT, pvaluetype: Option<*mut WLAN_OPCODE_VALUE_TYPE>, pstrcurrentsddl: *mut windows_core::PWSTR, pdwgrantedaccess: *mut u32) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanGetSecuritySettings(hclienthandle : super::winnt::HANDLE, securableobject : WLAN_SECURABLE_OBJECT, pvaluetype : *mut WLAN_OPCODE_VALUE_TYPE, pstrcurrentsddl : *mut windows_core::PWSTR, pdwgrantedaccess : *mut u32) -> u32);
     unsafe { WlanGetSecuritySettings(hclienthandle, securableobject, pvaluetype.unwrap_or(core::mem::zeroed()) as _, pstrcurrentsddl as _, pdwgrantedaccess as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanGetSupportedDeviceServices(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, ppdevsvcguidlist: *mut PWLAN_DEVICE_SERVICE_GUID_LIST) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanGetSupportedDeviceServices(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, ppdevsvcguidlist : *mut PWLAN_DEVICE_SERVICE_GUID_LIST) -> u32);
     unsafe { WlanGetSupportedDeviceServices(hclienthandle, pinterfaceguid, ppdevsvcguidlist as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanHostedNetworkForceStart(hclienthandle: super::winnt::HANDLE, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStart(hclienthandle : super::winnt::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkForceStart(hclienthandle, pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanHostedNetworkForceStop(hclienthandle: super::winnt::HANDLE, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStop(hclienthandle : super::winnt::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkForceStop(hclienthandle, pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanHostedNetworkInitSettings(hclienthandle: super::winnt::HANDLE, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkInitSettings(hclienthandle : super::winnt::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkInitSettings(hclienthandle, pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanHostedNetworkQueryProperty(hclienthandle: super::winnt::HANDLE, opcode: WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize: *mut u32, ppvdata: *mut *mut core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryProperty(hclienthandle : super::winnt::HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize : *mut u32, ppvdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkQueryProperty(hclienthandle, opcode, pdwdatasize as _, ppvdata as _, pwlanopcodevaluetype as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WlanHostedNetworkQuerySecondaryKey(hclienthandle: super::winnt::HANDLE, pdwkeylength: *mut u32, ppuckeydata: *mut super::minwindef::PUCHAR, pbispassphrase: *mut windows_core::BOOL, pbpersistent: *mut windows_core::BOOL, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkQuerySecondaryKey(hclienthandle : super::winnt::HANDLE, pdwkeylength : *mut u32, ppuckeydata : *mut super::minwindef::PUCHAR, pbispassphrase : *mut windows_core::BOOL, pbpersistent : *mut windows_core::BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkQuerySecondaryKey(hclienthandle, pdwkeylength as _, ppuckeydata as _, pbispassphrase as _, pbpersistent as _, pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_windot11", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 #[inline]
 pub unsafe fn WlanHostedNetworkQueryStatus(hclienthandle: super::winnt::HANDLE, ppwlanhostednetworkstatus: *mut PWLAN_HOSTED_NETWORK_STATUS, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryStatus(hclienthandle : super::winnt::HANDLE, ppwlanhostednetworkstatus : *mut PWLAN_HOSTED_NETWORK_STATUS, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkQueryStatus(hclienthandle, ppwlanhostednetworkstatus as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanHostedNetworkRefreshSecuritySettings(hclienthandle: super::winnt::HANDLE, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkRefreshSecuritySettings(hclienthandle : super::winnt::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkRefreshSecuritySettings(hclienthandle, pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanHostedNetworkSetProperty(hclienthandle: super::winnt::HANDLE, opcode: WLAN_HOSTED_NETWORK_OPCODE, dwdatasize: u32, pvdata: *const core::ffi::c_void, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetProperty(hclienthandle : super::winnt::HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, dwdatasize : u32, pvdata : *const core::ffi::c_void, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkSetProperty(hclienthandle, opcode, dwdatasize, pvdata, pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanHostedNetworkSetSecondaryKey(hclienthandle: super::winnt::HANDLE, puckeydata: &[u8], bispassphrase: bool, bpersistent: bool, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetSecondaryKey(hclienthandle : super::winnt::HANDLE, dwkeylength : u32, puckeydata : *const u8, bispassphrase : windows_core::BOOL, bpersistent : windows_core::BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkSetSecondaryKey(hclienthandle, puckeydata.len().try_into().unwrap(), core::mem::transmute(puckeydata.as_ptr()), bispassphrase.into(), bpersistent.into(), pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanHostedNetworkStartUsing(hclienthandle: super::winnt::HANDLE, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkStartUsing(hclienthandle : super::winnt::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkStartUsing(hclienthandle, pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanHostedNetworkStopUsing(hclienthandle: super::winnt::HANDLE, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkStopUsing(hclienthandle : super::winnt::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanHostedNetworkStopUsing(hclienthandle, pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanIhvControl(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: Option<*mut core::ffi::c_void>, pdwbytesreturned: *mut u32) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanIhvControl(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, r#type : WLAN_IHV_CONTROL_TYPE, dwinbuffersize : u32, pinbuffer : *const core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut core::ffi::c_void, pdwbytesreturned : *mut u32) -> u32);
     unsafe { WlanIhvControl(hclienthandle, pinterfaceguid, r#type, dwinbuffersize, pinbuffer, dwoutbuffersize, poutbuffer.unwrap_or(core::mem::zeroed()) as _, pdwbytesreturned as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanOpenHandle(dwclientversion: u32, preserved: Option<*const core::ffi::c_void>, pdwnegotiatedversion: *mut u32, phclienthandle: *mut super::winnt::HANDLE) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanOpenHandle(dwclientversion : u32, preserved : *const core::ffi::c_void, pdwnegotiatedversion : *mut u32, phclienthandle : *mut super::winnt::HANDLE) -> u32);
     unsafe { WlanOpenHandle(dwclientversion, preserved.unwrap_or(core::mem::zeroed()) as _, pdwnegotiatedversion as _, phclienthandle as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanQueryAutoConfigParameter(hclienthandle: super::winnt::HANDLE, opcode: WLAN_AUTOCONF_OPCODE, preserved: Option<*const core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut *mut core::ffi::c_void, pwlanopcodevaluetype: Option<*mut WLAN_OPCODE_VALUE_TYPE>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanQueryAutoConfigParameter(hclienthandle : super::winnt::HANDLE, opcode : WLAN_AUTOCONF_OPCODE, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE) -> u32);
     unsafe { WlanQueryAutoConfigParameter(hclienthandle, opcode, preserved.unwrap_or(core::mem::zeroed()) as _, pdwdatasize as _, ppdata as _, pwlanopcodevaluetype.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanQueryInterface(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, opcode: WLAN_INTF_OPCODE, preserved: Option<*const core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut *mut core::ffi::c_void, pwlanopcodevaluetype: Option<*mut WLAN_OPCODE_VALUE_TYPE>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanQueryInterface(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, opcode : WLAN_INTF_OPCODE, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE) -> u32);
@@ -265,25 +265,25 @@ pub unsafe fn WlanReasonCodeToString(dwreasoncode: u32, pstringbuffer: &[u16], p
     windows_core::link!("wlanapi.dll" "system" fn WlanReasonCodeToString(dwreasoncode : u32, dwbuffersize : u32, pstringbuffer : *const u16, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanReasonCodeToString(dwreasoncode, pstringbuffer.len().try_into().unwrap(), core::mem::transmute(pstringbuffer.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanRegisterDeviceServiceNotification(hclienthandle: super::winnt::HANDLE, pdevsvcguidlist: Option<*const WLAN_DEVICE_SERVICE_GUID_LIST>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanRegisterDeviceServiceNotification(hclienthandle : super::winnt::HANDLE, pdevsvcguidlist : *const WLAN_DEVICE_SERVICE_GUID_LIST) -> u32);
     unsafe { WlanRegisterDeviceServiceNotification(hclienthandle, pdevsvcguidlist.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_l2cmn", feature = "Win32_winnt"))]
+#[cfg(all(feature = "l2cmn", feature = "winnt"))]
 #[inline]
 pub unsafe fn WlanRegisterNotification(hclienthandle: super::winnt::HANDLE, dwnotifsource: u32, bignoreduplicate: bool, funccallback: WLAN_NOTIFICATION_CALLBACK, pcallbackcontext: Option<*const core::ffi::c_void>, preserved: Option<*const core::ffi::c_void>, pdwprevnotifsource: Option<*mut u32>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanRegisterNotification(hclienthandle : super::winnt::HANDLE, dwnotifsource : u32, bignoreduplicate : windows_core::BOOL, funccallback : WLAN_NOTIFICATION_CALLBACK, pcallbackcontext : *const core::ffi::c_void, preserved : *const core::ffi::c_void, pdwprevnotifsource : *mut u32) -> u32);
     unsafe { WlanRegisterNotification(hclienthandle, dwnotifsource, bignoreduplicate.into(), funccallback, pcallbackcontext.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _, pdwprevnotifsource.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanRegisterVirtualStationNotification(hclienthandle: super::winnt::HANDLE, bregister: bool, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanRegisterVirtualStationNotification(hclienthandle : super::winnt::HANDLE, bregister : windows_core::BOOL, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanRegisterVirtualStationNotification(hclienthandle, bregister.into(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanRenameProfile<P2, P3>(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, stroldprofilename: P2, strnewprofilename: P3, preserved: Option<*const core::ffi::c_void>) -> u32
 where
@@ -293,7 +293,7 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanRenameProfile(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, stroldprofilename : windows_core::PCWSTR, strnewprofilename : windows_core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanRenameProfile(hclienthandle, pinterfaceguid, stroldprofilename.param().abi(), strnewprofilename.param().abi(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanSaveTemporaryProfile<P2, P3>(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, stralluserprofilesecurity: P3, dwflags: u32, boverwrite: bool, preserved: Option<*const core::ffi::c_void>) -> u32
 where
@@ -303,31 +303,31 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanSaveTemporaryProfile(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, stralluserprofilesecurity : windows_core::PCWSTR, dwflags : u32, boverwrite : windows_core::BOOL, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanSaveTemporaryProfile(hclienthandle, pinterfaceguid, strprofilename.param().abi(), stralluserprofilesecurity.param().abi(), dwflags, boverwrite.into(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanScan(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, pdot11ssid: Option<*const DOT11_SSID>, piedata: Option<*const WLAN_RAW_DATA>, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanScan(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, pdot11ssid : *const DOT11_SSID, piedata : *const WLAN_RAW_DATA, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanScan(hclienthandle, pinterfaceguid, pdot11ssid.unwrap_or(core::mem::zeroed()) as _, piedata.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanSetAutoConfigParameter(hclienthandle: super::winnt::HANDLE, opcode: WLAN_AUTOCONF_OPCODE, dwdatasize: u32, pdata: *const core::ffi::c_void, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanSetAutoConfigParameter(hclienthandle : super::winnt::HANDLE, opcode : WLAN_AUTOCONF_OPCODE, dwdatasize : u32, pdata : *const core::ffi::c_void, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanSetAutoConfigParameter(hclienthandle, opcode, dwdatasize, pdata, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanSetFilterList(hclienthandle: super::winnt::HANDLE, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, pnetworklist: Option<*const DOT11_NETWORK_LIST>, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanSetFilterList(hclienthandle : super::winnt::HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, pnetworklist : *const DOT11_NETWORK_LIST, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanSetFilterList(hclienthandle, wlanfilterlisttype, pnetworklist.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanSetInterface(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, opcode: WLAN_INTF_OPCODE, dwdatasize: u32, pdata: *const core::ffi::c_void, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanSetInterface(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, opcode : WLAN_INTF_OPCODE, dwdatasize : u32, pdata : *const core::ffi::c_void, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanSetInterface(hclienthandle, pinterfaceguid, opcode, dwdatasize, pdata, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanSetProfile<P3, P4>(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, dwflags: u32, strprofilexml: P3, stralluserprofilesecurity: P4, boverwrite: bool, preserved: Option<*const core::ffi::c_void>, pdwreasoncode: *mut u32) -> u32
 where
@@ -337,7 +337,7 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfile(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, dwflags : u32, strprofilexml : windows_core::PCWSTR, stralluserprofilesecurity : windows_core::PCWSTR, boverwrite : windows_core::BOOL, preserved : *const core::ffi::c_void, pdwreasoncode : *mut u32) -> u32);
     unsafe { WlanSetProfile(hclienthandle, pinterfaceguid, dwflags, strprofilexml.param().abi(), stralluserprofilesecurity.param().abi(), boverwrite.into(), preserved.unwrap_or(core::mem::zeroed()) as _, pdwreasoncode as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanSetProfileCustomUserData<P2>(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, pdata: &[u8], preserved: Option<*const core::ffi::c_void>) -> u32
 where
@@ -346,7 +346,7 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfileCustomUserData(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, dwdatasize : u32, pdata : *const u8, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanSetProfileCustomUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), pdata.len().try_into().unwrap(), core::mem::transmute(pdata.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_eaptypes", feature = "Win32_winnt"))]
+#[cfg(all(feature = "eaptypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn WlanSetProfileEapUserData<P2>(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, eaptype: super::eaptypes::EAP_METHOD_TYPE, dwflags: u32, pbeapuserdata: Option<&[u8]>, preserved: Option<*const core::ffi::c_void>) -> u32
 where
@@ -355,7 +355,7 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfileEapUserData(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, eaptype : super::eaptypes::EAP_METHOD_TYPE, dwflags : u32, dweapuserdatasize : u32, pbeapuserdata : *const u8, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanSetProfileEapUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), core::mem::transmute(eaptype), dwflags, pbeapuserdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbeapuserdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanSetProfileEapXmlUserData<P2, P4>(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, dwflags: u32, streapxmluserdata: P4, preserved: Option<*const core::ffi::c_void>) -> u32
 where
@@ -365,13 +365,13 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfileEapXmlUserData(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, dwflags : u32, streapxmluserdata : windows_core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanSetProfileEapXmlUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), dwflags, streapxmluserdata.param().abi(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanSetProfileList(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilenames: &[windows_core::PCWSTR], preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfileList(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, dwitems : u32, strprofilenames : *const windows_core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanSetProfileList(hclienthandle, pinterfaceguid, strprofilenames.len().try_into().unwrap(), core::mem::transmute(strprofilenames.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanSetProfilePosition<P2>(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, dwposition: u32, preserved: Option<*const core::ffi::c_void>) -> u32
 where
@@ -380,7 +380,7 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfilePosition(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, dwposition : u32, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanSetProfilePosition(hclienthandle, pinterfaceguid, strprofilename.param().abi(), dwposition, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanSetPsdIEDataList<P1>(hclienthandle: super::winnt::HANDLE, strformat: P1, ppsdiedatalist: Option<*const WLAN_RAW_DATA_LIST>, preserved: Option<*const core::ffi::c_void>) -> u32
 where
@@ -389,7 +389,7 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanSetPsdIEDataList(hclienthandle : super::winnt::HANDLE, strformat : windows_core::PCWSTR, ppsdiedatalist : *const WLAN_RAW_DATA_LIST, preserved : *const core::ffi::c_void) -> u32);
     unsafe { WlanSetPsdIEDataList(hclienthandle, strformat.param().abi(), ppsdiedatalist.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WlanSetSecuritySettings<P2>(hclienthandle: super::winnt::HANDLE, securableobject: WLAN_SECURABLE_OBJECT, strmodifiedsddl: P2) -> u32
 where
@@ -398,7 +398,7 @@ where
     windows_core::link!("wlanapi.dll" "system" fn WlanSetSecuritySettings(hclienthandle : super::winnt::HANDLE, securableobject : WLAN_SECURABLE_OBJECT, strmodifiedsddl : windows_core::PCWSTR) -> u32);
     unsafe { WlanSetSecuritySettings(hclienthandle, securableobject, strmodifiedsddl.param().abi()) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn WlanUIEditProfile<P1>(dwclientversion: u32, wstrprofilename: P1, pinterfaceguid: *const windows_core::GUID, hwnd: super::windef::HWND, wlstartpage: WL_DISPLAY_PAGES, preserved: Option<*const core::ffi::c_void>, pwlanreasoncode: Option<*mut u32>) -> u32
 where
@@ -666,17 +666,17 @@ impl Default for PDOT11_VENUEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWFD_GROUP_ID(pub *mut WFD_GROUP_ID);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWFD_GROUP_ID {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWFD_GROUP_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -708,17 +708,17 @@ impl Default for PWLAN_ADHOC_NETWORK_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_ASSOCIATION_ATTRIBUTES(pub *mut WLAN_ASSOCIATION_ATTRIBUTES);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_ASSOCIATION_ATTRIBUTES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_ASSOCIATION_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -750,113 +750,113 @@ impl Default for PWLAN_AUTOCONF_OPCODE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_AVAILABLE_NETWORK(pub *mut WLAN_AVAILABLE_NETWORK);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_AVAILABLE_NETWORK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_AVAILABLE_NETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_AVAILABLE_NETWORK_LIST(pub *mut WLAN_AVAILABLE_NETWORK_LIST);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_AVAILABLE_NETWORK_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_AVAILABLE_NETWORK_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_AVAILABLE_NETWORK_LIST_V2(pub *mut WLAN_AVAILABLE_NETWORK_LIST_V2);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_AVAILABLE_NETWORK_LIST_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_AVAILABLE_NETWORK_LIST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_AVAILABLE_NETWORK_V2(pub *mut WLAN_AVAILABLE_NETWORK_V2);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_AVAILABLE_NETWORK_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_AVAILABLE_NETWORK_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_BSS_ENTRY(pub *mut WLAN_BSS_ENTRY);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_BSS_ENTRY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_BSS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_BSS_LIST(pub *mut WLAN_BSS_LIST);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_BSS_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_BSS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_CONNECTION_ATTRIBUTES(pub *mut WLAN_CONNECTION_ATTRIBUTES);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_CONNECTION_ATTRIBUTES {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_CONNECTION_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -888,33 +888,33 @@ impl Default for PWLAN_CONNECTION_NOTIFICATION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_windot11"))]
+#[cfg(all(feature = "objectheader", feature = "windot11"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_CONNECTION_PARAMETERS(pub *mut WLAN_CONNECTION_PARAMETERS);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_windot11"))]
+#[cfg(all(feature = "objectheader", feature = "windot11"))]
 impl PWLAN_CONNECTION_PARAMETERS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_windot11"))]
+#[cfg(all(feature = "objectheader", feature = "windot11"))]
 impl Default for PWLAN_CONNECTION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_windot11"))]
+#[cfg(all(feature = "objectheader", feature = "windot11"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_CONNECTION_PARAMETERS_V2(pub *mut WLAN_CONNECTION_PARAMETERS_V2);
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_windot11"))]
+#[cfg(all(feature = "objectheader", feature = "windot11"))]
 impl PWLAN_CONNECTION_PARAMETERS_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_windot11"))]
+#[cfg(all(feature = "objectheader", feature = "windot11"))]
 impl Default for PWLAN_CONNECTION_PARAMETERS_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -933,17 +933,17 @@ impl Default for PWLAN_CONNECTION_QOS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_COUNTRY_OR_REGION_STRING_LIST(pub *mut WLAN_COUNTRY_OR_REGION_STRING_LIST);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_COUNTRY_OR_REGION_STRING_LIST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_COUNTRY_OR_REGION_STRING_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1001,17 +1001,17 @@ impl Default for PWLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE(pub *mut WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1056,17 +1056,17 @@ impl Default for PWLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_HOSTED_NETWORK_PEER_STATE(pub *mut WLAN_HOSTED_NETWORK_PEER_STATE);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_HOSTED_NETWORK_PEER_STATE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_HOSTED_NETWORK_PEER_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1137,17 +1137,17 @@ impl Default for PWLAN_HOSTED_NETWORK_STATE_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_HOSTED_NETWORK_STATUS(pub *mut WLAN_HOSTED_NETWORK_STATUS);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_HOSTED_NETWORK_STATUS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_HOSTED_NETWORK_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1166,17 +1166,17 @@ impl Default for PWLAN_IHV_CONTROL_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_INTERFACE_CAPABILITY(pub *mut WLAN_INTERFACE_CAPABILITY);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_INTERFACE_CAPABILITY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_INTERFACE_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1260,17 +1260,17 @@ impl Default for PWLAN_MAC_FRAME_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_MSM_NOTIFICATION_DATA(pub *mut WLAN_MSM_NOTIFICATION_DATA);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_MSM_NOTIFICATION_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_MSM_NOTIFICATION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1289,17 +1289,17 @@ impl Default for PWLAN_NOTIFICATION_ACM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_l2cmn")]
+#[cfg(feature = "l2cmn")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_NOTIFICATION_DATA(pub *mut super::l2cmn::L2_NOTIFICATION_DATA);
-#[cfg(feature = "Win32_l2cmn")]
+#[cfg(feature = "l2cmn")]
 impl PWLAN_NOTIFICATION_DATA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_l2cmn")]
+#[cfg(feature = "l2cmn")]
 impl Default for PWLAN_NOTIFICATION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1500,17 +1500,17 @@ impl Default for PWLAN_RAW_DATA_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWLAN_REALTIME_CONNECTION_QUALITY(pub *mut WLAN_REALTIME_CONNECTION_QUALITY);
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl PWLAN_REALTIME_CONNECTION_QUALITY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for PWLAN_REALTIME_CONNECTION_QUALITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1610,19 +1610,19 @@ impl Default for PWL_DISPLAY_PAGES {
 pub const WFD_API_VERSION: u32 = 1;
 pub const WFD_API_VERSION_1_0: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WFD_GROUP_ID {
     pub DeviceAddress: super::windot11::DOT11_MAC_ADDRESS,
     pub GroupSSID: DOT11_SSID,
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WFD_GROUP_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(hsessionhandle: super::winnt::HANDLE, pvcontext: *const core::ffi::c_void, guidsessioninterface: windows_core::GUID, dwerror: u32, dwreasoncode: u32)>;
 pub type WFD_ROLE_TYPE = i32;
 pub const WFD_ROLE_TYPE_CLIENT: WFD_ROLE_TYPE = 4;
@@ -1635,7 +1635,7 @@ pub const WLAN_API_VERSION: u32 = 2;
 pub const WLAN_API_VERSION_1_0: u32 = 1;
 pub const WLAN_API_VERSION_2_0: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_ASSOCIATION_ATTRIBUTES {
     pub dot11Ssid: DOT11_SSID,
@@ -1647,7 +1647,7 @@ pub struct WLAN_ASSOCIATION_ATTRIBUTES {
     pub ulRxRate: u32,
     pub ulTxRate: u32,
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_ASSOCIATION_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1666,7 +1666,7 @@ impl Default for WLAN_AUTH_CIPHER_PAIR_LIST {
 }
 pub type WLAN_AUTOCONF_OPCODE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK {
     pub strProfileName: [u16; 256],
@@ -1685,7 +1685,7 @@ pub struct WLAN_AVAILABLE_NETWORK {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_AVAILABLE_NETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1703,35 +1703,35 @@ pub const WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_ADHOC_PROFILES: u32 = 1;
 pub const WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_MANUAL_HIDDEN_PROFILES: u32 = 2;
 pub const WLAN_AVAILABLE_NETWORK_INTERWORKING_SUPPORTED: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
     pub Network: [WLAN_AVAILABLE_NETWORK; 1],
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_AVAILABLE_NETWORK_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK_LIST_V2 {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
     pub Network: [WLAN_AVAILABLE_NETWORK_V2; 1],
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_AVAILABLE_NETWORK_LIST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK_V2 {
     pub strProfileName: [u16; 256],
@@ -1753,14 +1753,14 @@ pub struct WLAN_AVAILABLE_NETWORK_V2 {
     pub VenueInfo: DOT11_VENUEINFO,
     pub dwReserved: u32,
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_AVAILABLE_NETWORK_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_BSS_ENTRY {
     pub dot11Ssid: DOT11_SSID,
@@ -1780,21 +1780,21 @@ pub struct WLAN_BSS_ENTRY {
     pub ulIeOffset: u32,
     pub ulIeSize: u32,
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_BSS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_BSS_LIST {
     pub dwTotalSize: u32,
     pub dwNumberOfItems: u32,
     pub wlanBssEntries: [WLAN_BSS_ENTRY; 1],
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_BSS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1802,7 +1802,7 @@ impl Default for WLAN_BSS_LIST {
 }
 pub const WLAN_CONNECTION_ADHOC_JOIN_ONLY: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_CONNECTION_ATTRIBUTES {
     pub isState: WLAN_INTERFACE_STATE,
@@ -1811,7 +1811,7 @@ pub struct WLAN_CONNECTION_ATTRIBUTES {
     pub wlanAssociationAttributes: WLAN_ASSOCIATION_ATTRIBUTES,
     pub wlanSecurityAttributes: WLAN_SECURITY_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_CONNECTION_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1841,7 +1841,7 @@ impl Default for WLAN_CONNECTION_NOTIFICATION_DATA {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_windot11"))]
+#[cfg(all(feature = "objectheader", feature = "windot11"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_CONNECTION_PARAMETERS {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -1852,7 +1852,7 @@ pub struct WLAN_CONNECTION_PARAMETERS {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_windot11"))]
+#[cfg(all(feature = "objectheader", feature = "windot11"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_CONNECTION_PARAMETERS_V2 {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -1877,13 +1877,13 @@ pub struct WLAN_CONNECTION_QOS_INFO {
     pub ulNumConfiguredDSCPPolicies: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_COUNTRY_OR_REGION_STRING_LIST {
     pub dwNumberOfItems: u32,
     pub pCountryOrRegionStringList: [super::windot11::DOT11_COUNTRY_OR_REGION_STRING; 1],
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_COUNTRY_OR_REGION_STRING_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1923,7 +1923,7 @@ pub struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     pub dwMaxNumberOfPeers: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     pub OldState: WLAN_HOSTED_NETWORK_PEER_STATE,
@@ -1934,13 +1934,13 @@ pub type WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = i32;
 pub type WLAN_HOSTED_NETWORK_OPCODE = i32;
 pub type WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_PEER_STATE {
     pub PeerMacAddress: super::windot11::DOT11_MAC_ADDRESS,
     pub PeerAuthState: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE,
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_HOSTED_NETWORK_PEER_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1968,7 +1968,7 @@ pub struct WLAN_HOSTED_NETWORK_STATE_CHANGE {
     pub StateChangeReason: WLAN_HOSTED_NETWORK_REASON,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_STATUS {
     pub HostedNetworkState: WLAN_HOSTED_NETWORK_STATE,
@@ -1979,7 +1979,7 @@ pub struct WLAN_HOSTED_NETWORK_STATUS {
     pub dwNumberOfPeers: u32,
     pub PeerList: [WLAN_HOSTED_NETWORK_PEER_STATE; 1],
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_HOSTED_NETWORK_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1987,7 +1987,7 @@ impl Default for WLAN_HOSTED_NETWORK_STATUS {
 }
 pub type WLAN_IHV_CONTROL_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_INTERFACE_CAPABILITY {
     pub interfaceType: WLAN_INTERFACE_TYPE,
@@ -1997,7 +1997,7 @@ pub struct WLAN_INTERFACE_CAPABILITY {
     pub dwNumberOfSupportedPhys: u32,
     pub dot11PhyTypes: [super::windot11::DOT11_PHY_TYPE; 64],
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_INTERFACE_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2050,7 +2050,7 @@ pub const WLAN_MAX_NAME_LENGTH: u32 = 256;
 pub const WLAN_MAX_PHY_INDEX: u32 = 64;
 pub const WLAN_MAX_PHY_TYPE_NUMBER: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_MSM_NOTIFICATION_DATA {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -2063,16 +2063,16 @@ pub struct WLAN_MSM_NOTIFICATION_DATA {
     pub bLastPeer: windows_core::BOOL,
     pub wlanReasonCode: WLAN_REASON_CODE,
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_MSM_NOTIFICATION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type WLAN_NOTIFICATION_ACM = i32;
-#[cfg(feature = "Win32_l2cmn")]
+#[cfg(feature = "l2cmn")]
 pub type WLAN_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(param0: *mut super::l2cmn::L2_NOTIFICATION_DATA, param1: *mut core::ffi::c_void)>;
-#[cfg(feature = "Win32_l2cmn")]
+#[cfg(feature = "l2cmn")]
 pub type WLAN_NOTIFICATION_DATA = super::l2cmn::L2_NOTIFICATION_DATA;
 pub type WLAN_NOTIFICATION_MSM = i32;
 pub type WLAN_NOTIFICATION_SECURITY = i32;
@@ -2213,7 +2213,7 @@ pub struct WLAN_RAW_DATA_LIST_0 {
 }
 pub const WLAN_READ_ACCESS: u32 = 131073;
 #[repr(C)]
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLAN_REALTIME_CONNECTION_QUALITY {
     pub dot11PhyType: super::windot11::DOT11_PHY_TYPE,
@@ -2224,7 +2224,7 @@ pub struct WLAN_REALTIME_CONNECTION_QUALITY {
     pub ulNumLinks: u32,
     pub linksInfo: [WLAN_REALTIME_CONNECTION_QUALITY_LINK_INFO; 1],
 }
-#[cfg(feature = "Win32_windot11")]
+#[cfg(feature = "windot11")]
 impl Default for WLAN_REALTIME_CONNECTION_QUALITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

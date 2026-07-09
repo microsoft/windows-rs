@@ -176,9 +176,9 @@ pub const EnrollmentUserInteractionRequired: X509CertificateTemplateEnrollmentFl
 pub const ExportCAs: X509EnrollmentPolicyExportFlags = 4;
 pub const ExportOIDs: X509EnrollmentPolicyExportFlags = 2;
 pub const ExportTemplates: X509EnrollmentPolicyExportFlags = 1;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef"))]
 pub type FNIMPORTPFXTOPROVIDER = Option<unsafe extern "system" fn(hwndparent: super::windef::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: windows_sys::core::PCWSTR, pwszprovidername: windows_sys::core::PCWSTR, pwszreadername: windows_sys::core::PCWSTR, pwszcontainernameprefix: windows_sys::core::PCWSTR, pwszpin: windows_sys::core::PCWSTR, pwszfriendlyname: windows_sys::core::PCWSTR, pccertout: *mut u32, prgpcertout: *mut *mut super::wincrypt::PCCERT_CONTEXT) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type FNIMPORTPFXTOPROVIDERFREEDATA = Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const super::wincrypt::PCCERT_CONTEXT)>;
 pub const GeneralCA: X509CertificateTemplateGeneralFlag = 128;
 pub const GeneralCrossCA: X509CertificateTemplateGeneralFlag = 2048;

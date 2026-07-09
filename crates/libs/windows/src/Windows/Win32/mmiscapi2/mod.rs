@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn timeKillEvent(utimerid: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn timeKillEvent(utimerid : u32) -> super::mmsyscom::MMRESULT);
     unsafe { timeKillEvent(utimerid) }
 }
-#[cfg(feature = "Win32_mmsyscom")]
+#[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresolution : u32, fptc : LPTIMECALLBACK, dwuser : usize, fuevent : u32) -> super::mmsyscom::MMRESULT);

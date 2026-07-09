@@ -1,120 +1,120 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PSCoerceToCanonicalValue(key : *const super::wtypes::PROPERTYKEY, ppropvar : *mut super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSCreateAdapterFromPropertyStore(pps : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSCreateDelayedMultiplexPropertyStore(flags : GETPROPERTYSTOREFLAGS, pdpsf : *mut core::ffi::c_void, rgstoreids : *const u32, cstores : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSCreateMemoryPropertyStore(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSCreateMultiplexPropertyStore(prgpunkstores : *const *mut core::ffi::c_void, cstores : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PSCreatePropertyChangeArray(rgpropkey : *const super::wtypes::PROPERTYKEY, rgflags : *const PKA_FLAGS, rgpropvar : *const super::propidlbase::PROPVARIANT, cchanges : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSCreatePropertyStoreFromObject(punk : *mut core::ffi::c_void, grfmode : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_propidlbase")]
+#[cfg(feature = "propidlbase")]
 windows_link::link!("propsys.dll" "system" fn PSCreatePropertyStoreFromPropertySetStorage(ppss : *mut core::ffi::c_void, grfmode : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PSCreateSimplePropertyChange(flags : PKA_FLAGS, key : *const super::wtypes::PROPERTYKEY, propvar : *const super::propidlbase::PROPVARIANT, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSEnumeratePropertyDescriptions(filteron : PROPDESC_ENUMFILTER, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PSFormatForDisplay(propkey : *const super::wtypes::PROPERTYKEY, propvar : *const super::propidlbase::PROPVARIANT, pdfflags : PROPDESC_FORMAT_FLAGS, pwsztext : windows_sys::core::PWSTR, cchtext : u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PSFormatForDisplayAlloc(key : *const super::wtypes::PROPERTYKEY, propvar : *const super::propidlbase::PROPVARIANT, pdff : PROPDESC_FORMAT_FLAGS, ppszdisplay : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSFormatPropertyValue(pps : *mut core::ffi::c_void, ppd : *mut core::ffi::c_void, pdff : PROPDESC_FORMAT_FLAGS, ppszdisplay : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PSGetImageReferenceForValue(propkey : *const super::wtypes::PROPERTYKEY, propvar : *const super::propidlbase::PROPVARIANT, ppszimageres : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSGetItemPropertyHandler(punkitem : *mut core::ffi::c_void, freadwrite : windows_sys::core::BOOL, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSGetItemPropertyHandlerWithCreateObject(punkitem : *mut core::ffi::c_void, freadwrite : windows_sys::core::BOOL, punkcreateobject : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 windows_link::link!("propsys.dll" "system" fn PSGetNameFromPropertyKey(propkey : *const super::wtypes::PROPERTYKEY, ppszcanonicalname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PSGetNamedPropertyFromPropertyStorage(psps : *const SERIALIZEDPROPSTORAGE, cb : u32, pszname : windows_sys::core::PCWSTR, ppropvar : *mut super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 windows_link::link!("propsys.dll" "system" fn PSGetPropertyDescription(propkey : *const super::wtypes::PROPERTYKEY, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSGetPropertyDescriptionByName(pszcanonicalname : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSGetPropertyDescriptionListFromString(pszproplist : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PSGetPropertyFromPropertyStorage(psps : *const SERIALIZEDPROPSTORAGE, cb : u32, rpkey : *const super::wtypes::PROPERTYKEY, ppropvar : *mut super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 windows_link::link!("propsys.dll" "system" fn PSGetPropertyKeyFromName(pszname : windows_sys::core::PCWSTR, ppropkey : *mut super::wtypes::PROPERTYKEY) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSGetPropertySystem(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PSGetPropertyValue(pps : *mut core::ffi::c_void, ppd : *mut core::ffi::c_void, ppropvar : *mut super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSLookupPropertyHandlerCLSID(pszfilepath : windows_sys::core::PCWSTR, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_Delete(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadBOOL(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadBSTR(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadDWORD(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadGUID(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadInt(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadLONG(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oaidl", feature = "windef"))]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadPOINTL(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut super::windef::POINTL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oaidl", feature = "windef"))]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadPOINTS(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut super::windef::POINTS) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadPropertyKey(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut super::wtypes::PROPERTYKEY) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oaidl", feature = "windef"))]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadRECTL(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut super::windef::RECTL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadSHORT(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut i16) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadStr(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : windows_sys::core::PWSTR, charactercount : i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadStrAlloc(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidlbase"))]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadStream(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadType(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, var : *mut super::oaidl::VARIANT, r#type : super::wtypes::VARTYPE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadULONGLONG(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut u64) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_ReadUnknown(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteBOOL(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteBSTR(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteDWORD(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteGUID(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteInt(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteLONG(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oaidl", feature = "windef"))]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WritePOINTL(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *const super::windef::POINTL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oaidl", feature = "windef"))]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WritePOINTS(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *const super::windef::POINTS) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes"))]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WritePropertyKey(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *const super::wtypes::PROPERTYKEY) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "oaidl", feature = "windef"))]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteRECTL(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *const super::windef::RECTL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteSHORT(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : i16) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteStr(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "oaidl", feature = "objidlbase"))]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteStream(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteULONGLONG(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : u64) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyBag_WriteUnknown(propbag : *mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, punk : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 windows_link::link!("propsys.dll" "system" fn PSPropertyKeyFromString(pszstring : windows_sys::core::PCWSTR, pkey : *mut super::wtypes::PROPERTYKEY) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSRefreshPropertySchema() -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSRegisterPropertySchema(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PSSetPropertyValue(pps : *mut core::ffi::c_void, ppd : *mut core::ffi::c_void, propvar : *const super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 windows_link::link!("propsys.dll" "system" fn PSStringFromPropertyKey(pkey : *const super::wtypes::PROPERTYKEY, psz : windows_sys::core::PWSTR, cch : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("propsys.dll" "system" fn PSUnregisterPropertySchema(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn PropVariantToWinRTPropertyValue(propvar : *const super::propidlbase::PROPVARIANT, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn WinRTPropertyValueToPropVariant(punkpropertyvalue : *mut core::ffi::c_void, ppropvar : *mut super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
 pub const FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = 0;
 pub const FPSPS_READONLY: _PERSIST_SPROPSTORE_FLAGS = 1;

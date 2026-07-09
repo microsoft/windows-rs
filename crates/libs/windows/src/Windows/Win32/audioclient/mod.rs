@@ -94,7 +94,7 @@ pub struct AudioClient3ActivationParams {
     pub tracingContextId: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_audiosessiontypes")]
+#[cfg(feature = "audiosessiontypes")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AudioClientProperties {
     pub cbSize: u32,
@@ -288,7 +288,7 @@ impl windows_core::RuntimeName for IAudioCaptureClient {}
 windows_core::imp::define_interface!(IAudioClient, IAudioClient_Vtbl, 0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2);
 windows_core::imp::interface_hierarchy!(IAudioClient, windows_core::IUnknown);
 impl IAudioClient {
-    #[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi"))]
+    #[cfg(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi"))]
     pub unsafe fn Initialize(&self, sharemode: super::audiosessiontypes::AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: super::mediaobj::REFERENCE_TIME, hnsperiodicity: super::mediaobj::REFERENCE_TIME, pformat: *const super::mmeapi::WAVEFORMATEX, audiosessionguid: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), sharemode, streamflags, hnsbufferduration, hnsperiodicity, pformat, audiosessionguid.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -298,7 +298,7 @@ impl IAudioClient {
             (windows_core::Interface::vtable(self).GetBufferSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetStreamLatency(&self) -> windows_core::Result<super::mediaobj::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -311,18 +311,18 @@ impl IAudioClient {
             (windows_core::Interface::vtable(self).GetCurrentPadding)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi"))]
+    #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi"))]
     pub unsafe fn IsFormatSupported(&self, sharemode: super::audiosessiontypes::AUDCLNT_SHAREMODE, pformat: *const super::mmeapi::WAVEFORMATEX, ppclosestmatch: Option<*mut *mut super::mmeapi::WAVEFORMATEX>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsFormatSupported)(windows_core::Interface::as_raw(self), sharemode, pformat, ppclosestmatch.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub unsafe fn GetMixFormat(&self) -> windows_core::Result<*mut super::mmeapi::WAVEFORMATEX> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMixFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetDevicePeriod(&self, phnsdefaultdeviceperiod: Option<*mut super::mediaobj::REFERENCE_TIME>, phnsminimumdeviceperiod: Option<*mut super::mediaobj::REFERENCE_TIME>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDevicePeriod)(windows_core::Interface::as_raw(self), phnsdefaultdeviceperiod.unwrap_or(core::mem::zeroed()) as _, phnsminimumdeviceperiod.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -335,7 +335,7 @@ impl IAudioClient {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub unsafe fn SetEventHandle(&self, eventhandle: super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEventHandle)(windows_core::Interface::as_raw(self), eventhandle) }
     }
@@ -347,38 +347,38 @@ impl IAudioClient {
 #[doc(hidden)]
 pub struct IAudioClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi"))]
+    #[cfg(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi"))]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::audiosessiontypes::AUDCLNT_SHAREMODE, u32, super::mediaobj::REFERENCE_TIME, super::mediaobj::REFERENCE_TIME, *const super::mmeapi::WAVEFORMATEX, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi")))]
+    #[cfg(not(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi")))]
     Initialize: usize,
     pub GetBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub GetStreamLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::mediaobj::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mediaobj"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetStreamLatency: usize,
     pub GetCurrentPadding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi"))]
+    #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi"))]
     pub IsFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::audiosessiontypes::AUDCLNT_SHAREMODE, *const super::mmeapi::WAVEFORMATEX, *mut *mut super::mmeapi::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_audiosessiontypes", feature = "Win32_mmeapi")))]
+    #[cfg(not(all(feature = "audiosessiontypes", feature = "mmeapi")))]
     IsFormatSupported: usize,
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub GetMixFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::mmeapi::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mmeapi"))]
+    #[cfg(not(feature = "mmeapi"))]
     GetMixFormat: usize,
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub GetDevicePeriod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::mediaobj::REFERENCE_TIME, *mut super::mediaobj::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mediaobj"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetDevicePeriod: usize,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_winnt")]
+    #[cfg(feature = "winnt")]
     pub SetEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_winnt"))]
+    #[cfg(not(feature = "winnt"))]
     SetEventHandle: usize,
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
 pub trait IAudioClient_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, sharemode: super::audiosessiontypes::AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: super::mediaobj::REFERENCE_TIME, hnsperiodicity: super::mediaobj::REFERENCE_TIME, pformat: *const super::mmeapi::WAVEFORMATEX, audiosessionguid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetBufferSize(&self) -> windows_core::Result<u32>;
@@ -393,7 +393,7 @@ pub trait IAudioClient_Impl: windows_core::IUnknownImpl {
     fn SetEventHandle(&self, eventhandle: super::winnt::HANDLE) -> windows_core::Result<()>;
     fn GetService(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
 impl IAudioClient_Vtbl {
     pub const fn new<Identity: IAudioClient_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sharemode: super::audiosessiontypes::AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: super::mediaobj::REFERENCE_TIME, hnsperiodicity: super::mediaobj::REFERENCE_TIME, pformat: *const super::mmeapi::WAVEFORMATEX, audiosessionguid: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -512,7 +512,7 @@ impl IAudioClient_Vtbl {
         iid == &<IAudioClient as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
 impl windows_core::RuntimeName for IAudioClient {}
 windows_core::imp::define_interface!(IAudioClient2, IAudioClient2_Vtbl, 0x726778cd_f60a_4eda_82de_e47610cd78aa);
 impl core::ops::Deref for IAudioClient2 {
@@ -523,18 +523,18 @@ impl core::ops::Deref for IAudioClient2 {
 }
 windows_core::imp::interface_hierarchy!(IAudioClient2, windows_core::IUnknown, IAudioClient);
 impl IAudioClient2 {
-    #[cfg(feature = "Win32_audiosessiontypes")]
+    #[cfg(feature = "audiosessiontypes")]
     pub unsafe fn IsOffloadCapable(&self, category: super::audiosessiontypes::AUDIO_STREAM_CATEGORY) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsOffloadCapable)(windows_core::Interface::as_raw(self), category, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_audiosessiontypes")]
+    #[cfg(feature = "audiosessiontypes")]
     pub unsafe fn SetClientProperties(&self, pproperties: *const AudioClientProperties) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClientProperties)(windows_core::Interface::as_raw(self), pproperties) }
     }
-    #[cfg(all(feature = "Win32_mediaobj", feature = "Win32_mmeapi"))]
+    #[cfg(all(feature = "mediaobj", feature = "mmeapi"))]
     pub unsafe fn GetBufferSizeLimits(&self, pformat: *const super::mmeapi::WAVEFORMATEX, beventdriven: bool, phnsminbufferduration: *mut super::mediaobj::REFERENCE_TIME, phnsmaxbufferduration: *mut super::mediaobj::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBufferSizeLimits)(windows_core::Interface::as_raw(self), pformat, beventdriven.into(), phnsminbufferduration as _, phnsmaxbufferduration as _) }
     }
@@ -543,26 +543,26 @@ impl IAudioClient2 {
 #[doc(hidden)]
 pub struct IAudioClient2_Vtbl {
     pub base__: IAudioClient_Vtbl,
-    #[cfg(feature = "Win32_audiosessiontypes")]
+    #[cfg(feature = "audiosessiontypes")]
     pub IsOffloadCapable: unsafe extern "system" fn(*mut core::ffi::c_void, super::audiosessiontypes::AUDIO_STREAM_CATEGORY, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_audiosessiontypes"))]
+    #[cfg(not(feature = "audiosessiontypes"))]
     IsOffloadCapable: usize,
-    #[cfg(feature = "Win32_audiosessiontypes")]
+    #[cfg(feature = "audiosessiontypes")]
     pub SetClientProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const AudioClientProperties) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_audiosessiontypes"))]
+    #[cfg(not(feature = "audiosessiontypes"))]
     SetClientProperties: usize,
-    #[cfg(all(feature = "Win32_mediaobj", feature = "Win32_mmeapi"))]
+    #[cfg(all(feature = "mediaobj", feature = "mmeapi"))]
     pub GetBufferSizeLimits: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::mmeapi::WAVEFORMATEX, windows_core::BOOL, *mut super::mediaobj::REFERENCE_TIME, *mut super::mediaobj::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_mediaobj", feature = "Win32_mmeapi")))]
+    #[cfg(not(all(feature = "mediaobj", feature = "mmeapi")))]
     GetBufferSizeLimits: usize,
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
 pub trait IAudioClient2_Impl: IAudioClient_Impl {
     fn IsOffloadCapable(&self, category: super::audiosessiontypes::AUDIO_STREAM_CATEGORY) -> windows_core::Result<windows_core::BOOL>;
     fn SetClientProperties(&self, pproperties: *const AudioClientProperties) -> windows_core::Result<()>;
     fn GetBufferSizeLimits(&self, pformat: *const super::mmeapi::WAVEFORMATEX, beventdriven: windows_core::BOOL, phnsminbufferduration: *mut super::mediaobj::REFERENCE_TIME, phnsmaxbufferduration: *mut super::mediaobj::REFERENCE_TIME) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
 impl IAudioClient2_Vtbl {
     pub const fn new<Identity: IAudioClient2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsOffloadCapable<Identity: IAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: super::audiosessiontypes::AUDIO_STREAM_CATEGORY, pboffloadcapable: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -600,7 +600,7 @@ impl IAudioClient2_Vtbl {
         iid == &<IAudioClient2 as windows_core::Interface>::IID || iid == &<IAudioClient as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
 impl windows_core::RuntimeName for IAudioClient2 {}
 windows_core::imp::define_interface!(IAudioClient3, IAudioClient3_Vtbl, 0x7ed4ee07_8e67_4cd4_8c1a_2b7a5987ad42);
 impl core::ops::Deref for IAudioClient3 {
@@ -611,15 +611,15 @@ impl core::ops::Deref for IAudioClient3 {
 }
 windows_core::imp::interface_hierarchy!(IAudioClient3, windows_core::IUnknown, IAudioClient, IAudioClient2);
 impl IAudioClient3 {
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub unsafe fn GetSharedModeEnginePeriod(&self, pformat: *const super::mmeapi::WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSharedModeEnginePeriod)(windows_core::Interface::as_raw(self), pformat, pdefaultperiodinframes as _, pfundamentalperiodinframes as _, pminperiodinframes as _, pmaxperiodinframes as _) }
     }
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub unsafe fn GetCurrentSharedModeEnginePeriod(&self, ppformat: *mut *mut super::mmeapi::WAVEFORMATEX, pcurrentperiodinframes: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentSharedModeEnginePeriod)(windows_core::Interface::as_raw(self), ppformat as _, pcurrentperiodinframes as _) }
     }
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub unsafe fn InitializeSharedAudioStream(&self, streamflags: u32, periodinframes: u32, pformat: *const super::mmeapi::WAVEFORMATEX, audiosessionguid: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeSharedAudioStream)(windows_core::Interface::as_raw(self), streamflags, periodinframes, pformat, audiosessionguid.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -628,26 +628,26 @@ impl IAudioClient3 {
 #[doc(hidden)]
 pub struct IAudioClient3_Vtbl {
     pub base__: IAudioClient2_Vtbl,
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub GetSharedModeEnginePeriod: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::mmeapi::WAVEFORMATEX, *mut u32, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mmeapi"))]
+    #[cfg(not(feature = "mmeapi"))]
     GetSharedModeEnginePeriod: usize,
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub GetCurrentSharedModeEnginePeriod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::mmeapi::WAVEFORMATEX, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mmeapi"))]
+    #[cfg(not(feature = "mmeapi"))]
     GetCurrentSharedModeEnginePeriod: usize,
-    #[cfg(feature = "Win32_mmeapi")]
+    #[cfg(feature = "mmeapi")]
     pub InitializeSharedAudioStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const super::mmeapi::WAVEFORMATEX, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mmeapi"))]
+    #[cfg(not(feature = "mmeapi"))]
     InitializeSharedAudioStream: usize,
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
 pub trait IAudioClient3_Impl: IAudioClient2_Impl {
     fn GetSharedModeEnginePeriod(&self, pformat: *const super::mmeapi::WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> windows_core::Result<()>;
     fn GetCurrentSharedModeEnginePeriod(&self, ppformat: *mut *mut super::mmeapi::WAVEFORMATEX, pcurrentperiodinframes: *mut u32) -> windows_core::Result<()>;
     fn InitializeSharedAudioStream(&self, streamflags: u32, periodinframes: u32, pformat: *const super::mmeapi::WAVEFORMATEX, audiosessionguid: *const windows_core::GUID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
 impl IAudioClient3_Vtbl {
     pub const fn new<Identity: IAudioClient3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSharedModeEnginePeriod<Identity: IAudioClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformat: *const super::mmeapi::WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> windows_core::HRESULT {
@@ -679,7 +679,7 @@ impl IAudioClient3_Vtbl {
         iid == &<IAudioClient3 as windows_core::Interface>::IID || iid == &<IAudioClient as windows_core::Interface>::IID || iid == &<IAudioClient2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_mediaobj", feature = "Win32_mmeapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
 impl windows_core::RuntimeName for IAudioClient3 {}
 windows_core::imp::define_interface!(IAudioClientDuckingControl, IAudioClientDuckingControl_Vtbl, 0xc789d381_a28c_4168_b28f_d3a837924dc3);
 windows_core::imp::interface_hierarchy!(IAudioClientDuckingControl, windows_core::IUnknown);
@@ -1118,7 +1118,7 @@ impl windows_core::RuntimeName for IAudioStreamVolume {}
 windows_core::imp::define_interface!(IAudioViewManagerService, IAudioViewManagerService_Vtbl, 0xa7a7ef10_1f49_45e0_ad35_612057cc8f74);
 windows_core::imp::interface_hierarchy!(IAudioViewManagerService, windows_core::IUnknown);
 impl IAudioViewManagerService {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetAudioStreamWindow(&self, hwnd: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAudioStreamWindow)(windows_core::Interface::as_raw(self), hwnd) }
     }
@@ -1127,16 +1127,16 @@ impl IAudioViewManagerService {
 #[doc(hidden)]
 pub struct IAudioViewManagerService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetAudioStreamWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetAudioStreamWindow: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IAudioViewManagerService_Impl: windows_core::IUnknownImpl {
     fn SetAudioStreamWindow(&self, hwnd: super::windef::HWND) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IAudioViewManagerService_Vtbl {
     pub const fn new<Identity: IAudioViewManagerService_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetAudioStreamWindow<Identity: IAudioViewManagerService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::windef::HWND) -> windows_core::HRESULT {
@@ -1151,7 +1151,7 @@ impl IAudioViewManagerService_Vtbl {
         iid == &<IAudioViewManagerService as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IAudioViewManagerService {}
 windows_core::imp::define_interface!(IChannelAudioVolume, IChannelAudioVolume_Vtbl, 0x1c158861_b533_4b30_b1cf_e853e51c59b8);
 windows_core::imp::interface_hierarchy!(IChannelAudioVolume, windows_core::IUnknown);

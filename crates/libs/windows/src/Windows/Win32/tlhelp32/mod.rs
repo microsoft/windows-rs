@@ -1,88 +1,88 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CreateToolhelp32Snapshot(dwflags: u32, th32processid: u32) -> super::winnt::HANDLE {
     windows_core::link!("kernel32.dll" "system" fn CreateToolhelp32Snapshot(dwflags : u32, th32processid : u32) -> super::winnt::HANDLE);
     unsafe { CreateToolhelp32Snapshot(dwflags, th32processid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid: usize) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Heap32First(lphe : *mut HEAPENTRY32, th32processid : u32, th32heapid : usize) -> windows_core::BOOL);
     unsafe { Heap32First(lphe as _, th32processid, th32heapid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn Heap32ListFirst(hsnapshot: super::winnt::HANDLE, lphl: *mut HEAPLIST32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Heap32ListFirst(hsnapshot : super::winnt::HANDLE, lphl : *mut HEAPLIST32) -> windows_core::BOOL);
     unsafe { Heap32ListFirst(hsnapshot, lphl as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn Heap32ListNext(hsnapshot: super::winnt::HANDLE, lphl: *mut HEAPLIST32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Heap32ListNext(hsnapshot : super::winnt::HANDLE, lphl : *mut HEAPLIST32) -> windows_core::BOOL);
     unsafe { Heap32ListNext(hsnapshot, lphl as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn Heap32Next(lphe: *mut HEAPENTRY32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Heap32Next(lphe : *mut HEAPENTRY32) -> windows_core::BOOL);
     unsafe { Heap32Next(lphe as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn Module32First(hsnapshot: super::winnt::HANDLE, lpme: *mut MODULEENTRY32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Module32First(hsnapshot : super::winnt::HANDLE, lpme : *mut MODULEENTRY32) -> windows_core::BOOL);
     unsafe { Module32First(hsnapshot, lpme as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn Module32FirstW(hsnapshot: super::winnt::HANDLE, lpme: *mut MODULEENTRY32W) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Module32FirstW(hsnapshot : super::winnt::HANDLE, lpme : *mut MODULEENTRY32W) -> windows_core::BOOL);
     unsafe { Module32FirstW(hsnapshot, lpme as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn Module32Next(hsnapshot: super::winnt::HANDLE, lpme: *mut MODULEENTRY32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Module32Next(hsnapshot : super::winnt::HANDLE, lpme : *mut MODULEENTRY32) -> windows_core::BOOL);
     unsafe { Module32Next(hsnapshot, lpme as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn Module32NextW(hsnapshot: super::winnt::HANDLE, lpme: *mut MODULEENTRY32W) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Module32NextW(hsnapshot : super::winnt::HANDLE, lpme : *mut MODULEENTRY32W) -> windows_core::BOOL);
     unsafe { Module32NextW(hsnapshot, lpme as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn Process32First(hsnapshot: super::winnt::HANDLE, lppe: *mut PROCESSENTRY32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Process32First(hsnapshot : super::winnt::HANDLE, lppe : *mut PROCESSENTRY32) -> windows_core::BOOL);
     unsafe { Process32First(hsnapshot, lppe as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn Process32FirstW(hsnapshot: super::winnt::HANDLE, lppe: *mut PROCESSENTRY32W) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Process32FirstW(hsnapshot : super::winnt::HANDLE, lppe : *mut PROCESSENTRY32W) -> windows_core::BOOL);
     unsafe { Process32FirstW(hsnapshot, lppe as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn Process32Next(hsnapshot: super::winnt::HANDLE, lppe: *mut PROCESSENTRY32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Process32Next(hsnapshot : super::winnt::HANDLE, lppe : *mut PROCESSENTRY32) -> windows_core::BOOL);
     unsafe { Process32Next(hsnapshot, lppe as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn Process32NextW(hsnapshot: super::winnt::HANDLE, lppe: *mut PROCESSENTRY32W) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Process32NextW(hsnapshot : super::winnt::HANDLE, lppe : *mut PROCESSENTRY32W) -> windows_core::BOOL);
     unsafe { Process32NextW(hsnapshot, lppe as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn Thread32First(hsnapshot: super::winnt::HANDLE, lpte: *mut THREADENTRY32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Thread32First(hsnapshot : super::winnt::HANDLE, lpte : *mut THREADENTRY32) -> windows_core::BOOL);
     unsafe { Thread32First(hsnapshot, lpte as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn Thread32Next(hsnapshot: super::winnt::HANDLE, lpte: *mut THREADENTRY32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Thread32Next(hsnapshot : super::winnt::HANDLE, lpte : *mut THREADENTRY32) -> windows_core::BOOL);
@@ -94,7 +94,7 @@ pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *co
     unsafe { Toolhelp32ReadProcessMemory(th32processid, lpbaseaddress, lpbuffer as _, cbread, lpnumberofbytesread as _) }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HEAPENTRY32 {
     pub dwSize: usize,
@@ -120,17 +120,17 @@ pub const HF32_SHARED: u32 = 2;
 pub const LF32_FIXED: u32 = 1;
 pub const LF32_FREE: u32 = 2;
 pub const LF32_MOVEABLE: u32 = 4;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPHEAPENTRY32(pub *mut HEAPENTRY32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl LPHEAPENTRY32 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for LPHEAPENTRY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -149,33 +149,33 @@ impl Default for LPHEAPLIST32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMODULEENTRY32(pub *mut MODULEENTRY32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPMODULEENTRY32 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPMODULEENTRY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMODULEENTRY32W(pub *mut MODULEENTRY32W);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPMODULEENTRY32W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPMODULEENTRY32W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -222,7 +222,7 @@ impl Default for LPTHREADENTRY32 {
 }
 pub const MAX_MODULE_NAME32: u32 = 255;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODULEENTRY32 {
     pub dwSize: u32,
@@ -236,14 +236,14 @@ pub struct MODULEENTRY32 {
     pub szModule: [i8; 256],
     pub szExePath: [i8; 260],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for MODULEENTRY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODULEENTRY32W {
     pub dwSize: u32,
@@ -257,23 +257,23 @@ pub struct MODULEENTRY32W {
     pub szModule: [u16; 256],
     pub szExePath: [u16; 260],
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for MODULEENTRY32W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHEAPENTRY32(pub *mut HEAPENTRY32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PHEAPENTRY32 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PHEAPENTRY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -292,33 +292,33 @@ impl Default for PHEAPLIST32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMODULEENTRY32(pub *mut MODULEENTRY32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PMODULEENTRY32 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PMODULEENTRY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMODULEENTRY32W(pub *mut MODULEENTRY32W);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PMODULEENTRY32W {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PMODULEENTRY32W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

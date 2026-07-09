@@ -1,5 +1,5 @@
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6ROW {
     pub State: MIB_TCP_STATE,
@@ -10,14 +10,14 @@ pub struct MIB_TCP6ROW {
     pub dwRemoteScopeId: u32,
     pub dwRemotePort: u32,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for MIB_TCP6ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6ROW2 {
     pub LocalAddr: super::in6addr::IN6_ADDR,
@@ -30,7 +30,7 @@ pub struct MIB_TCP6ROW2 {
     pub dwOwningPid: u32,
     pub dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for MIB_TCP6ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -73,26 +73,26 @@ impl Default for MIB_TCP6ROW_OWNER_PID {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW; 1],
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for MIB_TCP6TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6TABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW2; 1],
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for MIB_TCP6TABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -330,33 +330,33 @@ pub const MIB_TCP_STATE_RESERVED: MIB_TCP_STATE = 100;
 pub const MIB_TCP_STATE_SYN_RCVD: MIB_TCP_STATE = 4;
 pub const MIB_TCP_STATE_SYN_SENT: MIB_TCP_STATE = 3;
 pub const MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = 11;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_TCP6ROW(pub *mut MIB_TCP6ROW);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PMIB_TCP6ROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PMIB_TCP6ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_TCP6ROW2(pub *mut MIB_TCP6ROW2);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PMIB_TCP6ROW2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PMIB_TCP6ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -388,33 +388,33 @@ impl Default for PMIB_TCP6ROW_OWNER_PID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_TCP6TABLE(pub *mut MIB_TCP6TABLE);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PMIB_TCP6TABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PMIB_TCP6TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_TCP6TABLE2(pub *mut MIB_TCP6TABLE2);
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl PMIB_TCP6TABLE2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for PMIB_TCP6TABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

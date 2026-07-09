@@ -711,7 +711,7 @@ pub const SPET_LPARAM_IS_STRING: SPEVENTLPARAMTYPE = 4;
 pub const SPET_LPARAM_IS_TOKEN: SPEVENTLPARAMTYPE = 1;
 pub const SPET_LPARAM_IS_UNDEFINED: SPEVENTLPARAMTYPE = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct SPEVENT {
     pub _bitfield: SPEVENTENUM,
@@ -722,7 +722,7 @@ pub struct SPEVENT {
 }
 pub type SPEVENTENUM = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct SPEVENTEX {
     pub _bitfield: SPEVENTENUM,
@@ -818,12 +818,12 @@ impl Default for SPNORMALIZATIONLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type SPNOTIFYCALLBACK = Option<unsafe extern "system" fn(wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM)>;
 pub type SPPARTOFSPEECH = i32;
 pub type SPPHONEID = u16;
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASE {
     pub Base: SPPHRASE_53,
@@ -853,7 +853,7 @@ impl Default for SPPHRASEELEMENT {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPPHRASEPROPERTY {
     pub pszName: windows_sys::core::PCWSTR,
@@ -867,27 +867,27 @@ pub struct SPPHRASEPROPERTY {
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPHRASEPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union SPPHRASEPROPERTY_0 {
     pub ulId: u32,
     pub Anonymous: SPPHRASEPROPERTY_0_0,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPHRASEPROPERTY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: super::rpc::byte,
@@ -927,7 +927,7 @@ impl Default for SPPHRASERULE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPPHRASE_50 {
     pub cbSize: u32,
@@ -948,21 +948,21 @@ pub struct SPPHRASE_50 {
     pub ulSREnginePrivateDataSize: u32,
     pub pSREnginePrivateData: *const u8,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPHRASE_50 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPPHRASE_53 {
     pub Base: SPPHRASE_50,
     pub pSML: windows_sys::core::PWSTR,
     pub pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPHRASE_53 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -972,7 +972,7 @@ pub const SPPPUT_ARRAY_INDEX: SPPHRASEPROPERTYUNIONTYPE = 1;
 pub const SPPPUT_UNUSED: SPPHRASEPROPERTYUNIONTYPE = 0;
 pub type SPPRONUNCIATIONFLAGS = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPPROPERTYINFO {
     pub pszName: windows_sys::core::PCWSTR,
@@ -980,7 +980,7 @@ pub struct SPPROPERTYINFO {
     pub pszValue: windows_sys::core::PCWSTR,
     pub vValue: super::oaidl::VARIANT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPROPERTYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1052,7 +1052,7 @@ impl Default for SPRECOGNIZERSTATUS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct SPRECORESULTTIMES {
     pub ftStreamTime: super::minwindef::FILETIME,

@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MsiAdvertiseProductA<P0, P1, P2>(szpackagepath: P0, szscriptfilepath: P1, sztransforms: P2, lgidlanguage: super::winnt::LANGID) -> u32
 where
@@ -9,7 +9,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiAdvertiseProductA(szpackagepath : windows_core::PCSTR, szscriptfilepath : windows_core::PCSTR, sztransforms : windows_core::PCSTR, lgidlanguage : super::winnt::LANGID) -> u32);
     unsafe { MsiAdvertiseProductA(szpackagepath.param().abi(), szscriptfilepath.param().abi(), sztransforms.param().abi(), lgidlanguage) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MsiAdvertiseProductExA<P0, P1, P2>(szpackagepath: P0, szscriptfilepath: P1, sztransforms: P2, lgidlanguage: super::winnt::LANGID, dwplatform: u32, dwoptions: u32) -> u32
 where
@@ -20,7 +20,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiAdvertiseProductExA(szpackagepath : windows_core::PCSTR, szscriptfilepath : windows_core::PCSTR, sztransforms : windows_core::PCSTR, lgidlanguage : super::winnt::LANGID, dwplatform : u32, dwoptions : u32) -> u32);
     unsafe { MsiAdvertiseProductExA(szpackagepath.param().abi(), szscriptfilepath.param().abi(), sztransforms.param().abi(), lgidlanguage, dwplatform, dwoptions) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MsiAdvertiseProductExW<P0, P1, P2>(szpackagepath: P0, szscriptfilepath: P1, sztransforms: P2, lgidlanguage: super::winnt::LANGID, dwplatform: u32, dwoptions: u32) -> u32
 where
@@ -31,7 +31,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiAdvertiseProductExW(szpackagepath : windows_core::PCWSTR, szscriptfilepath : windows_core::PCWSTR, sztransforms : windows_core::PCWSTR, lgidlanguage : super::winnt::LANGID, dwplatform : u32, dwoptions : u32) -> u32);
     unsafe { MsiAdvertiseProductExW(szpackagepath.param().abi(), szscriptfilepath.param().abi(), sztransforms.param().abi(), lgidlanguage, dwplatform, dwoptions) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MsiAdvertiseProductW<P0, P1, P2>(szpackagepath: P0, szscriptfilepath: P1, sztransforms: P2, lgidlanguage: super::winnt::LANGID) -> u32
 where
@@ -42,7 +42,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiAdvertiseProductW(szpackagepath : windows_core::PCWSTR, szscriptfilepath : windows_core::PCWSTR, sztransforms : windows_core::PCWSTR, lgidlanguage : super::winnt::LANGID) -> u32);
     unsafe { MsiAdvertiseProductW(szpackagepath.param().abi(), szscriptfilepath.param().abi(), sztransforms.param().abi(), lgidlanguage) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn MsiAdvertiseScriptA<P0>(szscriptfile: P0, dwflags: u32, phregdata: Option<*const super::minwindef::HKEY>, fremoveitems: bool) -> u32
 where
@@ -51,7 +51,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiAdvertiseScriptA(szscriptfile : windows_core::PCSTR, dwflags : u32, phregdata : *const super::minwindef::HKEY, fremoveitems : windows_core::BOOL) -> u32);
     unsafe { MsiAdvertiseScriptA(szscriptfile.param().abi(), dwflags, phregdata.unwrap_or(core::mem::zeroed()) as _, fremoveitems.into()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn MsiAdvertiseScriptW<P0>(szscriptfile: P0, dwflags: u32, phregdata: Option<*const super::minwindef::HKEY>, fremoveitems: bool) -> u32
 where
@@ -100,7 +100,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiApplyPatchW(szpatchpackage : windows_core::PCWSTR, szinstallpackage : windows_core::PCWSTR, einstalltype : INSTALLTYPE, szcommandline : windows_core::PCWSTR) -> u32);
     unsafe { MsiApplyPatchW(szpatchpackage.param().abi(), szinstallpackage.param().abi(), einstalltype, szcommandline.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MsiBeginTransactionA<P0>(szname: P0, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::winnt::HANDLE) -> u32
 where
@@ -109,7 +109,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiBeginTransactionA(szname : windows_core::PCSTR, dwtransactionattributes : u32, phtransactionhandle : *mut MSIHANDLE, phchangeofownerevent : *mut super::winnt::HANDLE) -> u32);
     unsafe { MsiBeginTransactionA(szname.param().abi(), dwtransactionattributes, phtransactionhandle as _, phchangeofownerevent as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MsiBeginTransactionW<P0>(szname: P0, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::winnt::HANDLE) -> u32
 where
@@ -525,7 +525,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiGetFileHashW(szfilepath : windows_core::PCWSTR, dwoptions : u32, phash : *mut MSIFILEHASHINFO) -> u32);
     unsafe { MsiGetFileHashW(szfilepath.param().abi(), dwoptions, phash as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[inline]
 pub unsafe fn MsiGetFileSignatureInformationA<P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: *mut super::wincrypt::PCCERT_CONTEXT, pbhashdata: Option<*mut u8>, pcbhashdata: Option<*mut u32>) -> windows_core::HRESULT
 where
@@ -534,7 +534,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiGetFileSignatureInformationA(szsignedobjectpath : windows_core::PCSTR, dwflags : u32, ppccertcontext : *mut super::wincrypt::PCCERT_CONTEXT, pbhashdata : *mut u8, pcbhashdata : *mut u32) -> windows_core::HRESULT);
     unsafe { MsiGetFileSignatureInformationA(szsignedobjectpath.param().abi(), dwflags, ppccertcontext as _, pbhashdata.unwrap_or(core::mem::zeroed()) as _, pcbhashdata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[inline]
 pub unsafe fn MsiGetFileSignatureInformationW<P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: *mut super::wincrypt::PCCERT_CONTEXT, pbhashdata: Option<*mut u8>, pcbhashdata: Option<*mut u32>) -> windows_core::HRESULT
 where
@@ -662,7 +662,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiGetProductInfoExW(szproductcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, szproperty : windows_core::PCWSTR, szvalue : windows_core::PWSTR, pcchvalue : *mut u32) -> u32);
     unsafe { MsiGetProductInfoExW(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, szproperty.param().abi(), szvalue.unwrap_or(core::mem::zeroed()) as _, pcchvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MsiGetProductInfoFromScriptA<P0>(szscriptfile: P0, lpproductbuf39: Option<windows_core::PSTR>, plgidlanguage: Option<*mut super::winnt::LANGID>, pdwversion: Option<*mut u32>, lpnamebuf: Option<windows_core::PSTR>, pcchnamebuf: Option<*mut u32>, lppackagebuf: Option<windows_core::PSTR>, pcchpackagebuf: Option<*mut u32>) -> u32
 where
@@ -671,7 +671,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiGetProductInfoFromScriptA(szscriptfile : windows_core::PCSTR, lpproductbuf39 : windows_core::PSTR, plgidlanguage : *mut super::winnt::LANGID, pdwversion : *mut u32, lpnamebuf : windows_core::PSTR, pcchnamebuf : *mut u32, lppackagebuf : windows_core::PSTR, pcchpackagebuf : *mut u32) -> u32);
     unsafe { MsiGetProductInfoFromScriptA(szscriptfile.param().abi(), lpproductbuf39.unwrap_or(core::mem::zeroed()) as _, plgidlanguage.unwrap_or(core::mem::zeroed()) as _, pdwversion.unwrap_or(core::mem::zeroed()) as _, lpnamebuf.unwrap_or(core::mem::zeroed()) as _, pcchnamebuf.unwrap_or(core::mem::zeroed()) as _, lppackagebuf.unwrap_or(core::mem::zeroed()) as _, pcchpackagebuf.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MsiGetProductInfoFromScriptW<P0>(szscriptfile: P0, lpproductbuf39: Option<windows_core::PWSTR>, plgidlanguage: Option<*mut super::winnt::LANGID>, pdwversion: Option<*mut u32>, lpnamebuf: Option<windows_core::PWSTR>, pcchnamebuf: Option<*mut u32>, lppackagebuf: Option<windows_core::PWSTR>, pcchpackagebuf: Option<*mut u32>) -> u32
 where
@@ -807,7 +807,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiIsProductElevatedW(szproduct : windows_core::PCWSTR, pfelevated : *mut windows_core::BOOL) -> u32);
     unsafe { MsiIsProductElevatedW(szproduct.param().abi(), pfelevated as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MsiJoinTransaction(htransactionhandle: MSIHANDLE, dwtransactionattributes: u32, phchangeofownerevent: *mut super::winnt::HANDLE) -> u32 {
     windows_core::link!("msi.dll" "system" fn MsiJoinTransaction(htransactionhandle : MSIHANDLE, dwtransactionattributes : u32, phchangeofownerevent : *mut super::winnt::HANDLE) -> u32);
@@ -895,7 +895,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiOpenProductW(szproduct : windows_core::PCWSTR, hproduct : *mut MSIHANDLE) -> u32);
     unsafe { MsiOpenProductW(szproduct.param().abi(), hproduct as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn MsiProcessAdvertiseScriptA<P0, P1>(szscriptfile: P0, sziconfolder: P1, hregdata: Option<super::minwindef::HKEY>, fshortcuts: bool, fremoveitems: bool) -> u32
 where
@@ -905,7 +905,7 @@ where
     windows_core::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptA(szscriptfile : windows_core::PCSTR, sziconfolder : windows_core::PCSTR, hregdata : super::minwindef::HKEY, fshortcuts : windows_core::BOOL, fremoveitems : windows_core::BOOL) -> u32);
     unsafe { MsiProcessAdvertiseScriptA(szscriptfile.param().abi(), sziconfolder.param().abi(), hregdata.unwrap_or(core::mem::zeroed()) as _, fshortcuts.into(), fremoveitems.into()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn MsiProcessAdvertiseScriptW<P0, P1>(szscriptfile: P0, sziconfolder: P1, hregdata: Option<super::minwindef::HKEY>, fshortcuts: bool, fremoveitems: bool) -> u32
 where
@@ -1134,7 +1134,7 @@ pub unsafe fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter:
     windows_core::link!("msi.dll" "system" fn MsiSetExternalUIW(puihandler : INSTALLUI_HANDLERW, dwmessagefilter : u32, pvcontext : *const core::ffi::c_void) -> INSTALLUI_HANDLERW);
     unsafe { MsiSetExternalUIW(puihandler, dwmessagefilter, pvcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn MsiSetInternalUI(dwuilevel: INSTALLUILEVEL, phwnd: Option<*mut super::windef::HWND>) -> INSTALLUILEVEL {
     windows_core::link!("msi.dll" "system" fn MsiSetInternalUI(dwuilevel : INSTALLUILEVEL, phwnd : *mut super::windef::HWND) -> INSTALLUILEVEL);

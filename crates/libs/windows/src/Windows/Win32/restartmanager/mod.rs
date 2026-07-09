@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn RmAddFilter<P1, P3>(dwsessionhandle: u32, strmodulename: P1, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P3, filteraction: RM_FILTER_ACTION) -> u32
 where
@@ -23,7 +23,7 @@ pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: Option<&mut [u8
     windows_core::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : *mut u8, cbfilterbuf : u32, cbfilterbufneeded : *mut u32) -> u32);
     unsafe { RmGetFilterList(dwsessionhandle, core::mem::transmute(pbfilterbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cbfilterbufneeded as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnprocinfo: *mut u32, rgaffectedapps: Option<*mut RM_PROCESS_INFO>, lpdwrebootreasons: *mut u32) -> u32 {
     windows_core::link!("rstrtmgr.dll" "system" fn RmGetList(dwsessionhandle : u32, pnprocinfoneeded : *mut u32, pnprocinfo : *mut u32, rgaffectedapps : *mut RM_PROCESS_INFO, lpdwrebootreasons : *mut u32) -> u32);
@@ -34,13 +34,13 @@ pub unsafe fn RmJoinSession(psessionhandle: *mut u32, strsessionkey: *const u16)
     windows_core::link!("rstrtmgr.dll" "system" fn RmJoinSession(psessionhandle : *mut u32, strsessionkey : *const u16) -> u32);
     unsafe { RmJoinSession(psessionhandle as _, strsessionkey) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: Option<&[windows_core::PCWSTR]>, rgapplications: Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: Option<&[windows_core::PCWSTR]>) -> u32 {
     windows_core::link!("rstrtmgr.dll" "system" fn RmRegisterResources(dwsessionhandle : u32, nfiles : u32, rgsfilenames : *const windows_core::PCWSTR, napplications : u32, rgapplications : *const RM_UNIQUE_PROCESS, nservices : u32, rgsservicenames : *const windows_core::PCWSTR) -> u32);
     unsafe { RmRegisterResources(dwsessionhandle, rgsfilenames.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgsfilenames.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgapplications.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgapplications.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgsservicenames.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgsservicenames.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn RmRemoveFilter<P1, P3>(dwsessionhandle: u32, strmodulename: P1, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P3) -> u32
 where
@@ -68,49 +68,49 @@ pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: Option<u3
 pub const CCH_RM_MAX_APP_NAME: u32 = 255;
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63;
 pub const CCH_RM_SESSION_KEY: u32 = 32;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRM_FILTER_INFO(pub *mut RM_FILTER_INFO);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PRM_FILTER_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PRM_FILTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRM_PROCESS_INFO(pub *mut RM_PROCESS_INFO);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PRM_PROCESS_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PRM_PROCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRM_UNIQUE_PROCESS(pub *mut RM_UNIQUE_PROCESS);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl PRM_UNIQUE_PROCESS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for PRM_UNIQUE_PROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -120,7 +120,7 @@ pub type RM_APP_STATUS = i32;
 pub type RM_APP_TYPE = i32;
 pub type RM_FILTER_ACTION = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct RM_FILTER_INFO {
     pub FilterAction: RM_FILTER_ACTION,
@@ -128,21 +128,21 @@ pub struct RM_FILTER_INFO {
     pub cbNextOffset: u32,
     pub Anonymous: RM_FILTER_INFO_0,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for RM_FILTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union RM_FILTER_INFO_0 {
     pub strFilename: windows_core::PWSTR,
     pub Process: RM_UNIQUE_PROCESS,
     pub strServiceShortName: windows_core::PWSTR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for RM_FILTER_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -152,7 +152,7 @@ pub type RM_FILTER_TRIGGER = i32;
 pub const RM_INVALID_PROCESS: i32 = -1;
 pub const RM_INVALID_TS_SESSION: i32 = -1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RM_PROCESS_INFO {
     pub Process: RM_UNIQUE_PROCESS,
@@ -163,7 +163,7 @@ pub struct RM_PROCESS_INFO {
     pub TSSessionId: u32,
     pub bRestartable: windows_core::BOOL,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for RM_PROCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -172,7 +172,7 @@ impl Default for RM_PROCESS_INFO {
 pub type RM_REBOOT_REASON = i32;
 pub type RM_SHUTDOWN_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RM_UNIQUE_PROCESS {
     pub dwProcessId: u32,

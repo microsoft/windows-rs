@@ -17,7 +17,7 @@ pub const NotificationTimer: TIMER_TYPE = 0;
 pub const NtProductLanManNt: NT_PRODUCT_TYPE = 2;
 pub const NtProductServer: NT_PRODUCT_TYPE = 3;
 pub const NtProductWinNt: NT_PRODUCT_TYPE = 1;
-#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_ntsecapi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PUTF8_STRING(pub super::super::Win32::ntsecapi::PSTRING);

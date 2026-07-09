@@ -1,31 +1,31 @@
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn AddPackageDependency(packagedependencyid : windows_sys::core::PCWSTR, rank : i32, options : AddPackageDependencyOptions, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn AddPackageDependency2(packagedependencyid : windows_sys::core::PCWSTR, rank : i32, options : AddPackageDependencyOptions2, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn AppPolicyGetClrCompat(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyClrCompat) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn AppPolicyGetCreateFileAccess(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyCreateFileAccess) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn AppPolicyGetLifecycleManagement(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyLifecycleManagement) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn AppPolicyGetMediaFoundationCodecLoading(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyMediaFoundationCodecLoading) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn AppPolicyGetProcessTerminationMethod(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyProcessTerminationMethod) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn AppPolicyGetShowDeveloperDiagnostic(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyShowDeveloperDiagnostic) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn AppPolicyGetThreadInitializationType(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyThreadInitializationType) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn AppPolicyGetWindowingModel(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyWindowingModel) -> i32);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-4.dll" "system" fn CheckIsMSIXPackage(packagefullname : windows_sys::core::PCWSTR, ismsixpackage : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn ClosePackageInfo(packageinforeference : *const _PACKAGE_INFO_REFERENCE) -> i32);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn DeletePackageDependency(packagedependencyid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn FindPackageDependency(findpackagedependencycriteria : *const FindPackageDependencyCriteria, packagedependencyidscount : *mut u32, packagedependencyids : *mut *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn FindPackagesByPackageFamily(packagefamilyname : windows_sys::core::PCWSTR, packagefilters : u32, count : *mut u32, packagefullnames : *mut windows_sys::core::PWSTR, bufferlength : *mut u32, buffer : *mut u16, packageproperties : *mut u32) -> i32);
 windows_link::link!("kernel32.dll" "system" fn FormatApplicationUserModelId(packagefamilyname : windows_sys::core::PCWSTR, packagerelativeapplicationid : windows_sys::core::PCWSTR, applicationusermodelidlength : *mut u32, applicationusermodelid : windows_sys::core::PWSTR) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn GetApplicationUserModelId(hprocess : super::winnt::HANDLE, applicationusermodelidlength : *mut u32, applicationusermodelid : windows_sys::core::PWSTR) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetApplicationUserModelIdFromToken(token : super::winnt::HANDLE, applicationusermodelidlength : *mut u32, applicationusermodelid : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("kernel32.dll" "system" fn GetCurrentApplicationUserModelId(applicationusermodelidlength : *mut u32, applicationusermodelid : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("kernel32.dll" "system" fn GetCurrentPackageFamilyName(packagefamilynamelength : *mut u32, packagefamilyname : windows_sys::core::PWSTR) -> i32);
@@ -37,18 +37,18 @@ windows_link::link!("kernel32.dll" "system" fn GetCurrentPackagePath(pathlength 
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetCurrentPackagePath2(packagepathtype : PackagePathType, pathlength : *mut u32, path : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn GetIdForPackageDependencyContext(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT, packagedependencyid : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn GetPackageApplicationIds(packageinforeference : *const _PACKAGE_INFO_REFERENCE, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetPackageDependencyInformation(packagedependencyid : windows_sys::core::PCWSTR, user : *mut super::winnt::PSID, packagefamilyname : *mut windows_sys::core::PWSTR, minversion : *mut PACKAGE_VERSION, packagedependencyprocessorarchitectures : *mut PackageDependencyProcessorArchitectures, lifetimekind : *mut PackageDependencyLifetimeKind, lifetimeartifact : *mut windows_sys::core::PWSTR, options : *mut CreatePackageDependencyOptions, lifetimeexpiration : *mut super::minwindef::FILETIME) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn GetPackageFamilyName(hprocess : super::winnt::HANDLE, packagefamilynamelength : *mut u32, packagefamilyname : windows_sys::core::PWSTR) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetPackageFamilyNameFromToken(token : super::winnt::HANDLE, packagefamilynamelength : *mut u32, packagefamilyname : windows_sys::core::PWSTR) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn GetPackageFullName(hprocess : super::winnt::HANDLE, packagefullnamelength : *mut u32, packagefullname : windows_sys::core::PWSTR) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetPackageFullNameFromToken(token : super::winnt::HANDLE, packagefullnamelength : *mut u32, packagefullname : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-6.dll" "system" fn GetPackageGraphRevisionId() -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn GetPackageId(hprocess : super::winnt::HANDLE, bufferlength : *mut u32, buffer : *mut u8) -> i32);
 windows_link::link!("kernel32.dll" "system" fn GetPackageInfo(packageinforeference : *const _PACKAGE_INFO_REFERENCE, flags : u32, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> i32);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetPackageInfo2(packageinforeference : *const _PACKAGE_INFO_REFERENCE, flags : u32, packagepathtype : PackagePathType, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> i32);
@@ -56,7 +56,7 @@ windows_link::link!("kernel32.dll" "system" fn GetPackagePath(packageid : *const
 windows_link::link!("kernel32.dll" "system" fn GetPackagePathByFullName(packagefullname : windows_sys::core::PCWSTR, pathlength : *mut u32, path : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetPackagePathByFullName2(packagefullname : windows_sys::core::PCWSTR, packagepathtype : PackagePathType, pathlength : *mut u32, path : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("kernel32.dll" "system" fn GetPackagesByPackageFamily(packagefamilyname : windows_sys::core::PCWSTR, count : *mut u32, packagefullnames : *mut windows_sys::core::PWSTR, bufferlength : *mut u32, buffer : *mut u16) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetProcessesUsingPackageDependency(packagedependencyid : windows_sys::core::PCWSTR, user : super::winnt::PSID, scopeissystem : windows_sys::core::BOOL, processidscount : *mut u32, processids : *mut *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn GetResolvedPackageFullNameForPackageDependency(packagedependencyid : windows_sys::core::PCWSTR, packagefullname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetResolvedPackageFullNameForPackageDependency2(packagedependencyid : windows_sys::core::PCWSTR, packagefullname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
@@ -66,7 +66,7 @@ windows_link::link!("kernel32.dll" "system" fn GetStagedPackagePathByFullName(pa
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetStagedPackagePathByFullName2(packagefullname : windows_sys::core::PCWSTR, packagepathtype : PackagePathType, pathlength : *mut u32, path : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn IsPackageFeatureSupported(feature : AppModelPackageFeature) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn OpenPackageInfoByFullName(packagefullname : windows_sys::core::PCWSTR, reserved : u32, packageinforeference : *mut PACKAGE_INFO_REFERENCE) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn OpenPackageInfoByFullNameForUser(usersid : super::winnt::PSID, packagefullname : windows_sys::core::PCWSTR, reserved : u32, packageinforeference : *mut PACKAGE_INFO_REFERENCE) -> i32);
 windows_link::link!("kernel32.dll" "system" fn PackageFamilyNameFromFullName(packagefullname : windows_sys::core::PCWSTR, packagefamilynamelength : *mut u32, packagefamilyname : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("kernel32.dll" "system" fn PackageFamilyNameFromId(packageid : *const PACKAGE_ID, packagefamilynamelength : *mut u32, packagefamilyname : windows_sys::core::PWSTR) -> i32);
@@ -75,9 +75,9 @@ windows_link::link!("kernel32.dll" "system" fn PackageIdFromFullName(packagefull
 windows_link::link!("kernel32.dll" "system" fn PackageNameAndPublisherIdFromFamilyName(packagefamilyname : windows_sys::core::PCWSTR, packagenamelength : *mut u32, packagename : windows_sys::core::PWSTR, packagepublisheridlength : *mut u32, packagepublisherid : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("kernel32.dll" "system" fn ParseApplicationUserModelId(applicationusermodelid : windows_sys::core::PCWSTR, packagefamilynamelength : *mut u32, packagefamilyname : windows_sys::core::PWSTR, packagerelativeapplicationidlength : *mut u32, packagerelativeapplicationid : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn RemovePackageDependency(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn TryCreatePackageDependency(user : super::winnt::PSID, packagefamilyname : windows_sys::core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_sys::core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn TryCreatePackageDependency2(user : super::winnt::PSID, packagefamilyname : windows_sys::core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_sys::core::PCWSTR, options : CreatePackageDependencyOptions, lifetimeexpiration : *const super::minwindef::FILETIME, packagedependencyid : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyApplicationUserModelId(applicationusermodelid : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageFamilyName(packagefamilyname : windows_sys::core::PCWSTR) -> i32);
@@ -126,14 +126,14 @@ pub const CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: Create
 pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = 0;
 pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FindPackageDependencyCriteria {
     pub User: super::winnt::PSID,
     pub ScopeIsSystem: windows_sys::core::BOOL,
     pub PackageFamilyName: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FindPackageDependencyCriteria {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -147,7 +147,7 @@ impl Default for DUMP_DRIVER {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DUMP_DRIVER_EX {
     pub DumpDriverList: *mut core::ffi::c_void,
@@ -155,7 +155,7 @@ pub struct DUMP_DRIVER_EX {
     pub BaseName: [u16; 15],
     pub DriverFullPath: NTSCSI_UNICODE_STRING,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DUMP_DRIVER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -186,7 +186,7 @@ impl Default for DUMP_POINTERS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DUMP_POINTERS_EX {
     pub Header: DUMP_POINTERS_VERSION,
@@ -206,7 +206,7 @@ pub struct DUMP_POINTERS_EX {
     pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
     pub DumpDevicePowerOnContext: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DUMP_POINTERS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -554,7 +554,7 @@ pub const NRB_OUTPUT_DATA_OVERRUN: u32 = 5;
 pub const NRB_OUTPUT_DATA_UNDERRUN: u32 = 6;
 pub const NRB_SUCCESS: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NTSCSI_UNICODE_STRING {
     pub Length: u16,
@@ -784,17 +784,17 @@ impl Default for PDUMP_DRIVER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDUMP_DRIVER_EX(pub *mut DUMP_DRIVER_EX);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDUMP_DRIVER_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDUMP_DRIVER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -813,17 +813,17 @@ impl Default for PDUMP_POINTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDUMP_POINTERS_EX(pub *mut DUMP_POINTERS_EX);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PDUMP_POINTERS_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PDUMP_POINTERS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1088,17 +1088,17 @@ impl Default for PMP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNTSCSI_UNICODE_STRING(pub *mut NTSCSI_UNICODE_STRING);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl PNTSCSI_UNICODE_STRING {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PNTSCSI_UNICODE_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

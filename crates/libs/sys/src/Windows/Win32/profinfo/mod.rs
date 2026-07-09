@@ -1,13 +1,13 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPPROFILEINFO = LPPROFILEINFOA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPPROFILEINFOA = *mut PROFILEINFOA;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPPROFILEINFOW = *mut PROFILEINFOW;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PROFILEINFO = PROFILEINFOA;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PROFILEINFOA {
     pub dwSize: u32,
@@ -19,14 +19,14 @@ pub struct PROFILEINFOA {
     pub lpPolicyPath: windows_sys::core::PSTR,
     pub hProfile: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PROFILEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PROFILEINFOW {
     pub dwSize: u32,
@@ -38,7 +38,7 @@ pub struct PROFILEINFOW {
     pub lpPolicyPath: windows_sys::core::PWSTR,
     pub hProfile: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for PROFILEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

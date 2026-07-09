@@ -23,7 +23,7 @@ pub struct COMPOSITION_STATS {
 }
 pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct COMPOSITION_TARGET_ID {
     pub displayAdapterLuid: super::winnt::LUID,
@@ -64,7 +64,7 @@ pub const DCOMPOSITION_DEPTH_MODE_SORTED: DCOMPOSITION_DEPTH_MODE = 3;
 pub const DCOMPOSITION_DEPTH_MODE_SPATIAL: DCOMPOSITION_DEPTH_MODE = 1;
 pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgi")]
+#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
 pub struct DCOMPOSITION_FRAME_STATISTICS {
     pub lastFrameTime: i64,

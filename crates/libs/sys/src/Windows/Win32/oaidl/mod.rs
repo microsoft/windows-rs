@@ -1,26 +1,26 @@
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct ARRAYDESC {
     pub tdescElem: TYPEDESC,
     pub cDims: u16,
     pub rgbounds: [SAFEARRAYBOUND; 1],
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for ARRAYDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
     pub lptcomp: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for BINDPTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -59,29 +59,29 @@ impl Default for CLEANLOCALSTORAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 pub type CURRENCY = super::wtypes::CY;
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: LPCUSTDATAITEM,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for CUSTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct CUSTDATAITEM {
     pub guid: windows_sys::core::GUID,
     pub varValue: VARIANTARG,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for CUSTDATAITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -104,7 +104,7 @@ pub const DISPID_PROPERTYPUT: i32 = -3;
 pub const DISPID_UNKNOWN: i32 = -1;
 pub const DISPID_VALUE: u32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DISPPARAMS {
     pub rgvarg: *mut VARIANTARG,
@@ -112,40 +112,40 @@ pub struct DISPPARAMS {
     pub cArgs: u32,
     pub cNamedArgs: u32,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for DISPPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct ELEMDESC {
     pub tdesc: TYPEDESC,
     pub Anonymous: ELEMDESC_0,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for ELEMDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
     pub paramdesc: PARAMDESC,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for ELEMDESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy)]
 pub struct EXCEPINFO {
     pub wCode: u16,
@@ -158,7 +158,7 @@ pub struct EXCEPINFO {
     pub pfnDeferredFillIn: *mut u8,
     pub scode: super::wtypesbase::SCODE,
 }
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 impl Default for EXCEPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -177,7 +177,7 @@ pub const FADF_STATIC: u32 = 2;
 pub const FADF_UNKNOWN: u32 = 512;
 pub const FADF_VARIANT: u32 = 2048;
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct FUNCDESC {
     pub memid: MEMBERID,
@@ -193,7 +193,7 @@ pub struct FUNCDESC {
     pub elemdescFunc: ELEMDESC,
     pub wFuncFlags: u16,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for FUNCDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -245,57 +245,57 @@ pub const LIBFLAG_FCONTROL: LIBFLAGS = 2;
 pub const LIBFLAG_FHASDISKIMAGE: LIBFLAGS = 8;
 pub const LIBFLAG_FHIDDEN: LIBFLAGS = 4;
 pub const LIBFLAG_FRESTRICTED: LIBFLAGS = 1;
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPBINDPTR = *mut BINDPTR;
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPCUSTDATA = *mut CUSTDATA;
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPCUSTDATAITEM = *mut CUSTDATAITEM;
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPELEMDESC = *mut ELEMDESC;
-#[cfg(feature = "Win32_wtypesbase")]
+#[cfg(feature = "wtypesbase")]
 pub type LPEXCEPINFO = *mut EXCEPINFO;
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPFUNCDESC = *mut FUNCDESC;
 pub type LPIDLDESC = *mut IDLDESC;
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPPARAMDESC = *mut PARAMDESC;
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPPARAMDESCEX = *mut PARAMDESCEX;
 pub type LPSAFEARRAY = *mut SAFEARRAY;
 pub type LPSAFEARRAYBOUND = *mut SAFEARRAYBOUND;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPTLIBATTR = *mut TLIBATTR;
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "winnt", feature = "wtypes"))]
 pub type LPTYPEATTR = *mut TYPEATTR;
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPVARDESC = *mut VARDESC;
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPVARIANT = *mut VARIANT;
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPVARIANTARG = *mut VARIANT;
 pub type MEMBERID = DISPID;
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct PARAMDESC {
     pub pparamdescex: LPPARAMDESCEX,
     pub wParamFlags: u16,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PARAMDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
     pub varDefaultValue: VARIANTARG,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PARAMDESCEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -331,20 +331,20 @@ pub struct SAFEARRAYBOUND {
     pub lLbound: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SAFEARRAYUNION {
     pub sfType: u32,
     pub u: SAFEARRAYUNION_0,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SAFEARRAYUNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union SAFEARRAYUNION_0 {
     pub BstrStr: SAFEARR_BSTR,
@@ -358,33 +358,33 @@ pub union SAFEARRAYUNION_0 {
     pub LongStr: super::wtypesbase::DWORD_SIZEDARR,
     pub HyperStr: super::wtypesbase::HYPER_SIZEDARR,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SAFEARRAYUNION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy)]
 pub struct SAFEARR_BRECORD {
     pub Size: u32,
     pub aRecord: *mut wireBRECORD,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for SAFEARR_BRECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SAFEARR_BSTR {
     pub Size: u32,
     pub aBstr: *mut super::wtypes::wireBSTR,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SAFEARR_BSTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -425,13 +425,13 @@ impl Default for SAFEARR_UNKNOWN {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SAFEARR_VARIANT {
     pub Size: u32,
     pub aVariant: *mut wireVARIANT,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SAFEARR_VARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -464,7 +464,7 @@ pub const TKIND_MODULE: TYPEKIND = 2;
 pub const TKIND_RECORD: TYPEKIND = 1;
 pub const TKIND_UNION: TYPEKIND = 7;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TLIBATTR {
     pub guid: windows_sys::core::GUID,
@@ -475,7 +475,7 @@ pub struct TLIBATTR {
     pub wLibFlags: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "winnt", feature = "wtypes"))]
 #[derive(Clone, Copy)]
 pub struct TYPEATTR {
     pub guid: windows_sys::core::GUID,
@@ -497,34 +497,34 @@ pub struct TYPEATTR {
     pub tdescAlias: TYPEDESC,
     pub idldescType: IDLDESC,
 }
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "winnt", feature = "wtypes"))]
 impl Default for TYPEATTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub struct TYPEDESC {
     pub Anonymous: TYPEDESC_0,
     pub vt: super::wtypes::VARTYPE,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for TYPEDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
 pub union TYPEDESC_0 {
     pub lptdesc: *mut TYPEDESC,
     pub lpadesc: *mut ARRAYDESC,
     pub hreftype: HREFTYPE,
 }
-#[cfg(feature = "Win32_wtypes")]
+#[cfg(feature = "wtypes")]
 impl Default for TYPEDESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -548,7 +548,7 @@ pub const TYPEFLAG_FRESTRICTED: TYPEFLAGS = 512;
 pub const TYPEFLAG_FREVERSEBIND: TYPEFLAGS = 8192;
 pub type TYPEKIND = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct VARDESC {
     pub memid: MEMBERID,
@@ -558,20 +558,20 @@ pub struct VARDESC {
     pub wVarFlags: u16,
     pub varkind: VARKIND,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union VARDESC_0 {
     pub oInst: u32,
     pub lpvarValue: *mut VARIANT,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARDESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -592,32 +592,32 @@ pub const VARFLAG_FRESTRICTED: VARFLAGS = 128;
 pub const VARFLAG_FSOURCE: VARFLAGS = 2;
 pub const VARFLAG_FUIDEFAULT: VARFLAGS = 512;
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct VARIANT {
     pub Anonymous: VARIANT_0,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union VARIANT_0 {
     pub Anonymous: VARIANT_0_0,
     pub decVal: super::wtypes::DECIMAL,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct VARIANT_0_0 {
     pub vt: super::wtypes::VARTYPE,
@@ -626,14 +626,14 @@ pub struct VARIANT_0_0 {
     pub wReserved3: u16,
     pub Anonymous: VARIANT_0_0_0,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARIANT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union VARIANT_0_0_0 {
     pub llVal: i64,
@@ -683,26 +683,26 @@ pub union VARIANT_0_0_0 {
     pub puintVal: *mut u32,
     pub Anonymous: VARIANT_0_0_0_0,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARIANT_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
     pub pRecInfo: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARIANT_0_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type VARIANTARG = VARIANT;
 pub type VARKIND = i32;
 pub const VAR_CONST: VARKIND = 2;
@@ -710,7 +710,7 @@ pub const VAR_DISPATCH: VARKIND = 3;
 pub const VAR_PERINSTANCE: VARKIND = 0;
 pub const VAR_STATIC: VARKIND = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy)]
 pub struct _wireBRECORD {
     pub fFlags: u32,
@@ -718,14 +718,14 @@ pub struct _wireBRECORD {
     pub pRecInfo: *mut core::ffi::c_void,
     pub pRecord: *mut super::rpc::byte,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for _wireBRECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct _wireSAFEARRAY {
     pub cDims: u16,
@@ -735,14 +735,14 @@ pub struct _wireSAFEARRAY {
     pub uArrayStructs: SAFEARRAYUNION,
     pub rgsabound: [SAFEARRAYBOUND; 1],
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for _wireSAFEARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct _wireVARIANT {
     pub clSize: u32,
@@ -753,14 +753,14 @@ pub struct _wireVARIANT {
     pub wReserved3: u16,
     pub Anonymous: _wireVARIANT_0,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for _wireVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union _wireVARIANT_0 {
     pub llVal: i64,
@@ -808,17 +808,17 @@ pub union _wireVARIANT_0 {
     pub pintVal: *mut i32,
     pub puintVal: *mut u32,
 }
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for _wireVARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub type wireBRECORD = *mut _wireBRECORD;
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 pub type wirePSAFEARRAY = *mut wireSAFEARRAY;
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 pub type wireSAFEARRAY = *mut _wireSAFEARRAY;
-#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 pub type wireVARIANT = *mut _wireVARIANT;

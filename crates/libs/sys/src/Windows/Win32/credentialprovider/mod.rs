@@ -42,7 +42,7 @@ pub const CPUS_UNLOCK_WORKSTATION: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 2;
 pub type CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = u32;
 pub type CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = u32;
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy)]
 pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
     pub ulAuthenticationPackage: u32,
@@ -50,7 +50,7 @@ pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
     pub cbSerialization: u32,
     pub rgbSerialization: *mut super::rpc::byte,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

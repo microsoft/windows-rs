@@ -91,19 +91,19 @@ pub const MLSTR_READ: MLSTR_FLAGS = 1;
 pub const MLSTR_WRITE: MLSTR_FLAGS = 2;
 pub type PMIMECPINFO = *mut MIMECPINFO;
 pub type PMIMECSETINFO = *mut MIMECSETINFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PRFC1766INFO = *mut RFC1766INFO;
 pub type PSCRIPTFONTINFO = *mut SCRIPTFONTINFO;
 pub type PSCRIPTINFO = *mut SCRIPTINFO;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct RFC1766INFO {
     pub lcid: super::winnt::LCID,
     pub wszRfc1766: [u16; 6],
     pub wszLocaleName: [u16; 32],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for RFC1766INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1,24 +1,24 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_setupapi", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "setupapi", feature = "windef", feature = "winnt"))]
 windows_link::link!("newdev.dll" "system" fn DiInstallDevice(hwndparent : super::windef::HWND, deviceinfoset : super::setupapi::HDEVINFO, deviceinfodata : *const super::setupapi::SP_DEVINFO_DATA, driverinfodata : super::setupapi::PSP_DRVINFO_DATA, flags : u32, needreboot : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("newdev.dll" "system" fn DiInstallDriverA(hwndparent : super::windef::HWND, infpath : windows_sys::core::PCSTR, flags : u32, needreboot : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("newdev.dll" "system" fn DiInstallDriverW(hwndparent : super::windef::HWND, infpath : windows_sys::core::PCWSTR, flags : u32, needreboot : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_setupapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "setupapi", feature = "windef"))]
 windows_link::link!("newdev.dll" "system" fn DiRollbackDriver(deviceinfoset : super::setupapi::HDEVINFO, deviceinfodata : *const super::setupapi::SP_DEVINFO_DATA, hwndparent : super::windef::HWND, flags : u32, needreboot : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_setupapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "setupapi", feature = "windef"))]
 windows_link::link!("newdev.dll" "system" fn DiShowUpdateDevice(hwndparent : super::windef::HWND, deviceinfoset : super::setupapi::HDEVINFO, deviceinfodata : *const super::setupapi::SP_DEVINFO_DATA, flags : u32, needreboot : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("newdev.dll" "system" fn DiShowUpdateDriver(hwndparent : super::windef::HWND, filepath : windows_sys::core::PCWSTR, flags : u32, needreboot : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_setupapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "setupapi", feature = "windef"))]
 windows_link::link!("newdev.dll" "system" fn DiUninstallDevice(hwndparent : super::windef::HWND, deviceinfoset : super::setupapi::HDEVINFO, deviceinfodata : *const super::setupapi::SP_DEVINFO_DATA, flags : u32, needreboot : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("newdev.dll" "system" fn DiUninstallDriverA(hwndparent : super::windef::HWND, infpath : windows_sys::core::PCSTR, flags : u32, needreboot : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("newdev.dll" "system" fn DiUninstallDriverW(hwndparent : super::windef::HWND, infpath : windows_sys::core::PCWSTR, flags : u32, needreboot : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("newdev.dll" "system" fn UpdateDriverForPlugAndPlayDevicesA(hwndparent : super::windef::HWND, hardwareid : windows_sys::core::PCSTR, fullinfpath : windows_sys::core::PCSTR, installflags : u32, brebootrequired : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("newdev.dll" "system" fn UpdateDriverForPlugAndPlayDevicesW(hwndparent : super::windef::HWND, hardwareid : windows_sys::core::PCWSTR, fullinfpath : windows_sys::core::PCWSTR, installflags : u32, brebootrequired : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 pub const DIIDFLAG_BITS: u32 = 15;
 pub const DIIDFLAG_INSTALLCOPYINFDRIVERS: u32 = 8;

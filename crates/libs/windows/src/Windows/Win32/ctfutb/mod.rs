@@ -89,14 +89,14 @@ impl ITfLangBarEventSink {
     pub unsafe fn OnThreadItemChange(&self, dwthreadid: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnThreadItemChange)(windows_core::Interface::as_raw(self), dwthreadid) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn OnModalInput(&self, dwthreadid: u32, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnModalInput)(windows_core::Interface::as_raw(self), dwthreadid, umsg, wparam, lparam) }
     }
     pub unsafe fn ShowFloating(&self, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ShowFloating)(windows_core::Interface::as_raw(self), dwflags) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetItemFloatingRect(&self, dwthreadid: u32, rguid: *const windows_core::GUID) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -111,17 +111,17 @@ pub struct ITfLangBarEventSink_Vtbl {
     pub OnSetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub OnThreadTerminate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub OnThreadItemChange: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub OnModalInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::minwindef::WPARAM, super::minwindef::LPARAM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     OnModalInput: usize,
     pub ShowFloating: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetItemFloatingRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetItemFloatingRect: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait ITfLangBarEventSink_Impl: windows_core::IUnknownImpl {
     fn OnSetFocus(&self, dwthreadid: u32) -> windows_core::Result<()>;
     fn OnThreadTerminate(&self, dwthreadid: u32) -> windows_core::Result<()>;
@@ -130,7 +130,7 @@ pub trait ITfLangBarEventSink_Impl: windows_core::IUnknownImpl {
     fn ShowFloating(&self, dwflags: u32) -> windows_core::Result<()>;
     fn GetItemFloatingRect(&self, dwthreadid: u32, rguid: *const windows_core::GUID) -> windows_core::Result<super::windef::RECT>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl ITfLangBarEventSink_Vtbl {
     pub const fn new<Identity: ITfLangBarEventSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnSetFocus<Identity: ITfLangBarEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwthreadid: u32) -> windows_core::HRESULT {
@@ -189,7 +189,7 @@ impl ITfLangBarEventSink_Vtbl {
         iid == &<ITfLangBarEventSink as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for ITfLangBarEventSink {}
 windows_core::imp::define_interface!(ITfLangBarItem, ITfLangBarItem_Vtbl, 0x73540d69_edeb_4ee9_96c9_23aa30b25916);
 windows_core::imp::interface_hierarchy!(ITfLangBarItem, windows_core::IUnknown);
@@ -288,11 +288,11 @@ impl core::ops::Deref for ITfLangBarItemBalloon {
 }
 windows_core::imp::interface_hierarchy!(ITfLangBarItemBalloon, windows_core::IUnknown, ITfLangBarItem);
 impl ITfLangBarItemBalloon {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, core::mem::transmute(pt), prcarea) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetPreferredSize(&self, pszdefault: *const super::windef::SIZE) -> windows_core::Result<super::windef::SIZE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -310,23 +310,23 @@ impl ITfLangBarItemBalloon {
 #[doc(hidden)]
 pub struct ITfLangBarItemBalloon_Vtbl {
     pub base__: ITfLangBarItem_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub OnClick: unsafe extern "system" fn(*mut core::ffi::c_void, TfLBIClick, super::windef::POINT, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     OnClick: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetPreferredSize: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::SIZE, *mut super::windef::SIZE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetPreferredSize: usize,
     pub GetBalloonInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TF_LBBALLOONINFO) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITfLangBarItemBalloon_Impl: ITfLangBarItem_Impl {
     fn OnClick(&self, click: TfLBIClick, pt: &super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::Result<()>;
     fn GetPreferredSize(&self, pszdefault: *const super::windef::SIZE) -> windows_core::Result<super::windef::SIZE>;
     fn GetBalloonInfo(&self) -> windows_core::Result<TF_LBBALLOONINFO>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITfLangBarItemBalloon_Vtbl {
     pub const fn new<Identity: ITfLangBarItemBalloon_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnClick<Identity: ITfLangBarItemBalloon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
@@ -370,7 +370,7 @@ impl ITfLangBarItemBalloon_Vtbl {
         iid == &<ITfLangBarItemBalloon as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITfLangBarItemBalloon {}
 windows_core::imp::define_interface!(ITfLangBarItemBitmap, ITfLangBarItemBitmap_Vtbl, 0x73830352_d722_4179_ada5_f045c98df355);
 impl core::ops::Deref for ITfLangBarItemBitmap {
@@ -381,18 +381,18 @@ impl core::ops::Deref for ITfLangBarItemBitmap {
 }
 windows_core::imp::interface_hierarchy!(ITfLangBarItemBitmap, windows_core::IUnknown, ITfLangBarItem);
 impl ITfLangBarItemBitmap {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, core::mem::transmute(pt), prcarea) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetPreferredSize(&self, pszdefault: *const super::windef::SIZE) -> windows_core::Result<super::windef::SIZE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPreferredSize)(windows_core::Interface::as_raw(self), pszdefault, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::windef::HBITMAP, phbmpmask: *mut super::windef::HBITMAP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawBitmap)(windows_core::Interface::as_raw(self), bmwidth, bmheight, dwflags, phbmp as _, phbmpmask as _) }
     }
@@ -401,26 +401,26 @@ impl ITfLangBarItemBitmap {
 #[doc(hidden)]
 pub struct ITfLangBarItemBitmap_Vtbl {
     pub base__: ITfLangBarItem_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub OnClick: unsafe extern "system" fn(*mut core::ffi::c_void, TfLBIClick, super::windef::POINT, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     OnClick: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetPreferredSize: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::SIZE, *mut super::windef::SIZE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetPreferredSize: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub DrawBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, *mut super::windef::HBITMAP, *mut super::windef::HBITMAP) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     DrawBitmap: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITfLangBarItemBitmap_Impl: ITfLangBarItem_Impl {
     fn OnClick(&self, click: TfLBIClick, pt: &super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::Result<()>;
     fn GetPreferredSize(&self, pszdefault: *const super::windef::SIZE) -> windows_core::Result<super::windef::SIZE>;
     fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::windef::HBITMAP, phbmpmask: *mut super::windef::HBITMAP) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITfLangBarItemBitmap_Vtbl {
     pub const fn new<Identity: ITfLangBarItemBitmap_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnClick<Identity: ITfLangBarItemBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
@@ -458,7 +458,7 @@ impl ITfLangBarItemBitmap_Vtbl {
         iid == &<ITfLangBarItemBitmap as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITfLangBarItemBitmap {}
 windows_core::imp::define_interface!(ITfLangBarItemBitmapButton, ITfLangBarItemBitmapButton_Vtbl, 0xa26a0525_3fae_4fa0_89ee_88a964f9f1b5);
 impl core::ops::Deref for ITfLangBarItemBitmapButton {
@@ -469,7 +469,7 @@ impl core::ops::Deref for ITfLangBarItemBitmapButton {
 }
 windows_core::imp::interface_hierarchy!(ITfLangBarItemBitmapButton, windows_core::IUnknown, ITfLangBarItem);
 impl ITfLangBarItemBitmapButton {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, core::mem::transmute(pt), prcarea) }
     }
@@ -482,14 +482,14 @@ impl ITfLangBarItemBitmapButton {
     pub unsafe fn OnMenuSelect(&self, wid: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnMenuSelect)(windows_core::Interface::as_raw(self), wid) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetPreferredSize(&self, pszdefault: *const super::windef::SIZE) -> windows_core::Result<super::windef::SIZE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPreferredSize)(windows_core::Interface::as_raw(self), pszdefault, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::windef::HBITMAP, phbmpmask: *mut super::windef::HBITMAP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawBitmap)(windows_core::Interface::as_raw(self), bmwidth, bmheight, dwflags, phbmp as _, phbmpmask as _) }
     }
@@ -504,23 +504,23 @@ impl ITfLangBarItemBitmapButton {
 #[doc(hidden)]
 pub struct ITfLangBarItemBitmapButton_Vtbl {
     pub base__: ITfLangBarItem_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub OnClick: unsafe extern "system" fn(*mut core::ffi::c_void, TfLBIClick, super::windef::POINT, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     OnClick: usize,
     pub InitMenu: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnMenuSelect: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetPreferredSize: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::SIZE, *mut super::windef::SIZE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetPreferredSize: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub DrawBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, *mut super::windef::HBITMAP, *mut super::windef::HBITMAP) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     DrawBitmap: usize,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITfLangBarItemBitmapButton_Impl: ITfLangBarItem_Impl {
     fn OnClick(&self, click: TfLBIClick, pt: &super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::Result<()>;
     fn InitMenu(&self, pmenu: windows_core::Ref<ITfMenu>) -> windows_core::Result<()>;
@@ -529,7 +529,7 @@ pub trait ITfLangBarItemBitmapButton_Impl: ITfLangBarItem_Impl {
     fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::windef::HBITMAP, phbmpmask: *mut super::windef::HBITMAP) -> windows_core::Result<()>;
     fn GetText(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITfLangBarItemBitmapButton_Vtbl {
     pub const fn new<Identity: ITfLangBarItemBitmapButton_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnClick<Identity: ITfLangBarItemBitmapButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
@@ -594,7 +594,7 @@ impl ITfLangBarItemBitmapButton_Vtbl {
         iid == &<ITfLangBarItemBitmapButton as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITfLangBarItemBitmapButton {}
 windows_core::imp::define_interface!(ITfLangBarItemButton, ITfLangBarItemButton_Vtbl, 0x28c7f1d0_de25_11d2_afdd_00105a2799b5);
 impl core::ops::Deref for ITfLangBarItemButton {
@@ -605,7 +605,7 @@ impl core::ops::Deref for ITfLangBarItemButton {
 }
 windows_core::imp::interface_hierarchy!(ITfLangBarItemButton, windows_core::IUnknown, ITfLangBarItem);
 impl ITfLangBarItemButton {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, core::mem::transmute(pt), prcarea) }
     }
@@ -618,7 +618,7 @@ impl ITfLangBarItemButton {
     pub unsafe fn OnMenuSelect(&self, wid: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnMenuSelect)(windows_core::Interface::as_raw(self), wid) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetIcon(&self) -> windows_core::Result<super::windef::HICON> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -636,19 +636,19 @@ impl ITfLangBarItemButton {
 #[doc(hidden)]
 pub struct ITfLangBarItemButton_Vtbl {
     pub base__: ITfLangBarItem_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub OnClick: unsafe extern "system" fn(*mut core::ffi::c_void, TfLBIClick, super::windef::POINT, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     OnClick: usize,
     pub InitMenu: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnMenuSelect: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HICON) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetIcon: usize,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITfLangBarItemButton_Impl: ITfLangBarItem_Impl {
     fn OnClick(&self, click: TfLBIClick, pt: &super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::Result<()>;
     fn InitMenu(&self, pmenu: windows_core::Ref<ITfMenu>) -> windows_core::Result<()>;
@@ -656,7 +656,7 @@ pub trait ITfLangBarItemButton_Impl: ITfLangBarItem_Impl {
     fn GetIcon(&self) -> windows_core::Result<super::windef::HICON>;
     fn GetText(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITfLangBarItemButton_Vtbl {
     pub const fn new<Identity: ITfLangBarItemButton_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnClick<Identity: ITfLangBarItemButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
@@ -714,7 +714,7 @@ impl ITfLangBarItemButton_Vtbl {
         iid == &<ITfLangBarItemButton as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITfLangBarItemButton {}
 windows_core::imp::define_interface!(ITfLangBarItemMgr, ITfLangBarItemMgr_Vtbl, 0xba468c55_9956_4fb1_a59d_52a7dd7cc6aa);
 windows_core::imp::interface_hierarchy!(ITfLangBarItemMgr, windows_core::IUnknown);
@@ -752,7 +752,7 @@ impl ITfLangBarItemMgr {
     pub unsafe fn UnadviseItemSink(&self, dwcookie: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnadviseItemSink)(windows_core::Interface::as_raw(self), dwcookie) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetItemFloatingRect(&self, dwthreadid: u32, rguid: *const windows_core::GUID) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -794,9 +794,9 @@ pub struct ITfLangBarItemMgr_Vtbl {
     pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AdviseItemSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *const windows_core::GUID) -> windows_core::HRESULT,
     pub UnadviseItemSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetItemFloatingRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetItemFloatingRect: usize,
     pub GetItemsStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     pub GetItemNum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -804,7 +804,7 @@ pub struct ITfLangBarItemMgr_Vtbl {
     pub AdviseItemsSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     pub UnadviseItemsSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITfLangBarItemMgr_Impl: windows_core::IUnknownImpl {
     fn EnumItems(&self) -> windows_core::Result<IEnumTfLangBarItems>;
     fn GetItem(&self, rguid: *const windows_core::GUID) -> windows_core::Result<ITfLangBarItem>;
@@ -819,7 +819,7 @@ pub trait ITfLangBarItemMgr_Impl: windows_core::IUnknownImpl {
     fn AdviseItemsSink(&self, ulcount: u32, ppunk: *const Option<ITfLangBarItemSink>, pguiditem: *const windows_core::GUID) -> windows_core::Result<u32>;
     fn UnadviseItemsSink(&self, ulcount: u32, pdwcookie: *const u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITfLangBarItemMgr_Vtbl {
     pub const fn new<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumItems<Identity: ITfLangBarItemMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -950,7 +950,7 @@ impl ITfLangBarItemMgr_Vtbl {
         iid == &<ITfLangBarItemMgr as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITfLangBarItemMgr {}
 windows_core::imp::define_interface!(ITfLangBarItemSink, ITfLangBarItemSink_Vtbl, 0x57dbe1a0_de25_11d2_afdd_00105a2799b5);
 windows_core::imp::interface_hierarchy!(ITfLangBarItemSink, windows_core::IUnknown);
@@ -986,7 +986,7 @@ impl windows_core::RuntimeName for ITfLangBarItemSink {}
 windows_core::imp::define_interface!(ITfLangBarMgr, ITfLangBarMgr_Vtbl, 0x87955690_e627_11d2_8ddb_00105a2799b5);
 windows_core::imp::interface_hierarchy!(ITfLangBarMgr, windows_core::IUnknown);
 impl ITfLangBarMgr {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AdviseEventSink<P0>(&self, psink: P0, hwnd: super::windef::HWND, dwflags: u32, pdwcookie: *const u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ITfLangBarEventSink>,
@@ -1006,7 +1006,7 @@ impl ITfLangBarMgr {
     pub unsafe fn GetThreadLangBarItemMgr(&self, dwthreadid: u32, pplbi: *mut Option<ITfLangBarItemMgr>, pdwthreadid: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetThreadLangBarItemMgr)(windows_core::Interface::as_raw(self), dwthreadid, core::mem::transmute(pplbi), pdwthreadid as _) }
     }
-    #[cfg(feature = "Win32_msctf")]
+    #[cfg(feature = "msctf")]
     pub unsafe fn GetInputProcessorProfiles(&self, dwthreadid: u32, ppaip: *mut Option<super::msctf::ITfInputProcessorProfiles>, pdwthreadid: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInputProcessorProfiles)(windows_core::Interface::as_raw(self), dwthreadid, core::mem::transmute(ppaip), pdwthreadid as _) }
     }
@@ -1033,23 +1033,23 @@ impl ITfLangBarMgr {
 #[doc(hidden)]
 pub struct ITfLangBarMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AdviseEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::windef::HWND, u32, *const u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AdviseEventSink: usize,
     pub UnadviseEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetThreadMarshalInterface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetThreadLangBarItemMgr: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_msctf")]
+    #[cfg(feature = "msctf")]
     pub GetInputProcessorProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_msctf"))]
+    #[cfg(not(feature = "msctf"))]
     GetInputProcessorProfiles: usize,
     pub RestoreLastFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetModalInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub ShowFloating: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetShowFloatingStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_msctf", feature = "Win32_windef"))]
+#[cfg(all(feature = "msctf", feature = "windef"))]
 pub trait ITfLangBarMgr_Impl: windows_core::IUnknownImpl {
     fn AdviseEventSink(&self, psink: windows_core::Ref<ITfLangBarEventSink>, hwnd: super::windef::HWND, dwflags: u32, pdwcookie: *const u32) -> windows_core::Result<()>;
     fn UnadviseEventSink(&self, dwcookie: u32) -> windows_core::Result<()>;
@@ -1061,7 +1061,7 @@ pub trait ITfLangBarMgr_Impl: windows_core::IUnknownImpl {
     fn ShowFloating(&self, dwflags: u32) -> windows_core::Result<()>;
     fn GetShowFloatingStatus(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_msctf", feature = "Win32_windef"))]
+#[cfg(all(feature = "msctf", feature = "windef"))]
 impl ITfLangBarMgr_Vtbl {
     pub const fn new<Identity: ITfLangBarMgr_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseEventSink<Identity: ITfLangBarMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psink: *mut core::ffi::c_void, hwnd: super::windef::HWND, dwflags: u32, pdwcookie: *const u32) -> windows_core::HRESULT {
@@ -1141,12 +1141,12 @@ impl ITfLangBarMgr_Vtbl {
         iid == &<ITfLangBarMgr as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_msctf", feature = "Win32_windef"))]
+#[cfg(all(feature = "msctf", feature = "windef"))]
 impl windows_core::RuntimeName for ITfLangBarMgr {}
 windows_core::imp::define_interface!(ITfMenu, ITfMenu_Vtbl, 0x6f8a98e4_aaa0_4f15_8c5b_07e0df0a3dd8);
 windows_core::imp::interface_hierarchy!(ITfMenu, windows_core::IUnknown);
 impl ITfMenu {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::windef::HBITMAP, hbmpmask: super::windef::HBITMAP, pch: *const u16, cch: u32, ppmenu: *mut Option<Self>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddMenuItem)(windows_core::Interface::as_raw(self), uid, dwflags, hbmp, hbmpmask, pch, cch, core::mem::transmute(ppmenu)) }
     }
@@ -1155,16 +1155,16 @@ impl ITfMenu {
 #[doc(hidden)]
 pub struct ITfMenu_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub AddMenuItem: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::windef::HBITMAP, super::windef::HBITMAP, *const u16, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     AddMenuItem: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITfMenu_Impl: windows_core::IUnknownImpl {
     fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::windef::HBITMAP, hbmpmask: super::windef::HBITMAP, pch: *const u16, cch: u32, ppmenu: windows_core::OutRef<ITfMenu>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITfMenu_Vtbl {
     pub const fn new<Identity: ITfMenu_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddMenuItem<Identity: ITfMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uid: u32, dwflags: u32, hbmp: super::windef::HBITMAP, hbmpmask: super::windef::HBITMAP, pch: *const u16, cch: u32, ppmenu: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1179,7 +1179,7 @@ impl ITfMenu_Vtbl {
         iid == &<ITfMenu as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITfMenu {}
 windows_core::imp::define_interface!(ITfSystemDeviceTypeLangBarItem, ITfSystemDeviceTypeLangBarItem_Vtbl, 0x45672eb9_9059_46a2_838d_4530355f6a77);
 windows_core::imp::interface_hierarchy!(ITfSystemDeviceTypeLangBarItem, windows_core::IUnknown);
@@ -1239,7 +1239,7 @@ impl windows_core::RuntimeName for ITfSystemDeviceTypeLangBarItem {}
 windows_core::imp::define_interface!(ITfSystemLangBarItem, ITfSystemLangBarItem_Vtbl, 0x1e13e9ec_6b33_4d4a_b5eb_8a92f029f356);
 windows_core::imp::interface_hierarchy!(ITfSystemLangBarItem, windows_core::IUnknown);
 impl ITfSystemLangBarItem {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetIcon(&self, hicon: super::windef::HICON) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetIcon)(windows_core::Interface::as_raw(self), hicon) }
     }
@@ -1251,18 +1251,18 @@ impl ITfSystemLangBarItem {
 #[doc(hidden)]
 pub struct ITfSystemLangBarItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HICON) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetIcon: usize,
     pub SetTooltipString: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait ITfSystemLangBarItem_Impl: windows_core::IUnknownImpl {
     fn SetIcon(&self, hicon: super::windef::HICON) -> windows_core::Result<()>;
     fn SetTooltipString(&self, pchtooltip: *const u16, cch: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl ITfSystemLangBarItem_Vtbl {
     pub const fn new<Identity: ITfSystemLangBarItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetIcon<Identity: ITfSystemLangBarItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hicon: super::windef::HICON) -> windows_core::HRESULT {
@@ -1287,7 +1287,7 @@ impl ITfSystemLangBarItem_Vtbl {
         iid == &<ITfSystemLangBarItem as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for ITfSystemLangBarItem {}
 windows_core::imp::define_interface!(ITfSystemLangBarItemSink, ITfSystemLangBarItemSink_Vtbl, 0x1449d9ab_13cf_4687_aa3e_8d8b18574396);
 windows_core::imp::interface_hierarchy!(ITfSystemLangBarItemSink, windows_core::IUnknown);

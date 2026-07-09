@@ -205,7 +205,7 @@ pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: u32 = 2;
 pub const AM_QUERY_DECODER_VMR_SUPPORT: u32 = 1;
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy)]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: u32,
@@ -219,7 +219,7 @@ pub struct AM_SAMPLE2_PROPERTIES {
     pub pbBuffer: *mut u8,
     pub cbBuffer: i32,
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 impl Default for AM_SAMPLE2_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -256,7 +256,7 @@ pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = 16;
 pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = 256;
 pub const AM_STREAM_CONTROL: tagAM_SAMPLE_PROPERTY_FLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Default)]
 pub struct AM_STREAM_INFO {
     pub tStart: super::mediaobj::REFERENCE_TIME,
@@ -326,7 +326,7 @@ pub const CK_INDEX: i32 = 1;
 pub const CK_NOCOLORKEY: i32 = 0;
 pub const CK_RGB: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct COLORKEY {
     pub KeyType: u32,
@@ -416,7 +416,7 @@ pub const DVD_Assignment_reserved0: DVD_KARAOKE_ASSIGNMENT = 0;
 pub const DVD_Assignment_reserved1: DVD_KARAOKE_ASSIGNMENT = 1;
 pub type DVD_AudioATR = [u8; 8];
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DVD_AudioAttributes {
     pub AppMode: DVD_AUDIO_APPMODE,
@@ -430,7 +430,7 @@ pub struct DVD_AudioAttributes {
     pub bNumberOfChannels: u8,
     pub dwReserved: [u32; 2],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DVD_AudioAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -561,7 +561,7 @@ pub struct DVD_MUA_MixingInfo {
 }
 pub const DVD_MaxReadBurstInKB: DVD_OPTION_FLAG = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DVD_MenuAttributes {
     pub fCompatibleRegion: [windows_sys::core::BOOL; 8],
@@ -571,7 +571,7 @@ pub struct DVD_MenuAttributes {
     pub fSubpicturePresent: windows_sys::core::BOOL,
     pub SubpictureAttributes: DVD_SubpictureAttributes,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DVD_MenuAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -682,7 +682,7 @@ pub const DVD_Struct_Title: DVD_TextStringType = 2;
 pub const DVD_Struct_Volume: DVD_TextStringType = 1;
 pub type DVD_SubpictureATR = [u8; 6];
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DVD_SubpictureAttributes {
     pub Type: DVD_SUBPICTURE_TYPE,
@@ -705,7 +705,7 @@ pub const DVD_TITLE_MENU: u32 = 0;
 pub type DVD_TextCharSet = i32;
 pub type DVD_TextStringType = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DVD_TitleAttributes {
     pub Anonymous: DVD_TitleAttributes_0,
@@ -716,20 +716,20 @@ pub struct DVD_TitleAttributes {
     pub ulNumberOfSubpictureStreams: u32,
     pub SubpictureAttributes: [DVD_SubpictureAttributes; 32],
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DVD_TitleAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DVD_TitleAttributes_0 {
     pub AppMode: DVD_TITLE_APPMODE,
     pub TitleLength: DVD_HMSF_TIMECODE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DVD_TitleAttributes_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -888,21 +888,21 @@ pub const PINDIR_INPUT: PIN_DIRECTION = 0;
 pub const PINDIR_OUTPUT: PIN_DIRECTION = 1;
 pub type PIN_DIRECTION = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[derive(Clone, Copy)]
 pub struct PIN_INFO {
     pub pFilter: *mut core::ffi::c_void,
     pub dir: PIN_DIRECTION,
     pub achName: [u16; 128],
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl Default for PIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type PNORMALIZEDRECT = *mut NORMALIZEDRECT;
-#[cfg(all(feature = "Win32_ddraw", feature = "Win32_windef"))]
+#[cfg(all(feature = "ddraw", feature = "windef"))]
 pub type PVMRALPHABITMAP = *mut VMRALPHABITMAP;
 pub const PhysConn_Audio_1394: PhysicalConnectorType = 4103;
 pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = 4099;
@@ -931,7 +931,7 @@ pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = 13;
 pub const PhysConn_Video_YRYBY: PhysicalConnectorType = 5;
 pub type PhysicalConnectorType = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Default)]
 pub struct Quality {
     pub Type: QualityMessageType,
@@ -1107,7 +1107,7 @@ pub const UOP_FLAG_Stop: VALID_UOP_FLAG = 8;
 pub type VALID_UOP_FLAG = i32;
 pub type VALID_UOP_SOMTHING_OR_OTHER = u32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct VIDEO_STREAM_CONFIG_CAPS {
     pub guid: windows_sys::core::GUID,
@@ -1133,7 +1133,7 @@ pub struct VIDEO_STREAM_CONFIG_CAPS {
     pub MaxBitsPerSecond: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct VMRALLOCATIONINFO {
     pub dwFlags: u32,
@@ -1145,14 +1145,14 @@ pub struct VMRALLOCATIONINFO {
     pub dwInterlaceFlags: u32,
     pub szNativeSize: super::windef::SIZE,
 }
-#[cfg(all(feature = "Win32_ksmedia", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
 impl Default for VMRALLOCATIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ddraw", feature = "Win32_windef"))]
+#[cfg(all(feature = "ddraw", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct VMRALPHABITMAP {
     pub dwFlags: u32,
@@ -1163,7 +1163,7 @@ pub struct VMRALPHABITMAP {
     pub fAlpha: f32,
     pub clrSrcKey: super::windef::COLORREF,
 }
-#[cfg(all(feature = "Win32_ddraw", feature = "Win32_windef"))]
+#[cfg(all(feature = "ddraw", feature = "windef"))]
 impl Default for VMRALPHABITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1203,7 +1203,7 @@ impl Default for VMRGUID {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct VMRMONITORINFO {
     pub guid: VMRGUID,
@@ -1218,7 +1218,7 @@ pub struct VMRMONITORINFO {
     pub dwSubSysId: u32,
     pub dwRevision: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for VMRMONITORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1231,7 +1231,7 @@ pub const VMRMode_Renderless: VMRMode = 4;
 pub const VMRMode_Windowed: VMRMode = 1;
 pub const VMRMode_Windowless: VMRMode = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_ddraw", feature = "Win32_mediaobj", feature = "Win32_windef"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
@@ -1244,7 +1244,7 @@ pub struct VMRPRESENTATIONINFO {
     pub dwTypeSpecificFlags: u32,
     pub dwInterlaceFlags: u32,
 }
-#[cfg(all(feature = "Win32_ddraw", feature = "Win32_mediaobj", feature = "Win32_windef"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
 impl Default for VMRPRESENTATIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1259,7 +1259,7 @@ pub const VMRSample_SyncPoint: VMRPresentationFlags = 1;
 pub const VMRSample_TimeValid: VMRPresentationFlags = 8;
 pub type VMRSurfaceAllocationFlags = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_ddraw")]
+#[cfg(feature = "ddraw")]
 #[derive(Clone, Copy)]
 pub struct VMRVIDEOSTREAMINFO {
     pub pddsVideoSurface: *mut core::ffi::c_void,
@@ -1270,7 +1270,7 @@ pub struct VMRVIDEOSTREAMINFO {
     pub ddClrKey: super::ddraw::DDCOLORKEY,
     pub rNormal: NORMALIZEDRECT,
 }
-#[cfg(feature = "Win32_ddraw")]
+#[cfg(feature = "ddraw")]
 impl Default for VMRVIDEOSTREAMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

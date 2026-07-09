@@ -1287,7 +1287,7 @@ impl windows_core::RuntimeName for IWMCodecLeakyBucket {}
 windows_core::imp::define_interface!(IWMCodecOutputTimestamp, IWMCodecOutputTimestamp_Vtbl, 0xb72adf95_7adc_4a72_bc05_577d8ea6bf68);
 windows_core::imp::interface_hierarchy!(IWMCodecOutputTimestamp, windows_core::IUnknown);
 impl IWMCodecOutputTimestamp {
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetNextOutputTime(&self) -> windows_core::Result<super::mediaobj::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1299,16 +1299,16 @@ impl IWMCodecOutputTimestamp {
 #[doc(hidden)]
 pub struct IWMCodecOutputTimestamp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub GetNextOutputTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::mediaobj::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mediaobj"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetNextOutputTime: usize,
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 pub trait IWMCodecOutputTimestamp_Impl: windows_core::IUnknownImpl {
     fn GetNextOutputTime(&self) -> windows_core::Result<super::mediaobj::REFERENCE_TIME>;
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 impl IWMCodecOutputTimestamp_Vtbl {
     pub const fn new<Identity: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNextOutputTime<Identity: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prttime: *mut super::mediaobj::REFERENCE_TIME) -> windows_core::HRESULT {
@@ -1329,12 +1329,12 @@ impl IWMCodecOutputTimestamp_Vtbl {
         iid == &<IWMCodecOutputTimestamp as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IWMCodecOutputTimestamp {}
 windows_core::imp::define_interface!(IWMCodecPrivateData, IWMCodecPrivateData_Vtbl, 0x73f0be8e_57f7_4f01_aa66_9f57340cfe0e);
 windows_core::imp::interface_hierarchy!(IWMCodecPrivateData, windows_core::IUnknown);
 impl IWMCodecPrivateData {
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn SetPartialOutputType(&self, pmt: *const super::mediaobj::DMO_MEDIA_TYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPartialOutputType)(windows_core::Interface::as_raw(self), core::mem::transmute(pmt)) }
     }
@@ -1346,18 +1346,18 @@ impl IWMCodecPrivateData {
 #[doc(hidden)]
 pub struct IWMCodecPrivateData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub SetPartialOutputType: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::mediaobj::DMO_MEDIA_TYPE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mediaobj"))]
+    #[cfg(not(feature = "mediaobj"))]
     SetPartialOutputType: usize,
     pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 pub trait IWMCodecPrivateData_Impl: windows_core::IUnknownImpl {
     fn SetPartialOutputType(&self, pmt: *const super::mediaobj::DMO_MEDIA_TYPE) -> windows_core::Result<()>;
     fn GetPrivateData(&self, pbdata: *mut u8, pcbdata: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 impl IWMCodecPrivateData_Vtbl {
     pub const fn new<Identity: IWMCodecPrivateData_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPartialOutputType<Identity: IWMCodecPrivateData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::mediaobj::DMO_MEDIA_TYPE) -> windows_core::HRESULT {
@@ -1382,12 +1382,12 @@ impl IWMCodecPrivateData_Vtbl {
         iid == &<IWMCodecPrivateData as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IWMCodecPrivateData {}
 windows_core::imp::define_interface!(IWMCodecProps, IWMCodecProps_Vtbl, 0x2573e11a_f01a_4fdd_a98d_63b8e0ba9589);
 windows_core::imp::interface_hierarchy!(IWMCodecProps, windows_core::IUnknown);
 impl IWMCodecProps {
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetFormatProp<P1>(&self, pmt: *const super::mediaobj::DMO_MEDIA_TYPE, pszname: P1, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1405,18 +1405,18 @@ impl IWMCodecProps {
 #[doc(hidden)]
 pub struct IWMCodecProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub GetFormatProp: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::mediaobj::DMO_MEDIA_TYPE, windows_core::PCWSTR, *mut WMT_PROP_DATATYPE, *mut u8, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mediaobj"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetFormatProp: usize,
     pub GetCodecProp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut WMT_PROP_DATATYPE, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 pub trait IWMCodecProps_Impl: windows_core::IUnknownImpl {
     fn GetFormatProp(&self, pmt: *const super::mediaobj::DMO_MEDIA_TYPE, pszname: &windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
     fn GetCodecProp(&self, dwformat: u32, pszname: &windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 impl IWMCodecProps_Vtbl {
     pub const fn new<Identity: IWMCodecProps_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFormatProp<Identity: IWMCodecProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::mediaobj::DMO_MEDIA_TYPE, pszname: windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT {
@@ -1441,16 +1441,16 @@ impl IWMCodecProps_Vtbl {
         iid == &<IWMCodecProps as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IWMCodecProps {}
 windows_core::imp::define_interface!(IWMCodecStrings, IWMCodecStrings_Vtbl, 0xa7b2504b_e58a_47fb_958b_cac7165a057d);
 windows_core::imp::interface_hierarchy!(IWMCodecStrings, windows_core::IUnknown);
 impl IWMCodecStrings {
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetName(&self, pmt: *const super::mediaobj::DMO_MEDIA_TYPE, szname: Option<&mut [u16]>, pcchlength: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pmt), szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchlength as _) }
     }
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetDescription(&self, pmt: *const super::mediaobj::DMO_MEDIA_TYPE, szdescription: Option<&mut [u16]>, pcchlength: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pmt), szdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchlength as _) }
     }
@@ -1459,21 +1459,21 @@ impl IWMCodecStrings {
 #[doc(hidden)]
 pub struct IWMCodecStrings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::mediaobj::DMO_MEDIA_TYPE, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mediaobj"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetName: usize,
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::mediaobj::DMO_MEDIA_TYPE, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mediaobj"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetDescription: usize,
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 pub trait IWMCodecStrings_Impl: windows_core::IUnknownImpl {
     fn GetName(&self, pmt: *const super::mediaobj::DMO_MEDIA_TYPE, cchlength: u32, szname: windows_core::PWSTR, pcchlength: *mut u32) -> windows_core::Result<()>;
     fn GetDescription(&self, pmt: *const super::mediaobj::DMO_MEDIA_TYPE, cchlength: u32, szdescription: windows_core::PWSTR, pcchlength: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 impl IWMCodecStrings_Vtbl {
     pub const fn new<Identity: IWMCodecStrings_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IWMCodecStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::mediaobj::DMO_MEDIA_TYPE, cchlength: u32, szname: windows_core::PWSTR, pcchlength: *mut u32) -> windows_core::HRESULT {
@@ -1498,7 +1498,7 @@ impl IWMCodecStrings_Vtbl {
         iid == &<IWMCodecStrings as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IWMCodecStrings {}
 windows_core::imp::define_interface!(IWMColorConvProps, IWMColorConvProps_Vtbl, 0xe6a49e22_c099_421d_aad3_c061fb4ae85b);
 windows_core::imp::interface_hierarchy!(IWMColorConvProps, windows_core::IUnknown);
@@ -1959,11 +1959,11 @@ impl IWMVideoDecoderReconBuffer {
             (windows_core::Interface::vtable(self).GetReconstructedVideoFrameSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetReconstructedVideoFrame(&self, pbuf: &Option<super::mediaobj::IMediaBuffer>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetReconstructedVideoFrame)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pbuf)) }
     }
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn SetReconstructedVideoFrame<P0>(&self, pbuf: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::mediaobj::IMediaBuffer>,
@@ -1976,22 +1976,22 @@ impl IWMVideoDecoderReconBuffer {
 pub struct IWMVideoDecoderReconBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetReconstructedVideoFrameSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub GetReconstructedVideoFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mediaobj"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetReconstructedVideoFrame: usize,
-    #[cfg(feature = "Win32_mediaobj")]
+    #[cfg(feature = "mediaobj")]
     pub SetReconstructedVideoFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mediaobj"))]
+    #[cfg(not(feature = "mediaobj"))]
     SetReconstructedVideoFrame: usize,
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 pub trait IWMVideoDecoderReconBuffer_Impl: windows_core::IUnknownImpl {
     fn GetReconstructedVideoFrameSize(&self) -> windows_core::Result<u32>;
     fn GetReconstructedVideoFrame(&self, pbuf: windows_core::OutRef<super::mediaobj::IMediaBuffer>) -> windows_core::Result<()>;
     fn SetReconstructedVideoFrame(&self, pbuf: windows_core::Ref<super::mediaobj::IMediaBuffer>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 impl IWMVideoDecoderReconBuffer_Vtbl {
     pub const fn new<Identity: IWMVideoDecoderReconBuffer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetReconstructedVideoFrameSize<Identity: IWMVideoDecoderReconBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwsize: *mut u32) -> windows_core::HRESULT {
@@ -2029,7 +2029,7 @@ impl IWMVideoDecoderReconBuffer_Vtbl {
         iid == &<IWMVideoDecoderReconBuffer as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IWMVideoDecoderReconBuffer {}
 windows_core::imp::define_interface!(IWMVideoForceKeyFrame, IWMVideoForceKeyFrame_Vtbl, 0x9f8496be_5b9a_41b9_a9e8_f21cd80596c2);
 windows_core::imp::interface_hierarchy!(IWMVideoForceKeyFrame, windows_core::IUnknown);

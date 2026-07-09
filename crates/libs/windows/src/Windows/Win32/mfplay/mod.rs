@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn MFPCreateMediaPlayer<P0, P3>(pwszurl: P0, fstartplayback: bool, creationoptions: Option<MFP_CREATION_OPTIONS>, pcallback: P3, hwnd: Option<super::windef::HWND>, ppmediaplayer: Option<*mut Option<IMFPMediaPlayer>>) -> windows_core::HRESULT
 where
@@ -38,11 +38,11 @@ impl IMFPMediaItem {
     pub unsafe fn SetUserData(&self, dwuserdata: usize) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUserData)(windows_core::Interface::as_raw(self), dwuserdata) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetStartStopPosition(&self, pguidstartpositiontype: Option<*mut windows_core::GUID>, pvstartvalue: Option<*mut super::propidlbase::PROPVARIANT>, pguidstoppositiontype: Option<*mut windows_core::GUID>, pvstopvalue: Option<*mut super::propidlbase::PROPVARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStartStopPosition)(windows_core::Interface::as_raw(self), pguidstartpositiontype.unwrap_or(core::mem::zeroed()) as _, pvstartvalue.unwrap_or(core::mem::zeroed()) as _, pguidstoppositiontype.unwrap_or(core::mem::zeroed()) as _, pvstopvalue.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetStartStopPosition(&self, pguidstartpositiontype: Option<*const windows_core::GUID>, pvstartvalue: Option<*const super::propidlbase::PROPVARIANT>, pguidstoppositiontype: Option<*const windows_core::GUID>, pvstopvalue: Option<*const super::propidlbase::PROPVARIANT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStartStopPosition)(windows_core::Interface::as_raw(self), pguidstartpositiontype.unwrap_or(core::mem::zeroed()) as _, pvstartvalue.unwrap_or(core::mem::zeroed()) as _, pguidstoppositiontype.unwrap_or(core::mem::zeroed()) as _, pvstopvalue.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -58,7 +58,7 @@ impl IMFPMediaItem {
             (windows_core::Interface::vtable(self).IsProtected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetDuration(&self, guidpositiontype: *const windows_core::GUID) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -80,14 +80,14 @@ impl IMFPMediaItem {
     pub unsafe fn SetStreamSelection(&self, dwstreamindex: u32, fenabled: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStreamSelection)(windows_core::Interface::as_raw(self), dwstreamindex, fenabled.into()) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStreamAttribute)(windows_core::Interface::as_raw(self), dwstreamindex, guidmfattribute, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -106,7 +106,7 @@ impl IMFPMediaItem {
     {
         unsafe { (windows_core::Interface::vtable(self).SetStreamSink)(windows_core::Interface::as_raw(self), dwstreamindex, pmediasink.param().abi()) }
     }
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn GetMetadata(&self) -> windows_core::Result<super::propsys::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -123,40 +123,40 @@ pub struct IMFPMediaItem_Vtbl {
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetUserData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
     pub SetUserData: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetStartStopPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut super::propidlbase::PROPVARIANT, *mut windows_core::GUID, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetStartStopPosition: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub SetStartStopPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::propidlbase::PROPVARIANT, *const windows_core::GUID, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     SetStartStopPosition: usize,
     pub HasVideo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub HasAudio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub IsProtected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetDuration: usize,
     pub GetNumberOfStreams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetStreamSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetStreamSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetStreamAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetStreamAttribute: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPresentationAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetPresentationAttribute: usize,
     pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFP_MEDIAITEM_CHARACTERISTICS) -> windows_core::HRESULT,
     pub SetStreamSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub GetMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     GetMetadata: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_propsys", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFPMediaItem_Impl: windows_core::IUnknownImpl {
     fn GetMediaPlayer(&self) -> windows_core::Result<IMFPMediaPlayer>;
     fn GetURL(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -178,7 +178,7 @@ pub trait IMFPMediaItem_Impl: windows_core::IUnknownImpl {
     fn SetStreamSink(&self, dwstreamindex: u32, pmediasink: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetMetadata(&self) -> windows_core::Result<super::propsys::IPropertyStore>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_propsys", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFPMediaItem_Vtbl {
     pub const fn new<Identity: IMFPMediaItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMediaPlayer<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmediaplayer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -394,7 +394,7 @@ impl IMFPMediaItem_Vtbl {
         iid == &<IMFPMediaItem as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_propsys", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFPMediaItem {}
 windows_core::imp::define_interface!(IMFPMediaPlayer, IMFPMediaPlayer_Vtbl, 0xa714590a_58af_430a_85bf_44f5ec838d85);
 windows_core::imp::interface_hierarchy!(IMFPMediaPlayer, windows_core::IUnknown);
@@ -411,18 +411,18 @@ impl IMFPMediaPlayer {
     pub unsafe fn FrameStep(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FrameStep)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetPosition(&self, guidpositiontype: *const windows_core::GUID, pvpositionvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), guidpositiontype, core::mem::transmute(pvpositionvalue)) }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPosition(&self, guidpositiontype: *const windows_core::GUID) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPosition)(windows_core::Interface::as_raw(self), guidpositiontype, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetDuration(&self, guidpositiontype: *const windows_core::GUID) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -501,19 +501,19 @@ impl IMFPMediaPlayer {
     pub unsafe fn SetMute(&self, fmute: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), fmute.into()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetNativeVideoSize(&self, pszvideo: Option<*mut super::windef::SIZE>, pszarvideo: Option<*mut super::windef::SIZE>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNativeVideoSize)(windows_core::Interface::as_raw(self), pszvideo.unwrap_or(core::mem::zeroed()) as _, pszarvideo.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetIdealVideoSize(&self, pszmin: Option<*mut super::windef::SIZE>, pszmax: Option<*mut super::windef::SIZE>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetIdealVideoSize)(windows_core::Interface::as_raw(self), pszmin.unwrap_or(core::mem::zeroed()) as _, pszmax.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub unsafe fn SetVideoSourceRect(&self, pnrcsource: *const super::mfidl::MFVideoNormalizedRect) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVideoSourceRect)(windows_core::Interface::as_raw(self), pnrcsource) }
     }
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub unsafe fn GetVideoSourceRect(&self) -> windows_core::Result<super::mfidl::MFVideoNormalizedRect> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -529,7 +529,7 @@ impl IMFPMediaPlayer {
             (windows_core::Interface::vtable(self).GetAspectRatioMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetVideoWindow(&self) -> windows_core::Result<super::windef::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -539,11 +539,11 @@ impl IMFPMediaPlayer {
     pub unsafe fn UpdateVideo(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UpdateVideo)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetBorderColor(&self, clr: super::windef::COLORREF) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), clr) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetBorderColor(&self) -> windows_core::Result<super::windef::COLORREF> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -577,17 +577,17 @@ pub struct IMFPMediaPlayer_Vtbl {
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FrameStep: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub SetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     SetPosition: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetPosition: usize,
-    #[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     GetDuration: usize,
     pub SetRate: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub GetRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -604,43 +604,43 @@ pub struct IMFPMediaPlayer_Vtbl {
     pub SetBalance: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub GetMute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetMute: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetNativeVideoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::SIZE, *mut super::windef::SIZE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetNativeVideoSize: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetIdealVideoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::SIZE, *mut super::windef::SIZE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetIdealVideoSize: usize,
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub SetVideoSourceRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::mfidl::MFVideoNormalizedRect) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfidl"))]
+    #[cfg(not(feature = "mfidl"))]
     SetVideoSourceRect: usize,
-    #[cfg(feature = "Win32_mfidl")]
+    #[cfg(feature = "mfidl")]
     pub GetVideoSourceRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::mfidl::MFVideoNormalizedRect) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_mfidl"))]
+    #[cfg(not(feature = "mfidl"))]
     GetVideoSourceRect: usize,
     pub SetAspectRatioMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetAspectRatioMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetVideoWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::HWND) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetVideoWindow: usize,
     pub UpdateVideo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetBorderColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::COLORREF) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetBorderColor: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetBorderColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::COLORREF) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetBorderColor: usize,
     pub InsertEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub RemoveEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAllEffects: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "mfidl", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFPMediaPlayer_Impl: windows_core::IUnknownImpl {
     fn Play(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
@@ -679,7 +679,7 @@ pub trait IMFPMediaPlayer_Impl: windows_core::IUnknownImpl {
     fn RemoveAllEffects(&self) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "mfidl", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFPMediaPlayer_Vtbl {
     pub const fn new<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Play<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1014,12 +1014,12 @@ impl IMFPMediaPlayer_Vtbl {
         iid == &<IMFPMediaPlayer as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "mfidl", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFPMediaPlayer {}
 windows_core::imp::define_interface!(IMFPMediaPlayerCallback, IMFPMediaPlayerCallback_Vtbl, 0x766c8ffb_5fdb_4fea_a28d_b912996f51bd);
 windows_core::imp::interface_hierarchy!(IMFPMediaPlayerCallback, windows_core::IUnknown);
 impl IMFPMediaPlayerCallback {
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub unsafe fn OnMediaPlayerEvent(&self, peventheader: *const MFP_EVENT_HEADER) {
         unsafe {
             (windows_core::Interface::vtable(self).OnMediaPlayerEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(peventheader));
@@ -1030,16 +1030,16 @@ impl IMFPMediaPlayerCallback {
 #[doc(hidden)]
 pub struct IMFPMediaPlayerCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_propsys")]
+    #[cfg(feature = "propsys")]
     pub OnMediaPlayerEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFP_EVENT_HEADER),
-    #[cfg(not(feature = "Win32_propsys"))]
+    #[cfg(not(feature = "propsys"))]
     OnMediaPlayerEvent: usize,
 }
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 pub trait IMFPMediaPlayerCallback_Impl: windows_core::IUnknownImpl {
     fn OnMediaPlayerEvent(&self, peventheader: *const MFP_EVENT_HEADER);
 }
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 impl IMFPMediaPlayerCallback_Vtbl {
     pub const fn new<Identity: IMFPMediaPlayerCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnMediaPlayerEvent<Identity: IMFPMediaPlayerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventheader: *const MFP_EVENT_HEADER) {
@@ -1054,10 +1054,10 @@ impl IMFPMediaPlayerCallback_Vtbl {
         iid == &<IMFPMediaPlayerCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 impl windows_core::RuntimeName for IMFPMediaPlayerCallback {}
 #[repr(C)]
-#[cfg(all(feature = "Win32_mfidl", feature = "Win32_propsys"))]
+#[cfg(all(feature = "mfidl", feature = "propsys"))]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -1085,13 +1085,13 @@ pub const MFP_CREDENTIAL_PROMPT: _MFP_CREDENTIAL_FLAGS = 1;
 pub const MFP_CREDENTIAL_PROXY: _MFP_CREDENTIAL_FLAGS = 16;
 pub const MFP_CREDENTIAL_SAVE: _MFP_CREDENTIAL_FLAGS = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_ERROR_EVENT {
     pub header: MFP_EVENT_HEADER,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_EVENT_HEADER {
     pub eEventType: MFP_EVENT_TYPE,
@@ -1115,7 +1115,7 @@ pub const MFP_EVENT_TYPE_POSITION_SET: MFP_EVENT_TYPE = 3;
 pub const MFP_EVENT_TYPE_RATE_SET: MFP_EVENT_TYPE = 4;
 pub const MFP_EVENT_TYPE_STOP: MFP_EVENT_TYPE = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_FRAME_STEP_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -1127,14 +1127,14 @@ pub const MFP_MEDIAITEM_CAN_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = 2;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct MFP_MEDIAITEM_CHARACTERISTICS(pub u32);
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_MEDIAITEM_CLEARED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_MEDIAITEM_CREATED_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -1144,7 +1144,7 @@ pub struct MFP_MEDIAITEM_CREATED_EVENT {
 pub const MFP_MEDIAITEM_HAS_SLOW_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = 8;
 pub const MFP_MEDIAITEM_IS_LIVE: _MFP_MEDIAITEM_CHARACTERISTICS = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_MEDIAITEM_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -1157,7 +1157,7 @@ pub const MFP_MEDIAPLAYER_STATE_PLAYING: MFP_MEDIAPLAYER_STATE = 2;
 pub const MFP_MEDIAPLAYER_STATE_SHUTDOWN: MFP_MEDIAPLAYER_STATE = 4;
 pub const MFP_MEDIAPLAYER_STATE_STOPPED: MFP_MEDIAPLAYER_STATE = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_propsys"))]
+#[cfg(all(feature = "mfobjects", feature = "propsys"))]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_MF_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -1170,35 +1170,35 @@ pub const MFP_OPTION_NONE: _MFP_CREATION_OPTIONS = 0;
 pub const MFP_OPTION_NO_MMCSS: _MFP_CREATION_OPTIONS = 2;
 pub const MFP_OPTION_NO_REMOTE_DESKTOP_OPTIMIZATION: _MFP_CREATION_OPTIONS = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_PAUSE_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_PLAYBACK_ENDED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_PLAY_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_POSITION_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_RATE_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -1206,7 +1206,7 @@ pub struct MFP_RATE_SET_EVENT {
     pub flRate: f32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_STOP_EVENT {
     pub header: MFP_EVENT_HEADER,

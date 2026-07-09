@@ -1,23 +1,23 @@
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 windows_link::link!("ws2_32.dll" "system" fn FreeAddrInfoEx(paddrinfoex : *const ADDRINFOEXA));
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 windows_link::link!("ws2_32.dll" "system" fn FreeAddrInfoExW(paddrinfoex : *const ADDRINFOEXW));
 windows_link::link!("ws2_32.dll" "system" fn FreeAddrInfoW(paddrinfo : *const ADDRINFOW));
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
 windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExA(pname : windows_sys::core::PCSTR, pservicename : windows_sys::core::PCSTR, dwnamespace : u32, lpnspid : *const windows_sys::core::GUID, hints : *const ADDRINFOEXA, ppresult : *mut PADDRINFOEXA, timeout : *const super::winsock2::timeval, lpoverlapped : *const super::minwinbase::OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::winnt::HANDLE) -> i32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExCancel(lphandle : *const super::winnt::HANDLE) -> i32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExOverlappedResult(lpoverlapped : *const super::minwinbase::OVERLAPPED) -> i32);
-#[cfg(all(feature = "Win32_guiddef", feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
 windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExW(pname : windows_sys::core::PCWSTR, pservicename : windows_sys::core::PCWSTR, dwnamespace : u32, lpnspid : *const windows_sys::core::GUID, hints : *const ADDRINFOEXW, ppresult : *mut PADDRINFOEXW, timeout : *const super::winsock2::timeval, lpoverlapped : *const super::minwinbase::OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle : *mut super::winnt::HANDLE) -> i32);
 windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoW(pnodename : windows_sys::core::PCWSTR, pservicename : windows_sys::core::PCWSTR, phints : *const ADDRINFOW, ppresult : *mut PADDRINFOW) -> i32);
 windows_link::link!("ws2_32.dll" "system" fn GetNameInfoW(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : *mut u16, nodebuffersize : u32, pservicebuffer : *mut u16, servicebuffersize : u32, flags : i32) -> i32);
 windows_link::link!("ws2_32.dll" "system" fn InetNtopW(family : i32, paddr : *const core::ffi::c_void, pstringbuf : windows_sys::core::PWSTR, stringbufsize : usize) -> windows_sys::core::PCWSTR);
 windows_link::link!("ws2_32.dll" "system" fn InetPtonW(family : i32, pszaddrstring : windows_sys::core::PCWSTR, paddrbuf : *mut core::ffi::c_void) -> i32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
 windows_link::link!("ws2_32.dll" "system" fn SetAddrInfoExA(pname : windows_sys::core::PCSTR, pservicename : windows_sys::core::PCSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : *const super::wtypesbase::BLOB, dwflags : u32, dwnamespace : u32, lpnspid : *const windows_sys::core::GUID, timeout : *const super::winsock2::timeval, lpoverlapped : *const super::minwinbase::OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::winnt::HANDLE) -> i32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
 windows_link::link!("ws2_32.dll" "system" fn SetAddrInfoExW(pname : windows_sys::core::PCWSTR, pservicename : windows_sys::core::PCWSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : *const super::wtypesbase::BLOB, dwflags : u32, dwnamespace : u32, lpnspid : *const windows_sys::core::GUID, timeout : *const super::winsock2::timeval, lpoverlapped : *const super::minwinbase::OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::winnt::HANDLE) -> i32);
 windows_link::link!("ws2_32.dll" "system" fn freeaddrinfo(paddrinfo : *const ADDRINFOA));
 windows_link::link!("ws2_32.dll" "system" fn getaddrinfo(pnodename : windows_sys::core::PCSTR, pservicename : windows_sys::core::PCSTR, phints : *const ADDRINFOA, ppresult : *mut PADDRINFOA) -> i32);
@@ -43,10 +43,10 @@ impl Default for ADDRINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type ADDRINFOEX = ADDRINFOEXA;
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEX2A {
     pub ai_flags: i32,
@@ -63,14 +63,14 @@ pub struct ADDRINFOEX2A {
     pub ai_version: i32,
     pub ai_fqdn: *mut i8,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for ADDRINFOEX2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEX2W {
     pub ai_flags: i32,
@@ -87,14 +87,14 @@ pub struct ADDRINFOEX2W {
     pub ai_version: i32,
     pub ai_fqdn: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for ADDRINFOEX2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEX3 {
     pub ai_flags: i32,
@@ -112,14 +112,14 @@ pub struct ADDRINFOEX3 {
     pub ai_fqdn: windows_sys::core::PWSTR,
     pub ai_interfaceindex: i32,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for ADDRINFOEX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEX4 {
     pub ai_flags: i32,
@@ -138,14 +138,14 @@ pub struct ADDRINFOEX4 {
     pub ai_interfaceindex: i32,
     pub ai_resolutionhandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for ADDRINFOEX4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEX5 {
     pub ai_flags: i32,
@@ -165,14 +165,14 @@ pub struct ADDRINFOEX5 {
     pub ai_resolutionhandle: super::winnt::HANDLE,
     pub ai_ttl: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for ADDRINFOEX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEX6 {
     pub ai_flags: i32,
@@ -195,14 +195,14 @@ pub struct ADDRINFOEX6 {
     pub ai_servers: *mut ADDRINFO_DNS_SERVER,
     pub ai_responseflags: u64,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for ADDRINFOEX6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEX7 {
     pub ai_flags: i32,
@@ -226,14 +226,14 @@ pub struct ADDRINFOEX7 {
     pub ai_responseflags: u64,
     pub ai_extraflags: u64,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for ADDRINFOEX7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEXA {
     pub ai_flags: i32,
@@ -248,14 +248,14 @@ pub struct ADDRINFOEXA {
     pub ai_provider: super::guiddef::LPGUID,
     pub ai_next: *mut Self,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for ADDRINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEXW {
     pub ai_flags: i32,
@@ -270,7 +270,7 @@ pub struct ADDRINFOEXW {
     pub ai_provider: super::guiddef::LPGUID,
     pub ai_next: *mut Self,
 }
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 impl Default for ADDRINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -393,18 +393,18 @@ pub const AI_SECURE: u32 = 32768;
 pub const AI_SECURE_WITH_FALLBACK: u32 = 1048576;
 pub const AI_V4MAPPED: u32 = 2048;
 pub type BTHNS_INQUIRYBLOB = BTH_QUERY_DEVICE;
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 pub type BTHNS_RESTRICTIONBLOB = BTH_QUERY_SERVICE;
 pub const BTHNS_RESULT_DEVICE_AUTHENTICATED: u32 = 262144;
 pub const BTHNS_RESULT_DEVICE_CONNECTED: u32 = 65536;
 pub const BTHNS_RESULT_DEVICE_REMEMBERED: u32 = 131072;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type BTHNS_SETBLOB = BTH_SET_SERVICE;
 pub const BTHPROTO_L2CAP: u32 = 256;
 pub const BTHPROTO_RFCOMM: u32 = 3;
 pub const BTH_ADDR_STRING_SIZE: u32 = 12;
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 #[derive(Clone, Copy, Default)]
 pub struct BTH_INFO_REQ {
     pub btAddr: super::bthdef::BTH_ADDR,
@@ -434,14 +434,14 @@ impl Default for BTH_INFO_RSP_0 {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 #[derive(Clone, Copy)]
 pub struct BTH_PING_REQ {
     pub btAddr: super::bthdef::BTH_ADDR,
     pub dataLen: u8,
     pub data: [u8; 44],
 }
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 impl Default for BTH_PING_REQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -465,7 +465,7 @@ pub struct BTH_QUERY_DEVICE {
     pub length: u8,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 #[derive(Clone, Copy)]
 pub struct BTH_QUERY_SERVICE {
     pub r#type: u32,
@@ -474,7 +474,7 @@ pub struct BTH_QUERY_SERVICE {
     pub numRange: u32,
     pub pRange: [super::bthsdpdef::SdpAttributeRange; 1],
 }
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 impl Default for BTH_QUERY_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -482,7 +482,7 @@ impl Default for BTH_QUERY_SERVICE {
 }
 pub const BTH_SDP_VERSION: u32 = 1;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct BTH_SET_SERVICE {
     pub pSdpVersion: super::minwindef::PULONG,
@@ -492,7 +492,7 @@ pub struct BTH_SET_SERVICE {
     pub ulRecordLength: u32,
     pub pRecord: [u8; 1],
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for BTH_SET_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -551,7 +551,7 @@ pub struct GROUP_SOURCE_REQ {
     pub gsr_source: SOCKADDR_STORAGE,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub struct ICMP_ERROR_INFO {
     pub srcaddress: SOCKADDR_INET,
@@ -559,7 +559,7 @@ pub struct ICMP_ERROR_INFO {
     pub r#type: u8,
     pub code: u8,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for ICMP_ERROR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -577,26 +577,26 @@ pub const IN6ADDR_SOLICITEDNODEMULTICASTPREFIX_LENGTH: u32 = 104;
 pub const IN6ADDR_TEREDOPREFIX_LENGTH: u32 = 32;
 pub const IN6ADDR_V4MAPPEDPREFIX_LENGTH: u32 = 96;
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct IN6_PKTINFO {
     pub ipi6_addr: super::in6addr::IN6_ADDR,
     pub ipi6_ifindex: u32,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for IN6_PKTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct IN6_PKTINFO_EX {
     pub pkt_info: IN6_PKTINFO,
     pub scope_id: SCOPE_ID,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for IN6_PKTINFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -609,7 +609,7 @@ pub const INADDR_NONE: u32 = 4294967295;
 pub const INET6_ADDRSTRLEN: u32 = 65;
 pub const INET_ADDRSTRLEN: u32 = 22;
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub struct INTERFACE_INFO {
     pub iiFlags: u32,
@@ -617,7 +617,7 @@ pub struct INTERFACE_INFO {
     pub iiBroadcastAddress: sockaddr_gen,
     pub iiNetmask: sockaddr_gen,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for INTERFACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -646,26 +646,26 @@ pub const IN_CLASSD_HOST: u32 = 268435455;
 pub const IN_CLASSD_NET: u32 = 4026531840;
 pub const IN_CLASSD_NSHIFT: u32 = 28;
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct IN_PKTINFO {
     pub ipi_addr: super::inaddr::IN_ADDR,
     pub ipi_ifindex: u32,
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for IN_PKTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct IN_PKTINFO_EX {
     pub pkt_info: IN_PKTINFO,
     pub scope_id: SCOPE_ID,
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for IN_PKTINFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -790,13 +790,13 @@ pub const IPV6_IFLIST: u32 = 28;
 pub const IPV6_JOIN_GROUP: u32 = 12;
 pub const IPV6_LEAVE_GROUP: u32 = 13;
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct IPV6_MREQ {
     pub ipv6mr_multiaddr: super::in6addr::IN6_ADDR,
     pub ipv6mr_interface: u32,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for IPV6_MREQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -839,34 +839,34 @@ pub const IP_HDRINCL: u32 = 2;
 pub const IP_HOPLIMIT: u32 = 21;
 pub const IP_IFLIST: u32 = 28;
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct IP_MREQ {
     pub imr_multiaddr: super::inaddr::IN_ADDR,
     pub imr_interface: super::inaddr::IN_ADDR,
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for IP_MREQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct IP_MREQ_SOURCE {
     pub imr_multiaddr: super::inaddr::IN_ADDR,
     pub imr_sourceaddr: super::inaddr::IN_ADDR,
     pub imr_interface: super::inaddr::IN_ADDR,
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for IP_MREQ_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct IP_MSFILTER {
     pub imsf_multiaddr: super::inaddr::IN_ADDR,
@@ -875,7 +875,7 @@ pub struct IP_MSFILTER {
     pub imsf_numsrc: u32,
     pub imsf_slist: [super::inaddr::IN_ADDR; 1],
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for IP_MSFILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -918,32 +918,32 @@ pub const IP_USER_MTU: u32 = 76;
 pub const IP_WFP_REDIRECT_CONTEXT: u32 = 70;
 pub const IP_WFP_REDIRECT_RECORDS: u32 = 60;
 pub type LPADDRINFO = *mut ADDRINFOA;
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type LPADDRINFOEX2A = *mut ADDRINFOEX2A;
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type LPADDRINFOEX2W = *mut ADDRINFOEX2W;
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type LPADDRINFOEX3 = *mut ADDRINFOEX3;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPADDRINFOEX4 = *mut ADDRINFOEX4;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPADDRINFOEX5 = *mut ADDRINFOEX5;
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type LPADDRINFOEXA = *mut ADDRINFOEXA;
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type LPADDRINFOEXW = *mut ADDRINFOEXW;
 pub type LPCSADDR_INFO = *mut CSADDR_INFO;
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 pub type LPINTERFACE_INFO = *mut INTERFACE_INFO;
 pub type LPINTERFACE_INFO_EX = *mut INTERFACE_INFO_EX;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 pub type LPLOOKUPSERVICE_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerror: u32, dwbytes: u32, lpoverlapped: *const super::minwinbase::OVERLAPPED)>;
 pub type LPSOCKADDR = *mut SOCKADDR;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type LPSOCKADDR_IN6 = *mut SOCKADDR_IN6_LH;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type LPSOCKADDR_IN6_LH = *mut SOCKADDR_IN6_LH;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type LPSOCKADDR_IN6_W2KSP1 = *mut SOCKADDR_IN6_W2KSP1;
 pub type LPSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE;
 pub type LPSOCKADDR_STORAGE_LH = *mut SOCKADDR_STORAGE_LH;
@@ -1007,68 +1007,68 @@ pub const NS_WINS: u32 = 14;
 pub const NS_WRQ: u32 = 50;
 pub const NS_X500: u32 = 40;
 pub type PADDRINFOA = *mut ADDRINFOA;
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type PADDRINFOEX = *mut ADDRINFOEXA;
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type PADDRINFOEX2A = *mut ADDRINFOEX2A;
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type PADDRINFOEX2W = *mut ADDRINFOEX2W;
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type PADDRINFOEX3 = *mut ADDRINFOEX3;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PADDRINFOEX4 = *mut ADDRINFOEX4;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PADDRINFOEX5 = *mut ADDRINFOEX5;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PADDRINFOEX6 = *mut ADDRINFOEX6;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PADDRINFOEX7 = *mut ADDRINFOEX7;
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type PADDRINFOEXA = *mut ADDRINFOEXA;
-#[cfg(feature = "Win32_guiddef")]
+#[cfg(feature = "guiddef")]
 pub type PADDRINFOEXW = *mut ADDRINFOEXW;
 pub type PADDRINFOT = *mut ADDRINFOA;
 pub type PADDRINFOW = *mut ADDRINFOW;
 pub type PBTHNS_INQUIRYBLOB = *mut BTH_QUERY_DEVICE;
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 pub type PBTHNS_RESTRICTIONBLOB = *mut BTH_QUERY_SERVICE;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PBTHNS_SETBLOB = *mut BTH_SET_SERVICE;
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 pub type PBTH_INFO_REQ = *mut BTH_INFO_REQ;
 pub type PBTH_INFO_RSP = *mut BTH_INFO_RSP;
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 pub type PBTH_PING_REQ = *mut BTH_PING_REQ;
 pub type PBTH_PING_RSP = *mut BTH_PING_RSP;
 pub type PBTH_QUERY_DEVICE = *mut BTH_QUERY_DEVICE;
-#[cfg(feature = "Win32_bthsdpdef")]
+#[cfg(feature = "bthsdpdef")]
 pub type PBTH_QUERY_SERVICE = *mut BTH_QUERY_SERVICE;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PBTH_SET_SERVICE = *mut BTH_SET_SERVICE;
 pub type PCMSGHDR = *mut WSACMSGHDR;
 pub type PCSADDR_INFO = *mut CSADDR_INFO;
 pub type PGROUP_FILTER = *mut GROUP_FILTER;
 pub type PGROUP_REQ = *mut GROUP_REQ;
 pub type PGROUP_SOURCE_REQ = *mut GROUP_SOURCE_REQ;
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 pub type PICMP_ERROR_INFO = *mut ICMP_ERROR_INFO;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type PIN6_PKTINFO = *mut IN6_PKTINFO;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type PIN6_PKTINFO_EX = *mut IN6_PKTINFO_EX;
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 pub type PIN_PKTINFO = *mut IN_PKTINFO;
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 pub type PIN_PKTINFO_EX = *mut IN_PKTINFO_EX;
 pub type PIN_RECVERR = *mut IN_RECVERR;
 pub type PIPROTO = *mut IPPROTO;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type PIPV6_MREQ = *mut IPV6_MREQ;
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 pub type PIP_MREQ = *mut IP_MREQ;
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 pub type PIP_MREQ_SOURCE = *mut IP_MREQ_SOURCE;
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 pub type PIP_MSFILTER = *mut IP_MSFILTER;
 pub type PMTUD_STATE = i32;
 pub type PPMTUD_STATE = *mut PMTUD_STATE;
@@ -1082,27 +1082,27 @@ pub const PROTECTION_LEVEL_RESTRICTED: u32 = 30;
 pub const PROTECTION_LEVEL_UNRESTRICTED: u32 = 10;
 pub type PSCOPE_ID = *mut SCOPE_ID;
 pub type PSOCKADDR = *mut SOCKADDR;
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 pub type PSOCKADDR_BTH = *mut SOCKADDR_BTH;
 pub type PSOCKADDR_DL = *mut SOCKADDR_DL;
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 pub type PSOCKADDR_IN = *mut SOCKADDR_IN;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type PSOCKADDR_IN6 = *mut SOCKADDR_IN6_LH;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type PSOCKADDR_IN6_LH = *mut SOCKADDR_IN6_LH;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type PSOCKADDR_IN6_PAIR = *mut SOCKADDR_IN6_PAIR;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type PSOCKADDR_IN6_W2KSP1 = *mut SOCKADDR_IN6_W2KSP1;
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 pub type PSOCKADDR_INET = *mut SOCKADDR_INET;
 pub type PSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE;
 pub type PSOCKADDR_STORAGE_LH = *mut SOCKADDR_STORAGE_LH;
 pub type PSOCKADDR_STORAGE_XP = *mut SOCKADDR_STORAGE_XP;
 pub type PSOCKET_ADDRESS = *mut SOCKET_ADDRESS;
 pub type PSOCKET_ADDRESS_LIST = *mut SOCKET_ADDRESS_LIST;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PSOCKET_PROCESSOR_AFFINITY = *mut SOCKET_PROCESSOR_AFFINITY;
 pub type PWSACMSGHDR = *mut WSACMSGHDR;
 pub type PWSAMSG = *mut WSAMSG;
@@ -1287,7 +1287,7 @@ impl Default for SOCKADDR {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_bthdef")]
+#[cfg(feature = "bthdef")]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKADDR_BTH {
     pub addressFamily: u16,
@@ -1308,7 +1308,7 @@ impl Default for SOCKADDR_DL {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN {
     pub sin_family: ADDRESS_FAMILY,
@@ -1316,16 +1316,16 @@ pub struct SOCKADDR_IN {
     pub sin_addr: super::inaddr::IN_ADDR,
     pub sin_zero: [i8; 8],
 }
-#[cfg(feature = "Win32_inaddr")]
+#[cfg(feature = "inaddr")]
 impl Default for SOCKADDR_IN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type SOCKADDR_IN6 = SOCKADDR_IN6_LH;
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN6_LH {
     pub sin6_family: ADDRESS_FAMILY,
@@ -1334,40 +1334,40 @@ pub struct SOCKADDR_IN6_LH {
     pub sin6_addr: super::in6addr::IN6_ADDR,
     pub Anonymous: SOCKADDR_IN6_LH_0,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for SOCKADDR_IN6_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub union SOCKADDR_IN6_LH_0 {
     pub sin6_scope_id: u32,
     pub sin6_scope_struct: SCOPE_ID,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for SOCKADDR_IN6_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN6_PAIR {
     pub SourceAddress: PSOCKADDR_IN6,
     pub DestinationAddress: PSOCKADDR_IN6,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for SOCKADDR_IN6_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN6_W2KSP1 {
     pub sin6_family: i16,
@@ -1376,21 +1376,21 @@ pub struct SOCKADDR_IN6_W2KSP1 {
     pub sin6_addr: super::in6addr::IN6_ADDR,
     pub sin6_scope_id: u32,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for SOCKADDR_IN6_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub union SOCKADDR_INET {
     pub Ipv4: SOCKADDR_IN,
     pub Ipv6: SOCKADDR_IN6,
     pub si_family: ADDRESS_FAMILY,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for SOCKADDR_INET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1446,7 +1446,7 @@ impl Default for SOCKET_ADDRESS_LIST {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKET_PROCESSOR_AFFINITY {
     pub Processor: super::winnt::PROCESSOR_NUMBER,
@@ -1574,21 +1574,21 @@ impl Default for WSAMSG {
 }
 pub const WSK_SO_BASE: u32 = 16384;
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
 pub union sockaddr_gen {
     pub Address: SOCKADDR,
     pub AddressIn: SOCKADDR_IN,
     pub AddressIn6: sockaddr_in6_old,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr"))]
 impl Default for sockaddr_gen {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct sockaddr_in6_old {
     pub sin6_family: i16,
@@ -1596,7 +1596,7 @@ pub struct sockaddr_in6_old {
     pub sin6_flowinfo: u32,
     pub sin6_addr: super::in6addr::IN6_ADDR,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for sockaddr_in6_old {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

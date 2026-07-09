@@ -28,7 +28,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CompareElements)(windows_core::Interface::as_raw(self), el1.param().abi(), el2.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::oaidl::SAFEARRAY, runtimeid2: *const super::oaidl::SAFEARRAY) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -47,7 +47,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ElementFromPoint(&self, pt: super::windef::POINT) -> windows_core::Result<IUIAutomationElement> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -78,7 +78,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd, cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn ElementFromPointBuildCache<P1>(&self, pt: super::windef::POINT, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
@@ -160,14 +160,14 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CreateFalseCondition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreatePropertyCondition(&self, propertyid: super::uiautomationcore::PROPERTYID, value: &super::oaidl::VARIANT) -> windows_core::Result<IUIAutomationCondition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreatePropertyConditionEx(&self, propertyid: super::uiautomationcore::PROPERTYID, value: &super::oaidl::VARIANT, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -184,7 +184,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::oaidl::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -207,7 +207,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::oaidl::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -229,7 +229,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CreateNotCondition)(windows_core::Interface::as_raw(self), condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn AddAutomationEventHandler<P1, P3, P4>(&self, eventid: super::uiautomationcore::EVENTID, element: P1, scope: TreeScope, cacherequest: P3, handler: P4) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IUIAutomationElement>,
@@ -238,7 +238,7 @@ impl IUIAutomation {
     {
         unsafe { (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn RemoveAutomationEventHandler<P1, P2>(&self, eventid: super::uiautomationcore::EVENTID, element: P1, handler: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IUIAutomationElement>,
@@ -246,7 +246,7 @@ impl IUIAutomation {
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), handler.param().abi()) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: *const super::uiautomationcore::PROPERTYID, propertycount: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
@@ -255,7 +255,7 @@ impl IUIAutomation {
     {
         unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray, propertycount) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
@@ -302,35 +302,35 @@ impl IUIAutomation {
     pub unsafe fn RemoveAllEventHandlers(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllEventHandlers)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn IntNativeArrayToSafeArray(&self, array: *const i32, arraycount: i32) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IntNativeArrayToSafeArray)(windows_core::Interface::as_raw(self), array, arraycount, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::oaidl::SAFEARRAY, array: *mut *mut i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IntSafeArrayToNativeArray)(windows_core::Interface::as_raw(self), intarray, array as _, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RectToVariant(&self, rc: super::windef::RECT) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RectToVariant)(windows_core::Interface::as_raw(self), core::mem::transmute(rc), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn VariantToRect(&self, var: &super::oaidl::VARIANT) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VariantToRect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(var), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "oaidl", feature = "windef"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::oaidl::SAFEARRAY, rectarray: *mut *mut super::windef::RECT) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -352,35 +352,35 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).ProxyFactoryMapping)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn GetPropertyProgrammaticName(&self, property: super::uiautomationcore::PROPERTYID) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPropertyProgrammaticName)(windows_core::Interface::as_raw(self), property, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn GetPatternProgrammaticName(&self, pattern: super::uiautomationcore::PATTERNID) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPatternProgrammaticName)(windows_core::Interface::as_raw(self), pattern, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::oaidl::SAFEARRAY, patternnames: *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
         unsafe { (windows_core::Interface::vtable(self).PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.param().abi(), patternids as _, patternnames as _) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::oaidl::SAFEARRAY, propertynames: *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
         unsafe { (windows_core::Interface::vtable(self).PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.param().abi(), propertyids as _, propertynames as _) }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CheckNotSupported(&self, value: &super::oaidl::VARIANT) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -399,7 +399,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).ReservedMixedAttributeValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc"))]
+    #[cfg(all(feature = "oaidl", feature = "oleacc"))]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> windows_core::Result<IUIAutomationElement>
     where
         P0: windows_core::Param<super::oleacc::IAccessible>,
@@ -409,7 +409,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc"))]
+    #[cfg(all(feature = "oaidl", feature = "oleacc"))]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P2>(&self, accessible: P0, childid: i32, cacherequest: P2) -> windows_core::Result<IUIAutomationElement>
     where
         P0: windows_core::Param<super::oleacc::IAccessible>,
@@ -426,22 +426,22 @@ impl IUIAutomation {
 pub struct IUIAutomation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CompareElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CompareRuntimeIds: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY, *const super::oaidl::SAFEARRAY, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CompareRuntimeIds: usize,
     pub GetRootElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ElementFromHandle: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_HWND, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ElementFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::POINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ElementFromPoint: usize,
     pub GetFocusedElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRootElementBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ElementFromHandleBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_HWND, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub ElementFromPointBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::POINT, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     ElementFromPointBuildCache: usize,
     pub GetFocusedElementBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateTreeWalker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -454,42 +454,42 @@ pub struct IUIAutomation_Vtbl {
     pub CreateCacheRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateTrueCondition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFalseCondition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub CreatePropertyCondition: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PROPERTYID, super::oaidl::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     CreatePropertyCondition: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub CreatePropertyConditionEx: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PROPERTYID, super::oaidl::VARIANT, PropertyConditionFlags, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     CreatePropertyConditionEx: usize,
     pub CreateAndCondition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CreateAndConditionFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CreateAndConditionFromArray: usize,
     pub CreateAndConditionFromNativeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateOrCondition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CreateOrConditionFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CreateOrConditionFromArray: usize,
     pub CreateOrConditionFromNativeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateNotCondition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub AddAutomationEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::EVENTID, *mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     AddAutomationEventHandler: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub RemoveAutomationEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::EVENTID, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     RemoveAutomationEventHandler: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub AddPropertyChangedEventHandlerNativeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::uiautomationcore::PROPERTYID, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     AddPropertyChangedEventHandlerNativeArray: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub AddPropertyChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     AddPropertyChangedEventHandler: usize,
     pub RemovePropertyChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddStructureChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -497,60 +497,60 @@ pub struct IUIAutomation_Vtbl {
     pub AddFocusChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveFocusChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAllEventHandlers: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub IntNativeArrayToSafeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32, i32, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     IntNativeArrayToSafeArray: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub IntSafeArrayToNativeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY, *mut *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     IntSafeArrayToNativeArray: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
     pub RectToVariant: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::RECT, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase")))]
     RectToVariant: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
     pub VariantToRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::oaidl::VARIANT, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase")))]
     VariantToRect: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_windef"))]
+    #[cfg(all(feature = "oaidl", feature = "windef"))]
     pub SafeArrayToRectNativeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY, *mut *mut super::windef::RECT, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "oaidl", feature = "windef")))]
     SafeArrayToRectNativeArray: usize,
     pub CreateProxyFactoryEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProxyFactoryMapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub GetPropertyProgrammaticName: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PROPERTYID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     GetPropertyProgrammaticName: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub GetPatternProgrammaticName: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PATTERNID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     GetPatternProgrammaticName: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub PollForPotentialSupportedPatterns: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     PollForPotentialSupportedPatterns: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub PollForPotentialSupportedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     PollForPotentialSupportedProperties: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub CheckNotSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::oaidl::VARIANT, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     CheckNotSupported: usize,
     pub ReservedNotSupportedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReservedMixedAttributeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc"))]
+    #[cfg(all(feature = "oaidl", feature = "oleacc"))]
     pub ElementFromIAccessible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_oleacc")))]
+    #[cfg(not(all(feature = "oaidl", feature = "oleacc")))]
     ElementFromIAccessible: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc"))]
+    #[cfg(all(feature = "oaidl", feature = "oleacc"))]
     pub ElementFromIAccessibleBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_oleacc")))]
+    #[cfg(not(all(feature = "oaidl", feature = "oleacc")))]
     ElementFromIAccessibleBuildCache: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomation_Impl: windows_core::IUnknownImpl {
     fn CompareElements(&self, el1: windows_core::Ref<IUIAutomationElement>, el2: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<windows_core::BOOL>;
     fn CompareRuntimeIds(&self, runtimeid1: *const super::oaidl::SAFEARRAY, runtimeid2: *const super::oaidl::SAFEARRAY) -> windows_core::Result<windows_core::BOOL>;
@@ -608,7 +608,7 @@ pub trait IUIAutomation_Impl: windows_core::IUnknownImpl {
     fn ElementFromIAccessible(&self, accessible: windows_core::Ref<super::oleacc::IAccessible>, childid: i32) -> windows_core::Result<IUIAutomationElement>;
     fn ElementFromIAccessibleBuildCache(&self, accessible: windows_core::Ref<super::oleacc::IAccessible>, childid: i32, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomation_Vtbl {
     pub const fn new<Identity: IUIAutomation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CompareElements<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, el1: *mut core::ffi::c_void, el2: *mut core::ffi::c_void, aresame: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -1262,7 +1262,7 @@ impl IUIAutomation_Vtbl {
         iid == &<IUIAutomation as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomation {}
 windows_core::imp::define_interface!(IUIAutomation2, IUIAutomation2_Vtbl, 0x34723aff_0c9d_49d0_9896_7ab52df8cd8a);
 impl core::ops::Deref for IUIAutomation2 {
@@ -1312,7 +1312,7 @@ pub struct IUIAutomation2_Vtbl {
     pub TransactionTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetTransactionTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomation2_Impl: IUIAutomation_Impl {
     fn AutoSetFocus(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetAutoSetFocus(&self, autosetfocus: windows_core::BOOL) -> windows_core::Result<()>;
@@ -1321,7 +1321,7 @@ pub trait IUIAutomation2_Impl: IUIAutomation_Impl {
     fn TransactionTimeout(&self) -> windows_core::Result<u32>;
     fn SetTransactionTimeout(&self, timeout: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomation2_Vtbl {
     pub const fn new<Identity: IUIAutomation2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AutoSetFocus<Identity: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autosetfocus: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -1392,7 +1392,7 @@ impl IUIAutomation2_Vtbl {
         iid == &<IUIAutomation2 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomation2 {}
 windows_core::imp::define_interface!(IUIAutomation3, IUIAutomation3_Vtbl, 0x73d768da_9b51_4b89_936e_c209290973e7);
 impl core::ops::Deref for IUIAutomation3 {
@@ -1403,7 +1403,7 @@ impl core::ops::Deref for IUIAutomation3 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomation3, windows_core::IUnknown, IUIAutomation, IUIAutomation2);
 impl IUIAutomation3 {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn AddTextEditTextChangedEventHandler<P0, P3, P4>(&self, element: P0, scope: TreeScope, texteditchangetype: super::uiautomationcore::TextEditChangeType, cacherequest: P3, handler: P4) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
@@ -1424,18 +1424,18 @@ impl IUIAutomation3 {
 #[doc(hidden)]
 pub struct IUIAutomation3_Vtbl {
     pub base__: IUIAutomation2_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub AddTextEditTextChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TreeScope, super::uiautomationcore::TextEditChangeType, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     AddTextEditTextChangedEventHandler: usize,
     pub RemoveTextEditTextChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomation3_Impl: IUIAutomation2_Impl {
     fn AddTextEditTextChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, texteditchangetype: super::uiautomationcore::TextEditChangeType, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
     fn RemoveTextEditTextChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomation3_Vtbl {
     pub const fn new<Identity: IUIAutomation3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddTextEditTextChangedEventHandler<Identity: IUIAutomation3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, texteditchangetype: super::uiautomationcore::TextEditChangeType, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1460,7 +1460,7 @@ impl IUIAutomation3_Vtbl {
         iid == &<IUIAutomation3 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID || iid == &<IUIAutomation2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomation3 {}
 windows_core::imp::define_interface!(IUIAutomation4, IUIAutomation4_Vtbl, 0x1189c02a_05f8_4319_8e21_e817e3db2860);
 impl core::ops::Deref for IUIAutomation4 {
@@ -1494,12 +1494,12 @@ pub struct IUIAutomation4_Vtbl {
     pub AddChangesEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TreeScope, *const i32, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveChangesEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomation4_Impl: IUIAutomation3_Impl {
     fn AddChangesEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
     fn RemoveChangesEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomation4_Vtbl {
     pub const fn new<Identity: IUIAutomation4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddChangesEventHandler<Identity: IUIAutomation4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1524,7 +1524,7 @@ impl IUIAutomation4_Vtbl {
         iid == &<IUIAutomation4 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID || iid == &<IUIAutomation2 as windows_core::Interface>::IID || iid == &<IUIAutomation3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomation4 {}
 windows_core::imp::define_interface!(IUIAutomation5, IUIAutomation5_Vtbl, 0x25f700c8_d816_4057_a9dc_3cbdee77e256);
 impl core::ops::Deref for IUIAutomation5 {
@@ -1558,12 +1558,12 @@ pub struct IUIAutomation5_Vtbl {
     pub AddNotificationEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveNotificationEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomation5_Impl: IUIAutomation4_Impl {
     fn AddNotificationEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
     fn RemoveNotificationEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomation5_Vtbl {
     pub const fn new<Identity: IUIAutomation5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddNotificationEventHandler<Identity: IUIAutomation5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1588,7 +1588,7 @@ impl IUIAutomation5_Vtbl {
         iid == &<IUIAutomation5 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID || iid == &<IUIAutomation2 as windows_core::Interface>::IID || iid == &<IUIAutomation3 as windows_core::Interface>::IID || iid == &<IUIAutomation4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomation5 {}
 windows_core::imp::define_interface!(IUIAutomation6, IUIAutomation6_Vtbl, 0xaae072da_29e3_413d_87a7_192dbf81ed10);
 impl core::ops::Deref for IUIAutomation6 {
@@ -1667,7 +1667,7 @@ pub struct IUIAutomation6_Vtbl {
     pub AddActiveTextPositionChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveActiveTextPositionChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomation6_Impl: IUIAutomation5_Impl {
     fn CreateEventHandlerGroup(&self) -> windows_core::Result<IUIAutomationEventHandlerGroup>;
     fn AddEventHandlerGroup(&self, element: windows_core::Ref<IUIAutomationElement>, handlergroup: windows_core::Ref<IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
@@ -1679,7 +1679,7 @@ pub trait IUIAutomation6_Impl: IUIAutomation5_Impl {
     fn AddActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
     fn RemoveActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomation6_Vtbl {
     pub const fn new<Identity: IUIAutomation6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateEventHandlerGroup<Identity: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handlergroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1771,7 +1771,7 @@ impl IUIAutomation6_Vtbl {
         iid == &<IUIAutomation6 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID || iid == &<IUIAutomation2 as windows_core::Interface>::IID || iid == &<IUIAutomation3 as windows_core::Interface>::IID || iid == &<IUIAutomation4 as windows_core::Interface>::IID || iid == &<IUIAutomation5 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomation6 {}
 windows_core::imp::define_interface!(IUIAutomationActiveTextPositionChangedEventHandler, IUIAutomationActiveTextPositionChangedEventHandler_Vtbl, 0xf97933b0_8dae_4496_8997_5ba015fe0d82);
 windows_core::imp::interface_hierarchy!(IUIAutomationActiveTextPositionChangedEventHandler, windows_core::IUnknown);
@@ -1829,7 +1829,7 @@ impl IUIAutomationAndCondition {
     pub unsafe fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetChildrenAsNativeArray)(windows_core::Interface::as_raw(self), childarray as _, childarraycount as _) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetChildren(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1843,18 +1843,18 @@ pub struct IUIAutomationAndCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub ChildCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetChildrenAsNativeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetChildren: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetChildren: usize,
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 pub trait IUIAutomationAndCondition_Impl: IUIAutomationCondition_Impl {
     fn ChildCount(&self) -> windows_core::Result<i32>;
     fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> windows_core::Result<()>;
     fn GetChildren(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IUIAutomationAndCondition_Vtbl {
     pub const fn new<Identity: IUIAutomationAndCondition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ChildCount<Identity: IUIAutomationAndCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childcount: *mut i32) -> windows_core::HRESULT {
@@ -1898,7 +1898,7 @@ impl IUIAutomationAndCondition_Vtbl {
         iid == &<IUIAutomationAndCondition as windows_core::Interface>::IID || iid == &<IUIAutomationCondition as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl windows_core::RuntimeName for IUIAutomationAndCondition {}
 windows_core::imp::define_interface!(IUIAutomationAnnotationPattern, IUIAutomationAnnotationPattern_Vtbl, 0x9a175b21_339e_41b1_8e8b_623f6b681098);
 windows_core::imp::interface_hierarchy!(IUIAutomationAnnotationPattern, windows_core::IUnknown);
@@ -2181,11 +2181,11 @@ impl windows_core::RuntimeName for IUIAutomationBoolCondition {}
 windows_core::imp::define_interface!(IUIAutomationCacheRequest, IUIAutomationCacheRequest_Vtbl, 0xb32a92b5_bc25_4078_9c08_d7ee95c48e03);
 windows_core::imp::interface_hierarchy!(IUIAutomationCacheRequest, windows_core::IUnknown);
 impl IUIAutomationCacheRequest {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn AddProperty(&self, propertyid: super::uiautomationcore::PROPERTYID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddProperty)(windows_core::Interface::as_raw(self), propertyid) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn AddPattern(&self, patternid: super::uiautomationcore::PATTERNID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddPattern)(windows_core::Interface::as_raw(self), patternid) }
     }
@@ -2230,13 +2230,13 @@ impl IUIAutomationCacheRequest {
 #[doc(hidden)]
 pub struct IUIAutomationCacheRequest_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub AddProperty: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PROPERTYID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     AddProperty: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub AddPattern: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PATTERNID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     AddPattern: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TreeScope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TreeScope) -> windows_core::HRESULT,
@@ -2246,7 +2246,7 @@ pub struct IUIAutomationCacheRequest_Vtbl {
     pub AutomationElementMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AutomationElementMode) -> windows_core::HRESULT,
     pub SetAutomationElementMode: unsafe extern "system" fn(*mut core::ffi::c_void, AutomationElementMode) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationCacheRequest_Impl: windows_core::IUnknownImpl {
     fn AddProperty(&self, propertyid: super::uiautomationcore::PROPERTYID) -> windows_core::Result<()>;
     fn AddPattern(&self, patternid: super::uiautomationcore::PATTERNID) -> windows_core::Result<()>;
@@ -2258,7 +2258,7 @@ pub trait IUIAutomationCacheRequest_Impl: windows_core::IUnknownImpl {
     fn AutomationElementMode(&self) -> windows_core::Result<AutomationElementMode>;
     fn SetAutomationElementMode(&self, mode: AutomationElementMode) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationCacheRequest_Vtbl {
     pub const fn new<Identity: IUIAutomationCacheRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddProperty<Identity: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: super::uiautomationcore::PROPERTYID) -> windows_core::HRESULT {
@@ -2356,12 +2356,12 @@ impl IUIAutomationCacheRequest_Vtbl {
         iid == &<IUIAutomationCacheRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationCacheRequest {}
 windows_core::imp::define_interface!(IUIAutomationChangesEventHandler, IUIAutomationChangesEventHandler_Vtbl, 0x58edca55_2c3e_4980_b1b9_56c17f27a2a0);
 windows_core::imp::interface_hierarchy!(IUIAutomationChangesEventHandler, windows_core::IUnknown);
 impl IUIAutomationChangesEventHandler {
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn HandleChangesEvent<P0>(&self, sender: P0, uiachanges: *const super::uiautomationcore::UiaChangeInfo, changescount: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
@@ -2373,16 +2373,16 @@ impl IUIAutomationChangesEventHandler {
 #[doc(hidden)]
 pub struct IUIAutomationChangesEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub HandleChangesEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::uiautomationcore::UiaChangeInfo, i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     HandleChangesEvent: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationChangesEventHandler_Impl: windows_core::IUnknownImpl {
     fn HandleChangesEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, uiachanges: *const super::uiautomationcore::UiaChangeInfo, changescount: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationChangesEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationChangesEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HandleChangesEvent<Identity: IUIAutomationChangesEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, uiachanges: *const super::uiautomationcore::UiaChangeInfo, changescount: i32) -> windows_core::HRESULT {
@@ -2397,7 +2397,7 @@ impl IUIAutomationChangesEventHandler_Vtbl {
         iid == &<IUIAutomationChangesEventHandler as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationChangesEventHandler {}
 windows_core::imp::define_interface!(IUIAutomationCondition, IUIAutomationCondition_Vtbl, 0x352ffba8_0973_437c_a61f_f64cafd81df9);
 windows_core::imp::interface_hierarchy!(IUIAutomationCondition, windows_core::IUnknown);
@@ -2419,7 +2419,7 @@ impl windows_core::RuntimeName for IUIAutomationCondition {}
 windows_core::imp::define_interface!(IUIAutomationCustomNavigationPattern, IUIAutomationCustomNavigationPattern_Vtbl, 0x01ea217a_1766_47ed_a6cc_acf492854b1f);
 windows_core::imp::interface_hierarchy!(IUIAutomationCustomNavigationPattern, windows_core::IUnknown);
 impl IUIAutomationCustomNavigationPattern {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn Navigate(&self, direction: super::uiautomationcore::NavigateDirection) -> windows_core::Result<IUIAutomationElement> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2431,16 +2431,16 @@ impl IUIAutomationCustomNavigationPattern {
 #[doc(hidden)]
 pub struct IUIAutomationCustomNavigationPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::NavigateDirection, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     Navigate: usize,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationCustomNavigationPattern_Impl: windows_core::IUnknownImpl {
     fn Navigate(&self, direction: super::uiautomationcore::NavigateDirection) -> windows_core::Result<IUIAutomationElement>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationCustomNavigationPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationCustomNavigationPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Navigate<Identity: IUIAutomationCustomNavigationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, direction: super::uiautomationcore::NavigateDirection, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2461,23 +2461,23 @@ impl IUIAutomationCustomNavigationPattern_Vtbl {
         iid == &<IUIAutomationCustomNavigationPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationCustomNavigationPattern {}
 windows_core::imp::define_interface!(IUIAutomationDockPattern, IUIAutomationDockPattern_Vtbl, 0xfde5ef97_1464_48f6_90bf_43d0948e86ec);
 windows_core::imp::interface_hierarchy!(IUIAutomationDockPattern, windows_core::IUnknown);
 impl IUIAutomationDockPattern {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn SetDockPosition(&self, dockpos: super::uiautomationcore::DockPosition) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDockPosition)(windows_core::Interface::as_raw(self), dockpos) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CurrentDockPosition(&self) -> windows_core::Result<super::uiautomationcore::DockPosition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDockPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CachedDockPosition(&self) -> windows_core::Result<super::uiautomationcore::DockPosition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2489,26 +2489,26 @@ impl IUIAutomationDockPattern {
 #[doc(hidden)]
 pub struct IUIAutomationDockPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub SetDockPosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::DockPosition) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     SetDockPosition: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CurrentDockPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::DockPosition) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CurrentDockPosition: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CachedDockPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::DockPosition) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CachedDockPosition: usize,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationDockPattern_Impl: windows_core::IUnknownImpl {
     fn SetDockPosition(&self, dockpos: super::uiautomationcore::DockPosition) -> windows_core::Result<()>;
     fn CurrentDockPosition(&self) -> windows_core::Result<super::uiautomationcore::DockPosition>;
     fn CachedDockPosition(&self) -> windows_core::Result<super::uiautomationcore::DockPosition>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationDockPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationDockPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDockPosition<Identity: IUIAutomationDockPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dockpos: super::uiautomationcore::DockPosition) -> windows_core::HRESULT {
@@ -2552,7 +2552,7 @@ impl IUIAutomationDockPattern_Vtbl {
         iid == &<IUIAutomationDockPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationDockPattern {}
 windows_core::imp::define_interface!(IUIAutomationDragPattern, IUIAutomationDragPattern_Vtbl, 0x1dc7b570_1f54_4bad_bcda_d36a722fb7bd);
 windows_core::imp::interface_hierarchy!(IUIAutomationDragPattern, windows_core::IUnknown);
@@ -2581,14 +2581,14 @@ impl IUIAutomationDragPattern {
             (windows_core::Interface::vtable(self).CachedDropEffect)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CurrentDropEffects(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDropEffects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CachedDropEffects(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2616,18 +2616,18 @@ pub struct IUIAutomationDragPattern_Vtbl {
     pub CachedIsGrabbed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentDropEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedDropEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CurrentDropEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CurrentDropEffects: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CachedDropEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CachedDropEffects: usize,
     pub GetCurrentGrabbedItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCachedGrabbedItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 pub trait IUIAutomationDragPattern_Impl: windows_core::IUnknownImpl {
     fn CurrentIsGrabbed(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedIsGrabbed(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -2638,7 +2638,7 @@ pub trait IUIAutomationDragPattern_Impl: windows_core::IUnknownImpl {
     fn GetCurrentGrabbedItems(&self) -> windows_core::Result<IUIAutomationElementArray>;
     fn GetCachedGrabbedItems(&self) -> windows_core::Result<IUIAutomationElementArray>;
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IUIAutomationDragPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationDragPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentIsGrabbed<Identity: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -2753,7 +2753,7 @@ impl IUIAutomationDragPattern_Vtbl {
         iid == &<IUIAutomationDragPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl windows_core::RuntimeName for IUIAutomationDragPattern {}
 windows_core::imp::define_interface!(IUIAutomationDropTargetPattern, IUIAutomationDropTargetPattern_Vtbl, 0x69a095f7_eee4_430e_a46b_fb73b1ae39a5);
 windows_core::imp::interface_hierarchy!(IUIAutomationDropTargetPattern, windows_core::IUnknown);
@@ -2770,14 +2770,14 @@ impl IUIAutomationDropTargetPattern {
             (windows_core::Interface::vtable(self).CachedDropTargetEffect)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CurrentDropTargetEffects(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDropTargetEffects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CachedDropTargetEffects(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2791,23 +2791,23 @@ pub struct IUIAutomationDropTargetPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CurrentDropTargetEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedDropTargetEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CurrentDropTargetEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CurrentDropTargetEffects: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CachedDropTargetEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CachedDropTargetEffects: usize,
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 pub trait IUIAutomationDropTargetPattern_Impl: windows_core::IUnknownImpl {
     fn CurrentDropTargetEffect(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedDropTargetEffect(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CurrentDropTargetEffects(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
     fn CachedDropTargetEffects(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IUIAutomationDropTargetPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationDropTargetPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentDropTargetEffect<Identity: IUIAutomationDropTargetPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2870,7 +2870,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
         iid == &<IUIAutomationDropTargetPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl windows_core::RuntimeName for IUIAutomationDropTargetPattern {}
 windows_core::imp::define_interface!(IUIAutomationElement, IUIAutomationElement_Vtbl, 0xd22108aa_8ac5_49a5_837b_37bbb3d7591e);
 windows_core::imp::interface_hierarchy!(IUIAutomationElement, windows_core::IUnknown);
@@ -2878,7 +2878,7 @@ impl IUIAutomationElement {
     pub unsafe fn SetFocus(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFocus)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetRuntimeId(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2932,35 +2932,35 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: super::uiautomationcore::PROPERTYID) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentPropertyValue)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCurrentPropertyValueEx(&self, propertyid: super::uiautomationcore::PROPERTYID, ignoredefaultvalue: bool) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: super::uiautomationcore::PROPERTYID) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedPropertyValue)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCachedPropertyValueEx(&self, propertyid: super::uiautomationcore::PROPERTYID, ignoredefaultvalue: bool) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: super::uiautomationcore::PATTERNID) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -2968,7 +2968,7 @@ impl IUIAutomationElement {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetCurrentPatternAs)(windows_core::Interface::as_raw(self), patternid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn GetCachedPatternAs<T>(&self, patternid: super::uiautomationcore::PATTERNID) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -2976,14 +2976,14 @@ impl IUIAutomationElement {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetCachedPatternAs)(windows_core::Interface::as_raw(self), patternid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn GetCurrentPattern(&self, patternid: super::uiautomationcore::PATTERNID) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentPattern)(windows_core::Interface::as_raw(self), patternid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn GetCachedPattern(&self, patternid: super::uiautomationcore::PATTERNID) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3008,7 +3008,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CurrentProcessId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CurrentControlType(&self) -> windows_core::Result<super::uiautomationcore::CONTROLTYPEID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3117,7 +3117,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CurrentIsOffscreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CurrentOrientation(&self) -> windows_core::Result<super::uiautomationcore::OrientationType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3142,7 +3142,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CurrentItemStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn CurrentBoundingRectangle(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3203,7 +3203,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CachedProcessId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CachedControlType(&self) -> windows_core::Result<super::uiautomationcore::CONTROLTYPEID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3312,7 +3312,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CachedIsOffscreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CachedOrientation(&self) -> windows_core::Result<super::uiautomationcore::OrientationType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3337,7 +3337,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CachedItemStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn CachedBoundingRectangle(&self) -> windows_core::Result<super::windef::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3392,7 +3392,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CachedProviderDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::windef::POINT) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3405,53 +3405,53 @@ impl IUIAutomationElement {
 pub struct IUIAutomationElement_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFocus: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetRuntimeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetRuntimeId: usize,
     pub FindFirst: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindAll: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindFirstBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindAllBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BuildUpdatedCache: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub GetCurrentPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PROPERTYID, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     GetCurrentPropertyValue: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub GetCurrentPropertyValueEx: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PROPERTYID, windows_core::BOOL, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     GetCurrentPropertyValueEx: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub GetCachedPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PROPERTYID, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     GetCachedPropertyValue: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub GetCachedPropertyValueEx: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PROPERTYID, windows_core::BOOL, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     GetCachedPropertyValueEx: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub GetCurrentPatternAs: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PATTERNID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     GetCurrentPatternAs: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub GetCachedPatternAs: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PATTERNID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     GetCachedPatternAs: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub GetCurrentPattern: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PATTERNID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     GetCurrentPattern: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub GetCachedPattern: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::PATTERNID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     GetCachedPattern: usize,
     pub GetCachedParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCachedChildren: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CurrentControlType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::CONTROLTYPEID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CurrentControlType: usize,
     pub CurrentLocalizedControlType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3470,16 +3470,16 @@ pub struct IUIAutomationElement_Vtbl {
     pub CurrentNativeWindowHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIA_HWND) -> windows_core::HRESULT,
     pub CurrentItemType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentIsOffscreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CurrentOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::OrientationType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CurrentOrientation: usize,
     pub CurrentFrameworkId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentIsRequiredForForm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentItemStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub CurrentBoundingRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     CurrentBoundingRectangle: usize,
     pub CurrentLabeledBy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentAriaRole: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3490,9 +3490,9 @@ pub struct IUIAutomationElement_Vtbl {
     pub CurrentFlowsTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentProviderDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CachedControlType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::CONTROLTYPEID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CachedControlType: usize,
     pub CachedLocalizedControlType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3511,16 +3511,16 @@ pub struct IUIAutomationElement_Vtbl {
     pub CachedNativeWindowHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIA_HWND) -> windows_core::HRESULT,
     pub CachedItemType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedIsOffscreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CachedOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::OrientationType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CachedOrientation: usize,
     pub CachedFrameworkId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedIsRequiredForForm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedItemStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub CachedBoundingRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     CachedBoundingRectangle: usize,
     pub CachedLabeledBy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedAriaRole: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3530,12 +3530,12 @@ pub struct IUIAutomationElement_Vtbl {
     pub CachedDescribedBy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedFlowsTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedProviderDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetClickablePoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::POINT, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetClickablePoint: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationElement_Impl: windows_core::IUnknownImpl {
     fn SetFocus(&self) -> windows_core::Result<()>;
     fn GetRuntimeId(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
@@ -3620,7 +3620,7 @@ pub trait IUIAutomationElement_Impl: windows_core::IUnknownImpl {
     fn CachedProviderDescription(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetClickablePoint(&self, clickable: *mut super::windef::POINT) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationElement_Vtbl {
     pub const fn new<Identity: IUIAutomationElement_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetFocus<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4679,7 +4679,7 @@ impl IUIAutomationElement_Vtbl {
         iid == &<IUIAutomationElement as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationElement {}
 windows_core::imp::define_interface!(IUIAutomationElement2, IUIAutomationElement2_Vtbl, 0x6749c683_f70d_4487_a698_5f79d55290d6);
 impl core::ops::Deref for IUIAutomationElement2 {
@@ -4702,14 +4702,14 @@ impl IUIAutomationElement2 {
             (windows_core::Interface::vtable(self).CachedOptimizeForVisualContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CurrentLiveSetting(&self) -> windows_core::Result<super::uiautomationcore::LiveSetting> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentLiveSetting)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CachedLiveSetting(&self) -> windows_core::Result<super::uiautomationcore::LiveSetting> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4735,18 +4735,18 @@ pub struct IUIAutomationElement2_Vtbl {
     pub base__: IUIAutomationElement_Vtbl,
     pub CurrentOptimizeForVisualContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedOptimizeForVisualContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CurrentLiveSetting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::LiveSetting) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CurrentLiveSetting: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CachedLiveSetting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::LiveSetting) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CachedLiveSetting: usize,
     pub CurrentFlowsFrom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedFlowsFrom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationElement2_Impl: IUIAutomationElement_Impl {
     fn CurrentOptimizeForVisualContent(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedOptimizeForVisualContent(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -4755,7 +4755,7 @@ pub trait IUIAutomationElement2_Impl: IUIAutomationElement_Impl {
     fn CurrentFlowsFrom(&self) -> windows_core::Result<IUIAutomationElementArray>;
     fn CachedFlowsFrom(&self) -> windows_core::Result<IUIAutomationElementArray>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationElement2_Vtbl {
     pub const fn new<Identity: IUIAutomationElement2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentOptimizeForVisualContent<Identity: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -4844,7 +4844,7 @@ impl IUIAutomationElement2_Vtbl {
         iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationElement2 {}
 windows_core::imp::define_interface!(IUIAutomationElement3, IUIAutomationElement3_Vtbl, 0x8471df34_aee0_4a01_a7de_7db9af12c296);
 impl core::ops::Deref for IUIAutomationElement3 {
@@ -4879,13 +4879,13 @@ pub struct IUIAutomationElement3_Vtbl {
     pub CurrentIsPeripheral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedIsPeripheral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationElement3_Impl: IUIAutomationElement2_Impl {
     fn ShowContextMenu(&self) -> windows_core::Result<()>;
     fn CurrentIsPeripheral(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedIsPeripheral(&self) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationElement3_Vtbl {
     pub const fn new<Identity: IUIAutomationElement3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ShowContextMenu<Identity: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4929,7 +4929,7 @@ impl IUIAutomationElement3_Vtbl {
         iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationElement3 {}
 windows_core::imp::define_interface!(IUIAutomationElement4, IUIAutomationElement4_Vtbl, 0x3b6e233c_52fb_4063_a4c9_77c075c2a06b);
 impl core::ops::Deref for IUIAutomationElement4 {
@@ -4958,7 +4958,7 @@ impl IUIAutomationElement4 {
             (windows_core::Interface::vtable(self).CurrentLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CurrentAnnotationTypes(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4989,7 +4989,7 @@ impl IUIAutomationElement4 {
             (windows_core::Interface::vtable(self).CachedLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn CachedAnnotationTypes(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5010,21 +5010,21 @@ pub struct IUIAutomationElement4_Vtbl {
     pub CurrentPositionInSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub CurrentSizeOfSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub CurrentLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CurrentAnnotationTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CurrentAnnotationTypes: usize,
     pub CurrentAnnotationObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedPositionInSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub CachedSizeOfSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub CachedLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub CachedAnnotationTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     CachedAnnotationTypes: usize,
     pub CachedAnnotationObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationElement4_Impl: IUIAutomationElement3_Impl {
     fn CurrentPositionInSet(&self) -> windows_core::Result<i32>;
     fn CurrentSizeOfSet(&self) -> windows_core::Result<i32>;
@@ -5037,7 +5037,7 @@ pub trait IUIAutomationElement4_Impl: IUIAutomationElement3_Impl {
     fn CachedAnnotationTypes(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
     fn CachedAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationElement4_Vtbl {
     pub const fn new<Identity: IUIAutomationElement4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentPositionInSet<Identity: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -5178,7 +5178,7 @@ impl IUIAutomationElement4_Vtbl {
         iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationElement4 {}
 windows_core::imp::define_interface!(IUIAutomationElement5, IUIAutomationElement5_Vtbl, 0x98141c1d_0d0e_4175_bbe2_6bff455842a7);
 impl core::ops::Deref for IUIAutomationElement5 {
@@ -5189,7 +5189,7 @@ impl core::ops::Deref for IUIAutomationElement5 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement5, windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4);
 impl IUIAutomationElement5 {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CurrentLandmarkType(&self) -> windows_core::Result<super::uiautomationcore::LANDMARKTYPEID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5202,7 +5202,7 @@ impl IUIAutomationElement5 {
             (windows_core::Interface::vtable(self).CurrentLocalizedLandmarkType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CachedLandmarkType(&self) -> windows_core::Result<super::uiautomationcore::LANDMARKTYPEID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5220,25 +5220,25 @@ impl IUIAutomationElement5 {
 #[doc(hidden)]
 pub struct IUIAutomationElement5_Vtbl {
     pub base__: IUIAutomationElement4_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CurrentLandmarkType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::LANDMARKTYPEID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CurrentLandmarkType: usize,
     pub CurrentLocalizedLandmarkType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CachedLandmarkType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::LANDMARKTYPEID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CachedLandmarkType: usize,
     pub CachedLocalizedLandmarkType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationElement5_Impl: IUIAutomationElement4_Impl {
     fn CurrentLandmarkType(&self) -> windows_core::Result<super::uiautomationcore::LANDMARKTYPEID>;
     fn CurrentLocalizedLandmarkType(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedLandmarkType(&self) -> windows_core::Result<super::uiautomationcore::LANDMARKTYPEID>;
     fn CachedLocalizedLandmarkType(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationElement5_Vtbl {
     pub const fn new<Identity: IUIAutomationElement5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentLandmarkType<Identity: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::uiautomationcore::LANDMARKTYPEID) -> windows_core::HRESULT {
@@ -5301,7 +5301,7 @@ impl IUIAutomationElement5_Vtbl {
         iid == &<IUIAutomationElement5 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationElement5 {}
 windows_core::imp::define_interface!(IUIAutomationElement6, IUIAutomationElement6_Vtbl, 0x4780d450_8bca_4977_afa5_a4a517f555e3);
 impl core::ops::Deref for IUIAutomationElement6 {
@@ -5332,12 +5332,12 @@ pub struct IUIAutomationElement6_Vtbl {
     pub CurrentFullDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedFullDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationElement6_Impl: IUIAutomationElement5_Impl {
     fn CurrentFullDescription(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedFullDescription(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationElement6_Vtbl {
     pub const fn new<Identity: IUIAutomationElement6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentFullDescription<Identity: IUIAutomationElement6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5374,7 +5374,7 @@ impl IUIAutomationElement6_Vtbl {
         iid == &<IUIAutomationElement6 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement5 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationElement6 {}
 windows_core::imp::define_interface!(IUIAutomationElement7, IUIAutomationElement7_Vtbl, 0x204e8572_cfc3_4c11_b0c8_7da7420750b7);
 impl core::ops::Deref for IUIAutomationElement7 {
@@ -5427,7 +5427,7 @@ impl IUIAutomationElement7 {
             (windows_core::Interface::vtable(self).FindAllWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: super::uiautomationcore::METADATAID) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5443,12 +5443,12 @@ pub struct IUIAutomationElement7_Vtbl {
     pub FindAllWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, TreeTraversalOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindFirstWithOptionsBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void, TreeTraversalOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindAllWithOptionsBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void, TreeTraversalOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub GetCurrentMetadataValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::uiautomationcore::METADATAID, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     GetCurrentMetadataValue: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationElement7_Impl: IUIAutomationElement6_Impl {
     fn FindFirstWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
     fn FindAllWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
@@ -5456,7 +5456,7 @@ pub trait IUIAutomationElement7_Impl: IUIAutomationElement6_Impl {
     fn FindAllWithOptionsBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
     fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: super::uiautomationcore::METADATAID) -> windows_core::Result<super::oaidl::VARIANT>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationElement7_Vtbl {
     pub const fn new<Identity: IUIAutomationElement7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FindFirstWithOptions<Identity: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5532,7 +5532,7 @@ impl IUIAutomationElement7_Vtbl {
         iid == &<IUIAutomationElement7 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement5 as windows_core::Interface>::IID || iid == &<IUIAutomationElement6 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationElement7 {}
 windows_core::imp::define_interface!(IUIAutomationElement8, IUIAutomationElement8_Vtbl, 0x8c60217d_5411_4cde_bcc0_1ceda223830c);
 impl core::ops::Deref for IUIAutomationElement8 {
@@ -5543,14 +5543,14 @@ impl core::ops::Deref for IUIAutomationElement8 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement8, windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6, IUIAutomationElement7);
 impl IUIAutomationElement8 {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CurrentHeadingLevel(&self) -> windows_core::Result<super::uiautomationcore::HEADINGLEVELID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentHeadingLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CachedHeadingLevel(&self) -> windows_core::Result<super::uiautomationcore::HEADINGLEVELID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5562,21 +5562,21 @@ impl IUIAutomationElement8 {
 #[doc(hidden)]
 pub struct IUIAutomationElement8_Vtbl {
     pub base__: IUIAutomationElement7_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CurrentHeadingLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::HEADINGLEVELID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CurrentHeadingLevel: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CachedHeadingLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::HEADINGLEVELID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CachedHeadingLevel: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationElement8_Impl: IUIAutomationElement7_Impl {
     fn CurrentHeadingLevel(&self) -> windows_core::Result<super::uiautomationcore::HEADINGLEVELID>;
     fn CachedHeadingLevel(&self) -> windows_core::Result<super::uiautomationcore::HEADINGLEVELID>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationElement8_Vtbl {
     pub const fn new<Identity: IUIAutomationElement8_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentHeadingLevel<Identity: IUIAutomationElement8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::uiautomationcore::HEADINGLEVELID) -> windows_core::HRESULT {
@@ -5613,7 +5613,7 @@ impl IUIAutomationElement8_Vtbl {
         iid == &<IUIAutomationElement8 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement5 as windows_core::Interface>::IID || iid == &<IUIAutomationElement6 as windows_core::Interface>::IID || iid == &<IUIAutomationElement7 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationElement8 {}
 windows_core::imp::define_interface!(IUIAutomationElement9, IUIAutomationElement9_Vtbl, 0x39325fac_039d_440e_a3a3_5eb81a5cecc3);
 impl core::ops::Deref for IUIAutomationElement9 {
@@ -5644,12 +5644,12 @@ pub struct IUIAutomationElement9_Vtbl {
     pub CurrentIsDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedIsDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationElement9_Impl: IUIAutomationElement8_Impl {
     fn CurrentIsDialog(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedIsDialog(&self) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationElement9_Vtbl {
     pub const fn new<Identity: IUIAutomationElement9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentIsDialog<Identity: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -5686,7 +5686,7 @@ impl IUIAutomationElement9_Vtbl {
         iid == &<IUIAutomationElement9 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement5 as windows_core::Interface>::IID || iid == &<IUIAutomationElement6 as windows_core::Interface>::IID || iid == &<IUIAutomationElement7 as windows_core::Interface>::IID || iid == &<IUIAutomationElement8 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_windef", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationElement9 {}
 windows_core::imp::define_interface!(IUIAutomationElementArray, IUIAutomationElementArray_Vtbl, 0x14314595_b4bc_4055_95f2_58f2e42c9855);
 windows_core::imp::interface_hierarchy!(IUIAutomationElementArray, windows_core::IUnknown);
@@ -5751,7 +5751,7 @@ impl windows_core::RuntimeName for IUIAutomationElementArray {}
 windows_core::imp::define_interface!(IUIAutomationEventHandler, IUIAutomationEventHandler_Vtbl, 0x146c3c17_f12e_4e22_8c27_f894b9b79c69);
 windows_core::imp::interface_hierarchy!(IUIAutomationEventHandler, windows_core::IUnknown);
 impl IUIAutomationEventHandler {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn HandleAutomationEvent<P0>(&self, sender: P0, eventid: super::uiautomationcore::EVENTID) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
@@ -5763,16 +5763,16 @@ impl IUIAutomationEventHandler {
 #[doc(hidden)]
 pub struct IUIAutomationEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub HandleAutomationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::uiautomationcore::EVENTID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     HandleAutomationEvent: usize,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationEventHandler_Impl: windows_core::IUnknownImpl {
     fn HandleAutomationEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, eventid: super::uiautomationcore::EVENTID) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HandleAutomationEvent<Identity: IUIAutomationEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventid: super::uiautomationcore::EVENTID) -> windows_core::HRESULT {
@@ -5787,7 +5787,7 @@ impl IUIAutomationEventHandler_Vtbl {
         iid == &<IUIAutomationEventHandler as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationEventHandler {}
 windows_core::imp::define_interface!(IUIAutomationEventHandlerGroup, IUIAutomationEventHandlerGroup_Vtbl, 0xc9ee12f2_c13b_4408_997c_639914377f4e);
 windows_core::imp::interface_hierarchy!(IUIAutomationEventHandlerGroup, windows_core::IUnknown);
@@ -5799,7 +5799,7 @@ impl IUIAutomationEventHandlerGroup {
     {
         unsafe { (windows_core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn AddAutomationEventHandler<P2, P3>(&self, eventid: super::uiautomationcore::EVENTID, scope: TreeScope, cacherequest: P2, handler: P3) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -5821,7 +5821,7 @@ impl IUIAutomationEventHandlerGroup {
     {
         unsafe { (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn AddPropertyChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::uiautomationcore::PROPERTYID, propertycount: i32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
@@ -5836,7 +5836,7 @@ impl IUIAutomationEventHandlerGroup {
     {
         unsafe { (windows_core::Interface::vtable(self).AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn AddTextEditTextChangedEventHandler<P2, P3>(&self, scope: TreeScope, texteditchangetype: super::uiautomationcore::TextEditChangeType, cacherequest: P2, handler: P3) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -5850,23 +5850,23 @@ impl IUIAutomationEventHandlerGroup {
 pub struct IUIAutomationEventHandlerGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddActiveTextPositionChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub AddAutomationEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::EVENTID, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     AddAutomationEventHandler: usize,
     pub AddChangesEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *const i32, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddNotificationEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub AddPropertyChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::uiautomationcore::PROPERTYID, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     AddPropertyChangedEventHandler: usize,
     pub AddStructureChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub AddTextEditTextChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, super::uiautomationcore::TextEditChangeType, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     AddTextEditTextChangedEventHandler: usize,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationEventHandlerGroup_Impl: windows_core::IUnknownImpl {
     fn AddActiveTextPositionChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
     fn AddAutomationEventHandler(&self, eventid: super::uiautomationcore::EVENTID, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationEventHandler>) -> windows_core::Result<()>;
@@ -5876,7 +5876,7 @@ pub trait IUIAutomationEventHandlerGroup_Impl: windows_core::IUnknownImpl {
     fn AddStructureChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
     fn AddTextEditTextChangedEventHandler(&self, scope: TreeScope, texteditchangetype: super::uiautomationcore::TextEditChangeType, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationEventHandlerGroup_Vtbl {
     pub const fn new<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddActiveTextPositionChangedEventHandler<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5936,7 +5936,7 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
         iid == &<IUIAutomationEventHandlerGroup as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationEventHandlerGroup {}
 windows_core::imp::define_interface!(IUIAutomationExpandCollapsePattern, IUIAutomationExpandCollapsePattern_Vtbl, 0x619be086_1f4e_4ee4_bafa_210128738730);
 windows_core::imp::interface_hierarchy!(IUIAutomationExpandCollapsePattern, windows_core::IUnknown);
@@ -5947,14 +5947,14 @@ impl IUIAutomationExpandCollapsePattern {
     pub unsafe fn Collapse(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Collapse)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CurrentExpandCollapseState(&self) -> windows_core::Result<super::uiautomationcore::ExpandCollapseState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentExpandCollapseState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CachedExpandCollapseState(&self) -> windows_core::Result<super::uiautomationcore::ExpandCollapseState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5968,23 +5968,23 @@ pub struct IUIAutomationExpandCollapsePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Expand: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Collapse: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CurrentExpandCollapseState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::ExpandCollapseState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CurrentExpandCollapseState: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CachedExpandCollapseState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::ExpandCollapseState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CachedExpandCollapseState: usize,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationExpandCollapsePattern_Impl: windows_core::IUnknownImpl {
     fn Expand(&self) -> windows_core::Result<()>;
     fn Collapse(&self) -> windows_core::Result<()>;
     fn CurrentExpandCollapseState(&self) -> windows_core::Result<super::uiautomationcore::ExpandCollapseState>;
     fn CachedExpandCollapseState(&self) -> windows_core::Result<super::uiautomationcore::ExpandCollapseState>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationExpandCollapsePattern_Vtbl {
     pub const fn new<Identity: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Expand<Identity: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6035,7 +6035,7 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
         iid == &<IUIAutomationExpandCollapsePattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationExpandCollapsePattern {}
 windows_core::imp::define_interface!(IUIAutomationFocusChangedEventHandler, IUIAutomationFocusChangedEventHandler_Vtbl, 0xc270f6b5_5c69_4290_9745_7a7f97169468);
 windows_core::imp::interface_hierarchy!(IUIAutomationFocusChangedEventHandler, windows_core::IUnknown);
@@ -6464,7 +6464,7 @@ impl windows_core::RuntimeName for IUIAutomationInvokePattern {}
 windows_core::imp::define_interface!(IUIAutomationItemContainerPattern, IUIAutomationItemContainerPattern_Vtbl, 0xc690fdb2_27a8_423c_812d_429773c9084e);
 windows_core::imp::interface_hierarchy!(IUIAutomationItemContainerPattern, windows_core::IUnknown);
 impl IUIAutomationItemContainerPattern {
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: super::uiautomationcore::PROPERTYID, value: &super::oaidl::VARIANT) -> windows_core::Result<IUIAutomationElement>
     where
         P0: windows_core::Param<IUIAutomationElement>,
@@ -6479,16 +6479,16 @@ impl IUIAutomationItemContainerPattern {
 #[doc(hidden)]
 pub struct IUIAutomationItemContainerPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub FindItemByProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::uiautomationcore::PROPERTYID, super::oaidl::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     FindItemByProperty: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationItemContainerPattern_Impl: windows_core::IUnknownImpl {
     fn FindItemByProperty(&self, pstartafter: windows_core::Ref<IUIAutomationElement>, propertyid: super::uiautomationcore::PROPERTYID, value: &super::oaidl::VARIANT) -> windows_core::Result<IUIAutomationElement>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationItemContainerPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationItemContainerPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FindItemByProperty<Identity: IUIAutomationItemContainerPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstartafter: *mut core::ffi::c_void, propertyid: super::uiautomationcore::PROPERTYID, value: super::oaidl::VARIANT, pfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6509,7 +6509,7 @@ impl IUIAutomationItemContainerPattern_Vtbl {
         iid == &<IUIAutomationItemContainerPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationItemContainerPattern {}
 windows_core::imp::define_interface!(IUIAutomationLegacyIAccessiblePattern, IUIAutomationLegacyIAccessiblePattern_Vtbl, 0x828055ad_355b_4435_86d5_3b51c14a9b1b);
 windows_core::imp::interface_hierarchy!(IUIAutomationLegacyIAccessiblePattern, windows_core::IUnknown);
@@ -6646,7 +6646,7 @@ impl IUIAutomationLegacyIAccessiblePattern {
             (windows_core::Interface::vtable(self).CachedDefaultAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc"))]
+    #[cfg(all(feature = "oaidl", feature = "oleacc"))]
     pub unsafe fn GetIAccessible(&self) -> windows_core::Result<super::oleacc::IAccessible> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6681,12 +6681,12 @@ pub struct IUIAutomationLegacyIAccessiblePattern_Vtbl {
     pub CachedKeyboardShortcut: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCachedSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CachedDefaultAction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc"))]
+    #[cfg(all(feature = "oaidl", feature = "oleacc"))]
     pub GetIAccessible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_oleacc")))]
+    #[cfg(not(all(feature = "oaidl", feature = "oleacc")))]
     GetIAccessible: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc"))]
 pub trait IUIAutomationLegacyIAccessiblePattern_Impl: windows_core::IUnknownImpl {
     fn Select(&self, flagsselect: i32) -> windows_core::Result<()>;
     fn DoDefaultAction(&self) -> windows_core::Result<()>;
@@ -6713,7 +6713,7 @@ pub trait IUIAutomationLegacyIAccessiblePattern_Impl: windows_core::IUnknownImpl
     fn CachedDefaultAction(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetIAccessible(&self) -> windows_core::Result<super::oleacc::IAccessible>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc"))]
 impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
     pub const fn new<Identity: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Select<Identity: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flagsselect: i32) -> windows_core::HRESULT {
@@ -7018,7 +7018,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         iid == &<IUIAutomationLegacyIAccessiblePattern as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_oleacc"))]
+#[cfg(all(feature = "oaidl", feature = "oleacc"))]
 impl windows_core::RuntimeName for IUIAutomationLegacyIAccessiblePattern {}
 windows_core::imp::define_interface!(IUIAutomationMultipleViewPattern, IUIAutomationMultipleViewPattern_Vtbl, 0x8d253c91_1dc5_4bb5_b18f_ade16fa495e8);
 windows_core::imp::interface_hierarchy!(IUIAutomationMultipleViewPattern, windows_core::IUnknown);
@@ -7038,7 +7038,7 @@ impl IUIAutomationMultipleViewPattern {
             (windows_core::Interface::vtable(self).CurrentCurrentView)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetCurrentSupportedViews(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7051,7 +7051,7 @@ impl IUIAutomationMultipleViewPattern {
             (windows_core::Interface::vtable(self).CachedCurrentView)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetCachedSupportedViews(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7066,17 +7066,17 @@ pub struct IUIAutomationMultipleViewPattern_Vtbl {
     pub GetViewName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub CurrentCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetCurrentSupportedViews: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetCurrentSupportedViews: usize,
     pub CachedCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetCachedSupportedViews: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetCachedSupportedViews: usize,
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 pub trait IUIAutomationMultipleViewPattern_Impl: windows_core::IUnknownImpl {
     fn GetViewName(&self, view: i32) -> windows_core::Result<windows_core::BSTR>;
     fn SetCurrentView(&self, view: i32) -> windows_core::Result<()>;
@@ -7085,7 +7085,7 @@ pub trait IUIAutomationMultipleViewPattern_Impl: windows_core::IUnknownImpl {
     fn CachedCurrentView(&self) -> windows_core::Result<i32>;
     fn GetCachedSupportedViews(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IUIAutomationMultipleViewPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetViewName<Identity: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, view: i32, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7168,7 +7168,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
         iid == &<IUIAutomationMultipleViewPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl windows_core::RuntimeName for IUIAutomationMultipleViewPattern {}
 windows_core::imp::define_interface!(IUIAutomationNotCondition, IUIAutomationNotCondition_Vtbl, 0xf528b657_847b_498c_8896_d52b565407a1);
 impl core::ops::Deref for IUIAutomationNotCondition {
@@ -7219,7 +7219,7 @@ impl windows_core::RuntimeName for IUIAutomationNotCondition {}
 windows_core::imp::define_interface!(IUIAutomationNotificationEventHandler, IUIAutomationNotificationEventHandler_Vtbl, 0xc7cb2637_e6c2_4d0c_85de_4948c02175c7);
 windows_core::imp::interface_hierarchy!(IUIAutomationNotificationEventHandler, windows_core::IUnknown);
 impl IUIAutomationNotificationEventHandler {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn HandleNotificationEvent<P0>(&self, sender: P0, notificationkind: super::uiautomationcore::NotificationKind, notificationprocessing: super::uiautomationcore::NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
@@ -7231,16 +7231,16 @@ impl IUIAutomationNotificationEventHandler {
 #[doc(hidden)]
 pub struct IUIAutomationNotificationEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub HandleNotificationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::uiautomationcore::NotificationKind, super::uiautomationcore::NotificationProcessing, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     HandleNotificationEvent: usize,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationNotificationEventHandler_Impl: windows_core::IUnknownImpl {
     fn HandleNotificationEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, notificationkind: super::uiautomationcore::NotificationKind, notificationprocessing: super::uiautomationcore::NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationNotificationEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationNotificationEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HandleNotificationEvent<Identity: IUIAutomationNotificationEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, notificationkind: super::uiautomationcore::NotificationKind, notificationprocessing: super::uiautomationcore::NotificationProcessing, displaystring: *mut core::ffi::c_void, activityid: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7255,7 +7255,7 @@ impl IUIAutomationNotificationEventHandler_Vtbl {
         iid == &<IUIAutomationNotificationEventHandler as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationNotificationEventHandler {}
 windows_core::imp::define_interface!(IUIAutomationObjectModelPattern, IUIAutomationObjectModelPattern_Vtbl, 0x71c284b3_c14d_4d14_981e_19751b0d756d);
 windows_core::imp::interface_hierarchy!(IUIAutomationObjectModelPattern, windows_core::IUnknown);
@@ -7315,7 +7315,7 @@ impl IUIAutomationOrCondition {
     pub unsafe fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetChildrenAsNativeArray)(windows_core::Interface::as_raw(self), childarray as _, childarraycount as _) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetChildren(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7329,18 +7329,18 @@ pub struct IUIAutomationOrCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub ChildCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetChildrenAsNativeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetChildren: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetChildren: usize,
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 pub trait IUIAutomationOrCondition_Impl: IUIAutomationCondition_Impl {
     fn ChildCount(&self) -> windows_core::Result<i32>;
     fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> windows_core::Result<()>;
     fn GetChildren(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IUIAutomationOrCondition_Vtbl {
     pub const fn new<Identity: IUIAutomationOrCondition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ChildCount<Identity: IUIAutomationOrCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childcount: *mut i32) -> windows_core::HRESULT {
@@ -7384,12 +7384,12 @@ impl IUIAutomationOrCondition_Vtbl {
         iid == &<IUIAutomationOrCondition as windows_core::Interface>::IID || iid == &<IUIAutomationCondition as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl windows_core::RuntimeName for IUIAutomationOrCondition {}
 windows_core::imp::define_interface!(IUIAutomationPropertyChangedEventHandler, IUIAutomationPropertyChangedEventHandler_Vtbl, 0x40cd37d4_c756_4b0c_8c6f_bddfeeb13b50);
 windows_core::imp::interface_hierarchy!(IUIAutomationPropertyChangedEventHandler, windows_core::IUnknown);
 impl IUIAutomationPropertyChangedEventHandler {
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn HandlePropertyChangedEvent<P0>(&self, sender: P0, propertyid: super::uiautomationcore::PROPERTYID, newvalue: &super::oaidl::VARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
@@ -7401,16 +7401,16 @@ impl IUIAutomationPropertyChangedEventHandler {
 #[doc(hidden)]
 pub struct IUIAutomationPropertyChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub HandlePropertyChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::uiautomationcore::PROPERTYID, super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     HandlePropertyChangedEvent: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationPropertyChangedEventHandler_Impl: windows_core::IUnknownImpl {
     fn HandlePropertyChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, propertyid: super::uiautomationcore::PROPERTYID, newvalue: &super::oaidl::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationPropertyChangedEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HandlePropertyChangedEvent<Identity: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, propertyid: super::uiautomationcore::PROPERTYID, newvalue: super::oaidl::VARIANT) -> windows_core::HRESULT {
@@ -7425,7 +7425,7 @@ impl IUIAutomationPropertyChangedEventHandler_Vtbl {
         iid == &<IUIAutomationPropertyChangedEventHandler as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationPropertyChangedEventHandler {}
 windows_core::imp::define_interface!(IUIAutomationPropertyCondition, IUIAutomationPropertyCondition_Vtbl, 0x99ebf2cb_5578_4267_9ad4_afd6ea77e94b);
 impl core::ops::Deref for IUIAutomationPropertyCondition {
@@ -7436,14 +7436,14 @@ impl core::ops::Deref for IUIAutomationPropertyCondition {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationPropertyCondition, windows_core::IUnknown, IUIAutomationCondition);
 impl IUIAutomationPropertyCondition {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn PropertyId(&self) -> windows_core::Result<super::uiautomationcore::PROPERTYID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PropertyValue(&self) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7461,23 +7461,23 @@ impl IUIAutomationPropertyCondition {
 #[doc(hidden)]
 pub struct IUIAutomationPropertyCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub PropertyId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::PROPERTYID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     PropertyId: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub PropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     PropertyValue: usize,
     pub PropertyConditionFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PropertyConditionFlags) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationPropertyCondition_Impl: IUIAutomationCondition_Impl {
     fn PropertyId(&self) -> windows_core::Result<super::uiautomationcore::PROPERTYID>;
     fn PropertyValue(&self) -> windows_core::Result<super::oaidl::VARIANT>;
     fn PropertyConditionFlags(&self) -> windows_core::Result<PropertyConditionFlags>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationPropertyCondition_Vtbl {
     pub const fn new<Identity: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PropertyId<Identity: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: *mut super::uiautomationcore::PROPERTYID) -> windows_core::HRESULT {
@@ -7527,12 +7527,12 @@ impl IUIAutomationPropertyCondition_Vtbl {
         iid == &<IUIAutomationPropertyCondition as windows_core::Interface>::IID || iid == &<IUIAutomationCondition as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationPropertyCondition {}
 windows_core::imp::define_interface!(IUIAutomationProxyFactory, IUIAutomationProxyFactory_Vtbl, 0x85b94ecd_849d_42b6_b94d_d6db23fdf5a4);
 windows_core::imp::interface_hierarchy!(IUIAutomationProxyFactory, windows_core::IUnknown);
 impl IUIAutomationProxyFactory {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CreateProvider(&self, hwnd: UIA_HWND, idobject: i32, idchild: i32) -> windows_core::Result<super::uiautomationcore::IRawElementProviderSimple> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7550,18 +7550,18 @@ impl IUIAutomationProxyFactory {
 #[doc(hidden)]
 pub struct IUIAutomationProxyFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CreateProvider: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_HWND, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CreateProvider: usize,
     pub ProxyFactoryId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationProxyFactory_Impl: windows_core::IUnknownImpl {
     fn CreateProvider(&self, hwnd: UIA_HWND, idobject: i32, idchild: i32) -> windows_core::Result<super::uiautomationcore::IRawElementProviderSimple>;
     fn ProxyFactoryId(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationProxyFactory_Vtbl {
     pub const fn new<Identity: IUIAutomationProxyFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateProvider<Identity: IUIAutomationProxyFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: UIA_HWND, idobject: i32, idchild: i32, provider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7598,7 +7598,7 @@ impl IUIAutomationProxyFactory_Vtbl {
         iid == &<IUIAutomationProxyFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationProxyFactory {}
 windows_core::imp::define_interface!(IUIAutomationProxyFactoryEntry, IUIAutomationProxyFactoryEntry_Vtbl, 0xd50e472e_b64b_490c_bca1_d30696f9f289);
 windows_core::imp::interface_hierarchy!(IUIAutomationProxyFactoryEntry, windows_core::IUnknown);
@@ -7660,11 +7660,11 @@ impl IUIAutomationProxyFactoryEntry {
     pub unsafe fn SetNeedsAdviseEvents(&self, adviseevents: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNeedsAdviseEvents)(windows_core::Interface::as_raw(self), adviseevents.into()) }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
     pub unsafe fn SetWinEventsForAutomationEvent(&self, eventid: super::uiautomationcore::EVENTID, propertyid: super::uiautomationcore::PROPERTYID, winevents: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetWinEventsForAutomationEvent)(windows_core::Interface::as_raw(self), eventid, propertyid, winevents) }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
     pub unsafe fn GetWinEventsForAutomationEvent(&self, eventid: super::uiautomationcore::EVENTID, propertyid: super::uiautomationcore::PROPERTYID) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7687,16 +7687,16 @@ pub struct IUIAutomationProxyFactoryEntry_Vtbl {
     pub SetAllowSubstringMatch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetCanCheckBaseClass: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetNeedsAdviseEvents: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
     pub SetWinEventsForAutomationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::EVENTID, super::uiautomationcore::PROPERTYID, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore")))]
     SetWinEventsForAutomationEvent: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
     pub GetWinEventsForAutomationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::EVENTID, super::uiautomationcore::PROPERTYID, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore")))]
     GetWinEventsForAutomationEvent: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
 pub trait IUIAutomationProxyFactoryEntry_Impl: windows_core::IUnknownImpl {
     fn ProxyFactory(&self) -> windows_core::Result<IUIAutomationProxyFactory>;
     fn ClassName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -7712,7 +7712,7 @@ pub trait IUIAutomationProxyFactoryEntry_Impl: windows_core::IUnknownImpl {
     fn SetWinEventsForAutomationEvent(&self, eventid: super::uiautomationcore::EVENTID, propertyid: super::uiautomationcore::PROPERTYID, winevents: *const super::oaidl::SAFEARRAY) -> windows_core::Result<()>;
     fn GetWinEventsForAutomationEvent(&self, eventid: super::uiautomationcore::EVENTID, propertyid: super::uiautomationcore::PROPERTYID) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
 impl IUIAutomationProxyFactoryEntry_Vtbl {
     pub const fn new<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProxyFactory<Identity: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7856,7 +7856,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
         iid == &<IUIAutomationProxyFactoryEntry as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
 impl windows_core::RuntimeName for IUIAutomationProxyFactoryEntry {}
 windows_core::imp::define_interface!(IUIAutomationProxyFactoryMapping, IUIAutomationProxyFactoryMapping_Vtbl, 0x09e31e18_872d_4873_93d1_1e541ec133fd);
 windows_core::imp::interface_hierarchy!(IUIAutomationProxyFactoryMapping, windows_core::IUnknown);
@@ -7867,7 +7867,7 @@ impl IUIAutomationProxyFactoryMapping {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetTable(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7880,11 +7880,11 @@ impl IUIAutomationProxyFactoryMapping {
             (windows_core::Interface::vtable(self).GetEntry)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn SetTable(&self, factorylist: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTable)(windows_core::Interface::as_raw(self), factorylist) }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn InsertEntries(&self, before: u32, factorylist: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InsertEntries)(windows_core::Interface::as_raw(self), before, factorylist) }
     }
@@ -7909,25 +7909,25 @@ impl IUIAutomationProxyFactoryMapping {
 pub struct IUIAutomationProxyFactoryMapping_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetTable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetTable: usize,
     pub GetEntry: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub SetTable: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     SetTable: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub InsertEntries: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     InsertEntries: usize,
     pub InsertEntry: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveEntry: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ClearTable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RestoreDefaultTable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 pub trait IUIAutomationProxyFactoryMapping_Impl: windows_core::IUnknownImpl {
     fn Count(&self) -> windows_core::Result<u32>;
     fn GetTable(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
@@ -7939,7 +7939,7 @@ pub trait IUIAutomationProxyFactoryMapping_Impl: windows_core::IUnknownImpl {
     fn ClearTable(&self) -> windows_core::Result<()>;
     fn RestoreDefaultTable(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IUIAutomationProxyFactoryMapping_Vtbl {
     pub const fn new<Identity: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
@@ -8031,7 +8031,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
         iid == &<IUIAutomationProxyFactoryMapping as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl windows_core::RuntimeName for IUIAutomationProxyFactoryMapping {}
 windows_core::imp::define_interface!(IUIAutomationRangeValuePattern, IUIAutomationRangeValuePattern_Vtbl, 0x59213f4f_7346_49e5_b120_80555987a148);
 windows_core::imp::interface_hierarchy!(IUIAutomationRangeValuePattern, windows_core::IUnknown);
@@ -8353,7 +8353,7 @@ impl windows_core::RuntimeName for IUIAutomationScrollItemPattern {}
 windows_core::imp::define_interface!(IUIAutomationScrollPattern, IUIAutomationScrollPattern_Vtbl, 0x88f4d42a_e881_459d_a77c_73bbbb7e02dc);
 windows_core::imp::interface_hierarchy!(IUIAutomationScrollPattern, windows_core::IUnknown);
 impl IUIAutomationScrollPattern {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn Scroll(&self, horizontalamount: super::uiautomationcore::ScrollAmount, verticalamount: super::uiautomationcore::ScrollAmount) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), horizontalamount, verticalamount) }
     }
@@ -8437,9 +8437,9 @@ impl IUIAutomationScrollPattern {
 #[doc(hidden)]
 pub struct IUIAutomationScrollPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub Scroll: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::ScrollAmount, super::uiautomationcore::ScrollAmount) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     Scroll: usize,
     pub SetScrollPercent: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
     pub CurrentHorizontalScrollPercent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -8455,7 +8455,7 @@ pub struct IUIAutomationScrollPattern_Vtbl {
     pub CachedHorizontallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedVerticallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationScrollPattern_Impl: windows_core::IUnknownImpl {
     fn Scroll(&self, horizontalamount: super::uiautomationcore::ScrollAmount, verticalamount: super::uiautomationcore::ScrollAmount) -> windows_core::Result<()>;
     fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> windows_core::Result<()>;
@@ -8472,7 +8472,7 @@ pub trait IUIAutomationScrollPattern_Impl: windows_core::IUnknownImpl {
     fn CachedHorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CachedVerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationScrollPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Scroll<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, horizontalamount: super::uiautomationcore::ScrollAmount, verticalamount: super::uiautomationcore::ScrollAmount) -> windows_core::HRESULT {
@@ -8653,7 +8653,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         iid == &<IUIAutomationScrollPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationScrollPattern {}
 windows_core::imp::define_interface!(IUIAutomationSelectionItemPattern, IUIAutomationSelectionItemPattern_Vtbl, 0xa8efa66a_0fda_421a_9194_38021f3578ea);
 windows_core::imp::interface_hierarchy!(IUIAutomationSelectionItemPattern, windows_core::IUnknown);
@@ -9156,7 +9156,7 @@ impl IUIAutomationSpreadsheetItemPattern {
             (windows_core::Interface::vtable(self).GetCurrentAnnotationObjects)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetCurrentAnnotationTypes(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9175,7 +9175,7 @@ impl IUIAutomationSpreadsheetItemPattern {
             (windows_core::Interface::vtable(self).GetCachedAnnotationObjects)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetCachedAnnotationTypes(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9189,18 +9189,18 @@ pub struct IUIAutomationSpreadsheetItemPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CurrentFormula: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCurrentAnnotationObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetCurrentAnnotationTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetCurrentAnnotationTypes: usize,
     pub CachedFormula: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCachedAnnotationObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetCachedAnnotationTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetCachedAnnotationTypes: usize,
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 pub trait IUIAutomationSpreadsheetItemPattern_Impl: windows_core::IUnknownImpl {
     fn CurrentFormula(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetCurrentAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray>;
@@ -9209,7 +9209,7 @@ pub trait IUIAutomationSpreadsheetItemPattern_Impl: windows_core::IUnknownImpl {
     fn GetCachedAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray>;
     fn GetCachedAnnotationTypes(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl IUIAutomationSpreadsheetItemPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentFormula<Identity: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9298,7 +9298,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
         iid == &<IUIAutomationSpreadsheetItemPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl windows_core::RuntimeName for IUIAutomationSpreadsheetItemPattern {}
 windows_core::imp::define_interface!(IUIAutomationSpreadsheetPattern, IUIAutomationSpreadsheetPattern_Vtbl, 0x7517a7c8_faae_4de9_9f08_29b91e8595c1);
 windows_core::imp::interface_hierarchy!(IUIAutomationSpreadsheetPattern, windows_core::IUnknown);
@@ -9343,7 +9343,7 @@ impl windows_core::RuntimeName for IUIAutomationSpreadsheetPattern {}
 windows_core::imp::define_interface!(IUIAutomationStructureChangedEventHandler, IUIAutomationStructureChangedEventHandler_Vtbl, 0xe81d1b4e_11c5_42f8_9754_e7036c79f054);
 windows_core::imp::interface_hierarchy!(IUIAutomationStructureChangedEventHandler, windows_core::IUnknown);
 impl IUIAutomationStructureChangedEventHandler {
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
     pub unsafe fn HandleStructureChangedEvent<P0>(&self, sender: P0, changetype: super::uiautomationcore::StructureChangeType, runtimeid: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
@@ -9355,16 +9355,16 @@ impl IUIAutomationStructureChangedEventHandler {
 #[doc(hidden)]
 pub struct IUIAutomationStructureChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
     pub HandleStructureChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::uiautomationcore::StructureChangeType, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore")))]
     HandleStructureChangedEvent: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
 pub trait IUIAutomationStructureChangedEventHandler_Impl: windows_core::IUnknownImpl {
     fn HandleStructureChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, changetype: super::uiautomationcore::StructureChangeType, runtimeid: *const super::oaidl::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
 impl IUIAutomationStructureChangedEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationStructureChangedEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HandleStructureChangedEvent<Identity: IUIAutomationStructureChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, changetype: super::uiautomationcore::StructureChangeType, runtimeid: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT {
@@ -9379,7 +9379,7 @@ impl IUIAutomationStructureChangedEventHandler_Vtbl {
         iid == &<IUIAutomationStructureChangedEventHandler as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
 impl windows_core::RuntimeName for IUIAutomationStructureChangedEventHandler {}
 windows_core::imp::define_interface!(IUIAutomationStylesPattern, IUIAutomationStylesPattern_Vtbl, 0x85b5f0a2_bd79_484a_ad2b_388c9838d5fb);
 windows_core::imp::interface_hierarchy!(IUIAutomationStylesPattern, windows_core::IUnknown);
@@ -9724,7 +9724,7 @@ impl windows_core::RuntimeName for IUIAutomationStylesPattern {}
 windows_core::imp::define_interface!(IUIAutomationSynchronizedInputPattern, IUIAutomationSynchronizedInputPattern_Vtbl, 0x2233be0b_afb7_448b_9fda_3b378aa5eae1);
 windows_core::imp::interface_hierarchy!(IUIAutomationSynchronizedInputPattern, windows_core::IUnknown);
 impl IUIAutomationSynchronizedInputPattern {
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn StartListening(&self, inputtype: super::uiautomationcore::SynchronizedInputType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).StartListening)(windows_core::Interface::as_raw(self), inputtype) }
     }
@@ -9736,18 +9736,18 @@ impl IUIAutomationSynchronizedInputPattern {
 #[doc(hidden)]
 pub struct IUIAutomationSynchronizedInputPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub StartListening: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::SynchronizedInputType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     StartListening: usize,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationSynchronizedInputPattern_Impl: windows_core::IUnknownImpl {
     fn StartListening(&self, inputtype: super::uiautomationcore::SynchronizedInputType) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationSynchronizedInputPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationSynchronizedInputPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartListening<Identity: IUIAutomationSynchronizedInputPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputtype: super::uiautomationcore::SynchronizedInputType) -> windows_core::HRESULT {
@@ -9772,7 +9772,7 @@ impl IUIAutomationSynchronizedInputPattern_Vtbl {
         iid == &<IUIAutomationSynchronizedInputPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationSynchronizedInputPattern {}
 windows_core::imp::define_interface!(IUIAutomationTableItemPattern, IUIAutomationTableItemPattern_Vtbl, 0x0b964eb3_ef2e_4464_9c79_61d61737a27e);
 windows_core::imp::interface_hierarchy!(IUIAutomationTableItemPattern, windows_core::IUnknown);
@@ -9895,7 +9895,7 @@ impl IUIAutomationTablePattern {
             (windows_core::Interface::vtable(self).GetCurrentColumnHeaders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CurrentRowOrColumnMajor(&self) -> windows_core::Result<super::uiautomationcore::RowOrColumnMajor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9914,7 +9914,7 @@ impl IUIAutomationTablePattern {
             (windows_core::Interface::vtable(self).GetCachedColumnHeaders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CachedRowOrColumnMajor(&self) -> windows_core::Result<super::uiautomationcore::RowOrColumnMajor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9928,18 +9928,18 @@ pub struct IUIAutomationTablePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrentRowHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCurrentColumnHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CurrentRowOrColumnMajor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::RowOrColumnMajor) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CurrentRowOrColumnMajor: usize,
     pub GetCachedRowHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCachedColumnHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CachedRowOrColumnMajor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::RowOrColumnMajor) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CachedRowOrColumnMajor: usize,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationTablePattern_Impl: windows_core::IUnknownImpl {
     fn GetCurrentRowHeaders(&self) -> windows_core::Result<IUIAutomationElementArray>;
     fn GetCurrentColumnHeaders(&self) -> windows_core::Result<IUIAutomationElementArray>;
@@ -9948,7 +9948,7 @@ pub trait IUIAutomationTablePattern_Impl: windows_core::IUnknownImpl {
     fn GetCachedColumnHeaders(&self) -> windows_core::Result<IUIAutomationElementArray>;
     fn CachedRowOrColumnMajor(&self) -> windows_core::Result<super::uiautomationcore::RowOrColumnMajor>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationTablePattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTablePattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCurrentRowHeaders<Identity: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10037,7 +10037,7 @@ impl IUIAutomationTablePattern_Vtbl {
         iid == &<IUIAutomationTablePattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationTablePattern {}
 windows_core::imp::define_interface!(IUIAutomationTextChildPattern, IUIAutomationTextChildPattern_Vtbl, 0x6552b038_ae05_40c8_abfd_aa08352aab86);
 windows_core::imp::interface_hierarchy!(IUIAutomationTextChildPattern, windows_core::IUnknown);
@@ -10132,12 +10132,12 @@ pub struct IUIAutomationTextEditPattern_Vtbl {
     pub GetActiveComposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetConversionTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_uiautomationcore", feature = "Win32_windef"))]
+#[cfg(all(feature = "uiautomationcore", feature = "windef"))]
 pub trait IUIAutomationTextEditPattern_Impl: IUIAutomationTextPattern_Impl {
     fn GetActiveComposition(&self) -> windows_core::Result<IUIAutomationTextRange>;
     fn GetConversionTarget(&self) -> windows_core::Result<IUIAutomationTextRange>;
 }
-#[cfg(all(feature = "Win32_uiautomationcore", feature = "Win32_windef"))]
+#[cfg(all(feature = "uiautomationcore", feature = "windef"))]
 impl IUIAutomationTextEditPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTextEditPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetActiveComposition<Identity: IUIAutomationTextEditPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10174,12 +10174,12 @@ impl IUIAutomationTextEditPattern_Vtbl {
         iid == &<IUIAutomationTextEditPattern as windows_core::Interface>::IID || iid == &<IUIAutomationTextPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_uiautomationcore", feature = "Win32_windef"))]
+#[cfg(all(feature = "uiautomationcore", feature = "windef"))]
 impl windows_core::RuntimeName for IUIAutomationTextEditPattern {}
 windows_core::imp::define_interface!(IUIAutomationTextEditTextChangedEventHandler, IUIAutomationTextEditTextChangedEventHandler_Vtbl, 0x92faa680_e704_4156_931a_e32d5bb38f3f);
 windows_core::imp::interface_hierarchy!(IUIAutomationTextEditTextChangedEventHandler, windows_core::IUnknown);
 impl IUIAutomationTextEditTextChangedEventHandler {
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
     pub unsafe fn HandleTextEditTextChangedEvent<P0>(&self, sender: P0, texteditchangetype: super::uiautomationcore::TextEditChangeType, eventstrings: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
@@ -10191,16 +10191,16 @@ impl IUIAutomationTextEditTextChangedEventHandler {
 #[doc(hidden)]
 pub struct IUIAutomationTextEditTextChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
     pub HandleTextEditTextChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::uiautomationcore::TextEditChangeType, *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore")))]
     HandleTextEditTextChangedEvent: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
 pub trait IUIAutomationTextEditTextChangedEventHandler_Impl: windows_core::IUnknownImpl {
     fn HandleTextEditTextChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, texteditchangetype: super::uiautomationcore::TextEditChangeType, eventstrings: *const super::oaidl::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
 impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationTextEditTextChangedEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HandleTextEditTextChangedEvent<Identity: IUIAutomationTextEditTextChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, texteditchangetype: super::uiautomationcore::TextEditChangeType, eventstrings: *const super::oaidl::SAFEARRAY) -> windows_core::HRESULT {
@@ -10218,12 +10218,12 @@ impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
         iid == &<IUIAutomationTextEditTextChangedEventHandler as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
 impl windows_core::RuntimeName for IUIAutomationTextEditTextChangedEventHandler {}
 windows_core::imp::define_interface!(IUIAutomationTextPattern, IUIAutomationTextPattern_Vtbl, 0x32eba289_3583_42c9_9c59_3b6d9a1e9b6a);
 windows_core::imp::interface_hierarchy!(IUIAutomationTextPattern, windows_core::IUnknown);
 impl IUIAutomationTextPattern {
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn RangeFromPoint(&self, pt: super::windef::POINT) -> windows_core::Result<IUIAutomationTextRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10257,7 +10257,7 @@ impl IUIAutomationTextPattern {
             (windows_core::Interface::vtable(self).DocumentRange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn SupportedTextSelection(&self) -> windows_core::Result<super::uiautomationcore::SupportedTextSelection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10269,20 +10269,20 @@ impl IUIAutomationTextPattern {
 #[doc(hidden)]
 pub struct IUIAutomationTextPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub RangeFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::POINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     RangeFromPoint: usize,
     pub RangeFromChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVisibleRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DocumentRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub SupportedTextSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::SupportedTextSelection) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     SupportedTextSelection: usize,
 }
-#[cfg(all(feature = "Win32_uiautomationcore", feature = "Win32_windef"))]
+#[cfg(all(feature = "uiautomationcore", feature = "windef"))]
 pub trait IUIAutomationTextPattern_Impl: windows_core::IUnknownImpl {
     fn RangeFromPoint(&self, pt: &super::windef::POINT) -> windows_core::Result<IUIAutomationTextRange>;
     fn RangeFromChild(&self, child: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
@@ -10291,7 +10291,7 @@ pub trait IUIAutomationTextPattern_Impl: windows_core::IUnknownImpl {
     fn DocumentRange(&self) -> windows_core::Result<IUIAutomationTextRange>;
     fn SupportedTextSelection(&self) -> windows_core::Result<super::uiautomationcore::SupportedTextSelection>;
 }
-#[cfg(all(feature = "Win32_uiautomationcore", feature = "Win32_windef"))]
+#[cfg(all(feature = "uiautomationcore", feature = "windef"))]
 impl IUIAutomationTextPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTextPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RangeFromPoint<Identity: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pt: super::windef::POINT, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10380,7 +10380,7 @@ impl IUIAutomationTextPattern_Vtbl {
         iid == &<IUIAutomationTextPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_uiautomationcore", feature = "Win32_windef"))]
+#[cfg(all(feature = "uiautomationcore", feature = "windef"))]
 impl windows_core::RuntimeName for IUIAutomationTextPattern {}
 windows_core::imp::define_interface!(IUIAutomationTextPattern2, IUIAutomationTextPattern2_Vtbl, 0x506a921a_fcc9_409f_b23b_37eb74106872);
 impl core::ops::Deref for IUIAutomationTextPattern2 {
@@ -10414,12 +10414,12 @@ pub struct IUIAutomationTextPattern2_Vtbl {
     pub RangeFromAnnotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCaretRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_uiautomationcore", feature = "Win32_windef"))]
+#[cfg(all(feature = "uiautomationcore", feature = "windef"))]
 pub trait IUIAutomationTextPattern2_Impl: IUIAutomationTextPattern_Impl {
     fn RangeFromAnnotation(&self, annotation: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
     fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
 }
-#[cfg(all(feature = "Win32_uiautomationcore", feature = "Win32_windef"))]
+#[cfg(all(feature = "uiautomationcore", feature = "windef"))]
 impl IUIAutomationTextPattern2_Vtbl {
     pub const fn new<Identity: IUIAutomationTextPattern2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RangeFromAnnotation<Identity: IUIAutomationTextPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, annotation: *mut core::ffi::c_void, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10456,7 +10456,7 @@ impl IUIAutomationTextPattern2_Vtbl {
         iid == &<IUIAutomationTextPattern2 as windows_core::Interface>::IID || iid == &<IUIAutomationTextPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_uiautomationcore", feature = "Win32_windef"))]
+#[cfg(all(feature = "uiautomationcore", feature = "windef"))]
 impl windows_core::RuntimeName for IUIAutomationTextPattern2 {}
 windows_core::imp::define_interface!(IUIAutomationTextRange, IUIAutomationTextRange_Vtbl, 0xa543cc6a_f4ae_494b_8239_c814481187a8);
 windows_core::imp::interface_hierarchy!(IUIAutomationTextRange, windows_core::IUnknown);
@@ -10476,7 +10476,7 @@ impl IUIAutomationTextRange {
             (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), range.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CompareEndpoints<P1>(&self, srcendpoint: super::uiautomationcore::TextPatternRangeEndpoint, range: P1, targetendpoint: super::uiautomationcore::TextPatternRangeEndpoint) -> windows_core::Result<i32>
     where
         P1: windows_core::Param<Self>,
@@ -10486,11 +10486,11 @@ impl IUIAutomationTextRange {
             (windows_core::Interface::vtable(self).CompareEndpoints)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn ExpandToEnclosingUnit(&self, textunit: super::uiautomationcore::TextUnit) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), textunit) }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FindAttribute(&self, attr: super::uiautomationcore::TEXTATTRIBUTEID, val: &super::oaidl::VARIANT, backward: bool) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10503,14 +10503,14 @@ impl IUIAutomationTextRange {
             (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), backward.into(), ignorecase.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAttributeValue(&self, attr: super::uiautomationcore::TEXTATTRIBUTEID) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAttributeValue)(windows_core::Interface::as_raw(self), attr, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub unsafe fn GetBoundingRectangles(&self) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10529,21 +10529,21 @@ impl IUIAutomationTextRange {
             (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), maxlength, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn Move(&self, unit: super::uiautomationcore::TextUnit, count: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), unit, count, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn MoveEndpointByUnit(&self, endpoint: super::uiautomationcore::TextPatternRangeEndpoint, unit: super::uiautomationcore::TextUnit, count: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveEndpointByUnit)(windows_core::Interface::as_raw(self), endpoint, unit, count, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn MoveEndpointByRange<P1>(&self, srcendpoint: super::uiautomationcore::TextPatternRangeEndpoint, range: P1, targetendpoint: super::uiautomationcore::TextPatternRangeEndpoint) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
@@ -10575,40 +10575,40 @@ pub struct IUIAutomationTextRange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CompareEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::TextPatternRangeEndpoint, *mut core::ffi::c_void, super::uiautomationcore::TextPatternRangeEndpoint, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CompareEndpoints: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub ExpandToEnclosingUnit: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::TextUnit) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     ExpandToEnclosingUnit: usize,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub FindAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::TEXTATTRIBUTEID, super::oaidl::VARIANT, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     FindAttribute: usize,
     pub FindText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAttributeValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::TEXTATTRIBUTEID, *mut super::oaidl::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase")))]
     GetAttributeValue: usize,
-    #[cfg(feature = "Win32_oaidl")]
+    #[cfg(feature = "oaidl")]
     pub GetBoundingRectangles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_oaidl"))]
+    #[cfg(not(feature = "oaidl"))]
     GetBoundingRectangles: usize,
     pub GetEnclosingElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::TextUnit, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     Move: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub MoveEndpointByUnit: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::TextPatternRangeEndpoint, super::uiautomationcore::TextUnit, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     MoveEndpointByUnit: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub MoveEndpointByRange: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::TextPatternRangeEndpoint, *mut core::ffi::c_void, super::uiautomationcore::TextPatternRangeEndpoint) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     MoveEndpointByRange: usize,
     pub Select: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddToSelection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10616,7 +10616,7 @@ pub struct IUIAutomationTextRange_Vtbl {
     pub ScrollIntoView: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetChildren: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationTextRange_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IUIAutomationTextRange>;
     fn Compare(&self, range: windows_core::Ref<IUIAutomationTextRange>) -> windows_core::Result<windows_core::BOOL>;
@@ -10637,7 +10637,7 @@ pub trait IUIAutomationTextRange_Impl: windows_core::IUnknownImpl {
     fn ScrollIntoView(&self, aligntotop: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetChildren(&self) -> windows_core::Result<IUIAutomationElementArray>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationTextRange_Vtbl {
     pub const fn new<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Clone<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clonedrange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10846,7 +10846,7 @@ impl IUIAutomationTextRange_Vtbl {
         iid == &<IUIAutomationTextRange as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationTextRange {}
 windows_core::imp::define_interface!(IUIAutomationTextRange2, IUIAutomationTextRange2_Vtbl, 0xbb9b40e0_5e04_46bd_9be0_4b601b9afad4);
 impl core::ops::Deref for IUIAutomationTextRange2 {
@@ -10867,11 +10867,11 @@ pub struct IUIAutomationTextRange2_Vtbl {
     pub base__: IUIAutomationTextRange_Vtbl,
     pub ShowContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationTextRange2_Impl: IUIAutomationTextRange_Impl {
     fn ShowContextMenu(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationTextRange2_Vtbl {
     pub const fn new<Identity: IUIAutomationTextRange2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ShowContextMenu<Identity: IUIAutomationTextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10886,7 +10886,7 @@ impl IUIAutomationTextRange2_Vtbl {
         iid == &<IUIAutomationTextRange2 as windows_core::Interface>::IID || iid == &<IUIAutomationTextRange as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationTextRange2 {}
 windows_core::imp::define_interface!(IUIAutomationTextRange3, IUIAutomationTextRange3_Vtbl, 0x6a315d69_5512_4c2e_85f0_53fce6dd4bc2);
 impl core::ops::Deref for IUIAutomationTextRange3 {
@@ -10915,7 +10915,7 @@ impl IUIAutomationTextRange3 {
             (windows_core::Interface::vtable(self).GetChildrenBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
     pub unsafe fn GetAttributeValues(&self, attributeids: *const super::uiautomationcore::TEXTATTRIBUTEID, attributeidcount: i32) -> windows_core::Result<*mut super::oaidl::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10929,18 +10929,18 @@ pub struct IUIAutomationTextRange3_Vtbl {
     pub base__: IUIAutomationTextRange2_Vtbl,
     pub GetEnclosingElementBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetChildrenBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore"))]
+    #[cfg(all(feature = "oaidl", feature = "uiautomationcore"))]
     pub GetAttributeValues: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::uiautomationcore::TEXTATTRIBUTEID, i32, *mut *mut super::oaidl::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore")))]
+    #[cfg(not(all(feature = "oaidl", feature = "uiautomationcore")))]
     GetAttributeValues: usize,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUIAutomationTextRange3_Impl: IUIAutomationTextRange2_Impl {
     fn GetEnclosingElementBuildCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
     fn GetChildrenBuildCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
     fn GetAttributeValues(&self, attributeids: *const super::uiautomationcore::TEXTATTRIBUTEID, attributeidcount: i32) -> windows_core::Result<*mut super::oaidl::SAFEARRAY>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl IUIAutomationTextRange3_Vtbl {
     pub const fn new<Identity: IUIAutomationTextRange3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEnclosingElementBuildCache<Identity: IUIAutomationTextRange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, enclosingelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10990,7 +10990,7 @@ impl IUIAutomationTextRange3_Vtbl {
         iid == &<IUIAutomationTextRange3 as windows_core::Interface>::IID || iid == &<IUIAutomationTextRange as windows_core::Interface>::IID || iid == &<IUIAutomationTextRange2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_uiautomationcore", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "uiautomationcore", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IUIAutomationTextRange3 {}
 windows_core::imp::define_interface!(IUIAutomationTextRangeArray, IUIAutomationTextRangeArray_Vtbl, 0xce4ae76a_e717_4c98_81ea_47371d028eb6);
 windows_core::imp::interface_hierarchy!(IUIAutomationTextRangeArray, windows_core::IUnknown);
@@ -11058,14 +11058,14 @@ impl IUIAutomationTogglePattern {
     pub unsafe fn Toggle(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Toggle)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CurrentToggleState(&self) -> windows_core::Result<super::uiautomationcore::ToggleState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentToggleState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CachedToggleState(&self) -> windows_core::Result<super::uiautomationcore::ToggleState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11078,22 +11078,22 @@ impl IUIAutomationTogglePattern {
 pub struct IUIAutomationTogglePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Toggle: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CurrentToggleState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::ToggleState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CurrentToggleState: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CachedToggleState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::ToggleState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CachedToggleState: usize,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationTogglePattern_Impl: windows_core::IUnknownImpl {
     fn Toggle(&self) -> windows_core::Result<()>;
     fn CurrentToggleState(&self) -> windows_core::Result<super::uiautomationcore::ToggleState>;
     fn CachedToggleState(&self) -> windows_core::Result<super::uiautomationcore::ToggleState>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationTogglePattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTogglePattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Toggle<Identity: IUIAutomationTogglePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11137,7 +11137,7 @@ impl IUIAutomationTogglePattern_Vtbl {
         iid == &<IUIAutomationTogglePattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationTogglePattern {}
 windows_core::imp::define_interface!(IUIAutomationTransformPattern, IUIAutomationTransformPattern_Vtbl, 0xa9b55844_a55d_4ef0_926d_569c16ff89bb);
 windows_core::imp::interface_hierarchy!(IUIAutomationTransformPattern, windows_core::IUnknown);
@@ -11335,7 +11335,7 @@ impl IUIAutomationTransformPattern2 {
     pub unsafe fn Zoom(&self, zoomvalue: f64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Zoom)(windows_core::Interface::as_raw(self), zoomvalue) }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn ZoomByUnit(&self, zoomunit: super::uiautomationcore::ZoomUnit) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ZoomByUnit)(windows_core::Interface::as_raw(self), zoomunit) }
     }
@@ -11393,9 +11393,9 @@ impl IUIAutomationTransformPattern2 {
 pub struct IUIAutomationTransformPattern2_Vtbl {
     pub base__: IUIAutomationTransformPattern_Vtbl,
     pub Zoom: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub ZoomByUnit: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::ZoomUnit) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     ZoomByUnit: usize,
     pub CurrentCanZoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedCanZoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -11406,7 +11406,7 @@ pub struct IUIAutomationTransformPattern2_Vtbl {
     pub CurrentZoomMaximum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CachedZoomMaximum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationTransformPattern2_Impl: IUIAutomationTransformPattern_Impl {
     fn Zoom(&self, zoomvalue: f64) -> windows_core::Result<()>;
     fn ZoomByUnit(&self, zoomunit: super::uiautomationcore::ZoomUnit) -> windows_core::Result<()>;
@@ -11419,7 +11419,7 @@ pub trait IUIAutomationTransformPattern2_Impl: IUIAutomationTransformPattern_Imp
     fn CurrentZoomMaximum(&self) -> windows_core::Result<f64>;
     fn CachedZoomMaximum(&self) -> windows_core::Result<f64>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationTransformPattern2_Vtbl {
     pub const fn new<Identity: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Zoom<Identity: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, zoomvalue: f64) -> windows_core::HRESULT {
@@ -11548,7 +11548,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
         iid == &<IUIAutomationTransformPattern2 as windows_core::Interface>::IID || iid == &<IUIAutomationTransformPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationTransformPattern2 {}
 windows_core::imp::define_interface!(IUIAutomationTreeWalker, IUIAutomationTreeWalker_Vtbl, 0x4042c624_389c_4afc_a630_9df854a541fc);
 windows_core::imp::interface_hierarchy!(IUIAutomationTreeWalker, windows_core::IUnknown);
@@ -12048,7 +12048,7 @@ impl IUIAutomationWindowPattern {
             (windows_core::Interface::vtable(self).WaitForInputIdle)(windows_core::Interface::as_raw(self), milliseconds, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn SetWindowVisualState(&self, state: super::uiautomationcore::WindowVisualState) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetWindowVisualState)(windows_core::Interface::as_raw(self), state) }
     }
@@ -12076,14 +12076,14 @@ impl IUIAutomationWindowPattern {
             (windows_core::Interface::vtable(self).CurrentIsTopmost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CurrentWindowVisualState(&self) -> windows_core::Result<super::uiautomationcore::WindowVisualState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentWindowVisualState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CurrentWindowInteractionState(&self) -> windows_core::Result<super::uiautomationcore::WindowInteractionState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12114,14 +12114,14 @@ impl IUIAutomationWindowPattern {
             (windows_core::Interface::vtable(self).CachedIsTopmost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CachedWindowVisualState(&self) -> windows_core::Result<super::uiautomationcore::WindowVisualState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedWindowVisualState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub unsafe fn CachedWindowInteractionState(&self) -> windows_core::Result<super::uiautomationcore::WindowInteractionState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12135,36 +12135,36 @@ pub struct IUIAutomationWindowPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub WaitForInputIdle: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub SetWindowVisualState: unsafe extern "system" fn(*mut core::ffi::c_void, super::uiautomationcore::WindowVisualState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     SetWindowVisualState: usize,
     pub CurrentCanMaximize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentCanMinimize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentIsModal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CurrentIsTopmost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CurrentWindowVisualState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::WindowVisualState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CurrentWindowVisualState: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CurrentWindowInteractionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::WindowInteractionState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CurrentWindowInteractionState: usize,
     pub CachedCanMaximize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedCanMinimize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedIsModal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CachedIsTopmost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CachedWindowVisualState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::WindowVisualState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CachedWindowVisualState: usize,
-    #[cfg(feature = "Win32_uiautomationcore")]
+    #[cfg(feature = "uiautomationcore")]
     pub CachedWindowInteractionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::uiautomationcore::WindowInteractionState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_uiautomationcore"))]
+    #[cfg(not(feature = "uiautomationcore"))]
     CachedWindowInteractionState: usize,
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 pub trait IUIAutomationWindowPattern_Impl: windows_core::IUnknownImpl {
     fn Close(&self) -> windows_core::Result<()>;
     fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<windows_core::BOOL>;
@@ -12182,7 +12182,7 @@ pub trait IUIAutomationWindowPattern_Impl: windows_core::IUnknownImpl {
     fn CachedWindowVisualState(&self) -> windows_core::Result<super::uiautomationcore::WindowVisualState>;
     fn CachedWindowInteractionState(&self) -> windows_core::Result<super::uiautomationcore::WindowInteractionState>;
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl IUIAutomationWindowPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Close<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12376,7 +12376,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         iid == &<IUIAutomationWindowPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_uiautomationcore")]
+#[cfg(feature = "uiautomationcore")]
 impl windows_core::RuntimeName for IUIAutomationWindowPattern {}
 pub type PropertyConditionFlags = i32;
 pub const PropertyConditionFlags_IgnoreCase: PropertyConditionFlags = 1;

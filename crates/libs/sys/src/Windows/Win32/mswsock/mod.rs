@@ -1,63 +1,63 @@
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
 windows_link::link!("mswsock.dll" "system" fn AcceptEx(slistensocket : super::winsock2::SOCKET, sacceptsocket : super::winsock2::SOCKET, lpoutputbuffer : *mut core::ffi::c_void, dwreceivedatalength : u32, dwlocaladdresslength : u32, dwremoteaddresslength : u32, lpdwbytesreceived : *mut u32, lpoverlapped : *mut super::minwinbase::OVERLAPPED) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 windows_link::link!("mswsock.dll" "system" fn GetAcceptExSockaddrs(lpoutputbuffer : *const core::ffi::c_void, dwreceivedatalength : u32, dwlocaladdresslength : u32, dwremoteaddresslength : u32, localsockaddr : *mut *mut super::ws2::SOCKADDR, localsockaddrlength : *mut i32, remotesockaddr : *mut *mut super::ws2::SOCKADDR, remotesockaddrlength : *mut i32));
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
 windows_link::link!("mswsock.dll" "system" fn TransmitFile(hsocket : super::winsock2::SOCKET, hfile : super::winnt::HANDLE, nnumberofbytestowrite : u32, nnumberofbytespersend : u32, lpoverlapped : *mut super::minwinbase::OVERLAPPED, lptransmitbuffers : *const TRANSMIT_FILE_BUFFERS, dwreserved : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winsock2")]
+#[cfg(feature = "winsock2")]
 windows_link::link!("mswsock.dll" "system" fn WSARecvEx(s : super::winsock2::SOCKET, buf : *mut i8, len : i32, flags : *mut i32) -> i32);
 pub const DE_REUSE_SOCKET: u32 = 2;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
 pub type LPFN_ACCEPTEX = Option<unsafe extern "system" fn(slistensocket: super::winsock2::SOCKET, sacceptsocket: super::winsock2::SOCKET, lpoutputbuffer: *mut core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, lpdwbytesreceived: *mut u32, lpoverlapped: *mut super::minwinbase::OVERLAPPED) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2", feature = "ws2"))]
 pub type LPFN_CONNECTEX = Option<unsafe extern "system" fn(s: super::winsock2::SOCKET, name: *const super::ws2::SOCKADDR, namelen: i32, lpsendbuffer: *const core::ffi::c_void, dwsenddatalength: u32, lpdwbytessent: *mut u32, lpoverlapped: *mut super::minwinbase::OVERLAPPED) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
 pub type LPFN_DISCONNECTEX = Option<unsafe extern "system" fn(s: super::winsock2::SOCKET, lpoverlapped: *mut super::minwinbase::OVERLAPPED, dwflags: u32, dwreserved: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type LPFN_GETACCEPTEXSOCKADDRS = Option<unsafe extern "system" fn(lpoutputbuffer: *const core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut super::ws2::SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut super::ws2::SOCKADDR, remotesockaddrlength: *mut i32)>;
-#[cfg(feature = "Win32_mswsockdef")]
+#[cfg(feature = "mswsockdef")]
 pub type LPFN_RIOCLOSECOMPLETIONQUEUE = Option<unsafe extern "system" fn(cq: *const super::mswsockdef::RIO_CQ_t)>;
-#[cfg(all(feature = "Win32_mswsockdef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "mswsockdef", feature = "winnt"))]
 pub type LPFN_RIOCREATECOMPLETIONQUEUE = Option<unsafe extern "system" fn(queuesize: u32, notificationcompletion: *const RIO_NOTIFICATION_COMPLETION) -> super::mswsockdef::RIO_CQ>;
-#[cfg(all(feature = "Win32_mswsockdef", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "mswsockdef", feature = "winsock2"))]
 pub type LPFN_RIOCREATEREQUESTQUEUE = Option<unsafe extern "system" fn(socket: super::winsock2::SOCKET, maxoutstandingreceive: u32, maxreceivedatabuffers: u32, maxoutstandingsend: u32, maxsenddatabuffers: u32, receivecq: *const super::mswsockdef::RIO_CQ_t, sendcq: *const super::mswsockdef::RIO_CQ_t, socketcontext: *const core::ffi::c_void) -> super::mswsockdef::RIO_RQ>;
-#[cfg(feature = "Win32_mswsockdef")]
+#[cfg(feature = "mswsockdef")]
 pub type LPFN_RIODEQUEUECOMPLETION = Option<unsafe extern "system" fn(cq: *const super::mswsockdef::RIO_CQ_t, array: *mut super::mswsockdef::RIORESULT, arraysize: u32) -> u32>;
-#[cfg(feature = "Win32_mswsockdef")]
+#[cfg(feature = "mswsockdef")]
 pub type LPFN_RIODEREGISTERBUFFER = Option<unsafe extern "system" fn(bufferid: *const super::mswsockdef::RIO_BUFFERID_t)>;
-#[cfg(feature = "Win32_mswsockdef")]
+#[cfg(feature = "mswsockdef")]
 pub type LPFN_RIONOTIFY = Option<unsafe extern "system" fn(cq: *const super::mswsockdef::RIO_CQ_t) -> i32>;
-#[cfg(feature = "Win32_mswsockdef")]
+#[cfg(feature = "mswsockdef")]
 pub type LPFN_RIORECEIVE = Option<unsafe extern "system" fn(socketqueue: *const super::mswsockdef::RIO_RQ_t, pdata: *const super::mswsockdef::RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_mswsockdef")]
+#[cfg(feature = "mswsockdef")]
 pub type LPFN_RIORECEIVEEX = Option<unsafe extern "system" fn(socketqueue: *const super::mswsockdef::RIO_RQ_t, pdata: *const super::mswsockdef::RIO_BUF, databuffercount: u32, plocaladdress: *const super::mswsockdef::RIO_BUF, premoteaddress: *const super::mswsockdef::RIO_BUF, pcontrolcontext: *const super::mswsockdef::RIO_BUF, pflags: *const super::mswsockdef::RIO_BUF, flags: u32, requestcontext: *const core::ffi::c_void) -> i32>;
-#[cfg(feature = "Win32_mswsockdef")]
+#[cfg(feature = "mswsockdef")]
 pub type LPFN_RIOREGISTERBUFFER = Option<unsafe extern "system" fn(databuffer: *const i8, datalength: u32) -> super::mswsockdef::RIO_BUFFERID>;
-#[cfg(feature = "Win32_mswsockdef")]
+#[cfg(feature = "mswsockdef")]
 pub type LPFN_RIORESIZECOMPLETIONQUEUE = Option<unsafe extern "system" fn(cq: *const super::mswsockdef::RIO_CQ_t, queuesize: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_mswsockdef")]
+#[cfg(feature = "mswsockdef")]
 pub type LPFN_RIORESIZEREQUESTQUEUE = Option<unsafe extern "system" fn(rq: *const super::mswsockdef::RIO_RQ_t, maxoutstandingreceive: u32, maxoutstandingsend: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_mswsockdef")]
+#[cfg(feature = "mswsockdef")]
 pub type LPFN_RIOSEND = Option<unsafe extern "system" fn(socketqueue: *const super::mswsockdef::RIO_RQ_t, pdata: *const super::mswsockdef::RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_mswsockdef")]
+#[cfg(feature = "mswsockdef")]
 pub type LPFN_RIOSENDEX = Option<unsafe extern "system" fn(socketqueue: *const super::mswsockdef::RIO_RQ_t, pdata: *const super::mswsockdef::RIO_BUF, databuffercount: u32, plocaladdress: *const super::mswsockdef::RIO_BUF, premoteaddress: *const super::mswsockdef::RIO_BUF, pcontrolcontext: *const super::mswsockdef::RIO_BUF, pflags: *const super::mswsockdef::RIO_BUF, flags: u32, requestcontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
 pub type LPFN_TRANSMITFILE = Option<unsafe extern "system" fn(hsocket: super::winsock2::SOCKET, hfile: super::winnt::HANDLE, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: *mut super::minwinbase::OVERLAPPED, lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS, dwreserved: u32) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
 pub type LPFN_TRANSMITPACKETS = Option<unsafe extern "system" fn(hsocket: super::winsock2::SOCKET, lppacketarray: *const TRANSMIT_PACKETS_ELEMENT, nelementcount: u32, nsendsize: u32, lpoverlapped: *mut super::minwinbase::OVERLAPPED, dwflags: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_winsock2")]
+#[cfg(feature = "winsock2")]
 pub type LPFN_WSAPOLL = Option<unsafe extern "system" fn(fdarray: *mut super::winsock2::WSAPOLLFD, nfds: u32, timeout: i32) -> i32>;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2", feature = "ws2"))]
 pub type LPFN_WSARECVMSG = Option<unsafe extern "system" fn(s: super::winsock2::SOCKET, lpmsg: *mut super::ws2::WSAMSG, lpdwnumberofbytesrecvd: *mut u32, lpoverlapped: *mut super::minwinbase::OVERLAPPED, lpcompletionroutine: super::winsock2::LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32>;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2", feature = "ws2"))]
 pub type LPFN_WSASENDMSG = Option<unsafe extern "system" fn(s: super::winsock2::SOCKET, lpmsg: *const super::ws2::WSAMSG, dwflags: u32, lpnumberofbytessent: *mut u32, lpoverlapped: *mut super::minwinbase::OVERLAPPED, lpcompletionroutine: super::winsock2::LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32>;
 pub type LPNLA_BLOB = *mut NLA_BLOB;
 pub type LPTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
-#[cfg(feature = "Win32_winsock2")]
+#[cfg(feature = "winsock2")]
 pub type LPWSAPOLLDATA = *mut WSAPOLLDATA;
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "ws2"))]
 pub type LPWSASENDMSG = *mut WSASENDMSG;
 pub const NLA_802_1X_LOCATION: NLA_BLOB_DATA_TYPE = 2;
 pub const NLA_ALLUSERS_NETWORK: u32 = 1;
@@ -159,17 +159,17 @@ pub type PNLA_BLOB = *mut NLA_BLOB;
 pub type PNLA_BLOB_DATA_TYPE = *mut NLA_BLOB_DATA_TYPE;
 pub type PNLA_CONNECTIVITY_TYPE = *mut NLA_CONNECTIVITY_TYPE;
 pub type PNLA_INTERNET = *mut NLA_INTERNET;
-#[cfg(all(feature = "Win32_mswsockdef", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "mswsockdef", feature = "winnt", feature = "winsock2"))]
 pub type PRIO_EXTENSION_FUNCTION_TABLE = *mut RIO_EXTENSION_FUNCTION_TABLE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PRIO_NOTIFICATION_COMPLETION = *mut RIO_NOTIFICATION_COMPLETION;
 pub type PRIO_NOTIFICATION_COMPLETION_TYPE = *mut RIO_NOTIFICATION_COMPLETION_TYPE;
 pub type PTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
 pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_mswsockdef", feature = "Win32_winnt", feature = "Win32_winsock2"))]
+#[cfg(all(feature = "mswsockdef", feature = "winnt", feature = "winsock2"))]
 #[derive(Clone, Copy, Default)]
 pub struct RIO_EXTENSION_FUNCTION_TABLE {
     pub cbSize: u32,
@@ -189,53 +189,53 @@ pub struct RIO_EXTENSION_FUNCTION_TABLE {
 }
 pub const RIO_IOCP_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct RIO_NOTIFICATION_COMPLETION {
     pub Type: RIO_NOTIFICATION_COMPLETION_TYPE,
     pub Anonymous: RIO_NOTIFICATION_COMPLETION_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for RIO_NOTIFICATION_COMPLETION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union RIO_NOTIFICATION_COMPLETION_0 {
     pub Event: RIO_NOTIFICATION_COMPLETION_0_0,
     pub Iocp: RIO_NOTIFICATION_COMPLETION_0_1,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for RIO_NOTIFICATION_COMPLETION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct RIO_NOTIFICATION_COMPLETION_0_0 {
     pub EventHandle: super::winnt::HANDLE,
     pub NotifyReset: windows_sys::core::BOOL,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for RIO_NOTIFICATION_COMPLETION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct RIO_NOTIFICATION_COMPLETION_0_1 {
     pub IocpHandle: super::winnt::HANDLE,
     pub CompletionKey: *mut core::ffi::c_void,
     pub Overlapped: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for RIO_NOTIFICATION_COMPLETION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -296,47 +296,47 @@ impl Default for TRANSMIT_FILE_BUFFERS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct TRANSMIT_PACKETS_ELEMENT {
     pub dwElFlags: u32,
     pub cLength: u32,
     pub Anonymous: TRANSMIT_PACKETS_ELEMENT_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for TRANSMIT_PACKETS_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union TRANSMIT_PACKETS_ELEMENT_0 {
     pub Anonymous: TRANSMIT_PACKETS_ELEMENT_0_0,
     pub pBuffer: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for TRANSMIT_PACKETS_ELEMENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct TRANSMIT_PACKETS_ELEMENT_0_0 {
     pub nFileOffset: i64,
     pub hFile: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for TRANSMIT_PACKETS_ELEMENT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winsock2")]
+#[cfg(feature = "winsock2")]
 #[derive(Clone, Copy)]
 pub struct WSAPOLLDATA {
     pub result: i32,
@@ -344,14 +344,14 @@ pub struct WSAPOLLDATA {
     pub timeout: i32,
     pub fdArray: [super::winsock2::WSAPOLLFD; 0],
 }
-#[cfg(feature = "Win32_winsock2")]
+#[cfg(feature = "winsock2")]
 impl Default for WSAPOLLDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct WSASENDMSG {
     pub lpMsg: super::ws2::LPWSAMSG,
@@ -360,7 +360,7 @@ pub struct WSASENDMSG {
     pub lpOverlapped: super::winsock2::LPWSAOVERLAPPED,
     pub lpCompletionRoutine: super::winsock2::LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "ws2"))]
 impl Default for WSASENDMSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

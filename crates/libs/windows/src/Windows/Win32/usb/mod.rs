@@ -79,33 +79,33 @@ impl Default for POS_STRING {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PURB(pub *mut URB);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PURB {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PURB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUSBD_DEVICE_INFORMATION(pub *mut USBD_DEVICE_INFORMATION);
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl PUSBD_DEVICE_INFORMATION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for PUSBD_DEVICE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -233,19 +233,19 @@ pub const UHCI_VIA_x03: USB_CONTROLLER_FLAVOR = 253;
 pub const UHCI_VIA_x04: USB_CONTROLLER_FLAVOR = 254;
 pub const UHCI_VIA_x0E_FIFO: USB_CONTROLLER_FLAVOR = 264;
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct URB {
     pub Anonymous: URB_0,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for URB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub union URB_0 {
     pub UrbHeader: _URB_HEADER,
@@ -270,7 +270,7 @@ pub union URB_0 {
     pub UrbOpenStaticStreams: _URB_OPEN_STATIC_STREAMS,
     pub UrbGetIsochPipeTransferPathDelays: _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for URB_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -353,14 +353,14 @@ impl Default for USBD_CONFIGURATION_HANDLE {
 pub const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295;
 pub const USBD_DEFAULT_PIPE_TRANSFER: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]
 pub struct USBD_DEVICE_INFORMATION {
     pub OffsetNext: u32,
     pub UsbdDeviceHandle: *mut core::ffi::c_void,
     pub DeviceDescriptor: super::usbspec::USB_DEVICE_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for USBD_DEVICE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -603,7 +603,7 @@ pub const UsbdPipeTypeInterrupt: USBD_PIPE_TYPE = 3;
 pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = 1;
 pub const VALID_TRANSFER_FLAGS_MASK: u32 = 15;
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub Hdr: _URB_HEADER,
@@ -615,14 +615,14 @@ pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for _URB_BULK_OR_INTERRUPT_TRANSFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
@@ -639,14 +639,14 @@ pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub LanguageId: u16,
     pub Reserved2: u16,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for _URB_CONTROL_DESCRIPTOR_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub Hdr: _URB_HEADER,
@@ -662,14 +662,14 @@ pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub Index: u16,
     pub Reserved1: u16,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for _URB_CONTROL_FEATURE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     pub Hdr: _URB_HEADER,
@@ -682,14 +682,14 @@ pub struct _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     pub hca: _URB_HCD_AREA,
     pub Reserved1: [u8; 8],
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_GET_INTERFACE_REQUEST {
     pub Hdr: _URB_HEADER,
@@ -704,14 +704,14 @@ pub struct _URB_CONTROL_GET_INTERFACE_REQUEST {
     pub Interface: u16,
     pub Reserved2: u16,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for _URB_CONTROL_GET_INTERFACE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_GET_STATUS_REQUEST {
     pub Hdr: _URB_HEADER,
@@ -726,14 +726,14 @@ pub struct _URB_CONTROL_GET_STATUS_REQUEST {
     pub Index: u16,
     pub Reserved2: u16,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for _URB_CONTROL_GET_STATUS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_TRANSFER {
     pub Hdr: _URB_HEADER,
@@ -746,7 +746,7 @@ pub struct _URB_CONTROL_TRANSFER {
     pub hca: _URB_HCD_AREA,
     pub SetupPacket: [u8; 8],
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for _URB_CONTROL_TRANSFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -771,7 +771,7 @@ impl Default for _URB_CONTROL_TRANSFER_EX {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Hdr: _URB_HEADER,
@@ -788,7 +788,7 @@ pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Index: u16,
     pub Reserved1: u16,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -845,7 +845,7 @@ impl Default for _URB_HEADER {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_ISOCH_TRANSFER {
     pub Hdr: _URB_HEADER,
@@ -861,7 +861,7 @@ pub struct _URB_ISOCH_TRANSFER {
     pub ErrorCount: u32,
     pub IsoPacket: [USBD_ISO_PACKET_DESCRIPTOR; 1],
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for _URB_ISOCH_TRANSFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -878,7 +878,7 @@ pub struct _URB_OPEN_STATIC_STREAMS {
     pub Streams: PUSBD_STREAM_INFORMATION,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
@@ -896,7 +896,7 @@ pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub MS_FeatureDescriptorIndex: u16,
     pub Reserved3: u16,
 }
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 impl Default for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -910,7 +910,7 @@ pub struct _URB_PIPE_REQUEST {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_usbspec")]
+#[cfg(feature = "usbspec")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct _URB_SELECT_CONFIGURATION {
     pub Hdr: _URB_HEADER,

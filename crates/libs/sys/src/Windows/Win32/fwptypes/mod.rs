@@ -131,20 +131,20 @@ pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_ALLOW_EDGE_TRAFFIC: u32 = 2;
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_DENY_EDGE_TRAFFIC: u32 = 4;
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_IS_SYSTEM_PORT_RPC: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FWP_CONDITION_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_CONDITION_VALUE0_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FWP_CONDITION_VALUE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union FWP_CONDITION_VALUE0_0 {
     pub uint8: u8,
@@ -169,7 +169,7 @@ pub union FWP_CONDITION_VALUE0_0 {
     pub v6AddrMask: *mut FWP_V6_ADDR_AND_MASK,
     pub rangeValue: *mut FWP_RANGE0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FWP_CONDITION_VALUE0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -236,13 +236,13 @@ pub const FWP_OPTION_VALUE_DISABLE_LOOSE_SOURCE: u32 = 0;
 pub const FWP_OPTION_VALUE_ENABLE_LOCAL_ONLY_MAPPING: u32 = 1;
 pub const FWP_OPTION_VALUE_ENABLE_LOOSE_SOURCE: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FWP_RANGE0 {
     pub valueLow: FWP_VALUE0,
     pub valueHigh: FWP_VALUE0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FWP_RANGE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -254,7 +254,7 @@ pub const FWP_SID: FWP_DATA_TYPE = 13;
 pub const FWP_SINGLE_DATA_TYPE_MAX: FWP_DATA_TYPE = 255;
 pub const FWP_TOKEN_ACCESS_INFORMATION_TYPE: FWP_DATA_TYPE = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FWP_TOKEN_INFORMATION {
     pub sidCount: u32,
@@ -262,7 +262,7 @@ pub struct FWP_TOKEN_INFORMATION {
     pub restrictedSidCount: u32,
     pub restrictedSids: super::winnt::PSID_AND_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FWP_TOKEN_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -295,20 +295,20 @@ impl Default for FWP_V6_ADDR_AND_MASK {
 pub const FWP_V6_ADDR_MASK: FWP_DATA_TYPE = 257;
 pub const FWP_V6_ADDR_SIZE: u32 = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FWP_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_VALUE0_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FWP_VALUE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union FWP_VALUE0_0 {
     pub uint8: u8,
@@ -330,7 +330,7 @@ pub union FWP_VALUE0_0 {
     pub unicodeString: windows_sys::core::PWSTR,
     pub byteArray6: *mut FWP_BYTE_ARRAY6,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for FWP_VALUE0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -8,7 +8,7 @@ where
     let mut result__ = core::ptr::null_mut();
     unsafe { CreateRandomAccessStreamOnFile(filepath.param().abi(), accessmode, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn CreateRandomAccessStreamOverStream<P0, T>(stream: P0, options: BSOS_OPTIONS) -> windows_core::Result<T>
 where

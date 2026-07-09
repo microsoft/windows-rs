@@ -14,14 +14,14 @@ pub const TS_AS_STATUS_CHANGE: u32 = 16;
 pub const TS_AS_TEXT_CHANGE: u32 = 1;
 pub type TS_ATTRID = windows_sys::core::GUID;
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct TS_ATTRVAL {
     pub idAttr: TS_ATTRID,
     pub dwOverlapId: u32,
     pub varValue: super::oaidl::VARIANT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for TS_ATTRVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

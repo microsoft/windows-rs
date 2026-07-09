@@ -1,75 +1,75 @@
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpAddFragmentToCache(requestqueuehandle : super::winnt::HANDLE, urlprefix : windows_sys::core::PCWSTR, datachunk : *mut HTTP_DATA_CHUNK, cachepolicy : *mut HTTP_CACHE_POLICY, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpAddUrl(requestqueuehandle : super::winnt::HANDLE, fullyqualifiedurl : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpAddUrlToUrlGroup(urlgroupid : HTTP_URL_GROUP_ID, pfullyqualifiedurl : windows_sys::core::PCWSTR, urlcontext : HTTP_URL_CONTEXT, reserved : u32) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpCancelHttpRequest(requestqueuehandle : super::winnt::HANDLE, requestid : HTTP_REQUEST_ID, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpCloseRequestQueue(requestqueuehandle : super::winnt::HANDLE) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpCloseServerSession(serversessionid : HTTP_SERVER_SESSION_ID) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpCloseUrlGroup(urlgroupid : HTTP_URL_GROUP_ID) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpCreateHttpHandle(requestqueuehandle : *mut super::winnt::HANDLE, reserved : u32) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpCreateRequestQueue(version : HTTPAPI_VERSION, name : windows_sys::core::PCWSTR, securityattributes : *mut super::minwinbase::SECURITY_ATTRIBUTES, flags : u32, requestqueuehandle : *mut super::winnt::HANDLE) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpCreateServerSession(version : HTTPAPI_VERSION, serversessionid : *mut HTTP_OPAQUE_ID, reserved : u32) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpCreateUrlGroup(serversessionid : HTTP_SERVER_SESSION_ID, purlgroupid : *mut HTTP_OPAQUE_ID, reserved : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpDeclarePush(requestqueuehandle : super::winnt::HANDLE, requestid : HTTP_REQUEST_ID, verb : HTTP_VERB, path : windows_sys::core::PCWSTR, query : windows_sys::core::PCSTR, headers : *const HTTP_REQUEST_HEADERS) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpDelegateRequestEx(requestqueuehandle : super::winnt::HANDLE, delegatequeuehandle : super::winnt::HANDLE, requestid : HTTP_REQUEST_ID, delegateurlgroupid : HTTP_URL_GROUP_ID, propertyinfosetsize : u32, propertyinfoset : *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpDeleteServiceConfiguration(servicehandle : super::winnt::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : *const super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpFindUrlGroupId(fullyqualifiedurl : windows_sys::core::PCWSTR, requestqueuehandle : super::winnt::HANDLE, urlgroupid : *mut HTTP_OPAQUE_ID) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpFlushResponseCache(requestqueuehandle : super::winnt::HANDLE, urlprefix : windows_sys::core::PCWSTR, flags : u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpGetExtension(version : HTTPAPI_VERSION, extension : u32, buffer : *mut core::ffi::c_void, buffersize : u32) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpInitialize(version : HTTPAPI_VERSION, flags : u32, preserved : *const core::ffi::c_void) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpIsFeatureSupported(featureid : HTTP_FEATURE_ID) -> windows_sys::core::BOOL);
 windows_link::link!("httpapi.dll" "system" fn HttpPrepareUrl(reserved : *const core::ffi::c_void, flags : u32, url : windows_sys::core::PCWSTR, preparedurl : *mut windows_sys::core::PWSTR) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpQueryRequestProperty(requestqueuehandle : super::winnt::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, qualifier : *const core::ffi::c_void, qualifiersize : u32, output : *mut core::ffi::c_void, outputbuffersize : u32, bytesreturned : *mut u32, overlapped : *const super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpQueryRequestQueueProperty(requestqueuehandle : super::winnt::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, returnlength : *mut u32, reserved2 : *const core::ffi::c_void) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpQueryServerSessionProperty(serversessionid : HTTP_SERVER_SESSION_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpQueryServiceConfiguration(servicehandle : super::winnt::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pinput : *const core::ffi::c_void, inputlength : u32, poutput : *mut core::ffi::c_void, outputlength : u32, preturnlength : *mut u32, poverlapped : *const super::minwinbase::OVERLAPPED) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpQueryUrlGroupProperty(urlgroupid : HTTP_URL_GROUP_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : *mut u32) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpReadFragmentFromCache(requestqueuehandle : super::winnt::HANDLE, urlprefix : windows_sys::core::PCWSTR, byterange : *mut HTTP_BYTE_RANGE, buffer : *mut core::ffi::c_void, bufferlength : u32, bytesread : *mut u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpReceiveClientCertificate(requestqueuehandle : super::winnt::HANDLE, connectionid : HTTP_CONNECTION_ID, flags : u32, sslclientcertinfo : *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize : u32, bytesreceived : *mut u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "ws2"))]
 windows_link::link!("httpapi.dll" "system" fn HttpReceiveHttpRequest(requestqueuehandle : super::winnt::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, requestbuffer : *mut HTTP_REQUEST, requestbufferlength : u32, bytesreturned : *mut u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpReceiveRequestEntityBody(requestqueuehandle : super::winnt::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitybuffer : *mut core::ffi::c_void, entitybufferlength : u32, bytesreturned : *mut u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpRemoveUrl(requestqueuehandle : super::winnt::HANDLE, fullyqualifiedurl : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpRemoveUrlFromUrlGroup(urlgroupid : HTTP_URL_GROUP_ID, pfullyqualifiedurl : windows_sys::core::PCWSTR, flags : u32) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpSendHttpResponse(requestqueuehandle : super::winnt::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, httpresponse : *mut HTTP_RESPONSE, cachepolicy : *mut HTTP_CACHE_POLICY, bytessent : *mut u32, reserved1 : *const core::ffi::c_void, reserved2 : u32, overlapped : *mut super::minwinbase::OVERLAPPED, logdata : *mut HTTP_LOG_DATA) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpSendResponseEntityBody(requestqueuehandle : super::winnt::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitychunkcount : u16, entitychunks : *const HTTP_DATA_CHUNK, bytessent : *mut u32, reserved1 : *const core::ffi::c_void, reserved2 : u32, overlapped : *mut super::minwinbase::OVERLAPPED, logdata : *mut HTTP_LOG_DATA) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpSetRequestProperty(requestqueuehandle : super::winnt::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, input : *const core::ffi::c_void, inputpropertysize : u32, overlapped : *const super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpSetRequestQueueProperty(requestqueuehandle : super::winnt::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, reserved2 : *const core::ffi::c_void) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpSetServerSessionProperty(serversessionid : HTTP_SERVER_SESSION_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpSetServiceConfiguration(servicehandle : super::winnt::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : *const super::minwinbase::OVERLAPPED) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpSetUrlGroupProperty(urlgroupid : HTTP_URL_GROUP_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpShutdownRequestQueue(requestqueuehandle : super::winnt::HANDLE) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpTerminate(flags : u32, preserved : *const core::ffi::c_void) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpUpdateServiceConfiguration(handle : super::winnt::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, configinfo : *const core::ffi::c_void, configinfolength : u32, overlapped : *const super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpWaitForDemandStart(requestqueuehandle : super::winnt::HANDLE, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpWaitForDisconnect(requestqueuehandle : super::winnt::HANDLE, connectionid : HTTP_CONNECTION_ID, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("httpapi.dll" "system" fn HttpWaitForDisconnectEx(requestqueuehandle : super::winnt::HANDLE, connectionid : HTTP_CONNECTION_ID, reserved : u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
 pub const CacheRangeChunkSize: HTTP_SERVICE_CONFIG_CACHE_KEY = 1;
 pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = 1;
@@ -119,13 +119,13 @@ pub struct HTTP_BANDWIDTH_LIMIT_INFO {
     pub MaxBandwidth: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_BINDING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub RequestQueueHandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_BINDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -237,20 +237,20 @@ impl Default for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK {
     pub DataChunkType: HTTP_DATA_CHUNK_TYPE,
     pub Anonymous: HTTP_DATA_CHUNK_0,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_DATA_CHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union HTTP_DATA_CHUNK_0 {
     pub FromMemory: HTTP_DATA_CHUNK_0_0,
@@ -260,79 +260,79 @@ pub union HTTP_DATA_CHUNK_0 {
     pub Trailers: HTTP_DATA_CHUNK_0_4,
     pub FromWinHttpFastForwarding: HTTP_DATA_CHUNK_0_5,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_DATA_CHUNK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_0 {
     pub pBuffer: *mut core::ffi::c_void,
     pub BufferLength: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_DATA_CHUNK_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_1 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub FileHandle: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_DATA_CHUNK_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_2 {
     pub FragmentNameLength: u16,
     pub pFragmentName: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_DATA_CHUNK_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_3 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub pFragmentName: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_DATA_CHUNK_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_4 {
     pub TrailerCount: u16,
     pub pTrailers: PHTTP_UNKNOWN_HEADER,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_DATA_CHUNK_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_DATA_CHUNK_0_5 {
     pub WhFastForwardingData: HTTP_WINHTTP_FAST_FORWARDING_DATA,
@@ -407,7 +407,7 @@ pub const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: u32 = 4;
 pub const HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY: u32 = 8;
 pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_LOGGING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
@@ -425,7 +425,7 @@ pub struct HTTP_LOGGING_INFO {
     pub RolloverSize: u32,
     pub pSecurityDescriptor: super::winnt::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_LOGGING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -440,7 +440,7 @@ pub struct HTTP_LOG_DATA {
 }
 pub type HTTP_LOG_DATA_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_LOG_FIELDS_DATA {
     pub Base: HTTP_LOG_DATA,
@@ -474,7 +474,7 @@ pub struct HTTP_LOG_FIELDS_DATA {
     pub MethodNum: HTTP_VERB,
     pub SubStatus: u16,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_LOG_FIELDS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -643,11 +643,11 @@ pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1;
 pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: u32 = 1;
 pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: u32 = 2;
 pub const HTTP_RECEIVE_SECURE_CHANNEL_TOKEN: u32 = 1;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
 pub type HTTP_REQUEST = HTTP_REQUEST_V2;
 pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_ncrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_AUTH_INFO {
     pub AuthStatus: HTTP_AUTH_STATUS,
@@ -664,7 +664,7 @@ pub struct HTTP_REQUEST_AUTH_INFO {
     pub PackageNameLength: u16,
     pub pPackageName: windows_sys::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_ncrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "winnt"))]
 impl Default for HTTP_REQUEST_AUTH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -672,7 +672,7 @@ impl Default for HTTP_REQUEST_AUTH_INFO {
 }
 pub type HTTP_REQUEST_AUTH_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
     pub ServiceName: PHTTP_SERVICE_BINDING_BASE,
@@ -680,7 +680,7 @@ pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
     pub ChannelTokenSize: u32,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for HTTP_REQUEST_CHANNEL_BIND_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -788,7 +788,7 @@ impl Default for HTTP_REQUEST_TIMING_INFO {
 }
 pub type HTTP_REQUEST_TIMING_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
     pub TokenBinding: super::minwindef::PUCHAR,
@@ -797,7 +797,7 @@ pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
     pub EKMSize: u32,
     pub KeyType: u8,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for HTTP_REQUEST_TOKEN_BINDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -809,7 +809,7 @@ pub struct HTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO {
     pub TransportIdleConnectionTimeout: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_V1 {
     pub Flags: u32,
@@ -831,27 +831,27 @@ pub struct HTTP_REQUEST_V1 {
     pub RawConnectionId: HTTP_RAW_CONNECTION_ID,
     pub pSslInfo: PHTTP_SSL_INFO,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
 impl Default for HTTP_REQUEST_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_V2 {
     pub Base: HTTP_REQUEST_V1,
     pub RequestInfoCount: u16,
     pub pRequestInfo: PHTTP_REQUEST_INFO,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
 impl Default for HTTP_REQUEST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HTTP_RESPONSE = HTTP_RESPONSE_V2;
 pub const HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 2;
 pub const HTTP_RESPONSE_FLAG_MULTIPLE_ENCODINGS_AVAILABLE: u32 = 1;
@@ -884,7 +884,7 @@ impl Default for HTTP_RESPONSE_INFO {
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: u32 = 1;
 pub type HTTP_RESPONSE_INFO_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_V1 {
     pub Flags: u32,
@@ -896,21 +896,21 @@ pub struct HTTP_RESPONSE_V1 {
     pub EntityChunkCount: u16,
     pub pEntityChunks: PHTTP_DATA_CHUNK,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_RESPONSE_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_V2 {
     pub Base: HTTP_RESPONSE_V1,
     pub ResponseInfoCount: u16,
     pub pResponseInfo: PHTTP_RESPONSE_INFO,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_RESPONSE_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -964,14 +964,14 @@ pub struct HTTP_SERVER_AUTHENTICATION_INFO {
 pub type HTTP_SERVER_PROPERTY = i32;
 pub type HTTP_SERVER_SESSION_ID = HTTP_OPAQUE_ID;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_BINDING_A {
     pub Base: HTTP_SERVICE_BINDING_BASE,
     pub Buffer: super::winnt::PCHAR,
     pub BufferSize: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_SERVICE_BINDING_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -984,14 +984,14 @@ pub struct HTTP_SERVICE_BINDING_BASE {
 }
 pub type HTTP_SERVICE_BINDING_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_BINDING_W {
     pub Base: HTTP_SERVICE_BINDING_BASE,
     pub Buffer: super::winnt::PWCHAR,
     pub BufferSize: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for HTTP_SERVICE_BINDING_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1007,26 +1007,26 @@ pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
 }
 pub type HTTP_SERVICE_CONFIG_ID = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     pub AddrLength: u16,
     pub pAddress: super::ws2::PSOCKADDR,
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     pub AddrCount: u32,
     pub AddrList: [super::ws2::SOCKADDR_STORAGE; 1],
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1042,13 +1042,13 @@ pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
     pub ParamDesc: HTTP_SERVICE_CONFIG_SETTING_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     pub LocalAddress: super::ws2::SOCKADDR_STORAGE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1056,7 +1056,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     pub dwToken: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1065,20 +1065,20 @@ pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1100,19 +1100,19 @@ pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NEGOTIATE_CLIENT_CERT: u32 = 2;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT: u32 = 8;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY {
     pub pIpPort: super::ws2::PSOCKADDR,
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     pub IpPort: super::ws2::SOCKADDR_STORAGE,
@@ -1165,7 +1165,7 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1173,7 +1173,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
     pub dwToken: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1182,40 +1182,40 @@ pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     pub IpPort: super::ws2::SOCKADDR_STORAGE,
     pub Host: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1223,7 +1223,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     pub dwToken: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1232,20 +1232,20 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1295,7 +1295,7 @@ pub struct HTTP_SERVICE_CONFIG_URLACL_SET {
 pub const HTTP_SSL_CERT_SHA_HASH_LENGTH: u32 = 20;
 pub const HTTP_SSL_CERT_STORE_NAME_LENGTH: u32 = 128;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub CertFlags: u32,
@@ -1304,14 +1304,14 @@ pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub Token: super::winnt::HANDLE,
     pub CertDeniedByMapper: bool,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for HTTP_SSL_CLIENT_CERT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_SSL_INFO {
     pub ServerCertKeySize: u16,
@@ -1323,7 +1323,7 @@ pub struct HTTP_SSL_INFO {
     pub pClientCertInfo: PHTTP_SSL_CLIENT_CERT_INFO,
     pub SslClientCertNegotiated: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for HTTP_SSL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1381,13 +1381,13 @@ impl Default for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy)]
 pub struct HTTP_TRANSPORT_ADDRESS {
     pub pRemoteAddress: super::ws2::PSOCKADDR,
     pub pLocalAddress: super::ws2::PSOCKADDR,
 }
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 impl Default for HTTP_TRANSPORT_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1701,7 +1701,7 @@ pub type PHTTPAPI_VERSION = *mut HTTPAPI_VERSION;
 pub type PHTTP_503_RESPONSE_VERBOSITY = *mut HTTP_503_RESPONSE_VERBOSITY;
 pub type PHTTP_AUTH_STATUS = *mut HTTP_AUTH_STATUS;
 pub type PHTTP_BANDWIDTH_LIMIT_INFO = *mut HTTP_BANDWIDTH_LIMIT_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHTTP_BINDING_INFO = *mut HTTP_BINDING_INFO;
 pub type PHTTP_BYTE_RANGE = *mut HTTP_BYTE_RANGE;
 pub type PHTTP_CACHE_POLICY = *mut HTTP_CACHE_POLICY;
@@ -1718,7 +1718,7 @@ pub type PHTTP_CONNECTION_LIMIT_INFO = *mut HTTP_CONNECTION_LIMIT_INFO;
 pub type PHTTP_COOKED_URL = *mut HTTP_COOKED_URL;
 pub type PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = *mut HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID;
 pub type PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO = *mut HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHTTP_DATA_CHUNK = *mut HTTP_DATA_CHUNK;
 pub type PHTTP_DATA_CHUNK_TYPE = *mut HTTP_DATA_CHUNK_TYPE;
 pub type PHTTP_DELEGATE_REQUEST_PROPERTY_ID = *mut HTTP_DELEGATE_REQUEST_PROPERTY_ID;
@@ -1731,13 +1731,13 @@ pub type PHTTP_FLOWRATE_INFO = *mut HTTP_FLOWRATE_INFO;
 pub type PHTTP_HEADER_ID = *mut HTTP_HEADER_ID;
 pub type PHTTP_KNOWN_HEADER = *mut HTTP_KNOWN_HEADER;
 pub type PHTTP_LISTEN_ENDPOINT_INFO = *mut HTTP_LISTEN_ENDPOINT_INFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHTTP_LOGGING_INFO = *mut HTTP_LOGGING_INFO;
 pub type PHTTP_LOGGING_ROLLOVER_TYPE = *mut HTTP_LOGGING_ROLLOVER_TYPE;
 pub type PHTTP_LOGGING_TYPE = *mut HTTP_LOGGING_TYPE;
 pub type PHTTP_LOG_DATA = *mut HTTP_LOG_DATA;
 pub type PHTTP_LOG_DATA_TYPE = *mut HTTP_LOG_DATA_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHTTP_LOG_FIELDS_DATA = *mut HTTP_LOG_FIELDS_DATA;
 pub type PHTTP_MULTIPLE_KNOWN_HEADERS = *mut HTTP_MULTIPLE_KNOWN_HEADERS;
 pub type PHTTP_OPAQUE_ID = *mut u64;
@@ -1755,12 +1755,12 @@ pub type PHTTP_QUIC_CONNECTION_API_TIMINGS = *mut HTTP_QUIC_CONNECTION_API_TIMIN
 pub type PHTTP_QUIC_STREAM_API_TIMINGS = *mut HTTP_QUIC_STREAM_API_TIMINGS;
 pub type PHTTP_QUIC_STREAM_REQUEST_STATS = *mut HTTP_QUIC_STREAM_REQUEST_STATS;
 pub type PHTTP_RAW_CONNECTION_ID = *mut HTTP_OPAQUE_ID;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
 pub type PHTTP_REQUEST = *mut HTTP_REQUEST;
-#[cfg(all(feature = "Win32_ncrypt", feature = "Win32_winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "winnt"))]
 pub type PHTTP_REQUEST_AUTH_INFO = *mut HTTP_REQUEST_AUTH_INFO;
 pub type PHTTP_REQUEST_AUTH_TYPE = *mut HTTP_REQUEST_AUTH_TYPE;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PHTTP_REQUEST_CHANNEL_BIND_STATUS = *mut HTTP_REQUEST_CHANNEL_BIND_STATUS;
 pub type PHTTP_REQUEST_DSCP_INFO = *mut HTTP_REQUEST_DSCP_INFO;
 pub type PHTTP_REQUEST_HEADERS = *mut HTTP_REQUEST_HEADERS;
@@ -1776,77 +1776,77 @@ pub type PHTTP_REQUEST_SIZING_INFO = *mut HTTP_REQUEST_SIZING_INFO;
 pub type PHTTP_REQUEST_SIZING_TYPE = *mut HTTP_REQUEST_SIZING_TYPE;
 pub type PHTTP_REQUEST_TIMING_INFO = *mut HTTP_REQUEST_TIMING_INFO;
 pub type PHTTP_REQUEST_TIMING_TYPE = *mut HTTP_REQUEST_TIMING_TYPE;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PHTTP_REQUEST_TOKEN_BINDING_INFO = *mut HTTP_REQUEST_TOKEN_BINDING_INFO;
 pub type PHTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO = *mut HTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
 pub type PHTTP_REQUEST_V1 = *mut HTTP_REQUEST_V1;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
 pub type PHTTP_REQUEST_V2 = *mut HTTP_REQUEST_V2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHTTP_RESPONSE = *mut HTTP_RESPONSE;
 pub type PHTTP_RESPONSE_HEADERS = *mut HTTP_RESPONSE_HEADERS;
 pub type PHTTP_RESPONSE_INFO = *mut HTTP_RESPONSE_INFO;
 pub type PHTTP_RESPONSE_INFO_TYPE = *mut HTTP_RESPONSE_INFO_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHTTP_RESPONSE_V1 = *mut HTTP_RESPONSE_V1;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHTTP_RESPONSE_V2 = *mut HTTP_RESPONSE_V2;
 pub type PHTTP_SERVER_AUTHENTICATION_BASIC_PARAMS = *mut HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS;
 pub type PHTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS = *mut HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS;
 pub type PHTTP_SERVER_AUTHENTICATION_INFO = *mut HTTP_SERVER_AUTHENTICATION_INFO;
 pub type PHTTP_SERVER_PROPERTY = *mut HTTP_SERVER_PROPERTY;
 pub type PHTTP_SERVER_SESSION_ID = *mut HTTP_OPAQUE_ID;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHTTP_SERVICE_BINDING_A = *mut HTTP_SERVICE_BINDING_A;
 pub type PHTTP_SERVICE_BINDING_BASE = *mut HTTP_SERVICE_BINDING_BASE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHTTP_SERVICE_BINDING_W = *mut HTTP_SERVICE_BINDING_W;
 pub type PHTTP_SERVICE_CONFIG_CACHE_KEY = *mut HTTP_SERVICE_CONFIG_CACHE_KEY;
 pub type PHTTP_SERVICE_CONFIG_CACHE_PARAM = *mut u32;
 pub type PHTTP_SERVICE_CONFIG_CACHE_SET = *mut HTTP_SERVICE_CONFIG_CACHE_SET;
 pub type PHTTP_SERVICE_CONFIG_ID = *mut HTTP_SERVICE_CONFIG_ID;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_IP_LISTEN_PARAM = *mut HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_IP_LISTEN_QUERY = *mut HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY;
 pub type PHTTP_SERVICE_CONFIG_QUERY_TYPE = *mut HTTP_SERVICE_CONFIG_QUERY_TYPE;
 pub type PHTTP_SERVICE_CONFIG_SETTING_KEY = *mut HTTP_SERVICE_CONFIG_SETTING_KEY;
 pub type PHTTP_SERVICE_CONFIG_SETTING_PARAM = *mut u32;
 pub type PHTTP_SERVICE_CONFIG_SETTING_SET = *mut HTTP_SERVICE_CONFIG_SETTING_SET;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_CCS_KEY = *mut HTTP_SERVICE_CONFIG_SSL_CCS_KEY;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY = *mut HTTP_SERVICE_CONFIG_SSL_CCS_QUERY;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX = *mut HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_CCS_SET = *mut HTTP_SERVICE_CONFIG_SSL_CCS_SET;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_CCS_SET_EX = *mut HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_KEY = *mut HTTP_SERVICE_CONFIG_SSL_KEY;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_KEY_EX = *mut HTTP_SERVICE_CONFIG_SSL_KEY_EX;
 pub type PHTTP_SERVICE_CONFIG_SSL_PARAM = *mut HTTP_SERVICE_CONFIG_SSL_PARAM;
 pub type PHTTP_SERVICE_CONFIG_SSL_PARAM_EX = *mut HTTP_SERVICE_CONFIG_SSL_PARAM_EX;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_QUERY = *mut HTTP_SERVICE_CONFIG_SSL_QUERY;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_QUERY_EX = *mut HTTP_SERVICE_CONFIG_SSL_QUERY_EX;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_SET = *mut HTTP_SERVICE_CONFIG_SSL_SET;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_SET_EX = *mut HTTP_SERVICE_CONFIG_SSL_SET_EX;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_SNI_KEY = *mut HTTP_SERVICE_CONFIG_SSL_SNI_KEY;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY = *mut HTTP_SERVICE_CONFIG_SSL_SNI_QUERY;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX = *mut HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_SNI_SET = *mut HTTP_SERVICE_CONFIG_SSL_SNI_SET;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_SERVICE_CONFIG_SSL_SNI_SET_EX = *mut HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX;
 pub type PHTTP_SERVICE_CONFIG_TIMEOUT_KEY = *mut HTTP_SERVICE_CONFIG_TIMEOUT_KEY;
 pub type PHTTP_SERVICE_CONFIG_TIMEOUT_PARAM = *mut u16;
@@ -1855,9 +1855,9 @@ pub type PHTTP_SERVICE_CONFIG_URLACL_KEY = *mut HTTP_SERVICE_CONFIG_URLACL_KEY;
 pub type PHTTP_SERVICE_CONFIG_URLACL_PARAM = *mut HTTP_SERVICE_CONFIG_URLACL_PARAM;
 pub type PHTTP_SERVICE_CONFIG_URLACL_QUERY = *mut HTTP_SERVICE_CONFIG_URLACL_QUERY;
 pub type PHTTP_SERVICE_CONFIG_URLACL_SET = *mut HTTP_SERVICE_CONFIG_URLACL_SET;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PHTTP_SSL_CLIENT_CERT_INFO = *mut HTTP_SSL_CLIENT_CERT_INFO;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PHTTP_SSL_INFO = *mut HTTP_SSL_INFO;
 pub type PHTTP_SSL_PROTOCOL_INFO = *mut HTTP_SSL_PROTOCOL_INFO;
 pub type PHTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = *mut HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE;
@@ -1865,7 +1865,7 @@ pub type PHTTP_STATE_INFO = *mut HTTP_STATE_INFO;
 pub type PHTTP_TIMEOUT_LIMIT_INFO = *mut HTTP_TIMEOUT_LIMIT_INFO;
 pub type PHTTP_TLS_RESTRICTIONS_PARAM = *mut HTTP_TLS_RESTRICTIONS_PARAM;
 pub type PHTTP_TLS_SESSION_TICKET_KEYS_PARAM = *mut HTTP_TLS_SESSION_TICKET_KEYS_PARAM;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PHTTP_TRANSPORT_ADDRESS = *mut HTTP_TRANSPORT_ADDRESS;
 pub type PHTTP_UNKNOWN_HEADER = *mut HTTP_UNKNOWN_HEADER;
 pub type PHTTP_URI_SCHEME = *mut HTTP_SCHEME;

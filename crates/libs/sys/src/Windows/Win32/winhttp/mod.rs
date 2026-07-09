@@ -8,9 +8,9 @@ windows_link::link!("winhttp.dll" "system" fn WinHttpCreateProxyResolver(hsessio
 windows_link::link!("winhttp.dll" "system" fn WinHttpCreateUrl(lpurlcomponents : *const URL_COMPONENTS, dwflags : u32, pwszurl : windows_sys::core::PWSTR, pdwurllength : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("winhttp.dll" "system" fn WinHttpDetectAutoProxyConfigUrl(dwautodetectflags : u32, ppwstrautoconfigurl : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("winhttp.dll" "system" fn WinHttpFreeProxyResult(pproxyresult : *mut WINHTTP_PROXY_RESULT));
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("winhttp.dll" "system" fn WinHttpFreeProxyResultEx(pproxyresultex : *mut WINHTTP_PROXY_RESULT_EX));
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("winhttp.dll" "system" fn WinHttpFreeProxySettings(pwinhttpproxysettings : *const WINHTTP_PROXY_SETTINGS));
 windows_link::link!("winhttp.dll" "system" fn WinHttpFreeProxySettingsEx(proxysettingstype : WINHTTP_PROXY_SETTINGS_TYPE, pproxysettingsex : *const core::ffi::c_void) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpFreeQueryConnectionGroupResult(presult : *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT));
@@ -20,7 +20,7 @@ windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrl(hsession : H
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrlEx(hresolver : HINTERNET, pcwszurl : windows_sys::core::PCWSTR, pautoproxyoptions : *const WINHTTP_AUTOPROXY_OPTIONS, pcontext : usize) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrlEx2(hresolver : HINTERNET, pcwszurl : windows_sys::core::PCWSTR, pautoproxyoptions : *const WINHTTP_AUTOPROXY_OPTIONS, cbinterfaceselectioncontext : u32, pinterfaceselectioncontext : *const u8, pcontext : usize) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxyResult(hresolver : HINTERNET, pproxyresult : *mut WINHTTP_PROXY_RESULT) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxyResultEx(hresolver : HINTERNET, pproxyresultex : *mut WINHTTP_PROXY_RESULT_EX) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxySettingsEx(hresolver : HINTERNET, proxysettingstype : WINHTTP_PROXY_SETTINGS_TYPE, pproxysettingsparam : *const WINHTTP_PROXY_SETTINGS_PARAM, pcontext : usize) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxySettingsResultEx(hresolver : HINTERNET, pproxysettingsex : *mut core::ffi::c_void) -> u32);
@@ -38,7 +38,7 @@ windows_link::link!("winhttp.dll" "system" fn WinHttpQueryHeadersEx(hrequest : H
 windows_link::link!("winhttp.dll" "system" fn WinHttpQueryOption(hinternet : HINTERNET, dwoption : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("winhttp.dll" "system" fn WinHttpReadData(hrequest : HINTERNET, lpbuffer : *mut core::ffi::c_void, dwnumberofbytestoread : u32, lpdwnumberofbytesread : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("winhttp.dll" "system" fn WinHttpReadDataEx(hrequest : HINTERNET, lpbuffer : *mut core::ffi::c_void, dwnumberofbytestoread : u32, lpdwnumberofbytesread : *mut u32, ullflags : u64, cbproperty : u32, pvproperty : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("winhttp.dll" "system" fn WinHttpReadProxySettings(hsession : HINTERNET, pcwszconnectionname : windows_sys::core::PCWSTR, ffallbacktodefaultsettings : windows_sys::core::BOOL, fsetautodiscoverfordefaultsettings : windows_sys::core::BOOL, pdwsettingsversion : *mut u32, pfdefaultsettingsarereturned : *mut windows_sys::core::BOOL, pwinhttpproxysettings : *mut WINHTTP_PROXY_SETTINGS) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpReceiveResponse(hrequest : HINTERNET, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("winhttp.dll" "system" fn WinHttpRegisterProxyChangeNotification(ullflags : u64, pfncallback : WINHTTP_PROXY_CHANGE_CALLBACK, pvcontext : *const core::ffi::c_void, hregistration : *mut WINHTTP_PROXY_CHANGE_REGISTRATION_HANDLE) -> u32);
@@ -50,9 +50,9 @@ windows_link::link!("winhttp.dll" "system" fn WinHttpSetOption(hinternet : HINTE
 windows_link::link!("winhttp.dll" "system" fn WinHttpSetProxySettingsPerUser(fproxysettingsperuser : windows_sys::core::BOOL) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpSetStatusCallback(hinternet : HINTERNET, lpfninternetcallback : WINHTTP_STATUS_CALLBACK, dwnotificationflags : u32, dwreserved : usize) -> WINHTTP_STATUS_CALLBACK);
 windows_link::link!("winhttp.dll" "system" fn WinHttpSetTimeouts(hinternet : HINTERNET, nresolvetimeout : i32, nconnecttimeout : i32, nsendtimeout : i32, nreceivetimeout : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 windows_link::link!("winhttp.dll" "system" fn WinHttpTimeFromSystemTime(pst : *const super::minwinbase::SYSTEMTIME, pwsztime : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwinbase")]
+#[cfg(feature = "minwinbase")]
 windows_link::link!("winhttp.dll" "system" fn WinHttpTimeToSystemTime(pwsztime : windows_sys::core::PCWSTR, pst : *mut super::minwinbase::SYSTEMTIME) -> windows_sys::core::BOOL);
 windows_link::link!("winhttp.dll" "system" fn WinHttpUnregisterProxyChangeNotification(hregistration : WINHTTP_PROXY_CHANGE_REGISTRATION_HANDLE) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpWebSocketClose(hwebsocket : HINTERNET, usstatus : u16, pvreason : *const core::ffi::c_void, dwreasonlength : u32) -> u32);
@@ -62,7 +62,7 @@ windows_link::link!("winhttp.dll" "system" fn WinHttpWebSocketReceive(hwebsocket
 windows_link::link!("winhttp.dll" "system" fn WinHttpWebSocketSend(hwebsocket : HINTERNET, ebuffertype : WINHTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer : *const core::ffi::c_void, dwbufferlength : u32) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpWebSocketShutdown(hwebsocket : HINTERNET, usstatus : u16, pvreason : *const core::ffi::c_void, dwreasonlength : u32) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpWriteData(hrequest : HINTERNET, lpbuffer : *const core::ffi::c_void, dwnumberofbytestowrite : u32, lpdwnumberofbyteswritten : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("winhttp.dll" "system" fn WinHttpWriteProxySettings(hsession : HINTERNET, fforceupdate : windows_sys::core::BOOL, pwinhttpproxysettings : *const WINHTTP_PROXY_SETTINGS) -> u32);
 pub const API_GET_PROXY_FOR_URL: u32 = 6;
 pub const API_GET_PROXY_SETTINGS: u32 = 7;
@@ -210,10 +210,10 @@ pub const NETWORKING_KEY_BUFSIZE: u32 = 128;
 pub type PHTTP_VERSION_INFO = *mut HTTP_VERSION_INFO;
 pub type PWINHTTP_ASYNC_RESULT = *mut WINHTTP_ASYNC_RESULT;
 pub type PWINHTTP_AUTOPROXY_OPTIONS = *mut WINHTTP_AUTOPROXY_OPTIONS;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PWINHTTP_CERTIFICATE_INFO = *mut WINHTTP_CERTIFICATE_INFO;
 pub type PWINHTTP_CONNECTION_GROUP = *mut WINHTTP_CONNECTION_GROUP;
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 pub type PWINHTTP_CONNECTION_INFO = *mut WINHTTP_CONNECTION_INFO;
 pub type PWINHTTP_CREDS = *mut WINHTTP_CREDS;
 pub type PWINHTTP_CREDS_EX = *mut WINHTTP_CREDS_EX;
@@ -228,7 +228,7 @@ pub type PWINHTTP_HTTP2_RECEIVE_WINDOW = *mut WINHTTP_HTTP2_RECEIVE_WINDOW;
 pub type PWINHTTP_MATCH_CONNECTION_GUID = *mut WINHTTP_MATCH_CONNECTION_GUID;
 pub type PWINHTTP_PROXY_INFO = *mut WINHTTP_PROXY_INFO;
 pub type PWINHTTP_PROXY_NETWORKING_KEY = *mut WINHTTP_PROXY_NETWORKING_KEY;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PWINHTTP_PROXY_SETTINGS = *mut WINHTTP_PROXY_SETTINGS;
 pub type PWINHTTP_PROXY_SETTINGS_EX = *mut WINHTTP_PROXY_SETTINGS_EX;
 pub type PWINHTTP_PROXY_SETTINGS_PARAM = *mut WINHTTP_PROXY_SETTINGS_PARAM;
@@ -390,7 +390,7 @@ pub const WINHTTP_CALLBACK_STATUS_SETTINGS_WRITE_COMPLETE: u32 = 268435456;
 pub const WINHTTP_CALLBACK_STATUS_SHUTDOWN_COMPLETE: u32 = 67108864;
 pub const WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE: u32 = 1048576;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct WINHTTP_CERTIFICATE_INFO {
     pub ftExpiry: super::minwindef::FILETIME,
@@ -402,7 +402,7 @@ pub struct WINHTTP_CERTIFICATE_INFO {
     pub lpszEncryptionAlgName: windows_sys::core::PWSTR,
     pub dwKeySize: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for WINHTTP_CERTIFICATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -416,7 +416,7 @@ pub struct WINHTTP_CONNECTION_GROUP {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
@@ -425,7 +425,7 @@ pub struct WINHTTP_CONNECTION_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_ws2")]
+#[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
@@ -929,7 +929,7 @@ impl Default for WINHTTP_PROXY_RESULT_ENTRY {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_RESULT_EX {
     pub cEntries: u32,
@@ -937,14 +937,14 @@ pub struct WINHTTP_PROXY_RESULT_EX {
     pub hProxyDetectionHandle: super::winnt::HANDLE,
     pub dwProxyInterfaceAffinity: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WINHTTP_PROXY_RESULT_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS {
     pub dwStructSize: u32,
@@ -964,7 +964,7 @@ pub struct WINHTTP_PROXY_SETTINGS {
     pub cNetworkKeys: u32,
     pub pNetworkKeys: PWINHTTP_PROXY_NETWORKING_KEY,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for WINHTTP_PROXY_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

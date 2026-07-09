@@ -64,7 +64,7 @@ impl IOptionDescription {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Labels(&self) -> windows_core::Result<super::objidlbase::IEnumString> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -79,19 +79,19 @@ pub struct IOptionDescription_Vtbl {
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Heading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Labels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Labels: usize,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait IOptionDescription_Impl: windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Heading(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Description(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Labels(&self) -> windows_core::Result<super::objidlbase::IEnumString>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl IOptionDescription_Vtbl {
     pub const fn new<Identity: IOptionDescription_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Id<Identity: IOptionDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -154,7 +154,7 @@ impl IOptionDescription_Vtbl {
         iid == &<IOptionDescription as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IOptionDescription {}
 windows_core::imp::define_interface!(ISpellChecker, ISpellChecker_Vtbl, 0xb6fd0b71_e2bc_4653_8d05_f197e412770b);
 windows_core::imp::interface_hierarchy!(ISpellChecker, windows_core::IUnknown);
@@ -174,7 +174,7 @@ impl ISpellChecker {
             (windows_core::Interface::vtable(self).Check)(windows_core::Interface::as_raw(self), text.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn Suggest<P0>(&self, word: P0) -> windows_core::Result<super::objidlbase::IEnumString>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -212,7 +212,7 @@ impl ISpellChecker {
             (windows_core::Interface::vtable(self).GetOptionValue)(windows_core::Interface::as_raw(self), optionid.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn OptionIds(&self) -> windows_core::Result<super::objidlbase::IEnumString> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -268,17 +268,17 @@ pub struct ISpellChecker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LanguageTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Check: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub Suggest: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     Suggest: usize,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Ignore: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub AutoCorrect: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetOptionValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u8) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub OptionIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     OptionIds: usize,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub LocalizedName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -287,7 +287,7 @@ pub struct ISpellChecker_Vtbl {
     pub GetOptionDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ComprehensiveCheck: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait ISpellChecker_Impl: windows_core::IUnknownImpl {
     fn LanguageTag(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Check(&self, text: &windows_core::PCWSTR) -> windows_core::Result<IEnumSpellingError>;
@@ -304,7 +304,7 @@ pub trait ISpellChecker_Impl: windows_core::IUnknownImpl {
     fn GetOptionDescription(&self, optionid: &windows_core::PCWSTR) -> windows_core::Result<IOptionDescription>;
     fn ComprehensiveCheck(&self, text: &windows_core::PCWSTR) -> windows_core::Result<IEnumSpellingError>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl ISpellChecker_Vtbl {
     pub const fn new<Identity: ISpellChecker_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LanguageTag<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -473,7 +473,7 @@ impl ISpellChecker_Vtbl {
         iid == &<ISpellChecker as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for ISpellChecker {}
 windows_core::imp::define_interface!(ISpellChecker2, ISpellChecker2_Vtbl, 0xe7ed1c71_87f7_4378_a840_c9200dacee47);
 impl core::ops::Deref for ISpellChecker2 {
@@ -497,11 +497,11 @@ pub struct ISpellChecker2_Vtbl {
     pub base__: ISpellChecker_Vtbl,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait ISpellChecker2_Impl: ISpellChecker_Impl {
     fn Remove(&self, word: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl ISpellChecker2_Vtbl {
     pub const fn new<Identity: ISpellChecker2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Remove<Identity: ISpellChecker2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -516,7 +516,7 @@ impl ISpellChecker2_Vtbl {
         iid == &<ISpellChecker2 as windows_core::Interface>::IID || iid == &<ISpellChecker as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for ISpellChecker2 {}
 windows_core::imp::define_interface!(ISpellCheckerChangedEventHandler, ISpellCheckerChangedEventHandler_Vtbl, 0x0b83a5b0_792f_4eab_9799_acf52c5ed08a);
 windows_core::imp::interface_hierarchy!(ISpellCheckerChangedEventHandler, windows_core::IUnknown);
@@ -555,7 +555,7 @@ impl windows_core::RuntimeName for ISpellCheckerChangedEventHandler {}
 windows_core::imp::define_interface!(ISpellCheckerFactory, ISpellCheckerFactory_Vtbl, 0x8e018a9d_2415_4677_bf08_794ea61f94bb);
 windows_core::imp::interface_hierarchy!(ISpellCheckerFactory, windows_core::IUnknown);
 impl ISpellCheckerFactory {
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn SupportedLanguages(&self) -> windows_core::Result<super::objidlbase::IEnumString> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -585,20 +585,20 @@ impl ISpellCheckerFactory {
 #[doc(hidden)]
 pub struct ISpellCheckerFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub SupportedLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     SupportedLanguages: usize,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CreateSpellChecker: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 pub trait ISpellCheckerFactory_Impl: windows_core::IUnknownImpl {
     fn SupportedLanguages(&self) -> windows_core::Result<super::objidlbase::IEnumString>;
     fn IsSupported(&self, languagetag: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
     fn CreateSpellChecker(&self, languagetag: &windows_core::PCWSTR) -> windows_core::Result<ISpellChecker>;
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl ISpellCheckerFactory_Vtbl {
     pub const fn new<Identity: ISpellCheckerFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SupportedLanguages<Identity: ISpellCheckerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -648,7 +648,7 @@ impl ISpellCheckerFactory_Vtbl {
         iid == &<ISpellCheckerFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for ISpellCheckerFactory {}
 windows_core::imp::define_interface!(ISpellingError, ISpellingError_Vtbl, 0xb7c82d61_fbe8_4b47_9b27_6c0d2e0de0a3);
 windows_core::imp::interface_hierarchy!(ISpellingError, windows_core::IUnknown);

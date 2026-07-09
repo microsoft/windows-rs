@@ -1,24 +1,24 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertAddCRLContextToStore(hcertstore : HCERTSTORE, pcrlcontext : *const CRL_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut PCCRL_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertAddCRLLinkToStore(hcertstore : HCERTSTORE, pcrlcontext : *const CRL_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut PCCRL_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertAddCTLContextToStore(hcertstore : HCERTSTORE, pctlcontext : *const CTL_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut PCCTL_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertAddCTLLinkToStore(hcertstore : HCERTSTORE, pctlcontext : *const CTL_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut PCCTL_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertAddCertificateContextToStore(hcertstore : HCERTSTORE, pcertcontext : *const CERT_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut PCCERT_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertAddCertificateLinkToStore(hcertstore : HCERTSTORE, pcertcontext : *const CERT_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut PCCERT_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertAddEncodedCRLToStore(hcertstore : HCERTSTORE, dwcertencodingtype : u32, pbcrlencoded : *const u8, cbcrlencoded : u32, dwadddisposition : u32, ppcrlcontext : *mut PCCRL_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertAddEncodedCTLToStore(hcertstore : HCERTSTORE, dwmsgandcertencodingtype : u32, pbctlencoded : *const u8, cbctlencoded : u32, dwadddisposition : u32, ppctlcontext : *mut PCCTL_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertAddEncodedCertificateToStore(hcertstore : HCERTSTORE, dwcertencodingtype : u32, pbcertencoded : *const u8, cbcertencoded : u32, dwadddisposition : u32, ppcertcontext : *mut PCCERT_CONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertAddEncodedCertificateToSystemStoreA(szcertstorename : windows_sys::core::PCSTR, pbcertencoded : *const u8, cbcertencoded : u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertAddEncodedCertificateToSystemStoreW(szcertstorename : windows_sys::core::PCWSTR, pbcertencoded : *const u8, cbcertencoded : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertAddEnhancedKeyUsageIdentifier(pcertcontext : *const CERT_CONTEXT, pszusageidentifier : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertAddRefServerOcspResponse(hserverocspresponse : HCERT_SERVER_OCSP_RESPONSE));
 windows_link::link!("crypt32.dll" "system" fn CertAddRefServerOcspResponseContext(pserverocspresponsecontext : *const CERT_SERVER_OCSP_RESPONSE_CONTEXT));
@@ -27,125 +27,125 @@ windows_link::link!("crypt32.dll" "system" fn CertAddStoreToCollection(hcollecti
 windows_link::link!("crypt32.dll" "system" fn CertAlgIdToOID(dwalgid : u32) -> windows_sys::core::PCSTR);
 windows_link::link!("crypt32.dll" "system" fn CertCloseServerOcspResponse(hserverocspresponse : HCERT_SERVER_OCSP_RESPONSE, dwflags : u32));
 windows_link::link!("crypt32.dll" "system" fn CertCloseStore(hcertstore : HCERTSTORE, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertCompareCertificate(dwcertencodingtype : u32, pcertid1 : *const CERT_INFO, pcertid2 : *const CERT_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertCompareCertificateName(dwcertencodingtype : u32, pcertname1 : *const CRYPT_INTEGER_BLOB, pcertname2 : *const CRYPT_INTEGER_BLOB) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertCompareIntegerBlob(pint1 : *const CRYPT_INTEGER_BLOB, pint2 : *const CRYPT_INTEGER_BLOB) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertComparePublicKeyInfo(dwcertencodingtype : u32, ppublickey1 : *const CERT_PUBLIC_KEY_INFO, ppublickey2 : *const CERT_PUBLIC_KEY_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertControlStore(hcertstore : HCERTSTORE, dwflags : u32, dwctrltype : u32, pvctrlpara : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertCreateCRLContext(dwcertencodingtype : u32, pbcrlencoded : *const u8, cbcrlencoded : u32) -> PCCRL_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertCreateCTLContext(dwmsgandcertencodingtype : u32, pbctlencoded : *const u8, cbctlencoded : u32) -> PCCTL_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertCreateCTLEntryFromCertificateContextProperties(pcertcontext : *const CERT_CONTEXT, coptattr : u32, rgoptattr : *const CRYPT_ATTRIBUTE, dwflags : u32, pvreserved : *const core::ffi::c_void, pctlentry : *mut CTL_ENTRY, pcbctlentry : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("crypt32.dll" "system" fn CertCreateCertificateChainEngine(pconfig : *const CERT_CHAIN_ENGINE_CONFIG, phchainengine : *mut HCERTCHAINENGINE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertCreateCertificateContext(dwcertencodingtype : u32, pbcertencoded : *const u8, cbcertencoded : u32) -> PCCERT_CONTEXT);
 windows_link::link!("crypt32.dll" "system" fn CertCreateContext(dwcontexttype : u32, dwencodingtype : u32, pbencoded : *const u8, cbencoded : u32, dwflags : u32, pcreatepara : *const CERT_CREATE_CONTEXT_PARA) -> *const core::ffi::c_void);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 windows_link::link!("crypt32.dll" "system" fn CertCreateSelfSignCertificate(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, psubjectissuerblob : *const CRYPT_INTEGER_BLOB, dwflags : u32, pkeyprovinfo : *const CRYPT_KEY_PROV_INFO, psignaturealgorithm : *const CRYPT_ALGORITHM_IDENTIFIER, pstarttime : *const super::minwinbase::SYSTEMTIME, pendtime : *const super::minwinbase::SYSTEMTIME, pextensions : *const CERT_EXTENSIONS) -> PCCERT_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertDeleteCRLFromStore(pcrlcontext : *const CRL_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertDeleteCTLFromStore(pctlcontext : *const CTL_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertDeleteCertificateFromStore(pcertcontext : *const CERT_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertDuplicateCRLContext(pcrlcontext : *const CRL_CONTEXT) -> PCCRL_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertDuplicateCTLContext(pctlcontext : *const CTL_CONTEXT) -> PCCTL_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertDuplicateCertificateChain(pchaincontext : *const CERT_CHAIN_CONTEXT) -> PCCERT_CHAIN_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertDuplicateCertificateContext(pcertcontext : *const CERT_CONTEXT) -> PCCERT_CONTEXT);
 windows_link::link!("crypt32.dll" "system" fn CertDuplicateStore(hcertstore : HCERTSTORE) -> HCERTSTORE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertEnumCRLContextProperties(pcrlcontext : *const CRL_CONTEXT, dwpropid : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertEnumCRLsInStore(hcertstore : HCERTSTORE, pprevcrlcontext : *const CRL_CONTEXT) -> PCCRL_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertEnumCTLContextProperties(pctlcontext : *const CTL_CONTEXT, dwpropid : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertEnumCTLsInStore(hcertstore : HCERTSTORE, pprevctlcontext : *const CTL_CONTEXT) -> PCCTL_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertEnumCertificateContextProperties(pcertcontext : *const CERT_CONTEXT, dwpropid : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertEnumCertificatesInStore(hcertstore : HCERTSTORE, pprevcertcontext : *const CERT_CONTEXT) -> PCCERT_CONTEXT);
 windows_link::link!("crypt32.dll" "system" fn CertEnumPhysicalStore(pvsystemstore : *const core::ffi::c_void, dwflags : u32, pvarg : *mut core::ffi::c_void, pfnenum : PFN_CERT_ENUM_PHYSICAL_STORE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertEnumSubjectInSortedCTL(pctlcontext : *const CTL_CONTEXT, ppvnextsubject : *mut *mut core::ffi::c_void, psubjectidentifier : *mut CRYPT_INTEGER_BLOB, pencodedattributes : *mut CRYPT_INTEGER_BLOB) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertEnumSystemStore(dwflags : u32, pvsystemstorelocationpara : *const core::ffi::c_void, pvarg : *mut core::ffi::c_void, pfnenum : PFN_CERT_ENUM_SYSTEM_STORE) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertEnumSystemStoreLocation(dwflags : u32, pvarg : *mut core::ffi::c_void, pfnenum : PFN_CERT_ENUM_SYSTEM_STORE_LOCATION) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertFindAttribute(pszobjid : windows_sys::core::PCSTR, cattr : u32, rgattr : *const CRYPT_ATTRIBUTE) -> PCRYPT_ATTRIBUTE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFindCRLInStore(hcertstore : HCERTSTORE, dwcertencodingtype : u32, dwfindflags : u32, dwfindtype : u32, pvfindpara : *const core::ffi::c_void, pprevcrlcontext : *const CRL_CONTEXT) -> PCCRL_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFindCTLInStore(hcertstore : HCERTSTORE, dwmsgandcertencodingtype : u32, dwfindflags : u32, dwfindtype : u32, pvfindpara : *const core::ffi::c_void, pprevctlcontext : *const CTL_CONTEXT) -> PCCTL_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFindCertificateInCRL(pcert : *const CERT_CONTEXT, pcrlcontext : *const CRL_CONTEXT, dwflags : u32, pvreserved : *const core::ffi::c_void, ppcrlentry : *mut PCRL_ENTRY) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFindCertificateInStore(hcertstore : HCERTSTORE, dwcertencodingtype : u32, dwfindflags : u32, dwfindtype : u32, pvfindpara : *const core::ffi::c_void, pprevcertcontext : *const CERT_CONTEXT) -> PCCERT_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFindChainInStore(hcertstore : HCERTSTORE, dwcertencodingtype : u32, dwfindflags : u32, dwfindtype : u32, pvfindpara : *const core::ffi::c_void, pprevchaincontext : *const CERT_CHAIN_CONTEXT) -> PCCERT_CHAIN_CONTEXT);
 windows_link::link!("crypt32.dll" "system" fn CertFindExtension(pszobjid : windows_sys::core::PCSTR, cextensions : u32, rgextensions : *const CERT_EXTENSION) -> PCERT_EXTENSION);
 windows_link::link!("crypt32.dll" "system" fn CertFindRDNAttr(pszobjid : windows_sys::core::PCSTR, pname : *const CERT_NAME_INFO) -> PCERT_RDN_ATTR);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFindSubjectInCTL(dwencodingtype : u32, dwsubjecttype : u32, pvsubject : *const core::ffi::c_void, pctlcontext : *const CTL_CONTEXT, dwflags : u32) -> PCTL_ENTRY);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFindSubjectInSortedCTL(psubjectidentifier : *const CRYPT_INTEGER_BLOB, pctlcontext : *const CTL_CONTEXT, dwflags : u32, pvreserved : *const core::ffi::c_void, pencodedattributes : *mut CRYPT_INTEGER_BLOB) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFreeCRLContext(pcrlcontext : *const CRL_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFreeCTLContext(pctlcontext : *const CTL_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFreeCertificateChain(pchaincontext : *const CERT_CHAIN_CONTEXT));
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("crypt32.dll" "system" fn CertFreeCertificateChainEngine(hchainengine : HCERTCHAINENGINE));
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFreeCertificateChainList(prgpselection : *const PCCERT_CHAIN_CONTEXT));
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertFreeCertificateContext(pcertcontext : *const CERT_CONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertFreeServerOcspResponseContext(pserverocspresponsecontext : *const CERT_SERVER_OCSP_RESPONSE_CONTEXT));
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertGetCRLContextProperty(pcrlcontext : *const CRL_CONTEXT, dwpropid : u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertGetCRLFromStore(hcertstore : HCERTSTORE, pissuercontext : *const CERT_CONTEXT, pprevcrlcontext : *const CRL_CONTEXT, pdwflags : *mut u32) -> PCCRL_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertGetCTLContextProperty(pctlcontext : *const CTL_CONTEXT, dwpropid : u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("crypt32.dll" "system" fn CertGetCertificateChain(hchainengine : HCERTCHAINENGINE, pcertcontext : *const CERT_CONTEXT, ptime : *const super::minwindef::FILETIME, hadditionalstore : HCERTSTORE, pchainpara : *const CERT_CHAIN_PARA, dwflags : u32, pvreserved : *const core::ffi::c_void, ppchaincontext : *mut PCCERT_CHAIN_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertGetCertificateContextProperty(pcertcontext : *const CERT_CONTEXT, dwpropid : u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertGetEnhancedKeyUsage(pcertcontext : *const CERT_CONTEXT, dwflags : u32, pusage : *mut CTL_USAGE, pcbusage : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertGetIntendedKeyUsage(dwcertencodingtype : u32, pcertinfo : *const CERT_INFO, pbkeyusage : *mut u8, cbkeyusage : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertGetIssuerCertificateFromStore(hcertstore : HCERTSTORE, psubjectcontext : *const CERT_CONTEXT, pprevissuercontext : *const CERT_CONTEXT, pdwflags : *mut u32) -> PCCERT_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertGetNameStringA(pcertcontext : *const CERT_CONTEXT, dwtype : u32, dwflags : u32, pvtypepara : *const core::ffi::c_void, psznamestring : windows_sys::core::PSTR, cchnamestring : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertGetNameStringW(pcertcontext : *const CERT_CONTEXT, dwtype : u32, dwflags : u32, pvtypepara : *const core::ffi::c_void, psznamestring : windows_sys::core::PWSTR, cchnamestring : u32) -> u32);
 windows_link::link!("crypt32.dll" "system" fn CertGetPublicKeyLength(dwcertencodingtype : u32, ppublickey : *const CERT_PUBLIC_KEY_INFO) -> u32);
 windows_link::link!("crypt32.dll" "system" fn CertGetServerOcspResponseContext(hserverocspresponse : HCERT_SERVER_OCSP_RESPONSE, dwflags : u32, pvreserved : *const core::ffi::c_void) -> PCCERT_SERVER_OCSP_RESPONSE_CONTEXT);
 windows_link::link!("crypt32.dll" "system" fn CertGetStoreProperty(hcertstore : HCERTSTORE, dwpropid : u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertGetSubjectCertificateFromStore(hcertstore : HCERTSTORE, dwcertencodingtype : u32, pcertid : *const CERT_INFO) -> PCCERT_CONTEXT);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertGetValidUsages(ccerts : u32, rghcerts : *const PCCERT_CONTEXT, cnumoids : *mut i32, rghoids : *mut windows_sys::core::PSTR, pcboids : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertIsRDNAttrsInCertificateName(dwcertencodingtype : u32, dwflags : u32, pcertname : *const CRYPT_INTEGER_BLOB, prdn : *const CERT_RDN) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertIsStrongHashToSign(pstrongsignpara : *const CERT_STRONG_SIGN_PARA, pwszcnghashalgid : windows_sys::core::PCWSTR, psigningcert : *const CERT_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertIsValidCRLForCertificate(pcert : *const CERT_CONTEXT, pcrl : *const CRL_CONTEXT, dwflags : u32, pvreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertIsWeakHash(dwhashusetype : u32, pwszcnghashalgid : windows_sys::core::PCWSTR, dwchainflags : u32, psignerchaincontext : *const CERT_CHAIN_CONTEXT, ptimestamp : *const super::minwindef::FILETIME, pwszfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertNameToStrA(dwcertencodingtype : u32, pname : *const CRYPT_INTEGER_BLOB, dwstrtype : u32, psz : windows_sys::core::PSTR, csz : u32) -> u32);
 windows_link::link!("crypt32.dll" "system" fn CertNameToStrW(dwcertencodingtype : u32, pname : *const CRYPT_INTEGER_BLOB, dwstrtype : u32, psz : windows_sys::core::PWSTR, csz : u32) -> u32);
 windows_link::link!("crypt32.dll" "system" fn CertOIDToAlgId(pszobjid : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertOpenServerOcspResponse(pchaincontext : *const CERT_CHAIN_CONTEXT, dwflags : u32, popenpara : *const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA) -> HCERT_SERVER_OCSP_RESPONSE);
 windows_link::link!("crypt32.dll" "system" fn CertOpenStore(lpszstoreprovider : windows_sys::core::PCSTR, dwencodingtype : u32, hcryptprov : HCRYPTPROV_LEGACY, dwflags : u32, pvpara : *const core::ffi::c_void) -> HCERTSTORE);
 windows_link::link!("crypt32.dll" "system" fn CertOpenSystemStoreA(hprov : HCRYPTPROV_LEGACY, szsubsystemprotocol : windows_sys::core::PCSTR) -> HCERTSTORE);
@@ -154,74 +154,74 @@ windows_link::link!("crypt32.dll" "system" fn CertRDNValueToStrA(dwvaluetype : u
 windows_link::link!("crypt32.dll" "system" fn CertRDNValueToStrW(dwvaluetype : u32, pvalue : *const CRYPT_INTEGER_BLOB, psz : windows_sys::core::PWSTR, csz : u32) -> u32);
 windows_link::link!("crypt32.dll" "system" fn CertRegisterPhysicalStore(pvsystemstore : *const core::ffi::c_void, dwflags : u32, pwszstorename : windows_sys::core::PCWSTR, pstoreinfo : *const CERT_PHYSICAL_STORE_INFO, pvreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertRegisterSystemStore(pvsystemstore : *const core::ffi::c_void, dwflags : u32, pstoreinfo : *const CERT_SYSTEM_STORE_INFO, pvreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertRemoveEnhancedKeyUsageIdentifier(pcertcontext : *const CERT_CONTEXT, pszusageidentifier : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertRemoveStoreFromCollection(hcollectionstore : HCERTSTORE, hsiblingstore : HCERTSTORE));
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("crypt32.dll" "system" fn CertResyncCertificateChainEngine(hchainengine : HCERTCHAINENGINE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertRetrieveLogoOrBiometricInfo(pcertcontext : *const CERT_CONTEXT, lpszlogoorbiometrictype : windows_sys::core::PCSTR, dwretrievalflags : u32, dwtimeout : u32, dwflags : u32, pvreserved : *const core::ffi::c_void, ppbdata : *mut *mut u8, pcbdata : *mut u32, ppwszmimetype : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertSaveStore(hcertstore : HCERTSTORE, dwencodingtype : u32, dwsaveas : u32, dwsaveto : u32, pvsavetopara : *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("crypt32.dll" "system" fn CertSelectCertificateChains(pselectioncontext : *const windows_sys::core::GUID, dwflags : u32, pchainparameters : *const CERT_SELECT_CHAIN_PARA, ccriteria : u32, rgpcriteria : *const CERT_SELECT_CRITERIA, hstore : HCERTSTORE, pcselection : *mut u32, pprgpselection : *mut *mut PCCERT_CHAIN_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertSerializeCRLStoreElement(pcrlcontext : *const CRL_CONTEXT, dwflags : u32, pbelement : *mut u8, pcbelement : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertSerializeCTLStoreElement(pctlcontext : *const CTL_CONTEXT, dwflags : u32, pbelement : *mut u8, pcbelement : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertSerializeCertificateStoreElement(pcertcontext : *const CERT_CONTEXT, dwflags : u32, pbelement : *mut u8, pcbelement : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertSetCRLContextProperty(pcrlcontext : *const CRL_CONTEXT, dwpropid : u32, dwflags : u32, pvdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertSetCTLContextProperty(pctlcontext : *const CTL_CONTEXT, dwpropid : u32, dwflags : u32, pvdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertSetCertificateContextPropertiesFromCTLEntry(pcertcontext : *const CERT_CONTEXT, pctlentry : *const CTL_ENTRY, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertSetCertificateContextProperty(pcertcontext : *const CERT_CONTEXT, dwpropid : u32, dwflags : u32, pvdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertSetEnhancedKeyUsage(pcertcontext : *const CERT_CONTEXT, pusage : *const CTL_USAGE) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertSetStoreProperty(hcertstore : HCERTSTORE, dwpropid : u32, dwflags : u32, pvdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertStrToNameA(dwcertencodingtype : u32, pszx500 : windows_sys::core::PCSTR, dwstrtype : u32, pvreserved : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32, ppszerror : *mut windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertStrToNameW(dwcertencodingtype : u32, pszx500 : windows_sys::core::PCWSTR, dwstrtype : u32, pvreserved : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32, ppszerror : *mut windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertUnregisterPhysicalStore(pvsystemstore : *const core::ffi::c_void, dwflags : u32, pwszstorename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CertUnregisterSystemStore(pvsystemstore : *const core::ffi::c_void, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertVerifyCRLRevocation(dwcertencodingtype : u32, pcertid : *const CERT_INFO, ccrlinfo : u32, rgpcrlinfo : *const PCRL_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertVerifyCRLTimeValidity(ptimetoverify : *const super::minwindef::FILETIME, pcrlinfo : *const CRL_INFO) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertVerifyCTLUsage(dwencodingtype : u32, dwsubjecttype : u32, pvsubject : *const core::ffi::c_void, psubjectusage : *const CTL_USAGE, dwflags : u32, pverifyusagepara : *const CTL_VERIFY_USAGE_PARA, pverifyusagestatus : *mut CTL_VERIFY_USAGE_STATUS) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertVerifyCertificateChainPolicy(pszpolicyoid : windows_sys::core::PCSTR, pchaincontext : *const CERT_CHAIN_CONTEXT, ppolicypara : *const CERT_CHAIN_POLICY_PARA, ppolicystatus : *mut CERT_CHAIN_POLICY_STATUS) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertVerifyRevocation(dwencodingtype : u32, dwrevtype : u32, ccontext : u32, rgpvcontext : *const *const core::ffi::c_void, dwflags : u32, prevpara : *const CERT_REVOCATION_PARA, prevstatus : *mut CERT_REVOCATION_STATUS) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertVerifySubjectCertificateContext(psubject : *const CERT_CONTEXT, pissuer : *const CERT_CONTEXT, pdwflags : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertVerifyTimeValidity(ptimetoverify : *const super::minwindef::FILETIME, pcertinfo : *const CERT_INFO) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CertVerifyValidityNesting(psubjectinfo : *const CERT_INFO, pissuerinfo : *const CERT_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptAcquireCertificatePrivateKey(pcert : *const CERT_CONTEXT, dwflags : u32, pvparameters : *const core::ffi::c_void, phcryptprovorncryptkey : *mut HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, pdwkeyspec : *mut u32, pfcallerfreeprovorncryptkey : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptAcquireContextA(phprov : *mut HCRYPTPROV, szcontainer : windows_sys::core::PCSTR, szprovider : windows_sys::core::PCSTR, dwprovtype : u32, dwflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptAcquireContextW(phprov : *mut HCRYPTPROV, szcontainer : windows_sys::core::PCWSTR, szprovider : windows_sys::core::PCWSTR, dwprovtype : u32, dwflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptBinaryToStringA(pbbinary : *const u8, cbbinary : u32, dwflags : u32, pszstring : windows_sys::core::PSTR, pcchstring : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptBinaryToStringW(pbbinary : *const u8, cbbinary : u32, dwflags : u32, pszstring : windows_sys::core::PWSTR, pcchstring : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("crypt32.dll" "system" fn CryptCloseAsyncHandle(hasync : HCRYPTASYNC) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptContextAddRef(hprov : HCRYPTPROV, pdwreserved : *const u32, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("crypt32.dll" "system" fn CryptCreateAsyncHandle(dwflags : u32, phasync : *mut super::winnt::HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptCreateHash(hprov : HCRYPTPROV, algid : ALG_ID, hkey : HCRYPTKEY, dwflags : u32, phhash : *mut HCRYPTHASH) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptCreateKeyIdentifierFromCSP(dwcertencodingtype : u32, pszpubkeyoid : windows_sys::core::PCSTR, ppubkeystruc : *const PUBLICKEYSTRUC, cbpubkeystruc : u32, dwflags : u32, pvreserved : *const core::ffi::c_void, pbhash : *mut u8, pcbhash : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptDecodeMessage(dwmsgtypeflags : u32, pdecryptpara : *const CRYPT_DECRYPT_MESSAGE_PARA, pverifypara : *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : u32, pbencodedblob : *const u8, cbencodedblob : u32, dwprevinnercontenttype : u32, pdwmsgtype : *mut u32, pdwinnercontenttype : *mut u32, pbdecoded : *mut u8, pcbdecoded : *mut u32, ppxchgcert : *mut PCCERT_CONTEXT, ppsignercert : *mut PCCERT_CONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptDecodeObject(dwcertencodingtype : u32, lpszstructtype : windows_sys::core::PCSTR, pbencoded : *const u8, cbencoded : u32, dwflags : u32, pvstructinfo : *mut core::ffi::c_void, pcbstructinfo : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptDecodeObjectEx(dwcertencodingtype : u32, lpszstructtype : windows_sys::core::PCSTR, pbencoded : *const u8, cbencoded : u32, dwflags : u32, pdecodepara : *const CRYPT_DECODE_PARA, pvstructinfo : *mut core::ffi::c_void, pcbstructinfo : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptDecrypt(hkey : HCRYPTKEY, hhash : HCRYPTHASH, r#final : windows_sys::core::BOOL, dwflags : u32, pbdata : *mut u8, pdwdatalen : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptDecryptAndVerifyMessageSignature(pdecryptpara : *const CRYPT_DECRYPT_MESSAGE_PARA, pverifypara : *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : u32, pbencryptedblob : *const u8, cbencryptedblob : u32, pbdecrypted : *mut u8, pcbdecrypted : *mut u32, ppxchgcert : *mut PCCERT_CONTEXT, ppsignercert : *mut PCCERT_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptDecryptMessage(pdecryptpara : *const CRYPT_DECRYPT_MESSAGE_PARA, pbencryptedblob : *const u8, cbencryptedblob : u32, pbdecrypted : *mut u8, pcbdecrypted : *mut u32, ppxchgcert : *mut PCCERT_CONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptDeriveKey(hprov : HCRYPTPROV, algid : ALG_ID, hbasedata : HCRYPTHASH, dwflags : u32, phkey : *mut HCRYPTKEY) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptDestroyHash(hhash : HCRYPTHASH) -> windows_sys::core::BOOL);
@@ -231,7 +231,7 @@ windows_link::link!("advapi32.dll" "system" fn CryptDuplicateKey(hkey : HCRYPTKE
 windows_link::link!("crypt32.dll" "system" fn CryptEncodeObject(dwcertencodingtype : u32, lpszstructtype : windows_sys::core::PCSTR, pvstructinfo : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptEncodeObjectEx(dwcertencodingtype : u32, lpszstructtype : windows_sys::core::PCSTR, pvstructinfo : *const core::ffi::c_void, dwflags : u32, pencodepara : *const CRYPT_ENCODE_PARA, pvencoded : *mut core::ffi::c_void, pcbencoded : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptEncrypt(hkey : HCRYPTKEY, hhash : HCRYPTHASH, r#final : windows_sys::core::BOOL, dwflags : u32, pbdata : *mut u8, pdwdatalen : *mut u32, dwbuflen : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptEncryptMessage(pencryptpara : *const CRYPT_ENCRYPT_MESSAGE_PARA, crecipientcert : u32, rgprecipientcert : *const PCCERT_CONTEXT, pbtobeencrypted : *const u8, cbtobeencrypted : u32, pbencryptedblob : *mut u8, pcbencryptedblob : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptEnumKeyIdentifierProperties(pkeyidentifier : *const CRYPT_HASH_BLOB, dwpropid : u32, dwflags : u32, pwszcomputername : windows_sys::core::PCWSTR, pvreserved : *const core::ffi::c_void, pvarg : *mut core::ffi::c_void, pfnenum : PFN_CRYPT_ENUM_KEYID_PROP) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptEnumOIDFunction(dwencodingtype : u32, pszfuncname : windows_sys::core::PCSTR, pszoid : windows_sys::core::PCSTR, dwflags : u32, pvarg : *mut core::ffi::c_void, pfnenumoidfunc : PFN_CRYPT_ENUM_OID_FUNC) -> windows_sys::core::BOOL);
@@ -244,9 +244,9 @@ windows_link::link!("advapi32.dll" "system" fn CryptExportKey(hkey : HCRYPTKEY, 
 windows_link::link!("crypt32.dll" "system" fn CryptExportPKCS8(hcryptprov : HCRYPTPROV, dwkeyspec : u32, pszprivatekeyobjid : windows_sys::core::PCSTR, dwflags : u32, pvauxinfo : *const core::ffi::c_void, pbprivatekeyblob : *mut u8, pcbprivatekeyblob : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptExportPublicKeyInfo(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : u32, dwcertencodingtype : u32, pinfo : *mut CERT_PUBLIC_KEY_INFO, pcbinfo : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptExportPublicKeyInfoEx(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : u32, dwcertencodingtype : u32, pszpublickeyobjid : windows_sys::core::PCSTR, dwflags : u32, pvauxinfo : *const core::ffi::c_void, pinfo : *mut CERT_PUBLIC_KEY_INFO, pcbinfo : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 windows_link::link!("crypt32.dll" "system" fn CryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey : super::bcrypt::BCRYPT_KEY_HANDLE, dwcertencodingtype : u32, pszpublickeyobjid : windows_sys::core::PCSTR, dwflags : u32, pvauxinfo : *const core::ffi::c_void, pinfo : *mut CERT_PUBLIC_KEY_INFO, pcbinfo : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptFindCertificateKeyProvInfo(pcert : *const CERT_CONTEXT, dwflags : u32, pvreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptFindLocalizedName(pwszcryptname : windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR);
 windows_link::link!("crypt32.dll" "system" fn CryptFindOIDInfo(dwkeytype : u32, pvkey : *const core::ffi::c_void, dwgroupid : u32) -> PCCRYPT_OID_INFO);
@@ -254,7 +254,7 @@ windows_link::link!("crypt32.dll" "system" fn CryptFormatObject(dwcertencodingty
 windows_link::link!("crypt32.dll" "system" fn CryptFreeOIDFunctionAddress(hfuncaddr : HCRYPTOIDFUNCADDR, dwflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptGenKey(hprov : HCRYPTPROV, algid : ALG_ID, dwflags : u32, phkey : *mut HCRYPTKEY) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptGenRandom(hprov : HCRYPTPROV, dwlen : u32, pbbuffer : *mut u8) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("crypt32.dll" "system" fn CryptGetAsyncParam(hasync : HCRYPTASYNC, pszparamoid : windows_sys::core::PCSTR, ppvparam : *mut *mut core::ffi::c_void, ppfnfree : *mut PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptGetDefaultOIDDllList(hfuncset : HCRYPTOIDFUNCSET, dwencodingtype : u32, pwszdlllist : *mut u16, pcchdlllist : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptGetDefaultOIDFunctionAddress(hfuncset : HCRYPTOIDFUNCSET, dwencodingtype : u32, pwszdll : windows_sys::core::PCWSTR, dwflags : u32, ppvfuncaddr : *mut *mut core::ffi::c_void, phfuncaddr : *mut HCRYPTOIDFUNCADDR) -> windows_sys::core::BOOL);
@@ -281,12 +281,12 @@ windows_link::link!("advapi32.dll" "system" fn CryptImportKey(hprov : HCRYPTPROV
 windows_link::link!("crypt32.dll" "system" fn CryptImportPKCS8(sprivatekeyandparams : CRYPT_PKCS8_IMPORT_PARAMS, dwflags : u32, phcryptprov : *mut HCRYPTPROV, pvauxinfo : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptImportPublicKeyInfo(hcryptprov : HCRYPTPROV, dwcertencodingtype : u32, pinfo : *const CERT_PUBLIC_KEY_INFO, phkey : *mut HCRYPTKEY) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptImportPublicKeyInfoEx(hcryptprov : HCRYPTPROV, dwcertencodingtype : u32, pinfo : *const CERT_PUBLIC_KEY_INFO, aikeyalg : ALG_ID, dwflags : u32, pvauxinfo : *const core::ffi::c_void, phkey : *mut HCRYPTKEY) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 windows_link::link!("crypt32.dll" "system" fn CryptImportPublicKeyInfoEx2(dwcertencodingtype : u32, pinfo : *const CERT_PUBLIC_KEY_INFO, dwflags : u32, pvauxinfo : *const core::ffi::c_void, phkey : *mut super::bcrypt::BCRYPT_KEY_HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptInitOIDFunctionSet(pszfuncname : windows_sys::core::PCSTR, dwflags : u32) -> HCRYPTOIDFUNCSET);
 windows_link::link!("cryptnet.dll" "system" fn CryptInstallCancelRetrieval(pfncancel : PFN_CRYPT_CANCEL_RETRIEVAL, pvarg : *const core::ffi::c_void, dwflags : u32, pvreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptInstallDefaultContext(hcryptprov : HCRYPTPROV, dwdefaulttype : u32, pvdefaultpara : *const core::ffi::c_void, dwflags : u32, pvreserved : *const core::ffi::c_void, phdefaultcontext : *mut HCRYPTDEFAULTCONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptInstallOIDFunctionAddress(hmodule : super::minwindef::HMODULE, dwencodingtype : u32, pszfuncname : windows_sys::core::PCSTR, cfuncentry : u32, rgfuncentry : *const CRYPT_OID_FUNC_ENTRY, dwflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptMemAlloc(cbsize : u32) -> *mut core::ffi::c_void);
 windows_link::link!("crypt32.dll" "system" fn CryptMemFree(pv : *const core::ffi::c_void));
@@ -294,23 +294,23 @@ windows_link::link!("crypt32.dll" "system" fn CryptMemRealloc(pv : *const core::
 windows_link::link!("crypt32.dll" "system" fn CryptMsgCalculateEncodedLength(dwmsgencodingtype : u32, dwflags : u32, dwmsgtype : u32, pvmsgencodeinfo : *const core::ffi::c_void, pszinnercontentobjid : windows_sys::core::PCSTR, cbdata : u32) -> u32);
 windows_link::link!("crypt32.dll" "system" fn CryptMsgClose(hcryptmsg : HCRYPTMSG) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptMsgControl(hcryptmsg : HCRYPTMSG, dwflags : u32, dwctrltype : u32, pvctrlpara : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptMsgCountersign(hcryptmsg : HCRYPTMSG, dwindex : u32, ccountersigners : u32, rgcountersigners : *const CMSG_SIGNER_ENCODE_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptMsgCountersignEncoded(dwencodingtype : u32, pbsignerinfo : *const u8, cbsignerinfo : u32, ccountersigners : u32, rgcountersigners : *const CMSG_SIGNER_ENCODE_INFO, pbcountersignature : *mut u8, pcbcountersignature : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptMsgDuplicate(hcryptmsg : HCRYPTMSG) -> HCRYPTMSG);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptMsgEncodeAndSignCTL(dwmsgencodingtype : u32, pctlinfo : *const CTL_INFO, psigninfo : *const CMSG_SIGNED_ENCODE_INFO, dwflags : u32, pbencoded : *mut u8, pcbencoded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptMsgGetAndVerifySigner(hcryptmsg : HCRYPTMSG, csignerstore : u32, rghsignerstore : *const HCERTSTORE, dwflags : u32, ppsigner : *mut PCCERT_CONTEXT, pdwsignerindex : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptMsgGetParam(hcryptmsg : HCRYPTMSG, dwparamtype : u32, dwindex : u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptMsgOpenToDecode(dwmsgencodingtype : u32, dwflags : u32, dwmsgtype : u32, hcryptprov : HCRYPTPROV_LEGACY, precipientinfo : *const CERT_INFO, pstreaminfo : *const CMSG_STREAM_INFO) -> HCRYPTMSG);
 windows_link::link!("crypt32.dll" "system" fn CryptMsgOpenToEncode(dwmsgencodingtype : u32, dwflags : u32, dwmsgtype : u32, pvmsgencodeinfo : *const core::ffi::c_void, pszinnercontentobjid : windows_sys::core::PCSTR, pstreaminfo : *const CMSG_STREAM_INFO) -> HCRYPTMSG);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 windows_link::link!("crypt32.dll" "system" fn CryptMsgSignCTL(dwmsgencodingtype : u32, pbctlcontent : *const u8, cbctlcontent : u32, psigninfo : *const CMSG_SIGNED_ENCODE_INFO, dwflags : u32, pbencoded : *mut u8, pcbencoded : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptMsgUpdate(hcryptmsg : HCRYPTMSG, pbdata : *const u8, cbdata : u32, ffinal : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptMsgVerifyCountersignatureEncoded(hcryptprov : HCRYPTPROV_LEGACY, dwencodingtype : u32, pbsignerinfo : *const u8, cbsignerinfo : u32, pbsignerinfocountersignature : *const u8, cbsignerinfocountersignature : u32, pcicountersigner : *const CERT_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptMsgVerifyCountersignatureEncodedEx(hcryptprov : HCRYPTPROV_LEGACY, dwencodingtype : u32, pbsignerinfo : *const u8, cbsignerinfo : u32, pbsignerinfocountersignature : *const u8, cbsignerinfocountersignature : u32, dwsignertype : u32, pvsigner : *const core::ffi::c_void, dwflags : u32, pvextra : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptQueryObject(dwobjecttype : u32, pvobject : *const core::ffi::c_void, dwexpectedcontenttypeflags : u32, dwexpectedformattypeflags : u32, dwflags : u32, pdwmsgandcertencodingtype : *mut u32, pdwcontenttype : *mut u32, pdwformattype : *mut u32, phcertstore : *mut HCERTSTORE, phmsg : *mut HCRYPTMSG, ppvcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
@@ -318,13 +318,13 @@ windows_link::link!("crypt32.dll" "system" fn CryptRegisterDefaultOIDFunction(dw
 windows_link::link!("crypt32.dll" "system" fn CryptRegisterOIDFunction(dwencodingtype : u32, pszfuncname : windows_sys::core::PCSTR, pszoid : windows_sys::core::PCSTR, pwszdll : windows_sys::core::PCWSTR, pszoverridefuncname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptRegisterOIDInfo(pinfo : *const CRYPT_OID_INFO, dwflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptReleaseContext(hprov : HCRYPTPROV, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("cryptnet.dll" "system" fn CryptRetrieveObjectByUrlA(pszurl : windows_sys::core::PCSTR, pszobjectoid : windows_sys::core::PCSTR, dwretrievalflags : u32, dwtimeout : u32, ppvobject : *mut *mut core::ffi::c_void, hasyncretrieve : HCRYPTASYNC, pcredentials : *const CRYPT_CREDENTIALS, pvverify : *const core::ffi::c_void, pauxinfo : *mut CRYPT_RETRIEVE_AUX_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("cryptnet.dll" "system" fn CryptRetrieveObjectByUrlW(pszurl : windows_sys::core::PCWSTR, pszobjectoid : windows_sys::core::PCSTR, dwretrievalflags : u32, dwtimeout : u32, ppvobject : *mut *mut core::ffi::c_void, hasyncretrieve : HCRYPTASYNC, pcredentials : *const CRYPT_CREDENTIALS, pvverify : *const core::ffi::c_void, pauxinfo : *mut CRYPT_RETRIEVE_AUX_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptRetrieveTimeStamp(wszurl : windows_sys::core::PCWSTR, dwretrievalflags : u32, dwtimeout : u32, pszhashid : windows_sys::core::PCSTR, ppara : *const CRYPT_TIMESTAMP_PARA, pbdata : *const u8, cbdata : u32, pptscontext : *mut PCRYPT_TIMESTAMP_CONTEXT, pptssigner : *mut PCCERT_CONTEXT, phstore : *mut HCERTSTORE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("crypt32.dll" "system" fn CryptSetAsyncParam(hasync : HCRYPTASYNC, pszparamoid : windows_sys::core::PCSTR, pvparam : *const core::ffi::c_void, pfnfree : PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptSetHashParam(hhash : HCRYPTHASH, dwparam : u32, pbdata : *const u8, dwflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptSetKeyIdentifierProperty(pkeyidentifier : *const CRYPT_HASH_BLOB, dwpropid : u32, dwflags : u32, pwszcomputername : windows_sys::core::PCWSTR, pvreserved : *const core::ffi::c_void, pvdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
@@ -336,14 +336,14 @@ windows_link::link!("advapi32.dll" "system" fn CryptSetProviderExA(pszprovname :
 windows_link::link!("advapi32.dll" "system" fn CryptSetProviderExW(pszprovname : windows_sys::core::PCWSTR, dwprovtype : u32, pdwreserved : *const u32, dwflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptSetProviderW(pszprovname : windows_sys::core::PCWSTR, dwprovtype : u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptSignAndEncodeCertificate(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : u32, dwcertencodingtype : u32, lpszstructtype : windows_sys::core::PCSTR, pvstructinfo : *const core::ffi::c_void, psignaturealgorithm : *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptSignAndEncryptMessage(psignpara : *const CRYPT_SIGN_MESSAGE_PARA, pencryptpara : *const CRYPT_ENCRYPT_MESSAGE_PARA, crecipientcert : u32, rgprecipientcert : *const PCCERT_CONTEXT, pbtobesignedandencrypted : *const u8, cbtobesignedandencrypted : u32, pbsignedandencryptedblob : *mut u8, pcbsignedandencryptedblob : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptSignCertificate(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : u32, dwcertencodingtype : u32, pbencodedtobesigned : *const u8, cbencodedtobesigned : u32, psignaturealgorithm : *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo : *const core::ffi::c_void, pbsignature : *mut u8, pcbsignature : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptSignHashA(hhash : HCRYPTHASH, dwkeyspec : u32, szdescription : windows_sys::core::PCSTR, dwflags : u32, pbsignature : *mut u8, pdwsiglen : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptSignHashW(hhash : HCRYPTHASH, dwkeyspec : u32, szdescription : windows_sys::core::PCWSTR, dwflags : u32, pbsignature : *mut u8, pdwsiglen : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptSignMessage(psignpara : *const CRYPT_SIGN_MESSAGE_PARA, fdetachedsignature : windows_sys::core::BOOL, ctobesigned : u32, rgpbtobesigned : *const *const u8, rgcbtobesigned : *const u32, pbsignedblob : *mut u8, pcbsignedblob : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("crypt32.dll" "system" fn CryptSignMessageWithKey(psignpara : *const CRYPT_KEY_SIGN_MESSAGE_PARA, pbtobesigned : *const u8, cbtobesigned : u32, pbsignedblob : *mut u8, pcbsignedblob : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptStringToBinaryA(pszstring : windows_sys::core::PCSTR, cchstring : u32, dwflags : u32, pbbinary : *mut u8, pcbbinary : *mut u32, pdwskip : *mut u32, pdwflags : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptStringToBinaryW(pszstring : windows_sys::core::PCWSTR, cchstring : u32, dwflags : u32, pbbinary : *mut u8, pcbbinary : *mut u32, pdwskip : *mut u32, pdwflags : *mut u32) -> windows_sys::core::BOOL);
@@ -355,15 +355,15 @@ windows_link::link!("crypt32.dll" "system" fn CryptUnregisterOIDInfo(pinfo : *co
 windows_link::link!("crypt32.dll" "system" fn CryptVerifyCertificateSignature(hcryptprov : HCRYPTPROV_LEGACY, dwcertencodingtype : u32, pbencoded : *const u8, cbencoded : u32, ppublickey : *const CERT_PUBLIC_KEY_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptVerifyCertificateSignatureEx(hcryptprov : HCRYPTPROV_LEGACY, dwcertencodingtype : u32, dwsubjecttype : u32, pvsubject : *const core::ffi::c_void, dwissuertype : u32, pvissuer : *const core::ffi::c_void, dwflags : u32, pvextra : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptVerifyDetachedMessageHash(phashpara : *const CRYPT_HASH_MESSAGE_PARA, pbdetachedhashblob : *const u8, cbdetachedhashblob : u32, ctobehashed : u32, rgpbtobehashed : *const *const u8, rgcbtobehashed : *const u32, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptVerifyDetachedMessageSignature(pverifypara : *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : u32, pbdetachedsignblob : *const u8, cbdetachedsignblob : u32, ctobesigned : u32, rgpbtobesigned : *const *const u8, rgcbtobesigned : *const u32, ppsignercert : *mut PCCERT_CONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptVerifyMessageHash(phashpara : *const CRYPT_HASH_MESSAGE_PARA, pbhashedblob : *const u8, cbhashedblob : u32, pbtobehashed : *mut u8, pcbtobehashed : *mut u32, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptVerifyMessageSignature(pverifypara : *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : u32, pbsignedblob : *const u8, cbsignedblob : u32, pbdecoded : *mut u8, pcbdecoded : *mut u32, ppsignercert : *mut PCCERT_CONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptVerifyMessageSignatureWithKey(pverifypara : *const CRYPT_KEY_VERIFY_MESSAGE_PARA, ppublickeyinfo : *const CERT_PUBLIC_KEY_INFO, pbsignedblob : *const u8, cbsignedblob : u32, pbdecoded : *mut u8, pcbdecoded : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptVerifySignatureA(hhash : HCRYPTHASH, pbsignature : *const u8, dwsiglen : u32, hpubkey : HCRYPTKEY, szdescription : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CryptVerifySignatureW(hhash : HCRYPTHASH, pbsignature : *const u8, dwsiglen : u32, hpubkey : HCRYPTKEY, szdescription : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("crypt32.dll" "system" fn CryptVerifyTimeStampSignature(pbtscontentinfo : *const u8, cbtscontentinfo : u32, pbdata : *const u8, cbdata : u32, hadditionalstore : HCERTSTORE, pptscontext : *mut PCRYPT_TIMESTAMP_CONTEXT, pptssigner : *mut PCCERT_CONTEXT, phstore : *mut HCERTSTORE) -> windows_sys::core::BOOL);
 windows_link::link!("wintrust.dll" "system" fn FindCertsByIssuer(pcertchains : *mut CERT_CHAIN, pcbcertchains : *mut u32, pccertchains : *mut u32, pbencodedissuername : *const u8, cbencodedissuername : u32, pwszpurpose : windows_sys::core::PCWSTR, dwkeyspec : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("crypt32.dll" "system" fn PFXExportCertStore(hstore : HCERTSTORE, ppfx : *mut CRYPT_DATA_BLOB, szpassword : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::BOOL);
@@ -763,7 +763,7 @@ pub const CERT_CHAIN_CACHE_ONLY_URL_RETRIEVAL: u32 = 4;
 pub const CERT_CHAIN_CACHE_RESYNC_FILETIME_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ChainCacheResyncFiletime");
 pub const CERT_CHAIN_CONFIG_REGPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Microsoft\\Cryptography\\OID\\EncodingType 0\\CertDllCreateCertificateChainEngine\\Config");
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_CHAIN_CONTEXT {
     pub cbSize: u32,
@@ -777,7 +777,7 @@ pub struct CERT_CHAIN_CONTEXT {
     pub dwCreateFlags: u32,
     pub ChainId: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_CHAIN_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -816,7 +816,7 @@ pub const CERT_CHAIN_DISABLE_TIMESTAMP_WEAK_FLAG: u32 = 67108864;
 pub const CERT_CHAIN_DISABLE_UNSUPPORTED_CRITICAL_EXTENSIONS_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DisableUnsupportedCriticalExtensions");
 pub const CERT_CHAIN_DISABLE_WEAK_FLAGS: u32 = 215285776;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_CHAIN_ELEMENT {
     pub cbSize: u32,
@@ -827,7 +827,7 @@ pub struct CERT_CHAIN_ELEMENT {
     pub pApplicationUsage: PCERT_ENHKEY_USAGE,
     pub pwszExtendedErrorInfo: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_CHAIN_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -880,10 +880,10 @@ pub const CERT_CHAIN_FIND_BY_ISSUER_COMPARE_KEY_FLAG: u32 = 1;
 pub const CERT_CHAIN_FIND_BY_ISSUER_COMPLEX_CHAIN_FLAG: u32 = 2;
 pub const CERT_CHAIN_FIND_BY_ISSUER_LOCAL_MACHINE_FLAG: u32 = 8;
 pub const CERT_CHAIN_FIND_BY_ISSUER_NO_KEY_FLAG: u32 = 16384;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type CERT_CHAIN_FIND_BY_ISSUER_PARA = CERT_CHAIN_FIND_ISSUER_PARA;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_CHAIN_FIND_ISSUER_PARA {
     pub cbSize: u32,
@@ -895,7 +895,7 @@ pub struct CERT_CHAIN_FIND_ISSUER_PARA {
     pub pfnFindCallback: PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK,
     pub pvFindArg: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_CHAIN_FIND_ISSUER_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1102,7 +1102,7 @@ pub const CERT_COMPARE_SIGNATURE_HASH: u32 = 14;
 pub const CERT_COMPARE_SUBJECT_CERT: u32 = 11;
 pub const CERT_COMPARE_SUBJECT_INFO_ACCESS: u32 = 19;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_CONTEXT {
     pub dwCertEncodingType: u32,
@@ -1111,7 +1111,7 @@ pub struct CERT_CONTEXT {
     pub pCertInfo: PCERT_INFO,
     pub hCertStore: HCERTSTORE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1139,13 +1139,13 @@ pub const CERT_CREATE_CONTEXT_SORTED_FLAG: u32 = 2;
 pub const CERT_CREATE_SELFSIGN_NO_KEY_INFO: u32 = 2;
 pub const CERT_CREATE_SELFSIGN_NO_SIGN: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_CRL_CONTEXT_PAIR {
     pub pCertContext: PCCERT_CONTEXT,
     pub pCrlContext: PCCRL_CONTEXT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_CRL_CONTEXT_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1347,7 +1347,7 @@ pub const CERT_ID_SHA1_HASH: u32 = 3;
 pub const CERT_IE30_RESERVED_PROP_ID: u32 = 7;
 pub const CERT_IE_DIRTY_FLAGS_REGPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Microsoft\\Cryptography\\IEDirtyFlags");
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_INFO {
     pub dwVersion: u32,
@@ -1363,7 +1363,7 @@ pub struct CERT_INFO {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1407,14 +1407,14 @@ impl Default for CERT_KEYGEN_REQUEST_INFO {
 pub const CERT_KEYGEN_REQUEST_V1: u32 = 0;
 pub const CERT_KEY_AGREEMENT_KEY_USAGE: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_KEY_ATTRIBUTES_INFO {
     pub KeyId: CRYPT_DATA_BLOB,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
     pub pPrivateKeyUsagePeriod: PCERT_PRIVATE_KEY_VALIDITY,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_KEY_ATTRIBUTES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1423,27 +1423,27 @@ impl Default for CERT_KEY_ATTRIBUTES_INFO {
 pub const CERT_KEY_CERT_SIGN_KEY_USAGE: u32 = 4;
 pub const CERT_KEY_CLASSIFICATION_PROP_ID: u32 = 120;
 #[repr(C)]
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy)]
 pub struct CERT_KEY_CONTEXT {
     pub cbSize: u32,
     pub Anonymous: CERT_KEY_CONTEXT_0,
     pub dwKeySpec: u32,
 }
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 impl Default for CERT_KEY_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy)]
 pub union CERT_KEY_CONTEXT_0 {
     pub hCryptProv: HCRYPTPROV,
     pub hNCryptKey: super::ncrypt::NCRYPT_KEY_HANDLE,
 }
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 impl Default for CERT_KEY_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1905,7 +1905,7 @@ impl Default for CERT_POLICY_QUALIFIER_USER_NOTICE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct CERT_PRIVATE_KEY_VALIDITY {
     pub NotBefore: super::minwindef::FILETIME,
@@ -2045,13 +2045,13 @@ pub const CERT_RDN_VIDEOTEX_STRING: u32 = 6;
 pub const CERT_RDN_VISIBLE_STRING: u32 = 9;
 pub const CERT_REGISTRY_STORE_CLIENT_GPT_FLAG: u32 = 2147483648;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     pub hKeyBase: super::minwindef::HKEY,
     pub pwszRegPath: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2063,13 +2063,13 @@ pub const CERT_REGISTRY_STORE_MY_IE_DIRTY_FLAG: u32 = 524288;
 pub const CERT_REGISTRY_STORE_REMOTE_FLAG: u32 = 65536;
 pub const CERT_REGISTRY_STORE_ROAMING_FLAG: u32 = 262144;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
     pub hKey: super::minwindef::HKEY,
     pub pwszStoreDirectory: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_REGISTRY_STORE_ROAMING_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2102,7 +2102,7 @@ pub const CERT_RETR_BEHAVIOR_INET_AUTH_VALUE_NAME: windows_sys::core::PCWSTR = w
 pub const CERT_RETR_BEHAVIOR_INET_STATUS_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("EnableInetLocal");
 pub const CERT_RETR_BEHAVIOR_LDAP_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DisableLDAPSignAndEncrypt");
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CERT_REVOCATION_CHAIN_PARA {
     pub cbSize: u32,
@@ -2114,14 +2114,14 @@ pub struct CERT_REVOCATION_CHAIN_PARA {
     pub pftCacheResync: super::minwindef::LPFILETIME,
     pub cbMaxUrlRetrievalByteCount: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for CERT_REVOCATION_CHAIN_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_REVOCATION_CRL_INFO {
     pub cbSize: u32,
@@ -2130,14 +2130,14 @@ pub struct CERT_REVOCATION_CRL_INFO {
     pub pCrlEntry: PCRL_ENTRY,
     pub fDeltaCrlEntry: windows_sys::core::BOOL,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_REVOCATION_CRL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_REVOCATION_INFO {
     pub cbSize: u32,
@@ -2148,14 +2148,14 @@ pub struct CERT_REVOCATION_INFO {
     pub dwFreshnessTime: u32,
     pub pCrlInfo: PCERT_REVOCATION_CRL_INFO,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_REVOCATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_REVOCATION_PARA {
     pub cbSize: u32,
@@ -2165,7 +2165,7 @@ pub struct CERT_REVOCATION_PARA {
     pub hCrlStore: HCERTSTORE,
     pub pftTimeToUse: super::minwindef::LPFILETIME,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_REVOCATION_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2217,7 +2217,7 @@ pub const CERT_SELECT_BY_SUBJECT_HOST_NAME: u32 = 6;
 pub const CERT_SELECT_BY_THUMBPRINT: u32 = 14;
 pub const CERT_SELECT_BY_TLS_SIGNATURES: u32 = 11;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CERT_SELECT_CHAIN_PARA {
     pub hChainEngine: HCERTCHAINENGINE,
@@ -2226,7 +2226,7 @@ pub struct CERT_SELECT_CHAIN_PARA {
     pub pChainPara: PCERT_CHAIN_PARA,
     pub dwFlags: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for CERT_SELECT_CHAIN_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2271,7 +2271,7 @@ impl Default for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub cbSize: u32,
@@ -2281,7 +2281,7 @@ pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub pfnUpdateCallback: PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK,
     pub pvUpdateCallbackArg: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2306,7 +2306,7 @@ pub struct CERT_SIGNED_CONTENT_INFO {
 }
 pub const CERT_SIGN_HASH_CNG_ALG_PROP_ID: u32 = 89;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_SIMPLE_CHAIN {
     pub cbSize: u32,
@@ -2317,7 +2317,7 @@ pub struct CERT_SIMPLE_CHAIN {
     pub fHasRevocationFreshnessTime: windows_sys::core::BOOL,
     pub dwRevocationFreshnessTime: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_SIMPLE_CHAIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2554,40 +2554,40 @@ pub const CERT_SYSTEM_STORE_LOCATION_SHIFT: u32 = 16;
 pub const CERT_SYSTEM_STORE_MASK: u32 = 4294901760;
 pub const CERT_SYSTEM_STORE_RELOCATE_FLAG: u32 = 2147483648;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_SYSTEM_STORE_RELOCATE_PARA {
     pub Anonymous: CERT_SYSTEM_STORE_RELOCATE_PARA_0,
     pub Anonymous2: CERT_SYSTEM_STORE_RELOCATE_PARA_1,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     pub hKeyBase: super::minwindef::HKEY,
     pub pvBase: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     pub pvSystemStore: *mut core::ffi::c_void,
     pub pszSystemStore: windows_sys::core::PCSTR,
     pub pwszSystemStore: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2669,14 +2669,14 @@ pub const CERT_TRUST_IS_REVOKED: u32 = 4;
 pub const CERT_TRUST_IS_SELF_SIGNED: u32 = 8;
 pub const CERT_TRUST_IS_UNTRUSTED_ROOT: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CERT_TRUST_LIST_INFO {
     pub cbSize: u32,
     pub pCtlEntry: PCTL_ENTRY,
     pub pCtlContext: PCCTL_CONTEXT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CERT_TRUST_LIST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2818,7 +2818,7 @@ pub const CMC_OTHER_INFO_FAIL_CHOICE: u32 = 1;
 pub const CMC_OTHER_INFO_NO_CHOICE: u32 = 0;
 pub const CMC_OTHER_INFO_PEND_CHOICE: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct CMC_PEND_INFO {
     pub PendToken: CRYPT_DATA_BLOB,
@@ -2844,7 +2844,7 @@ pub const CMC_STATUS: windows_sys::core::PCSTR = 61 as _;
 pub const CMC_STATUS_CONFIRM_REQUIRED: u32 = 5;
 pub const CMC_STATUS_FAILED: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CMC_STATUS_INFO {
     pub dwStatus: u32,
@@ -2854,20 +2854,20 @@ pub struct CMC_STATUS_INFO {
     pub dwOtherInfoChoice: u32,
     pub Anonymous: CMC_STATUS_INFO_0,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMC_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union CMC_STATUS_INFO_0 {
     pub dwFailInfo: u32,
     pub pPendInfo: PCMC_PEND_INFO,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMC_STATUS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2943,27 +2943,27 @@ pub const CMSG_CMS_RECIPIENT_COUNT_PARAM: u32 = 33;
 pub const CMSG_CMS_RECIPIENT_ENCRYPTED_KEY_INDEX_PARAM: u32 = 35;
 pub const CMSG_CMS_RECIPIENT_INDEX_PARAM: u32 = 34;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CMSG_CMS_RECIPIENT_INFO {
     pub dwRecipientChoice: u32,
     pub Anonymous: CMSG_CMS_RECIPIENT_INFO_0,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_CMS_RECIPIENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union CMSG_CMS_RECIPIENT_INFO_0 {
     pub pKeyTrans: PCMSG_KEY_TRANS_RECIPIENT_INFO,
     pub pKeyAgree: PCMSG_KEY_AGREE_RECIPIENT_INFO,
     pub pMailList: PCMSG_MAIL_LIST_RECIPIENT_INFO,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_CMS_RECIPIENT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2988,7 +2988,7 @@ impl Default for CMSG_CMS_SIGNER_INFO {
 }
 pub const CMSG_CMS_SIGNER_INFO_PARAM: u32 = 39;
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "ncrypt"))]
 #[derive(Clone, Copy)]
 pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbSize: u32,
@@ -3001,7 +3001,7 @@ pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub hCNGContentEncryptKey: super::bcrypt::BCRYPT_KEY_HANDLE,
     pub pbCNGContentEncryptKeyObject: *mut u8,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "ncrypt"))]
 impl Default for CMSG_CNG_CONTENT_DECRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3012,7 +3012,7 @@ pub const CMSG_CONTENTS_OCTETS_FLAG: u32 = 16;
 pub const CMSG_CONTENT_ENCRYPT_FREE_OBJID_FLAG: u32 = 2;
 pub const CMSG_CONTENT_ENCRYPT_FREE_PARA_FLAG: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub struct CMSG_CONTENT_ENCRYPT_INFO {
     pub cbSize: u32,
@@ -3031,20 +3031,20 @@ pub struct CMSG_CONTENT_ENCRYPT_INFO {
     pub pbContentEncryptKey: *mut u8,
     pub cbContentEncryptKey: u32,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
 impl Default for CMSG_CONTENT_ENCRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub union CMSG_CONTENT_ENCRYPT_INFO_0 {
     pub hContentEncryptKey: HCRYPTKEY,
     pub hCNGContentEncryptKey: super::bcrypt::BCRYPT_KEY_HANDLE,
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
 impl Default for CMSG_CONTENT_ENCRYPT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3071,7 +3071,7 @@ pub struct CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
 }
 pub const CMSG_CTRL_DECRYPT: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy)]
 pub struct CMSG_CTRL_DECRYPT_PARA {
     pub cbSize: u32,
@@ -3079,20 +3079,20 @@ pub struct CMSG_CTRL_DECRYPT_PARA {
     pub dwKeySpec: u32,
     pub dwRecipientIndex: u32,
 }
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 impl Default for CMSG_CTRL_DECRYPT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy)]
 pub union CMSG_CTRL_DECRYPT_PARA_0 {
     pub hCryptProv: HCRYPTPROV,
     pub hNCryptKey: super::ncrypt::NCRYPT_KEY_HANDLE,
 }
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 impl Default for CMSG_CTRL_DECRYPT_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3113,7 +3113,7 @@ pub struct CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
 pub const CMSG_CTRL_ENABLE_STRONG_SIGNATURE: u32 = 21;
 pub const CMSG_CTRL_KEY_AGREE_DECRYPT: u32 = 17;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 #[derive(Clone, Copy)]
 pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     pub cbSize: u32,
@@ -3124,20 +3124,20 @@ pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     pub dwRecipientEncryptedKeyIndex: u32,
     pub OriginatorPublicKey: CRYPT_BIT_BLOB,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 impl Default for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 #[derive(Clone, Copy)]
 pub union CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     pub hCryptProv: HCRYPTPROV,
     pub hNCryptKey: super::ncrypt::NCRYPT_KEY_HANDLE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 impl Default for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3145,7 +3145,7 @@ impl Default for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
 }
 pub const CMSG_CTRL_KEY_TRANS_DECRYPT: u32 = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy)]
 pub struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     pub cbSize: u32,
@@ -3154,20 +3154,20 @@ pub struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     pub pKeyTrans: PCMSG_KEY_TRANS_RECIPIENT_INFO,
     pub dwRecipientIndex: u32,
 }
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 impl Default for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy)]
 pub union CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     pub hCryptProv: HCRYPTPROV,
     pub hNCryptKey: super::ncrypt::NCRYPT_KEY_HANDLE,
 }
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 impl Default for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3175,7 +3175,7 @@ impl Default for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
 }
 pub const CMSG_CTRL_MAIL_LIST_DECRYPT: u32 = 18;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     pub cbSize: u32,
@@ -3185,20 +3185,20 @@ pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     pub dwKeyChoice: u32,
     pub Anonymous: CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     pub hKeyEncryptionKey: HCRYPTKEY,
     pub pvKeyEncryptionKey: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3252,7 +3252,7 @@ pub const CMSG_ENVELOPED_DATA_PKCS_1_5_VERSION: u32 = 0;
 pub const CMSG_ENVELOPED_DATA_V0: u32 = 0;
 pub const CMSG_ENVELOPED_DATA_V2: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
@@ -3262,7 +3262,7 @@ pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cRecipients: u32,
     pub rgpRecipients: *mut PCERT_INFO,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_ENVELOPED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3343,7 +3343,7 @@ pub const CMSG_KEY_AGREE_ORIGINATOR_CERT: u32 = 1;
 pub const CMSG_KEY_AGREE_ORIGINATOR_PUBLIC_KEY: u32 = 2;
 pub const CMSG_KEY_AGREE_RECIPIENT: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
@@ -3359,27 +3359,27 @@ pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     pub cRecipientEncryptedKeys: u32,
     pub rgpRecipientEncryptedKeys: *mut PCMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     pub pEphemeralAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER,
     pub pSenderId: PCERT_ID,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_RECIPIENT_INFO {
     pub dwVersion: u32,
@@ -3390,20 +3390,20 @@ pub struct CMSG_KEY_AGREE_RECIPIENT_INFO {
     pub cRecipientEncryptedKeys: u32,
     pub rgpRecipientEncryptedKeys: *mut PCMSG_RECIPIENT_ENCRYPTED_KEY_INFO,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_KEY_AGREE_RECIPIENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     pub OriginatorCertId: CERT_ID,
     pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3468,7 +3468,7 @@ pub struct CMSG_MAIL_LIST_ENCRYPT_INFO {
 pub const CMSG_MAIL_LIST_HANDLE_KEY_CHOICE: u32 = 1;
 pub const CMSG_MAIL_LIST_RECIPIENT: u32 = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
@@ -3481,27 +3481,27 @@ pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     pub Date: super::minwindef::FILETIME,
     pub pOtherAttr: PCRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     pub hKeyEncryptionKey: HCRYPTKEY,
     pub pvKeyEncryptionKey: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub dwVersion: u32,
@@ -3511,7 +3511,7 @@ pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub Date: super::minwindef::FILETIME,
     pub pOtherAttr: PCRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_MAIL_LIST_RECIPIENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3550,34 +3550,34 @@ pub struct CMSG_RC4_AUX_INFO {
 pub const CMSG_RC4_NO_SALT_FLAG: u32 = 1073741824;
 pub const CMSG_RECIPIENT_COUNT_PARAM: u32 = 17;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCODE_INFO {
     pub dwRecipientChoice: u32,
     pub Anonymous: CMSG_RECIPIENT_ENCODE_INFO_0,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_RECIPIENT_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union CMSG_RECIPIENT_ENCODE_INFO_0 {
     pub pKeyTrans: PCMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO,
     pub pKeyAgree: PCMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO,
     pub pMailList: PCMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_RECIPIENT_ENCODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     pub cbSize: u32,
@@ -3586,14 +3586,14 @@ pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     pub Date: super::minwindef::FILETIME,
     pub pOtherAttr: PCRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     pub RecipientId: CERT_ID,
@@ -3601,7 +3601,7 @@ pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     pub Date: super::minwindef::FILETIME,
     pub pOtherAttr: PCRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3612,7 +3612,7 @@ pub const CMSG_RECIPIENT_INFO_PARAM: u32 = 19;
 pub const CMSG_SIGNED: u32 = 2;
 pub const CMSG_SIGNED_AND_ENVELOPED: u32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
@@ -3626,7 +3626,7 @@ pub const CMSG_SIGNED_DATA_PKCS_1_5_VERSION: u32 = 1;
 pub const CMSG_SIGNED_DATA_V1: u32 = 1;
 pub const CMSG_SIGNED_DATA_V3: u32 = 3;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 #[derive(Clone, Copy)]
 pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cbSize: u32,
@@ -3637,7 +3637,7 @@ pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cCrlEncoded: u32,
     pub rgCrlEncoded: PCRL_BLOB,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 impl Default for CMSG_SIGNED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3649,7 +3649,7 @@ pub const CMSG_SIGNER_CERT_ID_PARAM: u32 = 38;
 pub const CMSG_SIGNER_CERT_INFO_PARAM: u32 = 7;
 pub const CMSG_SIGNER_COUNT_PARAM: u32 = 5;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 #[derive(Clone, Copy)]
 pub struct CMSG_SIGNER_ENCODE_INFO {
     pub cbSize: u32,
@@ -3663,20 +3663,20 @@ pub struct CMSG_SIGNER_ENCODE_INFO {
     pub cUnauthAttr: u32,
     pub rgUnauthAttr: PCRYPT_ATTRIBUTE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 impl Default for CMSG_SIGNER_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 #[derive(Clone, Copy)]
 pub union CMSG_SIGNER_ENCODE_INFO_0 {
     pub hCryptProv: HCRYPTPROV,
     pub hNCryptKey: super::ncrypt::NCRYPT_KEY_HANDLE,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 impl Default for CMSG_SIGNER_ENCODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3784,7 +3784,7 @@ pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS_A: windows_sys::core::PCSTR = 1 as
 pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS_W: windows_sys::core::PCSTR = 2 as _;
 pub type CRL_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRL_CONTEXT {
     pub dwCertEncodingType: u32,
@@ -3793,7 +3793,7 @@ pub struct CRL_CONTEXT {
     pub pCrlInfo: PCRL_INFO,
     pub hCertStore: HCERTSTORE,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRL_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3850,7 +3850,7 @@ impl Default for CRL_DIST_POINT_NAME_0 {
 }
 pub const CRL_DIST_POINT_NO_NAME: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRL_ENTRY {
     pub SerialNumber: CRYPT_INTEGER_BLOB,
@@ -3858,7 +3858,7 @@ pub struct CRL_ENTRY {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRL_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3873,13 +3873,13 @@ pub const CRL_FIND_ISSUED_BY_DELTA_FLAG: u32 = 4;
 pub const CRL_FIND_ISSUED_BY_SIGNATURE_FLAG: u32 = 2;
 pub const CRL_FIND_ISSUED_FOR: u32 = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRL_FIND_ISSUED_FOR_PARA {
     pub pSubjectCert: PCCERT_CONTEXT,
     pub pIssuerCert: PCCERT_CONTEXT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRL_FIND_ISSUED_FOR_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3887,7 +3887,7 @@ impl Default for CRL_FIND_ISSUED_FOR_PARA {
 }
 pub const CRL_FIND_ISSUED_FOR_SET_STRONG_PROPERTIES_FLAG: u32 = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRL_INFO {
     pub dwVersion: u32,
@@ -3900,7 +3900,7 @@ pub struct CRL_INFO {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3940,14 +3940,14 @@ pub const CRL_REASON_SUPERSEDED_FLAG: u32 = 8;
 pub const CRL_REASON_UNSPECIFIED: u32 = 0;
 pub const CRL_REASON_UNUSED_FLAG: u32 = 128;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRL_REVOCATION_INFO {
     pub pCrlEntry: PCRL_ENTRY,
     pub pCrlContext: PCCRL_CONTEXT,
     pub pCrlIssuerChain: PCCERT_CHAIN_CONTEXT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRL_REVOCATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4024,7 +4024,7 @@ pub const CRYPTNET_URL_CACHE_DEFAULT_FLUSH_EXEMPT_SECONDS_DEFAULT: u32 = 2419200
 pub const CRYPTNET_URL_CACHE_DEFAULT_FLUSH_EXEMPT_SECONDS_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("CryptnetDefaultFlushExemptSeconds");
 pub const CRYPTNET_URL_CACHE_DISABLE_FLUSH: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPTNET_URL_CACHE_FLUSH_INFO {
     pub cbSize: u32,
@@ -4036,7 +4036,7 @@ pub const CRYPTNET_URL_CACHE_PRE_FETCH_BLOB: u32 = 1;
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_CRL: u32 = 2;
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_DISALLOWED_CERT_CAB: u32 = 6;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     pub cbSize: u32,
@@ -4052,7 +4052,7 @@ pub const CRYPTNET_URL_CACHE_PRE_FETCH_OCSP: u32 = 3;
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_PIN_RULES_CAB: u32 = 7;
 pub const CRYPTNET_URL_CACHE_RESPONSE_HTTP: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub cbSize: u32,
@@ -4063,7 +4063,7 @@ pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub pwszETag: windows_sys::core::PCWSTR,
     pub dwProxyId: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRYPTNET_URL_CACHE_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4440,7 +4440,7 @@ pub const CRYPT_FORMAT_STR_NO_HEX: u32 = 16;
 pub const CRYPT_FORMAT_X509: u32 = 2;
 pub const CRYPT_GET_INSTALLED_OID_FUNC_FLAG: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub cbSize: u32,
@@ -4451,7 +4451,7 @@ pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub pChainPara: PCERT_REVOCATION_CHAIN_PARA,
     pub pDeltaCrlIndicator: PCRYPT_INTEGER_BLOB,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4542,7 +4542,7 @@ impl Default for CRYPT_KEY_PROV_PARAM {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_KEY_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
@@ -4553,20 +4553,20 @@ pub struct CRYPT_KEY_SIGN_MESSAGE_PARA {
     pub pvHashAuxInfo: *mut core::ffi::c_void,
     pub PubKeyAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
 }
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 impl Default for CRYPT_KEY_SIGN_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy)]
 pub union CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     pub hCryptProv: HCRYPTPROV,
     pub hNCryptKey: super::ncrypt::NCRYPT_KEY_HANDLE,
 }
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 impl Default for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4631,7 +4631,7 @@ pub const CRYPT_OBJECT_LOCATOR_FIRST_RESERVED_USER_NAME_TYPE: u32 = 33;
 pub const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_NAME_TYPE: u32 = 32;
 pub const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_USER_NAME_TYPE: u32 = 65535;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     pub cbSize: u32,
@@ -4902,7 +4902,7 @@ pub const CRYPT_RECIPIENT: u32 = 16;
 pub const CRYPT_REGISTER_FIRST_INDEX: u32 = 0;
 pub const CRYPT_REGISTER_LAST_INDEX: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub cbSize: u32,
@@ -4918,7 +4918,7 @@ pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub ppwszErrorResponseHeaders: *mut windows_sys::core::PWSTR,
     pub ppErrorContentBlob: *mut PCRYPT_DATA_BLOB,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRYPT_RETRIEVE_AUX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4961,7 +4961,7 @@ pub const CRYPT_SGCKEY: u32 = 8192;
 pub const CRYPT_SGC_ENUM: u32 = 4;
 pub const CRYPT_SIGN_ALG_OID_GROUP_ID: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
@@ -4980,7 +4980,7 @@ pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub dwFlags: u32,
     pub dwInnerContentType: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRYPT_SIGN_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5055,21 +5055,21 @@ pub struct CRYPT_TIMESTAMP_ACCURACY {
     pub dwMicros: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_TIMESTAMP_CONTEXT {
     pub cbEncoded: u32,
     pub pbEncoded: *mut u8,
     pub pTimeStamp: PCRYPT_TIMESTAMP_INFO,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRYPT_TIMESTAMP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_TIMESTAMP_INFO {
     pub dwVersion: u32,
@@ -5085,7 +5085,7 @@ pub struct CRYPT_TIMESTAMP_INFO {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRYPT_TIMESTAMP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5222,7 +5222,7 @@ impl Default for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
 pub const CRYPT_VERIFY_CONTEXT_SIGNATURE: u32 = 32;
 pub const CRYPT_VERIFY_DATA_HASH: u32 = 64;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
@@ -5231,7 +5231,7 @@ pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub pfnGetSignerCertificate: PFN_CRYPT_GET_SIGNER_CERTIFICATE,
     pub pvGetArg: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CRYPT_VERIFY_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5267,7 +5267,7 @@ pub struct CTL_ANY_SUBJECT_INFO {
 pub const CTL_ANY_SUBJECT_TYPE: u32 = 1;
 pub const CTL_CERT_SUBJECT_TYPE: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CTL_CONTEXT {
     pub dwMsgAndCertEncodingType: u32,
@@ -5279,7 +5279,7 @@ pub struct CTL_CONTEXT {
     pub pbCtlContent: *mut u8,
     pub cbCtlContent: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CTL_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5302,13 +5302,13 @@ pub const CTL_FIND_ANY: u32 = 0;
 pub const CTL_FIND_EXISTING: u32 = 5;
 pub const CTL_FIND_MD5_HASH: u32 = 2;
 pub const CTL_FIND_NO_LIST_ID_CBDATA: u32 = 4294967295;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub const CTL_FIND_NO_SIGNER_PTR: PCERT_INFO = -1 as _;
 pub const CTL_FIND_SAME_USAGE_FLAG: u32 = 1;
 pub const CTL_FIND_SHA1_HASH: u32 = 1;
 pub const CTL_FIND_SUBJECT: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CTL_FIND_SUBJECT_PARA {
     pub cbSize: u32,
@@ -5316,7 +5316,7 @@ pub struct CTL_FIND_SUBJECT_PARA {
     pub dwSubjectType: u32,
     pub pvSubject: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CTL_FIND_SUBJECT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5324,7 +5324,7 @@ impl Default for CTL_FIND_SUBJECT_PARA {
 }
 pub const CTL_FIND_USAGE: u32 = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CTL_FIND_USAGE_PARA {
     pub cbSize: u32,
@@ -5332,14 +5332,14 @@ pub struct CTL_FIND_USAGE_PARA {
     pub ListIdentifier: CRYPT_DATA_BLOB,
     pub pSigner: PCERT_INFO,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CTL_FIND_USAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CTL_INFO {
     pub dwVersion: u32,
@@ -5354,7 +5354,7 @@ pub struct CTL_INFO {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CTL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5394,7 +5394,7 @@ impl Default for CTL_VERIFY_USAGE_PARA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct CTL_VERIFY_USAGE_STATUS {
     pub cbSize: u32,
@@ -5405,7 +5405,7 @@ pub struct CTL_VERIFY_USAGE_STATUS {
     pub ppSigner: *mut PCCERT_CONTEXT,
     pub dwSignerIndex: u32,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for CTL_VERIFY_USAGE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5479,16 +5479,16 @@ pub struct EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
 pub const EXPORT_PRIVATE_KEYS: u32 = 4;
 pub const EXPO_OFFLOAD_FUNC_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("OffloadModExpo");
 pub const EXPO_OFFLOAD_REG_VALUE: windows_sys::core::PCSTR = windows_sys::core::s!("ExpoOffload");
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub const HCCE_LOCAL_MACHINE: HCERTCHAINENGINE = 1 as _;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub const HCCE_SERIAL_LOCAL_MACHINE: HCERTCHAINENGINE = 2 as _;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HCERTCHAINENGINE = super::winnt::HANDLE;
 pub type HCERTSTORE = *mut core::ffi::c_void;
 pub type HCERTSTOREPROV = *mut core::ffi::c_void;
 pub type HCERT_SERVER_OCSP_RESPONSE = *mut core::ffi::c_void;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HCRYPTASYNC = super::winnt::HANDLE;
 pub type HCRYPTDEFAULTCONTEXT = *mut core::ffi::c_void;
 pub type HCRYPTHASH = usize;
@@ -5647,7 +5647,7 @@ pub const OCSP_BASIC_BY_NAME_RESPONDER_ID: u32 = 1;
 pub const OCSP_BASIC_GOOD_CERT_STATUS: u32 = 0;
 pub const OCSP_BASIC_RESPONSE: windows_sys::core::PCSTR = 69 as _;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct OCSP_BASIC_RESPONSE_ENTRY {
     pub CertId: OCSP_CERT_ID,
@@ -5658,26 +5658,26 @@ pub struct OCSP_BASIC_RESPONSE_ENTRY {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for OCSP_BASIC_RESPONSE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union OCSP_BASIC_RESPONSE_ENTRY_0 {
     pub pRevokedInfo: POCSP_BASIC_REVOKED_INFO,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for OCSP_BASIC_RESPONSE_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct OCSP_BASIC_RESPONSE_INFO {
     pub dwVersion: u32,
@@ -5689,20 +5689,20 @@ pub struct OCSP_BASIC_RESPONSE_INFO {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for OCSP_BASIC_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union OCSP_BASIC_RESPONSE_INFO_0 {
     pub ByNameResponderId: CERT_NAME_BLOB,
     pub ByKeyResponderId: CRYPT_HASH_BLOB,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for OCSP_BASIC_RESPONSE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5711,7 +5711,7 @@ impl Default for OCSP_BASIC_RESPONSE_INFO_0 {
 pub const OCSP_BASIC_RESPONSE_V1: u32 = 0;
 pub const OCSP_BASIC_REVOKED_CERT_STATUS: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct OCSP_BASIC_REVOKED_INFO {
     pub RevocationDate: super::minwindef::FILETIME,
@@ -5810,28 +5810,28 @@ pub const OPAQUEKEYBLOB: u32 = 9;
 pub type PAUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA = *mut AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA;
 pub type PAUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS = *mut AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS;
 pub type PAUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA = *mut AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCCERT_CHAIN_CONTEXT = *const CERT_CHAIN_CONTEXT;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCCERT_CHAIN_ELEMENT = *const CERT_CHAIN_ELEMENT;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCCERT_CONTEXT = *const CERT_CONTEXT;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCCERT_CRL_CONTEXT_PAIR = *const CERT_CRL_CONTEXT_PAIR;
 pub type PCCERT_ENHKEY_USAGE = *const CERT_ENHKEY_USAGE;
 pub type PCCERT_EXTENSION = *const CERT_EXTENSION;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PCCERT_SELECT_CHAIN_PARA = *const CERT_SELECT_CHAIN_PARA;
 pub type PCCERT_SELECT_CRITERIA = *const CERT_SELECT_CRITERIA;
 pub type PCCERT_SERVER_OCSP_RESPONSE_CONTEXT = *const CERT_SERVER_OCSP_RESPONSE_CONTEXT;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCCERT_SIMPLE_CHAIN = *const CERT_SIMPLE_CHAIN;
 pub type PCCERT_STORE_PROV_FIND_INFO = *const CERT_STORE_PROV_FIND_INFO;
 pub type PCCERT_STRONG_SIGN_PARA = *const CERT_STRONG_SIGN_PARA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCCRL_CONTEXT = *const CRL_CONTEXT;
 pub type PCCRYPT_OID_INFO = *const CRYPT_OID_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCCTL_CONTEXT = *const CTL_CONTEXT;
 pub type PCCTL_USAGE = *const CTL_USAGE;
 pub type PCERT_ACCESS_DESCRIPTION = *mut CERT_ACCESS_DESCRIPTION;
@@ -5846,22 +5846,22 @@ pub type PCERT_BIOMETRIC_DATA = *mut CERT_BIOMETRIC_DATA;
 pub type PCERT_BIOMETRIC_EXT_INFO = *mut CERT_BIOMETRIC_EXT_INFO;
 pub type PCERT_BLOB = *mut CRYPT_INTEGER_BLOB;
 pub type PCERT_CHAIN = *mut CERT_CHAIN;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_CHAIN_CONTEXT = *mut CERT_CHAIN_CONTEXT;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_CHAIN_ELEMENT = *mut CERT_CHAIN_ELEMENT;
 pub type PCERT_CHAIN_ENGINE_CONFIG = *mut CERT_CHAIN_ENGINE_CONFIG;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_CHAIN_FIND_BY_ISSUER_PARA = *mut CERT_CHAIN_FIND_ISSUER_PARA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_CHAIN_FIND_ISSUER_PARA = *mut CERT_CHAIN_FIND_ISSUER_PARA;
 pub type PCERT_CHAIN_PARA = *mut CERT_CHAIN_PARA;
 pub type PCERT_CHAIN_POLICY_PARA = *mut CERT_CHAIN_POLICY_PARA;
 pub type PCERT_CHAIN_POLICY_STATUS = *mut CERT_CHAIN_POLICY_STATUS;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_CONTEXT = *mut CERT_CONTEXT;
 pub type PCERT_CREATE_CONTEXT_PARA = *mut CERT_CREATE_CONTEXT_PARA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_CRL_CONTEXT_PAIR = *mut CERT_CRL_CONTEXT_PAIR;
 pub type PCERT_DH_PARAMETERS = *mut CERT_DH_PARAMETERS;
 pub type PCERT_DSS_PARAMETERS = *mut CERT_DSS_PARAMETERS;
@@ -5872,13 +5872,13 @@ pub type PCERT_EXTENSIONS = *mut CERT_EXTENSIONS;
 pub type PCERT_GENERAL_SUBTREE = *mut CERT_GENERAL_SUBTREE;
 pub type PCERT_HASHED_URL = *mut CERT_HASHED_URL;
 pub type PCERT_ID = *mut CERT_ID;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_INFO = *mut CERT_INFO;
 pub type PCERT_ISSUER_SERIAL_NUMBER = *mut CERT_ISSUER_SERIAL_NUMBER;
 pub type PCERT_KEYGEN_REQUEST_INFO = *mut CERT_KEYGEN_REQUEST_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_KEY_ATTRIBUTES_INFO = *mut CERT_KEY_ATTRIBUTES_INFO;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type PCERT_KEY_CONTEXT = *mut CERT_KEY_CONTEXT;
 pub type PCERT_KEY_USAGE_RESTRICTION_INFO = *mut CERT_KEY_USAGE_RESTRICTION_INFO;
 pub type PCERT_LDAP_STORE_OPENED_PARA = *mut CERT_LDAP_STORE_OPENED_PARA;
@@ -5911,7 +5911,7 @@ pub type PCERT_POLICY_MAPPINGS_INFO = *mut CERT_POLICY_MAPPINGS_INFO;
 pub type PCERT_POLICY_QUALIFIER_INFO = *mut CERT_POLICY_QUALIFIER_INFO;
 pub type PCERT_POLICY_QUALIFIER_NOTICE_REFERENCE = *mut CERT_POLICY_QUALIFIER_NOTICE_REFERENCE;
 pub type PCERT_POLICY_QUALIFIER_USER_NOTICE = *mut CERT_POLICY_QUALIFIER_USER_NOTICE;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_PRIVATE_KEY_VALIDITY = *mut CERT_PRIVATE_KEY_VALIDITY;
 pub type PCERT_PUBLIC_KEY_INFO = *mut CERT_PUBLIC_KEY_INFO;
 pub type PCERT_QC_STATEMENT = *mut CERT_QC_STATEMENT;
@@ -5919,28 +5919,28 @@ pub type PCERT_QC_STATEMENTS_EXT_INFO = *mut CERT_QC_STATEMENTS_EXT_INFO;
 pub type PCERT_RDN = *mut CERT_RDN;
 pub type PCERT_RDN_ATTR = *mut CERT_RDN_ATTR;
 pub type PCERT_RDN_VALUE_BLOB = *mut CRYPT_INTEGER_BLOB;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_REGISTRY_STORE_CLIENT_GPT_PARA = *mut CERT_REGISTRY_STORE_CLIENT_GPT_PARA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_REGISTRY_STORE_ROAMING_PARA = *mut CERT_REGISTRY_STORE_ROAMING_PARA;
 pub type PCERT_REQUEST_INFO = *mut CERT_REQUEST_INFO;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PCERT_REVOCATION_CHAIN_PARA = *mut CERT_REVOCATION_CHAIN_PARA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_REVOCATION_CRL_INFO = *mut CERT_REVOCATION_CRL_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_REVOCATION_INFO = *mut CERT_REVOCATION_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_REVOCATION_PARA = *mut CERT_REVOCATION_PARA;
 pub type PCERT_REVOCATION_STATUS = *mut CERT_REVOCATION_STATUS;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PCERT_SELECT_CHAIN_PARA = *mut CERT_SELECT_CHAIN_PARA;
 pub type PCERT_SELECT_CRITERIA = *mut CERT_SELECT_CRITERIA;
 pub type PCERT_SERVER_OCSP_RESPONSE_CONTEXT = *mut CERT_SERVER_OCSP_RESPONSE_CONTEXT;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_SERVER_OCSP_RESPONSE_OPEN_PARA = *mut CERT_SERVER_OCSP_RESPONSE_OPEN_PARA;
 pub type PCERT_SIGNED_CONTENT_INFO = *mut CERT_SIGNED_CONTENT_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_SIMPLE_CHAIN = *mut CERT_SIMPLE_CHAIN;
 pub type PCERT_STORE_PROV_FIND_INFO = *mut CERT_STORE_PROV_FIND_INFO;
 pub type PCERT_STORE_PROV_INFO = *mut CERT_STORE_PROV_INFO;
@@ -5949,11 +5949,11 @@ pub type PCERT_STRONG_SIGN_SERIALIZED_INFO = *mut CERT_STRONG_SIGN_SERIALIZED_IN
 pub type PCERT_SUBJECT_INFO_ACCESS = *mut CERT_AUTHORITY_INFO_ACCESS;
 pub type PCERT_SUPPORTED_ALGORITHM_INFO = *mut CERT_SUPPORTED_ALGORITHM_INFO;
 pub type PCERT_SYSTEM_STORE_INFO = *mut CERT_SYSTEM_STORE_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_SYSTEM_STORE_RELOCATE_PARA = *mut CERT_SYSTEM_STORE_RELOCATE_PARA;
 pub type PCERT_TEMPLATE_EXT = *mut CERT_TEMPLATE_EXT;
 pub type PCERT_TPM_SPECIFICATION_INFO = *mut CERT_TPM_SPECIFICATION_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCERT_TRUST_LIST_INFO = *mut CERT_TRUST_LIST_INFO;
 pub type PCERT_TRUST_STATUS = *mut CERT_TRUST_STATUS;
 pub type PCERT_USAGE_MATCH = *mut CERT_USAGE_MATCH;
@@ -5962,10 +5962,10 @@ pub type PCERT_X942_DH_VALIDATION_PARAMS = *mut CERT_X942_DH_VALIDATION_PARAMS;
 pub type PCMC_ADD_ATTRIBUTES_INFO = *mut CMC_ADD_ATTRIBUTES_INFO;
 pub type PCMC_ADD_EXTENSIONS_INFO = *mut CMC_ADD_EXTENSIONS_INFO;
 pub type PCMC_DATA_INFO = *mut CMC_DATA_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMC_PEND_INFO = *mut CMC_PEND_INFO;
 pub type PCMC_RESPONSE_INFO = *mut CMC_RESPONSE_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMC_STATUS_INFO = *mut CMC_STATUS_INFO;
 pub type PCMC_TAGGED_ATTRIBUTE = *mut CMC_TAGGED_ATTRIBUTE;
 pub type PCMC_TAGGED_CERT_REQUEST = *mut CMC_TAGGED_CERT_REQUEST;
@@ -5973,55 +5973,55 @@ pub type PCMC_TAGGED_CONTENT_INFO = *mut CMC_TAGGED_CONTENT_INFO;
 pub type PCMC_TAGGED_OTHER_MSG = *mut CMC_TAGGED_OTHER_MSG;
 pub type PCMC_TAGGED_REQUEST = *mut CMC_TAGGED_REQUEST;
 pub type PCMSG_ATTR = *mut CRYPT_ATTRIBUTES;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMSG_CMS_RECIPIENT_INFO = *mut CMSG_CMS_RECIPIENT_INFO;
 pub type PCMSG_CMS_SIGNER_INFO = *mut CMSG_CMS_SIGNER_INFO;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "ncrypt"))]
 pub type PCMSG_CNG_CONTENT_DECRYPT_INFO = *mut CMSG_CNG_CONTENT_DECRYPT_INFO;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
 pub type PCMSG_CONTENT_ENCRYPT_INFO = *mut CMSG_CONTENT_ENCRYPT_INFO;
 pub type PCMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA = *mut CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type PCMSG_CTRL_DECRYPT_PARA = *mut CMSG_CTRL_DECRYPT_PARA;
 pub type PCMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA = *mut CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 pub type PCMSG_CTRL_KEY_AGREE_DECRYPT_PARA = *mut CMSG_CTRL_KEY_AGREE_DECRYPT_PARA;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type PCMSG_CTRL_KEY_TRANS_DECRYPT_PARA = *mut CMSG_CTRL_KEY_TRANS_DECRYPT_PARA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMSG_CTRL_MAIL_LIST_DECRYPT_PARA = *mut CMSG_CTRL_MAIL_LIST_DECRYPT_PARA;
 pub type PCMSG_CTRL_VERIFY_SIGNATURE_EX_PARA = *mut CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA;
 pub type PCMSG_ENCRYPTED_ENCODE_INFO = *mut CMSG_ENCRYPTED_ENCODE_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMSG_ENVELOPED_ENCODE_INFO = *mut CMSG_ENVELOPED_ENCODE_INFO;
 pub type PCMSG_HASHED_ENCODE_INFO = *mut CMSG_HASHED_ENCODE_INFO;
 pub type PCMSG_KEY_AGREE_ENCRYPT_INFO = *mut CMSG_KEY_AGREE_ENCRYPT_INFO;
 pub type PCMSG_KEY_AGREE_KEY_ENCRYPT_INFO = *mut CMSG_KEY_AGREE_KEY_ENCRYPT_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO = *mut CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMSG_KEY_AGREE_RECIPIENT_INFO = *mut CMSG_KEY_AGREE_RECIPIENT_INFO;
 pub type PCMSG_KEY_TRANS_ENCRYPT_INFO = *mut CMSG_KEY_TRANS_ENCRYPT_INFO;
 pub type PCMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO = *mut CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO;
 pub type PCMSG_KEY_TRANS_RECIPIENT_INFO = *mut CMSG_KEY_TRANS_RECIPIENT_INFO;
 pub type PCMSG_MAIL_LIST_ENCRYPT_INFO = *mut CMSG_MAIL_LIST_ENCRYPT_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO = *mut CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMSG_MAIL_LIST_RECIPIENT_INFO = *mut CMSG_MAIL_LIST_RECIPIENT_INFO;
 pub type PCMSG_RC2_AUX_INFO = *mut CMSG_RC2_AUX_INFO;
 pub type PCMSG_RC4_AUX_INFO = *mut CMSG_RC4_AUX_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMSG_RECIPIENT_ENCODE_INFO = *mut CMSG_RECIPIENT_ENCODE_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO = *mut CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCMSG_RECIPIENT_ENCRYPTED_KEY_INFO = *mut CMSG_RECIPIENT_ENCRYPTED_KEY_INFO;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 pub type PCMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO = *mut CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 pub type PCMSG_SIGNED_ENCODE_INFO = *mut CMSG_SIGNED_ENCODE_INFO;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 pub type PCMSG_SIGNER_ENCODE_INFO = *mut CMSG_SIGNER_ENCODE_INFO;
 pub type PCMSG_SIGNER_INFO = *mut CMSG_SIGNER_INFO;
 pub type PCMSG_SP3_COMPATIBLE_AUX_INFO = *mut CMSG_SP3_COMPATIBLE_AUX_INFO;
@@ -6030,26 +6030,26 @@ pub type PCMS_DH_KEY_INFO = *mut CMS_DH_KEY_INFO;
 pub type PCMS_KEY_INFO = *mut CMS_KEY_INFO;
 pub type PCPS_URLS = *mut CPS_URLS;
 pub type PCRL_BLOB = *mut CRYPT_INTEGER_BLOB;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRL_CONTEXT = *mut CRL_CONTEXT;
 pub type PCRL_DIST_POINT = *mut CRL_DIST_POINT;
 pub type PCRL_DIST_POINTS_INFO = *mut CRL_DIST_POINTS_INFO;
 pub type PCRL_DIST_POINT_NAME = *mut CRL_DIST_POINT_NAME;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRL_ENTRY = *mut CRL_ENTRY;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRL_FIND_ISSUED_FOR_PARA = *mut CRL_FIND_ISSUED_FOR_PARA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRL_INFO = *mut CRL_INFO;
 pub type PCRL_ISSUING_DIST_POINT = *mut CRL_ISSUING_DIST_POINT;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRL_REVOCATION_INFO = *mut CRL_REVOCATION_INFO;
 pub type PCROSS_CERT_DIST_POINTS_INFO = *mut CROSS_CERT_DIST_POINTS_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPTNET_URL_CACHE_FLUSH_INFO = *mut CRYPTNET_URL_CACHE_FLUSH_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPTNET_URL_CACHE_PRE_FETCH_INFO = *mut CRYPTNET_URL_CACHE_PRE_FETCH_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPTNET_URL_CACHE_RESPONSE_INFO = *mut CRYPTNET_URL_CACHE_RESPONSE_INFO;
 pub type PCRYPT_3DES_KEY_STATE = *mut CRYPT_3DES_KEY_STATE;
 pub type PCRYPT_AES_128_KEY_STATE = *mut CRYPT_AES_128_KEY_STATE;
@@ -6081,7 +6081,7 @@ pub type PCRYPT_ENCRYPTED_PRIVATE_KEY_INFO = *mut CRYPT_ENCRYPTED_PRIVATE_KEY_IN
 pub type PCRYPT_ENCRYPT_MESSAGE_PARA = *mut CRYPT_ENCRYPT_MESSAGE_PARA;
 pub type PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC = Option<unsafe extern "system" fn(palgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER, pcleartextprivatekey: *const CRYPT_DATA_BLOB, pbencryptedkey: *mut u8, pcbencryptedkey: *mut u32, pvoidencryptfunc: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type PCRYPT_ENROLLMENT_NAME_VALUE_PAIR = *mut CRYPT_ENROLLMENT_NAME_VALUE_PAIR;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PCRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO = *mut CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO;
 pub type PCRYPT_HASH_BLOB = *mut CRYPT_INTEGER_BLOB;
 pub type PCRYPT_HASH_INFO = *mut CRYPT_HASH_INFO;
@@ -6089,11 +6089,11 @@ pub type PCRYPT_HASH_MESSAGE_PARA = *mut CRYPT_HASH_MESSAGE_PARA;
 pub type PCRYPT_INTEGER_BLOB = *mut CRYPT_INTEGER_BLOB;
 pub type PCRYPT_KEY_PROV_INFO = *mut CRYPT_KEY_PROV_INFO;
 pub type PCRYPT_KEY_PROV_PARAM = *mut CRYPT_KEY_PROV_PARAM;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type PCRYPT_KEY_SIGN_MESSAGE_PARA = *mut CRYPT_KEY_SIGN_MESSAGE_PARA;
 pub type PCRYPT_KEY_VERIFY_MESSAGE_PARA = *mut CRYPT_KEY_VERIFY_MESSAGE_PARA;
 pub type PCRYPT_MASK_GEN_ALGORITHM = *mut CRYPT_MASK_GEN_ALGORITHM;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPT_OBJECT_LOCATOR_PROVIDER_TABLE = *mut CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE;
 pub type PCRYPT_OBJID_BLOB = *mut CRYPT_INTEGER_BLOB;
 pub type PCRYPT_OBJID_TABLE = *mut CRYPT_OBJID_TABLE;
@@ -6110,20 +6110,20 @@ pub type PCRYPT_PSOURCE_ALGORITHM = *mut CRYPT_PSOURCE_ALGORITHM;
 pub type PCRYPT_RC2_CBC_PARAMETERS = *mut CRYPT_RC2_CBC_PARAMETERS;
 pub type PCRYPT_RC4_KEY_STATE = *mut CRYPT_RC4_KEY_STATE;
 pub type PCRYPT_RESOLVE_HCRYPTPROV_FUNC = Option<unsafe extern "system" fn(pprivatekeyinfo: *mut CRYPT_PRIVATE_KEY_INFO, phcryptprov: *mut HCRYPTPROV, pvoidresolvefunc: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPT_RETRIEVE_AUX_INFO = *mut CRYPT_RETRIEVE_AUX_INFO;
 pub type PCRYPT_RSAES_OAEP_PARAMETERS = *mut CRYPT_RSAES_OAEP_PARAMETERS;
 pub type PCRYPT_RSA_SSA_PSS_PARAMETERS = *mut CRYPT_RSA_SSA_PSS_PARAMETERS;
 pub type PCRYPT_SEQUENCE_OF_ANY = *mut CRYPT_SEQUENCE_OF_ANY;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPT_SIGN_MESSAGE_PARA = *mut CRYPT_SIGN_MESSAGE_PARA;
 pub type PCRYPT_SMART_CARD_ROOT_INFO = *mut CRYPT_SMART_CARD_ROOT_INFO;
 pub type PCRYPT_SMIME_CAPABILITIES = *mut CRYPT_SMIME_CAPABILITIES;
 pub type PCRYPT_SMIME_CAPABILITY = *mut CRYPT_SMIME_CAPABILITY;
 pub type PCRYPT_TIMESTAMP_ACCURACY = *mut CRYPT_TIMESTAMP_ACCURACY;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPT_TIMESTAMP_CONTEXT = *mut CRYPT_TIMESTAMP_CONTEXT;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPT_TIMESTAMP_INFO = *mut CRYPT_TIMESTAMP_INFO;
 pub type PCRYPT_TIMESTAMP_PARA = *mut CRYPT_TIMESTAMP_PARA;
 pub type PCRYPT_TIMESTAMP_REQUEST = *mut CRYPT_TIMESTAMP_REQUEST;
@@ -6134,110 +6134,110 @@ pub type PCRYPT_URL_ARRAY = *mut CRYPT_URL_ARRAY;
 pub type PCRYPT_URL_INFO = *mut CRYPT_URL_INFO;
 pub type PCRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO = *mut CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO;
 pub type PCRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO = *mut CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCRYPT_VERIFY_MESSAGE_PARA = *mut CRYPT_VERIFY_MESSAGE_PARA;
 pub type PCRYPT_X942_OTHER_INFO = *mut CRYPT_X942_OTHER_INFO;
 pub type PCTL_ANY_SUBJECT_INFO = *mut CTL_ANY_SUBJECT_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCTL_CONTEXT = *mut CTL_CONTEXT;
 pub type PCTL_ENTRY = *mut CTL_ENTRY;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCTL_FIND_SUBJECT_PARA = *mut CTL_FIND_SUBJECT_PARA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCTL_FIND_USAGE_PARA = *mut CTL_FIND_USAGE_PARA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCTL_INFO = *mut CTL_INFO;
 pub type PCTL_USAGE = *mut CTL_USAGE;
 pub type PCTL_USAGE_MATCH = *mut CTL_USAGE_MATCH;
 pub type PCTL_VERIFY_USAGE_PARA = *mut CTL_VERIFY_USAGE_PARA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PCTL_VERIFY_USAGE_STATUS = *mut CTL_VERIFY_USAGE_STATUS;
 pub type PCT_EXTRA_CERT_CHAIN_POLICY_STATUS = *mut CT_EXTRA_CERT_CHAIN_POLICY_STATUS;
 pub type PDATA_BLOB = *mut CRYPT_INTEGER_BLOB;
 pub type PEV_EXTRA_CERT_CHAIN_POLICY_PARA = *mut EV_EXTRA_CERT_CHAIN_POLICY_PARA;
 pub type PEV_EXTRA_CERT_CHAIN_POLICY_STATUS = *mut EV_EXTRA_CERT_CHAIN_POLICY_STATUS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PFN_CANCEL_ASYNC_RETRIEVAL_FUNC = Option<unsafe extern "system" fn(hasyncretrieve: HCRYPTASYNC) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK = Option<unsafe extern "system" fn(pcert: *const CERT_CONTEXT, pvfindarg: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type PFN_CERT_CREATE_CONTEXT_SORT_FUNC = Option<unsafe extern "system" fn(cbtotalencoded: u32, cbremainencoded: u32, centry: u32, pvsort: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type PFN_CERT_DLL_OPEN_STORE_PROV_FUNC = Option<unsafe extern "system" fn(lpszstoreprovider: windows_sys::core::PCSTR, dwencodingtype: u32, hcryptprov: HCRYPTPROV_LEGACY, dwflags: u32, pvpara: *const core::ffi::c_void, hcertstore: HCERTSTORE, pstoreprovinfo: *mut CERT_STORE_PROV_INFO) -> windows_sys::core::BOOL>;
 pub type PFN_CERT_ENUM_PHYSICAL_STORE = Option<unsafe extern "system" fn(pvsystemstore: *const core::ffi::c_void, dwflags: u32, pwszstorename: windows_sys::core::PCWSTR, pstoreinfo: *const CERT_PHYSICAL_STORE_INFO, pvreserved: *const core::ffi::c_void, pvarg: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type PFN_CERT_ENUM_SYSTEM_STORE = Option<unsafe extern "system" fn(pvsystemstore: *const core::ffi::c_void, dwflags: u32, pstoreinfo: *const CERT_SYSTEM_STORE_INFO, pvreserved: *const core::ffi::c_void, pvarg: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type PFN_CERT_ENUM_SYSTEM_STORE_LOCATION = Option<unsafe extern "system" fn(pwszstorelocation: windows_sys::core::PCWSTR, dwflags: u32, pvreserved: *const core::ffi::c_void, pvarg: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_IS_WEAK_HASH = Option<unsafe extern "system" fn(dwhashusetype: u32, pwszcnghashalgid: windows_sys::core::PCWSTR, dwchainflags: u32, psignerchaincontext: *const CERT_CHAIN_CONTEXT, ptimestamp: *const super::minwindef::FILETIME, pwszfilename: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK = Option<unsafe extern "system" fn(pchaincontext: *const CERT_CHAIN_CONTEXT, pserverocspresponsecontext: *const CERT_SERVER_OCSP_RESPONSE_CONTEXT, pnewcrlcontext: *const CRL_CONTEXT, pprevcrlcontext: *const CRL_CONTEXT, pvarg: *mut core::ffi::c_void, dwwriteocspfileerror: u32)>;
 pub type PFN_CERT_STORE_PROV_CLOSE = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, dwflags: u32)>;
 pub type PFN_CERT_STORE_PROV_CONTROL = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, dwflags: u32, dwctrltype: u32, pvctrlpara: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_DELETE_CERT = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pcertcontext: *const CERT_CONTEXT, dwflags: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_DELETE_CRL = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pcrlcontext: *const CRL_CONTEXT, dwflags: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_DELETE_CTL = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pctlcontext: *const CTL_CONTEXT, dwflags: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_FIND_CERT = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pfindinfo: *const CERT_STORE_PROV_FIND_INFO, pprevcertcontext: *const CERT_CONTEXT, dwflags: u32, ppvstoreprovfindinfo: *mut *mut core::ffi::c_void, ppprovcertcontext: *mut PCCERT_CONTEXT) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_FIND_CRL = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pfindinfo: *const CERT_STORE_PROV_FIND_INFO, pprevcrlcontext: *const CRL_CONTEXT, dwflags: u32, ppvstoreprovfindinfo: *mut *mut core::ffi::c_void, ppprovcrlcontext: *mut PCCRL_CONTEXT) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_FIND_CTL = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pfindinfo: *const CERT_STORE_PROV_FIND_INFO, pprevctlcontext: *const CTL_CONTEXT, dwflags: u32, ppvstoreprovfindinfo: *mut *mut core::ffi::c_void, ppprovctlcontext: *mut PCCTL_CONTEXT) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_FREE_FIND_CERT = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pcertcontext: *const CERT_CONTEXT, pvstoreprovfindinfo: *const core::ffi::c_void, dwflags: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_FREE_FIND_CRL = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pcrlcontext: *const CRL_CONTEXT, pvstoreprovfindinfo: *const core::ffi::c_void, dwflags: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_FREE_FIND_CTL = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pctlcontext: *const CTL_CONTEXT, pvstoreprovfindinfo: *const core::ffi::c_void, dwflags: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_GET_CERT_PROPERTY = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pcertcontext: *const CERT_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: *mut core::ffi::c_void, pcbdata: *mut u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_GET_CRL_PROPERTY = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pcrlcontext: *const CRL_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: *mut core::ffi::c_void, pcbdata: *mut u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_GET_CTL_PROPERTY = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pctlcontext: *const CTL_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: *mut core::ffi::c_void, pcbdata: *mut u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_READ_CERT = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pstorecertcontext: *const CERT_CONTEXT, dwflags: u32, ppprovcertcontext: *mut PCCERT_CONTEXT) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_READ_CRL = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pstorecrlcontext: *const CRL_CONTEXT, dwflags: u32, ppprovcrlcontext: *mut PCCRL_CONTEXT) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_READ_CTL = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pstorectlcontext: *const CTL_CONTEXT, dwflags: u32, ppprovctlcontext: *mut PCCTL_CONTEXT) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_SET_CERT_PROPERTY = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pcertcontext: *const CERT_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_SET_CRL_PROPERTY = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pcrlcontext: *const CRL_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_SET_CTL_PROPERTY = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pctlcontext: *const CTL_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_WRITE_CERT = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pcertcontext: *const CERT_CONTEXT, dwflags: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_WRITE_CRL = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pcrlcontext: *const CRL_CONTEXT, dwflags: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CERT_STORE_PROV_WRITE_CTL = Option<unsafe extern "system" fn(hstoreprov: HCERTSTOREPROV, pctlcontext: *const CTL_CONTEXT, dwflags: u32) -> windows_sys::core::BOOL>;
 pub type PFN_CMSG_ALLOC = Option<unsafe extern "system" fn(cb: usize) -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "ncrypt"))]
 pub type PFN_CMSG_CNG_IMPORT_CONTENT_ENCRYPT_KEY = Option<unsafe extern "system" fn(pcngcontentdecryptinfo: *mut CMSG_CNG_CONTENT_DECRYPT_INFO, dwflags: u32, pvreserved: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "minwindef", feature = "ncrypt"))]
 pub type PFN_CMSG_CNG_IMPORT_KEY_AGREE = Option<unsafe extern "system" fn(pcngcontentdecryptinfo: *mut CMSG_CNG_CONTENT_DECRYPT_INFO, pkeyagreedecryptpara: *const CMSG_CTRL_KEY_AGREE_DECRYPT_PARA, dwflags: u32, pvreserved: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "bcrypt", feature = "ncrypt"))]
 pub type PFN_CMSG_CNG_IMPORT_KEY_TRANS = Option<unsafe extern "system" fn(pcngcontentdecryptinfo: *mut CMSG_CNG_CONTENT_DECRYPT_INFO, pkeytransdecryptpara: *const CMSG_CTRL_KEY_TRANS_DECRYPT_PARA, dwflags: u32, pvreserved: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type PFN_CMSG_EXPORT_ENCRYPT_KEY = Option<unsafe extern "system" fn(hcryptprov: HCRYPTPROV, hencryptkey: HCRYPTKEY, ppublickeyinfo: *const CERT_PUBLIC_KEY_INFO, pbdata: *mut u8, pcbdata: *mut u32) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
 pub type PFN_CMSG_EXPORT_KEY_AGREE = Option<unsafe extern "system" fn(pcontentencryptinfo: *const CMSG_CONTENT_ENCRYPT_INFO, pkeyagreeencodeinfo: *const CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO, pkeyagreeencryptinfo: *mut CMSG_KEY_AGREE_ENCRYPT_INFO, dwflags: u32, pvreserved: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
 pub type PFN_CMSG_EXPORT_KEY_TRANS = Option<unsafe extern "system" fn(pcontentencryptinfo: *const CMSG_CONTENT_ENCRYPT_INFO, pkeytransencodeinfo: *const CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO, pkeytransencryptinfo: *mut CMSG_KEY_TRANS_ENCRYPT_INFO, dwflags: u32, pvreserved: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
 pub type PFN_CMSG_EXPORT_MAIL_LIST = Option<unsafe extern "system" fn(pcontentencryptinfo: *const CMSG_CONTENT_ENCRYPT_INFO, pmaillistencodeinfo: *const CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO, pmaillistencryptinfo: *mut CMSG_MAIL_LIST_ENCRYPT_INFO, dwflags: u32, pvreserved: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type PFN_CMSG_FREE = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_minwindef"))]
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
 pub type PFN_CMSG_GEN_CONTENT_ENCRYPT_KEY = Option<unsafe extern "system" fn(pcontentencryptinfo: *mut CMSG_CONTENT_ENCRYPT_INFO, dwflags: u32, pvreserved: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CMSG_GEN_ENCRYPT_KEY = Option<unsafe extern "system" fn(phcryptprov: *mut HCRYPTPROV, paiencrypt: *const CRYPT_ALGORITHM_IDENTIFIER, pvencryptauxinfo: *const core::ffi::c_void, ppublickeyinfo: *const CERT_PUBLIC_KEY_INFO, pfnalloc: PFN_CMSG_ALLOC, phencryptkey: *mut HCRYPTKEY, ppbencryptparameters: *mut super::minwindef::PBYTE, pcbencryptparameters: *mut u32) -> windows_sys::core::BOOL>;
 pub type PFN_CMSG_IMPORT_ENCRYPT_KEY = Option<unsafe extern "system" fn(hcryptprov: HCRYPTPROV, dwkeyspec: u32, paiencrypt: *const CRYPT_ALGORITHM_IDENTIFIER, paipubkey: *const CRYPT_ALGORITHM_IDENTIFIER, pbencodedkey: *const u8, cbencodedkey: u32, phencryptkey: *mut HCRYPTKEY) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 pub type PFN_CMSG_IMPORT_KEY_AGREE = Option<unsafe extern "system" fn(pcontentencryptionalgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pkeyagreedecryptpara: *const CMSG_CTRL_KEY_AGREE_DECRYPT_PARA, dwflags: u32, pvreserved: *const core::ffi::c_void, phcontentencryptkey: *mut HCRYPTKEY) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type PFN_CMSG_IMPORT_KEY_TRANS = Option<unsafe extern "system" fn(pcontentencryptionalgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pkeytransdecryptpara: *const CMSG_CTRL_KEY_TRANS_DECRYPT_PARA, dwflags: u32, pvreserved: *const core::ffi::c_void, phcontentencryptkey: *mut HCRYPTKEY) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CMSG_IMPORT_MAIL_LIST = Option<unsafe extern "system" fn(pcontentencryptionalgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pmaillistdecryptpara: *const CMSG_CTRL_MAIL_LIST_DECRYPT_PARA, dwflags: u32, pvreserved: *const core::ffi::c_void, phcontentencryptkey: *mut HCRYPTKEY) -> windows_sys::core::BOOL>;
 pub type PFN_CMSG_STREAM_OUTPUT = Option<unsafe extern "system" fn(pvarg: *const core::ffi::c_void, pbdata: *const u8, cbdata: u32, ffinal: windows_sys::core::BOOL) -> windows_sys::core::BOOL>;
 pub type PFN_CRYPT_ALLOC = Option<unsafe extern "system" fn(cbsize: usize) -> *mut core::ffi::c_void>;
@@ -6247,32 +6247,32 @@ pub type PFN_CRYPT_CANCEL_RETRIEVAL = Option<unsafe extern "system" fn(dwflags: 
 pub type PFN_CRYPT_ENUM_KEYID_PROP = Option<unsafe extern "system" fn(pkeyidentifier: *const CRYPT_HASH_BLOB, dwflags: u32, pvreserved: *const core::ffi::c_void, pvarg: *mut core::ffi::c_void, cprop: u32, rgdwpropid: *const u32, rgpvdata: *const *const core::ffi::c_void, rgcbdata: *const u32) -> windows_sys::core::BOOL>;
 pub type PFN_CRYPT_ENUM_OID_FUNC = Option<unsafe extern "system" fn(dwencodingtype: u32, pszfuncname: windows_sys::core::PCSTR, pszoid: windows_sys::core::PCSTR, cvalue: u32, rgdwvaluetype: *const u32, rgpwszvaluename: *const windows_sys::core::PCWSTR, rgpbvaluedata: *const *const u8, rgcbvaluedata: *const u32, pvarg: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type PFN_CRYPT_ENUM_OID_INFO = Option<unsafe extern "system" fn(pinfo: *const CRYPT_OID_INFO, pvarg: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type PFN_CRYPT_EXPORT_PUBLIC_KEY_INFO_EX2_FUNC = Option<unsafe extern "system" fn(hncryptkey: super::ncrypt::NCRYPT_KEY_HANDLE, dwcertencodingtype: u32, pszpublickeyobjid: windows_sys::core::PCSTR, dwflags: u32, pvauxinfo: *const core::ffi::c_void, pinfo: *mut CERT_PUBLIC_KEY_INFO, pcbinfo: *mut u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 pub type PFN_CRYPT_EXPORT_PUBLIC_KEY_INFO_FROM_BCRYPT_HANDLE_FUNC = Option<unsafe extern "system" fn(hbcryptkey: super::bcrypt::BCRYPT_KEY_HANDLE, dwcertencodingtype: u32, pszpublickeyobjid: windows_sys::core::PCSTR, dwflags: u32, pvauxinfo: *const core::ffi::c_void, pinfo: *mut CERT_PUBLIC_KEY_INFO, pcbinfo: *mut u32) -> windows_sys::core::BOOL>;
 pub type PFN_CRYPT_EXTRACT_ENCODED_SIGNATURE_PARAMETERS_FUNC = Option<unsafe extern "system" fn(dwcertencodingtype: u32, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, ppvdecodedsignpara: *mut *mut core::ffi::c_void, ppwszcnghashalgid: *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL>;
 pub type PFN_CRYPT_FREE = Option<unsafe extern "system" fn(pv: *const core::ffi::c_void)>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CRYPT_GET_SIGNER_CERTIFICATE = Option<unsafe extern "system" fn(pvgetarg: *mut core::ffi::c_void, dwcertencodingtype: u32, psignerid: *const CERT_INFO, hmsgcertstore: HCERTSTORE) -> PCCERT_CONTEXT>;
 pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FLUSH = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, rgidentifierornamelist: *const PCERT_NAME_BLOB, dwidentifierornamelistcount: u32) -> windows_sys::core::BOOL>;
 pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE = Option<unsafe extern "system" fn(pplugincontext: *const core::ffi::c_void, pbdata: *const u8)>;
 pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER = Option<unsafe extern "system" fn(pplugincontext: *const core::ffi::c_void, pidentifier: *const CRYPT_INTEGER_BLOB)>;
 pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_PASSWORD = Option<unsafe extern "system" fn(pplugincontext: *const core::ffi::c_void, pwszpassword: windows_sys::core::PCWSTR)>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET = Option<unsafe extern "system" fn(pplugincontext: *const core::ffi::c_void, pidentifier: *const CRYPT_INTEGER_BLOB, dwnametype: u32, pnameblob: *const CRYPT_INTEGER_BLOB, ppbcontent: *mut super::minwindef::PBYTE, pcbcontent: *mut u32, ppwszpassword: *mut windows_sys::core::PCWSTR, ppidentifier: *mut PCRYPT_DATA_BLOB) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_INITIALIZE = Option<unsafe extern "system" fn(pfnflush: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FLUSH, pcontext: *const core::ffi::c_void, pdwexpectedobjectcount: *mut u32, ppfunctable: *mut PCRYPT_OBJECT_LOCATOR_PROVIDER_TABLE, ppplugincontext: *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_RELEASE = Option<unsafe extern "system" fn(dwreason: u32, pplugincontext: *const core::ffi::c_void)>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type PFN_CRYPT_SIGN_AND_ENCODE_HASH_FUNC = Option<unsafe extern "system" fn(hkey: super::ncrypt::NCRYPT_KEY_HANDLE, dwcertencodingtype: u32, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvdecodedsignpara: *const core::ffi::c_void, pwszcngpubkeyalgid: windows_sys::core::PCWSTR, pwszcnghashalgid: windows_sys::core::PCWSTR, pbcomputedhash: *const u8, cbcomputedhash: u32, pbsignature: *mut u8, pcbsignature: *mut u32) -> windows_sys::core::BOOL>;
 pub type PFN_CRYPT_VERIFY_ENCODED_SIGNATURE_FUNC = Option<unsafe extern "system" fn(dwcertencodingtype: u32, ppubkeyinfo: *const CERT_PUBLIC_KEY_INFO, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvdecodedsignpara: *const core::ffi::c_void, pwszcngpubkeyalgid: windows_sys::core::PCWSTR, pwszcnghashalgid: windows_sys::core::PCWSTR, pbcomputedhash: *const u8, cbcomputedhash: u32, pbsignature: *const u8, cbsignature: u32) -> windows_sys::core::BOOL>;
 pub type PFN_EXPORT_PRIV_KEY_FUNC = Option<unsafe extern "system" fn(hcryptprov: HCRYPTPROV, dwkeyspec: u32, pszprivatekeyobjid: windows_sys::core::PCSTR, dwflags: u32, pvauxinfo: *const core::ffi::c_void, pprivatekeyinfo: *mut CRYPT_PRIVATE_KEY_INFO, pcbprivatekeyinfo: *mut u32) -> windows_sys::core::BOOL>;
 pub type PFN_FREE_ENCODED_OBJECT_FUNC = Option<unsafe extern "system" fn(pszobjectoid: windows_sys::core::PCSTR, pobject: *mut CRYPT_BLOB_ARRAY, pvfreecontext: *mut core::ffi::c_void)>;
 pub type PFN_IMPORT_PRIV_KEY_FUNC = Option<unsafe extern "system" fn(hcryptprov: HCRYPTPROV, pprivatekeyinfo: *const CRYPT_PRIVATE_KEY_INFO, dwflags: u32, pvauxinfo: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_bcrypt")]
+#[cfg(feature = "bcrypt")]
 pub type PFN_IMPORT_PUBLIC_KEY_INFO_EX2_FUNC = Option<unsafe extern "system" fn(dwcertencodingtype: u32, pinfo: *const CERT_PUBLIC_KEY_INFO, dwflags: u32, pvauxinfo: *const core::ffi::c_void, phkey: *mut super::bcrypt::BCRYPT_KEY_HANDLE) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHCRYPTASYNC = *mut super::winnt::HANDLE;
 pub type PHMAC_INFO = *mut HMAC_INFO;
 pub type PHTTPSPolicyCallbackData = *mut HTTPSPolicyCallbackData;
@@ -6340,11 +6340,11 @@ pub const PKCS_TIME_REQUEST: windows_sys::core::PCSTR = 18 as _;
 pub const PKCS_UTC_TIME: windows_sys::core::PCSTR = 17 as _;
 pub type PKEY_TYPE_SUBTYPE = *mut KEY_TYPE_SUBTYPE;
 pub const PLAINTEXTKEYBLOB: u32 = 8;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type POCSP_BASIC_RESPONSE_ENTRY = *mut OCSP_BASIC_RESPONSE_ENTRY;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type POCSP_BASIC_RESPONSE_INFO = *mut OCSP_BASIC_RESPONSE_INFO;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type POCSP_BASIC_REVOKED_INFO = *mut OCSP_BASIC_REVOKED_INFO;
 pub type POCSP_BASIC_SIGNED_RESPONSE_INFO = *mut OCSP_BASIC_SIGNED_RESPONSE_INFO;
 pub type POCSP_CERT_ID = *mut OCSP_CERT_ID;

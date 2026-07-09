@@ -1,18 +1,18 @@
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn DdeSetQualityOfService(hwndclient : super::windef::HWND, pqosnew : *const super::winnt::SECURITY_QUALITY_OF_SERVICE, pqosprev : *mut super::winnt::SECURITY_QUALITY_OF_SERVICE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn FreeDDElParam(msg : u32, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ImpersonateDdeClientWindow(hwndclient : super::windef::HWND, hwndserver : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn PackDDElParam(msg : u32, uilo : usize, uihi : usize) -> super::minwindef::LPARAM);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn ReuseDDElParam(lparam : super::minwindef::LPARAM, msgin : u32, msgout : u32, uilo : usize, uihi : usize) -> super::minwindef::LPARAM);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn UnpackDDElParam(msg : u32, lparam : super::minwindef::LPARAM, puilo : *mut u32, puihi : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn UnpackDDElParam(msg : u32, lparam : super::minwindef::LPARAM, puilo : *mut u64, puihi : *mut u64) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

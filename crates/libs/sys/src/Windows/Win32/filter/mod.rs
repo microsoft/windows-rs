@@ -20,13 +20,13 @@ pub const FILTER_PIXELFORMAT_BGR8: IMAGE_PIXELFORMAT = 2;
 pub const FILTER_PIXELFORMAT_BGRA8: IMAGE_PIXELFORMAT = 0;
 pub const FILTER_PIXELFORMAT_PBGRA8: IMAGE_PIXELFORMAT = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_propidlbase", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "propidlbase", feature = "wtypes"))]
 #[derive(Clone, Copy)]
 pub struct FULLPROPSPEC {
     pub guidPropSet: windows_sys::core::GUID,
     pub psProperty: super::propidlbase::PROPSPEC,
 }
-#[cfg(all(feature = "Win32_propidlbase", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "propidlbase", feature = "wtypes"))]
 impl Default for FULLPROPSPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -57,7 +57,7 @@ pub struct IMAGE_INFO {
 }
 pub type IMAGE_PIXELFORMAT = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "propidlbase", feature = "winnt", feature = "wtypes"))]
 #[derive(Clone, Copy)]
 pub struct STAT_CHUNK {
     pub idChunk: u32,
@@ -69,7 +69,7 @@ pub struct STAT_CHUNK {
     pub cwcStartSource: u32,
     pub cwcLenSource: u32,
 }
-#[cfg(all(feature = "Win32_propidlbase", feature = "Win32_winnt", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "propidlbase", feature = "winnt", feature = "wtypes"))]
 impl Default for STAT_CHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

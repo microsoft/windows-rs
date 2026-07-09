@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
     windows_core::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
@@ -107,7 +107,7 @@ impl Default for NAME_BUFFER {
 pub const NAME_FLAGS_MASK: u32 = 135;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NCB {
     pub ncb_command: u8,
@@ -127,7 +127,7 @@ pub struct NCB {
     pub ncb_event: super::winnt::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for NCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -135,7 +135,7 @@ impl Default for NCB {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NCB {
     pub ncb_command: u8,
@@ -155,7 +155,7 @@ pub struct NCB {
     pub ncb_event: super::winnt::HANDLE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for NCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -305,17 +305,17 @@ impl Default for PNAME_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNCB(pub *mut NCB);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl PNCB {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for PNCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

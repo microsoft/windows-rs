@@ -50,17 +50,17 @@ impl Default for PSecPkgCred_SessionTicketKeys {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSecPkgCred_SupportedAlgs(pub *mut SecPkgCred_SupportedAlgs);
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl PSecPkgCred_SupportedAlgs {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for PSecPkgCred_SupportedAlgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -158,13 +158,13 @@ pub struct SecPkgCred_SessionTicketKeys {
     pub pSessionTicketKeys: PSecPkgCred_SessionTicketKey,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecPkgCred_SupportedAlgs {
     pub cSupportedAlgs: u32,
     pub palgSupportedAlgs: *mut super::wincrypt::ALG_ID,
 }
-#[cfg(feature = "Win32_wincrypt")]
+#[cfg(feature = "wincrypt")]
 impl Default for SecPkgCred_SupportedAlgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

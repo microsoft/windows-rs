@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasDialDlgA<P0, P1, P2>(lpszphonebook: P0, lpszentry: P1, lpszphonenumber: P2, lpinfo: *mut tagRASDIALDLG) -> windows_core::BOOL
 where
@@ -9,7 +9,7 @@ where
     windows_core::link!("rasdlg.dll" "system" fn RasDialDlgA(lpszphonebook : windows_core::PCSTR, lpszentry : windows_core::PCSTR, lpszphonenumber : windows_core::PCSTR, lpinfo : *mut tagRASDIALDLG) -> windows_core::BOOL);
     unsafe { RasDialDlgA(lpszphonebook.param().abi(), lpszentry.param().abi(), lpszphonenumber.param().abi(), lpinfo as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasDialDlgW<P0, P1, P2>(lpszphonebook: P0, lpszentry: P1, lpszphonenumber: P2, lpinfo: *mut tagRASDIALDLG) -> windows_core::BOOL
 where
@@ -20,7 +20,7 @@ where
     windows_core::link!("rasdlg.dll" "system" fn RasDialDlgW(lpszphonebook : windows_core::PCWSTR, lpszentry : windows_core::PCWSTR, lpszphonenumber : windows_core::PCWSTR, lpinfo : *mut tagRASDIALDLG) -> windows_core::BOOL);
     unsafe { RasDialDlgW(lpszphonebook.param().abi(), lpszentry.param().abi(), lpszphonenumber.param().abi(), lpinfo as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasEntryDlgA<P0, P1>(lpszphonebook: P0, lpszentry: P1, lpinfo: *mut tagRASENTRYDLGA) -> windows_core::BOOL
 where
@@ -30,7 +30,7 @@ where
     windows_core::link!("rasdlg.dll" "system" fn RasEntryDlgA(lpszphonebook : windows_core::PCSTR, lpszentry : windows_core::PCSTR, lpinfo : *mut tagRASENTRYDLGA) -> windows_core::BOOL);
     unsafe { RasEntryDlgA(lpszphonebook.param().abi(), lpszentry.param().abi(), lpinfo as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasEntryDlgW<P0, P1>(lpszphonebook: P0, lpszentry: P1, lpinfo: *mut tagRASENTRYDLGW) -> windows_core::BOOL
 where
@@ -40,7 +40,7 @@ where
     windows_core::link!("rasdlg.dll" "system" fn RasEntryDlgW(lpszphonebook : windows_core::PCWSTR, lpszentry : windows_core::PCWSTR, lpinfo : *mut tagRASENTRYDLGW) -> windows_core::BOOL);
     unsafe { RasEntryDlgW(lpszphonebook.param().abi(), lpszentry.param().abi(), lpinfo as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasPhonebookDlgA<P0, P1>(lpszphonebook: P0, lpszentry: P1, lpinfo: *mut tagRASPBDLGA) -> windows_core::BOOL
 where
@@ -50,7 +50,7 @@ where
     windows_core::link!("rasdlg.dll" "system" fn RasPhonebookDlgA(lpszphonebook : windows_core::PCSTR, lpszentry : windows_core::PCSTR, lpinfo : *mut tagRASPBDLGA) -> windows_core::BOOL);
     unsafe { RasPhonebookDlgA(lpszphonebook.param().abi(), lpszentry.param().abi(), lpinfo as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn RasPhonebookDlgW<P0, P1>(lpszphonebook: P0, lpszentry: P1, lpinfo: *mut tagRASPBDLGW) -> windows_core::BOOL
 where
@@ -88,13 +88,13 @@ pub const RASPBDFLAG_PositionDlg: u32 = 1;
 pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648;
 pub type RASPBDLGFUNCA = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void)>;
 pub type RASPBDLGFUNCW = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void)>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type RasCustomDialDlgFn = Option<unsafe extern "system" fn(hinstdll: super::minwindef::HINSTANCE, dwflags: u32, lpszphonebook: windows_core::PCWSTR, lpszentry: windows_core::PCWSTR, lpszphonenumber: windows_core::PCWSTR, lpinfo: *mut tagRASDIALDLG, pvinfo: *mut core::ffi::c_void) -> windows_core::BOOL>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type RasCustomEntryDlgFn = Option<unsafe extern "system" fn(hinstdll: super::minwindef::HINSTANCE, lpszphonebook: windows_core::PCWSTR, lpszentry: windows_core::PCWSTR, lpinfo: *mut tagRASENTRYDLGA, dwflags: u32) -> windows_core::BOOL>;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct tagRASDIALDLG {
     pub dwSize: u32,
@@ -109,7 +109,7 @@ pub struct tagRASDIALDLG {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct tagRASDIALDLG {
     pub dwSize: u32,
@@ -124,7 +124,7 @@ pub struct tagRASDIALDLG {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct tagRASENTRYDLGA {
     pub dwSize: u32,
@@ -138,7 +138,7 @@ pub struct tagRASENTRYDLGA {
     pub reserved2: usize,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for tagRASENTRYDLGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -146,7 +146,7 @@ impl Default for tagRASENTRYDLGA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct tagRASENTRYDLGA {
     pub dwSize: u32,
@@ -160,7 +160,7 @@ pub struct tagRASENTRYDLGA {
     pub reserved2: usize,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for tagRASENTRYDLGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -168,7 +168,7 @@ impl Default for tagRASENTRYDLGA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct tagRASENTRYDLGW {
     pub dwSize: u32,
@@ -182,7 +182,7 @@ pub struct tagRASENTRYDLGW {
     pub reserved2: usize,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for tagRASENTRYDLGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -190,7 +190,7 @@ impl Default for tagRASENTRYDLGW {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct tagRASENTRYDLGW {
     pub dwSize: u32,
@@ -204,7 +204,7 @@ pub struct tagRASENTRYDLGW {
     pub reserved2: usize,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for tagRASENTRYDLGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -242,7 +242,7 @@ impl Default for tagRASNOUSERW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct tagRASPBDLGA {
     pub dwSize: u32,
@@ -258,7 +258,7 @@ pub struct tagRASPBDLGA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct tagRASPBDLGA {
     pub dwSize: u32,
@@ -274,7 +274,7 @@ pub struct tagRASPBDLGA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct tagRASPBDLGW {
     pub dwSize: u32,
@@ -290,7 +290,7 @@ pub struct tagRASPBDLGW {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct tagRASPBDLGW {
     pub dwSize: u32,

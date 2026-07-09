@@ -1,151 +1,151 @@
 windows_link::link!("mscms.dll" "system" fn AssociateColorProfileWithDeviceA(pmachinename : windows_sys::core::PCSTR, pprofilename : windows_sys::core::PCSTR, pdevicename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn AssociateColorProfileWithDeviceW(pmachinename : windows_sys::core::PCWSTR, pprofilename : windows_sys::core::PCWSTR, pdevicename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("icm32.dll" "system" fn CMCheckColors(hcmtransform : HCMTRANSFORM, lpainputcolors : *const COLOR, ncolors : u32, ctinput : COLORTYPE, lparesult : *mut u8) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("icm32.dll" "system" fn CMCheckColorsInGamut(hcmtransform : HCMTRANSFORM, lpargbtriple : *const super::wingdi::RGBTRIPLE, lparesult : *mut u8, ncount : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("icm32.dll" "system" fn CMCheckRGBs(hcmtransform : HCMTRANSFORM, lpsrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, lparesult : *mut u8, pfncallback : PBMCALLBACKFN, ulcallbackdata : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("icm32.dll" "system" fn CMConvertColorNameToIndex(hprofile : HPROFILE, pacolorname : *const COLOR_NAME, paindex : *mut u32, dwcount : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("icm32.dll" "system" fn CMConvertIndexToColorName(hprofile : HPROFILE, paindex : *const u32, pacolorname : *mut COLOR_NAME, dwcount : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("icm32.dll" "system" fn CMCreateDeviceLinkProfile(pahprofiles : *const HPROFILE, nprofiles : u32, padwintents : *const u32, nintents : u32, dwflags : u32, lpprofiledata : *mut super::minwindef::LPBYTE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("icm32.dll" "system" fn CMCreateMultiProfileTransform(pahprofiles : *const HPROFILE, nprofiles : u32, padwintents : *const u32, nintents : u32, dwflags : u32) -> HCMTRANSFORM);
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 windows_link::link!("icm32.dll" "system" fn CMCreateProfile(lpcolorspace : *mut super::wingdi::LOGCOLORSPACEA, lpprofiledata : *mut LPDEVCHARACTER) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 windows_link::link!("icm32.dll" "system" fn CMCreateProfileW(lpcolorspace : *mut super::wingdi::LOGCOLORSPACEW, lpprofiledata : *mut LPDEVCHARACTER) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("icm32.dll" "system" fn CMCreateTransform(lpcolorspace : *const super::wingdi::LOGCOLORSPACEA, lpdevcharacter : LPDEVCHARACTER, lptargetdevcharacter : LPDEVCHARACTER) -> HCMTRANSFORM);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("icm32.dll" "system" fn CMCreateTransformExt(lpcolorspace : *const super::wingdi::LOGCOLORSPACEA, lpdevcharacter : LPDEVCHARACTER, lptargetdevcharacter : LPDEVCHARACTER, dwflags : u32) -> HCMTRANSFORM);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("icm32.dll" "system" fn CMCreateTransformExtW(lpcolorspace : *const super::wingdi::LOGCOLORSPACEW, lpdevcharacter : LPDEVCHARACTER, lptargetdevcharacter : LPDEVCHARACTER, dwflags : u32) -> HCMTRANSFORM);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("icm32.dll" "system" fn CMCreateTransformW(lpcolorspace : *const super::wingdi::LOGCOLORSPACEW, lpdevcharacter : LPDEVCHARACTER, lptargetdevcharacter : LPDEVCHARACTER) -> HCMTRANSFORM);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("icm32.dll" "system" fn CMDeleteTransform(hcmtransform : HCMTRANSFORM) -> windows_sys::core::BOOL);
 windows_link::link!("icm32.dll" "system" fn CMGetInfo(dwinfo : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("icm32.dll" "system" fn CMGetNamedProfileInfo(hprofile : HPROFILE, pnamedprofileinfo : *mut NAMED_PROFILE_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("icm32.dll" "system" fn CMIsProfileValid(hprofile : HPROFILE, lpbvalid : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("icm32.dll" "system" fn CMTranslateColors(hcmtransform : HCMTRANSFORM, lpainputcolors : *const COLOR, ncolors : u32, ctinput : COLORTYPE, lpaoutputcolors : *mut COLOR, ctoutput : COLORTYPE) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("icm32.dll" "system" fn CMTranslateRGB(hcmtransform : HCMTRANSFORM, colorref : super::windef::COLORREF, lpcolorref : *mut u32, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("icm32.dll" "system" fn CMTranslateRGBs(hcmtransform : HCMTRANSFORM, lpsrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, lpdestbits : *mut core::ffi::c_void, bmoutput : BMFORMAT, dwtranslatedirection : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("icm32.dll" "system" fn CMTranslateRGBsExt(hcmtransform : HCMTRANSFORM, lpsrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwinputstride : u32, lpdestbits : *mut core::ffi::c_void, bmoutput : BMFORMAT, dwoutputstride : u32, lpfncallback : LPBMCALLBACKFN, ulcallbackdata : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("mscms.dll" "system" fn CheckBitmapBits(hcolortransform : HTRANSFORM, psrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, paresult : *mut u8, pfncallback : PBMCALLBACKFN, lpcallbackdata : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn CheckColors(hcolortransform : HTRANSFORM, painputcolors : *const COLOR, ncolors : u32, ctinput : COLORTYPE, paresult : *mut u8) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn CloseColorProfile(hprofile : HPROFILE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn ColorProfileAddDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_sys::core::PCWSTR, targetadapterid : super::winnt::LUID, sourceid : u32, setasdefault : windows_sys::core::BOOL, associateasadvancedcolor : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn ColorProfileGetDeviceCapabilities(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::winnt::LUID, sourceid : u32, capstype : WCS_DEVICE_CAPABILITIES_TYPE, outputcapabilities : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn ColorProfileGetDisplayDefault(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::winnt::LUID, sourceid : u32, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, profilename : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn ColorProfileGetDisplayList(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::winnt::LUID, sourceid : u32, profilelist : *mut *mut windows_sys::core::PWSTR, profilecount : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn ColorProfileGetDisplayUserScope(targetadapterid : super::winnt::LUID, sourceid : u32, scope : *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn ColorProfileRemoveDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_sys::core::PCWSTR, targetadapterid : super::winnt::LUID, sourceid : u32, dissociateadvancedcolor : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn ColorProfileSetDisplayDefaultAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_sys::core::PCWSTR, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, targetadapterid : super::winnt::LUID, sourceid : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn ConvertColorNameToIndex(hprofile : HPROFILE, pacolorname : *const COLOR_NAME, paindex : *mut u32, dwcount : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn ConvertIndexToColorName(hprofile : HPROFILE, paindex : *const u32, pacolorname : *mut COLOR_NAME, dwcount : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("mscms.dll" "system" fn CreateColorTransformA(plogcolorspace : *const super::wingdi::LOGCOLORSPACEA, hdestprofile : HPROFILE, htargetprofile : HPROFILE, dwflags : u32) -> HTRANSFORM);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("mscms.dll" "system" fn CreateColorTransformW(plogcolorspace : *const super::wingdi::LOGCOLORSPACEW, hdestprofile : HPROFILE, htargetprofile : HPROFILE, dwflags : u32) -> HTRANSFORM);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("mscms.dll" "system" fn CreateDeviceLinkProfile(hprofile : *const HPROFILE, nprofiles : u32, padwintent : *const u32, nintents : u32, dwflags : u32, pprofiledata : *mut super::minwindef::PBYTE, indexpreferredcmm : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn CreateMultiProfileTransform(pahprofiles : *const HPROFILE, nprofiles : u32, padwintent : *const u32, nintents : u32, dwflags : u32, indexpreferredcmm : u32) -> HTRANSFORM);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "minwindef", feature = "wingdi"))]
 windows_link::link!("mscms.dll" "system" fn CreateProfileFromLogColorSpaceA(plogcolorspace : *const super::wingdi::LOGCOLORSPACEA, pprofile : *mut super::minwindef::PBYTE) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "minwindef", feature = "wingdi"))]
 windows_link::link!("mscms.dll" "system" fn CreateProfileFromLogColorSpaceW(plogcolorspace : *const super::wingdi::LOGCOLORSPACEW, pprofile : *mut super::minwindef::PBYTE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn DeleteColorTransform(hxform : HTRANSFORM) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn DisassociateColorProfileFromDeviceA(pmachinename : windows_sys::core::PCSTR, pprofilename : windows_sys::core::PCSTR, pdevicename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn DisassociateColorProfileFromDeviceW(pmachinename : windows_sys::core::PCWSTR, pprofilename : windows_sys::core::PCWSTR, pdevicename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn EnumColorProfilesA(pmachinename : windows_sys::core::PCSTR, penumrecord : *const ENUMTYPEA, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn EnumColorProfilesW(pmachinename : windows_sys::core::PCWSTR, penumrecord : *const ENUMTYPEW, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn GetCMMInfo(hcolortransform : HTRANSFORM, param1 : u32) -> u32);
 windows_link::link!("mscms.dll" "system" fn GetColorDirectoryA(pmachinename : windows_sys::core::PCSTR, pbuffer : windows_sys::core::PSTR, pdwsize : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn GetColorDirectoryW(pmachinename : windows_sys::core::PCWSTR, pbuffer : windows_sys::core::PWSTR, pdwsize : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn GetColorProfileElement(hprofile : HPROFILE, tag : TAGTYPE, dwoffset : u32, pcbelement : *mut u32, pelement : *mut core::ffi::c_void, pbreference : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn GetColorProfileElementTag(hprofile : HPROFILE, dwindex : u32, ptag : *mut TAGTYPE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn GetColorProfileFromHandle(hprofile : HPROFILE, pprofile : *mut u8, pcbprofile : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("mscms.dll" "system" fn GetColorProfileHeader(hprofile : HPROFILE, pheader : *mut PROFILEHEADER) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn GetCountColorProfileElements(hprofile : HPROFILE, pnelementcount : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn GetNamedProfileInfo(hprofile : HPROFILE, pnamedprofileinfo : *mut NAMED_PROFILE_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn GetPS2ColorRenderingDictionary(hprofile : HPROFILE, dwintent : u32, pps2colorrenderingdictionary : *mut u8, pcbps2colorrenderingdictionary : *mut u32, pbbinary : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn GetPS2ColorRenderingIntent(hprofile : HPROFILE, dwintent : u32, pbuffer : *mut u8, pcbps2colorrenderingintent : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn GetPS2ColorSpaceArray(hprofile : HPROFILE, dwintent : u32, dwcsatype : u32, pps2colorspacearray : *mut u8, pcbps2colorspacearray : *mut u32, pbbinary : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn GetStandardColorSpaceProfileA(pmachinename : windows_sys::core::PCSTR, dwscs : u32, pbuffer : windows_sys::core::PSTR, pcbsize : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn GetStandardColorSpaceProfileW(pmachinename : windows_sys::core::PCWSTR, dwscs : u32, pbuffer : windows_sys::core::PWSTR, pcbsize : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn InstallColorProfileA(pmachinename : windows_sys::core::PCSTR, pprofilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn InstallColorProfileW(pmachinename : windows_sys::core::PCWSTR, pprofilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn IsColorProfileTagPresent(hprofile : HPROFILE, tag : TAGTYPE, pbpresent : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn IsColorProfileValid(hprofile : HPROFILE, pbvalid : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn OpenColorProfileA(pprofile : *const PROFILE, dwdesiredaccess : u32, dwsharemode : u32, dwcreationmode : u32) -> HPROFILE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn OpenColorProfileW(pprofile : *const PROFILE, dwdesiredaccess : u32, dwsharemode : u32, dwcreationmode : u32) -> HPROFILE);
 windows_link::link!("mscms.dll" "system" fn RegisterCMMA(pmachinename : windows_sys::core::PCSTR, cmmid : u32, pcmmdll : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn RegisterCMMW(pmachinename : windows_sys::core::PCWSTR, cmmid : u32, pcmmdll : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn SelectCMM(dwcmmtype : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn SetColorProfileElement(hprofile : HPROFILE, tag : TAGTYPE, dwoffset : u32, pcbelement : *const u32, pelement : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn SetColorProfileElementReference(hprofile : HPROFILE, newtag : TAGTYPE, reftag : TAGTYPE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn SetColorProfileElementSize(hprofile : HPROFILE, tagtype : TAGTYPE, pcbelement : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("mscms.dll" "system" fn SetColorProfileHeader(hprofile : HPROFILE, pheader : *const PROFILEHEADER) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn SetStandardColorSpaceProfileA(pmachinename : windows_sys::core::PCSTR, dwprofileid : u32, pprofilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn SetStandardColorSpaceProfileW(pmachinename : windows_sys::core::PCWSTR, dwprofileid : u32, pprofilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 windows_link::link!("icmui.dll" "system" fn SetupColorMatchingA(pcms : *mut COLORMATCHSETUPA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 windows_link::link!("icmui.dll" "system" fn SetupColorMatchingW(pcms : *mut COLORMATCHSETUPW) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("mscms.dll" "system" fn TranslateBitmapBits(hcolortransform : HTRANSFORM, psrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwinputstride : u32, pdestbits : *mut core::ffi::c_void, bmoutput : BMFORMAT, dwoutputstride : u32, pfncallback : PBMCALLBACKFN, ulcallbackdata : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn TranslateColors(hcolortransform : HTRANSFORM, painputcolors : *const COLOR, ncolors : u32, ctinput : COLORTYPE, paoutputcolors : *mut COLOR, ctoutput : COLORTYPE) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn UninstallColorProfileA(pmachinename : windows_sys::core::PCSTR, pprofilename : windows_sys::core::PCSTR, bdelete : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn UninstallColorProfileW(pmachinename : windows_sys::core::PCWSTR, pprofilename : windows_sys::core::PCWSTR, bdelete : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn UnregisterCMMA(pmachinename : windows_sys::core::PCSTR, cmmid : u32) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn UnregisterCMMW(pmachinename : windows_sys::core::PCWSTR, cmmid : u32) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn WcsAssociateColorProfileWithDevice(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename : windows_sys::core::PCWSTR, pdevicename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn WcsCheckColors(hcolortransform : HTRANSFORM, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const core::ffi::c_void, paresult : *mut u8) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn WcsCreateIccProfile(hwcsprofile : HPROFILE, dwoptions : u32) -> HPROFILE);
 windows_link::link!("mscms.dll" "system" fn WcsDisassociateColorProfileFromDevice(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename : windows_sys::core::PCWSTR, pdevicename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn WcsEnumColorProfiles(scope : WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord : *const ENUMTYPEW, pbuffer : *mut u8, dwsize : u32, pnprofiles : *mut u32) -> windows_sys::core::BOOL);
@@ -155,15 +155,15 @@ windows_link::link!("mscms.dll" "system" fn WcsGetDefaultColorProfile(scope : WC
 windows_link::link!("mscms.dll" "system" fn WcsGetDefaultColorProfileSize(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : windows_sys::core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, pcbprofilename : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn WcsGetDefaultRenderingIntent(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdwrenderingintent : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn WcsGetUsePerUserProfiles(pdevicename : windows_sys::core::PCWSTR, dwdeviceclass : u32, puseperuserprofiles : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn WcsOpenColorProfileA(pcdmpprofile : *const PROFILE, pcampprofile : *const PROFILE, pgmmpprofile : *const PROFILE, dwdesireaccess : u32, dwsharemode : u32, dwcreationmode : u32, dwflags : u32) -> HPROFILE);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn WcsOpenColorProfileW(pcdmpprofile : *const PROFILE, pcampprofile : *const PROFILE, pgmmpprofile : *const PROFILE, dwdesireaccess : u32, dwsharemode : u32, dwcreationmode : u32, dwflags : u32) -> HPROFILE);
 windows_link::link!("mscms.dll" "system" fn WcsSetCalibrationManagementState(bisenabled : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn WcsSetDefaultColorProfile(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : windows_sys::core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, pprofilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn WcsSetDefaultRenderingIntent(scope : WCS_PROFILE_MANAGEMENT_SCOPE, dwrenderingintent : u32) -> windows_sys::core::BOOL);
 windows_link::link!("mscms.dll" "system" fn WcsSetUsePerUserProfiles(pdevicename : windows_sys::core::PCWSTR, dwdeviceclass : u32, useperuserprofiles : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn WcsTranslateColors(hcolortransform : HTRANSFORM, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const core::ffi::c_void, noutputchannels : u32, cdtoutput : COLORDATATYPE, cboutput : u32, poutputdata : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 pub const ATTRIB_MATTE: u32 = 2;
 pub const ATTRIB_TRANSPARENCY: u32 = 1;
@@ -285,7 +285,7 @@ impl Default for COLOR_0 {
 }
 pub type COLORDATATYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct COLORMATCHSETUPA {
     pub dwSize: u32,
@@ -308,14 +308,14 @@ pub struct COLORMATCHSETUPA {
     pub lpfnApplyCallback: PCMSCALLBACKA,
     pub lParamApplyCallback: super::minwindef::LPARAM,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl Default for COLORMATCHSETUPA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct COLORMATCHSETUPW {
     pub dwSize: u32,
@@ -338,7 +338,7 @@ pub struct COLORMATCHSETUPW {
     pub lpfnApplyCallback: PCMSCALLBACKW,
     pub lParamApplyCallback: super::minwindef::LPARAM,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl Default for COLORMATCHSETUPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -485,11 +485,11 @@ pub struct GENERIC3CHANNEL {
 pub struct GRAYCOLOR {
     pub gray: u16,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HCMTRANSFORM = super::winnt::HANDLE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HPROFILE = super::winnt::HANDLE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HTRANSFORM = super::winnt::HANDLE;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -506,14 +506,14 @@ pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3;
 pub const INTENT_PERCEPTUAL: u32 = 0;
 pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1;
 pub const INTENT_SATURATION: u32 = 2;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPBMCALLBACKFN = PBMCALLBACKFN;
 pub type LPBMFORMAT = *mut BMFORMAT;
 pub type LPCOLOR = *mut COLOR;
 pub type LPCOLORDATATYPE = *mut COLORDATATYPE;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub type LPCOLORMATCHSETUPA = *mut COLORMATCHSETUPA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub type LPCOLORMATCHSETUPW = *mut COLORMATCHSETUPW;
 pub type LPCOLORPROFILESUBTYPE = *mut COLORPROFILESUBTYPE;
 pub type LPCOLORPROFILETYPE = *mut COLORPROFILETYPE;
@@ -524,7 +524,7 @@ pub type LPENUMTYPEA = *mut ENUMTYPEA;
 pub type LPENUMTYPEW = *mut ENUMTYPEW;
 pub type LPNAMED_PROFILE_INFO = *mut NAMED_PROFILE_INFO;
 pub type LPPROFILE = *mut PROFILE;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type LPPROFILEHEADER = *mut PROFILEHEADER;
 pub type LPTAGTYPE = *mut TAGTYPE;
 #[repr(C)]
@@ -556,18 +556,18 @@ impl Default for NAMED_PROFILE_INFO {
     }
 }
 pub const NORMAL_MODE: u32 = 2;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PBMCALLBACKFN = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::minwindef::LPARAM) -> windows_sys::core::BOOL>;
 pub type PBMFORMAT = *mut BMFORMAT;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub type PCMSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPA, param1: super::minwindef::LPARAM) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub type PCMSCALLBACKW = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::minwindef::LPARAM) -> windows_sys::core::BOOL>;
 pub type PCOLOR = *mut COLOR;
 pub type PCOLORDATATYPE = *mut COLORDATATYPE;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub type PCOLORMATCHSETUPA = *mut COLORMATCHSETUPA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub type PCOLORMATCHSETUPW = *mut COLORMATCHSETUPW;
 pub type PCOLORPROFILESUBTYPE = *mut COLORPROFILESUBTYPE;
 pub type PCOLORPROFILETYPE = *mut COLORPROFILETYPE;
@@ -575,11 +575,11 @@ pub type PCOLORTYPE = *mut COLORTYPE;
 pub type PCOLOR_NAME = *mut COLOR_NAME;
 pub type PENUMTYPEA = *mut ENUMTYPEA;
 pub type PENUMTYPEW = *mut ENUMTYPEW;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PHPROFILE = *mut HPROFILE;
 pub type PNAMED_PROFILE_INFO = *mut NAMED_PROFILE_INFO;
 pub type PPROFILE = *mut PROFILE;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type PPROFILEHEADER = *mut PROFILEHEADER;
 pub const PRESERVEBLACK: u32 = 1048576;
 #[repr(C)]
@@ -595,7 +595,7 @@ impl Default for PROFILE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[derive(Clone, Copy)]
 pub struct PROFILEHEADER {
     pub phSize: u32,
@@ -616,7 +616,7 @@ pub struct PROFILEHEADER {
     pub phCreator: u32,
     pub phReserved: [u8; 44],
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 impl Default for PROFILEHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

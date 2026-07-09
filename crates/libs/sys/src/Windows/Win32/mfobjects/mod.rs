@@ -1,6 +1,6 @@
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 windows_link::link!("mfplat.dll" "system" fn MFDeserializeAttributesFromStream(pattr : *mut core::ffi::c_void, dwoptions : u32, pstm : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 windows_link::link!("mfplat.dll" "system" fn MFSerializeAttributesToStream(pattr : *mut core::ffi::c_void, dwoptions : u32, pstm : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const MEAudioSessionDeviceRemoved: i32 = 315;
 pub const MEAudioSessionDisconnected: i32 = 320;
@@ -220,7 +220,7 @@ pub struct MFT_REGISTER_TYPE_INFO {
     pub guidSubtype: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MFVIDEOFORMAT {
     pub dwSize: u32,
@@ -229,14 +229,14 @@ pub struct MFVIDEOFORMAT {
     pub compressedInfo: MFVideoCompressedInfo,
     pub surfaceInfo: MFVideoSurfaceInfo,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MFVIDEOFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MFVideoArea {
     pub OffsetX: MFOffset,
@@ -284,7 +284,7 @@ pub const MFVideoFlags_DXVASurface: MFVideoFlags = 1048576;
 pub const MFVideoFlags_ForceQWORD: MFVideoFlags = 2147483647;
 pub const MFVideoFlags_RenderTargetSurface: MFVideoFlags = 4194304;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MFVideoInfo {
     pub dwWidth: u32,

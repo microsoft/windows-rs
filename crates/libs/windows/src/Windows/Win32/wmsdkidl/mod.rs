@@ -892,11 +892,11 @@ impl windows_core::RuntimeName for IWMDRMEditor {}
 windows_core::imp::define_interface!(IWMDRMMessageParser, IWMDRMMessageParser_Vtbl, 0xa73a0072_25a0_4c99_b4a5_ede8101a6c39);
 windows_core::imp::interface_hierarchy!(IWMDRMMessageParser, windows_core::IUnknown);
 impl IWMDRMMessageParser {
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: *const u8, cbregistrationreqmsg: u32, ppdevicecert: *mut Option<super::wmsbuffer::INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ParseRegistrationReqMsg)(windows_core::Interface::as_raw(self), pbregistrationreqmsg, cbregistrationreqmsg, core::mem::transmute(ppdevicecert), pdeviceserialnumber as _) }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn ParseLicenseRequestMsg(&self, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, ppdevicecert: *mut Option<super::wmsbuffer::INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16, pbstraction: *mut windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ParseLicenseRequestMsg)(windows_core::Interface::as_raw(self), pblicenserequestmsg, cblicenserequestmsg, core::mem::transmute(ppdevicecert), pdeviceserialnumber as _, core::mem::transmute(pbstraction)) }
     }
@@ -905,21 +905,21 @@ impl IWMDRMMessageParser {
 #[doc(hidden)]
 pub struct IWMDRMMessageParser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub ParseRegistrationReqMsg: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut core::ffi::c_void, *mut DRM_VAL16) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     ParseRegistrationReqMsg: usize,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub ParseLicenseRequestMsg: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut core::ffi::c_void, *mut DRM_VAL16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     ParseLicenseRequestMsg: usize,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMDRMMessageParser_Impl: windows_core::IUnknownImpl {
     fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: *const u8, cbregistrationreqmsg: u32, ppdevicecert: windows_core::OutRef<super::wmsbuffer::INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> windows_core::Result<()>;
     fn ParseLicenseRequestMsg(&self, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, ppdevicecert: windows_core::OutRef<super::wmsbuffer::INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16, pbstraction: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMDRMMessageParser_Vtbl {
     pub const fn new<Identity: IWMDRMMessageParser_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ParseRegistrationReqMsg<Identity: IWMDRMMessageParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbregistrationreqmsg: *const u8, cbregistrationreqmsg: u32, ppdevicecert: *mut *mut core::ffi::c_void, pdeviceserialnumber: *mut DRM_VAL16) -> windows_core::HRESULT {
@@ -944,7 +944,7 @@ impl IWMDRMMessageParser_Vtbl {
         iid == &<IWMDRMMessageParser as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMDRMMessageParser {}
 windows_core::imp::define_interface!(IWMDRMReader, IWMDRMReader_Vtbl, 0xd2827540_3ee7_432c_b14c_dc17f085d3b3);
 windows_core::imp::interface_hierarchy!(IWMDRMReader, windows_core::IUnknown);
@@ -1226,7 +1226,7 @@ impl windows_core::RuntimeName for IWMDRMTranscryptionManager {}
 windows_core::imp::define_interface!(IWMDRMTranscryptor, IWMDRMTranscryptor_Vtbl, 0x69059850_6e6f_4bb2_806f_71863ddfc471);
 windows_core::imp::interface_hierarchy!(IWMDRMTranscryptor, windows_core::IUnknown);
 impl IWMDRMTranscryptor {
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn Initialize<P4>(&self, bstrfilename: &windows_core::BSTR, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut Option<super::wmsbuffer::INSSBuffer>, pcallback: P4, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IWMStatusCallback>,
@@ -1247,22 +1247,22 @@ impl IWMDRMTranscryptor {
 #[doc(hidden)]
 pub struct IWMDRMTranscryptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     Initialize: usize,
     pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *const u32) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMDRMTranscryptor_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, bstrfilename: &windows_core::BSTR, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, pplicenseresponsemsg: windows_core::OutRef<super::wmsbuffer::INSSBuffer>, pcallback: windows_core::Ref<IWMStatusCallback>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn Seek(&self, hnstime: u64) -> windows_core::Result<()>;
     fn Read(&self, pbdata: *const u8, pcbdata: *const u32) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMDRMTranscryptor_Vtbl {
     pub const fn new<Identity: IWMDRMTranscryptor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWMDRMTranscryptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfilename: *mut core::ffi::c_void, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -1301,7 +1301,7 @@ impl IWMDRMTranscryptor_Vtbl {
         iid == &<IWMDRMTranscryptor as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMDRMTranscryptor {}
 windows_core::imp::define_interface!(IWMDRMTranscryptor2, IWMDRMTranscryptor2_Vtbl, 0xe0da439f_d331_496a_bece_18e5bac5dd23);
 impl core::ops::Deref for IWMDRMTranscryptor2 {
@@ -1340,14 +1340,14 @@ pub struct IWMDRMTranscryptor2_Vtbl {
     pub GetSeekStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMDRMTranscryptor2_Impl: IWMDRMTranscryptor_Impl {
     fn SeekEx(&self, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: windows_core::BOOL) -> windows_core::Result<()>;
     fn ZeroAdjustTimestamps(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetSeekStartTime(&self) -> windows_core::Result<u64>;
     fn GetDuration(&self) -> windows_core::Result<u64>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMDRMTranscryptor2_Vtbl {
     pub const fn new<Identity: IWMDRMTranscryptor2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SeekEx<Identity: IWMDRMTranscryptor2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: windows_core::BOOL) -> windows_core::HRESULT {
@@ -1398,7 +1398,7 @@ impl IWMDRMTranscryptor2_Vtbl {
         iid == &<IWMDRMTranscryptor2 as windows_core::Interface>::IID || iid == &<IWMDRMTranscryptor as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMDRMTranscryptor2 {}
 windows_core::imp::define_interface!(IWMDRMWriter, IWMDRMWriter_Vtbl, 0xd6ea5dd0_12a0_43f4_90ab_a3fd451e6a07);
 windows_core::imp::interface_hierarchy!(IWMDRMWriter, windows_core::IUnknown);
@@ -4094,7 +4094,7 @@ impl windows_core::RuntimeName for IWMPropertyVault {}
 windows_core::imp::define_interface!(IWMProximityDetection, IWMProximityDetection_Vtbl, 0x6a9fd8ee_b651_4bf0_b849_7d4ece79a2b1);
 windows_core::imp::interface_hierarchy!(IWMProximityDetection, windows_core::IUnknown);
 impl IWMProximityDetection {
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn StartDetection<P6>(&self, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut Option<super::wmsbuffer::INSSBuffer>, pcallback: P6, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT
     where
         P6: windows_core::Param<IWMStatusCallback>,
@@ -4106,16 +4106,16 @@ impl IWMProximityDetection {
 #[doc(hidden)]
 pub struct IWMProximityDetection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub StartDetection: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u8, u32, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     StartDetection: usize,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMProximityDetection_Impl: windows_core::IUnknownImpl {
     fn StartDetection(&self, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: windows_core::OutRef<super::wmsbuffer::INSSBuffer>, pcallback: windows_core::Ref<IWMStatusCallback>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMProximityDetection_Vtbl {
     pub const fn new<Identity: IWMProximityDetection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartDetection<Identity: IWMProximityDetection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -4130,7 +4130,7 @@ impl IWMProximityDetection_Vtbl {
         iid == &<IWMProximityDetection as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMProximityDetection {}
 windows_core::imp::define_interface!(IWMReader, IWMReader_Vtbl, 0x96406bd6_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMReader, windows_core::IUnknown);
@@ -4446,7 +4446,7 @@ impl IWMReaderAdvanced {
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), pstatistics as _) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClientInfo)(windows_core::Interface::as_raw(self), pclientinfo) }
     }
@@ -4486,15 +4486,15 @@ pub struct IWMReaderAdvanced_Vtbl {
     pub SetAllocateForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetAllocateForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WM_READER_STATISTICS) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub SetClientInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const WM_READER_CLIENTINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     SetClientInfo: usize,
     pub GetMaxOutputSampleSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetMaxStreamSampleSize: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut u32) -> windows_core::HRESULT,
     pub NotifyLateDelivery: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IWMReaderAdvanced_Impl: windows_core::IUnknownImpl {
     fn SetUserProvidedClock(&self, fuserclock: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetUserProvidedClock(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -4517,7 +4517,7 @@ pub trait IWMReaderAdvanced_Impl: windows_core::IUnknownImpl {
     fn GetMaxStreamSampleSize(&self, wstream: u16) -> windows_core::Result<u32>;
     fn NotifyLateDelivery(&self, cnslateness: u64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IWMReaderAdvanced_Vtbl {
     pub const fn new<Identity: IWMReaderAdvanced_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetUserProvidedClock<Identity: IWMReaderAdvanced_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuserclock: windows_core::BOOL) -> windows_core::HRESULT {
@@ -4722,7 +4722,7 @@ impl IWMReaderAdvanced_Vtbl {
         iid == &<IWMReaderAdvanced as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IWMReaderAdvanced {}
 windows_core::imp::define_interface!(IWMReaderAdvanced2, IWMReaderAdvanced2_Vtbl, 0xae14a945_b90c_4d0d_9127_80d665f7d73e);
 impl core::ops::Deref for IWMReaderAdvanced2 {
@@ -4790,7 +4790,7 @@ impl IWMReaderAdvanced2 {
     pub unsafe fn StopBuffering(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).StopBuffering)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn OpenStream<P0, P1>(&self, pstream: P0, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -4817,12 +4817,12 @@ pub struct IWMReaderAdvanced2_Vtbl {
     pub SetLogClientID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetLogClientID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub StopBuffering: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub OpenStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     OpenStream: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 pub trait IWMReaderAdvanced2_Impl: IWMReaderAdvanced_Impl {
     fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> windows_core::Result<()>;
     fn GetPlayMode(&self) -> windows_core::Result<WMT_PLAY_MODE>;
@@ -4840,7 +4840,7 @@ pub trait IWMReaderAdvanced2_Impl: IWMReaderAdvanced_Impl {
     fn StopBuffering(&self) -> windows_core::Result<()>;
     fn OpenStream(&self, pstream: windows_core::Ref<super::objidlbase::IStream>, pcallback: windows_core::Ref<IWMReaderCallback>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl IWMReaderAdvanced2_Vtbl {
     pub const fn new<Identity: IWMReaderAdvanced2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPlayMode<Identity: IWMReaderAdvanced2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: WMT_PLAY_MODE) -> windows_core::HRESULT {
@@ -4974,7 +4974,7 @@ impl IWMReaderAdvanced2_Vtbl {
         iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IWMReaderAdvanced2 {}
 windows_core::imp::define_interface!(IWMReaderAdvanced3, IWMReaderAdvanced3_Vtbl, 0x5dc0674b_f04b_4a4e_9f2a_b1afde2c8100);
 impl core::ops::Deref for IWMReaderAdvanced3 {
@@ -4999,12 +4999,12 @@ pub struct IWMReaderAdvanced3_Vtbl {
     pub StopNetStreaming: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *const core::ffi::c_void, *const core::ffi::c_void, WMT_OFFSET_FORMAT, f32, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 pub trait IWMReaderAdvanced3_Impl: IWMReaderAdvanced2_Impl {
     fn StopNetStreaming(&self) -> windows_core::Result<()>;
     fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const core::ffi::c_void, pvduration: *const core::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl IWMReaderAdvanced3_Vtbl {
     pub const fn new<Identity: IWMReaderAdvanced3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StopNetStreaming<Identity: IWMReaderAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5029,7 +5029,7 @@ impl IWMReaderAdvanced3_Vtbl {
         iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IWMReaderAdvanced3 {}
 windows_core::imp::define_interface!(IWMReaderAdvanced4, IWMReaderAdvanced4_Vtbl, 0x945a76a2_12ae_4d48_bd3c_cd1d90399b85);
 impl core::ops::Deref for IWMReaderAdvanced4 {
@@ -5099,7 +5099,7 @@ pub struct IWMReaderAdvanced4_Vtbl {
     pub CancelSaveFileAs: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 pub trait IWMReaderAdvanced4_Impl: IWMReaderAdvanced3_Impl {
     fn GetLanguageCount(&self, dwoutputnum: u32) -> windows_core::Result<u16>;
     fn GetLanguage(&self, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: *mut u16, pcchlanguagestringlength: *mut u16) -> windows_core::Result<()>;
@@ -5111,7 +5111,7 @@ pub trait IWMReaderAdvanced4_Impl: IWMReaderAdvanced3_Impl {
     fn CancelSaveFileAs(&self) -> windows_core::Result<()>;
     fn GetURL(&self, pwszurl: *mut u16, pcchurl: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl IWMReaderAdvanced4_Vtbl {
     pub const fn new<Identity: IWMReaderAdvanced4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetLanguageCount<Identity: IWMReaderAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputnum: u32, pwlanguagecount: *mut u16) -> windows_core::HRESULT {
@@ -5209,7 +5209,7 @@ impl IWMReaderAdvanced4_Vtbl {
         iid == &<IWMReaderAdvanced4 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IWMReaderAdvanced4 {}
 windows_core::imp::define_interface!(IWMReaderAdvanced5, IWMReaderAdvanced5_Vtbl, 0x24c44db0_55d1_49ae_a5cc_f13815e36363);
 impl core::ops::Deref for IWMReaderAdvanced5 {
@@ -5233,11 +5233,11 @@ pub struct IWMReaderAdvanced5_Vtbl {
     pub base__: IWMReaderAdvanced4_Vtbl,
     pub SetPlayerHook: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 pub trait IWMReaderAdvanced5_Impl: IWMReaderAdvanced4_Impl {
     fn SetPlayerHook(&self, dwoutputnum: u32, phook: windows_core::Ref<IWMPlayerHook>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl IWMReaderAdvanced5_Vtbl {
     pub const fn new<Identity: IWMReaderAdvanced5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPlayerHook<Identity: IWMReaderAdvanced5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputnum: u32, phook: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5252,7 +5252,7 @@ impl IWMReaderAdvanced5_Vtbl {
         iid == &<IWMReaderAdvanced5 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IWMReaderAdvanced5 {}
 windows_core::imp::define_interface!(IWMReaderAdvanced6, IWMReaderAdvanced6_Vtbl, 0x18a2e7f8_428f_4acd_8a00_e64639bc93de);
 impl core::ops::Deref for IWMReaderAdvanced6 {
@@ -5273,11 +5273,11 @@ pub struct IWMReaderAdvanced6_Vtbl {
     pub base__: IWMReaderAdvanced5_Vtbl,
     pub SetProtectStreamSamples: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, u32, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 pub trait IWMReaderAdvanced6_Impl: IWMReaderAdvanced5_Impl {
     fn SetProtectStreamSamples(&self, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl IWMReaderAdvanced6_Vtbl {
     pub const fn new<Identity: IWMReaderAdvanced6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetProtectStreamSamples<Identity: IWMReaderAdvanced6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> windows_core::HRESULT {
@@ -5292,16 +5292,16 @@ impl IWMReaderAdvanced6_Vtbl {
         iid == &<IWMReaderAdvanced6 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced4 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced5 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IWMReaderAdvanced6 {}
 windows_core::imp::define_interface!(IWMReaderAllocatorEx, IWMReaderAllocatorEx_Vtbl, 0x9f762fa7_a22e_428d_93c9_ac82f3aafe5a);
 windows_core::imp::interface_hierarchy!(IWMReaderAllocatorEx, windows_core::IUnknown);
 impl IWMReaderAllocatorEx {
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn AllocateForStreamEx(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut Option<super::wmsbuffer::INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AllocateForStreamEx)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, core::mem::transmute(ppbuffer), dwflags, cnssampletime, cnssampleduration, pvcontext) }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn AllocateForOutputEx(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut Option<super::wmsbuffer::INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AllocateForOutputEx)(windows_core::Interface::as_raw(self), dwoutputnum, cbbuffer, core::mem::transmute(ppbuffer), dwflags, cnssampletime, cnssampleduration, pvcontext) }
     }
@@ -5310,21 +5310,21 @@ impl IWMReaderAllocatorEx {
 #[doc(hidden)]
 pub struct IWMReaderAllocatorEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub AllocateForStreamEx: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u32, *mut *mut core::ffi::c_void, u32, u64, u64, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     AllocateForStreamEx: usize,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub AllocateForOutputEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void, u32, u64, u64, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     AllocateForOutputEx: usize,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMReaderAllocatorEx_Impl: windows_core::IUnknownImpl {
     fn AllocateForStreamEx(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: windows_core::OutRef<super::wmsbuffer::INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn AllocateForOutputEx(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: windows_core::OutRef<super::wmsbuffer::INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMReaderAllocatorEx_Vtbl {
     pub const fn new<Identity: IWMReaderAllocatorEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AllocateForStreamEx<Identity: IWMReaderAllocatorEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut *mut core::ffi::c_void, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -5349,7 +5349,7 @@ impl IWMReaderAllocatorEx_Vtbl {
         iid == &<IWMReaderAllocatorEx as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMReaderAllocatorEx {}
 windows_core::imp::define_interface!(IWMReaderCallback, IWMReaderCallback_Vtbl, 0x96406bd8_2b2b_11d3_b36b_00c04f6108ff);
 impl core::ops::Deref for IWMReaderCallback {
@@ -5360,7 +5360,7 @@ impl core::ops::Deref for IWMReaderCallback {
 }
 windows_core::imp::interface_hierarchy!(IWMReaderCallback, windows_core::IUnknown, IWMStatusCallback);
 impl IWMReaderCallback {
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn OnSample<P4>(&self, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: P4, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT
     where
         P4: windows_core::Param<super::wmsbuffer::INSSBuffer>,
@@ -5372,16 +5372,16 @@ impl IWMReaderCallback {
 #[doc(hidden)]
 pub struct IWMReaderCallback_Vtbl {
     pub base__: IWMStatusCallback_Vtbl,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub OnSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u64, u32, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     OnSample: usize,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMReaderCallback_Impl: IWMStatusCallback_Impl {
     fn OnSample(&self, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: windows_core::Ref<super::wmsbuffer::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMReaderCallback_Vtbl {
     pub const fn new<Identity: IWMReaderCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnSample<Identity: IWMReaderCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: *mut core::ffi::c_void, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -5396,12 +5396,12 @@ impl IWMReaderCallback_Vtbl {
         iid == &<IWMReaderCallback as windows_core::Interface>::IID || iid == &<IWMStatusCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMReaderCallback {}
 windows_core::imp::define_interface!(IWMReaderCallbackAdvanced, IWMReaderCallbackAdvanced_Vtbl, 0x96406beb_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMReaderCallbackAdvanced, windows_core::IUnknown);
 impl IWMReaderCallbackAdvanced {
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn OnStreamSample<P4>(&self, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: P4, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT
     where
         P4: windows_core::Param<super::wmsbuffer::INSSBuffer>,
@@ -5417,11 +5417,11 @@ impl IWMReaderCallbackAdvanced {
     pub unsafe fn OnOutputPropsChanged(&self, dwoutputnum: u32, pmediatype: *const WM_MEDIA_TYPE, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnOutputPropsChanged)(windows_core::Interface::as_raw(self), dwoutputnum, core::mem::transmute(pmediatype), pvcontext) }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn AllocateForStream(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut Option<super::wmsbuffer::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AllocateForStream)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, core::mem::transmute(ppbuffer), pvcontext) }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn AllocateForOutput(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut Option<super::wmsbuffer::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, cbbuffer, core::mem::transmute(ppbuffer), pvcontext) }
     }
@@ -5430,23 +5430,23 @@ impl IWMReaderCallbackAdvanced {
 #[doc(hidden)]
 pub struct IWMReaderCallbackAdvanced_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub OnStreamSample: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u64, u64, u32, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     OnStreamSample: usize,
     pub OnTime: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub OnStreamSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *const u16, *const WMT_STREAM_SELECTION, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub OnOutputPropsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const WM_MEDIA_TYPE, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub AllocateForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u32, *mut *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     AllocateForStream: usize,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub AllocateForOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     AllocateForOutput: usize,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMReaderCallbackAdvanced_Impl: windows_core::IUnknownImpl {
     fn OnStreamSample(&self, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: windows_core::Ref<super::wmsbuffer::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn OnTime(&self, cnscurrenttime: u64, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
@@ -5455,7 +5455,7 @@ pub trait IWMReaderCallbackAdvanced_Impl: windows_core::IUnknownImpl {
     fn AllocateForStream(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: windows_core::OutRef<super::wmsbuffer::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn AllocateForOutput(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: windows_core::OutRef<super::wmsbuffer::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMReaderCallbackAdvanced_Vtbl {
     pub const fn new<Identity: IWMReaderCallbackAdvanced_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStreamSample<Identity: IWMReaderCallbackAdvanced_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: *mut core::ffi::c_void, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -5508,7 +5508,7 @@ impl IWMReaderCallbackAdvanced_Vtbl {
         iid == &<IWMReaderCallbackAdvanced as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMReaderCallbackAdvanced {}
 windows_core::imp::define_interface!(IWMReaderNetworkConfig, IWMReaderNetworkConfig_Vtbl, 0x96406bec_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMReaderNetworkConfig, windows_core::IUnknown);
@@ -6613,7 +6613,7 @@ impl IWMRegisteredDevice {
             (windows_core::Interface::vtable(self).GetDeviceSerialNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn GetDeviceCertificate(&self) -> windows_core::Result<super::wmsbuffer::INSSBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6683,9 +6683,9 @@ impl IWMRegisteredDevice {
 pub struct IWMRegisteredDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDeviceSerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DRM_VAL16) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub GetDeviceCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     GetDeviceCertificate: usize,
     pub GetDeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetAttributeCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6700,7 +6700,7 @@ pub struct IWMRegisteredDevice_Vtbl {
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMRegisteredDevice_Impl: windows_core::IUnknownImpl {
     fn GetDeviceSerialNumber(&self) -> windows_core::Result<DRM_VAL16>;
     fn GetDeviceCertificate(&self) -> windows_core::Result<super::wmsbuffer::INSSBuffer>;
@@ -6717,7 +6717,7 @@ pub trait IWMRegisteredDevice_Impl: windows_core::IUnknownImpl {
     fn Open(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMRegisteredDevice_Vtbl {
     pub const fn new<Identity: IWMRegisteredDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDeviceSerialNumber<Identity: IWMRegisteredDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pserialnumber: *mut DRM_VAL16) -> windows_core::HRESULT {
@@ -6880,7 +6880,7 @@ impl IWMRegisteredDevice_Vtbl {
         iid == &<IWMRegisteredDevice as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMRegisteredDevice {}
 windows_core::imp::define_interface!(IWMStatusCallback, IWMStatusCallback_Vtbl, 0x6d7cdc70_9888_11d3_8edc_00c04f6109cf);
 windows_core::imp::interface_hierarchy!(IWMStatusCallback, windows_core::IUnknown);
@@ -7401,7 +7401,7 @@ impl IWMSyncReader {
     pub unsafe fn SetRangeByFrame(&self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRangeByFrame)(windows_core::Interface::as_raw(self), wstreamnum, qwframenumber, cframestoread) }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn GetNextSample(&self, wstreamnum: u16, ppsample: *mut Option<super::wmsbuffer::INSSBuffer>, pcnssampletime: *mut u64, pcnsduration: *mut u64, pdwflags: *mut u32, pdwoutputnum: *mut u32, pwstreamnum: *mut u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNextSample)(windows_core::Interface::as_raw(self), wstreamnum, core::mem::transmute(ppsample), pcnssampletime as _, pcnsduration as _, pdwflags as _, pdwoutputnum as _, pwstreamnum as _) }
     }
@@ -7489,7 +7489,7 @@ impl IWMSyncReader {
             (windows_core::Interface::vtable(self).GetMaxStreamSampleSize)(windows_core::Interface::as_raw(self), wstream, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub unsafe fn OpenStream<P0>(&self, pstream: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidlbase::IStream>,
@@ -7505,9 +7505,9 @@ pub struct IWMSyncReader_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRange: unsafe extern "system" fn(*mut core::ffi::c_void, u64, i64) -> windows_core::HRESULT,
     pub SetRangeByFrame: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u64, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub GetNextSample: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void, *mut u64, *mut u64, *mut u32, *mut u32, *mut u16) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     GetNextSample: usize,
     pub SetStreamsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *const u16, *const WMT_STREAM_SELECTION) -> windows_core::HRESULT,
     pub GetStreamSelected: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut WMT_STREAM_SELECTION) -> windows_core::HRESULT,
@@ -7524,12 +7524,12 @@ pub struct IWMSyncReader_Vtbl {
     pub GetStreamNumberForOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16) -> windows_core::HRESULT,
     pub GetMaxOutputSampleSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetMaxStreamSampleSize: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidlbase")]
+    #[cfg(feature = "objidlbase")]
     pub OpenStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidlbase"))]
+    #[cfg(not(feature = "objidlbase"))]
     OpenStream: usize,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_wmsbuffer"))]
+#[cfg(all(feature = "objidlbase", feature = "wmsbuffer"))]
 pub trait IWMSyncReader_Impl: windows_core::IUnknownImpl {
     fn Open(&self, pwszfilename: *const u16) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
@@ -7553,7 +7553,7 @@ pub trait IWMSyncReader_Impl: windows_core::IUnknownImpl {
     fn GetMaxStreamSampleSize(&self, wstream: u16) -> windows_core::Result<u32>;
     fn OpenStream(&self, pstream: windows_core::Ref<super::objidlbase::IStream>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_wmsbuffer"))]
+#[cfg(all(feature = "objidlbase", feature = "wmsbuffer"))]
 impl IWMSyncReader_Vtbl {
     pub const fn new<Identity: IWMSyncReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IWMSyncReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilename: *const u16) -> windows_core::HRESULT {
@@ -7771,7 +7771,7 @@ impl IWMSyncReader_Vtbl {
         iid == &<IWMSyncReader as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_wmsbuffer"))]
+#[cfg(all(feature = "objidlbase", feature = "wmsbuffer"))]
 impl windows_core::RuntimeName for IWMSyncReader {}
 windows_core::imp::define_interface!(IWMSyncReader2, IWMSyncReader2_Vtbl, 0xfaed3d21_1b6b_4af7_8cb6_3e189bbc187b);
 impl core::ops::Deref for IWMSyncReader2 {
@@ -7827,7 +7827,7 @@ pub struct IWMSyncReader2_Vtbl {
     pub SetAllocateForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAllocateForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_wmsbuffer"))]
+#[cfg(all(feature = "objidlbase", feature = "wmsbuffer"))]
 pub trait IWMSyncReader2_Impl: IWMSyncReader_Impl {
     fn SetRangeByTimecode(&self, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> windows_core::Result<()>;
     fn SetRangeByFrameEx(&self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> windows_core::Result<u64>;
@@ -7836,7 +7836,7 @@ pub trait IWMSyncReader2_Impl: IWMSyncReader_Impl {
     fn SetAllocateForStream(&self, wstreamnum: u16, pallocator: windows_core::Ref<IWMReaderAllocatorEx>) -> windows_core::Result<()>;
     fn GetAllocateForStream(&self, dwsreamnum: u16) -> windows_core::Result<IWMReaderAllocatorEx>;
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_wmsbuffer"))]
+#[cfg(all(feature = "objidlbase", feature = "wmsbuffer"))]
 impl IWMSyncReader2_Vtbl {
     pub const fn new<Identity: IWMSyncReader2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetRangeByTimecode<Identity: IWMSyncReader2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> windows_core::HRESULT {
@@ -7907,7 +7907,7 @@ impl IWMSyncReader2_Vtbl {
         iid == &<IWMSyncReader2 as windows_core::Interface>::IID || iid == &<IWMSyncReader as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidlbase", feature = "Win32_wmsbuffer"))]
+#[cfg(all(feature = "objidlbase", feature = "wmsbuffer"))]
 impl windows_core::RuntimeName for IWMSyncReader2 {}
 windows_core::imp::define_interface!(IWMVideoMediaProps, IWMVideoMediaProps_Vtbl, 0x96406bcf_2b2b_11d3_b36b_00c04f6108ff);
 impl core::ops::Deref for IWMVideoMediaProps {
@@ -8109,14 +8109,14 @@ impl IWMWriter {
     pub unsafe fn EndWriting(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndWriting)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn AllocateSample(&self, dwsamplesize: u32) -> windows_core::Result<super::wmsbuffer::INSSBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllocateSample)(windows_core::Interface::as_raw(self), dwsamplesize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn WriteSample<P3>(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<super::wmsbuffer::INSSBuffer>,
@@ -8141,17 +8141,17 @@ pub struct IWMWriter_Vtbl {
     pub GetInputFormat: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BeginWriting: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndWriting: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub AllocateSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     AllocateSample: usize,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub WriteSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     WriteSample: usize,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriter_Impl: windows_core::IUnknownImpl {
     fn SetProfileByID(&self, guidprofile: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SetProfile(&self, pprofile: windows_core::Ref<IWMProfile>) -> windows_core::Result<()>;
@@ -8167,7 +8167,7 @@ pub trait IWMWriter_Impl: windows_core::IUnknownImpl {
     fn WriteSample(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: windows_core::Ref<super::wmsbuffer::INSSBuffer>) -> windows_core::Result<()>;
     fn Flush(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriter_Vtbl {
     pub const fn new<Identity: IWMWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetProfileByID<Identity: IWMWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidprofile: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -8299,7 +8299,7 @@ impl IWMWriter_Vtbl {
         iid == &<IWMWriter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriter {}
 windows_core::imp::define_interface!(IWMWriterAdvanced, IWMWriterAdvanced_Vtbl, 0x96406be3_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMWriterAdvanced, windows_core::IUnknown);
@@ -8328,7 +8328,7 @@ impl IWMWriterAdvanced {
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveSink)(windows_core::Interface::as_raw(self), psink.param().abi()) }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn WriteStreamSample<P5>(&self, wstreamnum: u16, cnssampletime: u64, mssamplesendtime: u32, cnssampleduration: u64, dwflags: u32, psample: P5) -> windows_core::HRESULT
     where
         P5: windows_core::Param<super::wmsbuffer::INSSBuffer>,
@@ -8371,9 +8371,9 @@ pub struct IWMWriterAdvanced_Vtbl {
     pub GetSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub WriteStreamSample: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u64, u32, u64, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     WriteStreamSample: usize,
     pub SetLiveSource: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub IsRealTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -8382,7 +8382,7 @@ pub struct IWMWriterAdvanced_Vtbl {
     pub SetSyncTolerance: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetSyncTolerance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriterAdvanced_Impl: windows_core::IUnknownImpl {
     fn GetSinkCount(&self) -> windows_core::Result<u32>;
     fn GetSink(&self, dwsinknum: u32) -> windows_core::Result<IWMWriterSink>;
@@ -8396,7 +8396,7 @@ pub trait IWMWriterAdvanced_Impl: windows_core::IUnknownImpl {
     fn SetSyncTolerance(&self, mswindow: u32) -> windows_core::Result<()>;
     fn GetSyncTolerance(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriterAdvanced_Vtbl {
     pub const fn new<Identity: IWMWriterAdvanced_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSinkCount<Identity: IWMWriterAdvanced_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcsinks: *mut u32) -> windows_core::HRESULT {
@@ -8514,7 +8514,7 @@ impl IWMWriterAdvanced_Vtbl {
         iid == &<IWMWriterAdvanced as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriterAdvanced {}
 windows_core::imp::define_interface!(IWMWriterAdvanced2, IWMWriterAdvanced2_Vtbl, 0x962dc1ec_c046_4db8_9cc7_26ceae500817);
 impl core::ops::Deref for IWMWriterAdvanced2 {
@@ -8545,12 +8545,12 @@ pub struct IWMWriterAdvanced2_Vtbl {
     pub GetInputSetting: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> windows_core::HRESULT,
     pub SetInputSetting: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriterAdvanced2_Impl: IWMWriterAdvanced_Impl {
     fn GetInputSetting(&self, dwinputnum: u32, pszname: &windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>;
     fn SetInputSetting(&self, dwinputnum: u32, pszname: &windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriterAdvanced2_Vtbl {
     pub const fn new<Identity: IWMWriterAdvanced2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInputSetting<Identity: IWMWriterAdvanced2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputnum: u32, pszname: windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::HRESULT {
@@ -8575,7 +8575,7 @@ impl IWMWriterAdvanced2_Vtbl {
         iid == &<IWMWriterAdvanced2 as windows_core::Interface>::IID || iid == &<IWMWriterAdvanced as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriterAdvanced2 {}
 windows_core::imp::define_interface!(IWMWriterAdvanced3, IWMWriterAdvanced3_Vtbl, 0x2cd6492d_7c37_4e76_9d3b_59261183a22e);
 impl core::ops::Deref for IWMWriterAdvanced3 {
@@ -8600,12 +8600,12 @@ pub struct IWMWriterAdvanced3_Vtbl {
     pub GetStatisticsEx: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut WM_WRITER_STATISTICS_EX) -> windows_core::HRESULT,
     pub SetNonBlocking: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriterAdvanced3_Impl: IWMWriterAdvanced2_Impl {
     fn GetStatisticsEx(&self, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> windows_core::Result<()>;
     fn SetNonBlocking(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriterAdvanced3_Vtbl {
     pub const fn new<Identity: IWMWriterAdvanced3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStatisticsEx<Identity: IWMWriterAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> windows_core::HRESULT {
@@ -8630,7 +8630,7 @@ impl IWMWriterAdvanced3_Vtbl {
         iid == &<IWMWriterAdvanced3 as windows_core::Interface>::IID || iid == &<IWMWriterAdvanced as windows_core::Interface>::IID || iid == &<IWMWriterAdvanced2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriterAdvanced3 {}
 windows_core::imp::define_interface!(IWMWriterFileSink, IWMWriterFileSink_Vtbl, 0x96406be5_2b2b_11d3_b36b_00c04f6108ff);
 impl core::ops::Deref for IWMWriterFileSink {
@@ -8651,11 +8651,11 @@ pub struct IWMWriterFileSink_Vtbl {
     pub base__: IWMWriterSink_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriterFileSink_Impl: IWMWriterSink_Impl {
     fn Open(&self, pwszfilename: *const u16) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriterFileSink_Vtbl {
     pub const fn new<Identity: IWMWriterFileSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IWMWriterFileSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilename: *const u16) -> windows_core::HRESULT {
@@ -8670,7 +8670,7 @@ impl IWMWriterFileSink_Vtbl {
         iid == &<IWMWriterFileSink as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriterFileSink {}
 windows_core::imp::define_interface!(IWMWriterFileSink2, IWMWriterFileSink2_Vtbl, 0x14282ba7_4aef_4205_8ce5_c229035a05bc);
 impl core::ops::Deref for IWMWriterFileSink2 {
@@ -8727,7 +8727,7 @@ pub struct IWMWriterFileSink2_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriterFileSink2_Impl: IWMWriterFileSink_Impl {
     fn Start(&self, cnsstarttime: u64) -> windows_core::Result<()>;
     fn Stop(&self, cnsstoptime: u64) -> windows_core::Result<()>;
@@ -8737,7 +8737,7 @@ pub trait IWMWriterFileSink2_Impl: IWMWriterFileSink_Impl {
     fn Close(&self) -> windows_core::Result<()>;
     fn IsClosed(&self) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriterFileSink2_Vtbl {
     pub const fn new<Identity: IWMWriterFileSink2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Start<Identity: IWMWriterFileSink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cnsstarttime: u64) -> windows_core::HRESULT {
@@ -8821,7 +8821,7 @@ impl IWMWriterFileSink2_Vtbl {
         iid == &<IWMWriterFileSink2 as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID || iid == &<IWMWriterFileSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriterFileSink2 {}
 windows_core::imp::define_interface!(IWMWriterFileSink3, IWMWriterFileSink3_Vtbl, 0x3fea4feb_2945_47a7_a1dd_c53a8fc4c45c);
 impl core::ops::Deref for IWMWriterFileSink3 {
@@ -8850,7 +8850,7 @@ impl IWMWriterFileSink3 {
             (windows_core::Interface::vtable(self).GetMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn OnDataUnitEx(&self, pfilesinkdataunit: *const WMT_FILESINK_DATA_UNIT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnDataUnitEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pfilesinkdataunit)) }
     }
@@ -8875,15 +8875,15 @@ pub struct IWMWriterFileSink3_Vtbl {
     pub GetAutoIndexing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetControlStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub OnDataUnitEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const WMT_FILESINK_DATA_UNIT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     OnDataUnitEx: usize,
     pub SetUnbufferedIO: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetUnbufferedIO: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CompleteOperations: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriterFileSink3_Impl: IWMWriterFileSink2_Impl {
     fn SetAutoIndexing(&self, fdoautoindexing: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetAutoIndexing(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -8894,7 +8894,7 @@ pub trait IWMWriterFileSink3_Impl: IWMWriterFileSink2_Impl {
     fn GetUnbufferedIO(&self) -> windows_core::Result<windows_core::BOOL>;
     fn CompleteOperations(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriterFileSink3_Vtbl {
     pub const fn new<Identity: IWMWriterFileSink3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetAutoIndexing<Identity: IWMWriterFileSink3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdoautoindexing: windows_core::BOOL) -> windows_core::HRESULT {
@@ -8979,7 +8979,7 @@ impl IWMWriterFileSink3_Vtbl {
         iid == &<IWMWriterFileSink3 as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID || iid == &<IWMWriterFileSink as windows_core::Interface>::IID || iid == &<IWMWriterFileSink2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriterFileSink3 {}
 windows_core::imp::define_interface!(IWMWriterNetworkSink, IWMWriterNetworkSink_Vtbl, 0x96406be7_2b2b_11d3_b36b_00c04f6108ff);
 impl core::ops::Deref for IWMWriterNetworkSink {
@@ -9034,7 +9034,7 @@ pub struct IWMWriterNetworkSink_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriterNetworkSink_Impl: IWMWriterSink_Impl {
     fn SetMaximumClients(&self, dwmaxclients: u32) -> windows_core::Result<()>;
     fn GetMaximumClients(&self) -> windows_core::Result<u32>;
@@ -9045,7 +9045,7 @@ pub trait IWMWriterNetworkSink_Impl: IWMWriterSink_Impl {
     fn Disconnect(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriterNetworkSink_Vtbl {
     pub const fn new<Identity: IWMWriterNetworkSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetMaximumClients<Identity: IWMWriterNetworkSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmaxclients: u32) -> windows_core::HRESULT {
@@ -9124,7 +9124,7 @@ impl IWMWriterNetworkSink_Vtbl {
         iid == &<IWMWriterNetworkSink as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriterNetworkSink {}
 windows_core::imp::define_interface!(IWMWriterPostView, IWMWriterPostView_Vtbl, 0x81e20ce4_75ef_491a_8004_fc53c45bdc3e);
 windows_core::imp::interface_hierarchy!(IWMWriterPostView, windows_core::IUnknown);
@@ -9316,14 +9316,14 @@ impl core::ops::Deref for IWMWriterPostViewCallback {
 }
 windows_core::imp::interface_hierarchy!(IWMWriterPostViewCallback, windows_core::IUnknown, IWMStatusCallback);
 impl IWMWriterPostViewCallback {
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn OnPostViewSample<P4>(&self, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: P4, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT
     where
         P4: windows_core::Param<super::wmsbuffer::INSSBuffer>,
     {
         unsafe { (windows_core::Interface::vtable(self).OnPostViewSample)(windows_core::Interface::as_raw(self), wstreamnumber, cnssampletime, cnssampleduration, dwflags, psample.param().abi(), pvcontext) }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn AllocateForPostView(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut Option<super::wmsbuffer::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AllocateForPostView)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, core::mem::transmute(ppbuffer), pvcontext) }
     }
@@ -9332,21 +9332,21 @@ impl IWMWriterPostViewCallback {
 #[doc(hidden)]
 pub struct IWMWriterPostViewCallback_Vtbl {
     pub base__: IWMStatusCallback_Vtbl,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub OnPostViewSample: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u64, u64, u32, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     OnPostViewSample: usize,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub AllocateForPostView: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u32, *mut *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     AllocateForPostView: usize,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriterPostViewCallback_Impl: IWMStatusCallback_Impl {
     fn OnPostViewSample(&self, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: windows_core::Ref<super::wmsbuffer::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn AllocateForPostView(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: windows_core::OutRef<super::wmsbuffer::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriterPostViewCallback_Vtbl {
     pub const fn new<Identity: IWMWriterPostViewCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnPostViewSample<Identity: IWMWriterPostViewCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: *mut core::ffi::c_void, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -9371,7 +9371,7 @@ impl IWMWriterPostViewCallback_Vtbl {
         iid == &<IWMWriterPostViewCallback as windows_core::Interface>::IID || iid == &<IWMStatusCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriterPostViewCallback {}
 windows_core::imp::define_interface!(IWMWriterPreprocess, IWMWriterPreprocess_Vtbl, 0xfc54a285_38c4_45b5_aa23_85b9f7cb424b);
 windows_core::imp::interface_hierarchy!(IWMWriterPreprocess, windows_core::IUnknown);
@@ -9388,7 +9388,7 @@ impl IWMWriterPreprocess {
     pub unsafe fn BeginPreprocessingPass(&self, dwinputnum: u32, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BeginPreprocessingPass)(windows_core::Interface::as_raw(self), dwinputnum, dwflags) }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn PreprocessSample<P3>(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<super::wmsbuffer::INSSBuffer>,
@@ -9406,13 +9406,13 @@ pub struct IWMWriterPreprocess_Vtbl {
     pub GetMaxPreprocessingPasses: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
     pub SetNumPreprocessingPasses: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
     pub BeginPreprocessingPass: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub PreprocessSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     PreprocessSample: usize,
     pub EndPreprocessingPass: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriterPreprocess_Impl: windows_core::IUnknownImpl {
     fn GetMaxPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32) -> windows_core::Result<u32>;
     fn SetNumPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32, dwnumpasses: u32) -> windows_core::Result<()>;
@@ -9420,7 +9420,7 @@ pub trait IWMWriterPreprocess_Impl: windows_core::IUnknownImpl {
     fn PreprocessSample(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: windows_core::Ref<super::wmsbuffer::INSSBuffer>) -> windows_core::Result<()>;
     fn EndPreprocessingPass(&self, dwinputnum: u32, dwflags: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriterPreprocess_Vtbl {
     pub const fn new<Identity: IWMWriterPreprocess_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMaxPreprocessingPasses<Identity: IWMWriterPreprocess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputnum: u32, dwflags: u32, pdwmaxnumpasses: *mut u32) -> windows_core::HRESULT {
@@ -9472,7 +9472,7 @@ impl IWMWriterPreprocess_Vtbl {
         iid == &<IWMWriterPreprocess as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriterPreprocess {}
 windows_core::imp::define_interface!(IWMWriterPushSink, IWMWriterPushSink_Vtbl, 0xdc10e6a5_072c_467d_bf57_6330a9dde12a);
 impl core::ops::Deref for IWMWriterPushSink {
@@ -9505,13 +9505,13 @@ pub struct IWMWriterPushSink_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndSession: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriterPushSink_Impl: IWMWriterSink_Impl {
     fn Connect(&self, pwszurl: &windows_core::PCWSTR, pwsztemplateurl: &windows_core::PCWSTR, fautodestroy: windows_core::BOOL) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
     fn EndSession(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriterPushSink_Vtbl {
     pub const fn new<Identity: IWMWriterPushSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Connect<Identity: IWMWriterPushSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: windows_core::PCWSTR, pwsztemplateurl: windows_core::PCWSTR, fautodestroy: windows_core::BOOL) -> windows_core::HRESULT {
@@ -9543,12 +9543,12 @@ impl IWMWriterPushSink_Vtbl {
         iid == &<IWMWriterPushSink as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriterPushSink {}
 windows_core::imp::define_interface!(IWMWriterSink, IWMWriterSink_Vtbl, 0x96406be4_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMWriterSink, windows_core::IUnknown);
 impl IWMWriterSink {
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::wmsbuffer::INSSBuffer>,
@@ -9561,14 +9561,14 @@ impl IWMWriterSink {
             (windows_core::Interface::vtable(self).IsRealTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> windows_core::Result<super::wmsbuffer::INSSBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllocateDataUnit)(windows_core::Interface::as_raw(self), cbdataunit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub unsafe fn OnDataUnit<P0>(&self, pdataunit: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::wmsbuffer::INSSBuffer>,
@@ -9583,22 +9583,22 @@ impl IWMWriterSink {
 #[doc(hidden)]
 pub struct IWMWriterSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub OnHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     OnHeader: usize,
     pub IsRealTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub AllocateDataUnit: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     AllocateDataUnit: usize,
-    #[cfg(feature = "Win32_wmsbuffer")]
+    #[cfg(feature = "wmsbuffer")]
     pub OnDataUnit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_wmsbuffer"))]
+    #[cfg(not(feature = "wmsbuffer"))]
     OnDataUnit: usize,
     pub OnEndWriting: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 pub trait IWMWriterSink_Impl: windows_core::IUnknownImpl {
     fn OnHeader(&self, pheader: windows_core::Ref<super::wmsbuffer::INSSBuffer>) -> windows_core::Result<()>;
     fn IsRealTime(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -9606,7 +9606,7 @@ pub trait IWMWriterSink_Impl: windows_core::IUnknownImpl {
     fn OnDataUnit(&self, pdataunit: windows_core::Ref<super::wmsbuffer::INSSBuffer>) -> windows_core::Result<()>;
     fn OnEndWriting(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl IWMWriterSink_Vtbl {
     pub const fn new<Identity: IWMWriterSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnHeader<Identity: IWMWriterSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pheader: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9664,7 +9664,7 @@ impl IWMWriterSink_Vtbl {
         iid == &<IWMWriterSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl windows_core::RuntimeName for IWMWriterSink {}
 pub type LPCWSTR_WMSDK_TYPE_SAFE = windows_core::PCWSTR;
 pub const WEBSTREAM_SAMPLE_TYPE_FILE: i32 = 1;
@@ -9685,7 +9685,7 @@ impl Default for WMDRM_IMPORT_INIT_STRUCT {
 }
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMMPEG2VIDEOINFO {
     pub hdr: WMVIDEOINFOHEADER2,
@@ -9696,7 +9696,7 @@ pub struct WMMPEG2VIDEOINFO {
     pub dwFlags: u32,
     pub dwSequenceHeader: [u32; 1],
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 impl Default for WMMPEG2VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9717,7 +9717,7 @@ pub const WMT_BACKUPRESTORE_END: WMT_STATUS = 27;
 pub const WMT_BUFFERING_START: WMT_STATUS = 2;
 pub const WMT_BUFFERING_STOP: WMT_STATUS = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct WMT_BUFFER_SEGMENT {
     pub pBuffer: core::mem::ManuallyDrop<Option<super::wmsbuffer::INSSBuffer>>,
@@ -9761,7 +9761,7 @@ pub const WMT_EOF: WMT_STATUS = 4;
 pub const WMT_ERROR: WMT_STATUS = 0;
 pub const WMT_ERROR_WITHURL: WMT_STATUS = 30;
 #[repr(C)]
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 #[derive(Clone, Debug, PartialEq)]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
@@ -9770,7 +9770,7 @@ pub struct WMT_FILESINK_DATA_UNIT {
     pub cPayloadDataFragments: u32,
     pub pPayloadDataFragments: *mut WMT_PAYLOAD_FRAGMENT,
 }
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 impl Default for WMT_FILESINK_DATA_UNIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9823,7 +9823,7 @@ pub const WMT_OFFSET_FORMAT_TIMECODE: WMT_OFFSET_FORMAT = 3;
 pub const WMT_ON: WMT_STREAM_SELECTION = 2;
 pub const WMT_OPENED: WMT_STATUS = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wmsbuffer")]
+#[cfg(feature = "wmsbuffer")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
@@ -10021,7 +10021,7 @@ impl Default for WMT_WEBSTREAM_SAMPLE_HEADER {
 pub const WMT_WMETYPE_AUDIO: WMT_WATERMARK_ENTRY_TYPE = 1;
 pub const WMT_WMETYPE_VIDEO: WMT_WATERMARK_ENTRY_TYPE = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WMVIDEOINFOHEADER {
     pub rcSource: super::windef::RECT,
@@ -10032,7 +10032,7 @@ pub struct WMVIDEOINFOHEADER {
     pub bmiHeader: super::wingdi::BITMAPINFOHEADER,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WMVIDEOINFOHEADER2 {
     pub rcSource: super::windef::RECT,
@@ -10145,7 +10145,7 @@ pub struct WM_PORT_NUMBER_RANGE {
     pub wPortEnd: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: u32,
@@ -10158,7 +10158,7 @@ pub struct WM_READER_CLIENTINFO {
     pub qwHostVersion: u64,
     pub wszPlayerUserAgent: *mut u16,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for WM_READER_CLIENTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

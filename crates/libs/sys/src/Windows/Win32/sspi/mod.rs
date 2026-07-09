@@ -1,172 +1,172 @@
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn AcceptSecurityContext(phcredential : PCredHandle, phcontext : PCtxtHandle, pinput : *const SecBufferDesc, fcontextreq : u32, targetdatarep : u32, phnewcontext : PCtxtHandle, poutput : *mut SecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn AcquireCredentialsHandleA(pszprincipal : windows_sys::core::PCSTR, pszpackage : windows_sys::core::PCSTR, fcredentialuse : u32, pvlogonid : *const core::ffi::c_void, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, phcredential : PCredHandle, ptsexpiry : *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn AcquireCredentialsHandleW(pszprincipal : windows_sys::core::PCWSTR, pszpackage : windows_sys::core::PCWSTR, fcredentialuse : u32, pvlogonid : *const core::ffi::c_void, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, phcredential : PCredHandle, ptsexpiry : *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn AddCredentialsA(hcredentials : PCredHandle, pszprincipal : windows_sys::core::PCSTR, pszpackage : windows_sys::core::PCSTR, fcredentialuse : u32, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, ptsexpiry : *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn AddCredentialsW(hcredentials : PCredHandle, pszprincipal : windows_sys::core::PCWSTR, pszpackage : windows_sys::core::PCWSTR, fcredentialuse : u32, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, ptsexpiry : *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn AddSecurityPackageA(pszpackagename : windows_sys::core::PCSTR, poptions : *const SECURITY_PACKAGE_OPTIONS) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn AddSecurityPackageW(pszpackagename : windows_sys::core::PCWSTR, poptions : *const SECURITY_PACKAGE_OPTIONS) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn ApplyControlToken(phcontext : PCtxtHandle, pinput : *const SecBufferDesc) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn ChangeAccountPasswordA(pszpackagename : *const SEC_CHAR, pszdomainname : *const SEC_CHAR, pszaccountname : *const SEC_CHAR, pszoldpassword : *const SEC_CHAR, psznewpassword : *const SEC_CHAR, bimpersonating : bool, dwreserved : u32, poutput : *mut SecBufferDesc) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn ChangeAccountPasswordW(pszpackagename : *const SEC_WCHAR, pszdomainname : *const SEC_WCHAR, pszaccountname : *const SEC_WCHAR, pszoldpassword : *const SEC_WCHAR, psznewpassword : *const SEC_WCHAR, bimpersonating : bool, dwreserved : u32, poutput : *mut SecBufferDesc) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn CompleteAuthToken(phcontext : PCtxtHandle, ptoken : *const SecBufferDesc) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn DecryptMessage(phcontext : PCtxtHandle, pmessage : *const SecBufferDesc, messageseqno : u32, pfqop : *mut u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn DeleteSecurityContext(phcontext : PCtxtHandle) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn DeleteSecurityPackageA(pszpackagename : windows_sys::core::PCSTR) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn DeleteSecurityPackageW(pszpackagename : windows_sys::core::PCWSTR) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn EncryptMessage(phcontext : PCtxtHandle, fqop : u32, pmessage : *const SecBufferDesc, messageseqno : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn EnumerateSecurityPackagesA(pcpackages : *mut u32, pppackageinfo : *mut PSecPkgInfoA) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn EnumerateSecurityPackagesW(pcpackages : *mut u32, pppackageinfo : *mut PSecPkgInfoW) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn ExportSecurityContext(phcontext : PCtxtHandle, fflags : u32, ppackedcontext : *mut SecBuffer, ptoken : *mut *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn FreeContextBuffer(pvcontextbuffer : *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn FreeCredentialsHandle(phcredential : PCredHandle) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn ImpersonateSecurityContext(phcontext : PCtxtHandle) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn ImportSecurityContextA(pszpackage : windows_sys::core::PCSTR, ppackedcontext : *const SecBuffer, token : *const core::ffi::c_void, phcontext : PCtxtHandle) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn ImportSecurityContextW(pszpackage : windows_sys::core::PCWSTR, ppackedcontext : *const SecBuffer, token : *const core::ffi::c_void, phcontext : PCtxtHandle) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn InitSecurityInterfaceA() -> PSecurityFunctionTableA);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn InitSecurityInterfaceW() -> PSecurityFunctionTableW);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn InitializeSecurityContextA(phcredential : PCredHandle, phcontext : PCtxtHandle, psztargetname : *const SEC_CHAR, fcontextreq : u32, reserved1 : u32, targetdatarep : u32, pinput : *const SecBufferDesc, reserved2 : u32, phnewcontext : PCtxtHandle, poutput : *mut SecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn InitializeSecurityContextW(phcredential : PCredHandle, phcontext : PCtxtHandle, psztargetname : *const SEC_WCHAR, fcontextreq : u32, reserved1 : u32, targetdatarep : u32, pinput : *const SecBufferDesc, reserved2 : u32, phnewcontext : PCtxtHandle, poutput : *mut SecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn MakeSignature(phcontext : PCtxtHandle, fqop : u32, pmessage : *const SecBufferDesc, messageseqno : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn QueryContextAttributesA(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("sspicli.dll" "system" fn QueryContextAttributesExA(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("sspicli.dll" "system" fn QueryContextAttributesExW(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn QueryContextAttributesW(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn QueryCredentialsAttributesA(phcredential : PCredHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("sspicli.dll" "system" fn QueryCredentialsAttributesExA(phcredential : PCredHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("sspicli.dll" "system" fn QueryCredentialsAttributesExW(phcredential : PCredHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn QueryCredentialsAttributesW(phcredential : PCredHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn QuerySecurityContextToken(phcontext : PCtxtHandle, token : *mut *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn QuerySecurityPackageInfoA(pszpackagename : windows_sys::core::PCSTR, pppackageinfo : *mut PSecPkgInfoA) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn QuerySecurityPackageInfoW(pszpackagename : windows_sys::core::PCWSTR, pppackageinfo : *mut PSecPkgInfoW) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn RevertSecurityContext(phcontext : PCtxtHandle) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SaslAcceptSecurityContext(phcredential : PCredHandle, phcontext : PCtxtHandle, pinput : *const SecBufferDesc, fcontextreq : u32, targetdatarep : u32, phnewcontext : PCtxtHandle, poutput : *mut SecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SaslEnumerateProfilesA(profilelist : *mut windows_sys::core::PSTR, profilecount : *mut u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SaslEnumerateProfilesW(profilelist : *mut windows_sys::core::PWSTR, profilecount : *mut u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SaslGetContextOption(contexthandle : PCtxtHandle, option : u32, value : *mut core::ffi::c_void, size : u32, needed : *mut u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SaslGetProfilePackageA(profilename : windows_sys::core::PCSTR, packageinfo : *mut PSecPkgInfoA) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SaslGetProfilePackageW(profilename : windows_sys::core::PCWSTR, packageinfo : *mut PSecPkgInfoW) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SaslIdentifyPackageA(pinput : *const SecBufferDesc, packageinfo : *mut PSecPkgInfoA) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SaslIdentifyPackageW(pinput : *const SecBufferDesc, packageinfo : *mut PSecPkgInfoW) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SaslInitializeSecurityContextA(phcredential : PCredHandle, phcontext : PCtxtHandle, psztargetname : windows_sys::core::PCSTR, fcontextreq : u32, reserved1 : u32, targetdatarep : u32, pinput : *const SecBufferDesc, reserved2 : u32, phnewcontext : PCtxtHandle, poutput : *mut SecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SaslInitializeSecurityContextW(phcredential : PCredHandle, phcontext : PCtxtHandle, psztargetname : windows_sys::core::PCWSTR, fcontextreq : u32, reserved1 : u32, targetdatarep : u32, pinput : *const SecBufferDesc, reserved2 : u32, phnewcontext : PCtxtHandle, poutput : *mut SecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SaslSetContextOption(contexthandle : PCtxtHandle, option : u32, value : *const core::ffi::c_void, size : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("sspicli.dll" "system" fn SecAllocateAndSetCallTarget(lpipaddress : *const u8, cchipaddress : u32, targetname : windows_sys::core::PCWSTR, freecallcontext : *mut i32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("sspicli.dll" "system" fn SecAllocateAndSetIPAddress(lpipaddress : *const u8, cchipaddress : u32, freecallcontext : *mut i32) -> super::ncrypt::SECURITY_STATUS);
 windows_link::link!("sspicli.dll" "system" fn SecFreeCallContext());
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SetContextAttributesA(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SetContextAttributesW(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SetCredentialsAttributesA(phcredential : PCredHandle, ulattribute : u32, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SetCredentialsAttributesW(phcredential : PCredHandle, ulattribute : u32, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiCompareAuthIdentities(authidentity1 : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, authidentity2 : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, samesupplieduser : *mut bool, samesuppliedidentity : *mut bool) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiCopyAuthIdentity(authdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, authdatacopy : *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiDecryptAuthIdentity(encryptedauthdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("sspicli.dll" "system" fn SspiDecryptAuthIdentityEx(options : u32, encryptedauthdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiEncodeAuthIdentityAsStrings(pauthidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppszusername : *mut windows_sys::core::PCWSTR, ppszdomainname : *mut windows_sys::core::PCWSTR, ppszpackedcredentialsstring : *mut windows_sys::core::PCWSTR) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiEncodeStringsAsAuthIdentity(pszusername : windows_sys::core::PCWSTR, pszdomainname : windows_sys::core::PCWSTR, pszpackedcredentialsstring : windows_sys::core::PCWSTR, ppauthidentity : *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiEncryptAuthIdentity(authdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("sspicli.dll" "system" fn SspiEncryptAuthIdentityEx(options : u32, authdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiExcludePackage(authidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pszpackagename : windows_sys::core::PCWSTR, ppnewauthidentity : *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::ncrypt::SECURITY_STATUS);
 windows_link::link!("secur32.dll" "system" fn SspiFreeAuthIdentity(authdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE));
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiGetTargetHostName(psztargetname : windows_sys::core::PCWSTR, pszhostname : *mut windows_sys::core::PWSTR) -> super::ncrypt::SECURITY_STATUS);
 windows_link::link!("secur32.dll" "system" fn SspiIsAuthIdentityEncrypted(encryptedauthdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> bool);
 windows_link::link!("credui.dll" "system" fn SspiIsPromptingNeeded(errororntstatus : u32) -> bool);
 windows_link::link!("secur32.dll" "system" fn SspiLocalFree(databuffer : *const core::ffi::c_void));
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiMarshalAuthIdentity(authidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, authidentitylength : *mut u32, authidentitybytearray : *mut *mut i8) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiPrepareForCredRead(authidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, psztargetname : windows_sys::core::PCWSTR, pcredmancredentialtype : *mut u32, ppszcredmantargetname : *mut windows_sys::core::PCWSTR) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
 windows_link::link!("secur32.dll" "system" fn SspiPrepareForCredWrite(authidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, psztargetname : windows_sys::core::PCWSTR, pcredmancredentialtype : *mut u32, ppszcredmantargetname : *mut windows_sys::core::PCWSTR, ppszcredmanusername : *mut windows_sys::core::PCWSTR, ppcredentialblob : *mut super::minwindef::PUCHAR, pcredentialblobsize : *mut u32) -> super::ncrypt::SECURITY_STATUS);
 windows_link::link!("credui.dll" "system" fn SspiPromptForCredentialsA(psztargetname : windows_sys::core::PCSTR, puiinfo : *const core::ffi::c_void, dwautherror : u32, pszpackage : windows_sys::core::PCSTR, pinputauthidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppauthidentity : *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pfsave : *mut i32, dwflags : u32) -> u32);
 windows_link::link!("credui.dll" "system" fn SspiPromptForCredentialsW(psztargetname : windows_sys::core::PCWSTR, puiinfo : *const core::ffi::c_void, dwautherror : u32, pszpackage : windows_sys::core::PCWSTR, pinputauthidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppauthidentity : *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pfsave : *mut i32, dwflags : u32) -> u32);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("sspicli.dll" "system" fn SspiSetChannelBindingFlags(pbindings : *mut SecPkgContext_Bindings, flags : u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiUnmarshalAuthIdentity(authidentitylength : u32, authidentitybytearray : *const i8, ppauthidentity : *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn SspiValidateAuthIdentity(authdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::ncrypt::SECURITY_STATUS);
 windows_link::link!("secur32.dll" "system" fn SspiZeroAuthIdentity(authdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE));
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 windows_link::link!("secur32.dll" "system" fn VerifySignature(phcontext : PCtxtHandle, pmessage : *const SecBufferDesc, messageseqno : u32, pfqop : *mut u32) -> super::ncrypt::SECURITY_STATUS);
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type ACCEPT_SECURITY_CONTEXT_FN = Option<unsafe extern "system" fn(param0: PCredHandle, param1: PCtxtHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: PCtxtHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type ACQUIRE_CREDENTIALS_HANDLE_FN_A = Option<unsafe extern "system" fn(param0: *mut SEC_CHAR, param1: *mut SEC_CHAR, param2: u32, param3: *mut core::ffi::c_void, param4: *mut core::ffi::c_void, param5: SEC_GET_KEY_FN, param6: *mut core::ffi::c_void, param7: PCredHandle, param8: *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type ACQUIRE_CREDENTIALS_HANDLE_FN_W = Option<unsafe extern "system" fn(param0: *mut SEC_WCHAR, param1: *mut SEC_WCHAR, param2: u32, param3: *mut core::ffi::c_void, param4: *mut core::ffi::c_void, param5: SEC_GET_KEY_FN, param6: *mut core::ffi::c_void, param7: PCredHandle, param8: *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type ADD_CREDENTIALS_FN_A = Option<unsafe extern "system" fn(param0: PCredHandle, param1: *mut SEC_CHAR, param2: *mut SEC_CHAR, param3: u32, param4: *mut core::ffi::c_void, param5: SEC_GET_KEY_FN, param6: *mut core::ffi::c_void, param7: *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type ADD_CREDENTIALS_FN_W = Option<unsafe extern "system" fn(param0: PCredHandle, param1: *mut SEC_WCHAR, param2: *mut SEC_WCHAR, param3: u32, param4: *mut core::ffi::c_void, param5: SEC_GET_KEY_FN, param6: *mut core::ffi::c_void, param7: *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type APPLY_CONTROL_TOKEN_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: *mut SecBufferDesc) -> super::ncrypt::SECURITY_STATUS>;
 pub const ASC_REQ_ALLOCATE_MEMORY: u32 = 256;
 pub const ASC_REQ_ALLOW_CONTEXT_REPLAY: u32 = 4194304;
@@ -222,43 +222,43 @@ pub const ASC_RET_STREAM: u32 = 65536;
 pub const ASC_RET_THIRD_LEG_FAILED: u32 = 16384;
 pub const ASC_RET_USED_DCE_STYLE: u32 = 512;
 pub const ASC_RET_USE_SESSION_KEY: u32 = 32;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type CHANGE_PASSWORD_FN_A = Option<unsafe extern "system" fn(param0: *mut SEC_CHAR, param1: *mut SEC_CHAR, param2: *mut SEC_CHAR, param3: *mut SEC_CHAR, param4: *mut SEC_CHAR, param5: bool, param6: u32, param7: *mut SecBufferDesc) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type CHANGE_PASSWORD_FN_W = Option<unsafe extern "system" fn(param0: *mut SEC_WCHAR, param1: *mut SEC_WCHAR, param2: *mut SEC_WCHAR, param3: *mut SEC_WCHAR, param4: *mut SEC_WCHAR, param5: bool, param6: u32, param7: *mut SecBufferDesc) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type COMPLETE_AUTH_TOKEN_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: *mut SecBufferDesc) -> super::ncrypt::SECURITY_STATUS>;
 pub type CredHandle = SecHandle;
 pub type CtxtHandle = SecHandle;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type DECRYPT_MESSAGE_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type DELETE_SECURITY_CONTEXT_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type ENCRYPT_MESSAGE_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type ENUMERATE_SECURITY_PACKAGES_FN_A = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut PSecPkgInfoA) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type ENUMERATE_SECURITY_PACKAGES_FN_W = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut PSecPkgInfoW) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type EXPORT_SECURITY_CONTEXT_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut SecBuffer, param3: *mut *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type FREE_CONTEXT_BUFFER_FN = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type FREE_CREDENTIALS_HANDLE_FN = Option<unsafe extern "system" fn(param0: PCredHandle) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type IMPERSONATE_SECURITY_CONTEXT_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type IMPORT_SECURITY_CONTEXT_FN_A = Option<unsafe extern "system" fn(param0: *mut SEC_CHAR, param1: *mut SecBuffer, param2: *mut core::ffi::c_void, param3: PCtxtHandle) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type IMPORT_SECURITY_CONTEXT_FN_W = Option<unsafe extern "system" fn(param0: *mut SEC_WCHAR, param1: *mut SecBuffer, param2: *mut core::ffi::c_void, param3: PCtxtHandle) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type INITIALIZE_SECURITY_CONTEXT_FN_A = Option<unsafe extern "system" fn(param0: PCredHandle, param1: PCtxtHandle, param2: *mut SEC_CHAR, param3: u32, param4: u32, param5: u32, param6: *mut SecBufferDesc, param7: u32, param8: PCtxtHandle, param9: *mut SecBufferDesc, param10: *mut u32, param11: *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type INITIALIZE_SECURITY_CONTEXT_FN_W = Option<unsafe extern "system" fn(param0: PCredHandle, param1: PCtxtHandle, param2: *mut SEC_WCHAR, param3: u32, param4: u32, param5: u32, param6: *mut SecBufferDesc, param7: u32, param8: PCtxtHandle, param9: *mut SecBufferDesc, param10: *mut u32, param11: *mut SECURITY_INTEGER) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type INIT_SECURITY_INTERFACE_A = Option<unsafe extern "system" fn() -> PSecurityFunctionTableA>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type INIT_SECURITY_INTERFACE_W = Option<unsafe extern "system" fn() -> PSecurityFunctionTableW>;
 pub const ISC_REQ_ALLOCATE_MEMORY: u32 = 256;
 pub const ISC_REQ_CALL_LEVEL: u32 = 4096;
@@ -333,7 +333,7 @@ pub const KDC_NETWORK_SETTINGS_FLAGS_FORCEPROXY: u32 = 1;
 pub const KDC_NETWORK_SETTINGS_V2: u32 = 2;
 pub const KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY: u32 = 1;
 pub const KDC_PROXY_SETTINGS_V1: u32 = 1;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type MAKE_SIGNATURE_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> super::ncrypt::SECURITY_STATUS>;
 pub const MAX_PROTOCOL_ID_SIZE: u32 = 255;
 pub type PCredHandle = PSecHandle;
@@ -367,7 +367,7 @@ pub type PSEC_TRAFFIC_SECRET_TYPE = *mut SEC_TRAFFIC_SECRET_TYPE;
 pub type PSEC_WINNT_AUTH_IDENTITY_EX2 = *mut SEC_WINNT_AUTH_IDENTITY_EX2;
 pub type PSEC_WINNT_AUTH_IDENTITY_EXA = *mut SEC_WINNT_AUTH_IDENTITY_EXA;
 pub type PSEC_WINNT_AUTH_IDENTITY_EXW = *mut SEC_WINNT_AUTH_IDENTITY_EXW;
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub type PSEC_WINNT_AUTH_IDENTITY_INFO = *mut SEC_WINNT_AUTH_IDENTITY_INFO;
 pub type PSEC_WINNT_AUTH_IDENTITY_OPAQUE = *mut core::ffi::c_void;
 pub type PSecBuffer = *mut SecBuffer;
@@ -423,34 +423,34 @@ pub type PSecPkgCredentials_SSIProviderA = *mut SecPkgCredentials_SSIProviderA;
 pub type PSecPkgCredentials_SSIProviderW = *mut SecPkgCredentials_SSIProviderW;
 pub type PSecPkgInfoA = *mut SecPkgInfoA;
 pub type PSecPkgInfoW = *mut SecPkgInfoW;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type PSecurityFunctionTableA = *mut SecurityFunctionTableA;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type PSecurityFunctionTableW = *mut SecurityFunctionTableW;
 pub type PTimeStamp = *mut SECURITY_INTEGER;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type QUERY_CONTEXT_ATTRIBUTES_EX_FN_A = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type QUERY_CONTEXT_ATTRIBUTES_EX_FN_W = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type QUERY_CONTEXT_ATTRIBUTES_FN_A = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type QUERY_CONTEXT_ATTRIBUTES_FN_W = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_FN_A = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_FN_W = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type QUERY_SECURITY_CONTEXT_TOKEN_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: *mut *mut core::ffi::c_void) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type QUERY_SECURITY_PACKAGE_INFO_FN_A = Option<unsafe extern "system" fn(param0: *mut SEC_CHAR, param1: *mut PSecPkgInfoA) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type QUERY_SECURITY_PACKAGE_INFO_FN_W = Option<unsafe extern "system" fn(param0: *mut SEC_WCHAR, param1: *mut PSecPkgInfoW) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type REVERT_SECURITY_CONTEXT_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle) -> super::ncrypt::SECURITY_STATUS>;
 pub type SASL_AUTHZID_STATE = i32;
 pub const SASL_OPTION_AUTHZ_PROCESSING: u32 = 4;
@@ -747,7 +747,7 @@ pub struct SEC_DTLS_MTU {
 pub struct SEC_FLAGS {
     pub Flags: u64,
 }
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type SEC_GET_KEY_FN = Option<unsafe extern "system" fn(arg: *mut core::ffi::c_void, principal: *mut core::ffi::c_void, keyver: u32, key: *mut *mut core::ffi::c_void, status: *mut super::ncrypt::SECURITY_STATUS)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -926,7 +926,7 @@ pub const SEC_WINNT_AUTH_IDENTITY_FLAGS_SYSTEM_PROTECTED: u32 = 32;
 pub const SEC_WINNT_AUTH_IDENTITY_FLAGS_USER_PROTECTED: u32 = 64;
 pub const SEC_WINNT_AUTH_IDENTITY_FLAGS_VALID_SSPIPFC_FLAGS: i32 = -268435456;
 #[repr(C)]
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 #[derive(Clone, Copy)]
 pub union SEC_WINNT_AUTH_IDENTITY_INFO {
     pub AuthIdExw: SEC_WINNT_AUTH_IDENTITY_EXW,
@@ -935,7 +935,7 @@ pub union SEC_WINNT_AUTH_IDENTITY_INFO {
     pub AuthId_w: super::rpc::SEC_WINNT_AUTH_IDENTITY_W,
     pub AuthIdEx2: SEC_WINNT_AUTH_IDENTITY_EX2,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl Default for SEC_WINNT_AUTH_IDENTITY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -945,13 +945,13 @@ pub const SEC_WINNT_AUTH_IDENTITY_MARSHALLED: u32 = 4;
 pub const SEC_WINNT_AUTH_IDENTITY_ONLY: u32 = 8;
 pub const SEC_WINNT_AUTH_IDENTITY_VERSION: u32 = 512;
 pub const SEC_WINNT_AUTH_IDENTITY_VERSION_2: u32 = 513;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type SET_CONTEXT_ATTRIBUTES_FN_A = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type SET_CONTEXT_ATTRIBUTES_FN_W = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type SET_CREDENTIALS_ATTRIBUTES_FN_A = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::ncrypt::SECURITY_STATUS>;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type SET_CREDENTIALS_ATTRIBUTES_FN_W = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::ncrypt::SECURITY_STATUS>;
 pub const SSPIPFC_CREDPROV_DO_NOT_LOAD: u32 = 4;
 pub const SSPIPFC_CREDPROV_DO_NOT_SAVE: u32 = 1;
@@ -1500,7 +1500,7 @@ pub const SecTrafficSecret_None: SEC_TRAFFIC_SECRET_TYPE = 0;
 pub const SecTrafficSecret_Server: SEC_TRAFFIC_SECRET_TYPE = 2;
 pub const SecTree: SecDelegationType = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy)]
 pub struct SecurityFunctionTableA {
     pub dwVersion: u32,
@@ -1536,14 +1536,14 @@ pub struct SecurityFunctionTableA {
     pub QueryContextAttributesExA: QUERY_CONTEXT_ATTRIBUTES_EX_FN_A,
     pub QueryCredentialsAttributesExA: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A,
 }
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 impl Default for SecurityFunctionTableA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy)]
 pub struct SecurityFunctionTableW {
     pub dwVersion: u32,
@@ -1579,13 +1579,13 @@ pub struct SecurityFunctionTableW {
     pub QueryContextAttributesExW: QUERY_CONTEXT_ATTRIBUTES_EX_FN_W,
     pub QueryCredentialsAttributesExW: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W,
 }
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 impl Default for SecurityFunctionTableW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type TimeStamp = SECURITY_INTEGER;
-#[cfg(feature = "Win32_ncrypt")]
+#[cfg(feature = "ncrypt")]
 pub type VERIFY_SIGNATURE_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> super::ncrypt::SECURITY_STATUS>;
 pub type _SECURITY_INTEGER = i64;

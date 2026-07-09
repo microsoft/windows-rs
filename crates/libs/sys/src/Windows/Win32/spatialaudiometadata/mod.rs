@@ -44,7 +44,7 @@ pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOve
 pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = 2;
 pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = 1;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_spatialaudioclient", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub ObjectFormat: *const super::mmeapi::WAVEFORMATEX,
@@ -58,14 +58,14 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MetadataActivationParams: *const super::propidlbase::PROPVARIANT,
     pub NotifyObject: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_spatialaudioclient", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SpatialAudioObjectRenderStreamForMetadataActivationParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_spatialaudioclient", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub ObjectFormat: *const super::mmeapi::WAVEFORMATEX,
@@ -80,7 +80,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub NotifyObject: *mut core::ffi::c_void,
     pub Options: super::spatialaudioclient::SPATIAL_AUDIO_STREAM_OPTIONS,
 }
-#[cfg(all(feature = "Win32_audiosessiontypes", feature = "Win32_minwindef", feature = "Win32_mmeapi", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_spatialaudioclient", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

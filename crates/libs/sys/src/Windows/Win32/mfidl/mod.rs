@@ -1,125 +1,125 @@
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 windows_link::link!("mf.dll" "system" fn CreateNamedPropertyStore(ppstore : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 windows_link::link!("mfplat.dll" "system" fn CreatePropertyStore(ppstore : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreate3GPMediaSink(pibytestream : *mut core::ffi::c_void, pvideomediatype : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppimediasink : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateAC3MediaSink(ptargetbytestream : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppmediasink : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateADTSMediaSink(ptargetbytestream : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppmediasink : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfsrcsnk.dll" "system" fn MFCreateAVIMediaSink(pibytestream : *mut core::ffi::c_void, pvideomediatype : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppimediasink : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateAggregateSource(psourcecollection : *mut core::ffi::c_void, ppaggsource : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateAudioRenderer(paudioattributes : *mut core::ffi::c_void, ppsink : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateAudioRendererActivate(ppactivate : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateCameraControlMonitor(symboliclink : windows_sys::core::PCWSTR, callback : *mut core::ffi::c_void, ppcameracontrolmonitor : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateCameraOcclusionStateMonitor(symboliclink : windows_sys::core::PCWSTR, callback : *mut core::ffi::c_void, occlusionstatemonitor : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid : *const windows_sys::core::GUID, pd3dmanager : *mut core::ffi::c_void, pcontentprotectiondevice : *mut core::ffi::c_void, ppcontentdecryptorcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFCreateContentProtectionDevice(protectionsystemid : *const windows_sys::core::GUID, contentprotectiondevice : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreateCredentialCache(ppcache : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateDeviceSource(pattributes : *mut core::ffi::c_void, ppsource : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateDeviceSourceActivate(pattributes : *mut core::ffi::c_void, ppactivate : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfcore.dll" "system" fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype : MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfcore.dll" "system" fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateFMPEG4MediaSink(pibytestream : *mut core::ffi::c_void, pvideomediatype : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppimediasink : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "mfobjects", feature = "objidlbase"))]
 windows_link::link!("mfplat.dll" "system" fn MFCreateMFByteStreamOnStream(pstream : *mut core::ffi::c_void, ppbytestream : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFCreateMFByteStreamOnStreamEx(punkstream : *mut core::ffi::c_void, ppbytestream : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateMP3MediaSink(ptargetbytestream : *mut core::ffi::c_void, ppmediasink : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateMPEG4MediaSink(pibytestream : *mut core::ffi::c_void, pvideomediatype : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppimediasink : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateMediaSession(pconfiguration : *mut core::ffi::c_void, ppmediasession : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFCreateMediaTypeFromProperties(punkstream : *mut core::ffi::c_void, ppmediatype : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateMuxSink(guidoutputsubtype : windows_sys::core::GUID, poutputattributes : *mut core::ffi::c_void, poutputbytestream : *mut core::ffi::c_void, ppmuxsink : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreateNetSchemePlugin(riid : *const windows_sys::core::GUID, ppvhandler : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreatePMPMediaSession(dwcreationflags : u32, pconfiguration : *mut core::ffi::c_void, ppmediasession : *mut *mut core::ffi::c_void, ppenableractivate : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreatePMPServer(dwcreationflags : u32, pppmpserver : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreatePresentationClock(pppresentationclock : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFCreatePresentationDescriptor(cstreamdescriptors : u32, apstreamdescriptors : *const *mut core::ffi::c_void, pppresentationdescriptor : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFCreatePropertiesFromMediaType(pmediatype : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreateProtectedEnvironmentAccess(ppaccess : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_propsys")]
+#[cfg(feature = "propsys")]
 windows_link::link!("mf.dll" "system" fn MFCreateProxyLocator(pszprotocol : windows_sys::core::PCWSTR, pproxyconfig : *mut core::ffi::c_void, ppproxylocator : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateRelativePanelWatcher(videodeviceid : windows_sys::core::PCWSTR, displaymonitordeviceid : windows_sys::core::PCWSTR, pprelativepanelwatcher : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreateRemoteDesktopPlugin(ppplugin : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mftransform")]
+#[cfg(feature = "mftransform")]
 windows_link::link!("mf.dll" "system" fn MFCreateSampleCopierMFT(ppcopiermft : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateSampleGrabberSinkActivate(pimfmediatype : *mut core::ffi::c_void, pimfsamplegrabbersinkcallback : *mut core::ffi::c_void, ppiactivate : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorActivityMonitor(pcallback : *mut core::ffi::c_void, ppactivitymonitor : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorGroup(sensorgroupsymboliclink : windows_sys::core::PCWSTR, ppsensorgroup : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorProfile(profiletype : *const windows_sys::core::GUID, profileindex : u32, constraints : windows_sys::core::PCWSTR, ppprofile : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorProfileCollection(ppsensorprofile : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorStream(streamid : u32, pattributes : *mut core::ffi::c_void, pmediatypecollection : *mut core::ffi::c_void, ppstream : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("mf.dll" "system" fn MFCreateSequencerSegmentOffset(dwid : MFSequencerElementId, hnsoffset : MFTIME, pvarsegmentoffset : *mut super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreateSequencerSource(preserved : *mut core::ffi::c_void, ppsequencersource : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreateSimpleTypeHandler(pphandler : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFCreateSourceResolver(ppisourceresolver : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreateStandardQualityManager(ppqualitymanager : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFCreateStreamDescriptor(dwstreamidentifier : u32, cmediatypes : u32, apmediatypes : *const *mut core::ffi::c_void, ppdescriptor : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_objidlbase"))]
+#[cfg(all(feature = "mfobjects", feature = "objidlbase"))]
 windows_link::link!("mfplat.dll" "system" fn MFCreateStreamOnMFByteStream(pbytestream : *mut core::ffi::c_void, ppstream : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFCreateStreamOnMFByteStreamEx(pbytestream : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFCreateSystemTimeSource(ppsystemtimesource : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreateTopoLoader(ppobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateTopology(pptopo : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateTopologyNode(nodetype : MF_TOPOLOGY_TYPE, ppnode : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFCreateTrackedSample(ppmfsample : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreateTranscodeProfile(pptranscodeprofile : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateTranscodeSinkActivate(ppactivate : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateTranscodeTopology(psrc : *mut core::ffi::c_void, pwszoutputfilepath : windows_sys::core::PCWSTR, pprofile : *mut core::ffi::c_void, pptranscodetopo : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFCreateTranscodeTopologyFromByteStream(psrc : *mut core::ffi::c_void, poutputstream : *mut core::ffi::c_void, pprofile : *mut core::ffi::c_void, pptranscodetopo : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_mfobjects", feature = "Win32_windef"))]
+#[cfg(all(feature = "mfobjects", feature = "windef"))]
 windows_link::link!("mf.dll" "system" fn MFCreateVideoRendererActivate(hwndvideo : super::windef::HWND, ppactivate : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfsrcsnk.dll" "system" fn MFCreateWAVEMediaSink(ptargetbytestream : *mut core::ffi::c_void, paudiomediatype : *mut core::ffi::c_void, ppmediasink : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFDeserializePresentationDescriptor(cbdata : u32, pbdata : *const u8, pppd : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFEnumDeviceSources(pattributes : *mut core::ffi::c_void, pppsourceactivate : *mut *mut *mut core::ffi::c_void, pcsourceactivate : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFGetLocalId(verifier : *const u8, size : u32, id : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFGetService(punkobject : *mut core::ffi::c_void, guidservice : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("mfplat.dll" "system" fn MFGetSupportedMimeTypes(ppropvarmimetypearray : *mut super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_oaidl", feature = "Win32_objidl", feature = "Win32_objidlbase", feature = "Win32_propidlbase", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("mfplat.dll" "system" fn MFGetSupportedSchemes(ppropvarschemearray : *mut super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFGetSystemId(ppid : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFGetSystemTime() -> MFTIME);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFGetTopoNodeCurrentType(pnode : *mut core::ffi::c_void, dwstreamindex : u32, foutput : windows_sys::core::BOOL, pptype : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFIsContentProtectionDeviceSupported(protectionsystemid : *const windows_sys::core::GUID, issupported : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFLoadSignedLibrary(pszname : windows_sys::core::PCWSTR, pplib : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFRequireProtectedEnvironment(ppresentationdescriptor : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFSerializePresentationDescriptor(ppd : *mut core::ffi::c_void, pcbdata : *mut u32, ppbdata : *mut *mut u8) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFShutdownObject(punk : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 windows_link::link!("mf.dll" "system" fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype : *const windows_sys::core::GUID, dwmftflags : u32, pcodecconfig : *mut core::ffi::c_void, ppavailabletypes : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -497,7 +497,7 @@ pub const MFTOPOLOGY_HWMODE_SOFTWARE_ONLY: MFTOPOLOGY_HARDWARE_MODE = 0;
 pub const MFTOPOLOGY_HWMODE_USE_HARDWARE: MFTOPOLOGY_HARDWARE_MODE = 1;
 pub const MFTOPOLOGY_HWMODE_USE_ONLY_HARDWARE: MFTOPOLOGY_HARDWARE_MODE = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[derive(Clone, Copy)]
 pub struct MFTOPONODE_ATTRIBUTE_UPDATE {
     pub NodeId: TOPOID,
@@ -505,28 +505,28 @@ pub struct MFTOPONODE_ATTRIBUTE_UPDATE {
     pub attrType: super::mfobjects::MF_ATTRIBUTE_TYPE,
     pub Anonymous: MFTOPONODE_ATTRIBUTE_UPDATE_0,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl Default for MFTOPONODE_ATTRIBUTE_UPDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[derive(Clone, Copy)]
 pub union MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     pub u32: u32,
     pub u64: u64,
     pub d: f64,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl Default for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[derive(Clone, Copy)]
 pub struct MFT_REGISTRATION_INFO {
     pub clsid: windows_sys::core::GUID,
@@ -538,7 +538,7 @@ pub struct MFT_REGISTRATION_INFO {
     pub cOutTypes: u32,
     pub pOutTypes: *mut super::mfobjects::MFT_REGISTER_TYPE_INFO,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl Default for MFT_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -707,7 +707,7 @@ pub const MF_TRANSCODE_ADJUST_PROFILE_DEFAULT: MF_TRANSCODE_ADJUST_PROFILE_FLAGS
 pub type MF_TRANSCODE_ADJUST_PROFILE_FLAGS = i32;
 pub const MF_TRANSCODE_ADJUST_PROFILE_USE_SOURCE_ATTRIBUTES: MF_TRANSCODE_ADJUST_PROFILE_FLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 #[derive(Clone, Copy)]
 pub struct MF_TRANSCODE_SINK_INFO {
     pub dwVideoStreamID: u32,
@@ -715,7 +715,7 @@ pub struct MF_TRANSCODE_SINK_INFO {
     pub dwAudioStreamID: u32,
     pub pAudioMediaType: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_mfobjects")]
+#[cfg(feature = "mfobjects")]
 impl Default for MF_TRANSCODE_SINK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

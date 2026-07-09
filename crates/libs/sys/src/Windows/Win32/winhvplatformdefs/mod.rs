@@ -1409,7 +1409,7 @@ pub struct WHV_SCHEDULER_FEATURES_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR {
     pub PnpInstanceId: [u16; 200],
@@ -1418,7 +1418,7 @@ pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR {
     pub Reserved: u16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1,74 +1,74 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn ActivateKeyboardLayout(hkl : super::minwindef::HKL, flags : u32) -> super::minwindef::HKL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn AddClipboardFormatListener(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn AdjustWindowRect(lprect : *mut super::windef::RECT, dwstyle : u32, bmenu : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn AdjustWindowRectEx(lprect : *mut super::windef::RECT, dwstyle : u32, bmenu : windows_sys::core::BOOL, dwexstyle : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn AdjustWindowRectExForDpi(lprect : *mut super::windef::RECT, dwstyle : u32, bmenu : windows_sys::core::BOOL, dwexstyle : u32, dpi : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn AllowSetForegroundWindow(dwprocessid : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn AnimateWindow(hwnd : super::windef::HWND, dwtime : u32, dwflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn AnyPopup() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn AppendMenuA(hmenu : super::windef::HMENU, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn AppendMenuW(hmenu : super::windef::HMENU, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ApplyWindowAction(hwnd : super::windef::HWND, paction : *mut WINDOW_ACTION) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn AreDpiAwarenessContextsEqual(dpicontexta : super::windef::DPI_AWARENESS_CONTEXT, dpicontextb : super::windef::DPI_AWARENESS_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ArrangeIconicWindows(hwnd : super::windef::HWND) -> u32);
 windows_link::link!("user32.dll" "system" fn AttachThreadInput(idattach : u32, idattachto : u32, fattach : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn BeginDeferWindowPos(nnumwindows : i32) -> HDWP);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn BeginPaint(hwnd : super::windef::HWND, lppaint : *mut PAINTSTRUCT) -> super::windef::HDC);
 windows_link::link!("user32.dll" "system" fn BlockInput(fblockit : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn BringWindowToTop(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageA(flags : u32, lpinfo : *mut u32, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageExA(flags : u32, lpinfo : *mut u32, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM, pbsminfo : *mut BSMINFO) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageExW(flags : u32, lpinfo : *mut u32, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM, pbsminfo : *mut BSMINFO) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageW(flags : u32, lpinfo : *mut u32, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CalculatePopupWindowPosition(anchorpoint : *const super::windef::POINT, windowsize : *const super::windef::SIZE, flags : u32, excluderect : *const super::windef::RECT, popupwindowposition : *mut super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CallMsgFilterA(lpmsg : *const MSG, ncode : i32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CallMsgFilterW(lpmsg : *const MSG, ncode : i32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CallNextHookEx(hhk : super::windef::HHOOK, ncode : i32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CallWindowProcA(lpprevwndfunc : WNDPROC, hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CallWindowProcW(lpprevwndfunc : WNDPROC, hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
 windows_link::link!("user32.dll" "system" fn CancelShutdown() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CascadeWindows(hwndparent : super::windef::HWND, whow : u32, lprect : *const super::windef::RECT, ckids : u32, lpkids : *const super::windef::HWND) -> u16);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ChangeClipboardChain(hwndremove : super::windef::HWND, hwndnewnext : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsA(lpdevmode : *const super::wingdi::DEVMODEA, dwflags : u32) -> i32);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsExA(lpszdevicename : windows_sys::core::PCSTR, lpdevmode : *const super::wingdi::DEVMODEA, hwnd : super::windef::HWND, dwflags : u32, lparam : *const core::ffi::c_void) -> i32);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsExW(lpszdevicename : windows_sys::core::PCWSTR, lpdevmode : *const super::wingdi::DEVMODEW, hwnd : super::windef::HWND, dwflags : u32, lparam : *const core::ffi::c_void) -> i32);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsW(lpdevmode : *const super::wingdi::DEVMODEW, dwflags : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ChangeMenuA(hmenu : super::windef::HMENU, cmd : u32, lpsznewitem : windows_sys::core::PCSTR, cmdinsert : u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ChangeMenuW(hmenu : super::windef::HMENU, cmd : u32, lpsznewitem : windows_sys::core::PCWSTR, cmdinsert : u32, flags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn ChangeWindowMessageFilter(message : u32, dwflag : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ChangeWindowMessageFilterEx(hwnd : super::windef::HWND, message : u32, action : u32, pchangefilterstruct : *mut CHANGEFILTERSTRUCT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CharLowerA(lpsz : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
 windows_link::link!("user32.dll" "system" fn CharLowerBuffA(lpsz : windows_sys::core::PSTR, cchlength : u32) -> u32);
@@ -88,660 +88,660 @@ windows_link::link!("user32.dll" "system" fn CharUpperA(lpsz : windows_sys::core
 windows_link::link!("user32.dll" "system" fn CharUpperBuffA(lpsz : windows_sys::core::PSTR, cchlength : u32) -> u32);
 windows_link::link!("user32.dll" "system" fn CharUpperBuffW(lpsz : windows_sys::core::PWSTR, cchlength : u32) -> u32);
 windows_link::link!("user32.dll" "system" fn CharUpperW(lpsz : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CheckDlgButton(hdlg : super::windef::HWND, nidbutton : i32, ucheck : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CheckMenuItem(hmenu : super::windef::HMENU, uidcheckitem : u32, ucheck : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CheckMenuRadioItem(hmenu : super::windef::HMENU, first : u32, last : u32, check : u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CheckRadioButton(hdlg : super::windef::HWND, nidfirstbutton : i32, nidlastbutton : i32, nidcheckbutton : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ChildWindowFromPoint(hwndparent : super::windef::HWND, point : super::windef::POINT) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ChildWindowFromPointEx(hwnd : super::windef::HWND, pt : super::windef::POINT, flags : u32) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ClientToScreen(hwnd : super::windef::HWND, lppoint : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ClipCursor(lprect : *const super::windef::RECT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CloseClipboard() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CloseDesktop(hdesktop : super::windef::HDESK) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : HGESTUREINFO) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : HTOUCHINPUT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CloseWindow(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn CloseWindowStation(hwinsta : super::minwindef::HWINSTA) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn ConvertPrimaryPointerToMouseDrag() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ConvertToInterceptWindow(toplevelwindow : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CopyAcceleratorTableA(haccelsrc : super::windef::HACCEL, lpacceldst : *mut ACCEL, caccelentries : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CopyAcceleratorTableW(haccelsrc : super::windef::HACCEL, lpacceldst : *mut ACCEL, caccelentries : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CopyIcon(hicon : super::windef::HICON) -> super::windef::HICON);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn CopyImage(h : super::winnt::HANDLE, r#type : u32, cx : i32, cy : i32, flags : u32) -> super::winnt::HANDLE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CopyRect(lprcdst : *mut super::windef::RECT, lprcsrc : *const super::windef::RECT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CountClipboardFormats() -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CreateAcceleratorTableA(paccel : *const ACCEL, caccel : i32) -> super::windef::HACCEL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CreateAcceleratorTableW(paccel : *const ACCEL, caccel : i32) -> super::windef::HACCEL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CreateCaret(hwnd : super::windef::HWND, hbitmap : super::windef::HBITMAP, nwidth : i32, nheight : i32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateCursor(hinst : super::minwindef::HINSTANCE, xhotspot : i32, yhotspot : i32, nwidth : i32, nheight : i32, pvandplane : *const core::ffi::c_void, pvxorplane : *const core::ffi::c_void) -> super::windef::HCURSOR);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn CreateDesktopA(lpszdesktop : windows_sys::core::PCSTR, lpszdevice : windows_sys::core::PCSTR, pdevmode : *const super::wingdi::DEVMODEA, dwflags : u32, dwdesiredaccess : super::winnt::ACCESS_MASK, lpsa : *const super::minwinbase::SECURITY_ATTRIBUTES) -> super::windef::HDESK);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn CreateDesktopExA(lpszdesktop : windows_sys::core::PCSTR, lpszdevice : windows_sys::core::PCSTR, pdevmode : *const super::wingdi::DEVMODEA, dwflags : u32, dwdesiredaccess : super::winnt::ACCESS_MASK, lpsa : *const super::minwinbase::SECURITY_ATTRIBUTES, ulheapsize : u32, pvoid : *const core::ffi::c_void) -> super::windef::HDESK);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn CreateDesktopExW(lpszdesktop : windows_sys::core::PCWSTR, lpszdevice : windows_sys::core::PCWSTR, pdevmode : *const super::wingdi::DEVMODEW, dwflags : u32, dwdesiredaccess : super::winnt::ACCESS_MASK, lpsa : *const super::minwinbase::SECURITY_ATTRIBUTES, ulheapsize : u32, pvoid : *const core::ffi::c_void) -> super::windef::HDESK);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn CreateDesktopW(lpszdesktop : windows_sys::core::PCWSTR, lpszdevice : windows_sys::core::PCWSTR, pdevmode : *const super::wingdi::DEVMODEW, dwflags : u32, dwdesiredaccess : super::winnt::ACCESS_MASK, lpsa : *const super::minwinbase::SECURITY_ATTRIBUTES) -> super::windef::HDESK);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateDialogIndirectParamA(hinstance : super::minwindef::HINSTANCE, lptemplate : *const DLGTEMPLATE, hwndparent : super::windef::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::minwindef::LPARAM) -> super::windef::HWND);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateDialogIndirectParamW(hinstance : super::minwindef::HINSTANCE, lptemplate : *const DLGTEMPLATE, hwndparent : super::windef::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::minwindef::LPARAM) -> super::windef::HWND);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateDialogParamA(hinstance : super::minwindef::HINSTANCE, lptemplatename : windows_sys::core::PCSTR, hwndparent : super::windef::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::minwindef::LPARAM) -> super::windef::HWND);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateDialogParamW(hinstance : super::minwindef::HINSTANCE, lptemplatename : windows_sys::core::PCWSTR, hwndparent : super::windef::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::minwindef::LPARAM) -> super::windef::HWND);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateIcon(hinstance : super::minwindef::HINSTANCE, nwidth : i32, nheight : i32, cplanes : u8, cbitspixel : u8, lpbandbits : *const u8, lpbxorbits : *const u8) -> super::windef::HICON);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CreateIconFromResource(presbits : *const u8, dwressize : u32, ficon : windows_sys::core::BOOL, dwver : u32) -> super::windef::HICON);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CreateIconFromResourceEx(presbits : *const u8, dwressize : u32, ficon : windows_sys::core::BOOL, dwver : u32, cxdesired : i32, cydesired : i32, flags : u32) -> super::windef::HICON);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CreateIconIndirect(piconinfo : *const ICONINFO) -> super::windef::HICON);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateMDIWindowA(lpclassname : windows_sys::core::PCSTR, lpwindowname : windows_sys::core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::windef::HWND, hinstance : super::minwindef::HINSTANCE, lparam : super::minwindef::LPARAM) -> super::windef::HWND);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateMDIWindowW(lpclassname : windows_sys::core::PCWSTR, lpwindowname : windows_sys::core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::windef::HWND, hinstance : super::minwindef::HINSTANCE, lparam : super::minwindef::LPARAM) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CreateMenu() -> super::windef::HMENU);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CreatePopupMenu() -> super::windef::HMENU);
 windows_link::link!("user32.dll" "system" fn CreateSyntheticPointerDevice(pointertype : POINTER_INPUT_TYPE, maxcount : u32, mode : POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateWindowExA(dwexstyle : u32, lpclassname : windows_sys::core::PCSTR, lpwindowname : windows_sys::core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::windef::HWND, hmenu : super::windef::HMENU, hinstance : super::minwindef::HINSTANCE, lpparam : *const core::ffi::c_void) -> super::windef::HWND);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateWindowExW(dwexstyle : u32, lpclassname : windows_sys::core::PCWSTR, lpwindowname : windows_sys::core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::windef::HWND, hmenu : super::windef::HMENU, hinstance : super::minwindef::HINSTANCE, lpparam : *const core::ffi::c_void) -> super::windef::HWND);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn CreateWindowStationA(lpwinsta : windows_sys::core::PCSTR, dwflags : u32, dwdesiredaccess : super::winnt::ACCESS_MASK, lpsa : *const super::minwinbase::SECURITY_ATTRIBUTES) -> super::minwindef::HWINSTA);
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn CreateWindowStationW(lpwinsta : windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : super::winnt::ACCESS_MASK, lpsa : *const super::minwinbase::SECURITY_ATTRIBUTES) -> super::minwindef::HWINSTA);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DefDlgProcA(hdlg : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DefDlgProcW(hdlg : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DefFrameProcA(hwnd : super::windef::HWND, hwndmdiclient : super::windef::HWND, umsg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DefFrameProcW(hwnd : super::windef::HWND, hwndmdiclient : super::windef::HWND, umsg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DefMDIChildProcA(hwnd : super::windef::HWND, umsg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DefMDIChildProcW(hwnd : super::windef::HWND, umsg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn DefRawInputProc(parawinput : *const PRAWINPUT, ninput : i32, cbsizeheader : u32) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DefWindowProcA(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DefWindowProcW(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn DeferWindowPos(hwinposinfo : HDWP, hwnd : super::windef::HWND, hwndinsertafter : super::windef::HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> HDWP);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DeleteMenu(hmenu : super::windef::HMENU, uposition : u32, uflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DeregisterShellHookWindow(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DestroyAcceleratorTable(haccel : super::windef::HACCEL) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn DestroyCaret() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DestroyCursor(hcursor : super::windef::HCURSOR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DestroyIcon(hicon : super::windef::HICON) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DestroyMenu(hmenu : super::windef::HMENU) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : HSYNTHETICPOINTERDEVICE));
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DestroyWindow(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DialogBoxIndirectParamA(hinstance : super::minwindef::HINSTANCE, hdialogtemplate : *const DLGTEMPLATE, hwndparent : super::windef::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::minwindef::LPARAM) -> isize);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DialogBoxIndirectParamW(hinstance : super::minwindef::HINSTANCE, hdialogtemplate : *const DLGTEMPLATE, hwndparent : super::windef::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::minwindef::LPARAM) -> isize);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DialogBoxParamA(hinstance : super::minwindef::HINSTANCE, lptemplatename : windows_sys::core::PCSTR, hwndparent : super::windef::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::minwindef::LPARAM) -> isize);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DialogBoxParamW(hinstance : super::minwindef::HINSTANCE, lptemplatename : windows_sys::core::PCWSTR, hwndparent : super::windef::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::minwindef::LPARAM) -> isize);
 windows_link::link!("user32.dll" "system" fn DisableProcessWindowsGhosting());
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DispatchMessageA(lpmsg : *const MSG) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DispatchMessageW(lpmsg : *const MSG) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn DisplayConfigGetDeviceInfo(requestpacket : *mut super::wingdi::DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
-#[cfg(all(feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "wingdi", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn DisplayConfigSetDeviceInfo(setpacket : *const super::wingdi::DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DlgDirListA(hdlg : super::windef::HWND, lppathspec : windows_sys::core::PSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DlgDirListComboBoxA(hdlg : super::windef::HWND, lppathspec : windows_sys::core::PSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DlgDirListComboBoxW(hdlg : super::windef::HWND, lppathspec : windows_sys::core::PWSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DlgDirListW(hdlg : super::windef::HWND, lppathspec : windows_sys::core::PWSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DlgDirSelectComboBoxExA(hwnddlg : super::windef::HWND, lpstring : windows_sys::core::PSTR, cchout : i32, idcombobox : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DlgDirSelectComboBoxExW(hwnddlg : super::windef::HWND, lpstring : windows_sys::core::PWSTR, cchout : i32, idcombobox : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DlgDirSelectExA(hwnddlg : super::windef::HWND, lpstring : windows_sys::core::PSTR, chcount : i32, idlistbox : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DlgDirSelectExW(hwnddlg : super::windef::HWND, lpstring : windows_sys::core::PWSTR, chcount : i32, idlistbox : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DragDetect(hwnd : super::windef::HWND, pt : super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DragObject(hwndparent : super::windef::HWND, hwndfrom : super::windef::HWND, fmt : u32, data : usize, hcur : super::windef::HCURSOR) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawAnimatedRects(hwnd : super::windef::HWND, idani : i32, lprcfrom : *const super::windef::RECT, lprcto : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawCaption(hwnd : super::windef::HWND, hdc : super::windef::HDC, lprect : *const super::windef::RECT, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawEdge(hdc : super::windef::HDC, qrc : *mut super::windef::RECT, edge : u32, grfflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawFocusRect(hdc : super::windef::HDC, lprc : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawFrameControl(hdc : super::windef::HDC, lprc : *mut super::windef::RECT, utype : u32, ustate : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawIcon(hdc : super::windef::HDC, x : i32, y : i32, hicon : super::windef::HICON) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawIconEx(hdc : super::windef::HDC, xleft : i32, ytop : i32, hicon : super::windef::HICON, cxwidth : i32, cywidth : i32, istepifanicur : u32, hbrflickerfreedraw : super::windef::HBRUSH, diflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawMenuBar(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DrawStateA(hdc : super::windef::HDC, hbrfore : super::windef::HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::minwindef::LPARAM, wdata : super::minwindef::WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DrawStateW(hdc : super::windef::HDC, hbrfore : super::windef::HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::minwindef::LPARAM, wdata : super::minwindef::WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawTextA(hdc : super::windef::HDC, lpchtext : windows_sys::core::PCSTR, cchtext : i32, lprc : *mut super::windef::RECT, format : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawTextExA(hdc : super::windef::HDC, lpchtext : windows_sys::core::PCSTR, cchtext : i32, lprc : *mut super::windef::RECT, format : u32, lpdtp : *const DRAWTEXTPARAMS) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawTextExW(hdc : super::windef::HDC, lpchtext : windows_sys::core::PCWSTR, cchtext : i32, lprc : *mut super::windef::RECT, format : u32, lpdtp : *const DRAWTEXTPARAMS) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawTextW(hdc : super::windef::HDC, lpchtext : windows_sys::core::PCWSTR, cchtext : i32, lprc : *mut super::windef::RECT, format : u32) -> i32);
 windows_link::link!("user32.dll" "system" fn EmptyClipboard() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EnableMenuItem(hmenu : super::windef::HMENU, uidenableitem : u32, uenable : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn EnableMouseInPointer(fenable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EnableNonClientDpiScaling(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EnableScrollBar(hwnd : super::windef::HWND, wsbflags : u32, warrows : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EnableWindow(hwnd : super::windef::HWND, benable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn EndDeferWindowPos(hwinposinfo : HDWP) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EndDialog(hdlg : super::windef::HWND, nresult : isize) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn EndMenu() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EndPaint(hwnd : super::windef::HWND, lppaint : *const PAINTSTRUCT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EnterMoveSizeLoop(hwnd : super::windef::HWND, ptcursor : super::windef::POINT, movesizecode : MOVESIZE_OPERATION) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EnumChildWindows(hwndparent : super::windef::HWND, lpenumfunc : WNDENUMPROC, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn EnumClipboardFormats(format : u32) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EnumDesktopWindows(hdesktop : super::windef::HDESK, lpfn : WNDENUMPROC, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn EnumDesktopsA(hwinsta : super::minwindef::HWINSTA, lpenumfunc : DESKTOPENUMPROCA, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn EnumDesktopsW(hwinsta : super::minwindef::HWINSTA, lpenumfunc : DESKTOPENUMPROCW, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 windows_link::link!("user32.dll" "system" fn EnumDisplayDevicesA(lpdevice : windows_sys::core::PCSTR, idevnum : u32, lpdisplaydevice : *mut super::wingdi::DISPLAY_DEVICEA, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 windows_link::link!("user32.dll" "system" fn EnumDisplayDevicesW(lpdevice : windows_sys::core::PCWSTR, idevnum : u32, lpdisplaydevice : *mut super::wingdi::DISPLAY_DEVICEW, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EnumDisplayMonitors(hdc : super::windef::HDC, lprcclip : *const super::windef::RECT, lpfnenum : MONITORENUMPROC, dwdata : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsA(lpszdevicename : windows_sys::core::PCSTR, imodenum : u32, lpdevmode : *mut super::wingdi::DEVMODEA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsExA(lpszdevicename : windows_sys::core::PCSTR, imodenum : u32, lpdevmode : *mut super::wingdi::DEVMODEA, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsExW(lpszdevicename : windows_sys::core::PCWSTR, imodenum : u32, lpdevmode : *mut super::wingdi::DEVMODEW, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsW(lpszdevicename : windows_sys::core::PCWSTR, imodenum : u32, lpdevmode : *mut super::wingdi::DEVMODEW) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn EnumPropsA(hwnd : super::windef::HWND, lpenumfunc : PROPENUMPROCA) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn EnumPropsExA(hwnd : super::windef::HWND, lpenumfunc : PROPENUMPROCEXA, lparam : super::minwindef::LPARAM) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn EnumPropsExW(hwnd : super::windef::HWND, lpenumfunc : PROPENUMPROCEXW, lparam : super::minwindef::LPARAM) -> i32);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn EnumPropsW(hwnd : super::windef::HWND, lpenumfunc : PROPENUMPROCW) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EnumThreadWindows(dwthreadid : u32, lpfn : WNDENUMPROC, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn EnumWindowStationsA(lpenumfunc : WINSTAENUMPROCA, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn EnumWindowStationsW(lpenumfunc : WINSTAENUMPROCW, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EnumWindows(lpenumfunc : WNDENUMPROC, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EqualRect(lprc1 : *const super::windef::RECT, lprc2 : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EvaluateProximityToPolygon(numvertices : u32, controlpolygon : *const super::windef::POINT, phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EvaluateProximityToRect(controlboundingbox : *const super::windef::RECT, phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ExcludeUpdateRgn(hdc : super::windef::HDC, hwnd : super::windef::HWND) -> i32);
 windows_link::link!("user32.dll" "system" fn ExitWindowsEx(uflags : u32, dwreason : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn FillRect(hdc : super::windef::HDC, lprc : *const super::windef::RECT, hbr : super::windef::HBRUSH) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn FindWindowA(lpclassname : windows_sys::core::PCSTR, lpwindowname : windows_sys::core::PCSTR) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn FindWindowExA(hwndparent : super::windef::HWND, hwndchildafter : super::windef::HWND, lpszclass : windows_sys::core::PCSTR, lpszwindow : windows_sys::core::PCSTR) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn FindWindowExW(hwndparent : super::windef::HWND, hwndchildafter : super::windef::HWND, lpszclass : windows_sys::core::PCWSTR, lpszwindow : windows_sys::core::PCWSTR) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn FindWindowW(lpclassname : windows_sys::core::PCWSTR, lpwindowname : windows_sys::core::PCWSTR) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn FlashWindow(hwnd : super::windef::HWND, binvert : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn FlashWindowEx(pfwi : *const FLASHWINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn FrameRect(hdc : super::windef::HDC, lprc : *const super::windef::RECT, hbr : super::windef::HBRUSH) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetActiveWindow() -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetAltTabInfoA(hwnd : super::windef::HWND, iitem : i32, pati : *mut ALTTABINFO, pszitemtext : windows_sys::core::PSTR, cchitemtext : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetAltTabInfoW(hwnd : super::windef::HWND, iitem : i32, pati : *mut ALTTABINFO, pszitemtext : windows_sys::core::PWSTR, cchitemtext : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetAncestor(hwnd : super::windef::HWND, gaflags : u32) -> super::windef::HWND);
 windows_link::link!("user32.dll" "system" fn GetAsyncKeyState(vkey : i32) -> i16);
 windows_link::link!("user32.dll" "system" fn GetAutoRotationState(pstate : *mut AR_STATE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetAwarenessFromDpiAwarenessContext(value : super::windef::DPI_AWARENESS_CONTEXT) -> super::windef::DPI_AWARENESS);
 windows_link::link!("user32.dll" "system" fn GetCIMSSM(inputmessagesource : *mut INPUT_MESSAGE_SOURCE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetCapture() -> super::windef::HWND);
 windows_link::link!("user32.dll" "system" fn GetCaretBlinkTime() -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetCaretPos(lppoint : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetClassInfoA(hinstance : super::minwindef::HINSTANCE, lpclassname : windows_sys::core::PCSTR, lpwndclass : *mut WNDCLASSA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetClassInfoExA(hinstance : super::minwindef::HINSTANCE, lpszclass : windows_sys::core::PCSTR, lpwcx : *mut WNDCLASSEXA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetClassInfoExW(hinstance : super::minwindef::HINSTANCE, lpszclass : windows_sys::core::PCWSTR, lpwcx : *mut WNDCLASSEXW) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetClassInfoW(hinstance : super::minwindef::HINSTANCE, lpclassname : windows_sys::core::PCWSTR, lpwndclass : *mut WNDCLASSW) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClassLongA(hwnd : super::windef::HWND, nindex : i32) -> u32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClassLongPtrA(hwnd : super::windef::HWND, nindex : i32) -> usize);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClassLongPtrW(hwnd : super::windef::HWND, nindex : i32) -> usize);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClassLongW(hwnd : super::windef::HWND, nindex : i32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClassNameA(hwnd : super::windef::HWND, lpclassname : windows_sys::core::PSTR, nmaxcount : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClassNameW(hwnd : super::windef::HWND, lpclassname : windows_sys::core::PWSTR, nmaxcount : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClassWord(hwnd : super::windef::HWND, nindex : i32) -> u16);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClientRect(hwnd : super::windef::HWND, lprect : *mut super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClipCursor(lprect : *mut super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetClipboardData(uformat : u32) -> super::winnt::HANDLE);
 windows_link::link!("user32.dll" "system" fn GetClipboardFormatNameA(format : u32, lpszformatname : windows_sys::core::PSTR, cchmaxcount : i32) -> i32);
 windows_link::link!("user32.dll" "system" fn GetClipboardFormatNameW(format : u32, lpszformatname : windows_sys::core::PWSTR, cchmaxcount : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClipboardOwner() -> super::windef::HWND);
 windows_link::link!("user32.dll" "system" fn GetClipboardSequenceNumber() -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClipboardViewer() -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetComboBoxInfo(hwndcombo : super::windef::HWND, pcbi : *mut COMBOBOXINFO) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetCurrentInputMessageSource(inputmessagesource : *mut INPUT_MESSAGE_SOURCE) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetCurrentMonitorTopologyId() -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetCursor() -> super::windef::HCURSOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetCursorInfo(pci : *mut CURSORINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetCursorPos(lppoint : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDC(hwnd : super::windef::HWND) -> super::windef::HDC);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetDCEx(hwnd : super::windef::HWND, hrgnclip : super::minwindef::HRGN, flags : u32) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDesktopWindow() -> super::windef::HWND);
 windows_link::link!("user32.dll" "system" fn GetDialogBaseUnits() -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDialogControlDpiChangeBehavior(hwnd : super::windef::HWND) -> DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDialogDpiChangeBehavior(hdlg : super::windef::HWND) -> DIALOG_DPI_CHANGE_BEHAVIORS);
 windows_link::link!("user32.dll" "system" fn GetDisplayAutoRotationPreferences(porientation : *mut ORIENTATION_PREFERENCE) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetDisplayConfigBufferSizes(flags : u32, numpatharrayelements : *mut u32, nummodeinfoarrayelements : *mut u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDlgCtrlID(hwnd : super::windef::HWND) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDlgItem(hdlg : super::windef::HWND, niddlgitem : i32) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDlgItemInt(hdlg : super::windef::HWND, niddlgitem : i32, lptranslated : *mut windows_sys::core::BOOL, bsigned : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDlgItemTextA(hdlg : super::windef::HWND, niddlgitem : i32, lpstring : windows_sys::core::PSTR, cchmax : i32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDlgItemTextW(hdlg : super::windef::HWND, niddlgitem : i32, lpstring : windows_sys::core::PWSTR, cchmax : i32) -> u32);
 windows_link::link!("user32.dll" "system" fn GetDoubleClickTime() -> u32);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetDpiAwarenessContextForProcess(hprocess : super::winnt::HANDLE) -> super::windef::DPI_AWARENESS_CONTEXT);
 windows_link::link!("user32.dll" "system" fn GetDpiForSystem() -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : super::windef::HWND) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDpiFromDpiAwarenessContext(value : super::windef::DPI_AWARENESS_CONTEXT) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetFocus() -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetForegroundWindow() -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetGUIThreadInfo(idthread : u32, pgui : *mut GUITHREADINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::windef::HWND, dwreserved : u32, dwflags : u32, pcids : *const u32, pgestureconfig : *mut GESTURECONFIG, cbsize : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetGestureExtraArgs(hgestureinfo : HGESTUREINFO, cbextraargs : u32, pextraargs : *mut u8) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetGestureInfo(hgestureinfo : HGESTUREINFO, pgestureinfo : *mut GESTUREINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetGuiResources(hprocess : super::winnt::HANDLE, uiflags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetIconInfo(hicon : super::windef::HICON, piconinfo : *mut ICONINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetIconInfoExA(hicon : super::windef::HICON, piconinfo : *mut ICONINFOEXA) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetIconInfoExW(hicon : super::windef::HICON, piconinfo : *mut ICONINFOEXW) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetInputState() -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetKBCodePage() -> u32);
 windows_link::link!("user32.dll" "system" fn GetKeyNameTextA(lparam : i32, lpstring : windows_sys::core::PSTR, cchsize : i32) -> i32);
 windows_link::link!("user32.dll" "system" fn GetKeyNameTextW(lparam : i32, lpstring : windows_sys::core::PWSTR, cchsize : i32) -> i32);
 windows_link::link!("user32.dll" "system" fn GetKeyState(nvirtkey : i32) -> i16);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn GetKeyboardLayout(idthread : u32) -> super::minwindef::HKL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn GetKeyboardLayoutList(nbuff : i32, lplist : *mut super::minwindef::HKL) -> i32);
 windows_link::link!("user32.dll" "system" fn GetKeyboardLayoutNameA(pwszklid : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetKeyboardLayoutNameW(pwszklid : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : *mut u8) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetKeyboardType(ntypeflag : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetLastActivePopup(hwnd : super::windef::HWND) -> super::windef::HWND);
 windows_link::link!("user32.dll" "system" fn GetLastInputInfo(plii : *mut LASTINPUTINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetLayeredWindowAttributes(hwnd : super::windef::HWND, pcrkey : *mut super::windef::COLORREF, pbalpha : *mut u8, pdwflags : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetListBoxInfo(hwnd : super::windef::HWND) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenu(hwnd : super::windef::HWND) -> super::windef::HMENU);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuBarInfo(hwnd : super::windef::HWND, idobject : i32, iditem : i32, pmbi : *mut MENUBARINFO) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetMenuCheckMarkDimensions() -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuContextHelpId(param0 : super::windef::HMENU) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuDefaultItem(hmenu : super::windef::HMENU, fbypos : u32, gmdiflags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuInfo(param0 : super::windef::HMENU, param1 : *mut MENUINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuItemCount(hmenu : super::windef::HMENU) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuItemID(hmenu : super::windef::HMENU, npos : i32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuItemInfoA(hmenu : super::windef::HMENU, item : u32, fbyposition : windows_sys::core::BOOL, lpmii : *mut MENUITEMINFOA) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuItemInfoW(hmenu : super::windef::HMENU, item : u32, fbyposition : windows_sys::core::BOOL, lpmii : *mut MENUITEMINFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuItemRect(hwnd : super::windef::HWND, hmenu : super::windef::HMENU, uitem : u32, lprcitem : *mut super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuState(hmenu : super::windef::HMENU, uid : u32, uflags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuStringA(hmenu : super::windef::HMENU, uiditem : u32, lpstring : windows_sys::core::PSTR, cchmax : i32, flags : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuStringW(hmenu : super::windef::HMENU, uiditem : u32, lpstring : windows_sys::core::PWSTR, cchmax : i32, flags : u32) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetMessageA(lpmsg : *mut MSG, hwnd : super::windef::HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn GetMessageExtraInfo() -> super::minwindef::LPARAM);
 windows_link::link!("user32.dll" "system" fn GetMessagePos() -> u32);
 windows_link::link!("user32.dll" "system" fn GetMessageTime() -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetMessageW(lpmsg : *mut MSG, hwnd : super::windef::HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMonitorInfoA(hmonitor : super::windef::HMONITOR, lpmi : *mut MONITORINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : super::windef::HMONITOR, lpmi : *mut MONITORINFO) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetMouseMovePointsEx(cbsize : u32, lppt : *const MOUSEMOVEPOINT, lpptbuf : *mut MOUSEMOVEPOINT, nbufpoints : i32, resolution : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetNextDlgGroupItem(hdlg : super::windef::HWND, hctl : super::windef::HWND, bprevious : windows_sys::core::BOOL) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetNextDlgTabItem(hdlg : super::windef::HWND, hctl : super::windef::HWND, bprevious : windows_sys::core::BOOL) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetOpenClipboardWindow() -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetParent(hwnd : super::windef::HWND) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetPhysicalCursorPos(lppoint : *mut super::windef::POINT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetPointerCursorId(pointerid : u32, cursorid : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerDevice(device : super::winnt::HANDLE, pointerdevice : *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetPointerDeviceCursors(device : super::winnt::HANDLE, cursorcount : *mut u32, devicecursors : *mut POINTER_DEVICE_CURSOR_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetPointerDeviceProperties(device : super::winnt::HANDLE, propertycount : *mut u32, pointerproperties : *mut POINTER_DEVICE_PROPERTY) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerDeviceRects(device : super::winnt::HANDLE, pointerdevicerect : *mut super::windef::RECT, displayrect : *mut super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerDevices(devicecount : *mut u32, pointerdevices : *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerFrameInfo(pointerid : u32, pointercount : *mut u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerFrameInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerFramePenInfo(pointerid : u32, pointercount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerFramePenInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchInfo(pointerid : u32, pointercount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerInfo(pointerid : u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerInfoHistory(pointerid : u32, entriescount : *mut u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetPointerInputTransform(pointerid : u32, historycount : u32, inputtransform : *mut INPUT_TRANSFORM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerPenInfo(pointerid : u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerPenInfoHistory(pointerid : u32, entriescount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerTouchInfo(pointerid : u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerTouchInfoHistory(pointerid : u32, entriescount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetPointerType(pointerid : u32, pointertype : *mut POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetPriorityClipboardFormat(paformatprioritylist : *const u32, cformats : i32) -> i32);
 windows_link::link!("user32.dll" "system" fn GetProcessDefaultLayout(pdwdefaultlayout : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn GetProcessWindowStation() -> super::minwindef::HWINSTA);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPropA(hwnd : super::windef::HWND, lpstring : windows_sys::core::PCSTR) -> super::winnt::HANDLE);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPropW(hwnd : super::windef::HWND, lpstring : windows_sys::core::PCWSTR) -> super::winnt::HANDLE);
 windows_link::link!("user32.dll" "system" fn GetQueueStatus(flags : u32) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetRawInputBuffer(pdata : *mut RAWINPUT, pcbsize : *mut u32, cbsizeheader : u32) -> u32);
 windows_link::link!("user32.dll" "system" fn GetRawInputData(hrawinput : HRAWINPUT, uicommand : u32, pdata : *mut core::ffi::c_void, pcbsize : *mut u32, cbsizeheader : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetRawInputDeviceInfoA(hdevice : super::winnt::HANDLE, uicommand : u32, pdata : *mut core::ffi::c_void, pcbsize : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetRawInputDeviceInfoW(hdevice : super::winnt::HANDLE, uicommand : u32, pdata : *mut core::ffi::c_void, pcbsize : *mut u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetRawInputDeviceList(prawinputdevicelist : *mut RAWINPUTDEVICELIST, puinumdevices : *mut u32, cbsize : u32) -> u32);
 windows_link::link!("user32.dll" "system" fn GetRawPointerDeviceData(pointerid : u32, historycount : u32, propertiescount : u32, pproperties : *const POINTER_DEVICE_PROPERTY, pvalues : *mut i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetRegisteredRawInputDevices(prawinputdevices : *mut RAWINPUTDEVICE, puinumdevices : *mut u32, cbsize : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetScrollBarInfo(hwnd : super::windef::HWND, idobject : i32, psbi : *mut SCROLLBARINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetScrollInfo(hwnd : super::windef::HWND, nbar : i32, lpsi : *mut SCROLLINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetScrollPos(hwnd : super::windef::HWND, nbar : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetScrollRange(hwnd : super::windef::HWND, nbar : i32, lpminpos : *mut i32, lpmaxpos : *mut i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetShellWindow() -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetSubMenu(hmenu : super::windef::HMENU, npos : i32) -> super::windef::HMENU);
 windows_link::link!("user32.dll" "system" fn GetSysColor(nindex : i32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetSysColorBrush(nindex : i32) -> super::windef::HBRUSH);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetSystemDpiForProcess(hprocess : super::winnt::HANDLE) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetSystemMenu(hwnd : super::windef::HWND, brevert : windows_sys::core::BOOL) -> super::windef::HMENU);
 windows_link::link!("user32.dll" "system" fn GetSystemMetrics(nindex : i32) -> i32);
 windows_link::link!("user32.dll" "system" fn GetSystemMetricsForDpi(nindex : i32, dpi : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetTabbedTextExtentA(hdc : super::windef::HDC, lpstring : windows_sys::core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetTabbedTextExtentW(hdc : super::windef::HDC, lpstring : windows_sys::core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetThreadDesktop(dwthreadid : u32) -> super::windef::HDESK);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetThreadDpiAwarenessContext() -> super::windef::DPI_AWARENESS_CONTEXT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetThreadDpiHostingBehavior() -> super::windef::DPI_HOSTING_BEHAVIOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetTitleBarInfo(hwnd : super::windef::HWND, pti : *mut TITLEBARINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetTopWindow(hwnd : super::windef::HWND) -> super::windef::HWND);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetTouchInputInfo(htouchinput : HTOUCHINPUT, cinputs : u32, pinputs : *mut TOUCHINPUT, cbsize : i32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetUnpredictedMessagePos() -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetUpdateRect(hwnd : super::windef::HWND, lprect : *mut super::windef::RECT, berase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetUpdateRgn(hwnd : super::windef::HWND, hrgn : super::minwindef::HRGN, berase : windows_sys::core::BOOL) -> i32);
 windows_link::link!("user32.dll" "system" fn GetUpdatedClipboardFormats(lpuiformats : *mut u32, cformats : u32, pcformatsout : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetUserObjectInformationA(hobj : super::winnt::HANDLE, nindex : i32, pvinfo : *mut core::ffi::c_void, nlength : u32, lpnlengthneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetUserObjectInformationW(hobj : super::winnt::HANDLE, nindex : i32, pvinfo : *mut core::ffi::c_void, nlength : u32, lpnlengthneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn GetUserObjectSecurity(hobj : super::winnt::HANDLE, psirequested : *const u32, psid : super::winnt::PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindow(hwnd : super::windef::HWND, ucmd : u32) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowContextHelpId(param0 : super::windef::HWND) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowDC(hwnd : super::windef::HWND) -> super::windef::HDC);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowDisplayAffinity(hwnd : super::windef::HWND, pdwaffinity : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowDpiAwarenessContext(hwnd : super::windef::HWND) -> super::windef::DPI_AWARENESS_CONTEXT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowDpiHostingBehavior(hwnd : super::windef::HWND) -> super::windef::DPI_HOSTING_BEHAVIOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowFeedbackSetting(hwnd : super::windef::HWND, feedback : FEEDBACK_TYPE, dwflags : u32, psize : *mut u32, config : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetWindowInfo(hwnd : super::windef::HWND, pwi : *mut WINDOWINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowLongA(hwnd : super::windef::HWND, nindex : i32) -> i32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowLongPtrA(hwnd : super::windef::HWND, nindex : i32) -> isize);
 #[cfg(target_pointer_width = "32")]
 pub use GetWindowLongA as GetWindowLongPtrA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : super::windef::HWND, nindex : i32) -> isize);
 #[cfg(target_pointer_width = "32")]
 pub use GetWindowLongW as GetWindowLongPtrW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowLongW(hwnd : super::windef::HWND, nindex : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowModuleFileNameA(hwnd : super::windef::HWND, pszfilename : windows_sys::core::PSTR, cchfilenamemax : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowModuleFileNameW(hwnd : super::windef::HWND, pszfilename : windows_sys::core::PWSTR, cchfilenamemax : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowPlacement(hwnd : super::windef::HWND, lpwndpl : *mut WINDOWPLACEMENT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowRect(hwnd : super::windef::HWND, lprect : *mut super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetWindowRgn(hwnd : super::windef::HWND, hrgn : super::minwindef::HRGN) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowRgnBox(hwnd : super::windef::HWND, lprc : *mut super::windef::RECT) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowTextA(hwnd : super::windef::HWND, lpstring : windows_sys::core::PSTR, nmaxcount : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowTextLengthA(hwnd : super::windef::HWND) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowTextLengthW(hwnd : super::windef::HWND) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowTextW(hwnd : super::windef::HWND, lpstring : windows_sys::core::PWSTR, nmaxcount : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowThreadProcessId(hwnd : super::windef::HWND, lpdwprocessid : *mut u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowWord(hwnd : super::windef::HWND, nindex : i32) -> u16);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GrayStringA(hdc : super::windef::HDC, hbrush : super::windef::HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::minwindef::LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GrayStringW(hdc : super::windef::HDC, hbrush : super::windef::HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::minwindef::LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn HideCaret(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn HiliteMenuItem(hwnd : super::windef::HWND, hmenu : super::windef::HMENU, uidhiliteitem : u32, uhilite : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn InSendMessage() -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn InSendMessageEx(lpreserved : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn InflateRect(lprc : *mut super::windef::RECT, dx : i32, dy : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn InheritWindowMonitor(hwnd : super::windef::HWND, hwndinherit : super::windef::HWND) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn InitializeTouchInjection(maxcount : u32, dwmode : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn InjectSyntheticPointerInput(device : HSYNTHETICPOINTERDEVICE, pointerinfo : *const POINTER_TYPE_INFO, count : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn InjectTouchInput(count : u32, contacts : *const POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn InsertMenuA(hmenu : super::windef::HMENU, uposition : u32, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn InsertMenuItemA(hmenu : super::windef::HMENU, item : u32, fbyposition : windows_sys::core::BOOL, lpmi : *const MENUITEMINFOA) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn InsertMenuItemW(hmenu : super::windef::HMENU, item : u32, fbyposition : windows_sys::core::BOOL, lpmi : *const MENUITEMINFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn InsertMenuW(hmenu : super::windef::HMENU, uposition : u32, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn InternalGetWindowText(hwnd : super::windef::HWND, pstring : windows_sys::core::PWSTR, cchmaxcount : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IntersectRect(lprcdst : *mut super::windef::RECT, lprcsrc1 : *const super::windef::RECT, lprcsrc2 : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn InvalidateRect(hwnd : super::windef::HWND, lprect : *const super::windef::RECT, berase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn InvalidateRgn(hwnd : super::windef::HWND, hrgn : super::minwindef::HRGN, berase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn InvertRect(hdc : super::windef::HDC, lprc : *const super::windef::RECT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsCharAlphaA(ch : i8) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsCharAlphaNumericA(ch : i8) -> windows_sys::core::BOOL);
@@ -751,546 +751,546 @@ windows_link::link!("user32.dll" "system" fn IsCharLowerA(ch : i8) -> windows_sy
 windows_link::link!("user32.dll" "system" fn IsCharLowerW(ch : u16) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsCharUpperA(ch : i8) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsCharUpperW(ch : u16) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsChild(hwndparent : super::windef::HWND, hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsClipboardFormatAvailable(format : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn IsDialogMessageA(hdlg : super::windef::HWND, lpmsg : *const MSG) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn IsDialogMessageW(hdlg : super::windef::HWND, lpmsg : *const MSG) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsDlgButtonChecked(hdlg : super::windef::HWND, nidbutton : i32) -> u32);
 windows_link::link!("user32.dll" "system" fn IsGUIThread(bconvert : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsHungAppWindow(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsIconic(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn IsImmersiveProcess(hprocess : super::winnt::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsInterceptWindow(toplevelwindow : super::windef::HWND, isintercept : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsMenu(hmenu : super::windef::HMENU) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsMouseInPointerEnabled() -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsProcessDPIAware() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsRectEmpty(lprc : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsTouchWindow(hwnd : super::windef::HWND, pulflags : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsValidDpiAwarenessContext(value : super::windef::DPI_AWARENESS_CONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsWinEventHookInstalled(event : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsWindow(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsWindowArranged(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsWindowEnabled(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsWindowUnicode(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsWindowVisible(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsWow64Message() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsZoomed(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn KillTimer(hwnd : super::windef::HWND, uidevent : usize) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadAcceleratorsA(hinstance : super::minwindef::HINSTANCE, lptablename : windows_sys::core::PCSTR) -> super::windef::HACCEL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadAcceleratorsW(hinstance : super::minwindef::HINSTANCE, lptablename : windows_sys::core::PCWSTR) -> super::windef::HACCEL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadBitmapA(hinstance : super::minwindef::HINSTANCE, lpbitmapname : windows_sys::core::PCSTR) -> super::windef::HBITMAP);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadBitmapW(hinstance : super::minwindef::HINSTANCE, lpbitmapname : windows_sys::core::PCWSTR) -> super::windef::HBITMAP);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadCursorA(hinstance : super::minwindef::HINSTANCE, lpcursorname : windows_sys::core::PCSTR) -> super::windef::HCURSOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn LoadCursorFromFileA(lpfilename : windows_sys::core::PCSTR) -> super::windef::HCURSOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn LoadCursorFromFileW(lpfilename : windows_sys::core::PCWSTR) -> super::windef::HCURSOR);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadCursorW(hinstance : super::minwindef::HINSTANCE, lpcursorname : windows_sys::core::PCWSTR) -> super::windef::HCURSOR);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadIconA(hinstance : super::minwindef::HINSTANCE, lpiconname : windows_sys::core::PCSTR) -> super::windef::HICON);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadIconW(hinstance : super::minwindef::HINSTANCE, lpiconname : windows_sys::core::PCWSTR) -> super::windef::HICON);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn LoadImageA(hinst : super::minwindef::HINSTANCE, name : windows_sys::core::PCSTR, r#type : u32, cx : i32, cy : i32, fuload : u32) -> super::winnt::HANDLE);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn LoadImageW(hinst : super::minwindef::HINSTANCE, name : windows_sys::core::PCWSTR, r#type : u32, cx : i32, cy : i32, fuload : u32) -> super::winnt::HANDLE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn LoadKeyboardLayoutA(pwszklid : windows_sys::core::PCSTR, flags : u32) -> super::minwindef::HKL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn LoadKeyboardLayoutW(pwszklid : windows_sys::core::PCWSTR, flags : u32) -> super::minwindef::HKL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadMenuA(hinstance : super::minwindef::HINSTANCE, lpmenuname : windows_sys::core::PCSTR) -> super::windef::HMENU);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn LoadMenuIndirectA(lpmenutemplate : *const MENUTEMPLATEA) -> super::windef::HMENU);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn LoadMenuIndirectW(lpmenutemplate : *const MENUTEMPLATEW) -> super::windef::HMENU);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadMenuW(hinstance : super::minwindef::HINSTANCE, lpmenuname : windows_sys::core::PCWSTR) -> super::windef::HMENU);
 windows_link::link!("user32.dll" "system" fn LockSetForegroundWindow(ulockcode : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn LockWindowUpdate(hwndlock : super::windef::HWND) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn LockWorkStation() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn LogicalToPhysicalPoint(hwnd : super::windef::HWND, lppoint : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn LogicalToPhysicalPointForPerMonitorDPI(hwnd : super::windef::HWND, lppoint : *mut super::windef::POINT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn LookupIconIdFromDirectory(presbits : *const u8, ficon : windows_sys::core::BOOL) -> i32);
 windows_link::link!("user32.dll" "system" fn LookupIconIdFromDirectoryEx(presbits : *const u8, ficon : windows_sys::core::BOOL, cxdesired : i32, cydesired : i32, flags : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MapDialogRect(hdlg : super::windef::HWND, lprect : *mut super::windef::RECT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn MapVirtualKeyA(ucode : u32, umaptype : u32) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn MapVirtualKeyExA(ucode : u32, umaptype : u32, dwhkl : super::minwindef::HKL) -> u32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn MapVirtualKeyExW(ucode : u32, umaptype : u32, dwhkl : super::minwindef::HKL) -> u32);
 windows_link::link!("user32.dll" "system" fn MapVirtualKeyW(ucode : u32, umaptype : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MapWindowPoints(hwndfrom : super::windef::HWND, hwndto : super::windef::HWND, lppoints : *mut super::windef::POINT, cpoints : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MenuItemFromPoint(hwnd : super::windef::HWND, hmenu : super::windef::HMENU, ptscreen : super::windef::POINT) -> i32);
 windows_link::link!("user32.dll" "system" fn MessageBeep(utype : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MessageBoxA(hwnd : super::windef::HWND, lptext : windows_sys::core::PCSTR, lpcaption : windows_sys::core::PCSTR, utype : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MessageBoxExA(hwnd : super::windef::HWND, lptext : windows_sys::core::PCSTR, lpcaption : windows_sys::core::PCSTR, utype : u32, wlanguageid : u16) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MessageBoxExW(hwnd : super::windef::HWND, lptext : windows_sys::core::PCWSTR, lpcaption : windows_sys::core::PCWSTR, utype : u32, wlanguageid : u16) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn MessageBoxIndirectA(lpmbp : *const MSGBOXPARAMSA) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn MessageBoxIndirectW(lpmbp : *const MSGBOXPARAMSW) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MessageBoxW(hwnd : super::windef::HWND, lptext : windows_sys::core::PCWSTR, lpcaption : windows_sys::core::PCWSTR, utype : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ModifyMenuA(hmnu : super::windef::HMENU, uposition : u32, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ModifyMenuW(hmnu : super::windef::HMENU, uposition : u32, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MonitorFromPoint(pt : super::windef::POINT, dwflags : u32) -> super::windef::HMONITOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MonitorFromRect(lprc : *const super::windef::RECT, dwflags : u32) -> super::windef::HMONITOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : super::windef::HWND, dwflags : u32) -> super::windef::HMONITOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MoveWindow(hwnd : super::windef::HWND, x : i32, y : i32, nwidth : i32, nheight : i32, brepaint : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn MsgWaitForMultipleObjects(ncount : u32, phandles : *const super::winnt::HANDLE, fwaitall : windows_sys::core::BOOL, dwmilliseconds : u32, dwwakemask : u32) -> u32);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn MsgWaitForMultipleObjectsEx(ncount : u32, phandles : *const super::winnt::HANDLE, dwmilliseconds : u32, dwwakemask : u32, dwflags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn NotifyWinEvent(event : u32, hwnd : super::windef::HWND, idobject : i32, idchild : i32));
 windows_link::link!("user32.dll" "system" fn OemKeyScan(woemchar : u16) -> u32);
 windows_link::link!("user32.dll" "system" fn OemToCharA(psrc : windows_sys::core::PCSTR, pdst : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn OemToCharBuffA(lpszsrc : windows_sys::core::PCSTR, lpszdst : windows_sys::core::PSTR, cchdstlength : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn OemToCharBuffW(lpszsrc : windows_sys::core::PCSTR, lpszdst : windows_sys::core::PWSTR, cchdstlength : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn OemToCharW(psrc : windows_sys::core::PCSTR, pdst : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn OffsetRect(lprc : *mut super::windef::RECT, dx : i32, dy : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn OpenClipboard(hwndnewowner : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn OpenDesktopA(lpszdesktop : windows_sys::core::PCSTR, dwflags : u32, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::winnt::ACCESS_MASK) -> super::windef::HDESK);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn OpenDesktopW(lpszdesktop : windows_sys::core::PCWSTR, dwflags : u32, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::winnt::ACCESS_MASK) -> super::windef::HDESK);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn OpenIcon(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn OpenInputDesktop(dwflags : u32, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::winnt::ACCESS_MASK) -> super::windef::HDESK);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn OpenWindowStationA(lpszwinsta : windows_sys::core::PCSTR, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::winnt::ACCESS_MASK) -> super::minwindef::HWINSTA);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn OpenWindowStationW(lpszwinsta : windows_sys::core::PCWSTR, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::winnt::ACCESS_MASK) -> super::minwindef::HWINSTA);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn PackTouchHitTestingProximityEvaluation(phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::minwindef::LRESULT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn PaintDesktop(hdc : super::windef::HDC) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn PeekMessageA(lpmsg : *mut MSG, hwnd : super::windef::HWND, wmsgfiltermin : u32, wmsgfiltermax : u32, wremovemsg : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn PeekMessageW(lpmsg : *mut MSG, hwnd : super::windef::HWND, wmsgfiltermin : u32, wmsgfiltermax : u32, wremovemsg : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn PhysicalToLogicalPoint(hwnd : super::windef::HWND, lppoint : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn PhysicalToLogicalPointForPerMonitorDPI(hwnd : super::windef::HWND, lppoint : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn PostMessageA(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn PostMessageW(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn PostThreadMessageA(idthread : u32, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn PostThreadMessageW(idthread : u32, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn PrintWindow(hwnd : super::windef::HWND, hdcblt : super::windef::HDC, nflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn PrivateExtractIconsA(szfilename : windows_sys::core::PCSTR, niconindex : i32, cxicon : i32, cyicon : i32, phicon : *mut super::windef::HICON, piconid : *mut u32, nicons : u32, flags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn PrivateExtractIconsW(szfilename : windows_sys::core::PCWSTR, niconindex : i32, cxicon : i32, cyicon : i32, phicon : *mut super::windef::HICON, piconid : *mut u32, nicons : u32, flags : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn PtInRect(lprc : *const super::windef::RECT, pt : super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn QueryDisplayConfig(flags : u32, numpatharrayelements : *mut u32, patharray : *mut super::wingdi::DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : *mut u32, modeinfoarray : *mut super::wingdi::DISPLAYCONFIG_MODE_INFO, currenttopologyid : *mut super::wingdi::DISPLAYCONFIG_TOPOLOGY_ID) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RealChildWindowFromPoint(hwndparent : super::windef::HWND, ptparentclientcoords : super::windef::POINT) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RealGetWindowClassA(hwnd : super::windef::HWND, ptszclassname : windows_sys::core::PSTR, cchclassnamemax : u32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RealGetWindowClassW(hwnd : super::windef::HWND, ptszclassname : windows_sys::core::PWSTR, cchclassnamemax : u32) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn RedrawWindow(hwnd : super::windef::HWND, lprcupdate : *const super::windef::RECT, hrgnupdate : super::minwindef::HRGN, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn RegisterClassA(lpwndclass : *const WNDCLASSA) -> super::minwindef::ATOM);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn RegisterClassExA(param0 : *const WNDCLASSEXA) -> super::minwindef::ATOM);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn RegisterClassExW(param0 : *const WNDCLASSEXW) -> super::minwindef::ATOM);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn RegisterClassW(lpwndclass : *const WNDCLASSW) -> super::minwindef::ATOM);
 windows_link::link!("user32.dll" "system" fn RegisterClipboardFormatA(lpszformat : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("user32.dll" "system" fn RegisterClipboardFormatW(lpszformat : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterCloakedNotification(hwnd : super::windef::HWND, fregister : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn RegisterDeviceNotificationA(hrecipient : super::winnt::HANDLE, notificationfilter : *const core::ffi::c_void, flags : u32) -> HDEVNOTIFY);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn RegisterDeviceNotificationW(hrecipient : super::winnt::HANDLE, notificationfilter : *const core::ffi::c_void, flags : u32) -> HDEVNOTIFY);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterForTooltipDismissNotification(hwnd : super::windef::HWND, tdflags : TOOLTIP_DISMISS_FLAGS) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterHotKey(hwnd : super::windef::HWND, id : i32, fsmodifiers : u32, vk : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterPointerDeviceNotifications(window : super::windef::HWND, notifyrange : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterPointerInputTarget(hwnd : super::windef::HWND, pointertype : POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterPointerInputTargetEx(hwnd : super::windef::HWND, pointertype : POINTER_INPUT_TYPE, fobserve : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn RegisterPowerSettingNotification(hrecipient : super::winnt::HANDLE, powersettingguid : *const windows_sys::core::GUID, flags : u32) -> HPOWERNOTIFY);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterRawInputDevices(prawinputdevices : *const RAWINPUTDEVICE, uinumdevices : u32, cbsize : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterShellHookWindow(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn RegisterSuspendResumeNotification(hrecipient : super::winnt::HANDLE, flags : u32) -> HPOWERNOTIFY);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterTouchHitTestingWindow(hwnd : super::windef::HWND, value : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::windef::HWND, ulflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn RegisterWindowMessageA(lpstring : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("user32.dll" "system" fn RegisterWindowMessageW(lpstring : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("user32.dll" "system" fn ReleaseCapture() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ReleaseDC(hwnd : super::windef::HWND, hdc : super::windef::HDC) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RemoveClipboardFormatListener(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RemoveMenu(hmenu : super::windef::HMENU, uposition : u32, uflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn RemovePropA(hwnd : super::windef::HWND, lpstring : windows_sys::core::PCSTR) -> super::winnt::HANDLE);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn RemovePropW(hwnd : super::windef::HWND, lpstring : windows_sys::core::PCWSTR) -> super::winnt::HANDLE);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn ReplyMessage(lresult : super::minwindef::LRESULT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ScreenToClient(hwnd : super::windef::HWND, lppoint : *mut super::windef::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ScrollDC(hdc : super::windef::HDC, dx : i32, dy : i32, lprcscroll : *const super::windef::RECT, lprcclip : *const super::windef::RECT, hrgnupdate : super::minwindef::HRGN, lprcupdate : *mut super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ScrollWindow(hwnd : super::windef::HWND, xamount : i32, yamount : i32, lprect : *const super::windef::RECT, lpcliprect : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ScrollWindowEx(hwnd : super::windef::HWND, dx : i32, dy : i32, prcscroll : *const super::windef::RECT, prcclip : *const super::windef::RECT, hrgnupdate : super::minwindef::HRGN, prcupdate : *mut super::windef::RECT, flags : u32) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SendDlgItemMessageA(hdlg : super::windef::HWND, niddlgitem : i32, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SendDlgItemMessageW(hdlg : super::windef::HWND, niddlgitem : i32, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
 windows_link::link!("user32.dll" "system" fn SendInput(cinputs : u32, pinputs : *const INPUT, cbsize : i32) -> u32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SendMessageA(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SendMessageCallbackA(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM, lpresultcallback : SENDASYNCPROC, dwdata : usize) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SendMessageCallbackW(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM, lpresultcallback : SENDASYNCPROC, dwdata : usize) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SendMessageTimeoutA(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM, fuflags : u32, utimeout : u32, lpdwresult : *mut usize) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SendMessageTimeoutW(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM, fuflags : u32, utimeout : u32, lpdwresult : *mut usize) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SendMessageW(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> super::minwindef::LRESULT);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SendNotifyMessageA(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SendNotifyMessageW(hwnd : super::windef::HWND, msg : u32, wparam : super::minwindef::WPARAM, lparam : super::minwindef::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetActiveWindow(hwnd : super::windef::HWND) -> super::windef::HWND);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn SetAdditionalForegroundBoostProcesses(toplevelwindow : super::windef::HWND, processhandlecount : u32, processhandlearray : *const super::winnt::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetCapture(hwnd : super::windef::HWND) -> super::windef::HWND);
 windows_link::link!("user32.dll" "system" fn SetCaretBlinkTime(umseconds : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetCaretPos(x : i32, y : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetClassLongA(hwnd : super::windef::HWND, nindex : i32, dwnewlong : i32) -> u32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetClassLongPtrA(hwnd : super::windef::HWND, nindex : i32, dwnewlong : isize) -> usize);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetClassLongPtrW(hwnd : super::windef::HWND, nindex : i32, dwnewlong : isize) -> usize);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetClassLongW(hwnd : super::windef::HWND, nindex : i32, dwnewlong : i32) -> u32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetClassWord(hwnd : super::windef::HWND, nindex : i32, wnewword : u16) -> u16);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn SetClipboardData(uformat : u32, hmem : super::winnt::HANDLE) -> super::winnt::HANDLE);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetClipboardViewer(hwndnewviewer : super::windef::HWND) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetCoalescableTimer(hwnd : super::windef::HWND, nidevent : usize, uelapse : u32, lptimerfunc : TIMERPROC, utolerancedelay : u32) -> usize);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetCursor(hcursor : super::windef::HCURSOR) -> super::windef::HCURSOR);
 windows_link::link!("user32.dll" "system" fn SetCursorPos(x : i32, y : i32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetDebugErrorLevel(dwlevel : u32));
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetDialogControlDpiChangeBehavior(hwnd : super::windef::HWND, mask : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetDialogDpiChangeBehavior(hdlg : super::windef::HWND, mask : DIALOG_DPI_CHANGE_BEHAVIORS, values : DIALOG_DPI_CHANGE_BEHAVIORS) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetDisplayAutoRotationPreferences(orientation : ORIENTATION_PREFERENCE) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn SetDisplayConfig(numpatharrayelements : u32, patharray : *const super::wingdi::DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : u32, modeinfoarray : *const super::wingdi::DISPLAYCONFIG_MODE_INFO, flags : u32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetDlgItemInt(hdlg : super::windef::HWND, niddlgitem : i32, uvalue : u32, bsigned : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetDlgItemTextA(hdlg : super::windef::HWND, niddlgitem : i32, lpstring : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetDlgItemTextW(hdlg : super::windef::HWND, niddlgitem : i32, lpstring : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetDoubleClickTime(param0 : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetFocus(hwnd : super::windef::HWND) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetForegroundWindow(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::windef::HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetKeyboardState(lpkeystate : *const u8) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : u32, dwtype : u32));
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetLayeredWindowAttributes(hwnd : super::windef::HWND, crkey : super::windef::COLORREF, balpha : u8, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetMenu(hwnd : super::windef::HWND, hmenu : super::windef::HMENU) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetMenuContextHelpId(param0 : super::windef::HMENU, param1 : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetMenuDefaultItem(hmenu : super::windef::HMENU, uitem : u32, fbypos : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetMenuInfo(param0 : super::windef::HMENU, param1 : *const MENUINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetMenuItemBitmaps(hmenu : super::windef::HMENU, uposition : u32, uflags : u32, hbitmapunchecked : super::windef::HBITMAP, hbitmapchecked : super::windef::HBITMAP) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetMenuItemInfoA(hmenu : super::windef::HMENU, item : u32, fbypositon : windows_sys::core::BOOL, lpmii : *const MENUITEMINFOA) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetMenuItemInfoW(hmenu : super::windef::HMENU, item : u32, fbypositon : windows_sys::core::BOOL, lpmii : *const MENUITEMINFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn SetMessageExtraInfo(lparam : super::minwindef::LPARAM) -> super::minwindef::LPARAM);
 windows_link::link!("user32.dll" "system" fn SetMessageQueue(cmessagesmax : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetParent(hwndchild : super::windef::HWND, hwndnewparent : super::windef::HWND) -> super::windef::HWND);
 windows_link::link!("user32.dll" "system" fn SetPhysicalCursorPos(x : i32, y : i32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetProcessDPIAware() -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetProcessDefaultLayout(dwdefaultlayout : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : super::windef::DPI_AWARENESS_CONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetProcessRestrictionExemption(fenableexemption : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn SetProcessWindowStation(hwinsta : super::minwindef::HWINSTA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn SetPropA(hwnd : super::windef::HWND, lpstring : windows_sys::core::PCSTR, hdata : super::winnt::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn SetPropW(hwnd : super::windef::HWND, lpstring : windows_sys::core::PCWSTR, hdata : super::winnt::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetRect(lprc : *mut super::windef::RECT, xleft : i32, ytop : i32, xright : i32, ybottom : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetRectEmpty(lprc : *mut super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetScrollInfo(hwnd : super::windef::HWND, nbar : i32, lpsi : *const SCROLLINFO, redraw : windows_sys::core::BOOL) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetScrollPos(hwnd : super::windef::HWND, nbar : i32, npos : i32, bredraw : windows_sys::core::BOOL) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetScrollRange(hwnd : super::windef::HWND, nbar : i32, nminpos : i32, nmaxpos : i32, bredraw : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetSysColors(celements : i32, lpaelements : *const i32, lpargbvalues : *const super::windef::COLORREF) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetSystemCursor(hcur : super::windef::HCURSOR, id : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetThreadDesktop(hdesktop : super::windef::HDESK) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetThreadDpiAwarenessContext(dpicontext : super::windef::DPI_AWARENESS_CONTEXT) -> super::windef::DPI_AWARENESS_CONTEXT);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetThreadDpiHostingBehavior(value : super::windef::DPI_HOSTING_BEHAVIOR) -> super::windef::DPI_HOSTING_BEHAVIOR);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetTimer(hwnd : super::windef::HWND, nidevent : usize, uelapse : u32, lptimerfunc : TIMERPROC) -> usize);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn SetUserObjectInformationA(hobj : super::winnt::HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn SetUserObjectInformationW(hobj : super::winnt::HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn SetUserObjectSecurity(hobj : super::winnt::HANDLE, psirequested : *const u32, psid : super::winnt::PSECURITY_DESCRIPTOR) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetWinEventHook(eventmin : u32, eventmax : u32, hmodwineventproc : super::minwindef::HMODULE, pfnwineventproc : WINEVENTPROC, idprocess : u32, idthread : u32, dwflags : u32) -> super::windef::HWINEVENTHOOK);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowContextHelpId(param0 : super::windef::HWND, param1 : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowDisplayAffinity(hwnd : super::windef::HWND, dwaffinity : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowFeedbackSetting(hwnd : super::windef::HWND, feedback : FEEDBACK_TYPE, dwflags : u32, size : u32, configuration : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowLongA(hwnd : super::windef::HWND, nindex : i32, dwnewlong : i32) -> i32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowLongPtrA(hwnd : super::windef::HWND, nindex : i32, dwnewlong : isize) -> isize);
 #[cfg(target_pointer_width = "32")]
 pub use SetWindowLongA as SetWindowLongPtrA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowLongPtrW(hwnd : super::windef::HWND, nindex : i32, dwnewlong : isize) -> isize);
 #[cfg(target_pointer_width = "32")]
 pub use SetWindowLongW as SetWindowLongPtrW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowLongW(hwnd : super::windef::HWND, nindex : i32, dwnewlong : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowPlacement(hwnd : super::windef::HWND, lpwndpl : *const WINDOWPLACEMENT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowPos(hwnd : super::windef::HWND, hwndinsertafter : super::windef::HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetWindowRgn(hwnd : super::windef::HWND, hrgn : super::minwindef::HRGN, bredraw : windows_sys::core::BOOL) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowTextA(hwnd : super::windef::HWND, lpstring : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowTextW(hwnd : super::windef::HWND, lpstring : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowWord(hwnd : super::windef::HWND, nindex : i32, wnewword : u16) -> u16);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetWindowsHookA(nfiltertype : i32, pfnfilterproc : HOOKPROC) -> super::windef::HHOOK);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetWindowsHookExA(idhook : i32, lpfn : HOOKPROC, hmod : super::minwindef::HINSTANCE, dwthreadid : u32) -> super::windef::HHOOK);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetWindowsHookExW(idhook : i32, lpfn : HOOKPROC, hmod : super::minwindef::HINSTANCE, dwthreadid : u32) -> super::windef::HHOOK);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetWindowsHookW(nfiltertype : i32, pfnfilterproc : HOOKPROC) -> super::windef::HHOOK);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ShowCaret(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn ShowCursor(bshow : windows_sys::core::BOOL) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ShowOwnedPopups(hwnd : super::windef::HWND, fshow : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ShowScrollBar(hwnd : super::windef::HWND, wbar : i32, bshow : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ShowWindow(hwnd : super::windef::HWND, ncmdshow : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ShowWindowAsync(hwnd : super::windef::HWND, ncmdshow : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonCreate(hwnd : super::windef::HWND, pwszreason : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonDestroy(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::windef::HWND, pwszbuff : windows_sys::core::PWSTR, pcchbuff : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SkipPointerFrameMessages(pointerid : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SoundSentry() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SubtractRect(lprcdst : *mut super::windef::RECT, lprcsrc1 : *const super::windef::RECT, lprcsrc2 : *const super::windef::RECT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SwapMouseButton(fswap : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SwitchDesktop(hdesktop : super::windef::HDESK) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SwitchToThisWindow(hwnd : super::windef::HWND, funknown : windows_sys::core::BOOL));
 windows_link::link!("user32.dll" "system" fn SystemParametersInfoA(uiaction : u32, uiparam : u32, pvparam : *mut core::ffi::c_void, fwinini : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SystemParametersInfoForDpi(uiaction : u32, uiparam : u32, pvparam : *mut core::ffi::c_void, fwinini : u32, dpi : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SystemParametersInfoW(uiaction : u32, uiparam : u32, pvparam : *mut core::ffi::c_void, fwinini : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn TabbedTextOutA(hdc : super::windef::HDC, x : i32, y : i32, lpstring : windows_sys::core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn TabbedTextOutW(hdc : super::windef::HDC, x : i32, y : i32, lpstring : windows_sys::core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn TileWindows(hwndparent : super::windef::HWND, whow : u32, lprect : *const super::windef::RECT, ckids : u32, lpkids : *const super::windef::HWND) -> u16);
 windows_link::link!("user32.dll" "system" fn ToAscii(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : *mut u16, uflags : u32) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn ToAsciiEx(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : *mut u16, uflags : u32, dwhkl : super::minwindef::HKL) -> i32);
 windows_link::link!("user32.dll" "system" fn ToUnicode(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_sys::core::PWSTR, cchbuff : i32, wflags : u32) -> i32);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn ToUnicodeEx(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_sys::core::PWSTR, cchbuff : i32, wflags : u32, dwhkl : super::minwindef::HKL) -> i32);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn TrackMouseEvent(lpeventtrack : *mut TRACKMOUSEEVENT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn TrackPopupMenu(hmenu : super::windef::HMENU, uflags : u32, x : i32, y : i32, nreserved : i32, hwnd : super::windef::HWND, prcrect : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn TrackPopupMenuEx(hmenu : super::windef::HMENU, uflags : u32, x : i32, y : i32, hwnd : super::windef::HWND, lptpm : *const TPMPARAMS) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn TranslateAcceleratorA(hwnd : super::windef::HWND, hacctable : super::windef::HACCEL, lpmsg : *const MSG) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn TranslateAcceleratorW(hwnd : super::windef::HWND, hacctable : super::windef::HACCEL, lpmsg : *const MSG) -> i32);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn TranslateMDISysAccel(hwndclient : super::windef::HWND, lpmsg : *const MSG) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UnhookWinEvent(hwineventhook : super::windef::HWINEVENTHOOK) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn UnhookWindowsHook(ncode : i32, pfnfilterproc : HOOKPROC) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UnhookWindowsHookEx(hhk : super::windef::HHOOK) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UnionRect(lprcdst : *mut super::windef::RECT, lprcsrc1 : *const super::windef::RECT, lprcsrc2 : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn UnloadKeyboardLayout(hkl : super::minwindef::HKL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn UnregisterClassA(lpclassname : windows_sys::core::PCSTR, hinstance : super::minwindef::HINSTANCE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn UnregisterClassW(lpclassname : windows_sys::core::PCWSTR, hinstance : super::minwindef::HINSTANCE) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn UnregisterDeviceNotification(handle : HDEVNOTIFY) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UnregisterHotKey(hwnd : super::windef::HWND, id : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UnregisterPointerInputTarget(hwnd : super::windef::HWND, pointertype : POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UnregisterPointerInputTargetEx(hwnd : super::windef::HWND, pointertype : POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn UnregisterPowerSettingNotification(handle : HPOWERNOTIFY) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn UnregisterSuspendResumeNotification(handle : HPOWERNOTIFY) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 windows_link::link!("user32.dll" "system" fn UpdateLayeredWindow(hwnd : super::windef::HWND, hdcdst : super::windef::HDC, pptdst : *const super::windef::POINT, psize : *const super::windef::SIZE, hdcsrc : super::windef::HDC, pptsrc : *const super::windef::POINT, crkey : super::windef::COLORREF, pblend : *const super::wingdi::BLENDFUNCTION, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 windows_link::link!("user32.dll" "system" fn UpdateLayeredWindowIndirect(hwnd : super::windef::HWND, pulwinfo : *const UPDATELAYEREDWINDOWINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UpdateWindow(hwnd : super::windef::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn UserHandleGrantAccess(huserhandle : super::winnt::HANDLE, hjob : super::winnt::HANDLE, bgrant : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ValidateRect(hwnd : super::windef::HWND, lprect : *const super::windef::RECT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ValidateRgn(hwnd : super::windef::HWND, hrgn : super::minwindef::HRGN) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn VkKeyScanA(ch : i8) -> i16);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn VkKeyScanExA(ch : i8, dwhkl : super::minwindef::HKL) -> i16);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn VkKeyScanExW(ch : u16, dwhkl : super::minwindef::HKL) -> i16);
 windows_link::link!("user32.dll" "system" fn VkKeyScanW(ch : u16) -> i16);
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn WaitForInputIdle(hprocess : super::winnt::HANDLE, dwmilliseconds : u32) -> u32);
 windows_link::link!("user32.dll" "system" fn WaitMessage() -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn WinHelpA(hwndmain : super::windef::HWND, lpszhelp : windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn WinHelpW(hwndmain : super::windef::HWND, lpszhelp : windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn WindowFromDC(hdc : super::windef::HDC) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn WindowFromPhysicalPoint(point : super::windef::POINT) -> super::windef::HWND);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn WindowFromPoint(point : super::windef::POINT) -> super::windef::HWND);
 windows_link::link!("user32.dll" "system" fn keybd_event(bvk : u8, bscan : u8, dwflags : u32, dwextrainfo : usize));
 windows_link::link!("user32.dll" "system" fn mouse_event(dwflags : u32, dx : u32, dy : u32, dwdata : u32, dwextrainfo : usize));
@@ -1299,12 +1299,12 @@ windows_link::link!("user32.dll" "C" fn wsprintfW(param0 : windows_sys::core::PW
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_link::link!("user32.dll" "system" fn wvsprintfA(param0 : windows_sys::core::PSTR, param1 : windows_sys::core::PCSTR, arglist : *const i8) -> i32);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 windows_link::link!("user32.dll" "system" fn wvsprintfA(param0 : windows_sys::core::PSTR, param1 : windows_sys::core::PCSTR, arglist : super::vadefs::va_list) -> i32);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_link::link!("user32.dll" "system" fn wvsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR, arglist : *const i8) -> i32);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[cfg(feature = "Win32_vadefs")]
+#[cfg(feature = "vadefs")]
 windows_link::link!("user32.dll" "system" fn wvsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR, arglist : super::vadefs::va_list) -> i32);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1326,7 +1326,7 @@ pub const ALERT_SYSTEM_INFORMATIONAL: u32 = 1;
 pub const ALERT_SYSTEM_QUERY: u32 = 4;
 pub const ALERT_SYSTEM_WARNING: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct ALTTABINFO {
     pub cbSize: u32,
@@ -1425,7 +1425,7 @@ pub const ASFW_ANY: u32 = 4294967295;
 pub const ATF_ONOFFFEEDBACK: u32 = 2;
 pub const ATF_TIMEOUTON: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct AUDIODESCRIPTION {
     pub cbSize: u32,
@@ -1501,7 +1501,7 @@ pub const BSF_QUERY: u32 = 1;
 pub const BSF_RETURNHDESK: u32 = 512;
 pub const BSF_SENDNOTIFYMESSAGE: u32 = 256;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct BSMINFO {
     pub cbSize: u32,
@@ -1509,7 +1509,7 @@ pub struct BSMINFO {
     pub hwnd: super::windef::HWND,
     pub luid: super::winnt::LUID,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for BSMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1580,41 +1580,41 @@ pub const CBS_SIMPLE: u32 = 1;
 pub const CBS_SORT: u32 = 256;
 pub const CBS_UPPERCASE: u32 = 8192;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct CBTACTIVATESTRUCT {
     pub fMouse: windows_sys::core::BOOL,
     pub hWndActive: super::windef::HWND,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for CBTACTIVATESTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type CBT_CREATEWND = CBT_CREATEWNDA;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct CBT_CREATEWNDA {
     pub lpcs: *mut CREATESTRUCTA,
     pub hwndInsertAfter: super::windef::HWND,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for CBT_CREATEWNDA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct CBT_CREATEWNDW {
     pub lpcs: *mut CREATESTRUCTW,
     pub hwndInsertAfter: super::windef::HWND,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for CBT_CREATEWNDW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1707,13 +1707,13 @@ pub struct CHANGEFILTERSTRUCT {
 }
 pub const CHILDID_SELF: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CLIENTCREATESTRUCT {
     pub hWindowMenu: super::winnt::HANDLE,
     pub idFirstChild: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for CLIENTCREATESTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1756,7 +1756,7 @@ pub const COLOR_WINDOW: u32 = 5;
 pub const COLOR_WINDOWFRAME: u32 = 6;
 pub const COLOR_WINDOWTEXT: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct COMBOBOXINFO {
     pub cbSize: u32,
@@ -1767,14 +1767,14 @@ pub struct COMBOBOXINFO {
     pub hwndItem: super::windef::HWND,
     pub hwndList: super::windef::HWND,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for COMBOBOXINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct COMPAREITEMSTRUCT {
     pub CtlType: u32,
@@ -1786,7 +1786,7 @@ pub struct COMPAREITEMSTRUCT {
     pub itemData2: usize,
     pub dwLocaleId: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for COMPAREITEMSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1814,10 +1814,10 @@ impl Default for COPYDATASTRUCT {
     }
 }
 pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: windows_sys::core::PCWSTR = 1 as _;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type CREATESTRUCT = CREATESTRUCTA;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct CREATESTRUCTA {
     pub lpCreateParams: *mut core::ffi::c_void,
@@ -1833,14 +1833,14 @@ pub struct CREATESTRUCTA {
     pub lpszClass: windows_sys::core::PCSTR,
     pub dwExStyle: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for CREATESTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct CREATESTRUCTW {
     pub lpCreateParams: *mut core::ffi::c_void,
@@ -1856,7 +1856,7 @@ pub struct CREATESTRUCTW {
     pub lpszClass: windows_sys::core::PCWSTR,
     pub dwExStyle: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for CREATESTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1885,7 +1885,7 @@ pub const CTLCOLOR_MSGBOX: u32 = 0;
 pub const CTLCOLOR_SCROLLBAR: u32 = 5;
 pub const CTLCOLOR_STATIC: u32 = 6;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct CURSORINFO {
     pub cbSize: u32,
@@ -1911,7 +1911,7 @@ pub const CURSOR_SHOWING: u32 = 1;
 pub const CURSOR_SUPPRESSED: u32 = 2;
 pub const CWF_CREATE_ONLY: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct CWPRETSTRUCT {
     pub lResult: super::minwindef::LRESULT,
@@ -1920,14 +1920,14 @@ pub struct CWPRETSTRUCT {
     pub message: u32,
     pub hwnd: super::windef::HWND,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for CWPRETSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct CWPSTRUCT {
     pub lParam: super::minwindef::LPARAM,
@@ -1935,7 +1935,7 @@ pub struct CWPSTRUCT {
     pub message: u32,
     pub hwnd: super::windef::HWND,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for CWPSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1983,7 +1983,7 @@ pub const DDL_READONLY: u32 = 1;
 pub const DDL_READWRITE: u32 = 0;
 pub const DDL_SYSTEM: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUGHOOKINFO {
     pub idThread: u32,
@@ -1993,7 +1993,7 @@ pub struct DEBUGHOOKINFO {
     pub code: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DELETEITEMSTRUCT {
     pub CtlType: u32,
@@ -2002,17 +2002,17 @@ pub struct DELETEITEMSTRUCT {
     pub hwndItem: super::windef::HWND,
     pub itemData: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DELETEITEMSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DESKTOPENUMPROC = DESKTOPENUMPROCA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DESKTOPENUMPROCA = NAMEENUMPROCA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DESKTOPENUMPROCW = NAMEENUMPROCW;
 pub const DESKTOP_CREATEMENU: u32 = 4;
 pub const DESKTOP_CREATEWINDOW: u32 = 2;
@@ -2101,7 +2101,7 @@ pub struct DLGITEMTEMPLATE {
     pub cy: i16,
     pub id: u16,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: super::minwindef::WPARAM, param3: super::minwindef::LPARAM) -> isize>;
 #[repr(C, packed(2))]
 #[derive(Clone, Copy, Default)]
@@ -2128,7 +2128,7 @@ pub const DOF_SHELLDATA: u32 = 2;
 pub const DO_DROPFILE: u32 = 1162627398;
 pub const DO_PRINTFILE: u32 = 1414419024;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DRAWITEMSTRUCT {
     pub CtlType: u32,
@@ -2141,13 +2141,13 @@ pub struct DRAWITEMSTRUCT {
     pub rcItem: super::windef::RECT,
     pub itemData: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DRAWITEMSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type DRAWSTATEPROC = Option<unsafe extern "system" fn(hdc: super::windef::HDC, ldata: super::minwindef::LPARAM, wdata: super::minwindef::WPARAM, cx: i32, cy: i32) -> windows_sys::core::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2159,7 +2159,7 @@ pub struct DRAWTEXTPARAMS {
     pub uiLengthDrawn: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct DROPSTRUCT {
     pub hwndSource: super::windef::HWND,
@@ -2169,7 +2169,7 @@ pub struct DROPSTRUCT {
     pub ptDrop: super::windef::POINT,
     pub dwControlData: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for DROPSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2330,7 +2330,7 @@ pub const ES_RIGHT: u32 = 2;
 pub const ES_UPPERCASE: u32 = 8;
 pub const ES_WANTRETURN: u32 = 4096;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct EVENTMSG {
     pub message: u32,
@@ -2339,7 +2339,7 @@ pub struct EVENTMSG {
     pub time: u32,
     pub hwnd: super::windef::HWND,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for EVENTMSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2485,7 +2485,7 @@ pub const FKF_HOTKEYACTIVE: u32 = 4;
 pub const FKF_HOTKEYSOUND: u32 = 16;
 pub const FKF_INDICATOR: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct FLASHWINFO {
     pub cbSize: u32,
@@ -2494,7 +2494,7 @@ pub struct FLASHWINFO {
     pub uCount: u32,
     pub dwTimeout: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for FLASHWINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2566,7 +2566,7 @@ pub struct GESTURECONFIG {
 }
 pub const GESTURECONFIGMAXCOUNT: u32 = 256;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct GESTUREINFO {
     pub cbSize: u32,
@@ -2579,14 +2579,14 @@ pub struct GESTUREINFO {
     pub ullArguments: u64,
     pub cbExtraArgs: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for GESTUREINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct GESTURENOTIFYSTRUCT {
     pub cbSize: u32,
@@ -2595,7 +2595,7 @@ pub struct GESTURENOTIFYSTRUCT {
     pub ptsLocation: super::windef::POINTS,
     pub dwInstanceID: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for GESTURENOTIFYSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2632,16 +2632,16 @@ pub const GMDI_GOINTOPOPUPS: u32 = 2;
 pub const GMDI_USEDISABLED: u32 = 1;
 pub const GMMP_USE_DISPLAY_POINTS: u32 = 1;
 pub const GMMP_USE_HIGH_RESOLUTION_POINTS: u32 = 2;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type GRAYSTRINGPROC = Option<unsafe extern "system" fn(param0: super::windef::HDC, param1: super::minwindef::LPARAM, param2: i32) -> windows_sys::core::BOOL>;
 pub const GR_GDIOBJECTS: u32 = 0;
 pub const GR_GDIOBJECTS_PEAK: u32 = 2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub const GR_GLOBAL: super::winnt::HANDLE = -2 as _;
 pub const GR_USEROBJECTS: u32 = 1;
 pub const GR_USEROBJECTS_PEAK: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct GUITHREADINFO {
     pub cbSize: u32,
@@ -2654,7 +2654,7 @@ pub struct GUITHREADINFO {
     pub hwndCaret: super::windef::HWND,
     pub rcCaret: super::windef::RECT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for GUITHREADINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2698,7 +2698,7 @@ pub type HANDEDNESS = i32;
 pub const HANDEDNESS_LEFT: HANDEDNESS = 0;
 pub const HANDEDNESS_RIGHT: HANDEDNESS = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct HARDWAREHOOKSTRUCT {
     pub hwnd: super::windef::HWND,
@@ -2706,7 +2706,7 @@ pub struct HARDWAREHOOKSTRUCT {
     pub wParam: super::minwindef::WPARAM,
     pub lParam: super::minwindef::LPARAM,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for HARDWAREHOOKSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2719,27 +2719,27 @@ pub struct HARDWAREINPUT {
     pub wParamL: u16,
     pub wParamH: u16,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HBMMENU_CALLBACK: super::windef::HBITMAP = -1 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HBMMENU_MBAR_CLOSE: super::windef::HBITMAP = 5 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HBMMENU_MBAR_CLOSE_D: super::windef::HBITMAP = 6 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HBMMENU_MBAR_MINIMIZE: super::windef::HBITMAP = 3 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HBMMENU_MBAR_MINIMIZE_D: super::windef::HBITMAP = 7 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HBMMENU_MBAR_RESTORE: super::windef::HBITMAP = 2 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HBMMENU_POPUP_CLOSE: super::windef::HBITMAP = 8 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HBMMENU_POPUP_MAXIMIZE: super::windef::HBITMAP = 10 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HBMMENU_POPUP_MINIMIZE: super::windef::HBITMAP = 11 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HBMMENU_POPUP_RESTORE: super::windef::HBITMAP = 9 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HBMMENU_SYSTEM: super::windef::HBITMAP = 1 as _;
 pub const HCBT_ACTIVATE: u32 = 5;
 pub const HCBT_CLICKSKIPPED: u32 = 6;
@@ -2769,10 +2769,10 @@ pub const HC_SKIP: u32 = 2;
 pub const HC_SYSMODALOFF: u32 = 5;
 pub const HC_SYSMODALON: u32 = 4;
 pub type HDEVNOTIFY = *mut core::ffi::c_void;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type HDWP = super::winnt::HANDLE;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HELPINFO {
     pub cbSize: u32,
@@ -2782,7 +2782,7 @@ pub struct HELPINFO {
     pub dwContextId: usize,
     pub MousePos: super::windef::POINT,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for HELPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2874,7 +2874,7 @@ impl Default for HIGHCONTRASTW {
 }
 pub const HKL_NEXT: u32 = 1;
 pub const HKL_PREV: u32 = 0;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type HOOKPROC = Option<unsafe extern "system" fn(code: i32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> super::minwindef::LRESULT>;
 pub const HOVER_DEFAULT: u32 = 4294967295;
 pub type HPOWERNOTIFY = *mut core::ffi::c_void;
@@ -2928,22 +2928,22 @@ pub const HTTOPRIGHT: u32 = 14;
 pub const HTTRANSPARENT: i32 = -1;
 pub const HTVSCROLL: u32 = 7;
 pub const HTZOOM: u32 = 9;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HWND_BOTTOM: super::windef::HWND = 1 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HWND_BROADCAST: super::windef::HWND = 65535 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HWND_DESKTOP: super::windef::HWND = 0 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HWND_MESSAGE: super::windef::HWND = -3 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HWND_NOTOPMOST: super::windef::HWND = -2 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HWND_TOP: super::windef::HWND = 0 as _;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub const HWND_TOPMOST: super::windef::HWND = -1 as _;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct ICONINFO {
     pub fIcon: windows_sys::core::BOOL,
@@ -2952,16 +2952,16 @@ pub struct ICONINFO {
     pub hbmMask: super::windef::HBITMAP,
     pub hbmColor: super::windef::HBITMAP,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for ICONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type ICONINFOEX = ICONINFOEXA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct ICONINFOEXA {
     pub cbSize: u32,
@@ -2974,14 +2974,14 @@ pub struct ICONINFOEXA {
     pub szModName: [i8; 260],
     pub szResName: [i8; 260],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for ICONINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct ICONINFOEXW {
     pub cbSize: u32,
@@ -2994,16 +2994,16 @@ pub struct ICONINFOEXW {
     pub szModName: [u16; 260],
     pub szResName: [u16; 260],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for ICONINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type ICONMETRICS = ICONMETRICSA;
 #[repr(C)]
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[derive(Clone, Copy, Default)]
 pub struct ICONMETRICSA {
     pub cbSize: u32,
@@ -3013,7 +3013,7 @@ pub struct ICONMETRICSA {
     pub lfFont: super::wingdi::LOGFONTA,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[derive(Clone, Copy, Default)]
 pub struct ICONMETRICSW {
     pub cbSize: u32,
@@ -3310,53 +3310,53 @@ pub const LLMHF_INJECTED: u32 = 1;
 pub const LLMHF_LOWER_IL_INJECTED: u32 = 2;
 pub type LPACCEL = *mut ACCEL;
 pub type LPACCESSTIMEOUT = *mut ACCESSTIMEOUT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPALTTABINFO = *mut ALTTABINFO;
 pub type LPANIMATIONINFO = *mut ANIMATIONINFO;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPAUDIODESCRIPTION = *mut AUDIODESCRIPTION;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCBTACTIVATESTRUCT = *mut CBTACTIVATESTRUCT;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPCBT_CREATEWND = LPCBT_CREATEWNDA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPCBT_CREATEWNDA = *mut CBT_CREATEWNDA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPCBT_CREATEWNDW = *mut CBT_CREATEWNDW;
 pub type LPCDLGTEMPLATE = LPCDLGTEMPLATEA;
 pub type LPCDLGTEMPLATEA = *const DLGTEMPLATE;
 pub type LPCDLGTEMPLATEW = *const DLGTEMPLATE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPCLIENTCREATESTRUCT = *mut CLIENTCREATESTRUCT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCMENUINFO = *const MENUINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCMENUITEMINFO = LPCMENUITEMINFOA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCMENUITEMINFOA = *const MENUITEMINFOA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCMENUITEMINFOW = *const MENUITEMINFOW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCOMBOBOXINFO = *mut COMBOBOXINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCOMPAREITEMSTRUCT = *mut COMPAREITEMSTRUCT;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPCREATESTRUCT = LPCREATESTRUCTA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPCREATESTRUCTA = *mut CREATESTRUCTA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPCREATESTRUCTW = *mut CREATESTRUCTW;
 pub type LPCSCROLLINFO = *const SCROLLINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPCURSORINFO = *mut CURSORINFO;
 pub type LPCURSORSHAPE = *mut CURSORSHAPE;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPCWPRETSTRUCT = *mut CWPRETSTRUCT;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPCWPSTRUCT = *mut CWPSTRUCT;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LPDEBUGHOOKINFO = *mut DEBUGHOOKINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDELETEITEMSTRUCT = *mut DELETEITEMSTRUCT;
 pub type LPDLGITEMTEMPLATE = LPDLGITEMTEMPLATEA;
 pub type LPDLGITEMTEMPLATEA = *mut DLGITEMTEMPLATE;
@@ -3364,22 +3364,22 @@ pub type LPDLGITEMTEMPLATEW = *mut DLGITEMTEMPLATE;
 pub type LPDLGTEMPLATE = LPDLGTEMPLATEA;
 pub type LPDLGTEMPLATEA = *mut DLGTEMPLATE;
 pub type LPDLGTEMPLATEW = *mut DLGTEMPLATE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDRAWITEMSTRUCT = *mut DRAWITEMSTRUCT;
 pub type LPDRAWTEXTPARAMS = *mut DRAWTEXTPARAMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPDROPSTRUCT = *mut DROPSTRUCT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPEVENTMSG = *mut EVENTMSG;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPEVENTMSGMSG = *mut EVENTMSG;
 pub type LPFILTERKEYS = *mut FILTERKEYS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPGUITHREADINFO = *mut GUITHREADINFO;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPHARDWAREHOOKSTRUCT = *mut HARDWAREHOOKSTRUCT;
 pub type LPHARDWAREINPUT = *mut HARDWAREINPUT;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPHELPINFO = *mut HELPINFO;
 pub type LPHELPWININFO = LPHELPWININFOA;
 pub type LPHELPWININFOA = *mut HELPWININFOA;
@@ -3387,129 +3387,129 @@ pub type LPHELPWININFOW = *mut HELPWININFOW;
 pub type LPHIGHCONTRAST = LPHIGHCONTRASTA;
 pub type LPHIGHCONTRASTA = *mut HIGHCONTRASTA;
 pub type LPHIGHCONTRASTW = *mut HIGHCONTRASTW;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type LPICONMETRICS = LPICONMETRICSA;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type LPICONMETRICSA = *mut ICONMETRICSA;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type LPICONMETRICSW = *mut ICONMETRICSW;
 pub type LPINPUT = *mut INPUT;
 pub type LPKBDLLHOOKSTRUCT = *mut KBDLLHOOKSTRUCT;
 pub type LPKEYBDINPUT = *mut KEYBDINPUT;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type LPMDICREATESTRUCT = LPMDICREATESTRUCTA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type LPMDICREATESTRUCTA = *mut MDICREATESTRUCTA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type LPMDICREATESTRUCTW = *mut MDICREATESTRUCTW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMDINEXTMENU = *mut MDINEXTMENU;
 pub type LPMEASUREITEMSTRUCT = *mut MEASUREITEMSTRUCT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMENUBARINFO = *mut MENUBARINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMENUINFO = *mut MENUINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMENUITEMINFO = LPMENUITEMINFOA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMENUITEMINFOA = *mut MENUITEMINFOA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMENUITEMINFOW = *mut MENUITEMINFOW;
 pub type LPMENUTEMPLATE = LPMENUTEMPLATEA;
 pub type LPMENUTEMPLATEA = *mut core::ffi::c_void;
 pub type LPMENUTEMPLATEW = *mut core::ffi::c_void;
 pub type LPMINIMIZEDMETRICS = *mut MINIMIZEDMETRICS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMINMAXINFO = *mut MINMAXINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMONITORINFO = *mut MONITORINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMONITORINFOEX = LPMONITORINFOEXA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMONITORINFOEXA = *mut MONITORINFOEXA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMONITORINFOEXW = *mut MONITORINFOEXW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMOUSEHOOKSTRUCT = *mut MOUSEHOOKSTRUCT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMOUSEHOOKSTRUCTEX = *mut MOUSEHOOKSTRUCTEX;
 pub type LPMOUSEINPUT = *mut MOUSEINPUT;
 pub type LPMOUSEKEYS = *mut MOUSEKEYS;
 pub type LPMOUSEMOVEPOINT = *mut MOUSEMOVEPOINT;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPMSG = *mut MSG;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type LPMSGBOXPARAMS = LPMSGBOXPARAMSA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type LPMSGBOXPARAMSA = *mut MSGBOXPARAMSA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type LPMSGBOXPARAMSW = *mut MSGBOXPARAMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPMSLLHOOKSTRUCT = *mut MSLLHOOKSTRUCT;
 pub type LPMULTIKEYHELP = LPMULTIKEYHELPA;
 pub type LPMULTIKEYHELPA = *mut MULTIKEYHELPA;
 pub type LPMULTIKEYHELPW = *mut MULTIKEYHELPW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPNCCALCSIZE_PARAMS = *mut NCCALCSIZE_PARAMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPNMHDR = *mut NMHDR;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type LPNONCLIENTMETRICS = LPNONCLIENTMETRICSA;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type LPNONCLIENTMETRICSA = *mut NONCLIENTMETRICSA;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type LPNONCLIENTMETRICSW = *mut NONCLIENTMETRICSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPPAINTSTRUCT = *mut PAINTSTRUCT;
 pub type LPRAWHID = *mut RAWHID;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type LPRAWINPUT = *mut RAWINPUT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPRAWINPUTDEVICE = *mut RAWINPUTDEVICE;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type LPRAWINPUTHEADER = *mut RAWINPUTHEADER;
 pub type LPRAWKEYBOARD = *mut RAWKEYBOARD;
 pub type LPRAWMOUSE = *mut RAWMOUSE;
 pub type LPRID_DEVICE_INFO = *mut RID_DEVICE_INFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPSCROLLBARINFO = *mut SCROLLBARINFO;
 pub type LPSCROLLINFO = *mut SCROLLINFO;
 pub type LPSERIALKEYS = LPSERIALKEYSA;
 pub type LPSERIALKEYSA = *mut SERIALKEYSA;
 pub type LPSERIALKEYSW = *mut SERIALKEYSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPSHELLHOOKINFO = *mut SHELLHOOKINFO;
 pub type LPSOUNDSENTRY = LPSOUNDSENTRYA;
 pub type LPSOUNDSENTRYA = *mut SOUNDSENTRYA;
 pub type LPSOUNDSENTRYW = *mut SOUNDSENTRYW;
 pub type LPSTICKYKEYS = *mut STICKYKEYS;
 pub type LPSTYLESTRUCT = *mut STYLESTRUCT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPTITLEBARINFO = *mut TITLEBARINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPTITLEBARINFOEX = *mut TITLEBARINFOEX;
 pub type LPTOGGLEKEYS = *mut TOGGLEKEYS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPTPMPARAMS = *mut TPMPARAMS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPTRACKMOUSEEVENT = *mut TRACKMOUSEEVENT;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPWINDOWINFO = *mut WINDOWINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPWINDOWPLACEMENT = *mut WINDOWPLACEMENT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type LPWINDOWPOS = *mut WINDOWPOS;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPWNDCLASS = LPWNDCLASSA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPWNDCLASSA = *mut WNDCLASSA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPWNDCLASSEX = LPWNDCLASSEXA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPWNDCLASSEXA = *mut WNDCLASSEXA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPWNDCLASSEXW = *mut WNDCLASSEXW;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPWNDCLASSW = *mut WNDCLASSW;
 pub const LR_COLOR: u32 = 2;
 pub const LR_COPYDELETEORG: u32 = 8;
@@ -3578,10 +3578,10 @@ pub const MB_TYPEMASK: u32 = 15;
 pub const MB_USERICON: u32 = 128;
 pub const MB_YESNO: u32 = 4;
 pub const MB_YESNOCANCEL: u32 = 3;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type MDICREATESTRUCT = MDICREATESTRUCTA;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MDICREATESTRUCTA {
     pub szClass: windows_sys::core::PCSTR,
@@ -3594,14 +3594,14 @@ pub struct MDICREATESTRUCTA {
     pub style: u32,
     pub lParam: super::minwindef::LPARAM,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for MDICREATESTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MDICREATESTRUCTW {
     pub szClass: windows_sys::core::PCWSTR,
@@ -3614,21 +3614,21 @@ pub struct MDICREATESTRUCTW {
     pub style: u32,
     pub lParam: super::minwindef::LPARAM,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for MDICREATESTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MDINEXTMENU {
     pub hmenuIn: super::windef::HMENU,
     pub hmenuNext: super::windef::HMENU,
     pub hwndNext: super::windef::HWND,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MDINEXTMENU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3650,7 +3650,7 @@ pub struct MEASUREITEMSTRUCT {
     pub itemData: usize,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MENUBARINFO {
     pub cbSize: u32,
@@ -3659,14 +3659,14 @@ pub struct MENUBARINFO {
     pub hwndMenu: super::windef::HWND,
     pub _bitfield: windows_sys::core::BOOL,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MENUBARINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MENUGETOBJECTINFO {
     pub dwFlags: u32,
@@ -3675,14 +3675,14 @@ pub struct MENUGETOBJECTINFO {
     pub riid: *mut core::ffi::c_void,
     pub pvObj: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MENUGETOBJECTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MENUINFO {
     pub cbSize: u32,
@@ -3693,16 +3693,16 @@ pub struct MENUINFO {
     pub dwContextHelpID: u32,
     pub dwMenuData: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MENUINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MENUITEMINFO = MENUITEMINFOA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MENUITEMINFOA {
     pub cbSize: u32,
@@ -3718,14 +3718,14 @@ pub struct MENUITEMINFOA {
     pub cch: u32,
     pub hbmpItem: super::windef::HBITMAP,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MENUITEMINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MENUITEMINFOW {
     pub cbSize: u32,
@@ -3741,7 +3741,7 @@ pub struct MENUITEMINFOW {
     pub cch: u32,
     pub hbmpItem: super::windef::HBITMAP,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MENUITEMINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3855,7 +3855,7 @@ pub struct MINIMIZEDMETRICS {
     pub iArrange: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MINMAXINFO {
     pub ptReserved: super::windef::POINT,
@@ -3907,10 +3907,10 @@ pub const MOD_CONTROL: u32 = 2;
 pub const MOD_NOREPEAT: u32 = 16384;
 pub const MOD_SHIFT: u32 = 4;
 pub const MOD_WIN: u32 = 8;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type MONITORENUMPROC = Option<unsafe extern "system" fn(param0: super::windef::HMONITOR, param1: super::windef::HDC, param2: *mut super::windef::RECT, param3: super::minwindef::LPARAM) -> windows_sys::core::BOOL>;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MONITORINFO {
     pub cbSize: u32,
@@ -3918,29 +3918,29 @@ pub struct MONITORINFO {
     pub rcWork: super::windef::RECT,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type MONITORINFOEX = MONITORINFOEXA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MONITORINFOEXA {
     pub Base: MONITORINFO,
     pub szDevice: [i8; 32],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MONITORINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MONITORINFOEXW {
     pub Base: MONITORINFO,
     pub szDevice: [u16; 32],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MONITORINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3965,7 +3965,7 @@ pub const MOUSEEVENTF_WHEEL: u32 = 2048;
 pub const MOUSEEVENTF_XDOWN: u32 = 128;
 pub const MOUSEEVENTF_XUP: u32 = 256;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct MOUSEHOOKSTRUCT {
     pub pt: super::windef::POINT,
@@ -3973,14 +3973,14 @@ pub struct MOUSEHOOKSTRUCT {
     pub wHitTestCode: u32,
     pub dwExtraInfo: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for MOUSEHOOKSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MOUSEHOOKSTRUCTEX {
     pub Base: MOUSEHOOKSTRUCT,
@@ -4025,7 +4025,7 @@ pub const MOUSE_MOVE_RELATIVE: u32 = 0;
 pub const MOUSE_VIRTUAL_DESKTOP: u32 = 2;
 pub type MOVESIZE_OPERATION = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct MSG {
     pub hwnd: super::windef::HWND,
@@ -4035,18 +4035,18 @@ pub struct MSG {
     pub time: u32,
     pub pt: super::windef::POINT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for MSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type MSGBOXCALLBACK = Option<unsafe extern "system" fn(lphelpinfo: *mut HELPINFO)>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type MSGBOXPARAMS = MSGBOXPARAMSA;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MSGBOXPARAMSA {
     pub cbSize: u32,
@@ -4060,14 +4060,14 @@ pub struct MSGBOXPARAMSA {
     pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for MSGBOXPARAMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MSGBOXPARAMSW {
     pub cbSize: u32,
@@ -4081,7 +4081,7 @@ pub struct MSGBOXPARAMSW {
     pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl Default for MSGBOXPARAMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4104,7 +4104,7 @@ pub const MSGF_NEXTWINDOW: u32 = 6;
 pub const MSGF_SCROLLBAR: u32 = 5;
 pub const MSGF_USER: u32 = 4096;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct MSLLHOOKSTRUCT {
     pub pt: super::windef::POINT,
@@ -4150,18 +4150,18 @@ impl Default for MULTIKEYHELPW {
 pub const MWMO_ALERTABLE: u32 = 2;
 pub const MWMO_INPUTAVAILABLE: u32 = 4;
 pub const MWMO_WAITALL: u32 = 1;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type NAMEENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::minwindef::LPARAM) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type NAMEENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::minwindef::LPARAM) -> windows_sys::core::BOOL>;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct NCCALCSIZE_PARAMS {
     pub rgrc: [super::windef::RECT; 3],
     pub lppos: PWINDOWPOS,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NCCALCSIZE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4178,23 +4178,23 @@ pub const NID_INTEGRATED_TOUCH: u32 = 1;
 pub const NID_MULTI_INPUT: u32 = 64;
 pub const NID_READY: u32 = 128;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct NMHDR {
     pub hwndFrom: super::windef::HWND,
     pub idFrom: usize,
     pub code: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NMHDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type NONCLIENTMETRICS = NONCLIENTMETRICSA;
 #[repr(C)]
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[derive(Clone, Copy, Default)]
 pub struct NONCLIENTMETRICSA {
     pub cbSize: u32,
@@ -4215,7 +4215,7 @@ pub struct NONCLIENTMETRICSA {
     pub iPaddedBorderWidth: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[derive(Clone, Copy, Default)]
 pub struct NONCLIENTMETRICSW {
     pub cbSize: u32,
@@ -4235,31 +4235,31 @@ pub struct NONCLIENTMETRICSW {
     pub lfMessageFont: super::wingdi::LOGFONTW,
     pub iPaddedBorderWidth: i32,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type NPCWPRETSTRUCT = *mut CWPRETSTRUCT;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type NPCWPSTRUCT = *mut CWPSTRUCT;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type NPDEBUGHOOKINFO = *mut DEBUGHOOKINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPEVENTMSG = *mut EVENTMSG;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPEVENTMSGMSG = *mut EVENTMSG;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type NPMSG = *mut MSG;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type NPPAINTSTRUCT = *mut PAINTSTRUCT;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type NPWNDCLASS = NPWNDCLASSA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type NPWNDCLASSA = *mut WNDCLASSA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type NPWNDCLASSEX = NPWNDCLASSEXA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type NPWNDCLASSEXA = *mut WNDCLASSEXA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type NPWNDCLASSEXW = *mut WNDCLASSEXW;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type NPWNDCLASSW = *mut WNDCLASSW;
 pub const OBJID_ALERT: i32 = -10;
 pub const OBJID_CARET: i32 = -8;
@@ -4302,7 +4302,7 @@ pub const ORIENTATION_PREFERENCE_NONE: ORIENTATION_PREFERENCE = 0;
 pub const ORIENTATION_PREFERENCE_PORTRAIT: ORIENTATION_PREFERENCE = 2;
 pub const ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: ORIENTATION_PREFERENCE = 8;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct PAINTSTRUCT {
     pub hdc: super::windef::HDC,
@@ -4312,18 +4312,18 @@ pub struct PAINTSTRUCT {
     pub fIncUpdate: windows_sys::core::BOOL,
     pub rgbReserved: [u8; 32],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PAINTSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PALTTABINFO = *mut ALTTABINFO;
 pub type PAR_STATE = *mut AR_STATE;
 pub const PA_ACTIVATE: u32 = 1;
 pub const PA_NOACTIVATE: u32 = 3;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PBSMINFO = *mut BSMINFO;
 pub const PBTF_APMRESUMEFROMFAILURE: u32 = 1;
 pub const PBT_APMBATTERYLOW: u32 = 9;
@@ -4340,25 +4340,25 @@ pub const PBT_APMRESUMESUSPEND: u32 = 7;
 pub const PBT_APMSTANDBY: u32 = 5;
 pub const PBT_APMSUSPEND: u32 = 4;
 pub const PBT_POWERSETTINGCHANGE: u32 = 32787;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PCGESTUREINFO = *const GESTUREINFO;
 pub type PCHANGEFILTERSTRUCT = *mut CHANGEFILTERSTRUCT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PCOMBOBOXINFO = *mut COMBOBOXINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PCOMPAREITEMSTRUCT = *mut COMPAREITEMSTRUCT;
 pub type PCOPYDATASTRUCT = *mut COPYDATASTRUCT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PCRAWINPUTDEVICE = *const RAWINPUTDEVICE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCTOUCHINPUT = *const TOUCHINPUT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PCURSORINFO = *mut CURSORINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PCWINDOW_ACTION = *const WINDOW_ACTION;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PCWPRETSTRUCT = *mut CWPRETSTRUCT;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PCWPSTRUCT = *mut CWPSTRUCT;
 pub const PDC_ARRIVAL: u32 = 1;
 pub const PDC_MAPPING_CHANGE: u32 = 256;
@@ -4372,16 +4372,16 @@ pub const PDC_ORIENTATION_90: u32 = 8;
 pub const PDC_ORIGIN: u32 = 1024;
 pub const PDC_REMOVAL: u32 = 2;
 pub const PDC_RESOLUTION: u32 = 512;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type PDEBUGHOOKINFO = *mut DEBUGHOOKINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PDELETEITEMSTRUCT = *mut DELETEITEMSTRUCT;
 pub type PDLGITEMTEMPLATE = PDLGITEMTEMPLATEA;
 pub type PDLGITEMTEMPLATEA = *mut DLGITEMTEMPLATE;
 pub type PDLGITEMTEMPLATEW = *mut DLGITEMTEMPLATE;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PDRAWITEMSTRUCT = *mut DRAWITEMSTRUCT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PDROPSTRUCT = *mut DROPSTRUCT;
 pub const PENARBITRATIONTYPE_FIS: u32 = 2;
 pub const PENARBITRATIONTYPE_MAX: u32 = 4;
@@ -4404,22 +4404,22 @@ pub const PEN_MASK_PRESSURE: u32 = 1;
 pub const PEN_MASK_ROTATION: u32 = 2;
 pub const PEN_MASK_TILT_X: u32 = 4;
 pub const PEN_MASK_TILT_Y: u32 = 8;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEVENTMSG = *mut EVENTMSG;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PEVENTMSGMSG = *mut EVENTMSG;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PFLASHWINFO = *mut FLASHWINFO;
 pub type PGESTURECONFIG = *mut GESTURECONFIG;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PGESTUREINFO = *mut GESTUREINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PGESTURENOTIFYSTRUCT = *mut GESTURENOTIFYSTRUCT;
 pub type PGETCLIPBMETADATA = *mut GETCLIPBMETADATA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PGUITHREADINFO = *mut GUITHREADINFO;
 pub type PHANDEDNESS = *mut HANDEDNESS;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PHARDWAREHOOKSTRUCT = *mut HARDWAREHOOKSTRUCT;
 pub type PHARDWAREINPUT = *mut HARDWAREINPUT;
 pub type PHDEVNOTIFY = *mut HDEVNOTIFY;
@@ -4427,19 +4427,19 @@ pub type PHELPWININFO = PHELPWININFOA;
 pub type PHELPWININFOA = *mut HELPWININFOA;
 pub type PHELPWININFOW = *mut HELPWININFOW;
 pub type PHPOWERNOTIFY = *mut HPOWERNOTIFY;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PICONINFO = *mut ICONINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PICONINFOEX = PICONINFOEXA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PICONINFOEXA = *mut ICONINFOEXA;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PICONINFOEXW = *mut ICONINFOEXW;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type PICONMETRICS = PICONMETRICSA;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type PICONMETRICSA = *mut ICONMETRICSA;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type PICONMETRICSW = *mut ICONMETRICSW;
 pub type PINPUT = *mut INPUT;
 pub type PINPUT_INJECTION_VALUE = *mut INPUT_INJECTION_VALUE;
@@ -4447,33 +4447,33 @@ pub type PKBDLLHOOKSTRUCT = *mut KBDLLHOOKSTRUCT;
 pub type PKEYBDINPUT = *mut KEYBDINPUT;
 pub type PLASTINPUTINFO = *mut LASTINPUTINFO;
 pub const PMB_ACTIVE: u32 = 1;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMDINEXTMENU = *mut MDINEXTMENU;
 pub type PMEASUREITEMSTRUCT = *mut MEASUREITEMSTRUCT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMENUBARINFO = *mut MENUBARINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMENUGETOBJECTINFO = *mut MENUGETOBJECTINFO;
 pub type PMENUITEMTEMPLATE = *mut MENUITEMTEMPLATE;
 pub type PMENUITEMTEMPLATEHEADER = *mut MENUITEMTEMPLATEHEADER;
 pub type PMINIMIZEDMETRICS = *mut MINIMIZEDMETRICS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMINMAXINFO = *mut MINMAXINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMOUSEHOOKSTRUCT = *mut MOUSEHOOKSTRUCT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMOUSEHOOKSTRUCTEX = *mut MOUSEHOOKSTRUCTEX;
 pub type PMOUSEINPUT = *mut MOUSEINPUT;
 pub type PMOUSEMOVEPOINT = *mut MOUSEMOVEPOINT;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PMSG = *mut MSG;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type PMSGBOXPARAMS = PMSGBOXPARAMSA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type PMSGBOXPARAMSA = *mut MSGBOXPARAMSA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type PMSGBOXPARAMSW = *mut MSGBOXPARAMSW;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PMSLLHOOKSTRUCT = *mut MSLLHOOKSTRUCT;
 pub type PMULTIKEYHELP = PMULTIKEYHELPA;
 pub type PMULTIKEYHELPA = *mut MULTIKEYHELPA;
@@ -4485,11 +4485,11 @@ pub const PM_QS_PAINT: u32 = 2097152;
 pub const PM_QS_POSTMESSAGE: u32 = 9961472;
 pub const PM_QS_SENDMESSAGE: u32 = 4194304;
 pub const PM_REMOVE: u32 = 1;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type PNONCLIENTMETRICS = PNONCLIENTMETRICSA;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type PNONCLIENTMETRICSA = *mut NONCLIENTMETRICSA;
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 pub type PNONCLIENTMETRICSW = *mut NONCLIENTMETRICSW;
 pub type POINTER_BUTTON_CHANGE_TYPE = i32;
 pub const POINTER_CHANGE_FIFTHBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = 9;
@@ -4515,7 +4515,7 @@ pub const POINTER_DEVICE_CURSOR_TYPE_MAX: POINTER_DEVICE_CURSOR_TYPE = -1;
 pub const POINTER_DEVICE_CURSOR_TYPE_TIP: POINTER_DEVICE_CURSOR_TYPE = 1;
 pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = 0;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct POINTER_DEVICE_INFO {
     pub displayOrientation: u32,
@@ -4526,7 +4526,7 @@ pub struct POINTER_DEVICE_INFO {
     pub maxActiveContacts: u16,
     pub productString: [u16; 520],
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for POINTER_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4576,7 +4576,7 @@ pub const POINTER_FLAG_UP: u32 = 262144;
 pub const POINTER_FLAG_UPDATE: u32 = 131072;
 pub const POINTER_FLAG_WHEEL: u32 = 524288;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct POINTER_INFO {
     pub pointerType: POINTER_INPUT_TYPE,
@@ -4596,7 +4596,7 @@ pub struct POINTER_INFO {
     pub PerformanceCount: u64,
     pub ButtonChangeType: POINTER_BUTTON_CHANGE_TYPE,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for POINTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4617,7 +4617,7 @@ pub const POINTER_MESSAGE_FLAG_THIRDBUTTON: u32 = 64;
 pub const POINTER_MOD_CTRL: u32 = 8;
 pub const POINTER_MOD_SHIFT: u32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct POINTER_PEN_INFO {
     pub pointerInfo: POINTER_INFO,
@@ -4629,7 +4629,7 @@ pub struct POINTER_PEN_INFO {
     pub tiltY: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct POINTER_TOUCH_INFO {
     pub pointerInfo: POINTER_INFO,
@@ -4641,27 +4641,27 @@ pub struct POINTER_TOUCH_INFO {
     pub pressure: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct POINTER_TYPE_INFO {
     pub r#type: POINTER_INPUT_TYPE,
     pub Anonymous: POINTER_TYPE_INFO_0,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for POINTER_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union POINTER_TYPE_INFO_0 {
     pub pointerInfo: POINTER_INFO,
     pub touchInfo: POINTER_TOUCH_INFO,
     pub penInfo: POINTER_PEN_INFO,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for POINTER_TYPE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4679,19 +4679,19 @@ impl Default for POWERBROADCAST_SETTING {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PPAINTSTRUCT = *mut PAINTSTRUCT;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PPOINTER_TYPE_INFO = *mut POINTER_TYPE_INFO;
 pub type PPOWERBROADCAST_SETTING = *mut POWERBROADCAST_SETTING;
 pub type PRAWHID = *mut RAWHID;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PRAWINPUT = *mut RAWINPUT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PRAWINPUTDEVICE = *mut RAWINPUTDEVICE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PRAWINPUTDEVICELIST = *mut RAWINPUTDEVICELIST;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PRAWINPUTHEADER = *mut RAWINPUTHEADER;
 pub type PRAWKEYBOARD = *mut RAWKEYBOARD;
 pub type PRAWMOUSE = *mut RAWMOUSE;
@@ -4706,61 +4706,61 @@ pub type PRID_DEVICE_INFO = *mut RID_DEVICE_INFO;
 pub type PRID_DEVICE_INFO_HID = *mut RID_DEVICE_INFO_HID;
 pub type PRID_DEVICE_INFO_KEYBOARD = *mut RID_DEVICE_INFO_KEYBOARD;
 pub type PRID_DEVICE_INFO_MOUSE = *mut RID_DEVICE_INFO_MOUSE;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PROPENUMPROC = PROPENUMPROCA;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PROPENUMPROCA = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: windows_sys::core::PCSTR, param2: super::winnt::HANDLE) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PROPENUMPROCEX = PROPENUMPROCEXA;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PROPENUMPROCEXA = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: windows_sys::core::PCSTR, param2: super::winnt::HANDLE, param3: usize) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PROPENUMPROCEXW = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: windows_sys::core::PCWSTR, param2: super::winnt::HANDLE, param3: usize) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PROPENUMPROCW = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: windows_sys::core::PCWSTR, param2: super::winnt::HANDLE) -> windows_sys::core::BOOL>;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PSCROLLBARINFO = *mut SCROLLBARINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PTITLEBARINFO = *mut TITLEBARINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PTITLEBARINFOEX = *mut TITLEBARINFOEX;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PTOUCHINPUT = *mut TOUCHINPUT;
 pub type PTOUCHPAD_PARAMETERS_V1 = *mut TOUCHPAD_PARAMETERS_V1;
 pub type PTOUCHPAD_PARAMETERS_V2 = *mut TOUCHPAD_PARAMETERS_V2;
 pub type PTOUCHPREDICTIONPARAMETERS = *mut TOUCHPREDICTIONPARAMETERS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PTOUCH_HIT_TESTING_INPUT = *mut TOUCH_HIT_TESTING_INPUT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PTOUCH_HIT_TESTING_PROXIMITY_EVALUATION = *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION;
 pub const PT_MOUSE: tagPOINTER_INPUT_TYPE = 4;
 pub const PT_PEN: tagPOINTER_INPUT_TYPE = 3;
 pub const PT_POINTER: tagPOINTER_INPUT_TYPE = 1;
 pub const PT_TOUCH: tagPOINTER_INPUT_TYPE = 2;
 pub const PT_TOUCHPAD: tagPOINTER_INPUT_TYPE = 5;
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 pub type PUPDATELAYEREDWINDOWINFO = *mut UPDATELAYEREDWINDOWINFO;
 pub type PUSAGE_PROPERTIES = *mut USAGE_PROPERTIES;
 pub type PUSEROBJECTFLAGS = *mut USEROBJECTFLAGS;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PWINDOWINFO = *mut WINDOWINFO;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PWINDOWPLACEMENT = *mut WINDOWPLACEMENT;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PWINDOWPOS = *mut WINDOWPOS;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type PWINDOW_ACTION = *mut WINDOW_ACTION;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PWNDCLASS = PWNDCLASSA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PWNDCLASSA = *mut WNDCLASSA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PWNDCLASSEX = PWNDCLASSEXA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PWNDCLASSEXA = *mut WNDCLASSEXA;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PWNDCLASSEXW = *mut WNDCLASSEXW;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PWNDCLASSW = *mut WNDCLASSW;
 pub const PWR_CRITICALRESUME: u32 = 3;
 pub const PWR_FAIL: i32 = -1;
@@ -4799,34 +4799,34 @@ impl Default for RAWHID {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RAWINPUT {
     pub header: RAWINPUTHEADER,
     pub data: RAWINPUT_0,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for RAWINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union RAWINPUT_0 {
     pub mouse: RAWMOUSE,
     pub keyboard: RAWKEYBOARD,
     pub hid: RAWHID,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for RAWINPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct RAWINPUTDEVICE {
     pub usUsagePage: u16,
@@ -4834,27 +4834,27 @@ pub struct RAWINPUTDEVICE {
     pub dwFlags: u32,
     pub hwndTarget: super::windef::HWND,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for RAWINPUTDEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct RAWINPUTDEVICELIST {
     pub hDevice: super::winnt::HANDLE,
     pub dwType: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for RAWINPUTDEVICELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RAWINPUTHEADER {
     pub dwType: u32,
@@ -4862,7 +4862,7 @@ pub struct RAWINPUTHEADER {
     pub hDevice: super::winnt::HANDLE,
     pub wParam: super::minwindef::WPARAM,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 impl Default for RAWINPUTHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5081,7 +5081,7 @@ pub const SB_TOP: u32 = 6;
 pub const SB_VERT: u32 = 1;
 pub const SCF_ISSECURE: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct SCROLLBARINFO {
     pub cbSize: u32,
@@ -5092,7 +5092,7 @@ pub struct SCROLLBARINFO {
     pub reserved: i32,
     pub rgstate: [u32; 6],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for SCROLLBARINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5131,7 +5131,7 @@ pub const SC_SIZE: u32 = 61440;
 pub const SC_TASKLIST: u32 = 61744;
 pub const SC_VSCROLL: u32 = 61552;
 pub const SC_ZOOM: u32 = 61488;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: usize, param3: super::minwindef::LRESULT)>;
 pub type SERIALKEYS = SERIALKEYSA;
 #[repr(C)]
@@ -5171,13 +5171,13 @@ pub const SERKF_INDICATOR: u32 = 4;
 pub const SERKF_SERIALKEYSON: u32 = 1;
 pub const SETWALLPAPER_DEFAULT: windows_sys::core::PCWSTR = -1 as _;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct SHELLHOOKINFO {
     pub hwnd: super::windef::HWND,
     pub rc: super::windef::RECT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for SHELLHOOKINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5782,28 +5782,28 @@ pub const SW_SHOWNORMAL: u32 = 1;
 pub const SW_SMOOTHSCROLL: u32 = 16;
 pub const TDF_REGISTER: TOOLTIP_DISMISS_FLAGS = 1;
 pub const TDF_UNREGISTER: TOOLTIP_DISMISS_FLAGS = 2;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type TIMERPROC = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: usize, param3: u32)>;
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637;
 pub const TIMERV_COALESCING_MIN: u32 = 1;
 pub const TIMERV_DEFAULT_COALESCING: u32 = 0;
 pub const TIMERV_NO_COALESCING: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct TITLEBARINFO {
     pub cbSize: u32,
     pub rcTitleBar: super::windef::RECT,
     pub rgstate: [u32; 6],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for TITLEBARINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct TITLEBARINFOEX {
     pub cbSize: u32,
@@ -5811,7 +5811,7 @@ pub struct TITLEBARINFOEX {
     pub rgstate: [u32; 6],
     pub rgrect: [super::windef::RECT; 6],
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for TITLEBARINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5844,7 +5844,7 @@ pub const TOUCHEVENTF_PEN: u32 = 64;
 pub const TOUCHEVENTF_PRIMARY: u32 = 16;
 pub const TOUCHEVENTF_UP: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct TOUCHINPUT {
     pub x: i32,
@@ -5858,7 +5858,7 @@ pub struct TOUCHINPUT {
     pub cxContact: u32,
     pub cyContact: u32,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for TOUCHINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5915,7 +5915,7 @@ pub const TOUCH_FLAG_NONE: u32 = 0;
 pub const TOUCH_HIT_TESTING_CLIENT: u32 = 1;
 pub const TOUCH_HIT_TESTING_DEFAULT: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct TOUCH_HIT_TESTING_INPUT {
     pub pointerId: u32,
@@ -5927,7 +5927,7 @@ pub struct TOUCH_HIT_TESTING_INPUT {
 pub const TOUCH_HIT_TESTING_NONE: u32 = 2;
 pub const TOUCH_HIT_TESTING_PROXIMITY_CLOSEST: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
     pub score: u16,
@@ -5940,7 +5940,7 @@ pub const TOUCH_MASK_NONE: u32 = 0;
 pub const TOUCH_MASK_ORIENTATION: u32 = 2;
 pub const TOUCH_MASK_PRESSURE: u32 = 4;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct TPMPARAMS {
     pub cbSize: u32,
@@ -5967,7 +5967,7 @@ pub const TPM_VERPOSANIMATION: u32 = 4096;
 pub const TPM_VERTICAL: u32 = 64;
 pub const TPM_WORKAREA: u32 = 65536;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct TRACKMOUSEEVENT {
     pub cbSize: u32,
@@ -5975,7 +5975,7 @@ pub struct TRACKMOUSEEVENT {
     pub hwndTrack: super::windef::HWND,
     pub dwHoverTime: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for TRACKMOUSEEVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6002,7 +6002,7 @@ pub const UOI_TIMERPROC_EXCEPTION_SUPPRESSION: u32 = 7;
 pub const UOI_TYPE: u32 = 3;
 pub const UOI_USER_SID: u32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct UPDATELAYEREDWINDOWINFO {
     pub cbSize: u32,
@@ -6016,7 +6016,7 @@ pub struct UPDATELAYEREDWINDOWINFO {
     pub dwFlags: u32,
     pub prcDirty: *const super::windef::RECT,
 }
-#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi"))]
 impl Default for UPDATELAYEREDWINDOWINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6296,7 +6296,7 @@ pub const WH_MSGFILTER: i32 = -1;
 pub const WH_SHELL: u32 = 10;
 pub const WH_SYSMSGFILTER: u32 = 6;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINDOWINFO {
     pub cbSize: u32,
@@ -6311,7 +6311,7 @@ pub struct WINDOWINFO {
     pub wCreatorVersion: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
 pub struct WINDOWPLACEMENT {
     pub length: u32,
@@ -6322,7 +6322,7 @@ pub struct WINDOWPLACEMENT {
     pub rcNormalPosition: super::windef::RECT,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct WINDOWPOS {
     pub hwnd: super::windef::HWND,
@@ -6333,14 +6333,14 @@ pub struct WINDOWPOS {
     pub cy: i32,
     pub flags: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for WINDOWPOS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy)]
 pub struct WINDOW_ACTION {
     pub kinds: WINDOW_ACTION_KINDS,
@@ -6356,7 +6356,7 @@ pub struct WINDOW_ACTION {
     pub pointOnMonitor: super::windef::POINT,
     pub monitorTopologyId: u32,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for WINDOW_ACTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6365,17 +6365,17 @@ impl Default for WINDOW_ACTION {
 pub type WINDOW_ACTION_KINDS = u32;
 pub type WINDOW_ACTION_MODIFIERS = u32;
 pub type WINDOW_PLACEMENT_STATE = i32;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type WINEVENTPROC = Option<unsafe extern "system" fn(hwineventhook: super::windef::HWINEVENTHOOK, event: u32, hwnd: super::windef::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32)>;
 pub const WINEVENT_INCONTEXT: u32 = 4;
 pub const WINEVENT_OUTOFCONTEXT: u32 = 0;
 pub const WINEVENT_SKIPOWNPROCESS: u32 = 2;
 pub const WINEVENT_SKIPOWNTHREAD: u32 = 1;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type WINSTAENUMPROC = WINSTAENUMPROCA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type WINSTAENUMPROCA = NAMEENUMPROCA;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type WINSTAENUMPROCW = NAMEENUMPROCW;
 pub const WINSTA_ACCESSCLIPBOARD: u32 = 4;
 pub const WINSTA_ACCESSGLOBALATOMS: u32 = 32;
@@ -6654,10 +6654,10 @@ pub const WM_WTSSESSION_CHANGE: u32 = 689;
 pub const WM_XBUTTONDBLCLK: u32 = 525;
 pub const WM_XBUTTONDOWN: u32 = 523;
 pub const WM_XBUTTONUP: u32 = 524;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type WNDCLASS = WNDCLASSA;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct WNDCLASSA {
     pub style: u32,
@@ -6671,16 +6671,16 @@ pub struct WNDCLASSA {
     pub lpszMenuName: windows_sys::core::PCSTR,
     pub lpszClassName: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for WNDCLASSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type WNDCLASSEX = WNDCLASSEXA;
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct WNDCLASSEXA {
     pub cbSize: u32,
@@ -6696,14 +6696,14 @@ pub struct WNDCLASSEXA {
     pub lpszClassName: windows_sys::core::PCSTR,
     pub hIconSm: super::windef::HICON,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for WNDCLASSEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct WNDCLASSEXW {
     pub cbSize: u32,
@@ -6719,14 +6719,14 @@ pub struct WNDCLASSEXW {
     pub lpszClassName: windows_sys::core::PCWSTR,
     pub hIconSm: super::windef::HICON,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for WNDCLASSEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct WNDCLASSW {
     pub style: u32,
@@ -6740,15 +6740,15 @@ pub struct WNDCLASSW {
     pub lpszMenuName: windows_sys::core::PCWSTR,
     pub lpszClassName: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for WNDCLASSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type WNDENUMPROC = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: super::minwindef::LPARAM) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type WNDPROC = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: super::minwindef::WPARAM, param3: super::minwindef::LPARAM) -> super::minwindef::LRESULT>;
 pub const WPF_ASYNCWINDOWPLACEMENT: u32 = 4;
 pub const WPF_RESTORETOMAXIMIZED: u32 = 2;

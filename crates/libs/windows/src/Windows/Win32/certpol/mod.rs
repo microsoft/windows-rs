@@ -1,15 +1,15 @@
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPolicy, ICertPolicy_Vtbl, 0x38bb5a00_7636_11d0_b413_00a0c91bbf8c);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPolicy {
     type Target = super::oaidl::IDispatch;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPolicy, windows_core::IUnknown, super::oaidl::IDispatch);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPolicy {
     pub unsafe fn Initialize(&self, strconfig: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig)) }
@@ -30,7 +30,7 @@ impl ICertPolicy {
         unsafe { (windows_core::Interface::vtable(self).ShutDown)(windows_core::Interface::as_raw(self)) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPolicy_Vtbl {
@@ -40,14 +40,14 @@ pub struct ICertPolicy_Vtbl {
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShutDown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPolicy_Impl: super::oaidl::IDispatch_Impl {
     fn Initialize(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<()>;
     fn VerifyRequest(&self, strconfig: &windows_core::BSTR, context: i32, bnewrequest: i32, flags: i32) -> windows_core::Result<i32>;
     fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ShutDown(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPolicy_Vtbl {
     pub const fn new<Identity: ICertPolicy_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: ICertPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -98,22 +98,22 @@ impl ICertPolicy_Vtbl {
         iid == &<ICertPolicy as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPolicy {}
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertPolicy2, ICertPolicy2_Vtbl, 0x3db4910e_8001_4bf1_aa1b_f43a808317a0);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl core::ops::Deref for ICertPolicy2 {
     type Target = ICertPolicy;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 windows_core::imp::interface_hierarchy!(ICertPolicy2, windows_core::IUnknown, super::oaidl::IDispatch, ICertPolicy);
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 impl ICertPolicy2 {
-    #[cfg(feature = "Win32_certmod")]
+    #[cfg(feature = "certmod")]
     pub unsafe fn GetManageModule(&self) -> windows_core::Result<super::certmod::ICertManageModule> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -121,21 +121,21 @@ impl ICertPolicy2 {
         }
     }
 }
-#[cfg(feature = "Win32_oaidl")]
+#[cfg(feature = "oaidl")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPolicy2_Vtbl {
     pub base__: ICertPolicy_Vtbl,
-    #[cfg(feature = "Win32_certmod")]
+    #[cfg(feature = "certmod")]
     pub GetManageModule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certmod"))]
+    #[cfg(not(feature = "certmod"))]
     GetManageModule: usize,
 }
-#[cfg(all(feature = "Win32_certmod", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certmod", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPolicy2_Impl: ICertPolicy_Impl {
     fn GetManageModule(&self) -> windows_core::Result<super::certmod::ICertManageModule>;
 }
-#[cfg(all(feature = "Win32_certmod", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certmod", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPolicy2_Vtbl {
     pub const fn new<Identity: ICertPolicy2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetManageModule<Identity: ICertPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmanagemodule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -156,7 +156,7 @@ impl ICertPolicy2_Vtbl {
         iid == &<ICertPolicy2 as windows_core::Interface>::IID || iid == &<super::oaidl::IDispatch as windows_core::Interface>::IID || iid == &<ICertPolicy as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_certmod", feature = "Win32_oaidl", feature = "Win32_winnt", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "certmod", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertPolicy2 {}
 windows_core::imp::define_interface!(INDESPolicy, INDESPolicy_Vtbl, 0x13ca515d_431d_46cc_8c2e_1da269bbd625);
 windows_core::imp::interface_hierarchy!(INDESPolicy, windows_core::IUnknown);
@@ -177,7 +177,7 @@ impl INDESPolicy {
             (windows_core::Interface::vtable(self).GenerateChallenge)(windows_core::Interface::as_raw(self), pwsztemplate.param().abi(), pwszparams.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_certbase")]
+    #[cfg(feature = "certbase")]
     pub unsafe fn VerifyRequest<P2, P3>(&self, pctbrequest: *const super::certbase::CERTTRANSBLOB, pctbsigningcertencoded: *const super::certbase::CERTTRANSBLOB, pwsztemplate: P2, pwsztransactionid: P3) -> windows_core::Result<windows_core::BOOL>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -188,7 +188,7 @@ impl INDESPolicy {
             (windows_core::Interface::vtable(self).VerifyRequest)(windows_core::Interface::as_raw(self), pctbrequest, pctbsigningcertencoded, pwsztemplate.param().abi(), pwsztransactionid.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_certbase")]
+    #[cfg(feature = "certbase")]
     pub unsafe fn Notify<P0, P1>(&self, pwszchallenge: P0, pwsztransactionid: P1, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *const super::certbase::CERTTRANSBLOB) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -204,16 +204,16 @@ pub struct INDESPolicy_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GenerateChallenge: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_certbase")]
+    #[cfg(feature = "certbase")]
     pub VerifyRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::certbase::CERTTRANSBLOB, *const super::certbase::CERTTRANSBLOB, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certbase"))]
+    #[cfg(not(feature = "certbase"))]
     VerifyRequest: usize,
-    #[cfg(feature = "Win32_certbase")]
+    #[cfg(feature = "certbase")]
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, X509SCEPDisposition, i32, *const super::certbase::CERTTRANSBLOB) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_certbase"))]
+    #[cfg(not(feature = "certbase"))]
     Notify: usize,
 }
-#[cfg(feature = "Win32_certbase")]
+#[cfg(feature = "certbase")]
 pub trait INDESPolicy_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self) -> windows_core::Result<()>;
     fn Uninitialize(&self) -> windows_core::Result<()>;
@@ -221,7 +221,7 @@ pub trait INDESPolicy_Impl: windows_core::IUnknownImpl {
     fn VerifyRequest(&self, pctbrequest: *const super::certbase::CERTTRANSBLOB, pctbsigningcertencoded: *const super::certbase::CERTTRANSBLOB, pwsztemplate: &windows_core::PCWSTR, pwsztransactionid: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
     fn Notify(&self, pwszchallenge: &windows_core::PCWSTR, pwsztransactionid: &windows_core::PCWSTR, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *const super::certbase::CERTTRANSBLOB) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_certbase")]
+#[cfg(feature = "certbase")]
 impl INDESPolicy_Vtbl {
     pub const fn new<Identity: INDESPolicy_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: INDESPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -279,7 +279,7 @@ impl INDESPolicy_Vtbl {
         iid == &<INDESPolicy as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_certbase")]
+#[cfg(feature = "certbase")]
 impl windows_core::RuntimeName for INDESPolicy {}
 pub const SCEPDispositionFailure: X509SCEPDisposition = 2;
 pub const SCEPDispositionPending: X509SCEPDisposition = 3;

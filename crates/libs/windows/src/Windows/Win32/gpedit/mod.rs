@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> windows_core::HRESULT {
     windows_core::link!("gpedit.dll" "system" fn BrowseForGPO(lpbrowseinfo : *mut GPOBROWSEINFO) -> windows_core::HRESULT);
@@ -57,7 +57,7 @@ pub const GPHintOrganizationalUnit: GROUP_POLICY_HINT_TYPE = 4;
 pub const GPHintSite: GROUP_POLICY_HINT_TYPE = 2;
 pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
@@ -111,7 +111,7 @@ impl IGPEInformation {
     pub unsafe fn GetDisplayName(&self, pszname: &mut [u16]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetRegistryKey(&self, dwsection: u32) -> windows_core::Result<super::minwindef::HKEY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -155,9 +155,9 @@ pub struct IGPEInformation_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, i32) -> windows_core::HRESULT,
     pub GetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetRegistryKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::minwindef::HKEY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetRegistryKey: usize,
     pub GetDSPath: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, i32) -> windows_core::HRESULT,
     pub GetFileSysPath: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, i32) -> windows_core::HRESULT,
@@ -166,7 +166,7 @@ pub struct IGPEInformation_Vtbl {
     pub GetHint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GROUP_POLICY_HINT_TYPE) -> windows_core::HRESULT,
     pub PolicyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, *mut windows_core::GUID, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IGPEInformation_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -181,7 +181,7 @@ pub trait IGPEInformation_Impl: windows_core::IUnknownImpl {
     fn GetHint(&self) -> windows_core::Result<GROUP_POLICY_HINT_TYPE>;
     fn PolicyChanged(&self, bmachine: windows_core::BOOL, badd: windows_core::BOOL, pguidextension: *mut windows_core::GUID, pguidsnapin: *mut windows_core::GUID) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IGPEInformation_Vtbl {
     pub const fn new<Identity: IGPEInformation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -300,7 +300,7 @@ impl IGPEInformation_Vtbl {
         iid == &<IGPEInformation as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IGPEInformation {}
 windows_core::imp::define_interface!(IGroupPolicyObject, IGroupPolicyObject_Vtbl, 0xea502723_a23d_11d1_a7d3_0000f87571e3);
 windows_core::imp::interface_hierarchy!(IGroupPolicyObject, windows_core::IUnknown);
@@ -363,7 +363,7 @@ impl IGroupPolicyObject {
     pub unsafe fn GetFileSysPath(&self, dwsection: u32, pszpath: &mut [u16]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFileSysPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetRegistryKey(&self, dwsection: u32) -> windows_core::Result<super::minwindef::HKEY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -388,7 +388,7 @@ impl IGroupPolicyObject {
     pub unsafe fn GetMachineName(&self, pszname: &mut [u16]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMachineName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
     }
-    #[cfg(feature = "Win32_prsht")]
+    #[cfg(feature = "prsht")]
     pub unsafe fn GetPropertySheetPages(&self, hpages: *mut *mut super::prsht::HPROPSHEETPAGE, upagecount: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPropertySheetPages)(windows_core::Interface::as_raw(self), hpages as _, upagecount as _) }
     }
@@ -412,20 +412,20 @@ pub struct IGroupPolicyObject_Vtbl {
     pub GetPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, i32) -> windows_core::HRESULT,
     pub GetDSPath: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, i32) -> windows_core::HRESULT,
     pub GetFileSysPath: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetRegistryKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::minwindef::HKEY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetRegistryKey: usize,
     pub GetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GROUP_POLICY_OBJECT_TYPE) -> windows_core::HRESULT,
     pub GetMachineName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_prsht")]
+    #[cfg(feature = "prsht")]
     pub GetPropertySheetPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::prsht::HPROPSHEETPAGE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_prsht"))]
+    #[cfg(not(feature = "prsht"))]
     GetPropertySheetPages: usize,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_prsht"))]
+#[cfg(all(feature = "minwindef", feature = "prsht"))]
 pub trait IGroupPolicyObject_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -449,7 +449,7 @@ pub trait IGroupPolicyObject_Impl: windows_core::IUnknownImpl {
     fn GetMachineName(&self, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::Result<()>;
     fn GetPropertySheetPages(&self, hpages: *mut *mut super::prsht::HPROPSHEETPAGE, upagecount: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_prsht"))]
+#[cfg(all(feature = "minwindef", feature = "prsht"))]
 impl IGroupPolicyObject_Vtbl {
     pub const fn new<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -625,7 +625,7 @@ impl IGroupPolicyObject_Vtbl {
         iid == &<IGroupPolicyObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_prsht"))]
+#[cfg(all(feature = "minwindef", feature = "prsht"))]
 impl windows_core::RuntimeName for IGroupPolicyObject {}
 windows_core::imp::define_interface!(IRSOPInformation, IRSOPInformation_Vtbl, 0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d);
 windows_core::imp::interface_hierarchy!(IRSOPInformation, windows_core::IUnknown);
@@ -744,17 +744,17 @@ impl IRSOPInformation_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRSOPInformation {}
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPGPOBROWSEINFO(pub *mut GPOBROWSEINFO);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPGPOBROWSEINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPGPOBROWSEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

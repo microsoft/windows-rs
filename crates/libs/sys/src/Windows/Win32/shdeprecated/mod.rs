@@ -1,7 +1,7 @@
-#[cfg(all(feature = "Win32_docobj", feature = "Win32_exdisp", feature = "Win32_hlink", feature = "Win32_oaidl", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type BASEBROWSERDATA = BASEBROWSERDATALH;
 #[repr(C)]
-#[cfg(all(feature = "Win32_docobj", feature = "Win32_exdisp", feature = "Win32_hlink", feature = "Win32_oaidl", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::windef::HWND,
@@ -32,14 +32,14 @@ pub struct BASEBROWSERDATALH {
     pub _hwndFrame: super::windef::HWND,
     pub _lPhishingFilterStatus: i32,
 }
-#[cfg(all(feature = "Win32_docobj", feature = "Win32_exdisp", feature = "Win32_hlink", feature = "Win32_oaidl", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 impl Default for BASEBROWSERDATALH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_docobj", feature = "Win32_exdisp", feature = "Win32_hlink", feature = "Win32_oaidl", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct BASEBROWSERDATAXP {
     pub _hwnd: super::windef::HWND,
@@ -69,7 +69,7 @@ pub struct BASEBROWSERDATAXP {
     pub _clsidViewPending: windows_sys::core::GUID,
     pub _hwndFrame: super::windef::HWND,
 }
-#[cfg(all(feature = "Win32_docobj", feature = "Win32_exdisp", feature = "Win32_hlink", feature = "Win32_oaidl", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 impl Default for BASEBROWSERDATAXP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -96,7 +96,7 @@ pub const BSF_TOPBROWSER: u32 = 2048;
 pub const BSF_TRUSTEDFORACTIVEX: u32 = 131072;
 pub const BSF_UISETBYAUTOMATION: u32 = 256;
 #[repr(C)]
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 #[derive(Clone, Copy, Default)]
 pub struct FOLDERSETDATA {
     pub _fs: super::shobjidl_core::FOLDERSETTINGS,
@@ -114,17 +114,17 @@ pub const HLNF_UNTRUSTEDFORDOWNLOAD: u32 = 33554432;
 pub type IEPDNFLAGS = i32;
 pub const IEPDN_BINDINGUI: IEPDNFLAGS = 1;
 pub const ITB_VIEW: u32 = 4294967295;
-#[cfg(all(feature = "Win32_docobj", feature = "Win32_exdisp", feature = "Win32_hlink", feature = "Win32_oaidl", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type LPBASEBROWSERDATA = *mut BASEBROWSERDATA;
-#[cfg(all(feature = "Win32_docobj", feature = "Win32_exdisp", feature = "Win32_hlink", feature = "Win32_oaidl", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type LPBASEBROWSERDATALH = *mut BASEBROWSERDATALH;
-#[cfg(all(feature = "Win32_docobj", feature = "Win32_exdisp", feature = "Win32_hlink", feature = "Win32_oaidl", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type LPBASEBROWSERDATAXP = *mut BASEBROWSERDATAXP;
-#[cfg(all(feature = "Win32_docobj", feature = "Win32_exdisp", feature = "Win32_hlink", feature = "Win32_oaidl", feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_shtypes", feature = "Win32_windef"))]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type LPCBASEBROWSERDATA = *const BASEBROWSERDATA;
-#[cfg(feature = "Win32_shobjidl_core")]
+#[cfg(feature = "shobjidl_core")]
 pub type LPFOLDERSETDATA = *mut FOLDERSETDATA;
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
 pub type LPTOOLBARITEM = *mut TOOLBARITEM;
 pub const SBSC_HIDE: SHELLBROWSERSHOWCONTROL = 0;
 pub const SBSC_QUERY: SHELLBROWSERSHOWCONTROL = 3;
@@ -159,7 +159,7 @@ pub const TLOG_BACK: i32 = -1;
 pub const TLOG_CURRENT: u32 = 0;
 pub const TLOG_FORE: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct TOOLBARITEM {
     pub ptbar: *mut core::ffi::c_void,
@@ -168,7 +168,7 @@ pub struct TOOLBARITEM {
     pub fShow: windows_sys::core::BOOL,
     pub hMon: super::windef::HMONITOR,
 }
-#[cfg(all(feature = "Win32_oleidl", feature = "Win32_shobjidl_core", feature = "Win32_windef"))]
+#[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
 impl Default for TOOLBARITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -67,7 +67,7 @@ pub struct CLFS_PHYSICAL_LSN_INFORMATION {
     pub PhysicalLsn: CLFS_LSN,
 }
 pub type CLFS_RECORD_TYPE = CLS_RECORD_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type CLFS_SCAN_CONTEXT = CLS_SCAN_CONTEXT;
 pub type CLFS_SCAN_MODE = u8;
 #[repr(C)]
@@ -154,7 +154,7 @@ pub struct CLS_LSN {
 pub type CLS_RECORD_TYPE = u8;
 #[repr(C, align(8))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
@@ -166,7 +166,7 @@ pub struct CLS_SCAN_CONTEXT {
     pub pinfoContainer: PCLS_CONTAINER_INFORMATION,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for CLS_SCAN_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -174,7 +174,7 @@ impl Default for CLS_SCAN_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
@@ -186,7 +186,7 @@ pub struct CLS_SCAN_CONTEXT {
     pub pinfoContainer: PCLS_CONTAINER_INFORMATION,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for CLS_SCAN_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -242,7 +242,7 @@ pub type PCLFS_LSN = *mut CLFS_LSN;
 pub type PCLFS_NODE_ID = *mut CLFS_NODE_ID;
 pub type PCLFS_PHYSICAL_LSN_INFORMATION = *mut CLFS_PHYSICAL_LSN_INFORMATION;
 pub type PCLFS_RECORD_TYPE = *mut CLS_RECORD_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCLFS_SCAN_CONTEXT = *mut CLFS_SCAN_CONTEXT;
 pub type PCLFS_SCAN_MODE = *mut u8;
 pub type PCLFS_STREAM_ID_INFORMATION = *mut CLFS_STREAM_ID_INFORMATION;
@@ -258,10 +258,10 @@ pub type PCLS_IO_STATISTICS_HEADER = *mut CLS_IO_STATISTICS_HEADER;
 pub type PCLS_LOG_INFORMATION_CLASS = *mut CLS_LOG_INFORMATION_CLASS;
 pub type PCLS_LSN = *mut CLS_LSN;
 pub type PCLS_RECORD_TYPE = *mut u8;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PCLS_SCAN_CONTEXT = *mut CLS_SCAN_CONTEXT;
 pub type PCLS_WRITE_ENTRY = *mut CLS_WRITE_ENTRY;
-#[cfg(feature = "Win32_corecrt_wstdio")]
+#[cfg(feature = "corecrt_wstdio")]
 pub type PFILE = *mut super::corecrt_wstdio::FILE;
 pub type PPCLFS_ARCHIVE_DESCRIPTOR = *mut *mut CLFS_ARCHIVE_DESCRIPTOR;
 pub type PPCLFS_CONTAINER_ID = *mut *mut CLFS_CONTAINER_ID;
@@ -276,7 +276,7 @@ pub type PPCLFS_LOG_INFORMATION_CLASS = *mut *mut CLFS_LOG_INFORMATION_CLASS;
 pub type PPCLFS_LOG_NAME_INFORMATION = *mut *mut CLFS_LOG_NAME_INFORMATION;
 pub type PPCLFS_LSN = *mut *mut CLFS_LSN;
 pub type PPCLFS_RECORD_TYPE = *mut *mut CLS_RECORD_TYPE;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PPCLFS_SCAN_CONTEXT = *mut *mut CLFS_SCAN_CONTEXT;
 pub type PPCLFS_STREAM_ID_INFORMATION = *mut *mut CLFS_STREAM_ID_INFORMATION;
 pub type PPCLFS_WRITE_ENTRY = *mut *mut CLFS_WRITE_ENTRY;
@@ -291,8 +291,8 @@ pub type PPCLS_IO_STATISTICS_HEADER = *mut *mut CLS_IO_STATISTICS_HEADER;
 pub type PPCLS_LOG_INFORMATION_CLASS = *mut *mut CLS_LOG_INFORMATION_CLASS;
 pub type PPCLS_LSN = *mut *mut CLS_LSN;
 pub type PPCLS_RECORD_TYPE = *mut *mut u8;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type PPCLS_SCAN_CONTEXT = *mut *mut CLS_SCAN_CONTEXT;
 pub type PPCLS_WRITE_ENTRY = *mut *mut CLS_WRITE_ENTRY;
-#[cfg(feature = "Win32_corecrt_wstdio")]
+#[cfg(feature = "corecrt_wstdio")]
 pub type PPFILE = *mut *mut super::corecrt_wstdio::FILE;

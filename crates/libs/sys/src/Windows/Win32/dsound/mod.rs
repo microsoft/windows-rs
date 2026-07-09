@@ -6,7 +6,7 @@ windows_link::link!("dsound.dll" "system" fn DirectSoundCreate(pcguiddevice : *c
 windows_link::link!("dsound.dll" "system" fn DirectSoundCreate8(pcguiddevice : *const windows_sys::core::GUID, ppds8 : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("dsound.dll" "system" fn DirectSoundEnumerateA(pdsenumcallback : LPDSENUMCALLBACKA, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("dsound.dll" "system" fn DirectSoundEnumerateW(pdsenumcallback : LPDSENUMCALLBACKW, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_mmeapi", feature = "Win32_windef"))]
+#[cfg(all(feature = "mmeapi", feature = "windef"))]
 windows_link::link!("dsound.dll" "system" fn DirectSoundFullDuplexCreate(pcguidcapturedevice : *const windows_sys::core::GUID, pcguidrenderdevice : *const windows_sys::core::GUID, pcdscbufferdesc : *const DSCBUFFERDESC, pcdsbufferdesc : *const DSBUFFERDESC, hwnd : super::windef::HWND, dwlevel : u32, ppdsfd : *mut *mut core::ffi::c_void, ppdscbuffer8 : *mut *mut core::ffi::c_void, ppdsbuffer8 : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("dsound.dll" "system" fn GetDeviceID(pguidsrc : *const windows_sys::core::GUID, pguiddest : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 pub const CLSID_DirectSound: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x47d4d946_62e8_11cf_93bc_444553540000);
@@ -103,13 +103,13 @@ pub const DSBPLAY_TERMINATEBY_PRIORITY: u32 = 32;
 pub const DSBPLAY_TERMINATEBY_TIME: u32 = 8;
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DSBPOSITIONNOTIFY {
     pub dwOffset: u32,
     pub hEventNotify: super::winnt::HANDLE,
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 impl Default for DSBPOSITIONNOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -125,7 +125,7 @@ pub const DSBSTATUS_LOOPING: u32 = 4;
 pub const DSBSTATUS_PLAYING: u32 = 1;
 pub const DSBSTATUS_TERMINATED: u32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
 pub struct DSBUFFERDESC {
     pub dwSize: u32,
@@ -135,14 +135,14 @@ pub struct DSBUFFERDESC {
     pub lpwfxFormat: super::mmeapi::LPWAVEFORMATEX,
     pub guid3DAlgorithm: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl Default for DSBUFFERDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
 pub struct DSBUFFERDESC1 {
     pub dwSize: u32,
@@ -151,7 +151,7 @@ pub struct DSBUFFERDESC1 {
     pub dwReserved: u32,
     pub lpwfxFormat: super::mmeapi::LPWAVEFORMATEX,
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl Default for DSBUFFERDESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -213,7 +213,7 @@ pub const DSCBSTART_LOOPING: u32 = 1;
 pub const DSCBSTATUS_CAPTURING: u32 = 1;
 pub const DSCBSTATUS_LOOPING: u32 = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
 pub struct DSCBUFFERDESC {
     pub dwSize: u32,
@@ -224,14 +224,14 @@ pub struct DSCBUFFERDESC {
     pub dwFXCount: u32,
     pub lpDSCFXDesc: LPDSCEFFECTDESC,
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl Default for DSCBUFFERDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
 pub struct DSCBUFFERDESC1 {
     pub dwSize: u32,
@@ -240,7 +240,7 @@ pub struct DSCBUFFERDESC1 {
     pub dwReserved: u32,
     pub lpwfxFormat: super::mmeapi::LPWAVEFORMATEX,
 }
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 impl Default for DSCBUFFERDESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -544,15 +544,15 @@ pub const KSPROPERTY_SUPPORT_SET: u32 = 2;
 pub type LPCDS3DBUFFER = *const DS3DBUFFER;
 pub type LPCDS3DLISTENER = *const DS3DLISTENER;
 pub type LPCDSBCAPS = *const DSBCAPS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPCDSBPOSITIONNOTIFY = *const DSBPOSITIONNOTIFY;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPCDSBUFFERDESC = *const DSBUFFERDESC;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPCDSBUFFERDESC1 = *const DSBUFFERDESC1;
 pub type LPCDSCAPS = *const DSCAPS;
 pub type LPCDSCBCAPS = *const DSCBCAPS;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPCDSCBUFFERDESC = *const DSCBUFFERDESC;
 pub type LPCDSCCAPS = *const DSCCAPS;
 pub type LPCDSCEFFECTDESC = *const DSCEFFECTDESC;
@@ -574,17 +574,17 @@ pub type LPD3DVECTOR = *mut D3DVECTOR;
 pub type LPDS3DBUFFER = *mut DS3DBUFFER;
 pub type LPDS3DLISTENER = *mut DS3DLISTENER;
 pub type LPDSBCAPS = *mut DSBCAPS;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LPDSBPOSITIONNOTIFY = *mut DSBPOSITIONNOTIFY;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPDSBUFFERDESC = *mut DSBUFFERDESC;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPDSBUFFERDESC1 = *mut DSBUFFERDESC1;
 pub type LPDSCAPS = *mut DSCAPS;
 pub type LPDSCBCAPS = *mut DSCBCAPS;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPDSCBUFFERDESC = *mut DSCBUFFERDESC;
-#[cfg(feature = "Win32_mmeapi")]
+#[cfg(feature = "mmeapi")]
 pub type LPDSCBUFFERDESC1 = *mut DSCBUFFERDESC1;
 pub type LPDSCCAPS = *mut DSCCAPS;
 pub type LPDSCEFFECTDESC = *mut DSCEFFECTDESC;
@@ -613,5 +613,5 @@ pub type LPLPDIRECTSOUNDCAPTURE8 = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDCAPTUREBUFFER = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDCAPTUREBUFFER8 = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDNOTIFY = *mut *mut core::ffi::c_void;
-#[cfg(feature = "Win32_mediaobj")]
+#[cfg(feature = "mediaobj")]
 pub type LPREFERENCE_TIME = *mut super::mediaobj::REFERENCE_TIME;

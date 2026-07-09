@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetWkstaGetInfo<P0>(servername: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where
@@ -15,7 +15,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetWkstaSetInfo(servername : windows_core::PCWSTR, level : u32, buffer : *const u8, parm_err : *mut u32) -> u32);
     unsafe { NetWkstaSetInfo(servername.param().abi(), level, buffer, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn NetWkstaTransportAdd(servername: Option<super::winnt::LPTSTR>, level: u32, buf: *mut u8, parm_err: Option<*mut u32>) -> u32 {
     windows_core::link!("netapi32.dll" "system" fn NetWkstaTransportAdd(servername : super::winnt::LPTSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
@@ -30,13 +30,13 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetWkstaTransportDel(servername : windows_core::PCWSTR, transportname : windows_core::PCWSTR, ucond : u32) -> u32);
     unsafe { NetWkstaTransportDel(servername.param().abi(), transportname.param().abi(), ucond) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn NetWkstaTransportEnum(servername: Option<super::winnt::LPTSTR>, level: u32, bufptr: *mut super::minwindef::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32 {
     windows_core::link!("netapi32.dll" "system" fn NetWkstaTransportEnum(servername : super::winnt::LPTSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     unsafe { NetWkstaTransportEnum(servername.unwrap_or(core::mem::zeroed()) as _, level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetWkstaUserEnum<P0>(servername: P0, level: u32, bufptr: Option<*mut super::minwindef::LPBYTE>, prefmaxlen: u32, entriesread: Option<*mut u32>, totalentries: *mut u32, resumehandle: Option<*mut u32>) -> u32
 where
@@ -45,7 +45,7 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetWkstaUserEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::minwindef::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
     unsafe { NetWkstaUserEnum(servername.param().abi(), level, bufptr.unwrap_or(core::mem::zeroed()) as _, prefmaxlen, entriesread.unwrap_or(core::mem::zeroed()) as _, totalentries as _, resumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn NetWkstaUserGetInfo<P0>(reserved: P0, level: u32, bufptr: *mut super::minwindef::LPBYTE) -> u32
 where

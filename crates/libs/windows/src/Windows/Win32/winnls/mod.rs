@@ -1,28 +1,28 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CompareStringA(locale: super::winnt::LCID, dwcmpflags: u32, lpstring1: &[i8], lpstring2: &[i8]) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn CompareStringA(locale : super::winnt::LCID, dwcmpflags : u32, lpstring1 : *const i8, cchcount1 : i32, lpstring2 : *const i8, cchcount2 : i32) -> i32);
     unsafe { CompareStringA(locale, dwcmpflags, core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ConvertDefaultLocale(locale: super::winnt::LCID) -> super::winnt::LCID {
     windows_core::link!("kernel32.dll" "system" fn ConvertDefaultLocale(locale : super::winnt::LCID) -> super::winnt::LCID);
     unsafe { ConvertDefaultLocale(locale) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: super::winnt::LCID, calendar: CALID, caltype: CALTYPE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumCalendarInfoA(lpcalinfoenumproc : CALINFO_ENUMPROCA, locale : super::winnt::LCID, calendar : CALID, caltype : CALTYPE) -> windows_core::BOOL);
     unsafe { EnumCalendarInfoA(lpcalinfoenumproc, locale, calendar, caltype) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: super::winnt::LCID, calendar: CALID, caltype: CALTYPE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumCalendarInfoExA(lpcalinfoenumprocex : CALINFO_ENUMPROCEXA, locale : super::winnt::LCID, calendar : CALID, caltype : CALTYPE) -> windows_core::BOOL);
     unsafe { EnumCalendarInfoExA(lpcalinfoenumprocex, locale, calendar, caltype) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn EnumCalendarInfoExEx<P1, P3>(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: P1, calendar: CALID, lpreserved: P3, caltype: CALTYPE, lparam: super::minwindef::LPARAM) -> windows_core::BOOL
 where
@@ -32,31 +32,31 @@ where
     windows_core::link!("kernel32.dll" "system" fn EnumCalendarInfoExEx(pcalinfoenumprocexex : CALINFO_ENUMPROCEXEX, lplocalename : windows_core::PCWSTR, calendar : CALID, lpreserved : windows_core::PCWSTR, caltype : CALTYPE, lparam : super::minwindef::LPARAM) -> windows_core::BOOL);
     unsafe { EnumCalendarInfoExEx(pcalinfoenumprocexex, lplocalename.param().abi(), calendar, lpreserved.param().abi(), caltype, lparam) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: super::winnt::LCID, calendar: CALID, caltype: CALTYPE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumCalendarInfoExW(lpcalinfoenumprocex : CALINFO_ENUMPROCEXW, locale : super::winnt::LCID, calendar : CALID, caltype : CALTYPE) -> windows_core::BOOL);
     unsafe { EnumCalendarInfoExW(lpcalinfoenumprocex, locale, calendar, caltype) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: super::winnt::LCID, calendar: CALID, caltype: CALTYPE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumCalendarInfoW(lpcalinfoenumproc : CALINFO_ENUMPROCW, locale : super::winnt::LCID, calendar : CALID, caltype : CALTYPE) -> windows_core::BOOL);
     unsafe { EnumCalendarInfoW(lpcalinfoenumproc, locale, calendar, caltype) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: super::winnt::LCID, dwflags: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumDateFormatsA(lpdatefmtenumproc : DATEFMT_ENUMPROCA, locale : super::winnt::LCID, dwflags : u32) -> windows_core::BOOL);
     unsafe { EnumDateFormatsA(lpdatefmtenumproc, locale, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: super::winnt::LCID, dwflags: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumDateFormatsExA(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXA, locale : super::winnt::LCID, dwflags : u32) -> windows_core::BOOL);
     unsafe { EnumDateFormatsExA(lpdatefmtenumprocex, locale, dwflags) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn EnumDateFormatsExEx<P1>(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: P1, dwflags: u32, lparam: super::minwindef::LPARAM) -> windows_core::BOOL
 where
@@ -65,25 +65,25 @@ where
     windows_core::link!("kernel32.dll" "system" fn EnumDateFormatsExEx(lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX, lplocalename : windows_core::PCWSTR, dwflags : u32, lparam : super::minwindef::LPARAM) -> windows_core::BOOL);
     unsafe { EnumDateFormatsExEx(lpdatefmtenumprocexex, lplocalename.param().abi(), dwflags, lparam) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: super::winnt::LCID, dwflags: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumDateFormatsExW(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXW, locale : super::winnt::LCID, dwflags : u32) -> windows_core::BOOL);
     unsafe { EnumDateFormatsExW(lpdatefmtenumprocex, locale, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: super::winnt::LCID, dwflags: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumDateFormatsW(lpdatefmtenumproc : DATEFMT_ENUMPROCW, locale : super::winnt::LCID, dwflags : u32) -> windows_core::BOOL);
     unsafe { EnumDateFormatsW(lpdatefmtenumproc, locale, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: LGRPID, dwflags: u32, lparam: isize) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCA, languagegroup : LGRPID, dwflags : u32, lparam : isize) -> windows_core::BOOL);
     unsafe { EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc, languagegroup, dwflags, lparam) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: LGRPID, dwflags: u32, lparam: isize) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCW, languagegroup : LGRPID, dwflags : u32, lparam : isize) -> windows_core::BOOL);
@@ -104,7 +104,7 @@ pub unsafe fn EnumSystemGeoID(geoclass: GEOCLASS, parentgeoid: GEOID, lpgeoenump
     windows_core::link!("kernel32.dll" "system" fn EnumSystemGeoID(geoclass : GEOCLASS, parentgeoid : GEOID, lpgeoenumproc : GEO_ENUMPROC) -> windows_core::BOOL);
     unsafe { EnumSystemGeoID(geoclass, parentgeoid, lpgeoenumproc) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn EnumSystemGeoNames(geoclass: GEOCLASS, geoenumproc: GEO_ENUMNAMEPROC, data: Option<super::minwindef::LPARAM>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumSystemGeoNames(geoclass : GEOCLASS, geoenumproc : GEO_ENUMNAMEPROC, data : super::minwindef::LPARAM) -> windows_core::BOOL);
@@ -125,7 +125,7 @@ pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u3
     windows_core::link!("kernel32.dll" "system" fn EnumSystemLocalesA(lplocaleenumproc : LOCALE_ENUMPROCA, dwflags : u32) -> windows_core::BOOL);
     unsafe { EnumSystemLocalesA(lplocaleenumproc, dwflags) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn EnumSystemLocalesEx(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: u32, lparam: super::minwindef::LPARAM, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumSystemLocalesEx(lplocaleenumprocex : LOCALE_ENUMPROCEX, dwflags : u32, lparam : super::minwindef::LPARAM, lpreserved : *const core::ffi::c_void) -> windows_core::BOOL);
@@ -136,13 +136,13 @@ pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u3
     windows_core::link!("kernel32.dll" "system" fn EnumSystemLocalesW(lplocaleenumproc : LOCALE_ENUMPROCW, dwflags : u32) -> windows_core::BOOL);
     unsafe { EnumSystemLocalesW(lplocaleenumproc, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: super::winnt::LCID, dwflags: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumTimeFormatsA(lptimefmtenumproc : TIMEFMT_ENUMPROCA, locale : super::winnt::LCID, dwflags : u32) -> windows_core::BOOL);
     unsafe { EnumTimeFormatsA(lptimefmtenumproc, locale, dwflags) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn EnumTimeFormatsEx<P1>(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: P1, dwflags: u32, lparam: super::minwindef::LPARAM) -> windows_core::BOOL
 where
@@ -151,7 +151,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn EnumTimeFormatsEx(lptimefmtenumprocex : TIMEFMT_ENUMPROCEX, lplocalename : windows_core::PCWSTR, dwflags : u32, lparam : super::minwindef::LPARAM) -> windows_core::BOOL);
     unsafe { EnumTimeFormatsEx(lptimefmtenumprocex, lplocalename.param().abi(), dwflags, lparam) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: super::winnt::LCID, dwflags: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn EnumTimeFormatsW(lptimefmtenumproc : TIMEFMT_ENUMPROCW, locale : super::winnt::LCID, dwflags : u32) -> windows_core::BOOL);
@@ -167,13 +167,13 @@ pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwfla
     windows_core::link!("kernel32.dll" "system" fn EnumUILanguagesW(lpuilanguageenumproc : UILANGUAGE_ENUMPROCW, dwflags : u32, lparam : isize) -> windows_core::BOOL);
     unsafe { EnumUILanguagesW(lpuilanguageenumproc, dwflags, lparam) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn FindNLSString(locale: super::winnt::LCID, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: Option<*mut i32>) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn FindNLSString(locale : super::winnt::LCID, dwfindnlsstringflags : u32, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, pcchfound : *mut i32) -> i32);
     unsafe { FindNLSString(locale, dwfindnlsstringflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), pcchfound.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn FindNLSStringEx<P0>(lplocalename: P0, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: Option<*mut i32>, lpversioninformation: Option<*const NLSVERSIONINFO>, lpreserved: Option<*const core::ffi::c_void>, sorthandle: Option<super::minwindef::LPARAM>) -> i32
 where
@@ -207,7 +207,7 @@ pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOE
     windows_core::link!("kernel32.dll" "system" fn GetCPInfoExW(codepage : u32, dwflags : u32, lpcpinfoex : *mut CPINFOEXW) -> windows_core::BOOL);
     unsafe { GetCPInfoExW(codepage, dwflags, lpcpinfoex as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetCalendarInfoA(locale: super::winnt::LCID, calendar: CALID, caltype: CALTYPE, lpcaldata: Option<&mut [u8]>, lpvalue: Option<*mut u32>) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetCalendarInfoA(locale : super::winnt::LCID, calendar : CALID, caltype : CALTYPE, lpcaldata : windows_core::PSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
@@ -222,13 +222,13 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetCalendarInfoEx(lplocalename : windows_core::PCWSTR, calendar : CALID, lpreserved : windows_core::PCWSTR, caltype : CALTYPE, lpcaldata : windows_core::PWSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
     unsafe { GetCalendarInfoEx(lplocalename.param().abi(), calendar, lpreserved.param().abi(), caltype, core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetCalendarInfoW(locale: super::winnt::LCID, calendar: CALID, caltype: CALTYPE, lpcaldata: Option<&mut [u16]>, lpvalue: Option<*mut u32>) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetCalendarInfoW(locale : super::winnt::LCID, calendar : CALID, caltype : CALTYPE, lpcaldata : windows_core::PWSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
     unsafe { GetCalendarInfoW(locale, calendar, caltype, core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetCurrencyFormatA<P2>(locale: super::winnt::LCID, dwflags: u32, lpvalue: P2, lpformat: Option<*const CURRENCYFMTA>, lpcurrencystr: Option<&mut [u8]>) -> i32
 where
@@ -246,7 +246,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetCurrencyFormatEx(lplocalename : windows_core::PCWSTR, dwflags : u32, lpvalue : windows_core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_core::PWSTR, cchcurrency : i32) -> i32);
     unsafe { GetCurrencyFormatEx(lplocalename.param().abi(), dwflags, lpvalue.param().abi(), lpformat.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetCurrencyFormatW<P2>(locale: super::winnt::LCID, dwflags: u32, lpvalue: P2, lpformat: Option<*const CURRENCYFMTW>, lpcurrencystr: Option<&mut [u16]>) -> i32
 where
@@ -255,7 +255,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetCurrencyFormatW(locale : super::winnt::LCID, dwflags : u32, lpvalue : windows_core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_core::PWSTR, cchcurrency : i32) -> i32);
     unsafe { GetCurrencyFormatW(locale, dwflags, lpvalue.param().abi(), lpformat.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetDurationFormat<P4>(locale: super::winnt::LCID, dwflags: u32, lpduration: Option<*const super::minwinbase::SYSTEMTIME>, ullduration: u64, lpformat: P4, lpdurationstr: Option<&mut [u16]>) -> i32
 where
@@ -280,7 +280,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetFileMUIPath(dwflags : u32, pcwszfilepath : windows_core::PCWSTR, pwszlanguage : windows_core::PWSTR, pcchlanguage : *mut u32, pwszfilemuipath : windows_core::PWSTR, pcchfilemuipath : *mut u32, pululenumerator : *mut u64) -> windows_core::BOOL);
     unsafe { GetFileMUIPath(dwflags, pcwszfilepath.param().abi(), pwszlanguage.unwrap_or(core::mem::zeroed()) as _, pcchlanguage as _, pwszfilemuipath.unwrap_or(core::mem::zeroed()) as _, pcchfilemuipath as _, pululenumerator as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetGeoInfoA(location: GEOID, geotype: GEOTYPE, lpgeodata: Option<&mut [u8]>, langid: super::winnt::LANGID) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetGeoInfoA(location : GEOID, geotype : GEOTYPE, lpgeodata : windows_core::PSTR, cchdata : i32, langid : super::winnt::LANGID) -> i32);
@@ -294,13 +294,13 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetGeoInfoEx(location : windows_core::PCWSTR, geotype : GEOTYPE, geodata : windows_core::PWSTR, geodatacount : i32) -> i32);
     unsafe { GetGeoInfoEx(location.param().abi(), geotype, core::mem::transmute(geodata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), geodata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetGeoInfoW(location: GEOID, geotype: GEOTYPE, lpgeodata: Option<&mut [u16]>, langid: super::winnt::LANGID) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetGeoInfoW(location : GEOID, geotype : GEOTYPE, lpgeodata : windows_core::PWSTR, cchdata : i32, langid : super::winnt::LANGID) -> i32);
     unsafe { GetGeoInfoW(location, geotype, core::mem::transmute(lpgeodata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpgeodata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), langid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetLocaleInfoA(locale: super::winnt::LCID, lctype: LCTYPE, lplcdata: Option<&mut [u8]>) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetLocaleInfoA(locale : super::winnt::LCID, lctype : LCTYPE, lplcdata : windows_core::PSTR, cchdata : i32) -> i32);
@@ -314,13 +314,13 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetLocaleInfoEx(lplocalename : windows_core::PCWSTR, lctype : LCTYPE, lplcdata : windows_core::PWSTR, cchdata : i32) -> i32);
     unsafe { GetLocaleInfoEx(lplocalename.param().abi(), lctype, core::mem::transmute(lplcdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetLocaleInfoW(locale: super::winnt::LCID, lctype: LCTYPE, lplcdata: Option<&mut [u16]>) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetLocaleInfoW(locale : super::winnt::LCID, lctype : LCTYPE, lplcdata : windows_core::PWSTR, cchdata : i32) -> i32);
     unsafe { GetLocaleInfoW(locale, lctype, core::mem::transmute(lplcdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetNLSVersion(function: NLS_FUNCTION, locale: super::winnt::LCID, lpversioninformation: *mut NLSVERSIONINFO) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetNLSVersion(function : NLS_FUNCTION, locale : super::winnt::LCID, lpversioninformation : *mut NLSVERSIONINFO) -> windows_core::BOOL);
@@ -334,7 +334,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetNLSVersionEx(function : NLS_FUNCTION, lplocalename : windows_core::PCWSTR, lpversioninformation : *mut NLSVERSIONINFOEX) -> windows_core::BOOL);
     unsafe { GetNLSVersionEx(function, lplocalename.param().abi(), lpversioninformation as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetNumberFormatA<P2>(locale: super::winnt::LCID, dwflags: u32, lpvalue: P2, lpformat: Option<*const NUMBERFMTA>, lpnumberstr: Option<&mut [u8]>) -> i32
 where
@@ -352,7 +352,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetNumberFormatEx(lplocalename : windows_core::PCWSTR, dwflags : u32, lpvalue : windows_core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : windows_core::PWSTR, cchnumber : i32) -> i32);
     unsafe { GetNumberFormatEx(lplocalename.param().abi(), dwflags, lpvalue.param().abi(), lpformat.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetNumberFormatW<P2>(locale: super::winnt::LCID, dwflags: u32, lpvalue: P2, lpformat: Option<*const NUMBERFMTW>, lpnumberstr: Option<&mut [u16]>) -> i32
 where
@@ -379,13 +379,13 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetStringScripts(dwflags : u32, lpstring : windows_core::PCWSTR, cchstring : i32, lpscripts : windows_core::PWSTR, cchscripts : i32) -> i32);
     unsafe { GetStringScripts(dwflags, lpstring.param().abi(), cchstring, core::mem::transmute(lpscripts.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpscripts.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetStringTypeA(locale: super::winnt::LCID, dwinfotype: u32, lpsrcstr: &[u8], lpchartype: *mut u16) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetStringTypeA(locale : super::winnt::LCID, dwinfotype : u32, lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpchartype : *mut u16) -> windows_core::BOOL);
     unsafe { GetStringTypeA(locale, dwinfotype, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpchartype as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetStringTypeExA<P2>(locale: super::winnt::LCID, dwinfotype: u32, lpsrcstr: P2, cchsrc: i32, lpchartype: *mut u16) -> windows_core::BOOL
 where
@@ -394,13 +394,13 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetStringTypeExA(locale : super::winnt::LCID, dwinfotype : u32, lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpchartype : *mut u16) -> windows_core::BOOL);
     unsafe { GetStringTypeExA(locale, dwinfotype, lpsrcstr.param().abi(), cchsrc, lpchartype as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSystemDefaultLCID() -> super::winnt::LCID {
     windows_core::link!("kernel32.dll" "system" fn GetSystemDefaultLCID() -> super::winnt::LCID);
     unsafe { GetSystemDefaultLCID() }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSystemDefaultLangID() -> super::winnt::LANGID {
     windows_core::link!("kernel32.dll" "system" fn GetSystemDefaultLangID() -> super::winnt::LANGID);
@@ -411,7 +411,7 @@ pub unsafe fn GetSystemDefaultLocaleName(lplocalename: &mut [u16]) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetSystemDefaultLocaleName(lplocalename : windows_core::PWSTR, cchlocalename : i32) -> i32);
     unsafe { GetSystemDefaultLocaleName(core::mem::transmute(lplocalename.as_ptr()), lplocalename.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSystemDefaultUILanguage() -> super::winnt::LANGID {
     windows_core::link!("kernel32.dll" "system" fn GetSystemDefaultUILanguage() -> super::winnt::LANGID);
@@ -422,7 +422,7 @@ pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut 
     windows_core::link!("kernel32.dll" "system" fn GetSystemPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : *mut u16, pcchlanguagesbuffer : *mut u32) -> windows_core::BOOL);
     unsafe { GetSystemPreferredUILanguages(dwflags, pulnumlanguages as _, pwszlanguagesbuffer.unwrap_or(core::mem::zeroed()) as _, pcchlanguagesbuffer as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetThreadLocale() -> super::winnt::LCID {
     windows_core::link!("kernel32.dll" "system" fn GetThreadLocale() -> super::winnt::LCID);
@@ -433,7 +433,7 @@ pub unsafe fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut 
     windows_core::link!("kernel32.dll" "system" fn GetThreadPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : *mut u16, pcchlanguagesbuffer : *mut u32) -> windows_core::BOOL);
     unsafe { GetThreadPreferredUILanguages(dwflags, pulnumlanguages as _, pwszlanguagesbuffer.unwrap_or(core::mem::zeroed()) as _, pcchlanguagesbuffer as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetThreadUILanguage() -> super::winnt::LANGID {
     windows_core::link!("kernel32.dll" "system" fn GetThreadUILanguage() -> super::winnt::LANGID);
@@ -449,13 +449,13 @@ pub unsafe fn GetUserDefaultGeoName(geoname: &mut [u16]) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetUserDefaultGeoName(geoname : windows_core::PWSTR, geonamecount : i32) -> i32);
     unsafe { GetUserDefaultGeoName(core::mem::transmute(geoname.as_ptr()), geoname.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetUserDefaultLCID() -> super::winnt::LCID {
     windows_core::link!("kernel32.dll" "system" fn GetUserDefaultLCID() -> super::winnt::LCID);
     unsafe { GetUserDefaultLCID() }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetUserDefaultLangID() -> super::winnt::LANGID {
     windows_core::link!("kernel32.dll" "system" fn GetUserDefaultLangID() -> super::winnt::LANGID);
@@ -466,7 +466,7 @@ pub unsafe fn GetUserDefaultLocaleName(lplocalename: &mut [u16]) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetUserDefaultLocaleName(lplocalename : windows_core::PWSTR, cchlocalename : i32) -> i32);
     unsafe { GetUserDefaultLocaleName(core::mem::transmute(lplocalename.as_ptr()), lplocalename.len().try_into().unwrap()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetUserDefaultUILanguage() -> super::winnt::LANGID {
     windows_core::link!("kernel32.dll" "system" fn GetUserDefaultUILanguage() -> super::winnt::LANGID);
@@ -527,7 +527,7 @@ pub unsafe fn IsValidLanguageGroup(languagegroup: LGRPID, dwflags: u32) -> windo
     windows_core::link!("kernel32.dll" "system" fn IsValidLanguageGroup(languagegroup : LGRPID, dwflags : u32) -> windows_core::BOOL);
     unsafe { IsValidLanguageGroup(languagegroup, dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn IsValidLocale(locale: super::winnt::LCID, dwflags: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn IsValidLocale(locale : super::winnt::LCID, dwflags : u32) -> windows_core::BOOL);
@@ -549,19 +549,19 @@ where
     windows_core::link!("kernel32.dll" "system" fn IsValidNLSVersion(function : NLS_FUNCTION, lplocalename : windows_core::PCWSTR, lpversioninformation : *const NLSVERSIONINFOEX) -> u32);
     unsafe { IsValidNLSVersion(function, lplocalename.param().abi(), lpversioninformation) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn LCIDToLocaleName(locale: super::winnt::LCID, lpname: Option<&mut [u16]>, dwflags: u32) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn LCIDToLocaleName(locale : super::winnt::LCID, lpname : windows_core::PWSTR, cchname : i32, dwflags : u32) -> i32);
     unsafe { LCIDToLocaleName(locale, core::mem::transmute(lpname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwflags) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn LCMapStringA(locale: super::winnt::LCID, dwmapflags: u32, lpsrcstr: &[u8], lpdeststr: Option<windows_core::PSTR>, cchdest: i32) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn LCMapStringA(locale : super::winnt::LCID, dwmapflags : u32, lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpdeststr : windows_core::PSTR, cchdest : i32) -> i32);
     unsafe { LCMapStringA(locale, dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpdeststr.unwrap_or(core::mem::zeroed()) as _, cchdest) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn LCMapStringEx<P0>(lplocalename: P0, dwmapflags: u32, lpsrcstr: &[u16], lpdeststr: Option<&mut [u16]>, lpversioninformation: Option<*const NLSVERSIONINFO>, lpreserved: Option<*const core::ffi::c_void>, sorthandle: Option<super::minwindef::LPARAM>) -> i32
 where
@@ -570,13 +570,13 @@ where
     windows_core::link!("kernel32.dll" "system" fn LCMapStringEx(lplocalename : windows_core::PCWSTR, dwmapflags : u32, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::minwindef::LPARAM) -> i32);
     unsafe { LCMapStringEx(lplocalename.param().abi(), dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpversioninformation.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, sorthandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn LCMapStringW(locale: super::winnt::LCID, dwmapflags: u32, lpsrcstr: &[u16], lpdeststr: Option<windows_core::PWSTR>, cchdest: i32) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn LCMapStringW(locale : super::winnt::LCID, dwmapflags : u32, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32) -> i32);
     unsafe { LCMapStringW(locale, dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpdeststr.unwrap_or(core::mem::zeroed()) as _, cchdest) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn LocaleNameToLCID<P0>(lpname: P0, dwflags: u32) -> super::winnt::LCID
 where
@@ -612,7 +612,7 @@ pub unsafe fn RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES) {
     windows_core::link!("kernel32.dll" "system" fn RestoreThreadPreferredUILanguages(snapshot : HSAVEDUILANGUAGES));
     unsafe { RestoreThreadPreferredUILanguages(snapshot) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetCalendarInfoA<P3>(locale: super::winnt::LCID, calendar: CALID, caltype: CALTYPE, lpcaldata: P3) -> windows_core::BOOL
 where
@@ -621,7 +621,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn SetCalendarInfoA(locale : super::winnt::LCID, calendar : CALID, caltype : CALTYPE, lpcaldata : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { SetCalendarInfoA(locale, calendar, caltype, lpcaldata.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetCalendarInfoW<P3>(locale: super::winnt::LCID, calendar: CALID, caltype: CALTYPE, lpcaldata: P3) -> windows_core::BOOL
 where
@@ -630,7 +630,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn SetCalendarInfoW(locale : super::winnt::LCID, calendar : CALID, caltype : CALTYPE, lpcaldata : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetCalendarInfoW(locale, calendar, caltype, lpcaldata.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetLocaleInfoA<P2>(locale: super::winnt::LCID, lctype: LCTYPE, lplcdata: P2) -> windows_core::BOOL
 where
@@ -639,7 +639,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn SetLocaleInfoA(locale : super::winnt::LCID, lctype : LCTYPE, lplcdata : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { SetLocaleInfoA(locale, lctype, lplcdata.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetLocaleInfoW<P2>(locale: super::winnt::LCID, lctype: LCTYPE, lplcdata: P2) -> windows_core::BOOL
 where
@@ -653,7 +653,7 @@ pub unsafe fn SetProcessPreferredUILanguages(dwflags: u32, pwszlanguagesbuffer: 
     windows_core::link!("kernel32.dll" "system" fn SetProcessPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : *const u16, pulnumlanguages : *mut u32) -> windows_core::BOOL);
     unsafe { SetProcessPreferredUILanguages(dwflags, pwszlanguagesbuffer.unwrap_or(core::mem::zeroed()) as _, pulnumlanguages.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadLocale(locale: super::winnt::LCID) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadLocale(locale : super::winnt::LCID) -> windows_core::BOOL);
@@ -669,7 +669,7 @@ pub unsafe fn SetThreadPreferredUILanguages2(flags: u32, languages: Option<*cons
     windows_core::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages2(flags : u32, languages : *const u16, numlanguagesset : *mut u32, snapshot : *mut HSAVEDUILANGUAGES) -> windows_core::BOOL);
     unsafe { SetThreadPreferredUILanguages2(flags, languages.unwrap_or(core::mem::zeroed()) as _, numlanguagesset.unwrap_or(core::mem::zeroed()) as _, snapshot.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadUILanguage(langid: super::winnt::LANGID) -> super::winnt::LANGID {
     windows_core::link!("kernel32.dll" "system" fn SetThreadUILanguage(langid : super::winnt::LANGID) -> super::winnt::LANGID);
@@ -739,7 +739,7 @@ pub const C3_VOWELMARK: u32 = 4;
 pub struct CALID(pub u32);
 pub type CALINFO_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> windows_core::BOOL>;
 pub type CALINFO_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: CALID) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type CALINFO_ENUMPROCEXEX = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: CALID, param2: windows_core::PCWSTR, param3: super::minwindef::LPARAM) -> windows_core::BOOL>;
 pub type CALINFO_ENUMPROCEXW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: CALID) -> windows_core::BOOL>;
 pub type CALINFO_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR) -> windows_core::BOOL>;
@@ -1025,7 +1025,7 @@ pub struct CURRENCYFMTW {
 }
 pub type DATEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> windows_core::BOOL>;
 pub type DATEFMT_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: CALID) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type DATEFMT_ENUMPROCEXEX = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: CALID, param2: super::minwindef::LPARAM) -> windows_core::BOOL>;
 pub type DATEFMT_ENUMPROCEXW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: CALID) -> windows_core::BOOL>;
 pub type DATEFMT_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR) -> windows_core::BOOL>;
@@ -1080,7 +1080,7 @@ pub struct GEOTYPE(pub u32);
 pub const GEO_CURRENCYCODE: SYSGEOTYPE = 15;
 pub const GEO_CURRENCYSYMBOL: SYSGEOTYPE = 16;
 pub const GEO_DIALINGCODE: SYSGEOTYPE = 14;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type GEO_ENUMNAMEPROC = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: super::minwindef::LPARAM) -> windows_core::BOOL>;
 pub type GEO_ENUMPROC = Option<unsafe extern "system" fn(param0: GEOID) -> windows_core::BOOL>;
 pub const GEO_FRIENDLYNAME: SYSGEOTYPE = 8;
@@ -1119,9 +1119,9 @@ pub const IDN_ALLOW_UNASSIGNED: u32 = 1;
 pub const IDN_EMAIL_ADDRESS: u32 = 4;
 pub const IDN_RAW_PUNYCODE: u32 = 8;
 pub const IDN_USE_STD3_ASCII_RULES: u32 = 2;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LANGGROUPLOCALE_ENUMPROCA = Option<unsafe extern "system" fn(param0: LGRPID, param1: super::winnt::LCID, param2: windows_core::PCSTR, param3: isize) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type LANGGROUPLOCALE_ENUMPROCW = Option<unsafe extern "system" fn(param0: LGRPID, param1: super::winnt::LCID, param2: windows_core::PCWSTR, param3: isize) -> windows_core::BOOL>;
 pub type LANGUAGEGROUP_ENUMPROCA = Option<unsafe extern "system" fn(param0: LGRPID, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: u32, param4: isize) -> windows_core::BOOL>;
 pub type LANGUAGEGROUP_ENUMPROCW = Option<unsafe extern "system" fn(param0: LGRPID, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: u32, param4: isize) -> windows_core::BOOL>;
@@ -1174,7 +1174,7 @@ pub const LOCALE_ALL: u32 = 0;
 pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728;
 pub const LOCALE_ALTERNATE_SORTS: u32 = 4;
 pub type LOCALE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type LOCALE_ENUMPROCEX = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: u32, param2: super::minwindef::LPARAM) -> windows_core::BOOL>;
 pub type LOCALE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR) -> windows_core::BOOL>;
 pub const LOCALE_FONTSIGNATURE: u32 = 88;
@@ -1594,7 +1594,7 @@ pub type SYSGEOCLASS = i32;
 pub type SYSGEOTYPE = i32;
 pub type SYSNLS_FUNCTION = i32;
 pub type TIMEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> windows_core::BOOL>;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type TIMEFMT_ENUMPROCEX = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: super::minwindef::LPARAM) -> windows_core::BOOL>;
 pub type TIMEFMT_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR) -> windows_core::BOOL>;
 pub const TIME_FORCE24HOURFORMAT: u32 = 8;

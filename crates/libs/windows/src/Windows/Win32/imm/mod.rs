@@ -1,22 +1,22 @@
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmAssociateContext(param0: super::windef::HWND, param1: HIMC) -> HIMC {
     windows_core::link!("imm32.dll" "system" fn ImmAssociateContext(param0 : super::windef::HWND, param1 : HIMC) -> HIMC);
     unsafe { ImmAssociateContext(param0, param1) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmAssociateContextEx(param0: super::windef::HWND, param1: HIMC, param2: u32) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmAssociateContextEx(param0 : super::windef::HWND, param1 : HIMC, param2 : u32) -> windows_core::BOOL);
     unsafe { ImmAssociateContextEx(param0, param1, param2) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn ImmConfigureIMEA(param0: super::minwindef::HKL, param1: super::windef::HWND, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::minwindef::HKL, param1 : super::windef::HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ImmConfigureIMEA(param0, param1, param2, param3 as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn ImmConfigureIMEW(param0: super::minwindef::HKL, param1: super::windef::HWND, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::minwindef::HKL, param1 : super::windef::HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_core::BOOL);
@@ -47,13 +47,13 @@ pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmDisableTextFrameService(idthread : u32) -> windows_core::BOOL);
     unsafe { ImmDisableTextFrameService(idthread) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmEnumInputContext(idthread: u32, lpfn: IMCENUMPROC, lparam: super::minwindef::LPARAM) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : u32, lpfn : IMCENUMPROC, lparam : super::minwindef::LPARAM) -> windows_core::BOOL);
     unsafe { ImmEnumInputContext(idthread, lpfn, lparam) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmEnumRegisterWordA<P2, P4>(param0: super::minwindef::HKL, param1: REGISTERWORDENUMPROCA, lpszreading: P2, param3: u32, lpszregister: P4, param5: *mut core::ffi::c_void) -> u32
 where
@@ -63,7 +63,7 @@ where
     windows_core::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::minwindef::HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_core::PCSTR, param3 : u32, lpszregister : windows_core::PCSTR, param5 : *mut core::ffi::c_void) -> u32);
     unsafe { ImmEnumRegisterWordA(param0, param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5 as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmEnumRegisterWordW<P2, P4>(param0: super::minwindef::HKL, param1: REGISTERWORDENUMPROCW, lpszreading: P2, param3: u32, lpszregister: P4, param5: *mut core::ffi::c_void) -> u32
 where
@@ -73,13 +73,13 @@ where
     windows_core::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::minwindef::HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_core::PCWSTR, param3 : u32, lpszregister : windows_core::PCWSTR, param5 : *mut core::ffi::c_void) -> u32);
     unsafe { ImmEnumRegisterWordW(param0, param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5 as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmEscapeA(param0: super::minwindef::HKL, param1: HIMC, param2: u32, param3: *mut core::ffi::c_void) -> super::minwindef::LRESULT {
     windows_core::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::minwindef::HKL, param1 : HIMC, param2 : u32, param3 : *mut core::ffi::c_void) -> super::minwindef::LRESULT);
     unsafe { ImmEscapeA(param0, param1, param2, param3 as _) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmEscapeW(param0: super::minwindef::HKL, param1: HIMC, param2: u32, param3: *mut core::ffi::c_void) -> super::minwindef::LRESULT {
     windows_core::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::minwindef::HKL, param1 : HIMC, param2 : u32, param3 : *mut core::ffi::c_void) -> super::minwindef::LRESULT);
@@ -105,19 +105,19 @@ pub unsafe fn ImmGetCandidateListW(param0: HIMC, deindex: u32, lpcandlist: Optio
     windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
     unsafe { ImmGetCandidateListW(param0, deindex, lpcandlist.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmGetCandidateWindow(param0: HIMC, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : u32, lpcandidate : *mut CANDIDATEFORM) -> windows_core::BOOL);
     unsafe { ImmGetCandidateWindow(param0, param1, lpcandidate as _) }
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[inline]
 pub unsafe fn ImmGetCompositionFontA(param0: HIMC, lplf: *mut super::wingdi::LOGFONTA) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : HIMC, lplf : *mut super::wingdi::LOGFONTA) -> windows_core::BOOL);
     unsafe { ImmGetCompositionFontA(param0, lplf as _) }
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[inline]
 pub unsafe fn ImmGetCompositionFontW(param0: HIMC, lplf: *mut super::wingdi::LOGFONTW) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : HIMC, lplf : *mut super::wingdi::LOGFONTW) -> windows_core::BOOL);
@@ -133,19 +133,19 @@ pub unsafe fn ImmGetCompositionStringW(param0: HIMC, param1: u32, lpbuf: Option<
     windows_core::link!("imm32.dll" "system" fn ImmGetCompositionStringW(param0 : HIMC, param1 : u32, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
     unsafe { ImmGetCompositionStringW(param0, param1, lpbuf.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmGetCompositionWindow(param0: HIMC, lpcompform: *mut COMPOSITIONFORM) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : HIMC, lpcompform : *mut COMPOSITIONFORM) -> windows_core::BOOL);
     unsafe { ImmGetCompositionWindow(param0, lpcompform as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmGetContext(param0: super::windef::HWND) -> HIMC {
     windows_core::link!("imm32.dll" "system" fn ImmGetContext(param0 : super::windef::HWND) -> HIMC);
     unsafe { ImmGetContext(param0) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetConversionListA<P2>(param0: super::minwindef::HKL, param1: HIMC, lpsrc: P2, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: u32) -> u32
 where
@@ -154,7 +154,7 @@ where
     windows_core::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::minwindef::HKL, param1 : HIMC, lpsrc : windows_core::PCSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : u32) -> u32);
     unsafe { ImmGetConversionListA(param0, param1, lpsrc.param().abi(), lpdst as _, dwbuflen, uflag) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetConversionListW<P2>(param0: super::minwindef::HKL, param1: HIMC, lpsrc: P2, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: u32) -> u32
 where
@@ -168,19 +168,19 @@ pub unsafe fn ImmGetConversionStatus(param0: HIMC, lpfdwconversion: Option<*mut 
     windows_core::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : *mut u32, lpfdwsentence : *mut u32) -> windows_core::BOOL);
     unsafe { ImmGetConversionStatus(param0, lpfdwconversion.unwrap_or(core::mem::zeroed()) as _, lpfdwsentence.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmGetDefaultIMEWnd(param0: super::windef::HWND) -> super::windef::HWND {
     windows_core::link!("imm32.dll" "system" fn ImmGetDefaultIMEWnd(param0 : super::windef::HWND) -> super::windef::HWND);
     unsafe { ImmGetDefaultIMEWnd(param0) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetDescriptionA(param0: super::minwindef::HKL, lpszdescription: Option<&mut [u8]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::minwindef::HKL, lpszdescription : windows_core::PSTR, ubuflen : u32) -> u32);
     unsafe { ImmGetDescriptionA(param0, core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetDescriptionW(param0: super::minwindef::HKL, lpszdescription: Option<&mut [u16]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::minwindef::HKL, lpszdescription : windows_core::PWSTR, ubuflen : u32) -> u32);
@@ -196,25 +196,25 @@ pub unsafe fn ImmGetGuideLineW(param0: HIMC, dwindex: u32, lpbuf: Option<windows
     windows_core::link!("imm32.dll" "system" fn ImmGetGuideLineW(param0 : HIMC, dwindex : u32, lpbuf : windows_core::PWSTR, dwbuflen : u32) -> u32);
     unsafe { ImmGetGuideLineW(param0, dwindex, lpbuf.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetIMEFileNameA(param0: super::minwindef::HKL, lpszfilename: Option<&mut [u8]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::minwindef::HKL, lpszfilename : windows_core::PSTR, ubuflen : u32) -> u32);
     unsafe { ImmGetIMEFileNameA(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetIMEFileNameW(param0: super::minwindef::HKL, lpszfilename: Option<&mut [u16]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::minwindef::HKL, lpszfilename : windows_core::PWSTR, ubuflen : u32) -> u32);
     unsafe { ImmGetIMEFileNameW(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmGetImeMenuItemsA(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: Option<*mut IMEMENUITEMINFOA>, lpimemenu: Option<*mut IMEMENUITEMINFOA>, dwsize: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOA, lpimemenu : *mut IMEMENUITEMINFOA, dwsize : u32) -> u32);
     unsafe { ImmGetImeMenuItemsA(param0, param1, param2, lpimeparentmenu.unwrap_or(core::mem::zeroed()) as _, lpimemenu.unwrap_or(core::mem::zeroed()) as _, dwsize) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmGetImeMenuItemsW(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: Option<*mut IMEMENUITEMINFOW>, lpimemenu: Option<*mut IMEMENUITEMINFOW>, dwsize: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOW, lpimemenu : *mut IMEMENUITEMINFOW, dwsize : u32) -> u32);
@@ -225,37 +225,37 @@ pub unsafe fn ImmGetOpenStatus(param0: HIMC) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmGetOpenStatus(param0 : HIMC) -> windows_core::BOOL);
     unsafe { ImmGetOpenStatus(param0) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetProperty(param0: super::minwindef::HKL, param1: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetProperty(param0 : super::minwindef::HKL, param1 : u32) -> u32);
     unsafe { ImmGetProperty(param0, param1) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetRegisterWordStyleA(param0: super::minwindef::HKL, lpstylebuf: &mut [STYLEBUFA]) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::minwindef::HKL, nitem : u32, lpstylebuf : *mut STYLEBUFA) -> u32);
     unsafe { ImmGetRegisterWordStyleA(param0, lpstylebuf.len().try_into().unwrap(), core::mem::transmute(lpstylebuf.as_ptr())) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetRegisterWordStyleW(param0: super::minwindef::HKL, lpstylebuf: &mut [STYLEBUFW]) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::minwindef::HKL, nitem : u32, lpstylebuf : *mut STYLEBUFW) -> u32);
     unsafe { ImmGetRegisterWordStyleW(param0, lpstylebuf.len().try_into().unwrap(), core::mem::transmute(lpstylebuf.as_ptr())) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmGetStatusWindowPos(param0: HIMC, lpptpos: *mut super::windef::POINT) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : HIMC, lpptpos : *mut super::windef::POINT) -> windows_core::BOOL);
     unsafe { ImmGetStatusWindowPos(param0, lpptpos as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmGetVirtualKey(param0: super::windef::HWND) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetVirtualKey(param0 : super::windef::HWND) -> u32);
     unsafe { ImmGetVirtualKey(param0) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmInstallIMEA<P0, P1>(lpszimefilename: P0, lpszlayouttext: P1) -> super::minwindef::HKL
 where
@@ -265,7 +265,7 @@ where
     windows_core::link!("imm32.dll" "system" fn ImmInstallIMEA(lpszimefilename : windows_core::PCSTR, lpszlayouttext : windows_core::PCSTR) -> super::minwindef::HKL);
     unsafe { ImmInstallIMEA(lpszimefilename.param().abi(), lpszlayouttext.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmInstallIMEW<P0, P1>(lpszimefilename: P0, lpszlayouttext: P1) -> super::minwindef::HKL
 where
@@ -275,19 +275,19 @@ where
     windows_core::link!("imm32.dll" "system" fn ImmInstallIMEW(lpszimefilename : windows_core::PCWSTR, lpszlayouttext : windows_core::PCWSTR) -> super::minwindef::HKL);
     unsafe { ImmInstallIMEW(lpszimefilename.param().abi(), lpszlayouttext.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmIsIME(param0: super::minwindef::HKL) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmIsIME(param0 : super::minwindef::HKL) -> windows_core::BOOL);
     unsafe { ImmIsIME(param0) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn ImmIsUIMessageA(param0: super::windef::HWND, param1: u32, param2: super::minwindef::WPARAM, param3: super::minwindef::LPARAM) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmIsUIMessageA(param0 : super::windef::HWND, param1 : u32, param2 : super::minwindef::WPARAM, param3 : super::minwindef::LPARAM) -> windows_core::BOOL);
     unsafe { ImmIsUIMessageA(param0, param1, param2, param3) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_windef"))]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn ImmIsUIMessageW(param0: super::windef::HWND, param1: u32, param2: super::minwindef::WPARAM, param3: super::minwindef::LPARAM) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmIsUIMessageW(param0 : super::windef::HWND, param1 : u32, param2 : super::minwindef::WPARAM, param3 : super::minwindef::LPARAM) -> windows_core::BOOL);
@@ -298,7 +298,7 @@ pub unsafe fn ImmNotifyIME(param0: HIMC, dwaction: u32, dwindex: u32, dwvalue: u
     windows_core::link!("imm32.dll" "system" fn ImmNotifyIME(param0 : HIMC, dwaction : u32, dwindex : u32, dwvalue : u32) -> windows_core::BOOL);
     unsafe { ImmNotifyIME(param0, dwaction, dwindex, dwvalue) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmRegisterWordA<P1, P3>(param0: super::minwindef::HKL, lpszreading: P1, param2: u32, lpszregister: P3) -> windows_core::BOOL
 where
@@ -308,7 +308,7 @@ where
     windows_core::link!("imm32.dll" "system" fn ImmRegisterWordA(param0 : super::minwindef::HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszregister : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { ImmRegisterWordA(param0, lpszreading.param().abi(), param2, lpszregister.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmRegisterWordW<P1, P3>(param0: super::minwindef::HKL, lpszreading: P1, param2: u32, lpszregister: P3) -> windows_core::BOOL
 where
@@ -318,25 +318,25 @@ where
     windows_core::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::minwindef::HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszregister : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { ImmRegisterWordW(param0, lpszreading.param().abi(), param2, lpszregister.param().abi()) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmReleaseContext(param0: super::windef::HWND, param1: HIMC) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmReleaseContext(param0 : super::windef::HWND, param1 : HIMC) -> windows_core::BOOL);
     unsafe { ImmReleaseContext(param0, param1) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmSetCandidateWindow(param0: HIMC, lpcandidate: *const CANDIDATEFORM) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : *const CANDIDATEFORM) -> windows_core::BOOL);
     unsafe { ImmSetCandidateWindow(param0, lpcandidate) }
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[inline]
 pub unsafe fn ImmSetCompositionFontA(param0: HIMC, lplf: *const super::wingdi::LOGFONTA) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : *const super::wingdi::LOGFONTA) -> windows_core::BOOL);
     unsafe { ImmSetCompositionFontA(param0, lplf) }
 }
-#[cfg(feature = "Win32_wingdi")]
+#[cfg(feature = "wingdi")]
 #[inline]
 pub unsafe fn ImmSetCompositionFontW(param0: HIMC, lplf: *const super::wingdi::LOGFONTW) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : *const super::wingdi::LOGFONTW) -> windows_core::BOOL);
@@ -352,7 +352,7 @@ pub unsafe fn ImmSetCompositionStringW(param0: HIMC, dwindex: u32, lpcomp: Optio
     windows_core::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : u32, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_core::BOOL);
     unsafe { ImmSetCompositionStringW(param0, dwindex, lpcomp.unwrap_or(core::mem::zeroed()) as _, dwcomplen, lpread.unwrap_or(core::mem::zeroed()) as _, dwreadlen) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmSetCompositionWindow(param0: HIMC, lpcompform: *const COMPOSITIONFORM) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : *const COMPOSITIONFORM) -> windows_core::BOOL);
@@ -368,19 +368,19 @@ pub unsafe fn ImmSetOpenStatus(param0: HIMC, param1: bool) -> windows_core::BOOL
     windows_core::link!("imm32.dll" "system" fn ImmSetOpenStatus(param0 : HIMC, param1 : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { ImmSetOpenStatus(param0, param1.into()) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmSetStatusWindowPos(param0: HIMC, lpptpos: *const super::windef::POINT) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : *const super::windef::POINT) -> windows_core::BOOL);
     unsafe { ImmSetStatusWindowPos(param0, lpptpos) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ImmSimulateHotKey(param0: super::windef::HWND, param1: u32) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::windef::HWND, param1 : u32) -> windows_core::BOOL);
     unsafe { ImmSimulateHotKey(param0, param1) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmUnregisterWordA<P1, P3>(param0: super::minwindef::HKL, lpszreading: P1, param2: u32, lpszunregister: P3) -> windows_core::BOOL
 where
@@ -390,7 +390,7 @@ where
     windows_core::link!("imm32.dll" "system" fn ImmUnregisterWordA(param0 : super::minwindef::HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszunregister : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { ImmUnregisterWordA(param0, lpszreading.param().abi(), param2, lpszunregister.param().abi()) }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmUnregisterWordW<P1, P3>(param0: super::minwindef::HKL, lpszreading: P1, param2: u32, lpszunregister: P3) -> windows_core::BOOL
 where
@@ -407,7 +407,7 @@ pub const ATTR_INPUT_ERROR: u32 = 4;
 pub const ATTR_TARGET_CONVERTED: u32 = 1;
 pub const ATTR_TARGET_NOTCONVERTED: u32 = 3;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CANDIDATEFORM {
     pub dwIndex: u32,
@@ -438,7 +438,7 @@ pub const CFS_FORCE_POSITION: u32 = 32;
 pub const CFS_POINT: u32 = 2;
 pub const CFS_RECT: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMPOSITIONFORM {
     pub dwStyle: u32,
@@ -535,7 +535,7 @@ pub const IGP_SELECT: u32 = 24;
 pub const IGP_SENTENCE: u32 = 12;
 pub const IGP_SETCOMPSTR: u32 = 20;
 pub const IGP_UI: u32 = 16;
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub type IMCENUMPROC = Option<unsafe extern "system" fn(param0: HIMC, param1: super::minwindef::LPARAM) -> windows_core::BOOL>;
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33;
 pub const IMC_GETCANDIDATEPOS: u32 = 7;
@@ -548,7 +548,7 @@ pub const IMC_SETCOMPOSITIONFONT: u32 = 10;
 pub const IMC_SETCOMPOSITIONWINDOW: u32 = 12;
 pub const IMC_SETSTATUSWINDOWPOS: u32 = 16;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMECHARPOSITION {
     pub dwSize: u32,
@@ -557,10 +557,10 @@ pub struct IMECHARPOSITION {
     pub cLineHeight: u32,
     pub rcDocument: super::windef::RECT,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub type IMEMENUITEMINFO = IMEMENUITEMINFOA;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEMENUITEMINFOA {
     pub cbSize: u32,
@@ -573,14 +573,14 @@ pub struct IMEMENUITEMINFOA {
     pub szString: [i8; 80],
     pub hbmpItem: super::windef::HBITMAP,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for IMEMENUITEMINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEMENUITEMINFOW {
     pub cbSize: u32,
@@ -593,7 +593,7 @@ pub struct IMEMENUITEMINFOW {
     pub szString: [u16; 80],
     pub hbmpItem: super::windef::HBITMAP,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for IMEMENUITEMINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -705,17 +705,17 @@ pub const ISC_SHOWUIALLCANDIDATEWINDOW: u32 = 15;
 pub const ISC_SHOWUICANDIDATEWINDOW: u32 = 1;
 pub const ISC_SHOWUICOMPOSITIONWINDOW: u32 = 2147483648;
 pub const ISC_SHOWUIGUIDELINE: u32 = 1073741824;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCANDIDATEFORM(pub *mut CANDIDATEFORM);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPCANDIDATEFORM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPCANDIDATEFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -734,85 +734,85 @@ impl Default for LPCANDIDATELIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPCOMPOSITIONFORM(pub *mut COMPOSITIONFORM);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPCOMPOSITIONFORM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPCOMPOSITIONFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPHKL(pub *mut super::minwindef::HKL);
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl LPHKL {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl Default for LPHKL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPIMECHARPOSITION(pub *mut IMECHARPOSITION);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPIMECHARPOSITION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPIMECHARPOSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPIMEMENUITEMINFO(pub LPIMEMENUITEMINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPIMEMENUITEMINFOA(pub *mut IMEMENUITEMINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPIMEMENUITEMINFOA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPIMEMENUITEMINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPIMEMENUITEMINFOW(pub *mut IMEMENUITEMINFOW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPIMEMENUITEMINFOW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPIMEMENUITEMINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -902,17 +902,17 @@ pub const NI_OPENCANDIDATE: u32 = 16;
 pub const NI_SELECTCANDIDATESTR: u32 = 18;
 pub const NI_SETCANDIDATE_PAGESIZE: u32 = 23;
 pub const NI_SETCANDIDATE_PAGESTART: u32 = 22;
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPCANDIDATEFORM(pub *mut CANDIDATEFORM);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl NPCANDIDATEFORM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NPCANDIDATEFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -931,69 +931,69 @@ impl Default for NPCANDIDATELIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPCOMPOSITIONFORM(pub *mut COMPOSITIONFORM);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl NPCOMPOSITIONFORM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NPCOMPOSITIONFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPIMECHARPOSITION(pub *mut IMECHARPOSITION);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl NPIMECHARPOSITION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NPIMECHARPOSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NPIMEMENUITEMINFO(pub NPIMEMENUITEMINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPIMEMENUITEMINFOA(pub *mut IMEMENUITEMINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl NPIMEMENUITEMINFOA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NPIMEMENUITEMINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NPIMEMENUITEMINFOW(pub *mut IMEMENUITEMINFOW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl NPIMEMENUITEMINFOW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for NPIMEMENUITEMINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1070,17 +1070,17 @@ impl Default for NPSTYLEBUFW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCANDIDATEFORM(pub *mut CANDIDATEFORM);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PCANDIDATEFORM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PCANDIDATEFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1099,69 +1099,69 @@ impl Default for PCANDIDATELIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCOMPOSITIONFORM(pub *mut COMPOSITIONFORM);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PCOMPOSITIONFORM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PCOMPOSITIONFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIMECHARPOSITION(pub *mut IMECHARPOSITION);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PIMECHARPOSITION {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PIMECHARPOSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PIMEMENUITEMINFO(pub PIMEMENUITEMINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIMEMENUITEMINFOA(pub *mut IMEMENUITEMINFOA);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PIMEMENUITEMINFOA {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PIMEMENUITEMINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIMEMENUITEMINFOW(pub *mut IMEMENUITEMINFOW);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl PIMEMENUITEMINFOW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for PIMEMENUITEMINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

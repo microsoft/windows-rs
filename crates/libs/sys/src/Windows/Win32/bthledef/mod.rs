@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 pub type BLUETOOTH_GATT_EVENT_HANDLE = super::winnt::HANDLE;
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_AUTHENTICATED: u32 = 2;
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_ENCRYPTED: u32 = 1;

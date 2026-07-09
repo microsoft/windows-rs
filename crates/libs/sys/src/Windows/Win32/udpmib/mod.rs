@@ -1,12 +1,12 @@
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDP6ROW {
     pub dwLocalAddr: super::in6addr::IN6_ADDR,
     pub dwLocalScopeId: u32,
     pub dwLocalPort: u32,
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for MIB_UDP6ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -93,13 +93,13 @@ impl Default for MIB_UDP6ROW_OWNER_PID {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDP6TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW; 1],
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 impl Default for MIB_UDP6TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -277,12 +277,12 @@ impl Default for MIB_UDPTABLE_OWNER_PID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type PMIB_UDP6ROW = *mut MIB_UDP6ROW;
 pub type PMIB_UDP6ROW2 = *mut MIB_UDP6ROW2;
 pub type PMIB_UDP6ROW_OWNER_MODULE = *mut MIB_UDP6ROW_OWNER_MODULE;
 pub type PMIB_UDP6ROW_OWNER_PID = *mut MIB_UDP6ROW_OWNER_PID;
-#[cfg(feature = "Win32_in6addr")]
+#[cfg(feature = "in6addr")]
 pub type PMIB_UDP6TABLE = *mut MIB_UDP6TABLE;
 pub type PMIB_UDP6TABLE2 = *mut MIB_UDP6TABLE2;
 pub type PMIB_UDP6TABLE_OWNER_MODULE = *mut MIB_UDP6TABLE_OWNER_MODULE;

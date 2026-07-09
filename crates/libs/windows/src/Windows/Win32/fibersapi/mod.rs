@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn FlsAlloc(lpcallback: super::winnt::PFLS_CALLBACK_FUNCTION) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn FlsAlloc(lpcallback : super::winnt::PFLS_CALLBACK_FUNCTION) -> u32);

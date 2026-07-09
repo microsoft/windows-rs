@@ -14,49 +14,49 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn AddPackageDependency2(packagedependencyid : windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions2, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { AddPackageDependency2(packagedependencyid.param().abi(), rank, options, packagedependencycontext as _, packagefullname as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AppPolicyGetClrCompat(processtoken: super::winnt::HANDLE, policy: *mut AppPolicyClrCompat) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetClrCompat(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyClrCompat) -> i32);
     unsafe { AppPolicyGetClrCompat(processtoken, policy as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AppPolicyGetCreateFileAccess(processtoken: super::winnt::HANDLE, policy: *mut AppPolicyCreateFileAccess) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetCreateFileAccess(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyCreateFileAccess) -> i32);
     unsafe { AppPolicyGetCreateFileAccess(processtoken, policy as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AppPolicyGetLifecycleManagement(processtoken: super::winnt::HANDLE, policy: *mut AppPolicyLifecycleManagement) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetLifecycleManagement(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyLifecycleManagement) -> i32);
     unsafe { AppPolicyGetLifecycleManagement(processtoken, policy as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AppPolicyGetMediaFoundationCodecLoading(processtoken: super::winnt::HANDLE, policy: *mut AppPolicyMediaFoundationCodecLoading) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetMediaFoundationCodecLoading(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyMediaFoundationCodecLoading) -> i32);
     unsafe { AppPolicyGetMediaFoundationCodecLoading(processtoken, policy as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AppPolicyGetProcessTerminationMethod(processtoken: super::winnt::HANDLE, policy: *mut AppPolicyProcessTerminationMethod) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetProcessTerminationMethod(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyProcessTerminationMethod) -> i32);
     unsafe { AppPolicyGetProcessTerminationMethod(processtoken, policy as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AppPolicyGetShowDeveloperDiagnostic(processtoken: super::winnt::HANDLE, policy: *mut AppPolicyShowDeveloperDiagnostic) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetShowDeveloperDiagnostic(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyShowDeveloperDiagnostic) -> i32);
     unsafe { AppPolicyGetShowDeveloperDiagnostic(processtoken, policy as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AppPolicyGetThreadInitializationType(processtoken: super::winnt::HANDLE, policy: *mut AppPolicyThreadInitializationType) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetThreadInitializationType(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyThreadInitializationType) -> i32);
     unsafe { AppPolicyGetThreadInitializationType(processtoken, policy as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AppPolicyGetWindowingModel(processtoken: super::winnt::HANDLE, policy: *mut AppPolicyWindowingModel) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn AppPolicyGetWindowingModel(processtoken : super::winnt::HANDLE, policy : *mut AppPolicyWindowingModel) -> i32);
@@ -86,7 +86,7 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn DeletePackageDependency(packagedependencyid : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { DeletePackageDependency(packagedependencyid.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn FindPackageDependency(findpackagedependencycriteria: *const FindPackageDependencyCriteria, packagedependencyidscount: *mut u32, packagedependencyids: *mut *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn FindPackageDependency(findpackagedependencycriteria : *const FindPackageDependencyCriteria, packagedependencyidscount : *mut u32, packagedependencyids : *mut *mut windows_core::PWSTR) -> windows_core::HRESULT);
@@ -109,13 +109,13 @@ where
     windows_core::link!("kernel32.dll" "system" fn FormatApplicationUserModelId(packagefamilyname : windows_core::PCWSTR, packagerelativeapplicationid : windows_core::PCWSTR, applicationusermodelidlength : *mut u32, applicationusermodelid : windows_core::PWSTR) -> i32);
     unsafe { FormatApplicationUserModelId(packagefamilyname.param().abi(), packagerelativeapplicationid.param().abi(), applicationusermodelidlength as _, applicationusermodelid.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetApplicationUserModelId(hprocess: super::winnt::HANDLE, applicationusermodelidlength: *mut u32, applicationusermodelid: Option<windows_core::PWSTR>) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetApplicationUserModelId(hprocess : super::winnt::HANDLE, applicationusermodelidlength : *mut u32, applicationusermodelid : windows_core::PWSTR) -> i32);
     unsafe { GetApplicationUserModelId(hprocess, applicationusermodelidlength as _, applicationusermodelid.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetApplicationUserModelIdFromToken(token: super::winnt::HANDLE, applicationusermodelidlength: *mut u32, applicationusermodelid: Option<windows_core::PWSTR>) -> i32 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetApplicationUserModelIdFromToken(token : super::winnt::HANDLE, applicationusermodelidlength : *mut u32, applicationusermodelid : windows_core::PWSTR) -> i32);
@@ -174,7 +174,7 @@ pub unsafe fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INF
     windows_core::link!("kernel32.dll" "system" fn GetPackageApplicationIds(packageinforeference : *const _PACKAGE_INFO_REFERENCE, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> i32);
     unsafe { GetPackageApplicationIds(packageinforeference, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _, count.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetPackageDependencyInformation<P0>(packagedependencyid: P0, user: *mut super::winnt::PSID, packagefamilyname: *mut windows_core::PWSTR, minversion: Option<*mut PACKAGE_VERSION>, packagedependencyprocessorarchitectures: Option<*mut PackageDependencyProcessorArchitectures>, lifetimekind: Option<*mut PackageDependencyLifetimeKind>, lifetimeartifact: *mut windows_core::PWSTR, options: Option<*mut CreatePackageDependencyOptions>, lifetimeexpiration: Option<*mut super::minwindef::FILETIME>) -> windows_core::HRESULT
 where
@@ -183,25 +183,25 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetPackageDependencyInformation(packagedependencyid : windows_core::PCWSTR, user : *mut super::winnt::PSID, packagefamilyname : *mut windows_core::PWSTR, minversion : *mut PACKAGE_VERSION, packagedependencyprocessorarchitectures : *mut PackageDependencyProcessorArchitectures, lifetimekind : *mut PackageDependencyLifetimeKind, lifetimeartifact : *mut windows_core::PWSTR, options : *mut CreatePackageDependencyOptions, lifetimeexpiration : *mut super::minwindef::FILETIME) -> windows_core::HRESULT);
     unsafe { GetPackageDependencyInformation(packagedependencyid.param().abi(), user as _, packagefamilyname as _, minversion.unwrap_or(core::mem::zeroed()) as _, packagedependencyprocessorarchitectures.unwrap_or(core::mem::zeroed()) as _, lifetimekind.unwrap_or(core::mem::zeroed()) as _, lifetimeartifact as _, options.unwrap_or(core::mem::zeroed()) as _, lifetimeexpiration.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetPackageFamilyName(hprocess: super::winnt::HANDLE, packagefamilynamelength: *mut u32, packagefamilyname: Option<windows_core::PWSTR>) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetPackageFamilyName(hprocess : super::winnt::HANDLE, packagefamilynamelength : *mut u32, packagefamilyname : windows_core::PWSTR) -> i32);
     unsafe { GetPackageFamilyName(hprocess, packagefamilynamelength as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetPackageFamilyNameFromToken(token: super::winnt::HANDLE, packagefamilynamelength: *mut u32, packagefamilyname: Option<windows_core::PWSTR>) -> i32 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetPackageFamilyNameFromToken(token : super::winnt::HANDLE, packagefamilynamelength : *mut u32, packagefamilyname : windows_core::PWSTR) -> i32);
     unsafe { GetPackageFamilyNameFromToken(token, packagefamilynamelength as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetPackageFullName(hprocess: super::winnt::HANDLE, packagefullnamelength: *mut u32, packagefullname: Option<windows_core::PWSTR>) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetPackageFullName(hprocess : super::winnt::HANDLE, packagefullnamelength : *mut u32, packagefullname : windows_core::PWSTR) -> i32);
     unsafe { GetPackageFullName(hprocess, packagefullnamelength as _, packagefullname.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetPackageFullNameFromToken(token: super::winnt::HANDLE, packagefullnamelength: *mut u32, packagefullname: Option<windows_core::PWSTR>) -> i32 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetPackageFullNameFromToken(token : super::winnt::HANDLE, packagefullnamelength : *mut u32, packagefullname : windows_core::PWSTR) -> i32);
@@ -212,7 +212,7 @@ pub unsafe fn GetPackageGraphRevisionId() -> u32 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-6.dll" "system" fn GetPackageGraphRevisionId() -> u32);
     unsafe { GetPackageGraphRevisionId() }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetPackageId(hprocess: super::winnt::HANDLE, bufferlength: *mut u32, buffer: Option<*mut u8>) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn GetPackageId(hprocess : super::winnt::HANDLE, bufferlength : *mut u32, buffer : *mut u8) -> i32);
@@ -257,7 +257,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetPackagesByPackageFamily(packagefamilyname : windows_core::PCWSTR, count : *mut u32, packagefullnames : *mut windows_core::PWSTR, bufferlength : *mut u32, buffer : *mut u16) -> i32);
     unsafe { GetPackagesByPackageFamily(packagefamilyname.param().abi(), count as _, packagefullnames.unwrap_or(core::mem::zeroed()) as _, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessesUsingPackageDependency<P0>(packagedependencyid: P0, user: Option<super::winnt::PSID>, scopeissystem: bool, processidscount: *mut u32, processids: *mut *mut u32) -> windows_core::HRESULT
 where
@@ -336,7 +336,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn OpenPackageInfoByFullName(packagefullname : windows_core::PCWSTR, reserved : u32, packageinforeference : *mut PACKAGE_INFO_REFERENCE) -> i32);
     unsafe { OpenPackageInfoByFullName(packagefullname.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, packageinforeference as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn OpenPackageInfoByFullNameForUser<P1>(usersid: Option<super::winnt::PSID>, packagefullname: P1, reserved: Option<u32>, packageinforeference: *mut PACKAGE_INFO_REFERENCE) -> i32
 where
@@ -392,7 +392,7 @@ pub unsafe fn RemovePackageDependency(packagedependencycontext: PACKAGEDEPENDENC
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn RemovePackageDependency(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT) -> windows_core::HRESULT);
     unsafe { RemovePackageDependency(packagedependencycontext) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn TryCreatePackageDependency<P1, P5>(user: super::winnt::PSID, packagefamilyname: P1, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: P5, options: CreatePackageDependencyOptions) -> windows_core::Result<windows_core::PWSTR>
 where
@@ -405,7 +405,7 @@ where
         TryCreatePackageDependency(user, packagefamilyname.param().abi(), core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn TryCreatePackageDependency2<P1, P5>(user: super::winnt::PSID, packagefamilyname: P1, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: P5, options: CreatePackageDependencyOptions, lifetimeexpiration: *const super::minwindef::FILETIME) -> windows_core::Result<windows_core::PWSTR>
 where
@@ -497,7 +497,7 @@ pub const CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: Create
 pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = 0;
 pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FindPackageDependencyCriteria {
     pub User: super::winnt::PSID,

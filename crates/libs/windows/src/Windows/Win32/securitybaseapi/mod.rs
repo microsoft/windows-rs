@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AccessCheck(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, clienttoken: super::winnt::HANDLE, desiredaccess: u32, genericmapping: *const super::winnt::GENERIC_MAPPING, privilegeset: Option<*mut super::winnt::PRIVILEGE_SET>, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AccessCheck(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, clienttoken : super::winnt::HANDLE, desiredaccess : u32, genericmapping : *const super::winnt::GENERIC_MAPPING, privilegeset : *mut super::winnt::PRIVILEGE_SET, privilegesetlength : *mut u32, grantedaccess : *mut u32, accessstatus : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { AccessCheck(psecuritydescriptor, clienttoken, desiredaccess, genericmapping, privilegeset.unwrap_or(core::mem::zeroed()) as _, privilegesetlength as _, grantedaccess as _, accessstatus as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AccessCheckAndAuditAlarmW<P0, P2, P3>(subsystemname: P0, handleid: Option<*const core::ffi::c_void>, objecttypename: P2, objectname: P3, securitydescriptor: super::winnt::PSECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const super::winnt::GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL
 where
@@ -15,13 +15,13 @@ where
     windows_core::link!("advapi32.dll" "system" fn AccessCheckAndAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCWSTR, objectname : windows_core::PCWSTR, securitydescriptor : super::winnt::PSECURITY_DESCRIPTOR, desiredaccess : u32, genericmapping : *const super::winnt::GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccess : *mut u32, accessstatus : *mut windows_core::BOOL, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { AccessCheckAndAuditAlarmW(subsystemname.param().abi(), handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, desiredaccess, genericmapping, objectcreation.into(), grantedaccess as _, accessstatus as _, pfgenerateonclose as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AccessCheckByType(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::winnt::PSID>, clienttoken: super::winnt::HANDLE, desiredaccess: u32, objecttypelist: Option<&mut [super::winnt::OBJECT_TYPE_LIST]>, genericmapping: *const super::winnt::GENERIC_MAPPING, privilegeset: Option<*mut super::winnt::PRIVILEGE_SET>, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByType(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, principalselfsid : super::winnt::PSID, clienttoken : super::winnt::HANDLE, desiredaccess : u32, objecttypelist : *mut super::winnt::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::winnt::GENERIC_MAPPING, privilegeset : *mut super::winnt::PRIVILEGE_SET, privilegesetlength : *mut u32, grantedaccess : *mut u32, accessstatus : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { AccessCheckByType(psecuritydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, clienttoken, desiredaccess, core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, privilegeset.unwrap_or(core::mem::zeroed()) as _, privilegesetlength as _, grantedaccess as _, accessstatus as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AccessCheckByTypeAndAuditAlarmW<P0, P2, P3>(subsystemname: P0, handleid: *const core::ffi::c_void, objecttypename: P2, objectname: P3, securitydescriptor: super::winnt::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::winnt::PSID>, desiredaccess: u32, audittype: super::winnt::AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<&mut [super::winnt::OBJECT_TYPE_LIST]>, genericmapping: *const super::winnt::GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL
 where
@@ -32,13 +32,13 @@ where
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeAndAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCWSTR, objectname : windows_core::PCWSTR, securitydescriptor : super::winnt::PSECURITY_DESCRIPTOR, principalselfsid : super::winnt::PSID, desiredaccess : u32, audittype : super::winnt::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut super::winnt::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::winnt::GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccess : *mut u32, accessstatus : *mut windows_core::BOOL, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { AccessCheckByTypeAndAuditAlarmW(subsystemname.param().abi(), handleid, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation.into(), grantedaccess as _, accessstatus as _, pfgenerateonclose as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AccessCheckByTypeResultList(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::winnt::PSID>, clienttoken: super::winnt::HANDLE, desiredaccess: u32, objecttypelist: Option<*mut super::winnt::OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const super::winnt::GENERIC_MAPPING, privilegeset: Option<*mut super::winnt::PRIVILEGE_SET>, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeResultList(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, principalselfsid : super::winnt::PSID, clienttoken : super::winnt::HANDLE, desiredaccess : u32, objecttypelist : *mut super::winnt::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::winnt::GENERIC_MAPPING, privilegeset : *mut super::winnt::PRIVILEGE_SET, privilegesetlength : *mut u32, grantedaccesslist : *mut u32, accessstatuslist : *mut u32) -> windows_core::BOOL);
     unsafe { AccessCheckByTypeResultList(psecuritydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, clienttoken, desiredaccess, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, privilegeset.unwrap_or(core::mem::zeroed()) as _, privilegesetlength as _, grantedaccesslist as _, accessstatuslist as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<P0, P3, P4>(subsystemname: P0, handleid: *const core::ffi::c_void, clienttoken: super::winnt::HANDLE, objecttypename: P3, objectname: P4, securitydescriptor: super::winnt::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::winnt::PSID>, desiredaccess: u32, audittype: super::winnt::AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*mut super::winnt::OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const super::winnt::GENERIC_MAPPING, objectcreation: bool, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL
 where
@@ -49,7 +49,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, clienttoken : super::winnt::HANDLE, objecttypename : windows_core::PCWSTR, objectname : windows_core::PCWSTR, securitydescriptor : super::winnt::PSECURITY_DESCRIPTOR, principalselfsid : super::winnt::PSID, desiredaccess : u32, audittype : super::winnt::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut super::winnt::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::winnt::GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccesslist : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname.param().abi(), handleid, clienttoken, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccesslist as _, accessstatuslist as _, pfgenerateonclose as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<P0, P2, P3>(subsystemname: P0, handleid: *const core::ffi::c_void, objecttypename: P2, objectname: P3, securitydescriptor: super::winnt::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::winnt::PSID>, desiredaccess: u32, audittype: super::winnt::AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*mut super::winnt::OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const super::winnt::GENERIC_MAPPING, objectcreation: bool, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL
 where
@@ -60,103 +60,103 @@ where
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCWSTR, objectname : windows_core::PCWSTR, securitydescriptor : super::winnt::PSECURITY_DESCRIPTOR, principalselfsid : super::winnt::PSID, desiredaccess : u32, audittype : super::winnt::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut super::winnt::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::winnt::GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccesslist : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { AccessCheckByTypeResultListAndAuditAlarmW(subsystemname.param().abi(), handleid, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccesslist as _, accessstatuslist as _, pfgenerateonclose as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddAccessAllowedAce(pacl: *mut super::winnt::ACL, dwacerevision: u32, accessmask: u32, psid: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AddAccessAllowedAce(pacl : *mut super::winnt::ACL, dwacerevision : u32, accessmask : u32, psid : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { AddAccessAllowedAce(pacl as _, dwacerevision, accessmask, psid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddAccessAllowedAceEx(pacl: *mut super::winnt::ACL, dwacerevision: u32, aceflags: u32, accessmask: u32, psid: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AddAccessAllowedAceEx(pacl : *mut super::winnt::ACL, dwacerevision : u32, aceflags : u32, accessmask : u32, psid : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { AddAccessAllowedAceEx(pacl as _, dwacerevision, aceflags, accessmask, psid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddAccessAllowedObjectAce(pacl: *mut super::winnt::ACL, dwacerevision: u32, aceflags: u32, accessmask: u32, objecttypeguid: Option<*const windows_core::GUID>, inheritedobjecttypeguid: Option<*const windows_core::GUID>, psid: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AddAccessAllowedObjectAce(pacl : *mut super::winnt::ACL, dwacerevision : u32, aceflags : u32, accessmask : u32, objecttypeguid : *const windows_core::GUID, inheritedobjecttypeguid : *const windows_core::GUID, psid : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { AddAccessAllowedObjectAce(pacl as _, dwacerevision, aceflags, accessmask, objecttypeguid.unwrap_or(core::mem::zeroed()) as _, inheritedobjecttypeguid.unwrap_or(core::mem::zeroed()) as _, psid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddAccessDeniedAce(pacl: *mut super::winnt::ACL, dwacerevision: u32, accessmask: u32, psid: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AddAccessDeniedAce(pacl : *mut super::winnt::ACL, dwacerevision : u32, accessmask : u32, psid : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { AddAccessDeniedAce(pacl as _, dwacerevision, accessmask, psid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddAccessDeniedAceEx(pacl: *mut super::winnt::ACL, dwacerevision: u32, aceflags: u32, accessmask: u32, psid: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AddAccessDeniedAceEx(pacl : *mut super::winnt::ACL, dwacerevision : u32, aceflags : u32, accessmask : u32, psid : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { AddAccessDeniedAceEx(pacl as _, dwacerevision, aceflags, accessmask, psid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddAccessDeniedObjectAce(pacl: *mut super::winnt::ACL, dwacerevision: u32, aceflags: u32, accessmask: u32, objecttypeguid: Option<*const windows_core::GUID>, inheritedobjecttypeguid: Option<*const windows_core::GUID>, psid: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AddAccessDeniedObjectAce(pacl : *mut super::winnt::ACL, dwacerevision : u32, aceflags : u32, accessmask : u32, objecttypeguid : *const windows_core::GUID, inheritedobjecttypeguid : *const windows_core::GUID, psid : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { AddAccessDeniedObjectAce(pacl as _, dwacerevision, aceflags, accessmask, objecttypeguid.unwrap_or(core::mem::zeroed()) as _, inheritedobjecttypeguid.unwrap_or(core::mem::zeroed()) as _, psid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddAce(pacl: *mut super::winnt::ACL, dwacerevision: u32, dwstartingaceindex: u32, pacelist: *const core::ffi::c_void, nacelistlength: u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AddAce(pacl : *mut super::winnt::ACL, dwacerevision : u32, dwstartingaceindex : u32, pacelist : *const core::ffi::c_void, nacelistlength : u32) -> windows_core::BOOL);
     unsafe { AddAce(pacl as _, dwacerevision, dwstartingaceindex, pacelist, nacelistlength) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddAuditAccessAce(pacl: *mut super::winnt::ACL, dwacerevision: u32, dwaccessmask: u32, psid: super::winnt::PSID, bauditsuccess: bool, bauditfailure: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AddAuditAccessAce(pacl : *mut super::winnt::ACL, dwacerevision : u32, dwaccessmask : u32, psid : super::winnt::PSID, bauditsuccess : windows_core::BOOL, bauditfailure : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { AddAuditAccessAce(pacl as _, dwacerevision, dwaccessmask, psid, bauditsuccess.into(), bauditfailure.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddAuditAccessAceEx(pacl: *mut super::winnt::ACL, dwacerevision: u32, aceflags: u32, dwaccessmask: u32, psid: super::winnt::PSID, bauditsuccess: bool, bauditfailure: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AddAuditAccessAceEx(pacl : *mut super::winnt::ACL, dwacerevision : u32, aceflags : u32, dwaccessmask : u32, psid : super::winnt::PSID, bauditsuccess : windows_core::BOOL, bauditfailure : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { AddAuditAccessAceEx(pacl as _, dwacerevision, aceflags, dwaccessmask, psid, bauditsuccess.into(), bauditfailure.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddAuditAccessObjectAce(pacl: *mut super::winnt::ACL, dwacerevision: u32, aceflags: u32, accessmask: u32, objecttypeguid: Option<*const windows_core::GUID>, inheritedobjecttypeguid: Option<*const windows_core::GUID>, psid: super::winnt::PSID, bauditsuccess: bool, bauditfailure: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AddAuditAccessObjectAce(pacl : *mut super::winnt::ACL, dwacerevision : u32, aceflags : u32, accessmask : u32, objecttypeguid : *const windows_core::GUID, inheritedobjecttypeguid : *const windows_core::GUID, psid : super::winnt::PSID, bauditsuccess : windows_core::BOOL, bauditfailure : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { AddAuditAccessObjectAce(pacl as _, dwacerevision, aceflags, accessmask, objecttypeguid.unwrap_or(core::mem::zeroed()) as _, inheritedobjecttypeguid.unwrap_or(core::mem::zeroed()) as _, psid, bauditsuccess.into(), bauditfailure.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddMandatoryAce(pacl: *mut super::winnt::ACL, dwacerevision: u32, aceflags: u32, mandatorypolicy: u32, plabelsid: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AddMandatoryAce(pacl : *mut super::winnt::ACL, dwacerevision : u32, aceflags : u32, mandatorypolicy : u32, plabelsid : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { AddMandatoryAce(pacl as _, dwacerevision, aceflags, mandatorypolicy, plabelsid) }
 }
-#[cfg(all(feature = "Win32_basetsd", feature = "Win32_winnt"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
 pub unsafe fn AddResourceAttributeAce(pacl: *mut super::winnt::ACL, dwacerevision: u32, aceflags: u32, accessmask: u32, psid: super::winnt::PSID, pattributeinfo: *const super::winnt::CLAIM_SECURITY_ATTRIBUTES_INFORMATION, preturnlength: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn AddResourceAttributeAce(pacl : *mut super::winnt::ACL, dwacerevision : u32, aceflags : u32, accessmask : u32, psid : super::winnt::PSID, pattributeinfo : *const super::winnt::CLAIM_SECURITY_ATTRIBUTES_INFORMATION, preturnlength : *mut u32) -> windows_core::BOOL);
     unsafe { AddResourceAttributeAce(pacl as _, dwacerevision, aceflags, accessmask, psid, pattributeinfo, preturnlength as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AddScopedPolicyIDAce(pacl: *mut super::winnt::ACL, dwacerevision: u32, aceflags: u32, accessmask: u32, psid: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn AddScopedPolicyIDAce(pacl : *mut super::winnt::ACL, dwacerevision : u32, aceflags : u32, accessmask : u32, psid : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { AddScopedPolicyIDAce(pacl as _, dwacerevision, aceflags, accessmask, psid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AdjustTokenGroups(tokenhandle: super::winnt::HANDLE, resettodefault: bool, newstate: Option<*const super::winnt::TOKEN_GROUPS>, bufferlength: u32, previousstate: Option<*mut super::winnt::TOKEN_GROUPS>, returnlength: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AdjustTokenGroups(tokenhandle : super::winnt::HANDLE, resettodefault : windows_core::BOOL, newstate : *const super::winnt::TOKEN_GROUPS, bufferlength : u32, previousstate : *mut super::winnt::TOKEN_GROUPS, returnlength : *mut u32) -> windows_core::BOOL);
     unsafe { AdjustTokenGroups(tokenhandle, resettodefault.into(), newstate.unwrap_or(core::mem::zeroed()) as _, bufferlength, previousstate.unwrap_or(core::mem::zeroed()) as _, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AdjustTokenPrivileges(tokenhandle: super::winnt::HANDLE, disableallprivileges: bool, newstate: Option<*const super::winnt::TOKEN_PRIVILEGES>, bufferlength: u32, previousstate: Option<*mut super::winnt::TOKEN_PRIVILEGES>, returnlength: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AdjustTokenPrivileges(tokenhandle : super::winnt::HANDLE, disableallprivileges : windows_core::BOOL, newstate : *const super::winnt::TOKEN_PRIVILEGES, bufferlength : u32, previousstate : *mut super::winnt::TOKEN_PRIVILEGES, returnlength : *mut u32) -> windows_core::BOOL);
     unsafe { AdjustTokenPrivileges(tokenhandle, disableallprivileges.into(), newstate.unwrap_or(core::mem::zeroed()) as _, bufferlength, previousstate.unwrap_or(core::mem::zeroed()) as _, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AllocateAndInitializeSid(pidentifierauthority: *const super::winnt::SID_IDENTIFIER_AUTHORITY, nsubauthoritycount: u8, nsubauthority0: u32, nsubauthority1: u32, nsubauthority2: u32, nsubauthority3: u32, nsubauthority4: u32, nsubauthority5: u32, nsubauthority6: u32, nsubauthority7: u32, psid: *mut super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AllocateAndInitializeSid(pidentifierauthority : *const super::winnt::SID_IDENTIFIER_AUTHORITY, nsubauthoritycount : u8, nsubauthority0 : u32, nsubauthority1 : u32, nsubauthority2 : u32, nsubauthority3 : u32, nsubauthority4 : u32, nsubauthority5 : u32, nsubauthority6 : u32, nsubauthority7 : u32, psid : *mut super::winnt::PSID) -> windows_core::BOOL);
     unsafe { AllocateAndInitializeSid(pidentifierauthority, nsubauthoritycount, nsubauthority0, nsubauthority1, nsubauthority2, nsubauthority3, nsubauthority4, nsubauthority5, nsubauthority6, nsubauthority7, psid as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AllocateLocallyUniqueId(luid: *mut super::winnt::LUID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AllocateLocallyUniqueId(luid : *mut super::winnt::LUID) -> windows_core::BOOL);
@@ -172,55 +172,55 @@ pub unsafe fn AreAnyAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> w
     windows_core::link!("advapi32.dll" "system" fn AreAnyAccessesGranted(grantedaccess : u32, desiredaccess : u32) -> windows_core::BOOL);
     unsafe { AreAnyAccessesGranted(grantedaccess, desiredaccess) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CheckTokenCapability(tokenhandle: Option<super::winnt::HANDLE>, capabilitysidtocheck: super::winnt::PSID, hascapability: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn CheckTokenCapability(tokenhandle : super::winnt::HANDLE, capabilitysidtocheck : super::winnt::PSID, hascapability : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { CheckTokenCapability(tokenhandle.unwrap_or(core::mem::zeroed()) as _, capabilitysidtocheck, hascapability as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CheckTokenMembership(tokenhandle: Option<super::winnt::HANDLE>, sidtocheck: super::winnt::PSID, ismember: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CheckTokenMembership(tokenhandle : super::winnt::HANDLE, sidtocheck : super::winnt::PSID, ismember : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { CheckTokenMembership(tokenhandle.unwrap_or(core::mem::zeroed()) as _, sidtocheck, ismember as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CheckTokenMembershipEx(tokenhandle: Option<super::winnt::HANDLE>, sidtocheck: super::winnt::PSID, flags: u32, ismember: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn CheckTokenMembershipEx(tokenhandle : super::winnt::HANDLE, sidtocheck : super::winnt::PSID, flags : u32, ismember : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { CheckTokenMembershipEx(tokenhandle.unwrap_or(core::mem::zeroed()) as _, sidtocheck, flags, ismember as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, currentsecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, newsecuritydescriptor: *mut super::winnt::PSECURITY_DESCRIPTOR, objecttype: Option<*const windows_core::GUID>, isdirectoryobject: bool, genericmapping: *const super::winnt::GENERIC_MAPPING) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor : super::winnt::PSECURITY_DESCRIPTOR, currentsecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, newsecuritydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR, objecttype : *const windows_core::GUID, isdirectoryobject : bool, genericmapping : *const super::winnt::GENERIC_MAPPING) -> windows_core::BOOL);
     unsafe { ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor.unwrap_or(core::mem::zeroed()) as _, currentsecuritydescriptor, newsecuritydescriptor as _, objecttype.unwrap_or(core::mem::zeroed()) as _, isdirectoryobject, genericmapping) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CopySid(ndestinationsidlength: u32, pdestinationsid: super::winnt::PSID, psourcesid: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CopySid(ndestinationsidlength : u32, pdestinationsid : super::winnt::PSID, psourcesid : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { CopySid(ndestinationsidlength, pdestinationsid as _, psourcesid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CreatePrivateObjectSecurity(parentdescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, creatordescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, newdescriptor: *mut super::winnt::PSECURITY_DESCRIPTOR, isdirectoryobject: bool, token: Option<super::winnt::HANDLE>, genericmapping: *const super::winnt::GENERIC_MAPPING) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CreatePrivateObjectSecurity(parentdescriptor : super::winnt::PSECURITY_DESCRIPTOR, creatordescriptor : super::winnt::PSECURITY_DESCRIPTOR, newdescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR, isdirectoryobject : windows_core::BOOL, token : super::winnt::HANDLE, genericmapping : *const super::winnt::GENERIC_MAPPING) -> windows_core::BOOL);
     unsafe { CreatePrivateObjectSecurity(parentdescriptor.unwrap_or(core::mem::zeroed()) as _, creatordescriptor.unwrap_or(core::mem::zeroed()) as _, newdescriptor as _, isdirectoryobject.into(), token.unwrap_or(core::mem::zeroed()) as _, genericmapping) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CreatePrivateObjectSecurityEx(parentdescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, creatordescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, newdescriptor: *mut super::winnt::PSECURITY_DESCRIPTOR, objecttype: Option<*const windows_core::GUID>, iscontainerobject: bool, autoinheritflags: u32, token: Option<super::winnt::HANDLE>, genericmapping: *const super::winnt::GENERIC_MAPPING) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CreatePrivateObjectSecurityEx(parentdescriptor : super::winnt::PSECURITY_DESCRIPTOR, creatordescriptor : super::winnt::PSECURITY_DESCRIPTOR, newdescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR, objecttype : *const windows_core::GUID, iscontainerobject : windows_core::BOOL, autoinheritflags : u32, token : super::winnt::HANDLE, genericmapping : *const super::winnt::GENERIC_MAPPING) -> windows_core::BOOL);
     unsafe { CreatePrivateObjectSecurityEx(parentdescriptor.unwrap_or(core::mem::zeroed()) as _, creatordescriptor.unwrap_or(core::mem::zeroed()) as _, newdescriptor as _, objecttype.unwrap_or(core::mem::zeroed()) as _, iscontainerobject.into(), autoinheritflags, token.unwrap_or(core::mem::zeroed()) as _, genericmapping) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, creatordescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, newdescriptor: *mut super::winnt::PSECURITY_DESCRIPTOR, objecttypes: Option<&[*const windows_core::GUID]>, iscontainerobject: bool, autoinheritflags: u32, token: Option<super::winnt::HANDLE>, genericmapping: *const super::winnt::GENERIC_MAPPING) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor : super::winnt::PSECURITY_DESCRIPTOR, creatordescriptor : super::winnt::PSECURITY_DESCRIPTOR, newdescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR, objecttypes : *const *const windows_core::GUID, guidcount : u32, iscontainerobject : windows_core::BOOL, autoinheritflags : u32, token : super::winnt::HANDLE, genericmapping : *const super::winnt::GENERIC_MAPPING) -> windows_core::BOOL);
     unsafe { CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor.unwrap_or(core::mem::zeroed()) as _, creatordescriptor.unwrap_or(core::mem::zeroed()) as _, newdescriptor as _, core::mem::transmute(objecttypes.map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypes.map_or(0, |slice| slice.len().try_into().unwrap()), iscontainerobject.into(), autoinheritflags, token.unwrap_or(core::mem::zeroed()) as _, genericmapping) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CreateRestrictedToken(existingtokenhandle: super::winnt::HANDLE, flags: u32, sidstodisable: Option<&[super::winnt::SID_AND_ATTRIBUTES]>, privilegestodelete: Option<&[super::winnt::LUID_AND_ATTRIBUTES]>, sidstorestrict: Option<&[super::winnt::SID_AND_ATTRIBUTES]>, newtokenhandle: *mut super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CreateRestrictedToken(existingtokenhandle : super::winnt::HANDLE, flags : u32, disablesidcount : u32, sidstodisable : *const super::winnt::SID_AND_ATTRIBUTES, deleteprivilegecount : u32, privilegestodelete : *const super::winnt::LUID_AND_ATTRIBUTES, restrictedsidcount : u32, sidstorestrict : *const super::winnt::SID_AND_ATTRIBUTES, newtokenhandle : *mut super::winnt::HANDLE) -> windows_core::BOOL);
@@ -238,7 +238,7 @@ pub unsafe fn CreateRestrictedToken(existingtokenhandle: super::winnt::HANDLE, f
         )
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CreateWellKnownSid(wellknownsidtype: super::winnt::WELL_KNOWN_SID_TYPE, domainsid: Option<super::winnt::PSID>, psid: Option<super::winnt::PSID>, cbsid: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CreateWellKnownSid(wellknownsidtype : super::winnt::WELL_KNOWN_SID_TYPE, domainsid : super::winnt::PSID, psid : super::winnt::PSID, cbsid : *mut u32) -> windows_core::BOOL);
@@ -253,13 +253,13 @@ where
     windows_core::link!("advapi32.dll" "system" fn CveEventWrite(cveid : windows_core::PCWSTR, additionaldetails : windows_core::PCWSTR) -> i32);
     unsafe { CveEventWrite(cveid.param().abi(), additionaldetails.param().abi()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DeleteAce(pacl: *mut super::winnt::ACL, dwaceindex: u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn DeleteAce(pacl : *mut super::winnt::ACL, dwaceindex : u32) -> windows_core::BOOL);
     unsafe { DeleteAce(pacl as _, dwaceindex) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DeriveCapabilitySidsFromName<P0>(capname: P0, capabilitygroupsids: *mut *mut super::winnt::PSID, capabilitygroupsidcount: *mut u32, capabilitysids: *mut *mut super::winnt::PSID, capabilitysidcount: *mut u32) -> windows_core::BOOL
 where
@@ -268,79 +268,79 @@ where
     windows_core::link!("api-ms-win-security-base-l1-2-2.dll" "system" fn DeriveCapabilitySidsFromName(capname : windows_core::PCWSTR, capabilitygroupsids : *mut *mut super::winnt::PSID, capabilitygroupsidcount : *mut u32, capabilitysids : *mut *mut super::winnt::PSID, capabilitysidcount : *mut u32) -> windows_core::BOOL);
     unsafe { DeriveCapabilitySidsFromName(capname.param().abi(), capabilitygroupsids as _, capabilitygroupsidcount as _, capabilitysids as _, capabilitysidcount as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DestroyPrivateObjectSecurity(objectdescriptor: *mut super::winnt::PSECURITY_DESCRIPTOR) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn DestroyPrivateObjectSecurity(objectdescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> windows_core::BOOL);
     unsafe { DestroyPrivateObjectSecurity(objectdescriptor as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DuplicateToken(existingtokenhandle: super::winnt::HANDLE, impersonationlevel: super::winnt::SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle: *mut super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn DuplicateToken(existingtokenhandle : super::winnt::HANDLE, impersonationlevel : super::winnt::SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle : *mut super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { DuplicateToken(existingtokenhandle, impersonationlevel, duplicatetokenhandle as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn DuplicateTokenEx(hexistingtoken: super::winnt::HANDLE, dwdesiredaccess: u32, lptokenattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, impersonationlevel: super::winnt::SECURITY_IMPERSONATION_LEVEL, tokentype: super::winnt::TOKEN_TYPE, phnewtoken: *mut super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn DuplicateTokenEx(hexistingtoken : super::winnt::HANDLE, dwdesiredaccess : u32, lptokenattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, impersonationlevel : super::winnt::SECURITY_IMPERSONATION_LEVEL, tokentype : super::winnt::TOKEN_TYPE, phnewtoken : *mut super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { DuplicateTokenEx(hexistingtoken, dwdesiredaccess, lptokenattributes.unwrap_or(core::mem::zeroed()) as _, impersonationlevel, tokentype, phnewtoken as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EqualDomainSid(psid1: super::winnt::PSID, psid2: super::winnt::PSID, pfequal: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn EqualDomainSid(psid1 : super::winnt::PSID, psid2 : super::winnt::PSID, pfequal : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { EqualDomainSid(psid1, psid2, pfequal as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EqualPrefixSid(psid1: super::winnt::PSID, psid2: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn EqualPrefixSid(psid1 : super::winnt::PSID, psid2 : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { EqualPrefixSid(psid1, psid2) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn EqualSid(psid1: super::winnt::PSID, psid2: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn EqualSid(psid1 : super::winnt::PSID, psid2 : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { EqualSid(psid1, psid2) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn FindFirstFreeAce(pacl: *const super::winnt::ACL, pace: *mut *mut core::ffi::c_void) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn FindFirstFreeAce(pacl : *const super::winnt::ACL, pace : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { FindFirstFreeAce(pacl, pace as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn FreeSid(psid: super::winnt::PSID) -> *mut core::ffi::c_void {
     windows_core::link!("advapi32.dll" "system" fn FreeSid(psid : super::winnt::PSID) -> *mut core::ffi::c_void);
     unsafe { FreeSid(psid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetAce(pacl: *const super::winnt::ACL, dwaceindex: u32, pace: *mut *mut core::ffi::c_void) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn GetAce(pacl : *const super::winnt::ACL, dwaceindex : u32, pace : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { GetAce(pacl, dwaceindex, pace as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetAclInformation(pacl: *const super::winnt::ACL, paclinformation: *mut core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: super::winnt::ACL_INFORMATION_CLASS) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn GetAclInformation(pacl : *const super::winnt::ACL, paclinformation : *mut core::ffi::c_void, naclinformationlength : u32, dwaclinformationclass : super::winnt::ACL_INFORMATION_CLASS) -> windows_core::BOOL);
     unsafe { GetAclInformation(pacl, paclinformation as _, naclinformationlength, dwaclinformationclass) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetAppContainerAce(acl: *const super::winnt::ACL, startingaceindex: u32, appcontainerace: *mut *mut core::ffi::c_void, appcontaineraceindex: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetAppContainerAce(acl : *const super::winnt::ACL, startingaceindex : u32, appcontainerace : *mut *mut core::ffi::c_void, appcontaineraceindex : *mut u32) -> windows_core::BOOL);
     unsafe { GetAppContainerAce(acl, startingaceindex, appcontainerace as _, appcontaineraceindex.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetCachedSigningLevel(file: super::winnt::HANDLE, flags: *mut u32, signinglevel: *mut u32, thumbprint: Option<*mut u8>, thumbprintsize: Option<*mut u32>, thumbprintalgorithm: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetCachedSigningLevel(file : super::winnt::HANDLE, flags : *mut u32, signinglevel : *mut u32, thumbprint : *mut u8, thumbprintsize : *mut u32, thumbprintalgorithm : *mut u32) -> windows_core::BOOL);
     unsafe { GetCachedSigningLevel(file, flags as _, signinglevel as _, thumbprint.unwrap_or(core::mem::zeroed()) as _, thumbprintsize.unwrap_or(core::mem::zeroed()) as _, thumbprintalgorithm.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetFileSecurityW<P0>(lpfilename: P0, requestedinformation: super::winnt::SECURITY_INFORMATION, psecuritydescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::BOOL
 where
@@ -349,67 +349,67 @@ where
     windows_core::link!("advapi32.dll" "system" fn GetFileSecurityW(lpfilename : windows_core::PCWSTR, requestedinformation : super::winnt::SECURITY_INFORMATION, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> windows_core::BOOL);
     unsafe { GetFileSecurityW(lpfilename.param().abi(), requestedinformation, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, nlength, lpnlengthneeded as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetKernelObjectSecurity(handle: super::winnt::HANDLE, requestedinformation: super::winnt::SECURITY_INFORMATION, psecuritydescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn GetKernelObjectSecurity(handle : super::winnt::HANDLE, requestedinformation : super::winnt::SECURITY_INFORMATION, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> windows_core::BOOL);
     unsafe { GetKernelObjectSecurity(handle, requestedinformation, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, nlength, lpnlengthneeded as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetLengthSid(psid: super::winnt::PSID) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn GetLengthSid(psid : super::winnt::PSID) -> u32);
     unsafe { GetLengthSid(psid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetPrivateObjectSecurity(objectdescriptor: super::winnt::PSECURITY_DESCRIPTOR, securityinformation: super::winnt::SECURITY_INFORMATION, resultantdescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, descriptorlength: u32, returnlength: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn GetPrivateObjectSecurity(objectdescriptor : super::winnt::PSECURITY_DESCRIPTOR, securityinformation : super::winnt::SECURITY_INFORMATION, resultantdescriptor : super::winnt::PSECURITY_DESCRIPTOR, descriptorlength : u32, returnlength : *mut u32) -> windows_core::BOOL);
     unsafe { GetPrivateObjectSecurity(objectdescriptor, securityinformation, resultantdescriptor.unwrap_or(core::mem::zeroed()) as _, descriptorlength, returnlength as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorControl(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, pcontrol: *mut u16, lpdwrevision: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn GetSecurityDescriptorControl(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, pcontrol : *mut u16, lpdwrevision : *mut u32) -> windows_core::BOOL);
     unsafe { GetSecurityDescriptorControl(psecuritydescriptor, pcontrol as _, lpdwrevision as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorDacl(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, lpbdaclpresent: *mut windows_core::BOOL, pdacl: *mut super::winnt::PACL, lpbdacldefaulted: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn GetSecurityDescriptorDacl(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, lpbdaclpresent : *mut windows_core::BOOL, pdacl : *mut super::winnt::PACL, lpbdacldefaulted : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { GetSecurityDescriptorDacl(psecuritydescriptor, lpbdaclpresent as _, pdacl as _, lpbdacldefaulted as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorGroup(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, pgroup: *mut super::winnt::PSID, lpbgroupdefaulted: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn GetSecurityDescriptorGroup(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, pgroup : *mut super::winnt::PSID, lpbgroupdefaulted : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { GetSecurityDescriptorGroup(psecuritydescriptor, pgroup as _, lpbgroupdefaulted as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorLength(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn GetSecurityDescriptorLength(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
     unsafe { GetSecurityDescriptorLength(psecuritydescriptor) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorOwner(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, powner: *mut super::winnt::PSID, lpbownerdefaulted: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn GetSecurityDescriptorOwner(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, powner : *mut super::winnt::PSID, lpbownerdefaulted : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { GetSecurityDescriptorOwner(psecuritydescriptor, powner as _, lpbownerdefaulted as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorRMControl(securitydescriptor: super::winnt::PSECURITY_DESCRIPTOR, rmcontrol: *mut u8) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn GetSecurityDescriptorRMControl(securitydescriptor : super::winnt::PSECURITY_DESCRIPTOR, rmcontrol : *mut u8) -> u32);
     unsafe { GetSecurityDescriptorRMControl(securitydescriptor, rmcontrol as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorSacl(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, lpbsaclpresent: *mut windows_core::BOOL, psacl: *mut super::winnt::PACL, lpbsacldefaulted: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn GetSecurityDescriptorSacl(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, lpbsaclpresent : *mut windows_core::BOOL, psacl : *mut super::winnt::PACL, lpbsacldefaulted : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { GetSecurityDescriptorSacl(psecuritydescriptor, lpbsaclpresent as _, psacl as _, lpbsacldefaulted as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetSidIdentifierAuthority(psid: super::winnt::PSID) -> super::winnt::PSID_IDENTIFIER_AUTHORITY {
     windows_core::link!("advapi32.dll" "system" fn GetSidIdentifierAuthority(psid : super::winnt::PSID) -> super::winnt::PSID_IDENTIFIER_AUTHORITY);
@@ -420,109 +420,109 @@ pub unsafe fn GetSidLengthRequired(nsubauthoritycount: u8) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn GetSidLengthRequired(nsubauthoritycount : u8) -> u32);
     unsafe { GetSidLengthRequired(nsubauthoritycount) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetSidSubAuthority(psid: super::winnt::PSID, nsubauthority: u32) -> super::minwindef::PDWORD {
     windows_core::link!("advapi32.dll" "system" fn GetSidSubAuthority(psid : super::winnt::PSID, nsubauthority : u32) -> super::minwindef::PDWORD);
     unsafe { GetSidSubAuthority(psid, nsubauthority) }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetSidSubAuthorityCount(psid: super::winnt::PSID) -> super::minwindef::PUCHAR {
     windows_core::link!("advapi32.dll" "system" fn GetSidSubAuthorityCount(psid : super::winnt::PSID) -> super::minwindef::PUCHAR);
     unsafe { GetSidSubAuthorityCount(psid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetTokenInformation(tokenhandle: super::winnt::HANDLE, tokeninformationclass: super::winnt::TOKEN_INFORMATION_CLASS, tokeninformation: Option<*mut core::ffi::c_void>, tokeninformationlength: u32, returnlength: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn GetTokenInformation(tokenhandle : super::winnt::HANDLE, tokeninformationclass : super::winnt::TOKEN_INFORMATION_CLASS, tokeninformation : *mut core::ffi::c_void, tokeninformationlength : u32, returnlength : *mut u32) -> windows_core::BOOL);
     unsafe { GetTokenInformation(tokenhandle, tokeninformationclass, tokeninformation.unwrap_or(core::mem::zeroed()) as _, tokeninformationlength, returnlength as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetWindowsAccountDomainSid(psid: super::winnt::PSID, pdomainsid: Option<super::winnt::PSID>, cbdomainsid: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn GetWindowsAccountDomainSid(psid : super::winnt::PSID, pdomainsid : super::winnt::PSID, cbdomainsid : *mut u32) -> windows_core::BOOL);
     unsafe { GetWindowsAccountDomainSid(psid, pdomainsid.unwrap_or(core::mem::zeroed()) as _, cbdomainsid as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ImpersonateAnonymousToken(threadhandle: super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ImpersonateAnonymousToken(threadhandle : super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { ImpersonateAnonymousToken(threadhandle) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ImpersonateLoggedOnUser(htoken: super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ImpersonateLoggedOnUser(htoken : super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { ImpersonateLoggedOnUser(htoken) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ImpersonateSelf(impersonationlevel: super::winnt::SECURITY_IMPERSONATION_LEVEL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ImpersonateSelf(impersonationlevel : super::winnt::SECURITY_IMPERSONATION_LEVEL) -> windows_core::BOOL);
     unsafe { ImpersonateSelf(impersonationlevel) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn InitializeAcl(pacl: *mut super::winnt::ACL, nacllength: u32, dwaclrevision: u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn InitializeAcl(pacl : *mut super::winnt::ACL, nacllength : u32, dwaclrevision : u32) -> windows_core::BOOL);
     unsafe { InitializeAcl(pacl as _, nacllength, dwaclrevision) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn InitializeSecurityDescriptor(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, dwrevision: u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn InitializeSecurityDescriptor(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, dwrevision : u32) -> windows_core::BOOL);
     unsafe { InitializeSecurityDescriptor(psecuritydescriptor as _, dwrevision) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn InitializeSid(sid: super::winnt::PSID, pidentifierauthority: *const super::winnt::SID_IDENTIFIER_AUTHORITY, nsubauthoritycount: u8) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn InitializeSid(sid : super::winnt::PSID, pidentifierauthority : *const super::winnt::SID_IDENTIFIER_AUTHORITY, nsubauthoritycount : u8) -> windows_core::BOOL);
     unsafe { InitializeSid(sid as _, pidentifierauthority, nsubauthoritycount) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn IsTokenRestricted(tokenhandle: super::winnt::HANDLE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn IsTokenRestricted(tokenhandle : super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { IsTokenRestricted(tokenhandle) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn IsValidAcl(pacl: *const super::winnt::ACL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn IsValidAcl(pacl : *const super::winnt::ACL) -> windows_core::BOOL);
     unsafe { IsValidAcl(pacl) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn IsValidSecurityDescriptor(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn IsValidSecurityDescriptor(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR) -> windows_core::BOOL);
     unsafe { IsValidSecurityDescriptor(psecuritydescriptor) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn IsValidSid(psid: super::winnt::PSID) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn IsValidSid(psid : super::winnt::PSID) -> windows_core::BOOL);
     unsafe { IsValidSid(psid) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn IsWellKnownSid(psid: super::winnt::PSID, wellknownsidtype: super::winnt::WELL_KNOWN_SID_TYPE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn IsWellKnownSid(psid : super::winnt::PSID, wellknownsidtype : super::winnt::WELL_KNOWN_SID_TYPE) -> windows_core::BOOL);
     unsafe { IsWellKnownSid(psid, wellknownsidtype) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, pabsolutesecuritydescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: Option<*mut super::winnt::ACL>, lpdwdaclsize: *mut u32, psacl: Option<*mut super::winnt::ACL>, lpdwsaclsize: *mut u32, powner: Option<super::winnt::PSID>, lpdwownersize: *mut u32, pprimarygroup: Option<super::winnt::PSID>, lpdwprimarygroupsize: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn MakeAbsoluteSD(pselfrelativesecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, pabsolutesecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, lpdwabsolutesecuritydescriptorsize : *mut u32, pdacl : *mut super::winnt::ACL, lpdwdaclsize : *mut u32, psacl : *mut super::winnt::ACL, lpdwsaclsize : *mut u32, powner : super::winnt::PSID, lpdwownersize : *mut u32, pprimarygroup : super::winnt::PSID, lpdwprimarygroupsize : *mut u32) -> windows_core::BOOL);
     unsafe { MakeAbsoluteSD(pselfrelativesecuritydescriptor, pabsolutesecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, lpdwabsolutesecuritydescriptorsize as _, pdacl.unwrap_or(core::mem::zeroed()) as _, lpdwdaclsize as _, psacl.unwrap_or(core::mem::zeroed()) as _, lpdwsaclsize as _, powner.unwrap_or(core::mem::zeroed()) as _, lpdwownersize as _, pprimarygroup.unwrap_or(core::mem::zeroed()) as _, lpdwprimarygroupsize as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MakeSelfRelativeSD(pabsolutesecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, pselfrelativesecuritydescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, lpdwbufferlength: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn MakeSelfRelativeSD(pabsolutesecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, pselfrelativesecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, lpdwbufferlength : *mut u32) -> windows_core::BOOL);
     unsafe { MakeSelfRelativeSD(pabsolutesecuritydescriptor, pselfrelativesecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, lpdwbufferlength as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const super::winnt::GENERIC_MAPPING) {
     windows_core::link!("advapi32.dll" "system" fn MapGenericMask(accessmask : *mut u32, genericmapping : *const super::winnt::GENERIC_MAPPING));
@@ -544,7 +544,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn ObjectDeleteAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, generateonclose : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { ObjectDeleteAuditAlarmW(subsystemname.param().abi(), handleid, generateonclose.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ObjectOpenAuditAlarmW<P0, P2, P3>(subsystemname: P0, handleid: *const core::ffi::c_void, objecttypename: P2, objectname: P3, psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, clienttoken: super::winnt::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: Option<*const super::winnt::PRIVILEGE_SET>, objectcreation: bool, accessgranted: bool, generateonclose: *mut windows_core::BOOL) -> windows_core::BOOL
 where
@@ -555,7 +555,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn ObjectOpenAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCWSTR, objectname : windows_core::PCWSTR, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, clienttoken : super::winnt::HANDLE, desiredaccess : u32, grantedaccess : u32, privileges : *const super::winnt::PRIVILEGE_SET, objectcreation : windows_core::BOOL, accessgranted : windows_core::BOOL, generateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { ObjectOpenAuditAlarmW(subsystemname.param().abi(), handleid, objecttypename.param().abi(), objectname.param().abi(), psecuritydescriptor, clienttoken, desiredaccess, grantedaccess, privileges.unwrap_or(core::mem::zeroed()) as _, objectcreation.into(), accessgranted.into(), generateonclose as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ObjectPrivilegeAuditAlarmW<P0>(subsystemname: P0, handleid: *const core::ffi::c_void, clienttoken: super::winnt::HANDLE, desiredaccess: u32, privileges: *const super::winnt::PRIVILEGE_SET, accessgranted: bool) -> windows_core::BOOL
 where
@@ -564,13 +564,13 @@ where
     windows_core::link!("advapi32.dll" "system" fn ObjectPrivilegeAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, clienttoken : super::winnt::HANDLE, desiredaccess : u32, privileges : *const super::winnt::PRIVILEGE_SET, accessgranted : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { ObjectPrivilegeAuditAlarmW(subsystemname.param().abi(), handleid, clienttoken, desiredaccess, privileges, accessgranted.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PrivilegeCheck(clienttoken: super::winnt::HANDLE, requiredprivileges: *mut super::winnt::PRIVILEGE_SET, pfresult: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn PrivilegeCheck(clienttoken : super::winnt::HANDLE, requiredprivileges : *mut super::winnt::PRIVILEGE_SET, pfresult : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { PrivilegeCheck(clienttoken, requiredprivileges as _, pfresult as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PrivilegedServiceAuditAlarmW<P0, P1>(subsystemname: P0, servicename: P1, clienttoken: super::winnt::HANDLE, privileges: *const super::winnt::PRIVILEGE_SET, accessgranted: bool) -> windows_core::BOOL
 where
@@ -580,7 +580,7 @@ where
     windows_core::link!("advapi32.dll" "system" fn PrivilegedServiceAuditAlarmW(subsystemname : windows_core::PCWSTR, servicename : windows_core::PCWSTR, clienttoken : super::winnt::HANDLE, privileges : *const super::winnt::PRIVILEGE_SET, accessgranted : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { PrivilegedServiceAuditAlarmW(subsystemname.param().abi(), servicename.param().abi(), clienttoken, privileges, accessgranted.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn QuerySecurityAccessMask(securityinformation: super::winnt::SECURITY_INFORMATION) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn QuerySecurityAccessMask(securityinformation : super::winnt::SECURITY_INFORMATION, desiredaccess : *mut u32));
@@ -595,19 +595,19 @@ pub unsafe fn RevertToSelf() -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn RevertToSelf() -> windows_core::BOOL);
     unsafe { RevertToSelf() }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetAclInformation(pacl: *mut super::winnt::ACL, paclinformation: *const core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: super::winnt::ACL_INFORMATION_CLASS) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetAclInformation(pacl : *mut super::winnt::ACL, paclinformation : *const core::ffi::c_void, naclinformationlength : u32, dwaclinformationclass : super::winnt::ACL_INFORMATION_CLASS) -> windows_core::BOOL);
     unsafe { SetAclInformation(pacl as _, paclinformation, naclinformationlength, dwaclinformationclass) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetCachedSigningLevel(sourcefiles: &[super::winnt::HANDLE], flags: u32, targetfile: Option<super::winnt::HANDLE>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetCachedSigningLevel(sourcefiles : *const super::winnt::HANDLE, sourcefilecount : u32, flags : u32, targetfile : super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { SetCachedSigningLevel(core::mem::transmute(sourcefiles.as_ptr()), sourcefiles.len().try_into().unwrap(), flags, targetfile.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetFileSecurityW<P0>(lpfilename: P0, securityinformation: super::winnt::SECURITY_INFORMATION, psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR) -> windows_core::BOOL
 where
@@ -616,25 +616,25 @@ where
     windows_core::link!("advapi32.dll" "system" fn SetFileSecurityW(lpfilename : windows_core::PCWSTR, securityinformation : super::winnt::SECURITY_INFORMATION, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR) -> windows_core::BOOL);
     unsafe { SetFileSecurityW(lpfilename.param().abi(), securityinformation, psecuritydescriptor) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetKernelObjectSecurity(handle: super::winnt::HANDLE, securityinformation: super::winnt::SECURITY_INFORMATION, securitydescriptor: super::winnt::PSECURITY_DESCRIPTOR) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetKernelObjectSecurity(handle : super::winnt::HANDLE, securityinformation : super::winnt::SECURITY_INFORMATION, securitydescriptor : super::winnt::PSECURITY_DESCRIPTOR) -> windows_core::BOOL);
     unsafe { SetKernelObjectSecurity(handle, securityinformation, securitydescriptor) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetPrivateObjectSecurity(securityinformation: super::winnt::SECURITY_INFORMATION, modificationdescriptor: super::winnt::PSECURITY_DESCRIPTOR, objectssecuritydescriptor: *mut super::winnt::PSECURITY_DESCRIPTOR, genericmapping: *const super::winnt::GENERIC_MAPPING, token: Option<super::winnt::HANDLE>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetPrivateObjectSecurity(securityinformation : super::winnt::SECURITY_INFORMATION, modificationdescriptor : super::winnt::PSECURITY_DESCRIPTOR, objectssecuritydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR, genericmapping : *const super::winnt::GENERIC_MAPPING, token : super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { SetPrivateObjectSecurity(securityinformation, modificationdescriptor, objectssecuritydescriptor as _, genericmapping, token.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetPrivateObjectSecurityEx(securityinformation: super::winnt::SECURITY_INFORMATION, modificationdescriptor: super::winnt::PSECURITY_DESCRIPTOR, objectssecuritydescriptor: *mut super::winnt::PSECURITY_DESCRIPTOR, autoinheritflags: u32, genericmapping: *const super::winnt::GENERIC_MAPPING, token: Option<super::winnt::HANDLE>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetPrivateObjectSecurityEx(securityinformation : super::winnt::SECURITY_INFORMATION, modificationdescriptor : super::winnt::PSECURITY_DESCRIPTOR, objectssecuritydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR, autoinheritflags : u32, genericmapping : *const super::winnt::GENERIC_MAPPING, token : super::winnt::HANDLE) -> windows_core::BOOL);
     unsafe { SetPrivateObjectSecurityEx(securityinformation, modificationdescriptor, objectssecuritydescriptor as _, autoinheritflags, genericmapping, token.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetSecurityAccessMask(securityinformation: super::winnt::SECURITY_INFORMATION) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn SetSecurityAccessMask(securityinformation : super::winnt::SECURITY_INFORMATION, desiredaccess : *mut u32));
@@ -644,43 +644,43 @@ pub unsafe fn SetSecurityAccessMask(securityinformation: super::winnt::SECURITY_
         result__
     }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorControl(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, controlbitsofinterest: super::winnt::SECURITY_DESCRIPTOR_CONTROL, controlbitstoset: super::winnt::SECURITY_DESCRIPTOR_CONTROL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetSecurityDescriptorControl(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, controlbitsofinterest : super::winnt::SECURITY_DESCRIPTOR_CONTROL, controlbitstoset : super::winnt::SECURITY_DESCRIPTOR_CONTROL) -> windows_core::BOOL);
     unsafe { SetSecurityDescriptorControl(psecuritydescriptor, controlbitsofinterest, controlbitstoset) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorDacl(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, bdaclpresent: bool, pdacl: Option<*const super::winnt::ACL>, bdacldefaulted: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetSecurityDescriptorDacl(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, bdaclpresent : windows_core::BOOL, pdacl : *const super::winnt::ACL, bdacldefaulted : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SetSecurityDescriptorDacl(psecuritydescriptor as _, bdaclpresent.into(), pdacl.unwrap_or(core::mem::zeroed()) as _, bdacldefaulted.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorGroup(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, pgroup: Option<super::winnt::PSID>, bgroupdefaulted: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetSecurityDescriptorGroup(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, pgroup : super::winnt::PSID, bgroupdefaulted : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SetSecurityDescriptorGroup(psecuritydescriptor as _, pgroup.unwrap_or(core::mem::zeroed()) as _, bgroupdefaulted.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorOwner(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, powner: Option<super::winnt::PSID>, bownerdefaulted: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetSecurityDescriptorOwner(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, powner : super::winnt::PSID, bownerdefaulted : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SetSecurityDescriptorOwner(psecuritydescriptor as _, powner.unwrap_or(core::mem::zeroed()) as _, bownerdefaulted.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorRMControl(securitydescriptor: super::winnt::PSECURITY_DESCRIPTOR, rmcontrol: Option<*const u8>) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn SetSecurityDescriptorRMControl(securitydescriptor : super::winnt::PSECURITY_DESCRIPTOR, rmcontrol : *const u8) -> u32);
     unsafe { SetSecurityDescriptorRMControl(securitydescriptor as _, rmcontrol.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorSacl(psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, bsaclpresent: bool, psacl: Option<*const super::winnt::ACL>, bsacldefaulted: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetSecurityDescriptorSacl(psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, bsaclpresent : windows_core::BOOL, psacl : *const super::winnt::ACL, bsacldefaulted : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SetSecurityDescriptorSacl(psecuritydescriptor as _, bsaclpresent.into(), psacl.unwrap_or(core::mem::zeroed()) as _, bsacldefaulted.into()) }
 }
-#[cfg(feature = "Win32_winnt")]
+#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetTokenInformation(tokenhandle: super::winnt::HANDLE, tokeninformationclass: super::winnt::TOKEN_INFORMATION_CLASS, tokeninformation: *const core::ffi::c_void, tokeninformationlength: u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetTokenInformation(tokenhandle : super::winnt::HANDLE, tokeninformationclass : super::winnt::TOKEN_INFORMATION_CLASS, tokeninformation : *const core::ffi::c_void, tokeninformationlength : u32) -> windows_core::BOOL);

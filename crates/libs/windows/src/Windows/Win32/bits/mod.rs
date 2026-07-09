@@ -356,7 +356,7 @@ pub const BG_JOB_STATE_TRANSFERRED: BG_JOB_STATE = 6;
 pub const BG_JOB_STATE_TRANSFERRING: BG_JOB_STATE = 2;
 pub const BG_JOB_STATE_TRANSIENT_ERROR: BG_JOB_STATE = 5;
 #[repr(C)]
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BG_JOB_TIMES {
     pub CreationTime: super::minwindef::FILETIME,
@@ -1175,7 +1175,7 @@ impl IBackgroundCopyJob {
     pub unsafe fn GetProgress(&self, pval: *mut BG_JOB_PROGRESS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), pval as _) }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetTimes(&self, pval: *mut BG_JOB_TIMES) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTimes)(windows_core::Interface::as_raw(self), pval as _) }
     }
@@ -1299,9 +1299,9 @@ pub struct IBackgroundCopyJob_Vtbl {
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_TYPE) -> windows_core::HRESULT,
     pub GetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_PROGRESS) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetTimes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_TIMES) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetTimes: usize,
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_STATE) -> windows_core::HRESULT,
     pub GetError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1325,7 +1325,7 @@ pub struct IBackgroundCopyJob_Vtbl {
     pub GetProxySettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_PROXY_USAGE, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub TakeOwnership: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IBackgroundCopyJob_Impl: windows_core::IUnknownImpl {
     fn AddFileSet(&self, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> windows_core::Result<()>;
     fn AddFile(&self, remoteurl: &windows_core::PCWSTR, localname: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -1360,7 +1360,7 @@ pub trait IBackgroundCopyJob_Impl: windows_core::IUnknownImpl {
     fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut windows_core::PWSTR, pproxybypasslist: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn TakeOwnership(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IBackgroundCopyJob_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddFileSet<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> windows_core::HRESULT {
@@ -1679,7 +1679,7 @@ impl IBackgroundCopyJob_Vtbl {
         iid == &<IBackgroundCopyJob as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IBackgroundCopyJob {}
 windows_core::imp::define_interface!(IBackgroundCopyJob2, IBackgroundCopyJob2_Vtbl, 0x54b50739_686f_45eb_9dff_d6a9a0faa9af);
 impl core::ops::Deref for IBackgroundCopyJob2 {
@@ -1703,7 +1703,7 @@ impl IBackgroundCopyJob2 {
     pub unsafe fn GetReplyProgress(&self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetReplyProgress)(windows_core::Interface::as_raw(self), pprogress as _) }
     }
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut super::rpc::byte, plength: *mut u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetReplyData)(windows_core::Interface::as_raw(self), ppbuffer as _, plength as _) }
     }
@@ -1736,16 +1736,16 @@ pub struct IBackgroundCopyJob2_Vtbl {
     pub SetNotifyCmdLine: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetNotifyCmdLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetReplyProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_REPLY_PROGRESS) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub GetReplyData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::rpc::byte, *mut u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     GetReplyData: usize,
     pub SetReplyFileName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetReplyFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_AUTH_CREDENTIALS) -> windows_core::HRESULT,
     pub RemoveCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, BG_AUTH_TARGET, BG_AUTH_SCHEME) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 pub trait IBackgroundCopyJob2_Impl: IBackgroundCopyJob_Impl {
     fn SetNotifyCmdLine(&self, program: &windows_core::PCWSTR, parameters: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetNotifyCmdLine(&self, pprogram: *mut windows_core::PWSTR, pparameters: *mut windows_core::PWSTR) -> windows_core::Result<()>;
@@ -1756,7 +1756,7 @@ pub trait IBackgroundCopyJob2_Impl: IBackgroundCopyJob_Impl {
     fn SetCredentials(&self) -> windows_core::Result<BG_AUTH_CREDENTIALS>;
     fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 impl IBackgroundCopyJob2_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetNotifyCmdLine<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, program: windows_core::PCWSTR, parameters: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -1835,7 +1835,7 @@ impl IBackgroundCopyJob2_Vtbl {
         iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 impl windows_core::RuntimeName for IBackgroundCopyJob2 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob3, IBackgroundCopyJob3_Vtbl, 0x443c8934_90ff_48ed_bcde_26f5c7450042);
 impl core::ops::Deref for IBackgroundCopyJob3 {
@@ -1879,14 +1879,14 @@ pub struct IBackgroundCopyJob3_Vtbl {
     pub SetFileACLFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetFileACLFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 pub trait IBackgroundCopyJob3_Impl: IBackgroundCopyJob2_Impl {
     fn ReplaceRemotePrefix(&self, oldprefix: &windows_core::PCWSTR, newprefix: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddFileWithRanges(&self, remoteurl: &windows_core::PCWSTR, localname: &windows_core::PCWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::Result<()>;
     fn SetFileACLFlags(&self, flags: u32) -> windows_core::Result<()>;
     fn GetFileACLFlags(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 impl IBackgroundCopyJob3_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReplaceRemotePrefix<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldprefix: windows_core::PCWSTR, newprefix: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -1931,7 +1931,7 @@ impl IBackgroundCopyJob3_Vtbl {
         iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 impl windows_core::RuntimeName for IBackgroundCopyJob3 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob4, IBackgroundCopyJob4_Vtbl, 0x659cdeae_489e_11d9_a9cd_000d56965251);
 impl core::ops::Deref for IBackgroundCopyJob4 {
@@ -1984,7 +1984,7 @@ pub struct IBackgroundCopyJob4_Vtbl {
     pub SetMaximumDownloadTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetMaximumDownloadTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 pub trait IBackgroundCopyJob4_Impl: IBackgroundCopyJob3_Impl {
     fn SetPeerCachingFlags(&self, flags: u32) -> windows_core::Result<()>;
     fn GetPeerCachingFlags(&self) -> windows_core::Result<u32>;
@@ -1993,7 +1993,7 @@ pub trait IBackgroundCopyJob4_Impl: IBackgroundCopyJob3_Impl {
     fn SetMaximumDownloadTime(&self, timeout: u32) -> windows_core::Result<()>;
     fn GetMaximumDownloadTime(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 impl IBackgroundCopyJob4_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPeerCachingFlags<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32) -> windows_core::HRESULT {
@@ -2070,7 +2070,7 @@ impl IBackgroundCopyJob4_Vtbl {
         iid == &<IBackgroundCopyJob4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 impl windows_core::RuntimeName for IBackgroundCopyJob4 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob5, IBackgroundCopyJob5_Vtbl, 0xe847030c_bbba_4657_af6d_484aa42bf1fe);
 impl core::ops::Deref for IBackgroundCopyJob5 {
@@ -2098,12 +2098,12 @@ pub struct IBackgroundCopyJob5_Vtbl {
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, BITS_JOB_PROPERTY_ID, BITS_JOB_PROPERTY_VALUE) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, BITS_JOB_PROPERTY_ID, *mut BITS_JOB_PROPERTY_VALUE) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 pub trait IBackgroundCopyJob5_Impl: IBackgroundCopyJob4_Impl {
     fn SetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: &BITS_JOB_PROPERTY_VALUE) -> windows_core::Result<()>;
     fn GetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID) -> windows_core::Result<BITS_JOB_PROPERTY_VALUE>;
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 impl IBackgroundCopyJob5_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJob5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetProperty<Identity: IBackgroundCopyJob5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: BITS_JOB_PROPERTY_VALUE) -> windows_core::HRESULT {
@@ -2134,12 +2134,12 @@ impl IBackgroundCopyJob5_Vtbl {
         iid == &<IBackgroundCopyJob5 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc"))]
 impl windows_core::RuntimeName for IBackgroundCopyJob5 {}
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions, IBackgroundCopyJobHttpOptions_Vtbl, 0xf1bd1079_9f01_4bdc_8036_f09b70095066);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions, windows_core::IUnknown);
 impl IBackgroundCopyJobHttpOptions {
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn SetClientCertificateByID<P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P1, pcerthashblob: *const super::rpc::byte) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -2156,7 +2156,7 @@ impl IBackgroundCopyJobHttpOptions {
     pub unsafe fn RemoveClientCertificate(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveClientCertificate)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut windows_core::PWSTR, ppcerthashblob: *mut *mut super::rpc::byte, psubjectname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetClientCertificate)(windows_core::Interface::as_raw(self), pstorelocation as _, pstorename as _, ppcerthashblob as _, psubjectname as _) }
     }
@@ -2186,22 +2186,22 @@ impl IBackgroundCopyJobHttpOptions {
 #[doc(hidden)]
 pub struct IBackgroundCopyJobHttpOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub SetClientCertificateByID: unsafe extern "system" fn(*mut core::ffi::c_void, BG_CERT_STORE_LOCATION, windows_core::PCWSTR, *const super::rpc::byte) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     SetClientCertificateByID: usize,
     pub SetClientCertificateByName: unsafe extern "system" fn(*mut core::ffi::c_void, BG_CERT_STORE_LOCATION, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub RemoveClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_rpc")]
+    #[cfg(feature = "rpc")]
     pub GetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_CERT_STORE_LOCATION, *mut windows_core::PWSTR, *mut *mut super::rpc::byte, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpc"))]
+    #[cfg(not(feature = "rpc"))]
     GetClientCertificate: usize,
     pub SetCustomHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetCustomHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetSecurityFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetSecurityFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait IBackgroundCopyJobHttpOptions_Impl: windows_core::IUnknownImpl {
     fn SetClientCertificateByID(&self, storelocation: BG_CERT_STORE_LOCATION, storename: &windows_core::PCWSTR, pcerthashblob: *const super::rpc::byte) -> windows_core::Result<()>;
     fn SetClientCertificateByName(&self, storelocation: BG_CERT_STORE_LOCATION, storename: &windows_core::PCWSTR, subjectname: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -2212,7 +2212,7 @@ pub trait IBackgroundCopyJobHttpOptions_Impl: windows_core::IUnknownImpl {
     fn SetSecurityFlags(&self, flags: u32) -> windows_core::Result<()>;
     fn GetSecurityFlags(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl IBackgroundCopyJobHttpOptions_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetClientCertificateByID<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: windows_core::PCWSTR, pcerthashblob: *const super::rpc::byte) -> windows_core::HRESULT {
@@ -2291,7 +2291,7 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions {}
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions2, IBackgroundCopyJobHttpOptions2_Vtbl, 0xb591a192_a405_4fc3_8323_4c5c542578fc);
 impl core::ops::Deref for IBackgroundCopyJobHttpOptions2 {
@@ -2322,12 +2322,12 @@ pub struct IBackgroundCopyJobHttpOptions2_Vtbl {
     pub SetHttpMethod: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetHttpMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait IBackgroundCopyJobHttpOptions2_Impl: IBackgroundCopyJobHttpOptions_Impl {
     fn SetHttpMethod(&self, method: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetHttpMethod(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl IBackgroundCopyJobHttpOptions2_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJobHttpOptions2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetHttpMethod<Identity: IBackgroundCopyJobHttpOptions2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -2358,7 +2358,7 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions2 {}
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions3, IBackgroundCopyJobHttpOptions3_Vtbl, 0x8a9263d3_fd4c_4eda_9b28_30132a4d4e3c);
 impl core::ops::Deref for IBackgroundCopyJobHttpOptions3 {
@@ -2386,12 +2386,12 @@ pub struct IBackgroundCopyJobHttpOptions3_Vtbl {
     pub SetServerCertificateValidationInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MakeCustomHeadersWriteOnly: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 pub trait IBackgroundCopyJobHttpOptions3_Impl: IBackgroundCopyJobHttpOptions2_Impl {
     fn SetServerCertificateValidationInterface(&self, certvalidationcallback: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn MakeCustomHeadersWriteOnly(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl IBackgroundCopyJobHttpOptions3_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJobHttpOptions3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetServerCertificateValidationInterface<Identity: IBackgroundCopyJobHttpOptions3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, certvalidationcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2416,7 +2416,7 @@ impl IBackgroundCopyJobHttpOptions3_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpc")]
+#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions3 {}
 windows_core::imp::define_interface!(IBackgroundCopyManager, IBackgroundCopyManager_Vtbl, 0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyManager, windows_core::IUnknown);
@@ -2906,14 +2906,14 @@ impl IBitsPeerCacheRecord {
             (windows_core::Interface::vtable(self).GetFileSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetFileModificationTime(&self) -> windows_core::Result<super::minwindef::FILETIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileModificationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetLastAccessTime(&self) -> windows_core::Result<super::minwindef::FILETIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2934,18 +2934,18 @@ pub struct IBitsPeerCacheRecord_Vtbl {
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetOriginUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetFileSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetFileModificationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::minwindef::FILETIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetFileModificationTime: usize,
-    #[cfg(feature = "Win32_minwindef")]
+    #[cfg(feature = "minwindef")]
     pub GetLastAccessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::minwindef::FILETIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_minwindef"))]
+    #[cfg(not(feature = "minwindef"))]
     GetLastAccessTime: usize,
     pub IsFileValidated: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 pub trait IBitsPeerCacheRecord_Impl: windows_core::IUnknownImpl {
     fn GetId(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetOriginUrl(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -2955,7 +2955,7 @@ pub trait IBitsPeerCacheRecord_Impl: windows_core::IUnknownImpl {
     fn IsFileValidated(&self) -> windows_core::Result<()>;
     fn GetFileRanges(&self, prangecount: *mut u32, ppranges: *mut *mut BG_FILE_RANGE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl IBitsPeerCacheRecord_Vtbl {
     pub const fn new<Identity: IBitsPeerCacheRecord_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetId<Identity: IBitsPeerCacheRecord_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -3045,7 +3045,7 @@ impl IBitsPeerCacheRecord_Vtbl {
         iid == &<IBitsPeerCacheRecord as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_minwindef")]
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IBitsPeerCacheRecord {}
 windows_core::imp::define_interface!(IBitsTokenOptions, IBitsTokenOptions_Vtbl, 0x9a2584c3_f7d2_457a_9a5e_22b67bffc7d2);
 windows_core::imp::interface_hierarchy!(IBitsTokenOptions, windows_core::IUnknown);

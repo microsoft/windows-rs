@@ -15,7 +15,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkCreateBrowseContext(piunkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HlinkCreateBrowseContext(piunkouter.param().abi(), riid, ppvobj as _) }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn HlinkCreateExtensionServices<P0, P2, P3, P4>(pwzadditionalheaders: P0, phwnd: super::windef::HWND, pszusername: P2, pszpassword: P3, piunkouter: P4, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
@@ -27,7 +27,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkCreateExtensionServices(pwzadditionalheaders : windows_core::PCWSTR, phwnd : super::windef::HWND, pszusername : windows_core::PCWSTR, pszpassword : windows_core::PCWSTR, piunkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HlinkCreateExtensionServices(pwzadditionalheaders.param().abi(), phwnd, pszusername.param().abi(), pszpassword.param().abi(), piunkouter.param().abi(), riid, ppvobj as _) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkCreateFromData<P0, P1, P3>(pidataobj: P0, pihlsite: P1, dwsitedata: u32, piunkouter: P3, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
@@ -38,7 +38,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkCreateFromData(pidataobj : *mut core::ffi::c_void, pihlsite : *mut core::ffi::c_void, dwsitedata : u32, piunkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HlinkCreateFromData(pidataobj.param().abi(), pihlsite.param().abi(), dwsitedata, piunkouter.param().abi(), riid, ppvobj as _) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkCreateFromMoniker<P0, P1, P2, P3, P5>(pimktrgt: P0, pwzlocation: P1, pwzfriendlyname: P2, pihlsite: P3, dwsitedata: u32, piunkouter: P5, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
@@ -73,7 +73,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkCreateShortcut(grfhlshortcutf : u32, pihl : *mut core::ffi::c_void, pwzdir : windows_core::PCWSTR, pwzfilename : windows_core::PCWSTR, ppwzshortcutfile : *mut windows_core::PWSTR, dwreserved : u32) -> windows_core::HRESULT);
     unsafe { HlinkCreateShortcut(grfhlshortcutf, pihl.param().abi(), pwzdir.param().abi(), pwzfilename.param().abi(), ppwzshortcutfile as _, dwreserved) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkCreateShortcutFromMoniker<P1, P2, P3, P4>(grfhlshortcutf: u32, pimktarget: P1, pwzlocation: P2, pwzdir: P3, pwzfilename: P4, ppwzshortcutfile: *mut windows_core::PWSTR, dwreserved: u32) -> windows_core::HRESULT
 where
@@ -124,7 +124,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkIsShortcut(pwzfilename : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { HlinkIsShortcut(pwzfilename.param().abi()) }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidl", feature = "urlmon"))]
 #[inline]
 pub unsafe fn HlinkNavigate<P0, P1, P3, P4, P5>(pihl: P0, pihlframe: P1, grfhlnf: u32, pbc: P3, pibsc: P4, pihlbc: P5) -> windows_core::HRESULT
 where
@@ -137,7 +137,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkNavigate(pihl : *mut core::ffi::c_void, pihlframe : *mut core::ffi::c_void, grfhlnf : u32, pbc : *mut core::ffi::c_void, pibsc : *mut core::ffi::c_void, pihlbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HlinkNavigate(pihl.param().abi(), pihlframe.param().abi(), grfhlnf, pbc.param().abi(), pibsc.param().abi(), pihlbc.param().abi()) }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidl", feature = "urlmon"))]
 #[inline]
 pub unsafe fn HlinkNavigateToStringReference<P0, P1, P2, P4, P6, P7, P8>(pwztarget: P0, pwzlocation: P1, pihlsite: P2, dwsitedata: u32, pihlframe: P4, grfhlnf: u32, pibc: P6, pibsc: P7, pihlbc: P8) -> windows_core::HRESULT
 where
@@ -152,7 +152,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkNavigateToStringReference(pwztarget : windows_core::PCWSTR, pwzlocation : windows_core::PCWSTR, pihlsite : *mut core::ffi::c_void, dwsitedata : u32, pihlframe : *mut core::ffi::c_void, grfhlnf : u32, pibc : *mut core::ffi::c_void, pibsc : *mut core::ffi::c_void, pihlbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HlinkNavigateToStringReference(pwztarget.param().abi(), pwzlocation.param().abi(), pihlsite.param().abi(), dwsitedata, pihlframe.param().abi(), grfhlnf, pibc.param().abi(), pibsc.param().abi(), pihlbc.param().abi()) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkOnNavigate<P0, P1, P3, P4, P5>(pihlframe: P0, pihlbc: P1, grfhlnf: u32, pimktarget: P3, pwzlocation: P4, pwzfriendlyname: P5) -> windows_core::Result<u32>
 where
@@ -168,7 +168,7 @@ where
         HlinkOnNavigate(pihlframe.param().abi(), pihlbc.param().abi(), grfhlnf, pimktarget.param().abi(), pwzlocation.param().abi(), pwzfriendlyname.param().abi(), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkOnRenameDocument<P1, P2, P3>(dwreserved: u32, pihlbc: P1, pimkold: P2, pimknew: P3) -> windows_core::HRESULT
 where
@@ -179,7 +179,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkOnRenameDocument(dwreserved : u32, pihlbc : *mut core::ffi::c_void, pimkold : *mut core::ffi::c_void, pimknew : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HlinkOnRenameDocument(dwreserved, pihlbc.param().abi(), pimkold.param().abi(), pimknew.param().abi()) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkParseDisplayName<P0, P1>(pibc: P0, pwzdisplayname: P1, fnoforceabs: bool, pccheaten: *mut u32, ppimk: *mut Option<super::objidl::IMoniker>) -> windows_core::HRESULT
 where
@@ -189,7 +189,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkParseDisplayName(pibc : *mut core::ffi::c_void, pwzdisplayname : windows_core::PCWSTR, fnoforceabs : windows_core::BOOL, pccheaten : *mut u32, ppimk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HlinkParseDisplayName(pibc.param().abi(), pwzdisplayname.param().abi(), fnoforceabs.into(), pccheaten as _, core::mem::transmute(ppimk)) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkPreprocessMoniker<P0, P1>(pibc: P0, pimkin: P1) -> windows_core::Result<super::objidl::IMoniker>
 where
@@ -202,7 +202,7 @@ where
         HlinkPreprocessMoniker(pibc.param().abi(), pimkin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkQueryCreateFromData<P0>(pidataobj: P0) -> windows_core::HRESULT
 where
@@ -211,7 +211,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkQueryCreateFromData(pidataobj : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HlinkQueryCreateFromData(pidataobj.param().abi()) }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidl", feature = "urlmon", feature = "wtypes"))]
 #[inline]
 pub unsafe fn HlinkResolveMonikerForData<P0, P2, P5, P6>(pimkreference: P0, reserved: u32, pibc: P2, cfmtetc: u32, rgfmtetc: *mut super::objidl::FORMATETC, pibsc: P5, pimkbase: P6) -> windows_core::HRESULT
 where
@@ -233,7 +233,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkResolveShortcut(pwzshortcutfilename : windows_core::PCWSTR, pihlsite : *mut core::ffi::c_void, dwsitedata : u32, piunkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HlinkResolveShortcut(pwzshortcutfilename.param().abi(), pihlsite.param().abi(), dwsitedata, piunkouter.param().abi(), riid, ppvobj as _) }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkResolveShortcutToMoniker<P0>(pwzshortcutfilename: P0, ppimktarget: *mut Option<super::objidl::IMoniker>, ppwzlocation: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
@@ -250,7 +250,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkResolveShortcutToString(pwzshortcutfilename : windows_core::PCWSTR, ppwztarget : *mut windows_core::PWSTR, ppwzlocation : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { HlinkResolveShortcutToString(pwzshortcutfilename.param().abi(), ppwztarget as _, ppwzlocation as _) }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon", feature = "Win32_wtypes"))]
+#[cfg(all(feature = "objidl", feature = "urlmon", feature = "wtypes"))]
 #[inline]
 pub unsafe fn HlinkResolveStringForData<P0, P2, P5, P6>(pwzreference: P0, reserved: u32, pibc: P2, cfmtetc: u32, rgfmtetc: *mut super::objidl::FORMATETC, pibsc: P5, pimkbase: P6) -> windows_core::HRESULT
 where
@@ -281,7 +281,7 @@ where
         HlinkTranslateURL(pwzurl.param().abi(), grfflags, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 #[inline]
 pub unsafe fn HlinkUpdateStackItem<P0, P1, P3, P4, P5>(pihlframe: P0, pihlbc: P1, uhlid: u32, pimktrgt: P3, pwzlocation: P4, pwzfriendlyname: P5) -> windows_core::HRESULT
 where
@@ -294,7 +294,7 @@ where
     windows_core::link!("hlink.dll" "system" fn HlinkUpdateStackItem(pihlframe : *mut core::ffi::c_void, pihlbc : *mut core::ffi::c_void, uhlid : u32, pimktrgt : *mut core::ffi::c_void, pwzlocation : windows_core::PCWSTR, pwzfriendlyname : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { HlinkUpdateStackItem(pihlframe.param().abi(), pihlbc.param().abi(), uhlid, pimktrgt.param().abi(), pwzlocation.param().abi(), pwzfriendlyname.param().abi()) }
 }
-#[cfg(feature = "Win32_objidlbase")]
+#[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn OleSaveToStreamEx<P0, P1>(piunk: P0, pistm: P1, fcleardirty: bool) -> windows_core::HRESULT
 where
@@ -311,7 +311,7 @@ pub const HLBWIF_HASFRAMEWNDINFO: i32 = 1;
 pub const HLBWIF_HASWEBTOOLBARINFO: i32 = 16;
 pub const HLBWIF_WEBTOOLBARHIDDEN: i32 = 32;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HLBWINFO {
     pub cbSize: u32,
@@ -373,7 +373,7 @@ pub const HLSR_HISTORYFOLDER: HLSR = 2;
 pub const HLSR_HOME: HLSR = 0;
 pub const HLSR_SEARCHPAGE: HLSR = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HLTBINFO {
     pub uDockType: u32,
@@ -475,7 +475,7 @@ impl IExtensionServices {
     {
         unsafe { (windows_core::Interface::vtable(self).SetAdditionalHeaders)(windows_core::Interface::as_raw(self), pwzadditionalheaders.param().abi()) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetAuthenticateData<P1, P2>(&self, phwnd: super::windef::HWND, pwzusername: P1, pwzpassword: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -489,17 +489,17 @@ impl IExtensionServices {
 pub struct IExtensionServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAdditionalHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetAuthenticateData: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetAuthenticateData: usize,
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 pub trait IExtensionServices_Impl: windows_core::IUnknownImpl {
     fn SetAdditionalHeaders(&self, pwzadditionalheaders: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetAuthenticateData(&self, phwnd: super::windef::HWND, pwzusername: &windows_core::PCWSTR, pwzpassword: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl IExtensionServices_Vtbl {
     pub const fn new<Identity: IExtensionServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetAdditionalHeaders<Identity: IExtensionServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzadditionalheaders: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -524,7 +524,7 @@ impl IExtensionServices_Vtbl {
         iid == &<IExtensionServices as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IExtensionServices {}
 windows_core::imp::define_interface!(IHlink, IHlink_Vtbl, 0x79eac9c3_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IHlink, windows_core::IUnknown);
@@ -538,7 +538,7 @@ impl IHlink {
     pub unsafe fn GetHlinkSite(&self, ppihlsite: *mut Option<IHlinkSite>, pdwsitedata: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetHlinkSite)(windows_core::Interface::as_raw(self), core::mem::transmute(ppihlsite), pdwsitedata as _) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn SetMonikerReference<P1, P2>(&self, grfhlsetf: u32, pimktarget: P1, pwzlocation: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IMoniker>,
@@ -546,7 +546,7 @@ impl IHlink {
     {
         unsafe { (windows_core::Interface::vtable(self).SetMonikerReference)(windows_core::Interface::as_raw(self), grfhlsetf, pimktarget.param().abi(), pwzlocation.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetMonikerReference(&self, dwwhichref: u32, ppimktarget: *mut Option<super::objidl::IMoniker>, ppwzlocation: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMonikerReference)(windows_core::Interface::as_raw(self), dwwhichref, core::mem::transmute(ppimktarget), ppwzlocation as _) }
     }
@@ -590,7 +590,7 @@ impl IHlink {
             (windows_core::Interface::vtable(self).GetMiscStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidl", feature = "urlmon"))]
     pub unsafe fn Navigate<P1, P2, P3>(&self, grfhlnf: u32, pibc: P1, pibsc: P2, pihlbc: P3) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IBindCtx>,
@@ -618,13 +618,13 @@ pub struct IHlink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetHlinkSite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetHlinkSite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub SetMonikerReference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     SetMonikerReference: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetMonikerReference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetMonikerReference: usize,
     pub SetStringReference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetStringReference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -633,14 +633,14 @@ pub struct IHlink_Vtbl {
     pub SetTargetFrameName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetTargetFrameName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetMiscStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidl", feature = "urlmon"))]
     pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidl", feature = "urlmon")))]
     Navigate: usize,
     pub SetAdditionalParams: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetAdditionalParams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidl", feature = "urlmon"))]
 pub trait IHlink_Impl: windows_core::IUnknownImpl {
     fn SetHlinkSite(&self, pihlsite: windows_core::Ref<IHlinkSite>, dwsitedata: u32) -> windows_core::Result<()>;
     fn GetHlinkSite(&self, ppihlsite: windows_core::OutRef<IHlinkSite>, pdwsitedata: *mut u32) -> windows_core::Result<()>;
@@ -657,7 +657,7 @@ pub trait IHlink_Impl: windows_core::IUnknownImpl {
     fn SetAdditionalParams(&self, pwzadditionalparams: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetAdditionalParams(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidl", feature = "urlmon"))]
 impl IHlink_Vtbl {
     pub const fn new<Identity: IHlink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetHlinkSite<Identity: IHlink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pihlsite: *mut core::ffi::c_void, dwsitedata: u32) -> windows_core::HRESULT {
@@ -790,12 +790,12 @@ impl IHlink_Vtbl {
         iid == &<IHlink as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidl", feature = "urlmon"))]
 impl windows_core::RuntimeName for IHlink {}
 windows_core::imp::define_interface!(IHlinkBrowseContext, IHlinkBrowseContext_Vtbl, 0x79eac9c7_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IHlinkBrowseContext, windows_core::IUnknown);
 impl IHlinkBrowseContext {
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn Register<P1, P2>(&self, reserved: u32, piunk: P1, pimk: P2) -> windows_core::Result<u32>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -806,7 +806,7 @@ impl IHlinkBrowseContext {
             (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self), reserved, piunk.param().abi(), pimk.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetObject<P0>(&self, pimk: P0, fbindifrootregistered: bool) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<super::objidl::IMoniker>,
@@ -819,15 +819,15 @@ impl IHlinkBrowseContext {
     pub unsafe fn Revoke(&self, dwregister: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Revoke)(windows_core::Interface::as_raw(self), dwregister) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn SetBrowseWindowInfo(&self, phlbwi: *const HLBWINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBrowseWindowInfo)(windows_core::Interface::as_raw(self), phlbwi) }
     }
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub unsafe fn GetBrowseWindowInfo(&self, phlbwi: *mut HLBWINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBrowseWindowInfo)(windows_core::Interface::as_raw(self), phlbwi as _) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn SetInitialHlink<P0, P1, P2>(&self, pimktarget: P0, pwzlocation: P1, pwzfriendlyname: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::objidl::IMoniker>,
@@ -836,7 +836,7 @@ impl IHlinkBrowseContext {
     {
         unsafe { (windows_core::Interface::vtable(self).SetInitialHlink)(windows_core::Interface::as_raw(self), pimktarget.param().abi(), pwzlocation.param().abi(), pwzfriendlyname.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn OnNavigateHlink<P1, P2, P3>(&self, grfhlnf: u32, pimktarget: P1, pwzlocation: P2, pwzfriendlyname: P3) -> windows_core::Result<u32>
     where
         P1: windows_core::Param<super::objidl::IMoniker>,
@@ -848,7 +848,7 @@ impl IHlinkBrowseContext {
             (windows_core::Interface::vtable(self).OnNavigateHlink)(windows_core::Interface::as_raw(self), grfhlnf, pimktarget.param().abi(), pwzlocation.param().abi(), pwzfriendlyname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn UpdateHlink<P1, P2, P3>(&self, uhlid: u32, pimktarget: P1, pwzlocation: P2, pwzfriendlyname: P3) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IMoniker>,
@@ -891,34 +891,34 @@ impl IHlinkBrowseContext {
 #[doc(hidden)]
 pub struct IHlinkBrowseContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     Register: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetObject: usize,
     pub Revoke: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub SetBrowseWindowInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const HLBWINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     SetBrowseWindowInfo: usize,
-    #[cfg(feature = "Win32_windef")]
+    #[cfg(feature = "windef")]
     pub GetBrowseWindowInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HLBWINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_windef"))]
+    #[cfg(not(feature = "windef"))]
     GetBrowseWindowInfo: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub SetInitialHlink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     SetInitialHlink: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub OnNavigateHlink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     OnNavigateHlink: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub UpdateHlink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     UpdateHlink: usize,
     pub EnumNavigationStack: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub QueryHlink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -927,7 +927,7 @@ pub struct IHlinkBrowseContext_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "windef"))]
 pub trait IHlinkBrowseContext_Impl: windows_core::IUnknownImpl {
     fn Register(&self, reserved: u32, piunk: windows_core::Ref<windows_core::IUnknown>, pimk: windows_core::Ref<super::objidl::IMoniker>) -> windows_core::Result<u32>;
     fn GetObject(&self, pimk: windows_core::Ref<super::objidl::IMoniker>, fbindifrootregistered: windows_core::BOOL) -> windows_core::Result<windows_core::IUnknown>;
@@ -944,7 +944,7 @@ pub trait IHlinkBrowseContext_Impl: windows_core::IUnknownImpl {
     fn Clone(&self, piunkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppiunkobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Close(&self, reserved: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "windef"))]
 impl IHlinkBrowseContext_Vtbl {
     pub const fn new<Identity: IHlinkBrowseContext_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Register<Identity: IHlinkBrowseContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reserved: u32, piunk: *mut core::ffi::c_void, pimk: *mut core::ffi::c_void, pdwregister: *mut u32) -> windows_core::HRESULT {
@@ -1083,7 +1083,7 @@ impl IHlinkBrowseContext_Vtbl {
         iid == &<IHlinkBrowseContext as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "objidl", feature = "windef"))]
 impl windows_core::RuntimeName for IHlinkBrowseContext {}
 windows_core::imp::define_interface!(IHlinkFrame, IHlinkFrame_Vtbl, 0x79eac9c5_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IHlinkFrame, windows_core::IUnknown);
@@ -1100,7 +1100,7 @@ impl IHlinkFrame {
             (windows_core::Interface::vtable(self).GetBrowseContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidl", feature = "urlmon"))]
     pub unsafe fn Navigate<P1, P2, P3>(&self, grfhlnf: u32, pbc: P1, pibsc: P2, pihlnavigate: P3) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IBindCtx>,
@@ -1109,7 +1109,7 @@ impl IHlinkFrame {
     {
         unsafe { (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), grfhlnf, pbc.param().abi(), pibsc.param().abi(), pihlnavigate.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn OnNavigate<P1, P2, P3>(&self, grfhlnf: u32, pimktarget: P1, pwzlocation: P2, pwzfriendlyname: P3, dwreserved: u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IMoniker>,
@@ -1118,7 +1118,7 @@ impl IHlinkFrame {
     {
         unsafe { (windows_core::Interface::vtable(self).OnNavigate)(windows_core::Interface::as_raw(self), grfhlnf, pimktarget.param().abi(), pwzlocation.param().abi(), pwzfriendlyname.param().abi(), dwreserved) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn UpdateHlink<P1, P2, P3>(&self, uhlid: u32, pimktarget: P1, pwzlocation: P2, pwzfriendlyname: P3) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::objidl::IMoniker>,
@@ -1134,20 +1134,20 @@ pub struct IHlinkFrame_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetBrowseContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBrowseContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+    #[cfg(all(feature = "objidl", feature = "urlmon"))]
     pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_urlmon")))]
+    #[cfg(not(all(feature = "objidl", feature = "urlmon")))]
     Navigate: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub OnNavigate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     OnNavigate: usize,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub UpdateHlink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     UpdateHlink: usize,
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidl", feature = "urlmon"))]
 pub trait IHlinkFrame_Impl: windows_core::IUnknownImpl {
     fn SetBrowseContext(&self, pihlbc: windows_core::Ref<IHlinkBrowseContext>) -> windows_core::Result<()>;
     fn GetBrowseContext(&self) -> windows_core::Result<IHlinkBrowseContext>;
@@ -1155,7 +1155,7 @@ pub trait IHlinkFrame_Impl: windows_core::IUnknownImpl {
     fn OnNavigate(&self, grfhlnf: u32, pimktarget: windows_core::Ref<super::objidl::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR, dwreserved: u32) -> windows_core::Result<()>;
     fn UpdateHlink(&self, uhlid: u32, pimktarget: windows_core::Ref<super::objidl::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidl", feature = "urlmon"))]
 impl IHlinkFrame_Vtbl {
     pub const fn new<Identity: IHlinkFrame_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetBrowseContext<Identity: IHlinkFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pihlbc: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1207,7 +1207,7 @@ impl IHlinkFrame_Vtbl {
         iid == &<IHlinkFrame as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_objidl", feature = "Win32_urlmon"))]
+#[cfg(all(feature = "objidl", feature = "urlmon"))]
 impl windows_core::RuntimeName for IHlinkFrame {}
 windows_core::imp::define_interface!(IHlinkSite, IHlinkSite_Vtbl, 0x79eac9c2_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IHlinkSite, windows_core::IUnknown);
@@ -1219,7 +1219,7 @@ impl IHlinkSite {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).QueryService)(windows_core::Interface::as_raw(self), dwsitedata, guidservice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetMoniker(&self, dwsitedata: u32, dwassign: u32, dwwhich: u32) -> windows_core::Result<super::objidl::IMoniker> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1241,21 +1241,21 @@ impl IHlinkSite {
 pub struct IHlinkSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryService: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetMoniker: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetMoniker: usize,
     pub ReadyToNavigate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub OnNavigationComplete: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::HRESULT, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait IHlinkSite_Impl: windows_core::IUnknownImpl {
     fn QueryService(&self, dwsitedata: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetMoniker(&self, dwsitedata: u32, dwassign: u32, dwwhich: u32) -> windows_core::Result<super::objidl::IMoniker>;
     fn ReadyToNavigate(&self, dwsitedata: u32, dwreserved: u32) -> windows_core::Result<()>;
     fn OnNavigationComplete(&self, dwsitedata: u32, dwreserved: u32, hrerror: windows_core::HRESULT, pwzerror: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl IHlinkSite_Vtbl {
     pub const fn new<Identity: IHlinkSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryService<Identity: IHlinkSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsitedata: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1300,7 +1300,7 @@ impl IHlinkSite_Vtbl {
         iid == &<IHlinkSite as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for IHlinkSite {}
 windows_core::imp::define_interface!(IHlinkTarget, IHlinkTarget_Vtbl, 0x79eac9c4_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IHlinkTarget, windows_core::IUnknown);
@@ -1323,7 +1323,7 @@ impl IHlinkTarget {
     {
         unsafe { (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), grfhlnf, pwzjumplocation.param().abi()) }
     }
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub unsafe fn GetMoniker<P0>(&self, pwzlocation: P0, dwassign: u32) -> windows_core::Result<super::objidl::IMoniker>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1350,13 +1350,13 @@ pub struct IHlinkTarget_Vtbl {
     pub SetBrowseContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBrowseContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_objidl")]
+    #[cfg(feature = "objidl")]
     pub GetMoniker: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_objidl"))]
+    #[cfg(not(feature = "objidl"))]
     GetMoniker: usize,
     pub GetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 pub trait IHlinkTarget_Impl: windows_core::IUnknownImpl {
     fn SetBrowseContext(&self, pihlbc: windows_core::Ref<IHlinkBrowseContext>) -> windows_core::Result<()>;
     fn GetBrowseContext(&self) -> windows_core::Result<IHlinkBrowseContext>;
@@ -1364,7 +1364,7 @@ pub trait IHlinkTarget_Impl: windows_core::IUnknownImpl {
     fn GetMoniker(&self, pwzlocation: &windows_core::PCWSTR, dwassign: u32) -> windows_core::Result<super::objidl::IMoniker>;
     fn GetFriendlyName(&self, pwzlocation: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl IHlinkTarget_Vtbl {
     pub const fn new<Identity: IHlinkTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetBrowseContext<Identity: IHlinkTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pihlbc: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1428,19 +1428,19 @@ impl IHlinkTarget_Vtbl {
         iid == &<IHlinkTarget as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_objidl")]
+#[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for IHlinkTarget {}
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPHLBWINFO(pub *mut HLBWINFO);
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl LPHLBWINFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_windef")]
+#[cfg(feature = "windef")]
 impl Default for LPHLBWINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
