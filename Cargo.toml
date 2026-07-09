@@ -5,6 +5,7 @@ members = [
     "crates/tools/*",
     "crates/samples/windows/direct2d",
     "crates/samples/windows/task_dialog",
+    "crates/samples/windows/file_dialogs",
 ]
 exclude = [
     "crates/targets/baseline",

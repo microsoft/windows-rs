@@ -602,6 +602,28 @@ left open as a modelling question:
    `TASKDIALOG_FLAGS(TDF_A | TDF_B)`. Making scalar typedefs bare aliases in `--package` mode (to
    match `--minimal`/`--sys`) would remove the wrap here too; the JET_GRBIT-style constants noted in
    item 3 are the coupled blocker (their values are constructed as `TYPE(value)` tuple structs).
+
+**TODO (deferred — harmonize the C flags/enum idiom in the canonical RDL).** The cleanest fix for
+the `TASKDIALOG_FLAGS` wart above is at the *scraper*, not per-style in bindgen: recognize the C
+idiom `enum _FOO { … }; typedef int FOO;` (enum tag = `_` + the sibling integer typedef name) and
+emit a **single unscoped enum `FOO`** — rename the enum dropping the leading `_`, drop the redundant
+typedef. The existing unscoped-enum rule then projects it as `pub type FOO = <int>;` + bare
+`pub const MEMBER: FOO = …;` in *every* style (sys/minimal/package), so `dwFlags = TDF_A | TDF_B`
+just works and the field type still reads `FOO`. This is what the retired editorial win32metadata
+did. Scope measured across `metadata/win32|wdk/*.rdl`: **41 pairs**, all integer (`i32`/`u16`/`u32`),
+concentrated in common shell/media headers — `shobjidl_core`/`shobjidl`/`shtypes` (28, incl.
+`FILEOPENDIALOGOPTIONS`, `SHCONTF`, `SHGDNF`, `SIIGBF`, `SVGIO`, `SVSIF`, `KF_*`, `TRANSFER_*`),
+`commctrl` (`TASKDIALOG_FLAGS`, `TASKDIALOG_COMMON_BUTTON_FLAGS`), `mfplay` (3), `ntifs` (2),
+`propsys` (1) — so it is a recurring idiom, not a one-off. Implementation sketch: a pre-pass (sibling
+to `build_tag_rename_map` in `lib.rs`) builds an `enum_rename` map `_FOO → FOO` whenever an integer
+`typedef FOO` has a matching `enum _FOO`; `Enum::parse` applies the rename *before* the
+`flag_enums`/repr check (so `DEFINE_ENUM_FLAG_OPERATORS(FOO)`, keyed on the public name, still
+promotes to the unsigned repr and matches the old `u32` typedefs), and `Typedef::parse` skips the
+now-redundant typedef. Must NOT touch: typedefs with no matching `_FOO` enum (`HWND`, `WPARAM`,
+`DXGI_USAGE`), or `_`-prefixed enums with no matching typedef. Regenerating rescrapes ~41 `*.rdl`
+files (`_FOO → FOO`, typedef dropped) and the downstream `windows`/`windows-sys` output; samples then
+drop the `TASKDIALOG_FLAGS(…)` / `FILEOPENDIALOGOPTIONS(…)` wraps. Deferred until sample migration is
+further along; pick up only if it stays low-complexity.
 2. *(fixed)* `write_cpp_handle` (`crates/libs/bindgen/src/types/cpp_handle.rs`) emitted only
    `#arches` and never a per-item `#[cfg(feature = …)]`, so a handle referencing a type from
    another header namespace was not gated on that header's feature — under a partial feature set

@@ -1,31 +1,30 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{
-        Win32::System::Com::*, Win32::UI::Shell::Common::*, Win32::UI::Shell::*, core::*,
-    };
+    use windows::{Win32::combaseapi::*, Win32::shobjidl_core::*, Win32::shtypes::*, core::*};
 
     unsafe {
         CoIncrementMTAUsage()?;
 
         let dialog: IFileSaveDialog = CoCreateInstance(&FileSaveDialog, None, CLSCTX_ALL)?;
 
+        let filters = [
+            COMDLG_FILTERSPEC {
+                pszName: w!("Text files"),
+                pszSpec: w!("*.txt"),
+            },
+            COMDLG_FILTERSPEC {
+                pszName: w!("All files"),
+                pszSpec: w!("*.*"),
+            },
+        ];
         dialog
-            .SetFileTypes(&[
-                COMDLG_FILTERSPEC {
-                    pszName: w!("Text files"),
-                    pszSpec: w!("*.txt"),
-                },
-                COMDLG_FILTERSPEC {
-                    pszName: w!("All files"),
-                    pszSpec: w!("*.*"),
-                },
-            ])
+            .SetFileTypes(filters.len() as u32, filters.as_ptr())
             .ok()?;
 
         if dialog.Show(None).is_ok() {
             let result = dialog.GetResult()?;
             let path = result.GetDisplayName(SIGDN_FILESYSPATH)?;
             println!("user picked: {}", path.display());
-            CoTaskMemFree(Some(path.0 as _));
+            CoTaskMemFree(path.0 as _);
         } else {
             println!("user canceled");
         }
