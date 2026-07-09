@@ -7,6 +7,7 @@ members = [
     "crates/samples/windows/task_dialog",
     "crates/samples/windows/file_dialogs",
     "crates/samples/windows/dcomp",
+    "crates/samples/windows/direct3d12",
 ]
 exclude = [
     "crates/targets/baseline",

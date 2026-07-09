@@ -775,3 +775,39 @@ the closure box. Fix: after invoking the handlers, re-read `GWLP_USERDATA`; if i
 window was destroyed during the handler, so skip the restore (the taken handlers drop locally,
 which is correct) and skip the `WM_NCDESTROY` free. Verified with `windows_direct2d`: the debug
 build previously terminated with an access violation on exit and now exits cleanly.
+
+### Sample migration status and recipe
+
+Porting an in-repo sample from the old editorial feature names to the header-based namespaces is
+mechanical. The mapping mechanism: **a feature/module is a source-header stem**, so the module a
+symbol lives in is found by grepping the generated crate
+(`crates/libs/windows/src/Windows/Win32/<stem>/mod.rs`) for the symbol — the directory name *is*
+the feature and the `use windows::Win32::<stem>::*` path. Enable those stems in `Cargo.toml`
+`features`, rewrite the `use` block to match, then let the compiler surface the rest. (Samples are
+temporarily listed individually in the workspace `members` while the migration is in progress; the
+`crates/samples/*/*` glob is restored once all samples build.)
+
+Migrated: `windows_direct2d`, `windows_dcomp`, `windows_direct3d12` (plus the pre-existing
+`task_dialog`/`file_dialogs`). The faithful in-house metadata differs in shape from the old
+editorial winmd in ways unrelated to namespaces, so each port hits a recurring set of call-site
+edits (all correct-by-design, not projection defects):
+
+- **Unscoped C enums are bare integer aliases** (see "Unscoped enums projected as bare integer
+  aliases" above). Tuple constructions and `.0` accesses must be dropped: `DXGI_PRESENT(0)` → `0`,
+  `DXGI_CREATE_FACTORY_FLAGS(0)` → `0`, `DXGI_ADAPTER_FLAG(x) & …` → `x as i32 & …`,
+  `D3D12_COLOR_WRITE_ENABLE_ALL.0 as u8` → `D3D12_COLOR_WRITE_ENABLE_ALL as u8`. Methods whose
+  parameter was such an enum now take the bare integer (`IDXGISwapChain::Present(_, flags: u32)`).
+- **`NativeTypedef` scalars stay newtypes** (e.g. `DXGI_USAGE(pub u32)`) while their `#define`
+  constants are bare integers, so a struct field of that type needs the wrap
+  (`BufferUsage: DXGI_USAGE(DXGI_USAGE_RENDER_TARGET_OUTPUT)`). Same for genuinely distinct enum
+  newtypes like `D3D12_PRIMITIVE_TOPOLOGY(pub D3D_PRIMITIVE_TOPOLOGY)`.
+- **No fabricated `Result` / retval ergonomics.** Win32 functions the editorial winmd hand-patched
+  are faithful here: `IDXGIAdapter1::GetDesc1` takes a `*mut DXGI_ADAPTER_DESC1` out-param and
+  returns `HRESULT` (call `.ok()?` on a stack `default()`), `AdjustWindowRect` returns `BOOL`
+  (`.ok()?`), `CreateEventA` returns a raw `HANDLE` (check `is_invalid()` + `Error::from_thread()`),
+  and out-`IBlob` parameters are raw `*mut Option<ID3D10Blob>` (pass `&mut opt` /
+  `std::ptr::null_mut()` for the unwanted error blob) rather than `Option<&mut>`.
+- **Float `#define` macros are not scraped** (a known coverage gap): `D3D12_MIN_DEPTH`/
+  `D3D12_MAX_DEPTH` are absent, so the sample uses the literal `0.0`/`1.0`.
+- **Optional-array parameters are faithful slices**, not `Option`: `ClearRenderTargetView`'s
+  `prects` is `&[D3D12_RECT]` — pass `&[]` where the old binding took `None`.
