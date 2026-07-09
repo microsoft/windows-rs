@@ -1,33 +1,33 @@
 #[inline]
-pub unsafe fn HcsAddResourceToOperation<P2>(operation: HCS_OPERATION, r#type: HCS_RESOURCE_TYPE, uri: P2, handle: super::super::Foundation::HANDLE) -> windows_core::Result<()>
+pub unsafe fn HcsAddResourceToOperation<P2>(operation: HCS_OPERATION, r#type: HCS_RESOURCE_TYPE, uri: P2, handle: super::super::Foundation::HANDLE) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsAddResourceToOperation(operation : HCS_OPERATION, r#type : HCS_RESOURCE_TYPE, uri : windows_core::PCWSTR, handle : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { HcsAddResourceToOperation(operation, r#type, uri.param().abi(), handle).ok() }
+    unsafe { HcsAddResourceToOperation(operation, r#type, uri.param().abi(), handle) }
 }
 #[inline]
-pub unsafe fn HcsAttachLayerStorageFilter<P0, P1>(layerpath: P0, layerdata: P1) -> windows_core::Result<()>
+pub unsafe fn HcsAttachLayerStorageFilter<P0, P1>(layerpath: P0, layerdata: P1) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsAttachLayerStorageFilter(layerpath : windows_core::PCWSTR, layerdata : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsAttachLayerStorageFilter(layerpath.param().abi(), layerdata.param().abi()).ok() }
+    unsafe { HcsAttachLayerStorageFilter(layerpath.param().abi(), layerdata.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsAttachOverlayFilter<P0, P1>(volumemountpoint: P0, layerdata: P1) -> windows_core::Result<()>
+pub unsafe fn HcsAttachOverlayFilter<P0, P1>(volumemountpoint: P0, layerdata: P1) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsAttachOverlayFilter(volumemountpoint : windows_core::PCWSTR, layerdata : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsAttachOverlayFilter(volumemountpoint.param().abi(), layerdata.param().abi()).ok() }
+    unsafe { HcsAttachOverlayFilter(volumemountpoint.param().abi(), layerdata.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsCancelOperation(operation: HCS_OPERATION) -> windows_core::Result<()> {
+pub unsafe fn HcsCancelOperation(operation: HCS_OPERATION) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsCancelOperation(operation : HCS_OPERATION) -> windows_core::HRESULT);
-    unsafe { HcsCancelOperation(operation).ok() }
+    unsafe { HcsCancelOperation(operation) }
 }
 #[inline]
 pub unsafe fn HcsCloseComputeSystem(computesystem: HCS_SYSTEM) {
@@ -45,12 +45,12 @@ pub unsafe fn HcsCloseProcess(process: HCS_PROCESS) {
     unsafe { HcsCloseProcess(process) }
 }
 #[inline]
-pub unsafe fn HcsCrashComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsCrashComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsCrashComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsCrashComputeSystem(computesystem, operation, options.param().abi()).ok() }
+    unsafe { HcsCrashComputeSystem(computesystem, operation, options.param().abi()) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -79,20 +79,20 @@ where
     }
 }
 #[inline]
-pub unsafe fn HcsCreateEmptyGuestStateFile<P0>(gueststatefilepath: P0) -> windows_core::Result<()>
+pub unsafe fn HcsCreateEmptyGuestStateFile<P0>(gueststatefilepath: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsCreateEmptyGuestStateFile(gueststatefilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsCreateEmptyGuestStateFile(gueststatefilepath.param().abi()).ok() }
+    unsafe { HcsCreateEmptyGuestStateFile(gueststatefilepath.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsCreateEmptyRuntimeStateFile<P0>(runtimestatefilepath: P0) -> windows_core::Result<()>
+pub unsafe fn HcsCreateEmptyRuntimeStateFile<P0>(runtimestatefilepath: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsCreateEmptyRuntimeStateFile(runtimestatefilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsCreateEmptyRuntimeStateFile(runtimestatefilepath.param().abi()).ok() }
+    unsafe { HcsCreateEmptyRuntimeStateFile(runtimestatefilepath.param().abi()) }
 }
 #[inline]
 pub unsafe fn HcsCreateOperation(context: Option<*const core::ffi::c_void>, callback: HCS_OPERATION_COMPLETION) -> HCS_OPERATION {
@@ -117,49 +117,49 @@ where
     }
 }
 #[inline]
-pub unsafe fn HcsDestroyLayer<P0>(layerpath: P0) -> windows_core::Result<()>
+pub unsafe fn HcsDestroyLayer<P0>(layerpath: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsDestroyLayer(layerpath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsDestroyLayer(layerpath.param().abi()).ok() }
+    unsafe { HcsDestroyLayer(layerpath.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsDetachLayerStorageFilter<P0>(layerpath: P0) -> windows_core::Result<()>
+pub unsafe fn HcsDetachLayerStorageFilter<P0>(layerpath: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsDetachLayerStorageFilter(layerpath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsDetachLayerStorageFilter(layerpath.param().abi()).ok() }
+    unsafe { HcsDetachLayerStorageFilter(layerpath.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsDetachOverlayFilter<P0, P1>(volumemountpoint: P0, layerdata: P1) -> windows_core::Result<()>
+pub unsafe fn HcsDetachOverlayFilter<P0, P1>(volumemountpoint: P0, layerdata: P1) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsDetachOverlayFilter(volumemountpoint : windows_core::PCWSTR, layerdata : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsDetachOverlayFilter(volumemountpoint.param().abi(), layerdata.param().abi()).ok() }
+    unsafe { HcsDetachOverlayFilter(volumemountpoint.param().abi(), layerdata.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsEnumerateComputeSystems<P0>(query: P0, operation: HCS_OPERATION) -> windows_core::Result<()>
+pub unsafe fn HcsEnumerateComputeSystems<P0>(query: P0, operation: HCS_OPERATION) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsEnumerateComputeSystems(query : windows_core::PCWSTR, operation : HCS_OPERATION) -> windows_core::HRESULT);
-    unsafe { HcsEnumerateComputeSystems(query.param().abi(), operation).ok() }
+    unsafe { HcsEnumerateComputeSystems(query.param().abi(), operation) }
 }
 #[inline]
-pub unsafe fn HcsEnumerateComputeSystemsInNamespace<P0, P1>(idnamespace: P0, query: P1, operation: HCS_OPERATION) -> windows_core::Result<()>
+pub unsafe fn HcsEnumerateComputeSystemsInNamespace<P0, P1>(idnamespace: P0, query: P1, operation: HCS_OPERATION) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsEnumerateComputeSystemsInNamespace(idnamespace : windows_core::PCWSTR, query : windows_core::PCWSTR, operation : HCS_OPERATION) -> windows_core::HRESULT);
-    unsafe { HcsEnumerateComputeSystemsInNamespace(idnamespace.param().abi(), query.param().abi(), operation).ok() }
+    unsafe { HcsEnumerateComputeSystemsInNamespace(idnamespace.param().abi(), query.param().abi(), operation) }
 }
 #[inline]
-pub unsafe fn HcsExportLayer<P0, P1, P2, P3>(layerpath: P0, exportfolderpath: P1, layerdata: P2, options: P3) -> windows_core::Result<()>
+pub unsafe fn HcsExportLayer<P0, P1, P2, P3>(layerpath: P0, exportfolderpath: P1, layerdata: P2, options: P3) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -167,10 +167,10 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsExportLayer(layerpath : windows_core::PCWSTR, exportfolderpath : windows_core::PCWSTR, layerdata : windows_core::PCWSTR, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsExportLayer(layerpath.param().abi(), exportfolderpath.param().abi(), layerdata.param().abi(), options.param().abi()).ok() }
+    unsafe { HcsExportLayer(layerpath.param().abi(), exportfolderpath.param().abi(), layerdata.param().abi(), options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsExportLegacyWritableLayer<P0, P1, P2, P3>(writablelayermountpath: P0, writablelayerfolderpath: P1, exportfolderpath: P2, layerdata: P3) -> windows_core::Result<()>
+pub unsafe fn HcsExportLegacyWritableLayer<P0, P1, P2, P3>(writablelayermountpath: P0, writablelayerfolderpath: P1, exportfolderpath: P2, layerdata: P3) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -178,20 +178,20 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsExportLegacyWritableLayer(writablelayermountpath : windows_core::PCWSTR, writablelayerfolderpath : windows_core::PCWSTR, exportfolderpath : windows_core::PCWSTR, layerdata : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsExportLegacyWritableLayer(writablelayermountpath.param().abi(), writablelayerfolderpath.param().abi(), exportfolderpath.param().abi(), layerdata.param().abi()).ok() }
+    unsafe { HcsExportLegacyWritableLayer(writablelayermountpath.param().abi(), writablelayerfolderpath.param().abi(), exportfolderpath.param().abi(), layerdata.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsFinalizeLiveMigration<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsFinalizeLiveMigration<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsFinalizeLiveMigration(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsFinalizeLiveMigration(computesystem, operation, options.param().abi()).ok() }
+    unsafe { HcsFinalizeLiveMigration(computesystem, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsFormatWritableLayerVhd(vhdhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn HcsFormatWritableLayerVhd(vhdhandle: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("computestorage.dll" "system" fn HcsFormatWritableLayerVhd(vhdhandle : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { HcsFormatWritableLayerVhd(vhdhandle).ok() }
+    unsafe { HcsFormatWritableLayerVhd(vhdhandle) }
 }
 #[inline]
 pub unsafe fn HcsGetComputeSystemFromOperation(operation: HCS_OPERATION) -> HCS_SYSTEM {
@@ -199,12 +199,12 @@ pub unsafe fn HcsGetComputeSystemFromOperation(operation: HCS_OPERATION) -> HCS_
     unsafe { HcsGetComputeSystemFromOperation(operation) }
 }
 #[inline]
-pub unsafe fn HcsGetComputeSystemProperties<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, propertyquery: P2) -> windows_core::Result<()>
+pub unsafe fn HcsGetComputeSystemProperties<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, propertyquery: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsGetComputeSystemProperties(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, propertyquery : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsGetComputeSystemProperties(computesystem, operation, propertyquery.param().abi()).ok() }
+    unsafe { HcsGetComputeSystemProperties(computesystem, operation, propertyquery.param().abi()) }
 }
 #[inline]
 pub unsafe fn HcsGetLayerVhdMountPath(vhdhandle: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::PWSTR> {
@@ -236,14 +236,14 @@ where
     }
 }
 #[inline]
-pub unsafe fn HcsGetOperationResult(operation: HCS_OPERATION, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+pub unsafe fn HcsGetOperationResult(operation: HCS_OPERATION, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsGetOperationResult(operation : HCS_OPERATION, resultdocument : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcsGetOperationResult(operation, resultdocument.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcsGetOperationResult(operation, resultdocument.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HcsGetOperationResultAndProcessInfo(operation: HCS_OPERATION, processinformation: Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+pub unsafe fn HcsGetOperationResultAndProcessInfo(operation: HCS_OPERATION, processinformation: Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsGetOperationResultAndProcessInfo(operation : HCS_OPERATION, processinformation : *mut HCS_PROCESS_INFORMATION, resultdocument : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcsGetOperationResultAndProcessInfo(operation, processinformation.unwrap_or(core::mem::zeroed()) as _, resultdocument.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcsGetOperationResultAndProcessInfo(operation, processinformation.unwrap_or(core::mem::zeroed()) as _, resultdocument.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn HcsGetOperationType(operation: HCS_OPERATION) -> HCS_OPERATION_TYPE {
@@ -256,25 +256,25 @@ pub unsafe fn HcsGetProcessFromOperation(operation: HCS_OPERATION) -> HCS_PROCES
     unsafe { HcsGetProcessFromOperation(operation) }
 }
 #[inline]
-pub unsafe fn HcsGetProcessInfo(process: HCS_PROCESS, operation: HCS_OPERATION) -> windows_core::Result<()> {
+pub unsafe fn HcsGetProcessInfo(process: HCS_PROCESS, operation: HCS_OPERATION) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsGetProcessInfo(process : HCS_PROCESS, operation : HCS_OPERATION) -> windows_core::HRESULT);
-    unsafe { HcsGetProcessInfo(process, operation).ok() }
+    unsafe { HcsGetProcessInfo(process, operation) }
 }
 #[inline]
-pub unsafe fn HcsGetProcessProperties<P2>(process: HCS_PROCESS, operation: HCS_OPERATION, propertyquery: P2) -> windows_core::Result<()>
+pub unsafe fn HcsGetProcessProperties<P2>(process: HCS_PROCESS, operation: HCS_OPERATION, propertyquery: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsGetProcessProperties(process : HCS_PROCESS, operation : HCS_OPERATION, propertyquery : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsGetProcessProperties(process, operation, propertyquery.param().abi()).ok() }
+    unsafe { HcsGetProcessProperties(process, operation, propertyquery.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<P0>(runtimefilename: P0, processorfeaturesstring: Option<*mut windows_core::PCWSTR>) -> windows_core::Result<()>
+pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<P0>(runtimefilename: P0, processorfeaturesstring: Option<*mut windows_core::PCWSTR>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsGetProcessorCompatibilityFromSavedState(runtimefilename : windows_core::PCWSTR, processorfeaturesstring : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsGetProcessorCompatibilityFromSavedState(runtimefilename.param().abi(), processorfeaturesstring.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcsGetProcessorCompatibilityFromSavedState(runtimefilename.param().abi(), processorfeaturesstring.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn HcsGetServiceProperties<P0>(propertyquery: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -288,34 +288,34 @@ where
     }
 }
 #[inline]
-pub unsafe fn HcsGrantVmAccess<P0, P1>(vmid: P0, filepath: P1) -> windows_core::Result<()>
+pub unsafe fn HcsGrantVmAccess<P0, P1>(vmid: P0, filepath: P1) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsGrantVmAccess(vmid : windows_core::PCWSTR, filepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsGrantVmAccess(vmid.param().abi(), filepath.param().abi()).ok() }
+    unsafe { HcsGrantVmAccess(vmid.param().abi(), filepath.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsGrantVmGroupAccess<P0>(filepath: P0) -> windows_core::Result<()>
+pub unsafe fn HcsGrantVmGroupAccess<P0>(filepath: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsGrantVmGroupAccess(filepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsGrantVmGroupAccess(filepath.param().abi()).ok() }
+    unsafe { HcsGrantVmGroupAccess(filepath.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsImportLayer<P0, P1, P2>(layerpath: P0, sourcefolderpath: P1, layerdata: P2) -> windows_core::Result<()>
+pub unsafe fn HcsImportLayer<P0, P1, P2>(layerpath: P0, sourcefolderpath: P1, layerdata: P2) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsImportLayer(layerpath : windows_core::PCWSTR, sourcefolderpath : windows_core::PCWSTR, layerdata : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsImportLayer(layerpath.param().abi(), sourcefolderpath.param().abi(), layerdata.param().abi()).ok() }
+    unsafe { HcsImportLayer(layerpath.param().abi(), sourcefolderpath.param().abi(), layerdata.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsInitializeLegacyWritableLayer<P0, P1, P2, P3>(writablelayermountpath: P0, writablelayerfolderpath: P1, layerdata: P2, options: P3) -> windows_core::Result<()>
+pub unsafe fn HcsInitializeLegacyWritableLayer<P0, P1, P2, P3>(writablelayermountpath: P0, writablelayerfolderpath: P1, layerdata: P2, options: P3) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -323,49 +323,49 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsInitializeLegacyWritableLayer(writablelayermountpath : windows_core::PCWSTR, writablelayerfolderpath : windows_core::PCWSTR, layerdata : windows_core::PCWSTR, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsInitializeLegacyWritableLayer(writablelayermountpath.param().abi(), writablelayerfolderpath.param().abi(), layerdata.param().abi(), options.param().abi()).ok() }
+    unsafe { HcsInitializeLegacyWritableLayer(writablelayermountpath.param().abi(), writablelayerfolderpath.param().abi(), layerdata.param().abi(), options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsInitializeLiveMigrationOnSource<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsInitializeLiveMigrationOnSource<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsInitializeLiveMigrationOnSource(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsInitializeLiveMigrationOnSource(computesystem, operation, options.param().abi()).ok() }
+    unsafe { HcsInitializeLiveMigrationOnSource(computesystem, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsInitializeWritableLayer<P0, P1, P2>(writablelayerpath: P0, layerdata: P1, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsInitializeWritableLayer<P0, P1, P2>(writablelayerpath: P0, layerdata: P1, options: P2) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsInitializeWritableLayer(writablelayerpath : windows_core::PCWSTR, layerdata : windows_core::PCWSTR, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsInitializeWritableLayer(writablelayerpath.param().abi(), layerdata.param().abi(), options.param().abi()).ok() }
+    unsafe { HcsInitializeWritableLayer(writablelayerpath.param().abi(), layerdata.param().abi(), options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsModifyComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, configuration: P2, identity: Option<super::super::Foundation::HANDLE>) -> windows_core::Result<()>
+pub unsafe fn HcsModifyComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, configuration: P2, identity: Option<super::super::Foundation::HANDLE>) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsModifyComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, configuration : windows_core::PCWSTR, identity : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { HcsModifyComputeSystem(computesystem, operation, configuration.param().abi(), identity.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcsModifyComputeSystem(computesystem, operation, configuration.param().abi(), identity.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HcsModifyProcess<P2>(process: HCS_PROCESS, operation: HCS_OPERATION, settings: P2) -> windows_core::Result<()>
+pub unsafe fn HcsModifyProcess<P2>(process: HCS_PROCESS, operation: HCS_OPERATION, settings: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsModifyProcess(process : HCS_PROCESS, operation : HCS_OPERATION, settings : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsModifyProcess(process, operation, settings.param().abi()).ok() }
+    unsafe { HcsModifyProcess(process, operation, settings.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsModifyServiceSettings<P0>(settings: P0, result: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
+pub unsafe fn HcsModifyServiceSettings<P0>(settings: P0, result: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsModifyServiceSettings(settings : windows_core::PCWSTR, result : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcsModifyServiceSettings(settings.param().abi(), result.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcsModifyServiceSettings(settings.param().abi(), result.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn HcsOpenComputeSystem<P0>(id: P0, requestedaccess: u32) -> windows_core::Result<HCS_SYSTEM>
@@ -399,168 +399,168 @@ pub unsafe fn HcsOpenProcess(computesystem: HCS_SYSTEM, processid: u32, requeste
     }
 }
 #[inline]
-pub unsafe fn HcsPauseComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsPauseComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsPauseComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsPauseComputeSystem(computesystem, operation, options.param().abi()).ok() }
+    unsafe { HcsPauseComputeSystem(computesystem, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsResumeComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsResumeComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsResumeComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsResumeComputeSystem(computesystem, operation, options.param().abi()).ok() }
+    unsafe { HcsResumeComputeSystem(computesystem, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsRevokeVmAccess<P0, P1>(vmid: P0, filepath: P1) -> windows_core::Result<()>
+pub unsafe fn HcsRevokeVmAccess<P0, P1>(vmid: P0, filepath: P1) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsRevokeVmAccess(vmid : windows_core::PCWSTR, filepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsRevokeVmAccess(vmid.param().abi(), filepath.param().abi()).ok() }
+    unsafe { HcsRevokeVmAccess(vmid.param().abi(), filepath.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsRevokeVmGroupAccess<P0>(filepath: P0) -> windows_core::Result<()>
+pub unsafe fn HcsRevokeVmGroupAccess<P0>(filepath: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsRevokeVmGroupAccess(filepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsRevokeVmGroupAccess(filepath.param().abi()).ok() }
+    unsafe { HcsRevokeVmGroupAccess(filepath.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsSaveComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsSaveComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsSaveComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsSaveComputeSystem(computesystem, operation, options.param().abi()).ok() }
+    unsafe { HcsSaveComputeSystem(computesystem, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: Option<*const core::ffi::c_void>, callback: HCS_EVENT_CALLBACK) -> windows_core::Result<()> {
+pub unsafe fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: Option<*const core::ffi::c_void>, callback: HCS_EVENT_CALLBACK) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsSetComputeSystemCallback(computesystem : HCS_SYSTEM, callbackoptions : HCS_EVENT_OPTIONS, context : *const core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> windows_core::HRESULT);
-    unsafe { HcsSetComputeSystemCallback(computesystem, callbackoptions, context.unwrap_or(core::mem::zeroed()) as _, callback).ok() }
+    unsafe { HcsSetComputeSystemCallback(computesystem, callbackoptions, context.unwrap_or(core::mem::zeroed()) as _, callback) }
 }
 #[inline]
-pub unsafe fn HcsSetOperationCallback(operation: HCS_OPERATION, context: Option<*const core::ffi::c_void>, callback: HCS_OPERATION_COMPLETION) -> windows_core::Result<()> {
+pub unsafe fn HcsSetOperationCallback(operation: HCS_OPERATION, context: Option<*const core::ffi::c_void>, callback: HCS_OPERATION_COMPLETION) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsSetOperationCallback(operation : HCS_OPERATION, context : *const core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> windows_core::HRESULT);
-    unsafe { HcsSetOperationCallback(operation, context.unwrap_or(core::mem::zeroed()) as _, callback).ok() }
+    unsafe { HcsSetOperationCallback(operation, context.unwrap_or(core::mem::zeroed()) as _, callback) }
 }
 #[inline]
-pub unsafe fn HcsSetOperationContext(operation: HCS_OPERATION, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
+pub unsafe fn HcsSetOperationContext(operation: HCS_OPERATION, context: Option<*const core::ffi::c_void>) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsSetOperationContext(operation : HCS_OPERATION, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { HcsSetOperationContext(operation, context.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcsSetOperationContext(operation, context.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *const core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> windows_core::Result<()> {
+pub unsafe fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *const core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsSetProcessCallback(process : HCS_PROCESS, callbackoptions : HCS_EVENT_OPTIONS, context : *const core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> windows_core::HRESULT);
-    unsafe { HcsSetProcessCallback(process, callbackoptions, context, callback).ok() }
+    unsafe { HcsSetProcessCallback(process, callbackoptions, context, callback) }
 }
 #[inline]
-pub unsafe fn HcsSetupBaseOSLayer<P0, P2>(layerpath: P0, vhdhandle: super::super::Foundation::HANDLE, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsSetupBaseOSLayer<P0, P2>(layerpath: P0, vhdhandle: super::super::Foundation::HANDLE, options: P2) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsSetupBaseOSLayer(layerpath : windows_core::PCWSTR, vhdhandle : super::super::Foundation::HANDLE, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsSetupBaseOSLayer(layerpath.param().abi(), vhdhandle, options.param().abi()).ok() }
+    unsafe { HcsSetupBaseOSLayer(layerpath.param().abi(), vhdhandle, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsSetupBaseOSVolume<P0, P1, P2>(layerpath: P0, volumepath: P1, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsSetupBaseOSVolume<P0, P1, P2>(layerpath: P0, volumepath: P1, options: P2) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computestorage.dll" "system" fn HcsSetupBaseOSVolume(layerpath : windows_core::PCWSTR, volumepath : windows_core::PCWSTR, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsSetupBaseOSVolume(layerpath.param().abi(), volumepath.param().abi(), options.param().abi()).ok() }
+    unsafe { HcsSetupBaseOSVolume(layerpath.param().abi(), volumepath.param().abi(), options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsShutDownComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsShutDownComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsShutDownComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsShutDownComputeSystem(computesystem, operation, options.param().abi()).ok() }
+    unsafe { HcsShutDownComputeSystem(computesystem, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsSignalProcess<P2>(process: HCS_PROCESS, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsSignalProcess<P2>(process: HCS_PROCESS, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsSignalProcess(process : HCS_PROCESS, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsSignalProcess(process, operation, options.param().abi()).ok() }
+    unsafe { HcsSignalProcess(process, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsStartComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsStartComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsStartComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsStartComputeSystem(computesystem, operation, options.param().abi()).ok() }
+    unsafe { HcsStartComputeSystem(computesystem, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsStartLiveMigrationOnSource<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsStartLiveMigrationOnSource<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsStartLiveMigrationOnSource(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsStartLiveMigrationOnSource(computesystem, operation, options.param().abi()).ok() }
+    unsafe { HcsStartLiveMigrationOnSource(computesystem, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsStartLiveMigrationTransfer<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsStartLiveMigrationTransfer<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsStartLiveMigrationTransfer(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsStartLiveMigrationTransfer(computesystem, operation, options.param().abi()).ok() }
+    unsafe { HcsStartLiveMigrationTransfer(computesystem, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsSubmitWerReport<P0>(settings: P0) -> windows_core::Result<()>
+pub unsafe fn HcsSubmitWerReport<P0>(settings: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsSubmitWerReport(settings : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsSubmitWerReport(settings.param().abi()).ok() }
+    unsafe { HcsSubmitWerReport(settings.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsTerminateComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsTerminateComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsTerminateComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsTerminateComputeSystem(computesystem, operation, options.param().abi()).ok() }
+    unsafe { HcsTerminateComputeSystem(computesystem, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsTerminateProcess<P2>(process: HCS_PROCESS, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+pub unsafe fn HcsTerminateProcess<P2>(process: HCS_PROCESS, operation: HCS_OPERATION, options: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("computecore.dll" "system" fn HcsTerminateProcess(process : HCS_PROCESS, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { HcsTerminateProcess(process, operation, options.param().abi()).ok() }
+    unsafe { HcsTerminateProcess(process, operation, options.param().abi()) }
 }
 #[inline]
-pub unsafe fn HcsWaitForComputeSystemExit(computesystem: HCS_SYSTEM, timeoutms: u32, result: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+pub unsafe fn HcsWaitForComputeSystemExit(computesystem: HCS_SYSTEM, timeoutms: u32, result: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsWaitForComputeSystemExit(computesystem : HCS_SYSTEM, timeoutms : u32, result : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcsWaitForComputeSystemExit(computesystem, timeoutms, result.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcsWaitForComputeSystemExit(computesystem, timeoutms, result.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HcsWaitForOperationResult(operation: HCS_OPERATION, timeoutms: u32, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+pub unsafe fn HcsWaitForOperationResult(operation: HCS_OPERATION, timeoutms: u32, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsWaitForOperationResult(operation : HCS_OPERATION, timeoutms : u32, resultdocument : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcsWaitForOperationResult(operation, timeoutms, resultdocument.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcsWaitForOperationResult(operation, timeoutms, resultdocument.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HcsWaitForOperationResultAndProcessInfo(operation: HCS_OPERATION, timeoutms: u32, processinformation: Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+pub unsafe fn HcsWaitForOperationResultAndProcessInfo(operation: HCS_OPERATION, timeoutms: u32, processinformation: Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsWaitForOperationResultAndProcessInfo(operation : HCS_OPERATION, timeoutms : u32, processinformation : *mut HCS_PROCESS_INFORMATION, resultdocument : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcsWaitForOperationResultAndProcessInfo(operation, timeoutms, processinformation.unwrap_or(core::mem::zeroed()) as _, resultdocument.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcsWaitForOperationResultAndProcessInfo(operation, timeoutms, processinformation.unwrap_or(core::mem::zeroed()) as _, resultdocument.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, result: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+pub unsafe fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, result: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT {
     windows_core::link!("computecore.dll" "system" fn HcsWaitForProcessExit(computesystem : HCS_PROCESS, timeoutms : u32, result : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcsWaitForProcessExit(computesystem, timeoutms, result.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcsWaitForProcessExit(computesystem, timeoutms, result.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -16,7 +16,8 @@ fn main() -> windows::core::Result<()> {
             None,
             EOAC_NONE,
             None,
-        )?;
+        )
+        .ok()?;
 
         let locator: IWbemLocator = CoCreateInstance(&WbemLocator, None, CLSCTX_INPROC_SERVER)?;
 
@@ -48,7 +49,7 @@ fn main() -> windows::core::Result<()> {
 
             if let Some(row) = &row[0] {
                 let mut value = VARIANT::default();
-                row.Get(w!("Caption"), 0, &mut value, None, None)?;
+                row.Get(w!("Caption"), 0, &mut value, None, None).ok()?;
                 println!("{value}",);
             } else {
                 break;
@@ -63,36 +64,46 @@ fn main() -> windows::core::Result<()> {
         let method_name = BSTR::from("Create");
 
         let mut class = None;
-        server.GetObject(
-            &class_name,
-            Default::default(),
-            None,
-            Some(&mut class),
-            None,
-        )?;
+        server
+            .GetObject(
+                &class_name,
+                Default::default(),
+                None,
+                Some(&mut class),
+                None,
+            )
+            .ok()?;
         let class = class.unwrap();
 
         let mut input = None;
-        class.GetMethod(&method_name, 0, &mut input, std::ptr::null_mut())?;
+        class
+            .GetMethod(&method_name, 0, &mut input, std::ptr::null_mut())
+            .ok()?;
         let input = input.unwrap();
 
         let object = input.SpawnInstance(0)?;
-        object.Put(w!("CommandLine"), 0, &VARIANT::from("notepad.exe"), 0)?;
+        object
+            .Put(w!("CommandLine"), 0, &VARIANT::from("notepad.exe"), 0)
+            .ok()?;
 
         let mut output = None;
-        server.ExecMethod(
-            &class_name,
-            &method_name,
-            Default::default(),
-            None,
-            &object,
-            Some(&mut output),
-            None,
-        )?;
+        server
+            .ExecMethod(
+                &class_name,
+                &method_name,
+                Default::default(),
+                None,
+                &object,
+                Some(&mut output),
+                None,
+            )
+            .ok()?;
         let output = output.unwrap();
 
         let mut value = VARIANT::default();
-        output.Get(w!("ReturnValue"), 0, &mut value, None, None)?;
+        output
+            .Get(w!("ReturnValue"), 0, &mut value, None, None)
+            .ok()?;
         println!("`Create` method return value: {value}");
 
         Ok(())

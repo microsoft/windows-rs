@@ -83,8 +83,8 @@ impl IReferenceClock {
             (windows_core::Interface::vtable(self).AdvisePeriodic)(windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwadvisecookie).ok() }
+    pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwadvisecookie) }
     }
 }
 #[repr(C)]
@@ -185,8 +185,8 @@ impl windows_core::RuntimeName for IReferenceClock2 {}
 windows_core::imp::define_interface!(IReferenceClockTimerControl, IReferenceClockTimerControl_Vtbl, 0xebec459c_2eca_4d42_a8af_30df557614b8);
 windows_core::imp::interface_hierarchy!(IReferenceClockTimerControl, windows_core::IUnknown);
 impl IReferenceClockTimerControl {
-    pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDefaultTimerResolution)(windows_core::Interface::as_raw(self), timerresolution).ok() }
+    pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: i64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDefaultTimerResolution)(windows_core::Interface::as_raw(self), timerresolution) }
     }
     pub unsafe fn GetDefaultTimerResolution(&self) -> windows_core::Result<i64> {
         unsafe {

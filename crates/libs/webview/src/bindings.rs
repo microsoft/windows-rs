@@ -60,7 +60,7 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn Navigate<P0>(&self, uri: P0) -> windows_core::Result<()>
+    pub(crate) unsafe fn Navigate<P0>(&self, uri: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -69,10 +69,9 @@ impl ICoreWebView2 {
                 windows_core::Interface::as_raw(self),
                 uri.param().abi(),
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn NavigateToString<P0>(&self, htmlcontent: P0) -> windows_core::Result<()>
+    pub(crate) unsafe fn NavigateToString<P0>(&self, htmlcontent: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -81,7 +80,6 @@ impl ICoreWebView2 {
                 windows_core::Interface::as_raw(self),
                 htmlcontent.param().abi(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_NavigationStarting<P0>(
@@ -101,13 +99,12 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_NavigationStarting(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_NavigationStarting(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_NavigationStarting)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_ContentLoading<P0>(
@@ -127,13 +124,12 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_ContentLoading(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_ContentLoading(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_ContentLoading)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_NavigationCompleted<P0>(
@@ -153,13 +149,12 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_NavigationCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_NavigationCompleted(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_NavigationCompleted)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_PermissionRequested<P0>(
@@ -179,13 +174,12 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_PermissionRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_PermissionRequested(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_PermissionRequested)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_ProcessFailed<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
@@ -202,20 +196,19 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_ProcessFailed(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_ProcessFailed(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_ProcessFailed)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn AddScriptToExecuteOnDocumentCreated<P0, P1>(
         &self,
         javascript: P0,
         handler: P1,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler>,
@@ -226,13 +219,12 @@ impl ICoreWebView2 {
                 javascript.param().abi(),
                 handler.param().abi(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn RemoveScriptToExecuteOnDocumentCreated<P0>(
         &self,
         id: P0,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -241,14 +233,13 @@ impl ICoreWebView2 {
                 windows_core::Interface::as_raw(self),
                 id.param().abi(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn ExecuteScript<P0, P1>(
         &self,
         javascript: P0,
         handler: P1,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<ICoreWebView2ExecuteScriptCompletedHandler>,
@@ -259,19 +250,17 @@ impl ICoreWebView2 {
                 javascript.param().abi(),
                 handler.param().abi(),
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn Reload(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn Reload(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
     pub(crate) unsafe fn PostWebMessageAsJson<P0>(
         &self,
         webmessageasjson: P0,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -280,13 +269,12 @@ impl ICoreWebView2 {
                 windows_core::Interface::as_raw(self),
                 webmessageasjson.param().abi(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn PostWebMessageAsString<P0>(
         &self,
         webmessageasstring: P0,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -295,7 +283,6 @@ impl ICoreWebView2 {
                 windows_core::Interface::as_raw(self),
                 webmessageasstring.param().abi(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_WebMessageReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -312,30 +299,27 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_WebMessageReceived(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_WebMessageReceived(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_WebMessageReceived)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn GoBack(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn GoBack(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GoBack)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
-    pub(crate) unsafe fn GoForward(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn GoForward(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GoForward)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
-    pub(crate) unsafe fn Stop(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn Stop(&self) -> windows_core::HRESULT {
         unsafe {
-            (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok()
+            (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self))
         }
     }
     pub(crate) unsafe fn add_NewWindowRequested<P0>(
@@ -355,13 +339,12 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_NewWindowRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_NewWindowRequested(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_NewWindowRequested)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_DocumentTitleChanged<P0>(
@@ -381,16 +364,12 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_DocumentTitleChanged(
-        &self,
-        token: i64,
-    ) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_DocumentTitleChanged(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_DocumentTitleChanged)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn DocumentTitle(&self) -> windows_core::Result<LPWSTR> {
@@ -403,12 +382,11 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn OpenDevToolsWindow(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn OpenDevToolsWindow(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).OpenDevToolsWindow)(
                 windows_core::Interface::as_raw(self),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_ContainsFullScreenElementChanged<P0>(
@@ -431,13 +409,12 @@ impl ICoreWebView2 {
     pub(crate) unsafe fn remove_ContainsFullScreenElementChanged(
         &self,
         token: i64,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_ContainsFullScreenElementChanged)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn ContainsFullScreenElement(
@@ -469,23 +446,19 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_WebResourceRequested(
-        &self,
-        token: i64,
-    ) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_WebResourceRequested(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_WebResourceRequested)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn AddWebResourceRequestedFilter<P0>(
         &self,
         uri: P0,
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -495,14 +468,13 @@ impl ICoreWebView2 {
                 uri.param().abi(),
                 resourcecontext,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn RemoveWebResourceRequestedFilter<P0>(
         &self,
         uri: P0,
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -512,7 +484,6 @@ impl ICoreWebView2 {
                 uri.param().abi(),
                 resourcecontext,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_WindowCloseRequested<P0>(
@@ -532,16 +503,12 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_WindowCloseRequested(
-        &self,
-        token: i64,
-    ) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_WindowCloseRequested(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_WindowCloseRequested)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
 }
@@ -745,13 +712,12 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetHandled(&self, handled: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetHandled(&self, handled: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
                 handled.into(),
             )
-            .ok()
         }
     }
 }
@@ -1177,22 +1143,20 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Controller, windows_core::IUnknown);
 impl ICoreWebView2Controller {
-    pub(crate) unsafe fn SetIsVisible(&self, isvisible: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetIsVisible(&self, isvisible: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsVisible)(
                 windows_core::Interface::as_raw(self),
                 isvisible.into(),
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn SetBounds(&self, bounds: RECT) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetBounds(&self, bounds: RECT) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetBounds)(
                 windows_core::Interface::as_raw(self),
                 bounds,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn ZoomFactor(&self) -> windows_core::Result<f64> {
@@ -1205,25 +1169,23 @@ impl ICoreWebView2Controller {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetZoomFactor(&self, zoomfactor: f64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetZoomFactor(&self, zoomfactor: f64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetZoomFactor)(
                 windows_core::Interface::as_raw(self),
                 zoomfactor,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn MoveFocus(
         &self,
         reason: COREWEBVIEW2_MOVE_FOCUS_REASON,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).MoveFocus)(
                 windows_core::Interface::as_raw(self),
                 reason,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_MoveFocusRequested<P0>(
@@ -1243,13 +1205,12 @@ impl ICoreWebView2Controller {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_MoveFocusRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_MoveFocusRequested(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_MoveFocusRequested)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_GotFocus<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
@@ -1266,13 +1227,12 @@ impl ICoreWebView2Controller {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_GotFocus(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_GotFocus(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_GotFocus)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_LostFocus<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
@@ -1289,13 +1249,12 @@ impl ICoreWebView2Controller {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_LostFocus(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_LostFocus(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_LostFocus)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_AcceleratorKeyPressed<P0>(
@@ -1315,30 +1274,24 @@ impl ICoreWebView2Controller {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_AcceleratorKeyPressed(
-        &self,
-        token: i64,
-    ) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_AcceleratorKeyPressed(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_AcceleratorKeyPressed)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn NotifyParentWindowPositionChanged(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn NotifyParentWindowPositionChanged(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).NotifyParentWindowPositionChanged)(
                 windows_core::Interface::as_raw(self),
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn Close(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
     pub(crate) unsafe fn CoreWebView2(&self) -> windows_core::Result<ICoreWebView2> {
@@ -1441,13 +1394,12 @@ impl ICoreWebView2Controller2 {
     pub(crate) unsafe fn SetDefaultBackgroundColor(
         &self,
         value: COREWEBVIEW2_COLOR,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetDefaultBackgroundColor)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
-            .ok()
         }
     }
 }
@@ -1491,13 +1443,12 @@ impl ICoreWebView2Controller3 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetRasterizationScale(&self, scale: f64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetRasterizationScale(&self, scale: f64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetRasterizationScale)(
                 windows_core::Interface::as_raw(self),
                 scale,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn ShouldDetectMonitorScaleChanges(
@@ -1515,13 +1466,12 @@ impl ICoreWebView2Controller3 {
     pub(crate) unsafe fn SetShouldDetectMonitorScaleChanges(
         &self,
         value: bool,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetShouldDetectMonitorScaleChanges)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
-            .ok()
         }
     }
 }
@@ -1574,13 +1524,12 @@ impl ICoreWebView2Controller4 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetAllowExternalDrop(&self, value: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetAllowExternalDrop(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetAllowExternalDrop)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
-            .ok()
         }
     }
 }
@@ -1603,7 +1552,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ControllerOptions, windows_core::IUnknown);
 impl ICoreWebView2ControllerOptions {
-    pub(crate) unsafe fn SetProfileName<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub(crate) unsafe fn SetProfileName<P0>(&self, value: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1612,16 +1561,14 @@ impl ICoreWebView2ControllerOptions {
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn SetIsInPrivateModeEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetIsInPrivateModeEnabled(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsInPrivateModeEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
-            .ok()
         }
     }
 }
@@ -1682,13 +1629,12 @@ impl ICoreWebView2ControllerOptions3 {
     pub(crate) unsafe fn SetDefaultBackgroundColor(
         &self,
         value: COREWEBVIEW2_COLOR,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetDefaultBackgroundColor)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
-            .ok()
         }
     }
 }
@@ -1758,13 +1704,12 @@ impl ICoreWebView2Cookie {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetExpires(&self, expires: f64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetExpires(&self, expires: f64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetExpires)(
                 windows_core::Interface::as_raw(self),
                 expires,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn IsHttpOnly(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -1777,13 +1722,12 @@ impl ICoreWebView2Cookie {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetIsHttpOnly(&self, ishttponly: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetIsHttpOnly(&self, ishttponly: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsHttpOnly)(
                 windows_core::Interface::as_raw(self),
                 ishttponly.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn SameSite(
@@ -1801,13 +1745,12 @@ impl ICoreWebView2Cookie {
     pub(crate) unsafe fn SetSameSite(
         &self,
         samesite: COREWEBVIEW2_COOKIE_SAME_SITE_KIND,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetSameSite)(
                 windows_core::Interface::as_raw(self),
                 samesite,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn IsSecure(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -1820,13 +1763,12 @@ impl ICoreWebView2Cookie {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetIsSecure(&self, issecure: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetIsSecure(&self, issecure: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsSecure)(
                 windows_core::Interface::as_raw(self),
                 issecure.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn IsSession(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -1959,7 +1901,7 @@ impl ICoreWebView2CookieManager {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub(crate) unsafe fn GetCookies<P0, P1>(&self, uri: P0, handler: P1) -> windows_core::Result<()>
+    pub(crate) unsafe fn GetCookies<P0, P1>(&self, uri: P0, handler: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<ICoreWebView2GetCookiesCompletedHandler>,
@@ -1970,10 +1912,9 @@ impl ICoreWebView2CookieManager {
                 uri.param().abi(),
                 handler.param().abi(),
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn AddOrUpdateCookie<P0>(&self, cookie: P0) -> windows_core::Result<()>
+    pub(crate) unsafe fn AddOrUpdateCookie<P0>(&self, cookie: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ICoreWebView2Cookie>,
     {
@@ -1982,10 +1923,9 @@ impl ICoreWebView2CookieManager {
                 windows_core::Interface::as_raw(self),
                 cookie.param().abi(),
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn DeleteCookies<P0, P1>(&self, name: P0, uri: P1) -> windows_core::Result<()>
+    pub(crate) unsafe fn DeleteCookies<P0, P1>(&self, name: P0, uri: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1996,7 +1936,6 @@ impl ICoreWebView2CookieManager {
                 name.param().abi(),
                 uri.param().abi(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn DeleteCookiesWithDomainAndPath<P0, P1, P2>(
@@ -2004,7 +1943,7 @@ impl ICoreWebView2CookieManager {
         name: P0,
         domain: P1,
         path: P2,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -2017,15 +1956,13 @@ impl ICoreWebView2CookieManager {
                 domain.param().abi(),
                 path.param().abi(),
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn DeleteAllCookies(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn DeleteAllCookies(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).DeleteAllCookies)(
                 windows_core::Interface::as_raw(self),
             )
-            .ok()
         }
     }
 }
@@ -2194,10 +2131,9 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Deferral, windows_core::IUnknown);
 impl ICoreWebView2Deferral {
-    pub(crate) unsafe fn Complete(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn Complete(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Complete)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
 }
@@ -2289,16 +2225,12 @@ impl ICoreWebView2DownloadOperation {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_BytesReceivedChanged(
-        &self,
-        token: i64,
-    ) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_BytesReceivedChanged(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_BytesReceivedChanged)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn add_StateChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
@@ -2315,13 +2247,12 @@ impl ICoreWebView2DownloadOperation {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_StateChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_StateChanged(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_StateChanged)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn Uri(&self) -> windows_core::Result<LPWSTR> {
@@ -2406,22 +2337,19 @@ impl ICoreWebView2DownloadOperation {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn Cancel(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn Cancel(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
-    pub(crate) unsafe fn Pause(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn Pause(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
-    pub(crate) unsafe fn Resume(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn Resume(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
     pub(crate) unsafe fn CanResume(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -2515,13 +2443,12 @@ impl ICoreWebView2DownloadStartingEventArgs {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetCancel(&self, cancel: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetCancel(&self, cancel: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetCancel)(
                 windows_core::Interface::as_raw(self),
                 cancel.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn ResultFilePath(&self) -> windows_core::Result<LPWSTR> {
@@ -2534,10 +2461,7 @@ impl ICoreWebView2DownloadStartingEventArgs {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetResultFilePath<P0>(
-        &self,
-        resultfilepath: P0,
-    ) -> windows_core::Result<()>
+    pub(crate) unsafe fn SetResultFilePath<P0>(&self, resultfilepath: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2546,7 +2470,6 @@ impl ICoreWebView2DownloadStartingEventArgs {
                 windows_core::Interface::as_raw(self),
                 resultfilepath.param().abi(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn Handled(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -2559,13 +2482,12 @@ impl ICoreWebView2DownloadStartingEventArgs {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetHandled(&self, handled: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetHandled(&self, handled: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
                 handled.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral> {
@@ -2683,7 +2605,7 @@ impl ICoreWebView2Environment {
         &self,
         parentwindow: HWND,
         handler: P1,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ICoreWebView2CreateCoreWebView2ControllerCompletedHandler>,
     {
@@ -2693,7 +2615,6 @@ impl ICoreWebView2Environment {
                 parentwindow,
                 handler.param().abi(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn CreateWebResourceResponse<P0, P2, P3>(
@@ -2784,7 +2705,7 @@ impl ICoreWebView2Environment10 {
         parentwindow: HWND,
         options: P1,
         handler: P2,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ICoreWebView2ControllerOptions>,
         P2: windows_core::Param<ICoreWebView2CreateCoreWebView2ControllerCompletedHandler>,
@@ -2796,7 +2717,6 @@ impl ICoreWebView2Environment10 {
                 options.param().abi(),
                 handler.param().abi(),
             )
-            .ok()
         }
     }
 }
@@ -3615,14 +3535,13 @@ impl ICoreWebView2HttpHeadersCollectionIterator {
         &self,
         name: *mut LPWSTR,
         value: *mut LPWSTR,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetCurrentHeader)(
                 windows_core::Interface::as_raw(self),
                 name as _,
                 value as _,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn HasCurrentHeader(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -3752,13 +3671,12 @@ impl ICoreWebView2MoveFocusRequestedEventArgs {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetHandled(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
-            .ok()
         }
     }
 }
@@ -3988,13 +3906,12 @@ impl ICoreWebView2NavigationStartingEventArgs {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetCancel(&self, cancel: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetCancel(&self, cancel: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetCancel)(
                 windows_core::Interface::as_raw(self),
                 cancel.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn NavigationId(&self) -> windows_core::Result<u64> {
@@ -4112,7 +4029,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetNewWindow<P0>(&self, newwindow: P0) -> windows_core::Result<()>
+    pub(crate) unsafe fn SetNewWindow<P0>(&self, newwindow: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ICoreWebView2>,
     {
@@ -4121,16 +4038,14 @@ impl ICoreWebView2NewWindowRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 newwindow.param().abi(),
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn SetHandled(&self, handled: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetHandled(&self, handled: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
                 handled.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn Handled(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -4306,13 +4221,12 @@ impl ICoreWebView2PermissionRequestedEventArgs {
     pub(crate) unsafe fn SetState(
         &self,
         state: COREWEBVIEW2_PERMISSION_STATE,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetState)(
                 windows_core::Interface::as_raw(self),
                 state,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral> {
@@ -4546,10 +4460,7 @@ impl ICoreWebView2Profile {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetDefaultDownloadFolderPath<P0>(
-        &self,
-        value: P0,
-    ) -> windows_core::Result<()>
+    pub(crate) unsafe fn SetDefaultDownloadFolderPath<P0>(&self, value: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4558,7 +4469,6 @@ impl ICoreWebView2Profile {
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn PreferredColorScheme(
@@ -4576,13 +4486,12 @@ impl ICoreWebView2Profile {
     pub(crate) unsafe fn SetPreferredColorScheme(
         &self,
         value: COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetPreferredColorScheme)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
-            .ok()
         }
     }
 }
@@ -4629,7 +4538,7 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2Profile
 );
 impl ICoreWebView2Profile2 {
-    pub(crate) unsafe fn ClearBrowsingDataAll<P0>(&self, handler: P0) -> windows_core::Result<()>
+    pub(crate) unsafe fn ClearBrowsingDataAll<P0>(&self, handler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ICoreWebView2ClearBrowsingDataCompletedHandler>,
     {
@@ -4638,7 +4547,6 @@ impl ICoreWebView2Profile2 {
                 windows_core::Interface::as_raw(self),
                 handler.param().abi(),
             )
-            .ok()
         }
     }
 }
@@ -4669,16 +4577,12 @@ impl ICoreWebView2Settings {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetIsScriptEnabled(
-        &self,
-        isscriptenabled: bool,
-    ) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetIsScriptEnabled(&self, isscriptenabled: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsScriptEnabled)(
                 windows_core::Interface::as_raw(self),
                 isscriptenabled.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn IsWebMessageEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -4694,13 +4598,12 @@ impl ICoreWebView2Settings {
     pub(crate) unsafe fn SetIsWebMessageEnabled(
         &self,
         iswebmessageenabled: bool,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsWebMessageEnabled)(
                 windows_core::Interface::as_raw(self),
                 iswebmessageenabled.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn AreDefaultScriptDialogsEnabled(
@@ -4718,13 +4621,12 @@ impl ICoreWebView2Settings {
     pub(crate) unsafe fn SetAreDefaultScriptDialogsEnabled(
         &self,
         aredefaultscriptdialogsenabled: bool,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetAreDefaultScriptDialogsEnabled)(
                 windows_core::Interface::as_raw(self),
                 aredefaultscriptdialogsenabled.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn IsStatusBarEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -4740,13 +4642,12 @@ impl ICoreWebView2Settings {
     pub(crate) unsafe fn SetIsStatusBarEnabled(
         &self,
         isstatusbarenabled: bool,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsStatusBarEnabled)(
                 windows_core::Interface::as_raw(self),
                 isstatusbarenabled.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn AreDevToolsEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -4762,13 +4663,12 @@ impl ICoreWebView2Settings {
     pub(crate) unsafe fn SetAreDevToolsEnabled(
         &self,
         aredevtoolsenabled: bool,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetAreDevToolsEnabled)(
                 windows_core::Interface::as_raw(self),
                 aredevtoolsenabled.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn AreDefaultContextMenusEnabled(
@@ -4786,13 +4686,12 @@ impl ICoreWebView2Settings {
     pub(crate) unsafe fn SetAreDefaultContextMenusEnabled(
         &self,
         enabled: bool,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetAreDefaultContextMenusEnabled)(
                 windows_core::Interface::as_raw(self),
                 enabled.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn AreHostObjectsAllowed(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -4805,16 +4704,12 @@ impl ICoreWebView2Settings {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetAreHostObjectsAllowed(
-        &self,
-        allowed: bool,
-    ) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetAreHostObjectsAllowed(&self, allowed: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetAreHostObjectsAllowed)(
                 windows_core::Interface::as_raw(self),
                 allowed.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn IsZoomControlEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -4827,13 +4722,12 @@ impl ICoreWebView2Settings {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetIsZoomControlEnabled(&self, enabled: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetIsZoomControlEnabled(&self, enabled: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsZoomControlEnabled)(
                 windows_core::Interface::as_raw(self),
                 enabled.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn IsBuiltInErrorPageEnabled(
@@ -4851,13 +4745,12 @@ impl ICoreWebView2Settings {
     pub(crate) unsafe fn SetIsBuiltInErrorPageEnabled(
         &self,
         enabled: bool,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsBuiltInErrorPageEnabled)(
                 windows_core::Interface::as_raw(self),
                 enabled.into(),
             )
-            .ok()
         }
     }
 }
@@ -4964,7 +4857,7 @@ impl ICoreWebView2Settings2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetUserAgent<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub(crate) unsafe fn SetUserAgent<P0>(&self, value: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4973,7 +4866,6 @@ impl ICoreWebView2Settings2 {
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
-            .ok()
         }
     }
 }
@@ -5020,13 +4912,12 @@ impl ICoreWebView2Settings3 {
     pub(crate) unsafe fn SetAreBrowserAcceleratorKeysEnabled(
         &self,
         value: bool,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetAreBrowserAcceleratorKeysEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
-            .ok()
         }
     }
 }
@@ -5074,16 +4965,12 @@ impl ICoreWebView2Settings4 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetIsPasswordAutosaveEnabled(
-        &self,
-        value: bool,
-    ) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetIsPasswordAutosaveEnabled(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsPasswordAutosaveEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn IsGeneralAutofillEnabled(
@@ -5098,16 +4985,12 @@ impl ICoreWebView2Settings4 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetIsGeneralAutofillEnabled(
-        &self,
-        value: bool,
-    ) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetIsGeneralAutofillEnabled(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsGeneralAutofillEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
-            .ok()
         }
     }
 }
@@ -5161,13 +5044,12 @@ impl ICoreWebView2Settings5 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetIsPinchZoomEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetIsPinchZoomEnabled(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsPinchZoomEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
-            .ok()
         }
     }
 }
@@ -5216,16 +5098,12 @@ impl ICoreWebView2Settings6 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn SetIsSwipeNavigationEnabled(
-        &self,
-        value: bool,
-    ) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetIsSwipeNavigationEnabled(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsSwipeNavigationEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
-            .ok()
         }
     }
 }
@@ -5335,13 +5213,12 @@ impl ICoreWebView2Settings9 {
     pub(crate) unsafe fn SetIsNonClientRegionSupportEnabled(
         &self,
         value: bool,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsNonClientRegionSupportEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
-            .ok()
         }
     }
 }
@@ -5598,7 +5475,7 @@ impl ICoreWebView2WebResourceRequestedEventArgs {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub(crate) unsafe fn SetResponse<P0>(&self, response: P0) -> windows_core::Result<()>
+    pub(crate) unsafe fn SetResponse<P0>(&self, response: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ICoreWebView2WebResourceResponse>,
     {
@@ -5607,7 +5484,6 @@ impl ICoreWebView2WebResourceRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 response.param().abi(),
             )
-            .ok()
         }
     }
 }
@@ -6135,13 +6011,12 @@ impl ICoreWebView2_19 {
     pub(crate) unsafe fn SetMemoryUsageTargetLevel(
         &self,
         value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetMemoryUsageTargetLevel)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
-            .ok()
         }
     }
 }
@@ -6173,7 +6048,7 @@ impl ICoreWebView2_2 {
     pub(crate) unsafe fn NavigateWithWebResourceRequest<P0>(
         &self,
         request: P0,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ICoreWebView2WebResourceRequest>,
     {
@@ -6182,7 +6057,6 @@ impl ICoreWebView2_2 {
                 windows_core::Interface::as_raw(self),
                 request.param().abi(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn CookieManager(&self) -> windows_core::Result<ICoreWebView2CookieManager> {
@@ -6347,7 +6221,7 @@ impl ICoreWebView2_22 {
         uri: P0,
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
         requestsourcekinds: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -6359,7 +6233,6 @@ impl ICoreWebView2_22 {
                 resourcecontext,
                 requestsourcekinds,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn RemoveWebResourceRequestedFilterWithRequestSourceKinds<P0>(
@@ -6367,7 +6240,7 @@ impl ICoreWebView2_22 {
         uri: P0,
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
         requestsourcekinds: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -6379,7 +6252,6 @@ impl ICoreWebView2_22 {
                 resourcecontext,
                 requestsourcekinds,
             )
-            .ok()
         }
     }
 }
@@ -6424,7 +6296,7 @@ impl ICoreWebView2_3 {
         hostname: P0,
         folderpath: P1,
         accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -6436,13 +6308,12 @@ impl ICoreWebView2_3 {
                 folderpath.param().abi(),
                 accesskind,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn ClearVirtualHostNameToFolderMapping<P0>(
         &self,
         hostname: P0,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -6451,7 +6322,6 @@ impl ICoreWebView2_3 {
                 windows_core::Interface::as_raw(self),
                 hostname.param().abi(),
             )
-            .ok()
         }
     }
 }
@@ -6509,13 +6379,12 @@ impl ICoreWebView2_4 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_DownloadStarting(&self, token: i64) -> windows_core::Result<()> {
+    pub(crate) unsafe fn remove_DownloadStarting(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_DownloadStarting)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
-            .ok()
         }
     }
 }

@@ -170,15 +170,15 @@ mod Windows {
         }
         #[guid(0xa05c8c37_d2c6_4732_b3a0_9ce0b0dc9ae6)]
         interface ID3D11Device3: ID3D11Device2 {
-            fn CreateTexture2D1(&self, pDesc1: *const D3D11_TEXTURE2D_DESC1, #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, ppTexture2D: *mut ID3D11Texture2D1) -> HRESULT;
-            fn CreateTexture3D1(&self, pDesc1: *const D3D11_TEXTURE3D_DESC1, #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, ppTexture3D: *mut ID3D11Texture3D1) -> HRESULT;
-            fn CreateRasterizerState2(&self, pRasterizerDesc: *const D3D11_RASTERIZER_DESC2, ppRasterizerState: *mut ID3D11RasterizerState2) -> HRESULT;
-            fn CreateShaderResourceView1(&self, pResource: ID3D11Resource, #[opt] pDesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1, ppSRView1: *mut ID3D11ShaderResourceView1) -> HRESULT;
-            fn CreateUnorderedAccessView1(&self, pResource: ID3D11Resource, #[opt] pDesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1, ppUAView1: *mut ID3D11UnorderedAccessView1) -> HRESULT;
-            fn CreateRenderTargetView1(&self, pResource: ID3D11Resource, #[opt] pDesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1, ppRTView1: *mut ID3D11RenderTargetView1) -> HRESULT;
-            fn CreateQuery1(&self, pQueryDesc1: *const D3D11_QUERY_DESC1, ppQuery1: *mut ID3D11Query1) -> HRESULT;
+            fn CreateTexture2D1(&self, pDesc1: *const D3D11_TEXTURE2D_DESC1, #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] ppTexture2D: *mut ID3D11Texture2D1) -> HRESULT;
+            fn CreateTexture3D1(&self, pDesc1: *const D3D11_TEXTURE3D_DESC1, #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] ppTexture3D: *mut ID3D11Texture3D1) -> HRESULT;
+            fn CreateRasterizerState2(&self, pRasterizerDesc: *const D3D11_RASTERIZER_DESC2, #[opt] ppRasterizerState: *mut ID3D11RasterizerState2) -> HRESULT;
+            fn CreateShaderResourceView1(&self, pResource: ID3D11Resource, #[opt] pDesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1, #[opt] ppSRView1: *mut ID3D11ShaderResourceView1) -> HRESULT;
+            fn CreateUnorderedAccessView1(&self, pResource: ID3D11Resource, #[opt] pDesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1, #[opt] ppUAView1: *mut ID3D11UnorderedAccessView1) -> HRESULT;
+            fn CreateRenderTargetView1(&self, pResource: ID3D11Resource, #[opt] pDesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1, #[opt] ppRTView1: *mut ID3D11RenderTargetView1) -> HRESULT;
+            fn CreateQuery1(&self, pQueryDesc1: *const D3D11_QUERY_DESC1, #[opt] ppQuery1: *mut ID3D11Query1) -> HRESULT;
             fn GetImmediateContext3(&self, ppImmediateContext: *mut ID3D11DeviceContext3);
-            fn CreateDeferredContext3(&self, ContextFlags: u32, ppDeferredContext: *mut ID3D11DeviceContext3) -> HRESULT;
+            fn CreateDeferredContext3(&self, ContextFlags: u32, #[opt] ppDeferredContext: *mut ID3D11DeviceContext3) -> HRESULT;
             fn WriteToSubresource(&self, pDstResource: ID3D11Resource, DstSubresource: u32, #[opt] pDstBox: *const D3D11_BOX, pSrcData: *const void, SrcRowPitch: u32, SrcDepthPitch: u32);
             fn ReadFromSubresource(&self, pDstData: *mut void, DstRowPitch: u32, DstDepthPitch: u32, pSrcResource: ID3D11Resource, SrcSubresource: u32, #[opt] pSrcBox: *const D3D11_BOX);
         }

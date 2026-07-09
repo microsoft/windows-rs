@@ -223,8 +223,8 @@ impl core::ops::Deref for IDxcBlobEncoding {
 }
 windows_core::imp::interface_hierarchy!(IDxcBlobEncoding, windows_core::IUnknown, IDxcBlob);
 impl IDxcBlobEncoding {
-    pub unsafe fn GetEncoding(&self, pknown: *mut windows_core::BOOL, pcodepage: *mut DXC_CP) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetEncoding)(windows_core::Interface::as_raw(self), pknown as _, pcodepage as _).ok() }
+    pub unsafe fn GetEncoding(&self, pknown: *mut windows_core::BOOL, pcodepage: *mut DXC_CP) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEncoding)(windows_core::Interface::as_raw(self), pknown as _, pcodepage as _) }
     }
 }
 #[repr(C)]
@@ -464,7 +464,7 @@ impl core::ops::Deref for IDxcCompiler2 {
 }
 windows_core::imp::interface_hierarchy!(IDxcCompiler2, windows_core::IUnknown, IDxcCompiler);
 impl IDxcCompiler2 {
-    pub unsafe fn CompileWithDebug<P0, P1, P2, P3, P8>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: Option<&[windows_core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P8, ppresult: *mut Option<IDxcOperationResult>, ppdebugblobname: Option<*mut windows_core::PWSTR>, ppdebugblob: Option<*mut Option<IDxcBlob>>) -> windows_core::Result<()>
+    pub unsafe fn CompileWithDebug<P0, P1, P2, P3, P8>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: Option<&[windows_core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P8, ppresult: *mut Option<IDxcOperationResult>, ppdebugblobname: Option<*mut windows_core::PWSTR>, ppdebugblob: Option<*mut Option<IDxcBlob>>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDxcBlob>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -488,7 +488,6 @@ impl IDxcCompiler2 {
                 ppdebugblobname.unwrap_or(core::mem::zeroed()) as _,
                 ppdebugblob.unwrap_or(core::mem::zeroed()) as _,
             )
-            .ok()
         }
     }
 }
@@ -580,14 +579,14 @@ impl IDxcCompilerArgs {
     pub unsafe fn GetCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn AddArguments(&self, parguments: Option<&[windows_core::PCWSTR]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddArguments)(windows_core::Interface::as_raw(self), core::mem::transmute(parguments.map_or(core::ptr::null(), |slice| slice.as_ptr())), parguments.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+    pub unsafe fn AddArguments(&self, parguments: Option<&[windows_core::PCWSTR]>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddArguments)(windows_core::Interface::as_raw(self), core::mem::transmute(parguments.map_or(core::ptr::null(), |slice| slice.as_ptr())), parguments.map_or(0, |slice| slice.len().try_into().unwrap())) }
     }
-    pub unsafe fn AddArgumentsUTF8(&self, parguments: Option<&[windows_core::PCSTR]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddArgumentsUTF8)(windows_core::Interface::as_raw(self), core::mem::transmute(parguments.map_or(core::ptr::null(), |slice| slice.as_ptr())), parguments.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+    pub unsafe fn AddArgumentsUTF8(&self, parguments: Option<&[windows_core::PCSTR]>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddArgumentsUTF8)(windows_core::Interface::as_raw(self), core::mem::transmute(parguments.map_or(core::ptr::null(), |slice| slice.as_ptr())), parguments.map_or(0, |slice| slice.len().try_into().unwrap())) }
     }
-    pub unsafe fn AddDefines(&self, pdefines: &[DxcDefine]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddDefines)(windows_core::Interface::as_raw(self), core::mem::transmute(pdefines.as_ptr()), pdefines.len().try_into().unwrap()).ok() }
+    pub unsafe fn AddDefines(&self, pdefines: &[DxcDefine]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddDefines)(windows_core::Interface::as_raw(self), core::mem::transmute(pdefines.as_ptr()), pdefines.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -656,20 +655,20 @@ impl windows_core::RuntimeName for IDxcCompilerArgs {}
 windows_core::imp::define_interface!(IDxcContainerBuilder, IDxcContainerBuilder_Vtbl, 0x334b1f50_2292_4b35_99a1_25588d8c17fe);
 windows_core::imp::interface_hierarchy!(IDxcContainerBuilder, windows_core::IUnknown);
 impl IDxcContainerBuilder {
-    pub unsafe fn Load<P0>(&self, pdxilcontainerheader: P0) -> windows_core::Result<()>
+    pub unsafe fn Load<P0>(&self, pdxilcontainerheader: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDxcBlob>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pdxilcontainerheader.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pdxilcontainerheader.param().abi()) }
     }
-    pub unsafe fn AddPart<P1>(&self, fourcc: u32, psource: P1) -> windows_core::Result<()>
+    pub unsafe fn AddPart<P1>(&self, fourcc: u32, psource: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IDxcBlob>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPart)(windows_core::Interface::as_raw(self), fourcc, psource.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPart)(windows_core::Interface::as_raw(self), fourcc, psource.param().abi()) }
     }
-    pub unsafe fn RemovePart(&self, fourcc: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePart)(windows_core::Interface::as_raw(self), fourcc).ok() }
+    pub unsafe fn RemovePart(&self, fourcc: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemovePart)(windows_core::Interface::as_raw(self), fourcc) }
     }
     pub unsafe fn SerializeContainer(&self) -> windows_core::Result<IDxcOperationResult> {
         unsafe {
@@ -741,11 +740,11 @@ impl windows_core::RuntimeName for IDxcContainerBuilder {}
 windows_core::imp::define_interface!(IDxcContainerReflection, IDxcContainerReflection_Vtbl, 0xd2c21b26_8350_4bdc_976a_331ce6f4c54c);
 windows_core::imp::interface_hierarchy!(IDxcContainerReflection, windows_core::IUnknown);
 impl IDxcContainerReflection {
-    pub unsafe fn Load<P0>(&self, pcontainer: P0) -> windows_core::Result<()>
+    pub unsafe fn Load<P0>(&self, pcontainer: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDxcBlob>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pcontainer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pcontainer.param().abi()) }
     }
     pub unsafe fn GetPartCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -771,8 +770,8 @@ impl IDxcContainerReflection {
             (windows_core::Interface::vtable(self).FindFirstPartKind)(windows_core::Interface::as_raw(self), kind, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPartReflection(&self, idx: u32, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPartReflection)(windows_core::Interface::as_raw(self), idx, iid, ppvobject as _).ok() }
+    pub unsafe fn GetPartReflection(&self, idx: u32, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPartReflection)(windows_core::Interface::as_raw(self), idx, iid, ppvobject as _) }
     }
 }
 #[repr(C)]
@@ -967,11 +966,11 @@ windows_core::imp::define_interface!(IDxcLibrary, IDxcLibrary_Vtbl, 0xe5204dc7_d
 windows_core::imp::interface_hierarchy!(IDxcLibrary, windows_core::IUnknown);
 impl IDxcLibrary {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMalloc<P0>(&self, pmalloc: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMalloc<P0>(&self, pmalloc: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IMalloc>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMalloc)(windows_core::Interface::as_raw(self), pmalloc.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetMalloc)(windows_core::Interface::as_raw(self), pmalloc.param().abi()) }
     }
     pub unsafe fn CreateBlobFromBlob<P0>(&self, pblob: P0, offset: u32, length: u32) -> windows_core::Result<IDxcBlob>
     where
@@ -1225,12 +1224,12 @@ impl windows_core::RuntimeName for IDxcLibrary {}
 windows_core::imp::define_interface!(IDxcLinker, IDxcLinker_Vtbl, 0xf1b5be2a_62dd_4327_a1c2_42ac1e1e78e6);
 windows_core::imp::interface_hierarchy!(IDxcLinker, windows_core::IUnknown);
 impl IDxcLinker {
-    pub unsafe fn RegisterLibrary<P0, P1>(&self, plibname: P0, plib: P1) -> windows_core::Result<()>
+    pub unsafe fn RegisterLibrary<P0, P1>(&self, plibname: P0, plib: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IDxcBlob>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterLibrary)(windows_core::Interface::as_raw(self), plibname.param().abi(), plib.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterLibrary)(windows_core::Interface::as_raw(self), plibname.param().abi(), plib.param().abi()) }
     }
     pub unsafe fn Link<P0, P1>(&self, pentryname: P0, ptargetprofile: P1, plibnames: &[windows_core::PCWSTR], parguments: Option<&[windows_core::PCWSTR]>) -> windows_core::Result<IDxcOperationResult>
     where
@@ -1385,11 +1384,11 @@ impl IDxcOptimizer {
             (windows_core::Interface::vtable(self).GetAvailablePass)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RunOptimizer<P0>(&self, pblob: P0, ppoptions: &[windows_core::PCWSTR], poutputmodule: *mut Option<IDxcBlob>, ppoutputtext: Option<*mut Option<IDxcBlobEncoding>>) -> windows_core::Result<()>
+    pub unsafe fn RunOptimizer<P0>(&self, pblob: P0, ppoptions: &[windows_core::PCWSTR], poutputmodule: *mut Option<IDxcBlob>, ppoutputtext: Option<*mut Option<IDxcBlobEncoding>>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDxcBlob>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RunOptimizer)(windows_core::Interface::as_raw(self), pblob.param().abi(), core::mem::transmute(ppoptions.as_ptr()), ppoptions.len().try_into().unwrap(), core::mem::transmute(poutputmodule), ppoutputtext.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RunOptimizer)(windows_core::Interface::as_raw(self), pblob.param().abi(), core::mem::transmute(ppoptions.as_ptr()), ppoptions.len().try_into().unwrap(), core::mem::transmute(poutputmodule), ppoutputtext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -1579,11 +1578,11 @@ impl windows_core::RuntimeName for IDxcOptimizerPass {}
 windows_core::imp::define_interface!(IDxcPdbUtils, IDxcPdbUtils_Vtbl, 0xe6c9647e_9d6a_4c3b_b94c_524b5a6c343d);
 windows_core::imp::interface_hierarchy!(IDxcPdbUtils, windows_core::IUnknown);
 impl IDxcPdbUtils {
-    pub unsafe fn Load<P0>(&self, ppdbordxil: P0) -> windows_core::Result<()>
+    pub unsafe fn Load<P0>(&self, ppdbordxil: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDxcBlob>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), ppdbordxil.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), ppdbordxil.param().abi()) }
     }
     pub unsafe fn GetSourceCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1633,8 +1632,8 @@ impl IDxcPdbUtils {
             (windows_core::Interface::vtable(self).GetArgPairCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetArgPair(&self, uindex: u32, pname: *mut windows_core::BSTR, pvalue: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetArgPair)(windows_core::Interface::as_raw(self), uindex, core::mem::transmute(pname), core::mem::transmute(pvalue)).ok() }
+    pub unsafe fn GetArgPair(&self, uindex: u32, pname: *mut windows_core::BSTR, pvalue: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetArgPair)(windows_core::Interface::as_raw(self), uindex, core::mem::transmute(pname), core::mem::transmute(pvalue)) }
     }
     pub unsafe fn GetDefineCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1693,11 +1692,11 @@ impl IDxcPdbUtils {
             (windows_core::Interface::vtable(self).GetVersionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetCompiler<P0>(&self, pcompiler: P0) -> windows_core::Result<()>
+    pub unsafe fn SetCompiler<P0>(&self, pcompiler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDxcCompiler3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCompiler)(windows_core::Interface::as_raw(self), pcompiler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetCompiler)(windows_core::Interface::as_raw(self), pcompiler.param().abi()) }
     }
     pub unsafe fn CompileForFullPDB(&self) -> windows_core::Result<IDxcResult> {
         unsafe {
@@ -1705,14 +1704,14 @@ impl IDxcPdbUtils {
             (windows_core::Interface::vtable(self).CompileForFullPDB)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn OverrideArgs(&self, pargpairs: *const DxcArgPair, unumargpairs: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OverrideArgs)(windows_core::Interface::as_raw(self), pargpairs, unumargpairs).ok() }
+    pub unsafe fn OverrideArgs(&self, pargpairs: *const DxcArgPair, unumargpairs: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OverrideArgs)(windows_core::Interface::as_raw(self), pargpairs, unumargpairs) }
     }
-    pub unsafe fn OverrideRootSignature<P0>(&self, prootsignature: P0) -> windows_core::Result<()>
+    pub unsafe fn OverrideRootSignature<P0>(&self, prootsignature: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OverrideRootSignature)(windows_core::Interface::as_raw(self), prootsignature.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OverrideRootSignature)(windows_core::Interface::as_raw(self), prootsignature.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2060,11 +2059,11 @@ impl windows_core::RuntimeName for IDxcPdbUtils {}
 windows_core::imp::define_interface!(IDxcPdbUtils2, IDxcPdbUtils2_Vtbl, 0x4315d938_f369_4f93_95a2_252017cc3807);
 windows_core::imp::interface_hierarchy!(IDxcPdbUtils2, windows_core::IUnknown);
 impl IDxcPdbUtils2 {
-    pub unsafe fn Load<P0>(&self, ppdbordxil: P0) -> windows_core::Result<()>
+    pub unsafe fn Load<P0>(&self, ppdbordxil: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDxcBlob>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), ppdbordxil.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), ppdbordxil.param().abi()) }
     }
     pub unsafe fn GetSourceCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -2084,11 +2083,11 @@ impl IDxcPdbUtils2 {
             (windows_core::Interface::vtable(self).GetSourceName)(windows_core::Interface::as_raw(self), uindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetLibraryPDBCount(&self, pcount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLibraryPDBCount)(windows_core::Interface::as_raw(self), pcount as _).ok() }
+    pub unsafe fn GetLibraryPDBCount(&self, pcount: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLibraryPDBCount)(windows_core::Interface::as_raw(self), pcount as _) }
     }
-    pub unsafe fn GetLibraryPDB(&self, uindex: u32, ppoutpdbutils: *mut Option<Self>, pplibraryname: Option<*mut Option<IDxcBlobUtf16>>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLibraryPDB)(windows_core::Interface::as_raw(self), uindex, core::mem::transmute(ppoutpdbutils), pplibraryname.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn GetLibraryPDB(&self, uindex: u32, ppoutpdbutils: *mut Option<Self>, pplibraryname: Option<*mut Option<IDxcBlobUtf16>>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLibraryPDB)(windows_core::Interface::as_raw(self), uindex, core::mem::transmute(ppoutpdbutils), pplibraryname.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetFlagCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -2120,8 +2119,8 @@ impl IDxcPdbUtils2 {
             (windows_core::Interface::vtable(self).GetArgPairCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetArgPair(&self, uindex: u32, ppname: *mut Option<IDxcBlobUtf16>, ppvalue: *mut Option<IDxcBlobUtf16>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetArgPair)(windows_core::Interface::as_raw(self), uindex, core::mem::transmute(ppname), core::mem::transmute(ppvalue)).ok() }
+    pub unsafe fn GetArgPair(&self, uindex: u32, ppname: *mut Option<IDxcBlobUtf16>, ppvalue: *mut Option<IDxcBlobUtf16>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetArgPair)(windows_core::Interface::as_raw(self), uindex, core::mem::transmute(ppname), core::mem::transmute(ppvalue)) }
     }
     pub unsafe fn GetDefineCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -2721,11 +2720,11 @@ impl IDxcUtils {
             (windows_core::Interface::vtable(self).GetBlobAsWide)(windows_core::Interface::as_raw(self), pblob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDxilContainerPart(&self, pshader: *const DxcBuffer, dxcpart: u32, pppartdata: *mut *mut core::ffi::c_void, ppartsizeinbytes: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDxilContainerPart)(windows_core::Interface::as_raw(self), pshader, dxcpart, pppartdata as _, ppartsizeinbytes as _).ok() }
+    pub unsafe fn GetDxilContainerPart(&self, pshader: *const DxcBuffer, dxcpart: u32, pppartdata: *mut *mut core::ffi::c_void, ppartsizeinbytes: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDxilContainerPart)(windows_core::Interface::as_raw(self), pshader, dxcpart, pppartdata as _, ppartsizeinbytes as _) }
     }
-    pub unsafe fn CreateReflection(&self, pdata: *const DxcBuffer, iid: *const windows_core::GUID, ppvreflection: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateReflection)(windows_core::Interface::as_raw(self), pdata, iid, ppvreflection as _).ok() }
+    pub unsafe fn CreateReflection(&self, pdata: *const DxcBuffer, iid: *const windows_core::GUID, ppvreflection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateReflection)(windows_core::Interface::as_raw(self), pdata, iid, ppvreflection as _) }
     }
     pub unsafe fn BuildArguments<P0, P1, P2>(&self, psourcename: P0, pentrypoint: P1, ptargetprofile: P2, parguments: Option<&[windows_core::PCWSTR]>, pdefines: &[DxcDefine]) -> windows_core::Result<IDxcCompilerArgs>
     where
@@ -2738,11 +2737,11 @@ impl IDxcUtils {
             (windows_core::Interface::vtable(self).BuildArguments)(windows_core::Interface::as_raw(self), psourcename.param().abi(), pentrypoint.param().abi(), ptargetprofile.param().abi(), core::mem::transmute(parguments.map_or(core::ptr::null(), |slice| slice.as_ptr())), parguments.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pdefines.as_ptr()), pdefines.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPDBContents<P0>(&self, ppdbblob: P0, pphash: *mut Option<IDxcBlob>, ppcontainer: *mut Option<IDxcBlob>) -> windows_core::Result<()>
+    pub unsafe fn GetPDBContents<P0>(&self, ppdbblob: P0, pphash: *mut Option<IDxcBlob>, ppcontainer: *mut Option<IDxcBlob>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDxcBlob>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetPDBContents)(windows_core::Interface::as_raw(self), ppdbblob.param().abi(), core::mem::transmute(pphash), core::mem::transmute(ppcontainer)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPDBContents)(windows_core::Interface::as_raw(self), ppdbblob.param().abi(), core::mem::transmute(pphash), core::mem::transmute(ppcontainer)) }
     }
 }
 #[repr(C)]
@@ -3044,8 +3043,8 @@ impl windows_core::RuntimeName for IDxcValidator2 {}
 windows_core::imp::define_interface!(IDxcVersionInfo, IDxcVersionInfo_Vtbl, 0xb04f5b50_2059_4f12_a8ff_a1e0cde1cc7e);
 windows_core::imp::interface_hierarchy!(IDxcVersionInfo, windows_core::IUnknown);
 impl IDxcVersionInfo {
-    pub unsafe fn GetVersion(&self, pmajor: *mut u32, pminor: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), pmajor as _, pminor as _).ok() }
+    pub unsafe fn GetVersion(&self, pmajor: *mut u32, pminor: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), pmajor as _, pminor as _) }
     }
     pub unsafe fn GetFlags(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -3105,8 +3104,8 @@ impl core::ops::Deref for IDxcVersionInfo2 {
 }
 windows_core::imp::interface_hierarchy!(IDxcVersionInfo2, windows_core::IUnknown, IDxcVersionInfo);
 impl IDxcVersionInfo2 {
-    pub unsafe fn GetCommitInfo(&self, pcommitcount: *mut u32, pcommithash: *mut *mut i8) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCommitInfo)(windows_core::Interface::as_raw(self), pcommitcount as _, pcommithash as _).ok() }
+    pub unsafe fn GetCommitInfo(&self, pcommitcount: *mut u32, pcommithash: *mut *mut i8) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCommitInfo)(windows_core::Interface::as_raw(self), pcommitcount as _, pcommithash as _) }
     }
 }
 #[repr(C)]

@@ -18,13 +18,15 @@ fn main() -> windows::core::Result<()> {
             let folder: IShellFolderViewDual = background.cast()?;
             let shell: IShellDispatch2 = folder.Application()?.cast()?;
 
-            shell.ShellExecute(
-                &BSTR::from(file),
-                &VARIANT::from(args),
-                &VARIANT::from(directory),
-                &VARIANT::from(operation),
-                &VARIANT::from(show.0),
-            )
+            shell
+                .ShellExecute(
+                    &BSTR::from(file),
+                    &VARIANT::from(args),
+                    &VARIANT::from(directory),
+                    &VARIANT::from(operation),
+                    &VARIANT::from(show.0),
+                )
+                .ok()
         }
     }
 

@@ -24,44 +24,44 @@ pub unsafe fn DestroyEnvironmentBlock(lpenvironment: *const core::ffi::c_void) -
     unsafe { DestroyEnvironmentBlock(lpenvironment).ok() }
 }
 #[inline]
-pub unsafe fn EnclaveCopyIntoEnclave(enclaveaddress: *mut core::ffi::c_void, unsecureaddress: *const core::ffi::c_void, numberofbytes: usize) -> windows_core::Result<()> {
+pub unsafe fn EnclaveCopyIntoEnclave(enclaveaddress: *mut core::ffi::c_void, unsecureaddress: *const core::ffi::c_void, numberofbytes: usize) -> windows_core::HRESULT {
     windows_core::link!("vertdll.dll" "system" fn EnclaveCopyIntoEnclave(enclaveaddress : *mut core::ffi::c_void, unsecureaddress : *const core::ffi::c_void, numberofbytes : usize) -> windows_core::HRESULT);
-    unsafe { EnclaveCopyIntoEnclave(enclaveaddress as _, unsecureaddress, numberofbytes).ok() }
+    unsafe { EnclaveCopyIntoEnclave(enclaveaddress as _, unsecureaddress, numberofbytes) }
 }
 #[inline]
-pub unsafe fn EnclaveCopyOutOfEnclave(unsecureaddress: *mut core::ffi::c_void, enclaveaddress: *const core::ffi::c_void, numberofbytes: usize) -> windows_core::Result<()> {
+pub unsafe fn EnclaveCopyOutOfEnclave(unsecureaddress: *mut core::ffi::c_void, enclaveaddress: *const core::ffi::c_void, numberofbytes: usize) -> windows_core::HRESULT {
     windows_core::link!("vertdll.dll" "system" fn EnclaveCopyOutOfEnclave(unsecureaddress : *mut core::ffi::c_void, enclaveaddress : *const core::ffi::c_void, numberofbytes : usize) -> windows_core::HRESULT);
-    unsafe { EnclaveCopyOutOfEnclave(unsecureaddress as _, enclaveaddress, numberofbytes).ok() }
+    unsafe { EnclaveCopyOutOfEnclave(unsecureaddress as _, enclaveaddress, numberofbytes) }
 }
 #[inline]
-pub unsafe fn EnclaveEncryptDataForTrustlet(datatoencrypt: *const core::ffi::c_void, datatoencryptsize: u32, trustletbindingdata: *const TRUSTLET_BINDING_DATA, encrypteddata: Option<*mut core::ffi::c_void>, buffersize: u32, encrypteddatasize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn EnclaveEncryptDataForTrustlet(datatoencrypt: *const core::ffi::c_void, datatoencryptsize: u32, trustletbindingdata: *const TRUSTLET_BINDING_DATA, encrypteddata: Option<*mut core::ffi::c_void>, buffersize: u32, encrypteddatasize: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("vertdll.dll" "system" fn EnclaveEncryptDataForTrustlet(datatoencrypt : *const core::ffi::c_void, datatoencryptsize : u32, trustletbindingdata : *const TRUSTLET_BINDING_DATA, encrypteddata : *mut core::ffi::c_void, buffersize : u32, encrypteddatasize : *mut u32) -> windows_core::HRESULT);
-    unsafe { EnclaveEncryptDataForTrustlet(datatoencrypt, datatoencryptsize, trustletbindingdata, encrypteddata.unwrap_or(core::mem::zeroed()) as _, buffersize, encrypteddatasize as _).ok() }
+    unsafe { EnclaveEncryptDataForTrustlet(datatoencrypt, datatoencryptsize, trustletbindingdata, encrypteddata.unwrap_or(core::mem::zeroed()) as _, buffersize, encrypteddatasize as _) }
 }
 #[inline]
-pub unsafe fn EnclaveGetAttestationReport(enclavedata: Option<&[u8; 64]>, report: Option<*mut core::ffi::c_void>, buffersize: u32, outputsize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn EnclaveGetAttestationReport(enclavedata: Option<&[u8; 64]>, report: Option<*mut core::ffi::c_void>, buffersize: u32, outputsize: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("vertdll.dll" "system" fn EnclaveGetAttestationReport(enclavedata : *const u8, report : *mut core::ffi::c_void, buffersize : u32, outputsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { EnclaveGetAttestationReport(core::mem::transmute(enclavedata.map_or(core::ptr::null(), |slice| slice.as_ptr())), report.unwrap_or(core::mem::zeroed()) as _, buffersize, outputsize as _).ok() }
+    unsafe { EnclaveGetAttestationReport(core::mem::transmute(enclavedata.map_or(core::ptr::null(), |slice| slice.as_ptr())), report.unwrap_or(core::mem::zeroed()) as _, buffersize, outputsize as _) }
 }
 #[inline]
-pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32, enclaveinformation: *mut ENCLAVE_INFORMATION) -> windows_core::Result<()> {
+pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32, enclaveinformation: *mut ENCLAVE_INFORMATION) -> windows_core::HRESULT {
     windows_core::link!("vertdll.dll" "system" fn EnclaveGetEnclaveInformation(informationsize : u32, enclaveinformation : *mut ENCLAVE_INFORMATION) -> windows_core::HRESULT);
-    unsafe { EnclaveGetEnclaveInformation(informationsize, enclaveinformation as _).ok() }
+    unsafe { EnclaveGetEnclaveInformation(informationsize, enclaveinformation as _) }
 }
 #[inline]
-pub unsafe fn EnclaveRestrictContainingProcessAccess(restrictaccess: bool, previouslyrestricted: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
+pub unsafe fn EnclaveRestrictContainingProcessAccess(restrictaccess: bool, previouslyrestricted: Option<*mut windows_core::BOOL>) -> windows_core::HRESULT {
     windows_core::link!("vertdll.dll" "system" fn EnclaveRestrictContainingProcessAccess(restrictaccess : windows_core::BOOL, previouslyrestricted : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { EnclaveRestrictContainingProcessAccess(restrictaccess.into(), previouslyrestricted.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { EnclaveRestrictContainingProcessAccess(restrictaccess.into(), previouslyrestricted.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn EnclaveSealData(datatoencrypt: *const core::ffi::c_void, datatoencryptsize: u32, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: u32, protectedblob: Option<*mut core::ffi::c_void>, buffersize: u32, protectedblobsize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn EnclaveSealData(datatoencrypt: *const core::ffi::c_void, datatoencryptsize: u32, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: u32, protectedblob: Option<*mut core::ffi::c_void>, buffersize: u32, protectedblobsize: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("vertdll.dll" "system" fn EnclaveSealData(datatoencrypt : *const core::ffi::c_void, datatoencryptsize : u32, identitypolicy : ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy : u32, protectedblob : *mut core::ffi::c_void, buffersize : u32, protectedblobsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { EnclaveSealData(datatoencrypt, datatoencryptsize, identitypolicy, runtimepolicy, protectedblob.unwrap_or(core::mem::zeroed()) as _, buffersize, protectedblobsize as _).ok() }
+    unsafe { EnclaveSealData(datatoencrypt, datatoencryptsize, identitypolicy, runtimepolicy, protectedblob.unwrap_or(core::mem::zeroed()) as _, buffersize, protectedblobsize as _) }
 }
 #[inline]
-pub unsafe fn EnclaveUnsealData(protectedblob: *const core::ffi::c_void, protectedblobsize: u32, decrypteddata: Option<*mut core::ffi::c_void>, buffersize: u32, decrypteddatasize: *mut u32, sealingidentity: Option<*mut ENCLAVE_IDENTITY>, unsealingflags: Option<*mut u32>) -> windows_core::Result<()> {
+pub unsafe fn EnclaveUnsealData(protectedblob: *const core::ffi::c_void, protectedblobsize: u32, decrypteddata: Option<*mut core::ffi::c_void>, buffersize: u32, decrypteddatasize: *mut u32, sealingidentity: Option<*mut ENCLAVE_IDENTITY>, unsealingflags: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("vertdll.dll" "system" fn EnclaveUnsealData(protectedblob : *const core::ffi::c_void, protectedblobsize : u32, decrypteddata : *mut core::ffi::c_void, buffersize : u32, decrypteddatasize : *mut u32, sealingidentity : *mut ENCLAVE_IDENTITY, unsealingflags : *mut u32) -> windows_core::HRESULT);
-    unsafe { EnclaveUnsealData(protectedblob, protectedblobsize, decrypteddata.unwrap_or(core::mem::zeroed()) as _, buffersize, decrypteddatasize as _, sealingidentity.unwrap_or(core::mem::zeroed()) as _, unsealingflags.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { EnclaveUnsealData(protectedblob, protectedblobsize, decrypteddata.unwrap_or(core::mem::zeroed()) as _, buffersize, decrypteddatasize as _, sealingidentity.unwrap_or(core::mem::zeroed()) as _, unsealingflags.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn EnclaveUsesAttestedKeys() -> bool {
@@ -69,9 +69,9 @@ pub unsafe fn EnclaveUsesAttestedKeys() -> bool {
     unsafe { EnclaveUsesAttestedKeys() }
 }
 #[inline]
-pub unsafe fn EnclaveVerifyAttestationReport(enclavetype: u32, report: *const core::ffi::c_void, reportsize: u32) -> windows_core::Result<()> {
+pub unsafe fn EnclaveVerifyAttestationReport(enclavetype: u32, report: *const core::ffi::c_void, reportsize: u32) -> windows_core::HRESULT {
     windows_core::link!("vertdll.dll" "system" fn EnclaveVerifyAttestationReport(enclavetype : u32, report : *const core::ffi::c_void, reportsize : u32) -> windows_core::HRESULT);
-    unsafe { EnclaveVerifyAttestationReport(enclavetype, report, reportsize).ok() }
+    unsafe { EnclaveVerifyAttestationReport(enclavetype, report, reportsize) }
 }
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsA<P0>(lpsrc: P0, lpdst: Option<&mut [u8]>) -> u32

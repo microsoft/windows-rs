@@ -59,8 +59,8 @@ mod Windows {
         }
         #[guid(0x8ffde202_a0e7_45df_9e01_e837801b5ea0)]
         interface ID3D11Device5: ID3D11Device4 {
-            fn OpenSharedFence(&self, hFence: HANDLE, ReturnedInterface: *const GUID, #[iid_is] ppFence: *mut *mut void) -> HRESULT;
-            fn CreateFence(&self, InitialValue: u64, Flags: D3D11_FENCE_FLAG, ReturnedInterface: *const GUID, #[iid_is] ppFence: *mut *mut void) -> HRESULT;
+            fn OpenSharedFence(&self, hFence: HANDLE, ReturnedInterface: *const GUID, #[iid_is] #[opt] ppFence: *mut *mut void) -> HRESULT;
+            fn CreateFence(&self, InitialValue: u64, Flags: D3D11_FENCE_FLAG, ReturnedInterface: *const GUID, #[iid_is] #[opt] ppFence: *mut *mut void) -> HRESULT;
         }
         #[guid(0x9b7e4e00_342c_4106_a19f_4f2704f689f0)]
         interface ID3D11Multithread: IUnknown {

@@ -35,11 +35,11 @@ impl windows_core::RuntimeName for DRendezvousSessionEvents {}
 windows_core::imp::define_interface!(IRendezvousApplication, IRendezvousApplication_Vtbl, 0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
 windows_core::imp::interface_hierarchy!(IRendezvousApplication, windows_core::IUnknown);
 impl IRendezvousApplication {
-    pub unsafe fn SetRendezvousSession<P0>(&self, prendezvoussession: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRendezvousSession<P0>(&self, prendezvoussession: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRendezvousSession)(windows_core::Interface::as_raw(self), prendezvoussession.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetRendezvousSession)(windows_core::Interface::as_raw(self), prendezvoussession.param().abi()) }
     }
 }
 #[repr(C)]
@@ -87,11 +87,11 @@ impl IRendezvousSession {
             (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SendContextData(&self, bstrdata: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SendContextData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdata)).ok() }
+    pub unsafe fn SendContextData(&self, bstrdata: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SendContextData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdata)) }
     }
-    pub unsafe fn Terminate(&self, hr: windows_core::HRESULT, bstrappdata: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), hr, core::mem::transmute_copy(bstrappdata)).ok() }
+    pub unsafe fn Terminate(&self, hr: windows_core::HRESULT, bstrappdata: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), hr, core::mem::transmute_copy(bstrappdata)) }
     }
 }
 #[repr(C)]

@@ -56,7 +56,7 @@ fn clone() {
 fn interop() -> Result<()> {
     unsafe {
         let b: BSTR = "hello".into();
-        SysAddRefString(&b)?;
+        SysAddRefString(&b).ok()?;
         SysFreeString(&b);
         Ok(())
     }

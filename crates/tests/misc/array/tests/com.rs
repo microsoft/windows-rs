@@ -16,7 +16,8 @@ fn test() -> Result<()> {
             None,
             &mut data,
             &mut len,
-        )?;
+        )
+        .ok()?;
 
         let array = Array::<IMFActivate>::from_raw_parts(data as _, len);
 

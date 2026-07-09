@@ -1,0 +1,16 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern "C" fn GetScalar(#[opt] value: *mut i32) -> i32;
+    #[library("test.dll")]
+    extern "C" fn GetThing(#[opt] thing: *mut IThing) -> i32;
+    type HRESULT = i32;
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IThing {
+        fn M(&self,) -> i32;
+    }
+    #[library("test.dll")]
+    extern "C" fn MakeThing(thing: *mut IThing) -> i32;
+    #[library("test.dll")]
+    extern "C" fn QueryThing(#[iid_is] #[opt] thing: *mut *mut void) -> i32;
+}

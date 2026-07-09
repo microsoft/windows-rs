@@ -16,7 +16,7 @@ impl SwapChainPanelHandle {
     /// Passing an unrelated COM interface will fail at the WinUI layer.
     pub fn set_swap_chain(&self, swap_chain: &impl Interface) -> Result<()> {
         let native: bindings::ISwapChainPanelNative = self.0.cast()?;
-        unsafe { native.SetSwapChain(swap_chain.as_raw()) }
+        unsafe { native.SetSwapChain(swap_chain.as_raw()).ok() }
     }
 
     /// Returns the current composition scale (DPI scale factor) as `(scale_x, scale_y)`.

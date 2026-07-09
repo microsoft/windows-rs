@@ -5,21 +5,13 @@ edition = "2024"
 publish = false
 
 [dependencies]
+windows-core = { workspace = true }
 windows-reactor = { workspace = true }
 windows-numerics = { workspace = true }
 
-[dependencies.windows]
-workspace = true
-default-features = true
-features = [
-    "Win32_Graphics_Direct2D_Common",
-    "Win32_Graphics_Direct3D",
-    "Win32_Graphics_Direct3D11",
-    "Win32_Graphics_Dxgi_Common",
-]
-
 [build-dependencies]
 windows-reactor-setup = { workspace = true }
+windows-bindgen = { workspace = true }
 
 [lints]
 workspace = true

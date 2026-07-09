@@ -36,9 +36,9 @@ pub unsafe fn GetDpiAwarenessContextForProcess(hprocess: super::super::Foundatio
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetDpiForMonitor(hmonitor: super::super::Graphics::Gdi::HMONITOR, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetDpiForMonitor(hmonitor: super::super::Graphics::Gdi::HMONITOR, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn GetDpiForMonitor(hmonitor : super::super::Graphics::Gdi::HMONITOR, dpitype : MONITOR_DPI_TYPE, dpix : *mut u32, dpiy : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetDpiForMonitor(hmonitor, dpitype, dpix as _, dpiy as _).ok() }
+    unsafe { GetDpiForMonitor(hmonitor, dpitype, dpix as _, dpiy as _) }
 }
 #[inline]
 pub unsafe fn GetDpiForSystem() -> u32 {
@@ -129,9 +129,9 @@ pub unsafe fn SetDialogDpiChangeBehavior(hdlg: super::super::Foundation::HWND, m
     unsafe { SetDialogDpiChangeBehavior(hdlg, mask, values).ok() }
 }
 #[inline]
-pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> windows_core::Result<()> {
+pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn SetProcessDpiAwareness(value : PROCESS_DPI_AWARENESS) -> windows_core::HRESULT);
-    unsafe { SetProcessDpiAwareness(value).ok() }
+    unsafe { SetProcessDpiAwareness(value) }
 }
 #[inline]
 pub unsafe fn SetProcessDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> windows_core::Result<()> {

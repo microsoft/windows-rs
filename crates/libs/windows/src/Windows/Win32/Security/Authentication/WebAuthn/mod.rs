@@ -18,14 +18,14 @@ pub unsafe fn WebAuthNAuthenticatorMakeCredential(hwnd: super::super::super::Fou
     }
 }
 #[inline]
-pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const windows_core::GUID) -> windows_core::Result<()> {
+pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const windows_core::GUID) -> windows_core::HRESULT {
     windows_core::link!("webauthn.dll" "system" fn WebAuthNCancelCurrentOperation(pcancellationid : *const windows_core::GUID) -> windows_core::HRESULT);
-    unsafe { WebAuthNCancelCurrentOperation(pcancellationid).ok() }
+    unsafe { WebAuthNCancelCurrentOperation(pcancellationid) }
 }
 #[inline]
-pub unsafe fn WebAuthNDeletePlatformCredential(pbcredentialid: &[u8]) -> windows_core::Result<()> {
+pub unsafe fn WebAuthNDeletePlatformCredential(pbcredentialid: &[u8]) -> windows_core::HRESULT {
     windows_core::link!("webauthn.dll" "system" fn WebAuthNDeletePlatformCredential(cbcredentialid : u32, pbcredentialid : *const u8) -> windows_core::HRESULT);
-    unsafe { WebAuthNDeletePlatformCredential(pbcredentialid.len().try_into().unwrap(), core::mem::transmute(pbcredentialid.as_ptr())).ok() }
+    unsafe { WebAuthNDeletePlatformCredential(pbcredentialid.len().try_into().unwrap(), core::mem::transmute(pbcredentialid.as_ptr())) }
 }
 #[inline]
 pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION) {
@@ -82,9 +82,9 @@ pub unsafe fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: *const W
     }
 }
 #[inline]
-pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: windows_core::HRESULT) -> windows_core::Result<()> {
+pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: windows_core::HRESULT) -> windows_core::HRESULT {
     windows_core::link!("webauthn.dll" "system" fn WebAuthNGetW3CExceptionDOMError(hr : windows_core::HRESULT) -> windows_core::HRESULT);
-    unsafe { WebAuthNGetW3CExceptionDOMError(hr).ok() }
+    unsafe { WebAuthNGetW3CExceptionDOMError(hr) }
 }
 #[inline]
 pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable() -> windows_core::Result<windows_core::BOOL> {
@@ -136,8 +136,8 @@ impl EXPERIMENTAL_IPluginAuthenticator {
             (windows_core::Interface::vtable(self).EXPERIMENTAL_PluginGetAssertion)(windows_core::Interface::as_raw(self), request, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EXPERIMENTAL_PluginCancelOperation(&self, request: *const EXPERIMENTAL_WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EXPERIMENTAL_PluginCancelOperation)(windows_core::Interface::as_raw(self), request).ok() }
+    pub unsafe fn EXPERIMENTAL_PluginCancelOperation(&self, request: *const EXPERIMENTAL_WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EXPERIMENTAL_PluginCancelOperation)(windows_core::Interface::as_raw(self), request) }
     }
 }
 #[repr(C)]
@@ -551,8 +551,8 @@ impl IPluginAuthenticator {
             (windows_core::Interface::vtable(self).GetAssertion)(windows_core::Interface::as_raw(self), request, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CancelOperation(&self, request: *const WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CancelOperation)(windows_core::Interface::as_raw(self), request).ok() }
+    pub unsafe fn CancelOperation(&self, request: *const WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CancelOperation)(windows_core::Interface::as_raw(self), request) }
     }
     pub unsafe fn GetLockStatus(&self) -> windows_core::Result<PLUGIN_LOCK_STATUS> {
         unsafe {

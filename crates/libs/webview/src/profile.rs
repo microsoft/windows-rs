@@ -57,7 +57,7 @@ impl Profile {
     /// Sets the folder downloads are saved to by default.
     pub fn set_default_download_folder_path(&self, path: &str) -> Result<()> {
         let path = HSTRING::from(path);
-        unsafe { self.0.SetDefaultDownloadFolderPath(&path) }
+        unsafe { self.0.SetDefaultDownloadFolderPath(&path) }.ok()
     }
 
     /// Returns the colour scheme reported to pages.
@@ -69,7 +69,7 @@ impl Profile {
     /// Sets the colour scheme reported to pages through `prefers-color-scheme`,
     /// driving a site's light/dark theme.
     pub fn set_preferred_color_scheme(&self, scheme: PreferredColorScheme) -> Result<()> {
-        unsafe { self.0.SetPreferredColorScheme(scheme.to_raw()) }
+        unsafe { self.0.SetPreferredColorScheme(scheme.to_raw()) }.ok()
     }
 
     /// Asynchronously clears all of the profile's browsing data (cookies, cache,
@@ -81,6 +81,6 @@ impl Profile {
     ) -> Result<()> {
         let source: ICoreWebView2Profile2 = self.0.cast()?;
         let handler = handler::ClearBrowsingDataCompleted::create(handler);
-        unsafe { source.ClearBrowsingDataAll(&handler) }
+        unsafe { source.ClearBrowsingDataAll(&handler) }.ok()
     }
 }

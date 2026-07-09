@@ -9,7 +9,7 @@ fn main() -> windows::core::Result<()> {
     impl IBackgroundCopyCallback_Impl for Callback_Impl {
         fn JobTransferred(&self, job: Ref<IBackgroundCopyJob>) -> Result<()> {
             let job = job.unwrap();
-            unsafe { job.Complete()? };
+            unsafe { job.Complete().ok()? };
             println!("done");
             std::process::exit(0);
         }
@@ -22,7 +22,7 @@ fn main() -> windows::core::Result<()> {
             let job = job.unwrap();
             let error = error.unwrap();
             unsafe {
-                job.Cancel()?;
+                job.Cancel().ok()?;
                 println!("{}", error.GetErrorDescription(0)?.display());
             }
             std::process::exit(0);
@@ -45,25 +45,29 @@ fn main() -> windows::core::Result<()> {
 
         let mut job = None;
 
-        manager.CreateJob(
-            w!("sample"),
-            BG_JOB_TYPE_DOWNLOAD,
-            &mut Default::default(),
-            &mut job,
-        )?;
+        manager
+            .CreateJob(
+                w!("sample"),
+                BG_JOB_TYPE_DOWNLOAD,
+                &mut Default::default(),
+                &mut job,
+            )
+            .ok()?;
 
         let job = job.unwrap();
-        job.AddFile(w!("https://kennykerr.ca/favicon.svg"), w!("D:\\rust.svg"))?;
+        job.AddFile(w!("https://kennykerr.ca/favicon.svg"), w!("D:\\rust.svg"))
+            .ok()?;
 
         let callback: IBackgroundCopyCallback = Callback.into();
-        job.SetNotifyInterface(&callback)?;
-        job.SetNotifyFlags(BG_NOTIFY_JOB_TRANSFERRED | BG_NOTIFY_JOB_ERROR)?;
+        job.SetNotifyInterface(&callback).ok()?;
+        job.SetNotifyFlags(BG_NOTIFY_JOB_TRANSFERRED | BG_NOTIFY_JOB_ERROR)
+            .ok()?;
 
-        job.Resume()?;
+        job.Resume().ok()?;
         println!("downloading...");
 
         getchar();
-        job.Cancel()?;
+        job.Cancel().ok()?;
         println!("canceled");
         Ok(())
     }

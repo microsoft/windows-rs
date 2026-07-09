@@ -240,7 +240,7 @@ impl CppFn {
                     }
                 }
             }
-            ReturnHint::ReturnStruct | ReturnHint::None => {
+            ReturnHint::ReturnStruct | ReturnHint::None | ReturnHint::HResult => {
                 let where_clause = method.write_where(config, false);
 
                 if method.handle_last_error(config.reader) {

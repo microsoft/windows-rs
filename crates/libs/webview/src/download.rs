@@ -163,18 +163,18 @@ impl DownloadOperation {
 
     /// Cancels the download. The file is deleted if it was not yet complete.
     pub fn cancel(&self) -> Result<()> {
-        unsafe { self.0.Cancel() }
+        unsafe { self.0.Cancel() }.ok()
     }
 
     /// Pauses the download. It stays [in progress](DownloadState::InProgress)
     /// until [resumed](Self::resume) or [cancelled](Self::cancel).
     pub fn pause(&self) -> Result<()> {
-        unsafe { self.0.Pause() }
+        unsafe { self.0.Pause() }.ok()
     }
 
     /// Resumes a paused or [interrupted](DownloadState::Interrupted) download.
     pub fn resume(&self) -> Result<()> {
-        unsafe { self.0.Resume() }
+        unsafe { self.0.Resume() }.ok()
     }
 
     subscription! {
@@ -214,7 +214,7 @@ impl DownloadStartingArgs {
 
     /// Cancels (or un-cancels) the download.
     pub fn set_cancel(&self, cancel: bool) -> Result<()> {
-        unsafe { self.0.SetCancel(cancel) }
+        unsafe { self.0.SetCancel(cancel) }.ok()
     }
 
     /// Returns the absolute path the download will be written to.
@@ -226,7 +226,7 @@ impl DownloadStartingArgs {
     /// destination instead of the default.
     pub fn set_result_file_path(&self, path: &str) -> Result<()> {
         let path = HSTRING::from(path);
-        unsafe { self.0.SetResultFilePath(&path) }
+        unsafe { self.0.SetResultFilePath(&path) }.ok()
     }
 
     /// Returns `true` if the host has marked the download as handled,
@@ -238,7 +238,7 @@ impl DownloadStartingArgs {
     /// Marks the download as handled, suppressing the default download dialog so
     /// the host can present its own UI.
     pub fn set_handled(&self, handled: bool) -> Result<()> {
-        unsafe { self.0.SetHandled(handled) }
+        unsafe { self.0.SetHandled(handled) }.ok()
     }
 
     /// Takes a [`Deferral`] so the download can be resolved after the handler

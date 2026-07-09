@@ -44,7 +44,7 @@ impl IUIAnimationManager2 {
         variable: P0,
         transition: P1,
         timenow: f64,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAnimationVariable2>,
         P1: windows_core::Param<IUIAnimationTransition2>,
@@ -56,7 +56,6 @@ impl IUIAnimationManager2 {
                 transition.param().abi(),
                 timenow,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn CreateStoryboard(&self) -> windows_core::Result<IUIAnimationStoryboard2> {
@@ -73,14 +72,13 @@ impl IUIAnimationManager2 {
         &self,
         timenow: f64,
         updateresult: Option<*mut UI_ANIMATION_UPDATE_RESULT>,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Update)(
                 windows_core::Interface::as_raw(self),
                 timenow,
                 updateresult.unwrap_or(core::mem::zeroed()) as _,
             )
-            .ok()
         }
     }
 }
@@ -137,7 +135,7 @@ impl IUIAnimationStoryboard2 {
         &self,
         variable: P0,
         transition: P1,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAnimationVariable2>,
         P1: windows_core::Param<IUIAnimationTransition2>,
@@ -148,7 +146,6 @@ impl IUIAnimationStoryboard2 {
                 variable.param().abi(),
                 transition.param().abi(),
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn AddKeyframeAfterTransition<P0>(
@@ -173,7 +170,7 @@ impl IUIAnimationStoryboard2 {
         variable: P0,
         transition: P1,
         startkeyframe: UI_ANIMATION_KEYFRAME,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAnimationVariable2>,
         P1: windows_core::Param<IUIAnimationTransition2>,
@@ -185,21 +182,19 @@ impl IUIAnimationStoryboard2 {
                 transition.param().abi(),
                 startkeyframe,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn Schedule(
         &self,
         timenow: f64,
         schedulingresult: Option<*mut UI_ANIMATION_SCHEDULING_RESULT>,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Schedule)(
                 windows_core::Interface::as_raw(self),
                 timenow,
                 schedulingresult.unwrap_or(core::mem::zeroed()) as _,
             )
-            .ok()
         }
     }
 }
@@ -377,7 +372,7 @@ impl IUIAnimationVariable2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn GetCurve<P0>(&self, animation: P0) -> windows_core::Result<()>
+    pub(crate) unsafe fn GetCurve<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
@@ -386,7 +381,6 @@ impl IUIAnimationVariable2 {
                 windows_core::Interface::as_raw(self),
                 animation.param().abi(),
             )
-            .ok()
         }
     }
 }

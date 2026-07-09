@@ -18,13 +18,9 @@ mod render {
     use std::thread::{self, JoinHandle};
     use std::time::Duration;
 
+    use crate::bindings::*;
     use crate::device::{SharedDevice, is_device_lost};
-    use windows::Win32::Foundation::DXGI_STATUS_OCCLUDED;
-    use windows::Win32::Graphics::Direct2D::Common::*;
-    use windows::Win32::Graphics::Direct2D::*;
-    use windows::Win32::Graphics::Dxgi::Common::*;
-    use windows::Win32::Graphics::Dxgi::*;
-    use windows::core::Result;
+    use windows_core::Result;
     use windows_numerics::*;
 
     struct D2DState {
@@ -60,6 +56,11 @@ mod render {
             &self.0
         }
     }
+
+    // SAFETY: DXGI swap chains are agile COM objects. This one is only ever
+    // presented and resized on the render thread; the UI thread merely reads the
+    // pointer to attach it to its `SwapChainPanel` surface.
+    unsafe impl Send for SendSwap {}
 
     /// Owns the render thread and the channel to it. Dropping it stops and joins
     /// the thread.
@@ -133,13 +134,10 @@ mod render {
         unsafe {
             state.target.SetTarget(None);
 
-            state.swap_chain.ResizeBuffers(
-                0,
-                width,
-                height,
-                DXGI_FORMAT_UNKNOWN,
-                DXGI_SWAP_CHAIN_FLAG(0),
-            )?;
+            state
+                .swap_chain
+                .ResizeBuffers(0, width, height, DXGI_FORMAT_UNKNOWN, 0)
+                .ok()?;
 
             let surface: IDXGISurface = state.swap_chain.GetBuffer(0)?;
             let props = D2D1_BITMAP_PROPERTIES1 {
@@ -176,7 +174,7 @@ mod render {
                 Count: 1,
                 Quality: 0,
             },
-            BufferUsage: DXGI_USAGE_RENDER_TARGET_OUTPUT,
+            BufferUsage: DXGI_USAGE(DXGI_USAGE_RENDER_TARGET_OUTPUT),
             BufferCount: 2,
             SwapEffect: DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL,
             AlphaMode: DXGI_ALPHA_MODE_PREMULTIPLIED,
@@ -207,7 +205,7 @@ mod render {
 
         let brush = unsafe {
             target.CreateSolidColorBrush(
-                &D2D1_COLOR_F {
+                &D2D_COLOR_F {
                     r: 0.3,
                     g: 0.6,
                     b: 0.9,
@@ -243,7 +241,7 @@ mod render {
         unsafe {
             state.target.BeginDraw();
 
-            state.target.Clear(Some(&D2D1_COLOR_F {
+            state.target.Clear(Some(&D2D_COLOR_F {
                 r: 0.05,
                 g: 0.05,
                 b: 0.1,
@@ -256,7 +254,7 @@ mod render {
                 let y = cy + phase.sin() * (orbit * 0.7);
                 let radius = 20.0 + (phase * 0.7).sin().abs() * 30.0;
 
-                let color = D2D1_COLOR_F {
+                let color = D2D_COLOR_F {
                     r: 0.3 + (phase * 0.3).sin().abs() * 0.7,
                     g: 0.4 + (phase * 0.5).cos().abs() * 0.5,
                     b: 0.8,
@@ -272,11 +270,14 @@ mod render {
                 state.target.FillEllipse(&ellipse, &state.brush);
             }
 
-            state.target.EndDraw(None, None)?;
+            state.target.EndDraw(None, None).ok()?;
 
             // `Present(1)` blocks until vblank to pace the loop. DXGI_STATUS_OCCLUDED
-            // is a success status, so check it before `ok()` discards it.
-            let present = state.swap_chain.Present(1, DXGI_PRESENT(0));
+            // is a success status, so inspect the raw `HRESULT` before `.ok()` would
+            // discard it. Non-WinRT methods that have no logical return value project
+            // as `-> HRESULT` (not `Result<()>`), so the success code is preserved
+            // here without dropping to the raw vtable.
+            let present = state.swap_chain.Present(1, 0);
             if present == DXGI_STATUS_OCCLUDED {
                 return Ok(FrameStatus::Idle);
             }

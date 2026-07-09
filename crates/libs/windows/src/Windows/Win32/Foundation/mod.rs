@@ -60,9 +60,9 @@ pub unsafe fn SetLastErrorEx(dwerrcode: windows_core::WIN32_ERROR, dwtype: u32) 
     unsafe { SetLastErrorEx(dwerrcode, dwtype) }
 }
 #[inline]
-pub unsafe fn SysAddRefString(bstrstring: &windows_core::BSTR) -> windows_core::Result<()> {
+pub unsafe fn SysAddRefString(bstrstring: &windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SysAddRefString(core::mem::transmute_copy(bstrstring)).ok() }
+    unsafe { SysAddRefString(core::mem::transmute_copy(bstrstring)) }
 }
 #[inline]
 pub unsafe fn SysAllocString<P0>(psz: P0) -> windows_core::BSTR

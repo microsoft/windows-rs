@@ -378,8 +378,8 @@ mod Windows {
             fn GetCueByIndex(&self, index: u32, cue: *mut IMFTimedTextCue) -> HRESULT;
             fn GetCueById(&self, id: u32, cue: *mut IMFTimedTextCue) -> HRESULT;
             fn GetCueByOriginalId(&self, originalId: PCWSTR, cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn AddTextCue(&self, start: f64, duration: f64, text: PCWSTR, cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn AddDataCue(&self, start: f64, duration: f64, #[size_param(3)] data: *const u8, dataSize: u32, cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn AddTextCue(&self, start: f64, duration: f64, text: PCWSTR, #[opt] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn AddDataCue(&self, start: f64, duration: f64, #[size_param(3)] data: *const u8, dataSize: u32, #[opt] cue: *mut IMFTimedTextCue) -> HRESULT;
             fn RemoveCue(&self, cue: IMFTimedTextCue) -> HRESULT;
         }
         #[guid(0xe13af3c1_4d47_4354_b1f5_e83ae0ecae60)]

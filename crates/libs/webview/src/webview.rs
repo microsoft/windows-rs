@@ -108,13 +108,13 @@ impl WebView {
     /// Navigates the browser to the given URI.
     pub fn navigate(&self, uri: &str) -> Result<()> {
         let uri = HSTRING::from(uri);
-        unsafe { self.0.Navigate(&uri) }
+        unsafe { self.0.Navigate(&uri) }.ok()
     }
 
     /// Navigates the browser to the given HTML content as the document.
     pub fn navigate_to_string(&self, html: &str) -> Result<()> {
         let html = HSTRING::from(html);
-        unsafe { self.0.NavigateToString(&html) }
+        unsafe { self.0.NavigateToString(&html) }.ok()
     }
 
     /// Navigates the browser using a [`NavigationRequest`], allowing a custom
@@ -144,34 +144,34 @@ impl WebView {
         unsafe {
             let request =
                 environment.CreateWebResourceRequest(&uri, &method, stream.as_ref(), &headers)?;
-            source.NavigateWithWebResourceRequest(&request)
+            source.NavigateWithWebResourceRequest(&request).ok()
         }
     }
 
     /// Reloads the current page.
     pub fn reload(&self) -> Result<()> {
-        unsafe { self.0.Reload() }
+        unsafe { self.0.Reload() }.ok()
     }
 
     /// Opens the DevTools window for the page, the same view shown by the
     /// browser's "Inspect" command.
     pub fn open_dev_tools_window(&self) -> Result<()> {
-        unsafe { self.0.OpenDevToolsWindow() }
+        unsafe { self.0.OpenDevToolsWindow() }.ok()
     }
 
     /// Stops any in-progress navigation or download.
     pub fn stop(&self) -> Result<()> {
-        unsafe { self.0.Stop() }
+        unsafe { self.0.Stop() }.ok()
     }
 
     /// Navigates back to the previous page in the navigation history.
     pub fn go_back(&self) -> Result<()> {
-        unsafe { self.0.GoBack() }
+        unsafe { self.0.GoBack() }.ok()
     }
 
     /// Navigates forward to the next page in the navigation history.
     pub fn go_forward(&self) -> Result<()> {
-        unsafe { self.0.GoForward() }
+        unsafe { self.0.GoForward() }.ok()
     }
 
     /// Returns the URI of the current top-level document.
@@ -197,7 +197,9 @@ impl WebView {
         let host_name = HSTRING::from(host_name);
         let folder_path = HSTRING::from(folder_path);
         unsafe {
-            source.SetVirtualHostNameToFolderMapping(&host_name, &folder_path, access_kind.to_raw())
+            source
+                .SetVirtualHostNameToFolderMapping(&host_name, &folder_path, access_kind.to_raw())
+                .ok()
         }
     }
 
@@ -206,7 +208,7 @@ impl WebView {
     pub fn clear_virtual_host_name_to_folder_mapping(&self, host_name: &str) -> Result<()> {
         let source: ICoreWebView2_3 = self.0.cast()?;
         let host_name = HSTRING::from(host_name);
-        unsafe { source.ClearVirtualHostNameToFolderMapping(&host_name) }
+        unsafe { source.ClearVirtualHostNameToFolderMapping(&host_name) }.ok()
     }
 
     /// Returns the [`CookieManager`] for reading, writing, and deleting the
@@ -242,7 +244,7 @@ impl WebView {
     /// browser can trim memory, and back to `Normal` when it is shown again.
     pub fn set_memory_usage_target_level(&self, level: MemoryUsageTargetLevel) -> Result<()> {
         let source: ICoreWebView2_19 = self.0.cast()?;
-        unsafe { source.SetMemoryUsageTargetLevel(level.to_raw()) }
+        unsafe { source.SetMemoryUsageTargetLevel(level.to_raw()) }.ok()
     }
 
     /// Returns the [`Settings`] controlling features such as JavaScript, the dev
@@ -260,7 +262,7 @@ impl WebView {
     ) -> Result<()> {
         let javascript = HSTRING::from(javascript);
         let handler = handler::ExecuteScriptCompleted::create(handler);
-        unsafe { self.0.ExecuteScript(&javascript, &handler) }
+        unsafe { self.0.ExecuteScript(&javascript, &handler) }.ok()
     }
 
     /// Registers JavaScript to run before any other script each time a document
@@ -275,7 +277,8 @@ impl WebView {
         let handler = handler::AddScriptCompleted::create(pump::slot_handler(&slot));
         unsafe {
             self.0
-                .AddScriptToExecuteOnDocumentCreated(&javascript, &handler)?;
+                .AddScriptToExecuteOnDocumentCreated(&javascript, &handler)
+                .ok()?;
         }
         Ok(ScriptId(pump::wait(&slot)?))
     }
@@ -284,7 +287,7 @@ impl WebView {
     /// [`add_script_to_execute_on_document_created`](Self::add_script_to_execute_on_document_created).
     pub fn remove_script_to_execute_on_document_created(&self, id: &ScriptId) -> Result<()> {
         let id = HSTRING::from(&id.0);
-        unsafe { self.0.RemoveScriptToExecuteOnDocumentCreated(&id) }
+        unsafe { self.0.RemoveScriptToExecuteOnDocumentCreated(&id) }.ok()
     }
 
     subscription! {
@@ -333,7 +336,7 @@ impl WebView {
     /// with `event.data` set to the parsed JSON.
     pub fn post_web_message_as_json(&self, json: &str) -> Result<()> {
         let json = HSTRING::from(json);
-        unsafe { self.0.PostWebMessageAsJson(&json) }
+        unsafe { self.0.PostWebMessageAsJson(&json) }.ok()
     }
 
     /// Posts a message to the hosted page as a string. The page receives it via
@@ -341,7 +344,7 @@ impl WebView {
     /// `event.data` set to the string.
     pub fn post_web_message_as_string(&self, message: &str) -> Result<()> {
         let message = HSTRING::from(message);
-        unsafe { self.0.PostWebMessageAsString(&message) }
+        unsafe { self.0.PostWebMessageAsString(&message) }.ok()
     }
 
     subscription! {

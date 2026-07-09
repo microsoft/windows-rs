@@ -8,16 +8,18 @@ fn main() -> windows::core::Result<()> {
 
         let dialog: IFileSaveDialog = CoCreateInstance(&FileSaveDialog, None, CLSCTX_ALL)?;
 
-        dialog.SetFileTypes(&[
-            COMDLG_FILTERSPEC {
-                pszName: w!("Text files"),
-                pszSpec: w!("*.txt"),
-            },
-            COMDLG_FILTERSPEC {
-                pszName: w!("All files"),
-                pszSpec: w!("*.*"),
-            },
-        ])?;
+        dialog
+            .SetFileTypes(&[
+                COMDLG_FILTERSPEC {
+                    pszName: w!("Text files"),
+                    pszSpec: w!("*.txt"),
+                },
+                COMDLG_FILTERSPEC {
+                    pszName: w!("All files"),
+                    pszSpec: w!("*.*"),
+                },
+            ])
+            .ok()?;
 
         if dialog.Show(None).is_ok() {
             let result = dialog.GetResult()?;

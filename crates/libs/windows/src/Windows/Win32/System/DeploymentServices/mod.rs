@@ -206,19 +206,19 @@ pub unsafe fn WdsBpQueryOption(hhandle: super::super::Foundation::HANDLE, uoptio
     unsafe { WdsBpQueryOption(hhandle, uoption, uvaluelen, pvalue as _, pubytes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WdsCliAuthorizeSession(hsession: super::super::Foundation::HANDLE, pcred: Option<*const WDS_CLI_CRED>) -> windows_core::Result<()> {
+pub unsafe fn WdsCliAuthorizeSession(hsession: super::super::Foundation::HANDLE, pcred: Option<*const WDS_CLI_CRED>) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliAuthorizeSession(hsession : super::super::Foundation::HANDLE, pcred : *const WDS_CLI_CRED) -> windows_core::HRESULT);
-    unsafe { WdsCliAuthorizeSession(hsession as _, pcred.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WdsCliAuthorizeSession(hsession as _, pcred.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WdsCliCancelTransfer(htransfer: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn WdsCliCancelTransfer(htransfer: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliCancelTransfer(htransfer : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { WdsCliCancelTransfer(htransfer).ok() }
+    unsafe { WdsCliCancelTransfer(htransfer) }
 }
 #[inline]
-pub unsafe fn WdsCliClose(handle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn WdsCliClose(handle: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliClose(handle : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { WdsCliClose(handle).ok() }
+    unsafe { WdsCliClose(handle) }
 }
 #[inline]
 pub unsafe fn WdsCliCreateSession<P0>(pwszserver: P0, pcred: Option<*const WDS_CLI_CRED>) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -240,14 +240,14 @@ pub unsafe fn WdsCliFindFirstImage(hsession: super::super::Foundation::HANDLE) -
     }
 }
 #[inline]
-pub unsafe fn WdsCliFindNextImage(handle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn WdsCliFindNextImage(handle: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliFindNextImage(handle : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { WdsCliFindNextImage(handle).ok() }
+    unsafe { WdsCliFindNextImage(handle) }
 }
 #[inline]
-pub unsafe fn WdsCliFreeStringArray(ppwszarray: Option<&mut [windows_core::PWSTR]>) -> windows_core::Result<()> {
+pub unsafe fn WdsCliFreeStringArray(ppwszarray: Option<&mut [windows_core::PWSTR]>) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliFreeStringArray(ppwszarray : *mut windows_core::PWSTR, ulcount : u32) -> windows_core::HRESULT);
-    unsafe { WdsCliFreeStringArray(core::mem::transmute(ppwszarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ppwszarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+    unsafe { WdsCliFreeStringArray(core::mem::transmute(ppwszarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ppwszarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn WdsCliGetDriverQueryXml<P0>(pwszwindirpath: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -285,9 +285,9 @@ pub unsafe fn WdsCliGetImageDescription(hifh: super::super::Foundation::HANDLE) 
     }
 }
 #[inline]
-pub unsafe fn WdsCliGetImageFiles(hifh: super::super::Foundation::HANDLE, pppwszfiles: *mut *mut windows_core::PWSTR, pdwcount: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WdsCliGetImageFiles(hifh: super::super::Foundation::HANDLE, pppwszfiles: *mut *mut windows_core::PWSTR, pdwcount: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliGetImageFiles(hifh : super::super::Foundation::HANDLE, pppwszfiles : *mut *mut windows_core::PWSTR, pdwcount : *mut u32) -> windows_core::HRESULT);
-    unsafe { WdsCliGetImageFiles(hifh, pppwszfiles as _, pdwcount as _).ok() }
+    unsafe { WdsCliGetImageFiles(hifh, pppwszfiles as _, pdwcount as _) }
 }
 #[inline]
 pub unsafe fn WdsCliGetImageGroup(hifh: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::PWSTR> {
@@ -338,9 +338,9 @@ pub unsafe fn WdsCliGetImageLanguage(hifh: super::super::Foundation::HANDLE) -> 
     }
 }
 #[inline]
-pub unsafe fn WdsCliGetImageLanguages(hifh: super::super::Foundation::HANDLE, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WdsCliGetImageLanguages(hifh: super::super::Foundation::HANDLE, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliGetImageLanguages(hifh : super::super::Foundation::HANDLE, pppszvalues : *mut *mut *mut i8, pdwnumvalues : *mut u32) -> windows_core::HRESULT);
-    unsafe { WdsCliGetImageLanguages(hifh, pppszvalues as _, pdwnumvalues as _).ok() }
+    unsafe { WdsCliGetImageLanguages(hifh, pppszvalues as _, pdwnumvalues as _) }
 }
 #[inline]
 pub unsafe fn WdsCliGetImageLastModifiedTime(hifh: super::super::Foundation::HANDLE) -> windows_core::Result<*mut super::super::Foundation::SYSTEMTIME> {
@@ -367,9 +367,9 @@ pub unsafe fn WdsCliGetImageNamespace(hifh: super::super::Foundation::HANDLE) ->
     }
 }
 #[inline]
-pub unsafe fn WdsCliGetImageParameter(hifh: super::super::Foundation::HANDLE, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut core::ffi::c_void, uresponselen: u32) -> windows_core::Result<()> {
+pub unsafe fn WdsCliGetImageParameter(hifh: super::super::Foundation::HANDLE, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut core::ffi::c_void, uresponselen: u32) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliGetImageParameter(hifh : super::super::Foundation::HANDLE, paramtype : WDS_CLI_IMAGE_PARAM_TYPE, presponse : *mut core::ffi::c_void, uresponselen : u32) -> windows_core::HRESULT);
-    unsafe { WdsCliGetImageParameter(hifh, paramtype, presponse as _, uresponselen).ok() }
+    unsafe { WdsCliGetImageParameter(hifh, paramtype, presponse as _, uresponselen) }
 }
 #[inline]
 pub unsafe fn WdsCliGetImagePath(hifh: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::PWSTR> {
@@ -412,36 +412,36 @@ pub unsafe fn WdsCliGetTransferSize(hifh: super::super::Foundation::HANDLE) -> w
     }
 }
 #[inline]
-pub unsafe fn WdsCliInitializeLog<P2, P3>(hsession: super::super::Foundation::HANDLE, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: P2, pwszclientaddress: P3) -> windows_core::Result<()>
+pub unsafe fn WdsCliInitializeLog<P2, P3>(hsession: super::super::Foundation::HANDLE, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: P2, pwszclientaddress: P3) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliInitializeLog(hsession : super::super::Foundation::HANDLE, ulclientarchitecture : CPU_ARCHITECTURE, pwszclientid : windows_core::PCWSTR, pwszclientaddress : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WdsCliInitializeLog(hsession, ulclientarchitecture, pwszclientid.param().abi(), pwszclientaddress.param().abi()).ok() }
+    unsafe { WdsCliInitializeLog(hsession, ulclientarchitecture, pwszclientid.param().abi(), pwszclientaddress.param().abi()) }
 }
 #[inline]
-pub unsafe fn WdsCliLog(hsession: super::super::Foundation::HANDLE, ulloglevel: u32, ulmessagecode: u32) -> windows_core::Result<()> {
+pub unsafe fn WdsCliLog(hsession: super::super::Foundation::HANDLE, ulloglevel: u32, ulmessagecode: u32) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "C" fn WdsCliLog(hsession : super::super::Foundation::HANDLE, ulloglevel : u32, ulmessagecode : u32) -> windows_core::HRESULT);
-    unsafe { WdsCliLog(hsession, ulloglevel, ulmessagecode).ok() }
+    unsafe { WdsCliLog(hsession, ulloglevel, ulmessagecode) }
 }
 #[inline]
-pub unsafe fn WdsCliObtainDriverPackages(himage: super::super::Foundation::HANDLE, ppwszservername: *mut windows_core::PWSTR, pppwszdriverpackages: *mut *mut windows_core::PWSTR, pulcount: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WdsCliObtainDriverPackages(himage: super::super::Foundation::HANDLE, ppwszservername: *mut windows_core::PWSTR, pppwszdriverpackages: *mut *mut windows_core::PWSTR, pulcount: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliObtainDriverPackages(himage : super::super::Foundation::HANDLE, ppwszservername : *mut windows_core::PWSTR, pppwszdriverpackages : *mut *mut windows_core::PWSTR, pulcount : *mut u32) -> windows_core::HRESULT);
-    unsafe { WdsCliObtainDriverPackages(himage, ppwszservername as _, pppwszdriverpackages as _, pulcount as _).ok() }
+    unsafe { WdsCliObtainDriverPackages(himage, ppwszservername as _, pppwszdriverpackages as _, pulcount as _) }
 }
 #[inline]
-pub unsafe fn WdsCliObtainDriverPackagesEx<P1>(hsession: super::super::Foundation::HANDLE, pwszmachineinfo: P1, ppwszservername: *mut windows_core::PWSTR, pppwszdriverpackages: *mut *mut windows_core::PWSTR, pulcount: *mut u32) -> windows_core::Result<()>
+pub unsafe fn WdsCliObtainDriverPackagesEx<P1>(hsession: super::super::Foundation::HANDLE, pwszmachineinfo: P1, ppwszservername: *mut windows_core::PWSTR, pppwszdriverpackages: *mut *mut windows_core::PWSTR, pulcount: *mut u32) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliObtainDriverPackagesEx(hsession : super::super::Foundation::HANDLE, pwszmachineinfo : windows_core::PCWSTR, ppwszservername : *mut windows_core::PWSTR, pppwszdriverpackages : *mut *mut windows_core::PWSTR, pulcount : *mut u32) -> windows_core::HRESULT);
-    unsafe { WdsCliObtainDriverPackagesEx(hsession, pwszmachineinfo.param().abi(), ppwszservername as _, pppwszdriverpackages as _, pulcount as _).ok() }
+    unsafe { WdsCliObtainDriverPackagesEx(hsession, pwszmachineinfo.param().abi(), ppwszservername as _, pppwszdriverpackages as _, pulcount as _) }
 }
 #[inline]
-pub unsafe fn WdsCliRegisterTrace(pfn: PFN_WdsCliTraceFunction) -> windows_core::Result<()> {
+pub unsafe fn WdsCliRegisterTrace(pfn: PFN_WdsCliTraceFunction) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliRegisterTrace(pfn : PFN_WdsCliTraceFunction) -> windows_core::HRESULT);
-    unsafe { WdsCliRegisterTrace(pfn).ok() }
+    unsafe { WdsCliRegisterTrace(pfn) }
 }
 #[inline]
 pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
@@ -474,9 +474,9 @@ where
     }
 }
 #[inline]
-pub unsafe fn WdsCliWaitForTransfer(htransfer: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn WdsCliWaitForTransfer(htransfer: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliWaitForTransfer(htransfer : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { WdsCliWaitForTransfer(htransfer).ok() }
+    unsafe { WdsCliWaitForTransfer(htransfer) }
 }
 #[inline]
 pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const core::ffi::c_void) -> u32 {
@@ -549,35 +549,35 @@ pub unsafe fn WdsTransportServerAllocateBuffer(hprovider: super::super::Foundati
     unsafe { WdsTransportServerAllocateBuffer(hprovider, ulbuffersize) }
 }
 #[inline]
-pub unsafe fn WdsTransportServerCompleteRead(hprovider: super::super::Foundation::HANDLE, ulbytesread: u32, pvuserdata: *const core::ffi::c_void, hreadresult: windows_core::HRESULT) -> windows_core::Result<()> {
+pub unsafe fn WdsTransportServerCompleteRead(hprovider: super::super::Foundation::HANDLE, ulbytesread: u32, pvuserdata: *const core::ffi::c_void, hreadresult: windows_core::HRESULT) -> windows_core::HRESULT {
     windows_core::link!("wdsmc.dll" "system" fn WdsTransportServerCompleteRead(hprovider : super::super::Foundation::HANDLE, ulbytesread : u32, pvuserdata : *const core::ffi::c_void, hreadresult : windows_core::HRESULT) -> windows_core::HRESULT);
-    unsafe { WdsTransportServerCompleteRead(hprovider, ulbytesread, pvuserdata, hreadresult).ok() }
+    unsafe { WdsTransportServerCompleteRead(hprovider, ulbytesread, pvuserdata, hreadresult) }
 }
 #[inline]
-pub unsafe fn WdsTransportServerFreeBuffer(hprovider: super::super::Foundation::HANDLE, pvbuffer: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn WdsTransportServerFreeBuffer(hprovider: super::super::Foundation::HANDLE, pvbuffer: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("wdsmc.dll" "system" fn WdsTransportServerFreeBuffer(hprovider : super::super::Foundation::HANDLE, pvbuffer : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WdsTransportServerFreeBuffer(hprovider, pvbuffer).ok() }
+    unsafe { WdsTransportServerFreeBuffer(hprovider, pvbuffer) }
 }
 #[inline]
-pub unsafe fn WdsTransportServerRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn WdsTransportServerRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("wdsmc.dll" "system" fn WdsTransportServerRegisterCallback(hprovider : super::super::Foundation::HANDLE, callbackid : TRANSPORTPROVIDER_CALLBACK_ID, pfncallback : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WdsTransportServerRegisterCallback(hprovider, callbackid, pfncallback).ok() }
+    unsafe { WdsTransportServerRegisterCallback(hprovider, callbackid, pfncallback) }
 }
 #[inline]
-pub unsafe fn WdsTransportServerTrace<P2>(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: P2) -> windows_core::Result<()>
+pub unsafe fn WdsTransportServerTrace<P2>(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdsmc.dll" "C" fn WdsTransportServerTrace(hprovider : super::super::Foundation::HANDLE, severity : u32, pwszformat : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WdsTransportServerTrace(hprovider, severity, pwszformat.param().abi()).ok() }
+    unsafe { WdsTransportServerTrace(hprovider, severity, pwszformat.param().abi()) }
 }
 #[inline]
-pub unsafe fn WdsTransportServerTraceV<P2>(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: P2, params: *const i8) -> windows_core::Result<()>
+pub unsafe fn WdsTransportServerTraceV<P2>(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: P2, params: *const i8) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdsmc.dll" "system" fn WdsTransportServerTraceV(hprovider : super::super::Foundation::HANDLE, severity : u32, pwszformat : windows_core::PCWSTR, params : *const i8) -> windows_core::HRESULT);
-    unsafe { WdsTransportServerTraceV(hprovider, severity, pwszformat.param().abi(), params).ok() }
+    unsafe { WdsTransportServerTraceV(hprovider, severity, pwszformat.param().abi(), params) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -627,14 +627,14 @@ impl IWdsTransportCacheable {
             (windows_core::Interface::vtable(self).Dirty)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Discard(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Discard)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Discard(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Discard)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Commit(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Commit(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -780,8 +780,8 @@ impl IWdsTransportClient {
             (windows_core::Interface::vtable(self).UserIdentity)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Disconnect(&self, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self), disconnectiontype).ok() }
+    pub unsafe fn Disconnect(&self, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self), disconnectiontype) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1110,23 +1110,23 @@ impl IWdsTransportConfigurationManager {
             (windows_core::Interface::vtable(self).get_WdsTransportServicesRunning)(windows_core::Interface::as_raw(self), brealtimestatus, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnableWdsTransportServices(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnableWdsTransportServices)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn EnableWdsTransportServices(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnableWdsTransportServices)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn DisableWdsTransportServices(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DisableWdsTransportServices)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn DisableWdsTransportServices(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DisableWdsTransportServices)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn StartWdsTransportServices(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).StartWdsTransportServices)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn StartWdsTransportServices(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).StartWdsTransportServices)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn StopWdsTransportServices(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).StopWdsTransportServices)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn StopWdsTransportServices(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).StopWdsTransportServices)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn RestartWdsTransportServices(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RestartWdsTransportServices)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn RestartWdsTransportServices(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RestartWdsTransportServices)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).NotifyWdsTransportServices)(windows_core::Interface::as_raw(self), servicenotification).ok() }
+    pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).NotifyWdsTransportServices)(windows_core::Interface::as_raw(self), servicenotification) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1341,8 +1341,8 @@ impl IWdsTransportContent {
             (windows_core::Interface::vtable(self).RetrieveSessions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Terminate(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Terminate(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1575,8 +1575,8 @@ impl IWdsTransportDiagnosticsPolicy {
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, benabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benabled).ok() }
+    pub unsafe fn SetEnabled(&self, benabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benabled) }
     }
     pub unsafe fn Components(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1584,8 +1584,8 @@ impl IWdsTransportDiagnosticsPolicy {
             (windows_core::Interface::vtable(self).Components)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetComponents(&self, ulcomponents: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetComponents)(windows_core::Interface::as_raw(self), ulcomponents).ok() }
+    pub unsafe fn SetComponents(&self, ulcomponents: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetComponents)(windows_core::Interface::as_raw(self), ulcomponents) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1731,8 +1731,8 @@ impl IWdsTransportMulticastSessionPolicy {
             (windows_core::Interface::vtable(self).SlowClientHandling)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSlowClientHandling(&self, slowclienthandling: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSlowClientHandling)(windows_core::Interface::as_raw(self), slowclienthandling).ok() }
+    pub unsafe fn SetSlowClientHandling(&self, slowclienthandling: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSlowClientHandling)(windows_core::Interface::as_raw(self), slowclienthandling) }
     }
     pub unsafe fn AutoDisconnectThreshold(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1740,8 +1740,8 @@ impl IWdsTransportMulticastSessionPolicy {
             (windows_core::Interface::vtable(self).AutoDisconnectThreshold)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAutoDisconnectThreshold(&self, ulthreshold: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAutoDisconnectThreshold)(windows_core::Interface::as_raw(self), ulthreshold).ok() }
+    pub unsafe fn SetAutoDisconnectThreshold(&self, ulthreshold: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAutoDisconnectThreshold)(windows_core::Interface::as_raw(self), ulthreshold) }
     }
     pub unsafe fn MultistreamStreamCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1749,8 +1749,8 @@ impl IWdsTransportMulticastSessionPolicy {
             (windows_core::Interface::vtable(self).MultistreamStreamCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMultistreamStreamCount(&self, ulstreamcount: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMultistreamStreamCount)(windows_core::Interface::as_raw(self), ulstreamcount).ok() }
+    pub unsafe fn SetMultistreamStreamCount(&self, ulstreamcount: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMultistreamStreamCount)(windows_core::Interface::as_raw(self), ulstreamcount) }
     }
     pub unsafe fn SlowClientFallback(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -1758,8 +1758,8 @@ impl IWdsTransportMulticastSessionPolicy {
             (windows_core::Interface::vtable(self).SlowClientFallback)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSlowClientFallback(&self, bclientfallback: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSlowClientFallback)(windows_core::Interface::as_raw(self), bclientfallback).ok() }
+    pub unsafe fn SetSlowClientFallback(&self, bclientfallback: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSlowClientFallback)(windows_core::Interface::as_raw(self), bclientfallback) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1911,8 +1911,8 @@ impl IWdsTransportNamespace {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bszname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszname)).ok() }
+    pub unsafe fn SetName(&self, bszname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszname)) }
     }
     pub unsafe fn FriendlyName(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1920,8 +1920,8 @@ impl IWdsTransportNamespace {
             (windows_core::Interface::vtable(self).FriendlyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFriendlyName(&self, bszfriendlyname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetFriendlyName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszfriendlyname)).ok() }
+    pub unsafe fn SetFriendlyName(&self, bszfriendlyname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFriendlyName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszfriendlyname)) }
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1929,8 +1929,8 @@ impl IWdsTransportNamespace {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, bszdescription: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszdescription)).ok() }
+    pub unsafe fn SetDescription(&self, bszdescription: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszdescription)) }
     }
     pub unsafe fn ContentProvider(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1938,8 +1938,8 @@ impl IWdsTransportNamespace {
             (windows_core::Interface::vtable(self).ContentProvider)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetContentProvider(&self, bszcontentprovider: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetContentProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszcontentprovider)).ok() }
+    pub unsafe fn SetContentProvider(&self, bszcontentprovider: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetContentProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszcontentprovider)) }
     }
     pub unsafe fn Configuration(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1947,8 +1947,8 @@ impl IWdsTransportNamespace {
             (windows_core::Interface::vtable(self).Configuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetConfiguration(&self, bszconfiguration: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszconfiguration)).ok() }
+    pub unsafe fn SetConfiguration(&self, bszconfiguration: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszconfiguration)) }
     }
     pub unsafe fn Registered(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -1974,11 +1974,11 @@ impl IWdsTransportNamespace {
             (windows_core::Interface::vtable(self).TransmissionStarted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Register(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Register(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Deregister(&self, bterminatesessions: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Deregister)(windows_core::Interface::as_raw(self), bterminatesessions).ok() }
+    pub unsafe fn Deregister(&self, bterminatesessions: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Deregister)(windows_core::Interface::as_raw(self), bterminatesessions) }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
@@ -1986,8 +1986,8 @@ impl IWdsTransportNamespace {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn RetrieveContents(&self) -> windows_core::Result<IWdsTransportCollection> {
         unsafe {
@@ -2427,8 +2427,8 @@ impl core::ops::Deref for IWdsTransportNamespaceScheduledCast {
 windows_core::imp::interface_hierarchy!(IWdsTransportNamespaceScheduledCast, windows_core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceScheduledCast {
-    pub unsafe fn StartTransmission(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).StartTransmission)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn StartTransmission(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).StartTransmission)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2478,8 +2478,8 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
             (windows_core::Interface::vtable(self).MinimumClients)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMinimumClients(&self, ulminimumclients: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMinimumClients)(windows_core::Interface::as_raw(self), ulminimumclients).ok() }
+    pub unsafe fn SetMinimumClients(&self, ulminimumclients: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMinimumClients)(windows_core::Interface::as_raw(self), ulminimumclients) }
     }
     pub unsafe fn StartTime(&self) -> windows_core::Result<f64> {
         unsafe {
@@ -2487,8 +2487,8 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
             (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStartTime(&self, starttime: f64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), starttime).ok() }
+    pub unsafe fn SetStartTime(&self, starttime: f64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), starttime) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2628,8 +2628,8 @@ impl IWdsTransportServer {
             (windows_core::Interface::vtable(self).NamespaceManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DisconnectClient)(windows_core::Interface::as_raw(self), ulclientid, disconnectiontype).ok() }
+    pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DisconnectClient)(windows_core::Interface::as_raw(self), ulclientid, disconnectiontype) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2796,8 +2796,8 @@ impl IWdsTransportServicePolicy {
             (windows_core::Interface::vtable(self).get_IpAddressSource)(windows_core::Interface::as_raw(self), addresstype, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).put_IpAddressSource)(windows_core::Interface::as_raw(self), addresstype, sourcetype).ok() }
+    pub unsafe fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_IpAddressSource)(windows_core::Interface::as_raw(self), addresstype, sourcetype) }
     }
     pub unsafe fn get_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -2805,8 +2805,8 @@ impl IWdsTransportServicePolicy {
             (windows_core::Interface::vtable(self).get_StartIpAddress)(windows_core::Interface::as_raw(self), addresstype, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn put_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).put_StartIpAddress)(windows_core::Interface::as_raw(self), addresstype, core::mem::transmute_copy(bszstartipaddress)).ok() }
+    pub unsafe fn put_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_StartIpAddress)(windows_core::Interface::as_raw(self), addresstype, core::mem::transmute_copy(bszstartipaddress)) }
     }
     pub unsafe fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -2814,8 +2814,8 @@ impl IWdsTransportServicePolicy {
             (windows_core::Interface::vtable(self).get_EndIpAddress)(windows_core::Interface::as_raw(self), addresstype, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn put_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).put_EndIpAddress)(windows_core::Interface::as_raw(self), addresstype, core::mem::transmute_copy(bszendipaddress)).ok() }
+    pub unsafe fn put_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_EndIpAddress)(windows_core::Interface::as_raw(self), addresstype, core::mem::transmute_copy(bszendipaddress)) }
     }
     pub unsafe fn StartPort(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -2823,8 +2823,8 @@ impl IWdsTransportServicePolicy {
             (windows_core::Interface::vtable(self).StartPort)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStartPort(&self, ulstartport: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetStartPort)(windows_core::Interface::as_raw(self), ulstartport).ok() }
+    pub unsafe fn SetStartPort(&self, ulstartport: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetStartPort)(windows_core::Interface::as_raw(self), ulstartport) }
     }
     pub unsafe fn EndPort(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -2832,8 +2832,8 @@ impl IWdsTransportServicePolicy {
             (windows_core::Interface::vtable(self).EndPort)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEndPort(&self, ulendport: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEndPort)(windows_core::Interface::as_raw(self), ulendport).ok() }
+    pub unsafe fn SetEndPort(&self, ulendport: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEndPort)(windows_core::Interface::as_raw(self), ulendport) }
     }
     pub unsafe fn NetworkProfile(&self) -> windows_core::Result<WDSTRANSPORT_NETWORK_PROFILE_TYPE> {
         unsafe {
@@ -2841,8 +2841,8 @@ impl IWdsTransportServicePolicy {
             (windows_core::Interface::vtable(self).NetworkProfile)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetNetworkProfile)(windows_core::Interface::as_raw(self), profiletype).ok() }
+    pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetNetworkProfile)(windows_core::Interface::as_raw(self), profiletype) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3030,8 +3030,8 @@ impl IWdsTransportServicePolicy2 {
             (windows_core::Interface::vtable(self).UdpPortPolicy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUdpPortPolicy(&self, udpportpolicy: WDSTRANSPORT_UDP_PORT_POLICY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetUdpPortPolicy)(windows_core::Interface::as_raw(self), udpportpolicy).ok() }
+    pub unsafe fn SetUdpPortPolicy(&self, udpportpolicy: WDSTRANSPORT_UDP_PORT_POLICY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetUdpPortPolicy)(windows_core::Interface::as_raw(self), udpportpolicy) }
     }
     pub unsafe fn TftpMaximumBlockSize(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -3039,8 +3039,8 @@ impl IWdsTransportServicePolicy2 {
             (windows_core::Interface::vtable(self).TftpMaximumBlockSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTftpMaximumBlockSize(&self, ultftpmaximumblocksize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetTftpMaximumBlockSize)(windows_core::Interface::as_raw(self), ultftpmaximumblocksize).ok() }
+    pub unsafe fn SetTftpMaximumBlockSize(&self, ultftpmaximumblocksize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTftpMaximumBlockSize)(windows_core::Interface::as_raw(self), ultftpmaximumblocksize) }
     }
     pub unsafe fn EnableTftpVariableWindowExtension(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -3048,8 +3048,8 @@ impl IWdsTransportServicePolicy2 {
             (windows_core::Interface::vtable(self).EnableTftpVariableWindowExtension)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnableTftpVariableWindowExtension(&self, benabletftpvariablewindowextension: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEnableTftpVariableWindowExtension)(windows_core::Interface::as_raw(self), benabletftpvariablewindowextension).ok() }
+    pub unsafe fn SetEnableTftpVariableWindowExtension(&self, benabletftpvariablewindowextension: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEnableTftpVariableWindowExtension)(windows_core::Interface::as_raw(self), benabletftpvariablewindowextension) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3201,8 +3201,8 @@ impl IWdsTransportSession {
             (windows_core::Interface::vtable(self).RetrieveClients)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Terminate(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Terminate(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3372,11 +3372,11 @@ impl IWdsTransportSetupManager {
             (windows_core::Interface::vtable(self).Protocols)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RegisterContentProvider(&self, bszname: &windows_core::BSTR, bszdescription: &windows_core::BSTR, bszfilepath: &windows_core::BSTR, bszinitializationroutine: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RegisterContentProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszname), core::mem::transmute_copy(bszdescription), core::mem::transmute_copy(bszfilepath), core::mem::transmute_copy(bszinitializationroutine)).ok() }
+    pub unsafe fn RegisterContentProvider(&self, bszname: &windows_core::BSTR, bszdescription: &windows_core::BSTR, bszfilepath: &windows_core::BSTR, bszinitializationroutine: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterContentProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszname), core::mem::transmute_copy(bszdescription), core::mem::transmute_copy(bszfilepath), core::mem::transmute_copy(bszinitializationroutine)) }
     }
-    pub unsafe fn DeregisterContentProvider(&self, bszname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeregisterContentProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszname)).ok() }
+    pub unsafe fn DeregisterContentProvider(&self, bszname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeregisterContentProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bszname)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]

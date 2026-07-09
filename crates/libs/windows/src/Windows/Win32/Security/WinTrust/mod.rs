@@ -10,9 +10,9 @@ pub unsafe fn OpenPersonalTrustDBDialogEx(hwndparent: Option<super::super::Found
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn WTHelperCertCheckValidSignature(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::Result<()> {
+pub unsafe fn WTHelperCertCheckValidSignature(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT {
     windows_core::link!("wintrust.dll" "system" fn WTHelperCertCheckValidSignature(pprovdata : *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT);
-    unsafe { WTHelperCertCheckValidSignature(pprovdata as _).ok() }
+    unsafe { WTHelperCertCheckValidSignature(pprovdata as _) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]

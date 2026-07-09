@@ -48,12 +48,12 @@ impl IPropertyStoreCapabilities_Impl for Object_Impl {
 fn test() -> Result<()> {
     unsafe {
         let a: IInitializeWithStream = Object(std::sync::RwLock::new(Default::default())).into();
-        a.Initialize(None, 0)?;
+        a.Initialize(None, 0).ok()?;
 
         let b: IPropertyStore = a.cast()?;
         assert!(b.GetCount()? == 123);
 
-        b.SetValue(std::ptr::null(), &PROPVARIANT::from(123))?;
+        b.SetValue(std::ptr::null(), &PROPVARIANT::from(123)).ok()?;
         assert_eq!(PROPVARIANT::from(123), b.GetValue(std::ptr::null())?);
 
         let c: IPropertyStoreCapabilities = b.cast()?;

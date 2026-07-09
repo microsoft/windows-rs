@@ -145,9 +145,9 @@ mod Windows {
         #[guid(0xa04bfb29_08ef_43d6_a49c_a9bdbdcbe686)]
         interface ID3D11Device1: ID3D11Device {
             fn GetImmediateContext1(&self, ppImmediateContext: *mut ID3D11DeviceContext1);
-            fn CreateDeferredContext1(&self, ContextFlags: u32, ppDeferredContext: *mut ID3D11DeviceContext1) -> HRESULT;
-            fn CreateBlendState1(&self, pBlendStateDesc: *const D3D11_BLEND_DESC1, ppBlendState: *mut ID3D11BlendState1) -> HRESULT;
-            fn CreateRasterizerState1(&self, pRasterizerDesc: *const D3D11_RASTERIZER_DESC1, ppRasterizerState: *mut ID3D11RasterizerState1) -> HRESULT;
+            fn CreateDeferredContext1(&self, ContextFlags: u32, #[opt] ppDeferredContext: *mut ID3D11DeviceContext1) -> HRESULT;
+            fn CreateBlendState1(&self, pBlendStateDesc: *const D3D11_BLEND_DESC1, #[opt] ppBlendState: *mut ID3D11BlendState1) -> HRESULT;
+            fn CreateRasterizerState1(&self, pRasterizerDesc: *const D3D11_RASTERIZER_DESC1, #[opt] ppRasterizerState: *mut ID3D11RasterizerState1) -> HRESULT;
             fn CreateDeviceContextState(&self, Flags: u32, #[len_param(2)] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: u32, SDKVersion: u32, EmulatedInterface: *const GUID, #[opt] pChosenFeatureLevel: *mut D3D_FEATURE_LEVEL, #[opt] ppContextState: *mut ID3DDeviceContextState) -> HRESULT;
             fn OpenSharedResource1(&self, hResource: HANDLE, returnedInterface: *const GUID, #[iid_is] ppResource: *mut *mut void) -> HRESULT;
             fn OpenSharedResourceByName(&self, lpName: PCWSTR, dwDesiredAccess: u32, returnedInterface: *const GUID, #[iid_is] ppResource: *mut *mut void) -> HRESULT;

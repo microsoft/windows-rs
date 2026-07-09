@@ -43,7 +43,7 @@ impl IClassFactory_Impl for Factory_Impl {
 fn test() -> Result<()> {
     unsafe {
         let factory: IClassFactory = Factory().into();
-        factory.LockServer(true)?;
+        factory.LockServer(true).ok()?;
 
         let stringable: IStringable = factory.CreateInstance(None)?;
         assert_eq!(stringable.ToString()?, "Object");
