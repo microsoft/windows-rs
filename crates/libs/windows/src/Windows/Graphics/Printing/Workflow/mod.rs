@@ -490,6 +490,25 @@ pub struct IPrintWorkflowPrinterJob2_Vtbl {
     #[cfg(not(all(feature = "Devices_Printers", feature = "Graphics_Printing_PrintTicket")))]
     ConvertPrintTicketToJobAttributes: usize,
 }
+windows_core::imp::define_interface!(IPrintWorkflowPrinterJob3, IPrintWorkflowPrinterJob3_Vtbl, 0xf0c8eeec_66ac_5e14_8906_0de610769368);
+impl windows_core::RuntimeType for IPrintWorkflowPrinterJob3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.Workflow.IPrintWorkflowPrinterJob3");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPrintWorkflowPrinterJob3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsPassthroughJobWithAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Devices_Printers")]
+    pub GetPassthroughJobAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Printers"))]
+    GetPassthroughJobAttributes: usize,
+    #[cfg(feature = "Devices_Printers")]
+    pub GetPassthroughJobOperationAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Printers"))]
+    GetPassthroughJobOperationAttributes: usize,
+}
 windows_core::imp::define_interface!(IPrintWorkflowPrinterJobStatusChangedEventArgs, IPrintWorkflowPrinterJobStatusChangedEventArgs_Vtbl, 0x4a6275b9_be67_5718_921a_348c56f9d25f);
 impl windows_core::RuntimeType for IPrintWorkflowPrinterJobStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1869,6 +1888,29 @@ impl PrintWorkflowPrinterJob {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConvertPrintTicketToJobAttributes)(windows_core::Interface::as_raw(this), printticket.param().abi(), core::mem::transmute_copy(targetpdlformat), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsPassthroughJobWithAttributes(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IPrintWorkflowPrinterJob3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsPassthroughJobWithAttributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Devices_Printers")]
+    pub fn GetPassthroughJobAttributes(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>> {
+        let this = &windows_core::Interface::cast::<IPrintWorkflowPrinterJob3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPassthroughJobAttributes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Devices_Printers")]
+    pub fn GetPassthroughJobOperationAttributes(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>> {
+        let this = &windows_core::Interface::cast::<IPrintWorkflowPrinterJob3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPassthroughJobOperationAttributes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

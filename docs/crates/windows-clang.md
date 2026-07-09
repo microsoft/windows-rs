@@ -489,3 +489,157 @@ currently x64-derived).
 Parse `.idl` (or `midl` output) directly for COM to recover the pointer-shape
 attributes the headers don't express as SAL (`[unique]`/`[length_is]`/`[iid_is]`),
 keeping the header path for flat C APIs.
+
+### Downstream namespace map for the published `windows`/`windows-sys` crates
+
+This realises the "optional downstream map over the flat namespace" promised in
+[Partitioning: by defining header, not editorial namespace](#partitioning-by-defining-header-not-editorial-namespace).
+
+**Problem.** The canonical Win32/WDK winmds are flat (`Windows.Win32`), which is correct
+and serves every flat/minimal consumer. But `windows-bindgen --package` derives *both* the
+file layout **and** the per-namespace Cargo features from namespaces, so a flat winmd yields
+one giant module with no feature partitioning. The published `windows`/`windows-sys` crates
+are therefore still frozen against the old win32metadata under
+`crates/tools/package/reference/*.winmd`.
+
+**Approach (in progress).** Keep the canonical winmd flat; synthesise a header-based
+namespace partition **only** at packaging time. One namespace per defining header = per
+`.rdl` stem (`wdm.rdl` → `Windows.Wdk.wdm` → feature `Wdk_wdm`; `bcrypt.rdl` →
+`Windows.Win32.bcrypt` → `Win32_bcrypt`). Mechanical, source-derived, no curated editorial
+grouping to maintain. This is a large, deliberate breaking change to feature names, but the
+in-house metadata has not shipped so no released consumer breaks. There is **no** preserved
+`Win32_Foundation` special case — the partition is purely metadata-derived.
+
+**Mechanism.**
+- `windows-rdl::reader::item_names(file, "Windows.Win32")` already returns, per `.rdl` file, the
+  names of every type, function, and constant it defines (a pure syntactic walk). This is the
+  `name → stem` routing signal, covering the `Apis`-member split as well as types.
+- A remap pass in `windows-metadata` reads the flat winmds and rewrites, driven by the
+  `name → namespace` map: each `TypeDef`'s defining namespace, and every reference embedded in
+  `extends`, field `Type`s, method `Signature`s, and interface impls. The single flat
+  `Windows.Win32.Apis` container is **split** into one `Apis` per target namespace, routing each
+  function/constant by name. References not in the map (`System.*`, metadata-attribute types)
+  pass through unchanged.
+- `tool_package` builds the map from the RDL corpus (exactly one namespace per header `.rdl`
+  file — no coalescing, no synthetic buckets, no curated lists), emits throwaway namespaced
+  winmds under `target/`, and runs `--package` against those plus the already-namespaced WinRT
+  `Windows.winmd`.
+
+**Remaining after the winmd remap works:** migrate the in-repo consumers (samples/tests) from
+the old editorial feature names (`Win32_System_WinRT`, `Win32_Graphics_Direct2D`, …) to the
+header-based names (`Win32_winnt`, `Win32_d2d1`, …), repoint `tool_features` at the remapped
+metadata, retire `crates/tools/package/reference/*.winmd` (and the reference-only clang
+normalisations gated on it, per [Type remapping](#type-remapping--one-canon-surface)), and
+address the metadata-shape differences the switch surfaces (see "Metadata-shape fallout").
+
+**Status.** The remap is wired end to end for the **full corpus** and both published crates
+compile. `tool_package` reads the flat `Windows.Win32`/`Windows.Wdk` winmds and routes every
+type/function/constant to a `Windows.Win32.<header>` / `Windows.Wdk.<header>` namespace —
+exactly one namespace per header, no coalescing: **614** Win32 namespaces / 124813 items
+and **6** Wdk namespaces / 6401 items. `cargo check -p windows-sys --all-features` and
+`cargo check -p windows --all-features` both succeed. Arch-divergent copies survive the remap
+byte-faithfully. `sys.txt`/`windows.txt` now include the whole flat corpus (`--in target/package`,
+editorial exclusions dropped — see the summary of feature naming below); WinRT exclusions are
+preserved and `Windows.Win32.Metadata` (attribute types) is excluded.
+
+A name-based coalescing heuristic (fold related headers such as `d2d1`/`d2d1_1`/`d2d1effects`
+into one family namespace) was prototyped and rejected. Keyed only off the header name, it
+inevitably mis-groups headers that merely share a prefix — `msinkaut` (Ink) under `msi`
+(Installer), `playsoundapi` under `pla`, `icmpapi` (ICMP) under `icm` — and there is no automatic
+way to distinguish those from legitimate families like `sql`/`sqlext` without a curated exception
+list. Rather than mix a heuristic with hand-maintained exceptions, the mapping is kept fully
+predictable: one header, one namespace.
+
+**Feature-graph fix.** `package_writer.rs` previously hardcoded the old `Win32_Foundation`
+"snowflake" as the base dependency of every top-level Win32/Wdk umbrella feature, and derived a
+feature's parent dependency by `feature.rfind('_')`. Neither survives header namespaces:
+`Win32_Foundation` no longer exists, and header stems can contain `_` (`bits1_5`, `dxgi1_2`,
+`dpa_dsa`, …) so the rfind split produced non-existent parents (`Win32_bits1`). The parent
+dependency is now derived from the namespace's **dot** structure (`Windows.Win32.bits1_5` →
+`Win32`), the `Win32` and WinRT `Foundation` umbrellas are base features (no dependency), and
+`Wdk` depends on the `Win32` umbrella.
+
+**Metadata-shape fallout.** Unfreezing the crates from the old win32metadata means their output
+now reflects the in-house flat metadata (PR #4649), which differs in shape from the old
+editorial winmd in ways unrelated to namespaces. E.g. some typedef'd Win32 callbacks that the
+editorial winmd emitted as plain `type X = Option<extern fn …>` aliases are emitted by the
+in-house metadata as newtype structs (`pub struct PROPENUMPROCEX(pub PROPENUMPROCEXA)`) that
+`#[derive(PartialEq)]`, tripping rustc's `unpredictable_function_pointer_comparisons` lint in
+the full `windows` crate. These are pre-existing properties of the in-house corpus surfaced by
+the switch, not remap artefacts, and must be resolved before CI's `-D warnings` passes.
+
+**Bindgen fix surfaced by this work.** Validating a narrow filter (WDK-only, `--flat`) against
+the remapped winmd exposed a latent dependency-gathering bug in `windows-bindgen`: when an
+arch-divergent **delegate** or **constant** is pulled *purely as a dependency* (not directly
+named by the filter), only one arch copy was collected, so the other arch's `cfg`-gated
+definition went missing and references to it failed to compile. The multi-copy gather in
+`Type::combine` (`crates/libs/bindgen/src/types/mod.rs`) only covered `CppStruct`/`CppFn`; it
+now also covers `CppDelegate` and `CppConst` — the full set of arch-bearing (`.arches()`)
+types. Directly-filtered types were never affected (both copies always emit), so full-corpus
+generation (`tool_package`, `tool_validate`) shows no drift; only narrow/minimal filters could
+hit it. Regression: `crates/tests/libs/bindgen/input/arch_delegate_dependency_sys.rdl`.
+
+**To investigate: inconsistent handle modelling between `--package` and `--minimal`/`--sys`.**
+Migrating a `--package` sample (`windows_direct2d`) to header namespaces surfaced a broken
+partial-feature build. Two coupled issues were found; the second is now **fixed**, the first is
+left open as a modelling question:
+1. *(open)* `GLOBALHANDLE`/`LOCALHANDLE` are rightly plain type *aliases* in the RDL, but
+   `--package` (default) mode nests them as newtype structs — and here a handle is nested inside
+   *another* handle (`pub struct GLOBALHANDLE(pub super::winnt::HANDLE)`). Nesting is reasonable
+   when the backing type is a primitive; nesting one named handle within another seems wrong.
+   `--minimal`/`--sys` mode emits these as bare `pub type … = …` aliases instead. The default-mode
+   modelling should probably be reconsidered and made consistent with minimal/sys mode. This is
+   cosmetic/API-shape only — it does **not** block compilation now that (2) is fixed.
+2. *(fixed)* `write_cpp_handle` (`crates/libs/bindgen/src/types/cpp_handle.rs`) emitted only
+   `#arches` and never a per-item `#[cfg(feature = …)]`, so a handle referencing a type from
+   another header namespace was not gated on that header's feature — under a partial feature set
+   the referenced module was configured out and the handle failed to compile (`--all-features`
+   masked it). Same arch/cfg class as PR #4687. Editorial metadata never hit this because all
+   handles lived in the always-on `Foundation` namespace. Fix: both callers (`cpp_struct.rs`
+   handle path, `cpp_enum.rs` bare-typedef path) now compute the handle's dependency `Cfg` and
+   pass it into `write_cpp_handle`, which gates every emitted item (the alias/struct and all
+   `impl`s) on both `#arches` and the feature `cfg`, exactly like `write_simple_cfg` does for
+   regular structs. This took `windows_direct2d` from 91 `windows`-library errors to 0 — the
+   library now compiles under a partial feature set; remaining errors are in the sample's own
+   code (incomplete migration + metadata-shape flag/callback ergonomics), not the generated lib.
+3. *(fixed)* Callback (delegate) typedefs were newtype-wrapped in `--package` mode and derived
+   `PartialEq`, so a struct wrapping a function pointer triggered
+   `unpredictable_function_pointer_comparisons` (CI `-D warnings`). Root cause: `is_primitive`
+   treats `CppDelegate` as primitive, so a typedef whose target is a callback satisfies
+   `CppStruct::is_handle` and reached `write_cpp_handle`'s newtype path. `write_cpp_handle` now
+   emits a bare `pub type … = …` alias (matching `--minimal`/`--sys`) when the underlying type
+   resolves — directly or through a chain of typedef handles
+   (`FONTENUMPROC = FONTENUMPROCA = OLDFONTENUMPROCA = Option<fn…>`) — to a `CppDelegate`
+   (`resolves_to_delegate`). Handle-of-handle typedefs (item 1) deliberately stay newtypes: unlike
+   callbacks, their constants are constructed as tuple structs elsewhere in the generated code, so
+   aliasing them breaks `pub const FOO: JET_GRBIT = JET_GRBIT(…)`. `windows --all-features` is now
+   warning-free.
+
+**Win32 extensions removed.** The hand-written `crates/libs/windows/src/extensions/` tree
+(`VARIANT_BOOL`, WinSock address helpers, `VARIANT`/`StructuredStorage`, and the WinRT
+`DateTime`↔`FILETIME` bridge) was coupled to the editorial namespace layout — cfg-gated on retired
+features (`Win32_Foundation`, `Win32_Networking`, `Win32_System`) and using editorial type paths
+(`crate::Win32::Foundation::FILETIME`). Under the header-based remap those features/paths no longer
+exist, so the modules were permanently dead and emitted `unexpected cfg condition value` warnings.
+As the in-house metadata is unreleased, the whole `extensions` module (and its `mod extensions;` in
+`lib.rs`) was scrapped rather than migrated; equivalents can be reintroduced against the new layout
+if wanted.
+
+**Unscoped enums projected as bare integer aliases (all styles).** An unscoped (C-style) enum
+has no metadata marking it a distinct type — logically it is just a set of global integer
+constants, and the original C API takes the underlying integer (e.g. `D3D11CreateDevice` takes a
+`u32`, not a `D3D11_CREATE_DEVICE_FLAG`). Previously `--package`/default mode wrapped these in a
+newtype struct (`pub struct D3D11_CREATE_DEVICE_FLAG(pub i32)` with `pub const … = FLAG(2)`),
+which forced call sites into `CONST.0 as u32` gymnastics and diverged from `--minimal`/`--sys`
+(which already emit bare aliases). Now **every** style emits an unscoped enum as
+`pub type X = <underlying>;` plus bare `pub const V: X = 2;` constants — matching the flat/minimal
+projection and the way the API is actually consumed. Implementation: `CppEnum::write`
+(`crates/libs/bindgen/src/types/cpp_enum.rs`) routes all `!ScopedEnumAttribute` enums to
+`write_cpp_handle`, which now treats an enum `def` as always-bare (an enum is only ever passed
+there for the unscoped case); `cpp_const.rs` emits bare integer values for unscoped-enum constants
+in all styles. **Scoped enums** (`ScopedEnumAttribute` — WinRT enums and C++ `enum class`) remain
+genuine newtype structs with associated constants. Unscoped `FlagsAttribute` enums also become
+bare integer aliases and no longer emit `BitOr`/`BitAnd`/`Not`/`contains` impls — the underlying
+integer supports `|`/`&`/`!`/`|=`/`&=` natively. Regenerated goldens: `enum_default`, `enum_flags`,
+`derive_enum`, `derive_multiple`, `enum_name_conflict`, `modules` in
+`crates/tests/libs/bindgen/expected/`.

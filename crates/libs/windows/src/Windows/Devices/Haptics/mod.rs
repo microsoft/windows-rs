@@ -96,6 +96,20 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl {
     pub PencilContinuous: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub Success: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics3, IKnownSimpleHapticsControllerWaveformsStatics3_Vtbl, 0xae480ce4_4ab6_5b2f_ad0b_cb52f37d45fb);
+impl windows_core::RuntimeType for IKnownSimpleHapticsControllerWaveformsStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics3");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKnownSimpleHapticsControllerWaveformsStatics3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Collide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub Align: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub Step: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub Grow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ISimpleHapticsController, ISimpleHapticsController_Vtbl, 0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for ISimpleHapticsController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -354,12 +368,40 @@ impl KnownSimpleHapticsControllerWaveforms {
             (windows_core::Interface::vtable(this).Success)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
+    pub fn Collide() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Collide)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn Align() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Align)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn Step() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn Grow() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Grow)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
     fn IKnownSimpleHapticsControllerWaveformsStatics<R, F: FnOnce(&IKnownSimpleHapticsControllerWaveformsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownSimpleHapticsControllerWaveforms, IKnownSimpleHapticsControllerWaveformsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     fn IKnownSimpleHapticsControllerWaveformsStatics2<R, F: FnOnce(&IKnownSimpleHapticsControllerWaveformsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownSimpleHapticsControllerWaveforms, IKnownSimpleHapticsControllerWaveformsStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IKnownSimpleHapticsControllerWaveformsStatics3<R, F: FnOnce(&IKnownSimpleHapticsControllerWaveformsStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownSimpleHapticsControllerWaveforms, IKnownSimpleHapticsControllerWaveformsStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

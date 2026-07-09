@@ -53,6 +53,70 @@ pub struct IMcpMessageFilterExperimental_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub OnMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, McpMessageDirection, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IMcpMessageFilterExperimental2, IMcpMessageFilterExperimental2_Vtbl, 0x8127e075_4652_5645_b2eb_0e5772ee5c6f);
+impl windows_core::RuntimeType for IMcpMessageFilterExperimental2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Agents.Mcp.IMcpMessageFilterExperimental2");
+}
+windows_core::imp::interface_hierarchy!(IMcpMessageFilterExperimental2, windows_core::IUnknown, windows_core::IInspectable);
+impl IMcpMessageFilterExperimental2 {
+    pub fn Initialize(&self, clientprocessidentifier: &windows_core::HSTRING, clientprocessid: u32, serverprocessidentifier: &windows_core::HSTRING, serverprocessid: u32, serverid: &windows_core::HSTRING) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clientprocessidentifier), clientprocessid, core::mem::transmute_copy(serverprocessidentifier), serverprocessid, core::mem::transmute_copy(serverid), &mut result__).map(|| result__)
+        }
+    }
+    pub fn OnMessage<P2>(&self, message: &windows_core::HSTRING, direction: McpMessageDirection, filterresponse: P2) -> windows_core::Result<()>
+    where
+        P2: windows_core::Param<McpMessageFilterResponse>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).OnMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(message), direction, filterresponse.param().abi()).ok() }
+    }
+}
+impl windows_core::RuntimeName for IMcpMessageFilterExperimental2 {
+    const NAME: &'static str = "Windows.AI.Agents.Mcp.IMcpMessageFilterExperimental2";
+}
+pub trait IMcpMessageFilterExperimental2_Impl: windows_core::IUnknownImpl {
+    fn Initialize(&self, clientProcessIdentifier: &windows_core::HSTRING, clientProcessId: u32, serverProcessIdentifier: &windows_core::HSTRING, serverProcessId: u32, serverId: &windows_core::HSTRING) -> windows_core::Result<bool>;
+    fn OnMessage(&self, message: &windows_core::HSTRING, direction: McpMessageDirection, filterResponse: windows_core::Ref<McpMessageFilterResponse>) -> windows_core::Result<()>;
+}
+impl IMcpMessageFilterExperimental2_Vtbl {
+    pub const fn new<Identity: IMcpMessageFilterExperimental2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Initialize<Identity: IMcpMessageFilterExperimental2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientprocessidentifier: *mut core::ffi::c_void, clientprocessid: u32, serverprocessidentifier: *mut core::ffi::c_void, serverprocessid: u32, serverid: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IMcpMessageFilterExperimental2_Impl::Initialize(this, core::mem::transmute(&clientprocessidentifier), clientprocessid, core::mem::transmute(&serverprocessidentifier), serverprocessid, core::mem::transmute(&serverid)) {
+                    Ok(ok__) => {
+                        result__.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn OnMessage<Identity: IMcpMessageFilterExperimental2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void, direction: McpMessageDirection, filterresponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMcpMessageFilterExperimental2_Impl::OnMessage(this, core::mem::transmute(&message), direction, core::mem::transmute_copy(&filterresponse)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMcpMessageFilterExperimental2, OFFSET>(),
+            Initialize: Initialize::<Identity, OFFSET>,
+            OnMessage: OnMessage::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMcpMessageFilterExperimental2 as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMcpMessageFilterExperimental2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub OnMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, McpMessageDirection, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IMcpMessageFilterResponse, IMcpMessageFilterResponse_Vtbl, 0x363ce02c_7098_5e13_a408_7b43e1f452ac);
 impl windows_core::RuntimeType for IMcpMessageFilterResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

@@ -1,3 +1,5 @@
+#[cfg(feature = "Foundation")]
+pub mod Foundation;
 #[cfg(feature = "Wdk")]
 pub mod Wdk;
 #[cfg(feature = "Win32")]

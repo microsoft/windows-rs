@@ -158,18 +158,27 @@ impl Config<'_> {
         for tree in trees.iter().skip(1) {
             let feature = tree.feature();
 
-            if let Some(pos) = feature.rfind('_') {
-                let dependency = &feature[..pos];
+            // Derive the dependency from the namespace's dot structure rather than the feature
+            // name, since a single header namespace component may itself contain `_` (e.g.
+            // `Windows.Win32.bits1_5` must depend on `Win32`, not the non-existent `Win32_bits1`).
+            let (parent, _) = tree.namespace.rsplit_once('.').unwrap();
+
+            if parent != "Windows" {
+                let dependency = parent.split_once('.').unwrap().1.replace('.', "_");
 
                 toml.push_str(&format!("{feature} = [\"{dependency}\"]\n"));
+            } else if namespace_starts_with(tree.namespace, "Windows.Wdk") {
+                // WDK headers reference Win32 types, so enabling any WDK feature pulls in the
+                // Win32 umbrella (individual Win32 header features are gated per item).
+                toml.push_str(&format!("{feature} = [\"Win32\"]\n"));
             } else if namespace_starts_with(tree.namespace, "Windows.Win32")
-                || namespace_starts_with(tree.namespace, "Windows.Wdk")
+                || tree.namespace == "Windows.Foundation"
             {
-                toml.push_str(&format!("{feature} = [\"Win32_Foundation\"]\n"));
-            } else if tree.namespace != "Windows.Foundation" {
-                toml.push_str(&format!("{feature} = [\"Foundation\"]\n"));
-            } else {
+                // The Win32 and WinRT `Foundation` umbrellas are base features with no dependency.
                 toml.push_str(&format!("{feature} = []\n"));
+            } else {
+                // Other WinRT roots depend on the always-on `Foundation` base.
+                toml.push_str(&format!("{feature} = [\"Foundation\"]\n"));
             }
         }
 

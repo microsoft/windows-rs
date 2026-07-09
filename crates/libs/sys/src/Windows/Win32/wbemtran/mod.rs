@@ -1,0 +1,11 @@
+pub type WBEM_128BITS = *mut u8;
+pub const WBEM_AUTHENTICATION_METHOD_MASK: WBEM_LOGIN_TYPE = 15;
+pub const WBEM_FLAG_INPROC_LOGIN: WBEM_LOGIN_TYPE = 0;
+pub const WBEM_FLAG_LOCAL_LOGIN: WBEM_LOGIN_TYPE = 1;
+pub const WBEM_FLAG_REMOTE_LOGIN: WBEM_LOGIN_TYPE = 2;
+pub const WBEM_FLAG_USE_MULTIPLE_CHALLENGES: WBEM_LOGIN_TYPE = 16;
+pub type WBEM_LOGIN_TYPE = i32;
+pub const WbemDCOMTransport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf7ce2e13_8c90_11d1_9e7b_00c04fc324a8);
+pub const WbemLevel1Login: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8bc3f05e_d86b_11d0_a075_00c04fb68820);
+pub const WbemLocalAddrRes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa1044801_8f7e_11d1_9e7c_00c04fc324a8);
+pub const WbemUninitializedClassObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7a0227f6_7108_11d1_ad90_00c04fd8fdff);

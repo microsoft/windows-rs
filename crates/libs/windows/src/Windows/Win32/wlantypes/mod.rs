@@ -1,0 +1,199 @@
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DOT11_ACCESSNETWORKOPTIONS {
+    pub AccessNetworkType: u8,
+    pub Internet: u8,
+    pub ASRA: u8,
+    pub ESR: u8,
+    pub UESA: u8,
+}
+pub type DOT11_AUTH_ALGORITHM = i32;
+pub const DOT11_AUTH_ALGORITHM_OPEN_SYSTEM: u32 = 1;
+pub const DOT11_AUTH_ALGORITHM_OWE: u32 = 10;
+pub const DOT11_AUTH_ALGORITHM_RSNA: u32 = 6;
+pub const DOT11_AUTH_ALGORITHM_RSNA_PSK: u32 = 7;
+pub const DOT11_AUTH_ALGORITHM_SHARED_KEY: u32 = 2;
+pub const DOT11_AUTH_ALGORITHM_WPA: u32 = 3;
+pub const DOT11_AUTH_ALGORITHM_WPA3: u32 = 8;
+pub const DOT11_AUTH_ALGORITHM_WPA3_ENT: u32 = 11;
+pub const DOT11_AUTH_ALGORITHM_WPA3_ENT_192: u32 = 8;
+pub const DOT11_AUTH_ALGORITHM_WPA3_SAE: u32 = 9;
+pub const DOT11_AUTH_ALGORITHM_WPA_NONE: u32 = 5;
+pub const DOT11_AUTH_ALGORITHM_WPA_PSK: u32 = 4;
+pub const DOT11_AUTH_ALGO_80211_OPEN: DOT11_AUTH_ALGORITHM = 1;
+pub const DOT11_AUTH_ALGO_80211_SHARED_KEY: DOT11_AUTH_ALGORITHM = 2;
+pub const DOT11_AUTH_ALGO_IHV_END: DOT11_AUTH_ALGORITHM = -1;
+pub const DOT11_AUTH_ALGO_IHV_START: DOT11_AUTH_ALGORITHM = -2147483648;
+pub const DOT11_AUTH_ALGO_OWE: DOT11_AUTH_ALGORITHM = 10;
+pub const DOT11_AUTH_ALGO_RSNA: DOT11_AUTH_ALGORITHM = 6;
+pub const DOT11_AUTH_ALGO_RSNA_PSK: DOT11_AUTH_ALGORITHM = 7;
+pub const DOT11_AUTH_ALGO_WPA: DOT11_AUTH_ALGORITHM = 3;
+pub const DOT11_AUTH_ALGO_WPA3: DOT11_AUTH_ALGORITHM = 8;
+pub const DOT11_AUTH_ALGO_WPA3_ENT: DOT11_AUTH_ALGORITHM = 11;
+pub const DOT11_AUTH_ALGO_WPA3_ENT_192: DOT11_AUTH_ALGORITHM = 8;
+pub const DOT11_AUTH_ALGO_WPA3_SAE: DOT11_AUTH_ALGORITHM = 9;
+pub const DOT11_AUTH_ALGO_WPA_NONE: DOT11_AUTH_ALGORITHM = 5;
+pub const DOT11_AUTH_ALGO_WPA_PSK: DOT11_AUTH_ALGORITHM = 4;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DOT11_AUTH_CIPHER_PAIR {
+    pub AuthAlgoId: DOT11_AUTH_ALGORITHM,
+    pub CipherAlgoId: DOT11_CIPHER_ALGORITHM,
+}
+pub type DOT11_BSS_TYPE = i32;
+pub type DOT11_CIPHER_ALGORITHM = i32;
+pub const DOT11_CIPHER_ALGO_BIP: DOT11_CIPHER_ALGORITHM = 6;
+pub const DOT11_CIPHER_ALGO_BIP_CMAC_256: DOT11_CIPHER_ALGORITHM = 13;
+pub const DOT11_CIPHER_ALGO_BIP_GMAC_128: DOT11_CIPHER_ALGORITHM = 11;
+pub const DOT11_CIPHER_ALGO_BIP_GMAC_256: DOT11_CIPHER_ALGORITHM = 12;
+pub const DOT11_CIPHER_ALGO_CCMP: DOT11_CIPHER_ALGORITHM = 4;
+pub const DOT11_CIPHER_ALGO_CCMP_256: DOT11_CIPHER_ALGORITHM = 10;
+pub const DOT11_CIPHER_ALGO_GCMP: DOT11_CIPHER_ALGORITHM = 8;
+pub const DOT11_CIPHER_ALGO_GCMP_256: DOT11_CIPHER_ALGORITHM = 9;
+pub const DOT11_CIPHER_ALGO_IHV_END: DOT11_CIPHER_ALGORITHM = -1;
+pub const DOT11_CIPHER_ALGO_IHV_START: DOT11_CIPHER_ALGORITHM = -2147483648;
+pub const DOT11_CIPHER_ALGO_NONE: DOT11_CIPHER_ALGORITHM = 0;
+pub const DOT11_CIPHER_ALGO_RSN_USE_GROUP: DOT11_CIPHER_ALGORITHM = 256;
+pub const DOT11_CIPHER_ALGO_TKIP: DOT11_CIPHER_ALGORITHM = 2;
+pub const DOT11_CIPHER_ALGO_WEP: DOT11_CIPHER_ALGORITHM = 257;
+pub const DOT11_CIPHER_ALGO_WEP104: DOT11_CIPHER_ALGORITHM = 5;
+pub const DOT11_CIPHER_ALGO_WEP40: DOT11_CIPHER_ALGORITHM = 1;
+pub const DOT11_CIPHER_ALGO_WPA_USE_GROUP: DOT11_CIPHER_ALGORITHM = 256;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DOT11_OI {
+    pub OILength: u16,
+    pub OI: [u8; 5],
+}
+impl Default for DOT11_OI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const DOT11_OI_MAX_LENGTH: u32 = 5;
+pub const DOT11_OI_MIN_LENGTH: u32 = 3;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DOT11_SSID {
+    pub uSSIDLength: u32,
+    pub ucSSID: [u8; 32],
+}
+impl Default for DOT11_SSID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const DOT11_SSID_MAX_LENGTH: u32 = 32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DOT11_VENUEINFO {
+    pub VenueGroup: u8,
+    pub VenueType: u8,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PDOT11_ACCESSNETWORKOPTIONS(pub *mut DOT11_ACCESSNETWORKOPTIONS);
+impl PDOT11_ACCESSNETWORKOPTIONS {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PDOT11_ACCESSNETWORKOPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PDOT11_AUTH_ALGORITHM(pub *mut DOT11_AUTH_ALGORITHM);
+impl PDOT11_AUTH_ALGORITHM {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PDOT11_AUTH_ALGORITHM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PDOT11_AUTH_CIPHER_PAIR(pub *mut DOT11_AUTH_CIPHER_PAIR);
+impl PDOT11_AUTH_CIPHER_PAIR {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PDOT11_AUTH_CIPHER_PAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PDOT11_BSS_TYPE(pub *mut DOT11_BSS_TYPE);
+impl PDOT11_BSS_TYPE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PDOT11_BSS_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PDOT11_CIPHER_ALGORITHM(pub *mut DOT11_CIPHER_ALGORITHM);
+impl PDOT11_CIPHER_ALGORITHM {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PDOT11_CIPHER_ALGORITHM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PDOT11_OI(pub *mut DOT11_OI);
+impl PDOT11_OI {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PDOT11_OI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PDOT11_SSID(pub *mut DOT11_SSID);
+impl PDOT11_SSID {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PDOT11_SSID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PDOT11_VENUEINFO(pub *mut DOT11_VENUEINFO);
+impl PDOT11_VENUEINFO {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PDOT11_VENUEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const dot11_BSS_type_any: DOT11_BSS_TYPE = 3;
+pub const dot11_BSS_type_independent: DOT11_BSS_TYPE = 2;
+pub const dot11_BSS_type_infrastructure: DOT11_BSS_TYPE = 1;

@@ -184,10 +184,11 @@ impl Style {
         !self.is_sys()
     }
 
-    /// Whether handle structs and unscoped (non-`ScopedEnumAttribute`) enums are
-    /// emitted as a bare `pub type X = <underlying>` alias rather than a newtype
-    /// wrapper. Both sys and minimal bindings collapse them; this is why their
-    /// constants also drop the `Self(value)` constructor (see `cpp_const`).
+    /// Whether **handle** structs are emitted as a bare `pub type X = <underlying>` alias rather
+    /// than a newtype wrapper. Both sys and minimal bindings collapse them; this is why their
+    /// handle constants also drop the `Self(value)` constructor (see `cpp_const`). (Unscoped enums
+    /// are collapsed to bare aliases in *every* style — that decision lives in `cpp_enum`, not
+    /// here.)
     fn emit_bare_typedef(self) -> bool {
         self.is_sys() || self.is_minimal()
     }

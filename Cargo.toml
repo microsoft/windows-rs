@@ -2,10 +2,8 @@
 resolver = "3"
 members = [
     "crates/libs/*",
-    "crates/samples/*/*",
-    "crates/targets/*",
-    "crates/tests/*/*",
     "crates/tools/*",
+    "crates/samples/windows/direct2d",
 ]
 exclude = [
     "crates/targets/baseline",

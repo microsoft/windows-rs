@@ -133,16 +133,16 @@ impl CppConst {
                 } else {
                     value = wide_int_cast(&constant.value());
                 }
-                // In `--sys` mode, every wrapper struct/enum is emitted as a
-                // bare type alias, so constants must drop the `Self(value)`
-                // newtype constructor. In `--minimal` mode handle structs and
-                // unscoped enums also become bare aliases (see cpp_handle and
-                // cpp_enum), so we drop the wrapper for those too; scoped
-                // enums and other wrapper types still get the constructor.
+                // Constants of a bare-alias type must drop the `Self(value)` newtype constructor.
+                // Unscoped (C-style) enums are emitted as bare `pub type = <int>` aliases in every
+                // style (see `cpp_enum`), so their constants are plain integers everywhere. In
+                // `--sys` every wrapper is a bare alias; in `--minimal` handle structs are too.
+                // Scoped enums and (in default/minimal) handle newtypes still get the constructor.
+                let unscoped_enum_const = matches!(&field_ty, Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute"));
                 let emit_alias_const = config.bindgen.style.is_sys()
+                    || unscoped_enum_const
                     || (config.bindgen.style.is_minimal()
-                        && (matches!(&field_ty, Type::CppStruct(ty) if ty.is_handle(config.reader))
-                            || matches!(&field_ty, Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute"))));
+                        && matches!(&field_ty, Type::CppStruct(ty) if ty.is_handle(config.reader)));
                 if emit_alias_const || field_ty == Type::Bool {
                     quote! {
                         #cfg

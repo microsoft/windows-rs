@@ -1,5 +1,8 @@
 use super::*;
 
+mod remap;
+pub use remap::Remapper;
+
 pub struct Error(String);
 
 impl Error {

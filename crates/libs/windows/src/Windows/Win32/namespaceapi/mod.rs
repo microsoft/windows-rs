@@ -1,0 +1,46 @@
+#[cfg(feature = "Win32_winnt")]
+#[inline]
+pub unsafe fn AddSIDToBoundaryDescriptor(boundarydescriptor: *mut super::winnt::HANDLE, requiredsid: super::winnt::PSID) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn AddSIDToBoundaryDescriptor(boundarydescriptor : *mut super::winnt::HANDLE, requiredsid : super::winnt::PSID) -> windows_core::BOOL);
+    unsafe { AddSIDToBoundaryDescriptor(boundarydescriptor as _, requiredsid) }
+}
+#[cfg(feature = "Win32_winnt")]
+#[inline]
+pub unsafe fn ClosePrivateNamespace(handle: super::winnt::HANDLE, flags: u32) -> bool {
+    windows_core::link!("kernel32.dll" "system" fn ClosePrivateNamespace(handle : super::winnt::HANDLE, flags : u32) -> bool);
+    unsafe { ClosePrivateNamespace(handle, flags) }
+}
+#[cfg(feature = "Win32_winnt")]
+#[inline]
+pub unsafe fn CreateBoundaryDescriptorW<P0>(name: P0, flags: u32) -> super::winnt::HANDLE
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("kernel32.dll" "system" fn CreateBoundaryDescriptorW(name : windows_core::PCWSTR, flags : u32) -> super::winnt::HANDLE);
+    unsafe { CreateBoundaryDescriptorW(name.param().abi(), flags) }
+}
+#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[inline]
+pub unsafe fn CreatePrivateNamespaceW<P2>(lpprivatenamespaceattributes: Option<*const super::minwinbase::SECURITY_ATTRIBUTES>, lpboundarydescriptor: *const core::ffi::c_void, lpaliasprefix: P2) -> super::winnt::HANDLE
+where
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("kernel32.dll" "system" fn CreatePrivateNamespaceW(lpprivatenamespaceattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCWSTR) -> super::winnt::HANDLE);
+    unsafe { CreatePrivateNamespaceW(lpprivatenamespaceattributes.unwrap_or(core::mem::zeroed()) as _, lpboundarydescriptor, lpaliasprefix.param().abi()) }
+}
+#[cfg(feature = "Win32_winnt")]
+#[inline]
+pub unsafe fn DeleteBoundaryDescriptor(boundarydescriptor: super::winnt::HANDLE) {
+    windows_core::link!("kernel32.dll" "system" fn DeleteBoundaryDescriptor(boundarydescriptor : super::winnt::HANDLE));
+    unsafe { DeleteBoundaryDescriptor(boundarydescriptor) }
+}
+#[cfg(feature = "Win32_winnt")]
+#[inline]
+pub unsafe fn OpenPrivateNamespaceW<P1>(lpboundarydescriptor: *const core::ffi::c_void, lpaliasprefix: P1) -> super::winnt::HANDLE
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("kernel32.dll" "system" fn OpenPrivateNamespaceW(lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCWSTR) -> super::winnt::HANDLE);
+    unsafe { OpenPrivateNamespaceW(lpboundarydescriptor, lpaliasprefix.param().abi()) }
+}
+pub const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1;

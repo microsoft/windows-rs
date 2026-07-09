@@ -1,0 +1,11 @@
+//! --filter Test::UsesCallback --sys --flat
+#[win32]
+mod Test {
+    struct UsesCallback {
+        handler: ArchCallback,
+    }
+    #[arch(X64 | Arm64)]
+    extern fn ArchCallback(code: i32) -> i32;
+    #[arch(X86)]
+    extern fn ArchCallback(code: i16) -> i16;
+}

@@ -1,0 +1,13 @@
+pub type NDIS_HASH_FLAGS = u32;
+pub const NDIS_HASH_FUNCTION_MASK: u32 = 255;
+pub const NDIS_HASH_IPV4: u32 = 256;
+pub const NDIS_HASH_IPV6: u32 = 1024;
+pub const NDIS_HASH_IPV6_EX: u32 = 2048;
+pub const NDIS_HASH_TCP_IPV4: u32 = 512;
+pub const NDIS_HASH_TCP_IPV6: u32 = 4096;
+pub const NDIS_HASH_TCP_IPV6_EX: u32 = 8192;
+pub const NDIS_HASH_TYPE_MASK: u32 = 16776960;
+pub const NdisHashFunctionReserved1: u32 = 2;
+pub const NdisHashFunctionReserved2: u32 = 4;
+pub const NdisHashFunctionReserved3: u32 = 8;
+pub const NdisHashFunctionToeplitz: u32 = 1;

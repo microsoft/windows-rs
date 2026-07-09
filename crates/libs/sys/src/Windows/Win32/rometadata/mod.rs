@@ -1,0 +1,1 @@
+windows_link::link!("rometadata.dll" "system" fn MetaDataGetDispenser(rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);

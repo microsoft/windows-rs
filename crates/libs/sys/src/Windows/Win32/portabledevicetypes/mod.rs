@@ -1,0 +1,11 @@
+pub const PortableDeviceKeyCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde2d022d_2480_43be_97f0_d1fa2cf98f4f);
+pub const PortableDevicePropVariantCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08a99e2f_6d6d_4b80_af5a_baf2bcbe4cb9);
+pub const PortableDeviceValues: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0c15d503_d017_47ce_9016_7b3f978721cc);
+pub const PortableDeviceValuesCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3882134d_14cf_4220_9cb4_435f86d83f60);
+pub type WPD_STREAM_UNITS = i32;
+pub const WPD_STREAM_UNITS_BYTES: WPD_STREAM_UNITS = 0;
+pub const WPD_STREAM_UNITS_FRAMES: WPD_STREAM_UNITS = 1;
+pub const WPD_STREAM_UNITS_MICROSECONDS: WPD_STREAM_UNITS = 8;
+pub const WPD_STREAM_UNITS_MILLISECONDS: WPD_STREAM_UNITS = 4;
+pub const WPD_STREAM_UNITS_ROWS: WPD_STREAM_UNITS = 2;
+pub const WpdSerializer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0b91a74b_ad7c_4a9d_b563_29eef9167172);

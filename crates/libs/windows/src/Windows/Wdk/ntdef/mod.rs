@@ -1,0 +1,32 @@
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct CLONG(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct CSHORT(pub i16);
+pub type EVENT_TYPE = i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct KIRQL(pub u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct LOGICAL(pub u32);
+pub type NT_PRODUCT_TYPE = i32;
+pub const NotificationEvent: EVENT_TYPE = 0;
+pub const NotificationTimer: TIMER_TYPE = 0;
+pub const NtProductLanManNt: NT_PRODUCT_TYPE = 2;
+pub const NtProductServer: NT_PRODUCT_TYPE = 3;
+pub const NtProductWinNt: NT_PRODUCT_TYPE = 1;
+#[cfg(all(feature = "Win32_lsalookup", feature = "Win32_ntsecapi", feature = "Win32_winnt"))]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct PUTF8_STRING(pub super::super::Win32::ntsecapi::PSTRING);
+pub const SynchronizationEvent: EVENT_TYPE = 1;
+pub const SynchronizationTimer: TIMER_TYPE = 1;
+pub type TIMER_TYPE = i32;
+pub type WAIT_TYPE = i32;
+pub const WaitAll: WAIT_TYPE = 0;
+pub const WaitAny: WAIT_TYPE = 1;
+pub const WaitDequeue: WAIT_TYPE = 3;
+pub const WaitDpc: WAIT_TYPE = 4;
+pub const WaitNotification: WAIT_TYPE = 2;

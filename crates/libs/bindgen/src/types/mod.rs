@@ -1066,6 +1066,8 @@ impl Dependencies for Type {
         if let Some(multi) = match &ty {
             Self::CppStruct(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
             Self::CppFn(ty) => Some(reader.with_full_name(ty.namespace, ty.method.name())),
+            Self::CppDelegate(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
+            Self::CppConst(ty) => Some(reader.with_full_name(ty.namespace, ty.field.name())),
             _ => None,
         } {
             multi.for_each(|multi| {

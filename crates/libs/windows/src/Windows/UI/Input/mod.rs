@@ -4281,12 +4281,12 @@ impl TouchpadGlobalAction {
     pub const ThreeFingerTap: Self = Self(0);
     pub const FourFingerTap: Self = Self(1);
     pub const FiveFingerTap: Self = Self(2);
-    pub const ThreeFingerPressDown: Self = Self(3);
-    pub const FourFingerPressDown: Self = Self(4);
-    pub const FiveFingerPressDown: Self = Self(5);
-    pub const ThreeFingerPressUp: Self = Self(6);
-    pub const FourFingerPressUp: Self = Self(7);
-    pub const FiveFingerPressUp: Self = Self(8);
+    pub const ThreeFingerPress: Self = Self(3);
+    pub const FourFingerPress: Self = Self(4);
+    pub const FiveFingerPress: Self = Self(5);
+    pub const ThreeFingerRelease: Self = Self(6);
+    pub const FourFingerRelease: Self = Self(7);
+    pub const FiveFingerRelease: Self = Self(8);
 }
 impl windows_core::TypeKind for TouchpadGlobalAction {
     type TypeKind = windows_core::CopyType;

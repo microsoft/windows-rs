@@ -1,12 +1,42 @@
 use super::*;
 
+// Does `ty` resolve — directly or through a chain of native-typedef handles — to a callback
+// (delegate)? A typedef whose Value field is a delegate satisfies `is_handle` (delegates are
+// treated as primitive), so callback aliases like `FONTENUMPROC = FONTENUMPROCA = ... = Option<fn>`
+// would otherwise be newtype-wrapped. Handle chains bottoming out in a scalar/pointer (`HWND`,
+// `GLOBALHANDLE`) return false and keep their newtype.
+fn resolves_to_delegate(ty: &Type, reader: &Reader) -> bool {
+    match ty {
+        Type::CppDelegate(_) => true,
+        Type::CppStruct(inner) if inner.is_handle(reader) => {
+            resolves_to_delegate(&inner.def.underlying_type_ext(reader), reader)
+        }
+        _ => false,
+    }
+}
+
 impl Config<'_> {
-    pub fn write_cpp_handle(&self, def: TypeDef) -> TokenStream {
+    pub fn write_cpp_handle(&self, def: TypeDef, cfg: &TokenStream) -> TokenStream {
         let name = to_ident(def.name());
         let ty = def.underlying_type_ext(self.reader);
         let ty_name = ty.write_name(self);
 
-        if self.bindgen.style.emit_bare_typedef() {
+        // A typedef that transitively aliases a callback (delegate) — directly
+        // (`AMGETERRORTEXTPROC = AMGETERRORTEXTPROCA`) or through a chain of further typedefs
+        // (`FONTENUMPROC = FONTENUMPROCA = OLDFONTENUMPROCA = Option<fn...>`) — is emitted as a
+        // transparent alias rather than a wrapper newtype, matching --sys/--minimal. Newtyping a
+        // callback adds no type safety and deriving `PartialEq` over the wrapped function pointer
+        // triggers `unpredictable_function_pointer_comparisons`. (Handle-of-handle typedefs like
+        // `GLOBALHANDLE = HGLOBAL` stay newtypes here: their constants are constructed as tuple
+        // structs elsewhere in the generated code.)
+        let aliases_callback = resolves_to_delegate(&ty, self.reader);
+
+        // Unscoped (C-style) enums are always projected as bare aliases — see `cpp_enum`, which is
+        // the only caller that passes an enum `def` here (scoped enums keep their newtype and never
+        // reach this function). So enums take the bare branch in every style, not just sys/minimal.
+        let is_enum = def.category() == windows_metadata::reader::TypeCategory::Enum;
+
+        if self.bindgen.style.emit_bare_typedef() || aliases_callback || is_enum {
             // An arch-split enum collapses to a single name-keyed entry whose underlying
             // alias (`-> i32`) is the same on every arch — only its constants, which are
             // separate items, are arch-specific. Emitting that lone entry's cfg would hide
@@ -14,7 +44,6 @@ impl Config<'_> {
             // typedef keeps the def's cfg: an arch-divergent alias (`HALF_PTR = i16` on x86,
             // `= i32` on x64) has a distinct per-arch definition that must stay gated, and a
             // pointer alias (`P* = *mut Struct`) may reference an arch-gated pointee.
-            let is_enum = def.category() == windows_metadata::reader::TypeCategory::Enum;
             let arches = if is_enum {
                 quote! {}
             } else {
@@ -22,6 +51,7 @@ impl Config<'_> {
             };
             quote! {
                 #arches
+                #cfg
                 pub type #name = #ty_name;
             }
         } else {
@@ -29,6 +59,7 @@ impl Config<'_> {
             // `HALF_PTR` or `PCONTEXT`) reaches here twice. Every emitted item must
             // carry the def's arch cfg or the variants collide.
             let arches = write_arches(def);
+            let arches = quote! { #arches #cfg };
             let mut derive = quote! { Clone, Copy, Debug, PartialEq, Eq, };
 
             let default = if ty.is_pointer() {

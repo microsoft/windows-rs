@@ -132,7 +132,8 @@ impl CppStruct {
 
     pub fn write(&self, config: &Config) -> TokenStream {
         if self.is_handle(config.reader) {
-            return config.write_cpp_handle(self.def);
+            let cfg = self.write_cfg(config);
+            return config.write_cpp_handle(self.def, &cfg);
         }
 
         if self.is_void_typedef(config.reader) {

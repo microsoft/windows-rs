@@ -1,12 +1,25 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{
-        Win32::Foundation::*, Win32::Graphics::Direct2D::Common::*, Win32::Graphics::Direct2D::*,
-        Win32::Graphics::Direct3D::*, Win32::Graphics::Direct3D11::*,
-        Win32::Graphics::Dxgi::Common::*, Win32::Graphics::Dxgi::*, Win32::Graphics::Gdi::*,
-        Win32::System::Com::*, Win32::System::Performance::*,
-        Win32::System::SystemInformation::GetLocalTime, Win32::UI::Animation::*,
-        Win32::UI::WindowsAndMessaging::*, core::*,
-    };
+    use windows::Win32::combaseapi::*;
+    use windows::Win32::d2d1::*;
+    use windows::Win32::d2d1_1::*;
+    use windows::Win32::d2d1effects::*;
+    use windows::Win32::d2dbasetypes::*;
+    use windows::Win32::d3d11::*;
+    use windows::Win32::d3dcommon::*;
+    use windows::Win32::dcommon::*;
+    use windows::Win32::dxgi::*;
+    use windows::Win32::dxgi1_2::*;
+    use windows::Win32::dxgicommon::*;
+    use windows::Win32::dxgiformat::*;
+    use windows::Win32::minwindef::*;
+    use windows::Win32::objbase::*;
+    use windows::Win32::profileapi::*;
+    use windows::Win32::sysinfoapi::*;
+    use windows::Win32::uianimation::*;
+    use windows::Win32::windef::*;
+    use windows::Win32::winerror::*;
+    use windows::Win32::winuser::*;
+    use windows::core::*;
 
     use std::cell::RefCell;
     use std::rc::Rc;
@@ -70,7 +83,7 @@ fn main() -> windows::core::Result<()> {
             unsafe { factory.GetDesktopDpi(&mut dpi, &mut dpiy) };
 
             let mut frequency = 0;
-            unsafe { QueryPerformanceFrequency(&mut frequency)? };
+            unsafe { QueryPerformanceFrequency(&mut frequency).ok()? };
 
             let variable = unsafe {
                 let variable = manager.CreateAnimationVariable(0.0)?;
@@ -125,7 +138,7 @@ fn main() -> windows::core::Result<()> {
                 target.EndDraw(None, None).ok()?;
             }
 
-            if let Err(error) = self.present(1, DXGI_PRESENT(0)) {
+            if let Err(error) = self.present(1, 0) {
                 if error.code() == DXGI_STATUS_OCCLUDED {
                     self.occlusion = unsafe {
                         self.dxfactory
@@ -152,7 +165,7 @@ fn main() -> windows::core::Result<()> {
             self.shadow = None;
         }
 
-        fn present(&self, sync: u32, flags: DXGI_PRESENT) -> Result<()> {
+        fn present(&self, sync: u32, flags: u32) -> Result<()> {
             unsafe { self.swapchain.as_ref().unwrap().Present(sync, flags).ok() }
         }
 
@@ -163,7 +176,7 @@ fn main() -> windows::core::Result<()> {
             unsafe {
                 self.manager.Update(get_time(self.frequency)?, None).ok()?;
 
-                target.Clear(Some(&D2D1_COLOR_F {
+                target.Clear(Some(&D2D_COLOR_F {
                     r: 1.0,
                     g: 1.0,
                     b: 1.0,
@@ -310,7 +323,7 @@ fn main() -> windows::core::Result<()> {
 
                 if unsafe {
                     swapchain
-                        .ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, DXGI_SWAP_CHAIN_FLAG(0))
+                        .ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0)
                         .is_ok()
                 } {
                     create_swapchain_bitmap(swapchain, target)?;
@@ -372,13 +385,13 @@ fn main() -> windows::core::Result<()> {
     fn get_time(frequency: i64) -> Result<f64> {
         unsafe {
             let mut time = 0;
-            QueryPerformanceCounter(&mut time)?;
+            QueryPerformanceCounter(&mut time).ok()?;
             Ok(time as f64 / frequency as f64)
         }
     }
 
     fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush> {
-        let color = D2D1_COLOR_F {
+        let color = D2D_COLOR_F {
             r: 0.92,
             g: 0.38,
             b: 0.208,
@@ -409,7 +422,17 @@ fn main() -> windows::core::Result<()> {
             options.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
         }
 
-        unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, Some(&options)) }
+        let mut factory: Option<ID2D1Factory1> = None;
+        unsafe {
+            D2D1CreateFactory(
+                D2D1_FACTORY_TYPE_SINGLE_THREADED,
+                &ID2D1Factory1::IID,
+                Some(&options),
+                &mut factory as *mut _ as *mut *mut core::ffi::c_void,
+            )
+            .ok()?;
+        }
+        Ok(factory.unwrap())
     }
 
     fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle1> {
@@ -431,10 +454,10 @@ fn main() -> windows::core::Result<()> {
     }
 
     fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> {
-        let mut flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT;
+        let mut flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32;
 
         if cfg!(debug_assertions) {
-            flags |= D3D11_CREATE_DEVICE_DEBUG;
+            flags |= D3D11_CREATE_DEVICE_DEBUG as u32;
         }
 
         let mut device = None;
@@ -443,7 +466,7 @@ fn main() -> windows::core::Result<()> {
             D3D11CreateDevice(
                 None,
                 drive_type,
-                None,
+                HMODULE::default(),
                 flags,
                 None,
                 D3D11_SDK_VERSION,
@@ -521,7 +544,7 @@ fn main() -> windows::core::Result<()> {
                 Count: 1,
                 Quality: 0,
             },
-            BufferUsage: DXGI_USAGE_RENDER_TARGET_OUTPUT,
+            BufferUsage: DXGI_USAGE(DXGI_USAGE_RENDER_TARGET_OUTPUT),
             BufferCount: 2,
             SwapEffect: DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL,
             ..Default::default()
@@ -531,7 +554,7 @@ fn main() -> windows::core::Result<()> {
     }
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
     }
 
     let app = Rc::new(RefCell::new(App::new()?));

@@ -35,6 +35,12 @@ pub fn merge() -> merge::Merger {
     merge::Merger::new()
 }
 
+/// Creates a [`merge::Remapper`] that rewrites a flat winmd into a header-based namespace
+/// partition for `--package` generation.
+pub fn remap() -> merge::Remapper {
+    merge::Remapper::new()
+}
+
 pub fn trim_tick(name: &str) -> &str {
     if let Some(pos) = name.find('`') {
         &name[..pos]

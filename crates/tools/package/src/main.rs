@@ -1,3 +1,33 @@
+mod remap;
+
+use remap::Corpus;
+
+/// Throwaway `--in` directory feeding `--package` generation (under `target`, not committed).
+/// Holds the remapped header-namespaced Win32/WDK winmd plus a copy of the WinRT `Windows.winmd`.
+const PACKAGE_DIR: &str = "target/package";
+const REMAP_OUTPUT: &str = "target/package/Windows.Win32.winmd";
+/// The already-namespaced WinRT metadata, copied verbatim alongside the remapped winmd.
+const WINRT_WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
+
+/// Writes a `name<TAB>feature` map (e.g. `D2D1CreateFactory\tWin32_d2d1`) for every routed item to
+/// `path`, so downstream consumer migration can look up the header feature/module for an API.
+fn dump_routes(corpora: &[Corpus], path: String) {
+    let mut lines: Vec<String> = Vec::new();
+    for corpus in corpora {
+        let (routes, _) = remap::routes(corpus);
+        for (name, namespace) in routes {
+            let feature = namespace
+                .strip_prefix("Windows.")
+                .unwrap_or(&namespace)
+                .replace('.', "_");
+            lines.push(format!("{name}\t{feature}"));
+        }
+    }
+    lines.sort();
+    std::fs::write(&path, lines.join("\n"))
+        .unwrap_or_else(|e| panic!("failed to write `{path}`: {e}"));
+}
+
 /// Generates the published `windows` and `windows-sys` package crates.
 ///
 /// This is separated from `tool_bindings` because package generation uses
@@ -6,6 +36,36 @@
 fn main() {
     let time = std::time::Instant::now();
 
+    // Synthesise the header-based namespace partition from the flat canonical winmds. The Win32
+    // SDK is logically a flat global namespace, so the canonical winmd is flat; but `--package`
+    // derives file layout and Cargo features from namespaces, so the published crates need a
+    // partition. One namespace per defining header (`.rdl` stem) gives a mechanical, source-derived
+    // one. Both corpora are remapped together so WDK's references to Win32 types resolve to the
+    // remapped Win32 namespaces.
+    let corpora = [
+        Corpus {
+            rdl_dir: "metadata/win32",
+            winmd: "crates/libs/bindgen/default/Windows.Win32.winmd",
+            root: "Windows.Win32",
+        },
+        Corpus {
+            rdl_dir: "metadata/wdk",
+            winmd: "crates/libs/bindgen/default/Windows.Wdk.winmd",
+            root: "Windows.Wdk",
+        },
+    ];
+
+    let summary = remap::run(&corpora, REMAP_OUTPUT);
+
+    dump_routes(&corpora, format!("{PACKAGE_DIR}/routes.tsv"));
+
+    // The WinRT metadata is already namespaced; copy it verbatim into the `--in` directory so the
+    // `windows` crate can project it alongside the remapped Win32/WDK partition.
+    std::fs::copy(WINRT_WINMD, format!("{PACKAGE_DIR}/Windows.winmd"))
+        .unwrap_or_else(|e| panic!("failed to stage `{WINRT_WINMD}`: {e}"));
+
+    verify(&summary);
+
     // The `windows-sys` crate (sys-style package).
     windows_bindgen::bindgen(["--etc", "crates/tools/package/src/sys.txt"]);
 
@@ -13,4 +73,31 @@ fn main() {
     windows_bindgen::bindgen(["--etc", "crates/tools/package/src/windows.txt"]);
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
+}
+
+/// Asserts the header partition took effect (Win32/WDK land in `Windows.<root>.<header>`
+/// namespaces and the flat `Windows.Win32` namespace no longer holds types directly) and reports
+/// the namespace count per root.
+fn verify(summary: &[(String, usize)]) {
+    let index = windows_metadata::reader::Index::read(REMAP_OUTPUT)
+        .unwrap_or_else(|| panic!("failed to read remapped winmd `{REMAP_OUTPUT}`"));
+
+    assert!(
+        !index.contains_namespace("Windows.Win32"),
+        "flat `Windows.Win32` namespace survived the remap (types were not routed)"
+    );
+
+    for root in ["Windows.Win32", "Windows.Wdk"] {
+        let namespaces = summary
+            .iter()
+            .filter(|(ns, _)| ns.starts_with(root))
+            .count();
+        let items: usize = summary
+            .iter()
+            .filter(|(ns, _)| ns.starts_with(root))
+            .map(|(_, n)| n)
+            .sum();
+        assert!(namespaces > 0, "remap produced no `{root}.*` namespaces");
+        println!("{root}: {namespaces} namespace(s), {items} item(s)");
+    }
 }

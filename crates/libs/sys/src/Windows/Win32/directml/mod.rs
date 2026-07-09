@@ -1,0 +1,2676 @@
+#[cfg(feature = "Win32_d3d12")]
+windows_link::link!("directml.dll" "system" fn DMLCreateDevice(d3d12device : *mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_d3d12")]
+windows_link::link!("directml.dll" "system" fn DMLCreateDevice1(d3d12device : *mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel : DML_FEATURE_LEVEL, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_CELU_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Alpha: f32,
+}
+impl Default for DML_ACTIVATION_CELU_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_ELU_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Alpha: f32,
+}
+impl Default for DML_ACTIVATION_ELU_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Alpha: f32,
+    pub Beta: f32,
+}
+impl Default for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Alpha: f32,
+}
+impl Default for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_LINEAR_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Alpha: f32,
+    pub Beta: f32,
+}
+impl Default for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub SlopeTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Alpha: f32,
+    pub Beta: f32,
+}
+impl Default for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_RELU_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ACTIVATION_RELU_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Alpha: f32,
+    pub Gamma: f32,
+}
+impl Default for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Alpha: f32,
+    pub Beta: f32,
+}
+impl Default for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_SHRINK_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Bias: f32,
+    pub Threshold: f32,
+}
+impl Default for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Steepness: f32,
+}
+impl Default for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_TANH_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ACTIVATION_TANH_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Alpha: f32,
+}
+impl Default for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
+    pub InputParametersTensor: *const DML_TENSOR_DESC,
+    pub InputFirstMomentTensor: *const DML_TENSOR_DESC,
+    pub InputSecondMomentTensor: *const DML_TENSOR_DESC,
+    pub GradientTensor: *const DML_TENSOR_DESC,
+    pub TrainingStepTensor: *const DML_TENSOR_DESC,
+    pub OutputParametersTensor: *const DML_TENSOR_DESC,
+    pub OutputFirstMomentTensor: *const DML_TENSOR_DESC,
+    pub OutputSecondMomentTensor: *const DML_TENSOR_DESC,
+    pub LearningRate: f32,
+    pub Beta1: f32,
+    pub Beta2: f32,
+    pub Epsilon: f32,
+}
+impl Default for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ARGMAX_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub AxisCount: u32,
+    pub Axes: *const u32,
+    pub AxisDirection: DML_AXIS_DIRECTION,
+}
+impl Default for DML_ARGMAX_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ARGMIN_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub AxisCount: u32,
+    pub Axes: *const u32,
+    pub AxisDirection: DML_AXIS_DIRECTION,
+}
+impl Default for DML_ARGMIN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+    pub IncludePadding: windows_sys::core::BOOL,
+}
+impl Default for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_AVERAGE_POOLING_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+    pub IncludePadding: windows_sys::core::BOOL,
+}
+impl Default for DML_AVERAGE_POOLING_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_AXIS_DIRECTION = i32;
+pub const DML_AXIS_DIRECTION_DECREASING: DML_AXIS_DIRECTION = 1;
+pub const DML_AXIS_DIRECTION_INCREASING: DML_AXIS_DIRECTION = 0;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub MeanTensor: *const DML_TENSOR_DESC,
+    pub VarianceTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputBiasGradientTensor: *const DML_TENSOR_DESC,
+    pub Epsilon: f32,
+}
+impl Default for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub MeanTensor: *const DML_TENSOR_DESC,
+    pub VarianceTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Spatial: windows_sys::core::BOOL,
+    pub Epsilon: f32,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
+}
+impl Default for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub MeanTensor: *const DML_TENSOR_DESC,
+    pub VarianceTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputBiasGradientTensor: *const DML_TENSOR_DESC,
+    pub Epsilon: f32,
+}
+impl Default for DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub FusedAddTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub OutputMeanTensor: *const DML_TENSOR_DESC,
+    pub OutputVarianceTensor: *const DML_TENSOR_DESC,
+    pub Epsilon: f32,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
+}
+impl Default for DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_BINDING_DESC {
+    pub Type: DML_BINDING_TYPE,
+    pub Desc: *const core::ffi::c_void,
+}
+impl Default for DML_BINDING_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DML_BINDING_PROPERTIES {
+    pub RequiredDescriptorCount: u32,
+    pub TemporaryResourceSize: u64,
+    pub PersistentResourceSize: u64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_d3d12")]
+#[derive(Clone, Copy)]
+pub struct DML_BINDING_TABLE_DESC {
+    pub Dispatchable: *mut core::ffi::c_void,
+    pub CPUDescriptorHandle: super::d3d12::D3D12_CPU_DESCRIPTOR_HANDLE,
+    pub GPUDescriptorHandle: super::d3d12::D3D12_GPU_DESCRIPTOR_HANDLE,
+    pub SizeInDescriptors: u32,
+}
+#[cfg(feature = "Win32_d3d12")]
+impl Default for DML_BINDING_TABLE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_BINDING_TYPE = i32;
+pub const DML_BINDING_TYPE_BUFFER: DML_BINDING_TYPE = 1;
+pub const DML_BINDING_TYPE_BUFFER_ARRAY: DML_BINDING_TYPE = 2;
+pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = 0;
+#[repr(C)]
+#[cfg(feature = "Win32_d3d12")]
+#[derive(Clone, Copy)]
+pub struct DML_BUFFER_ARRAY_BINDING {
+    pub BindingCount: u32,
+    pub Bindings: *const DML_BUFFER_BINDING,
+}
+#[cfg(feature = "Win32_d3d12")]
+impl Default for DML_BUFFER_ARRAY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_d3d12")]
+#[derive(Clone, Copy)]
+pub struct DML_BUFFER_BINDING {
+    pub Buffer: *mut core::ffi::c_void,
+    pub Offset: u64,
+    pub SizeInBytes: u64,
+}
+#[cfg(feature = "Win32_d3d12")]
+impl Default for DML_BUFFER_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_BUFFER_TENSOR_DESC {
+    pub DataType: DML_TENSOR_DATA_TYPE,
+    pub Flags: DML_TENSOR_FLAGS,
+    pub DimensionCount: u32,
+    pub Sizes: *const u32,
+    pub Strides: *const u32,
+    pub TotalTensorSizeInBytes: u64,
+    pub GuaranteedBaseOffsetAlignment: u32,
+}
+impl Default for DML_BUFFER_TENSOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_CAST_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_CAST_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_CONVOLUTION_DIRECTION = i32;
+pub const DML_CONVOLUTION_DIRECTION_BACKWARD: DML_CONVOLUTION_DIRECTION = 1;
+pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION = 0;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputZeroPointTensor: *const DML_TENSOR_DESC,
+    pub FilterTensor: *const DML_TENSOR_DESC,
+    pub FilterZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub Strides: *const u32,
+    pub Dilations: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+    pub GroupCount: u32,
+}
+impl Default for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_CONVOLUTION_MODE = i32;
+pub const DML_CONVOLUTION_MODE_CONVOLUTION: DML_CONVOLUTION_MODE = 0;
+pub const DML_CONVOLUTION_MODE_CROSS_CORRELATION: DML_CONVOLUTION_MODE = 1;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_CONVOLUTION_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub FilterTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Mode: DML_CONVOLUTION_MODE,
+    pub Direction: DML_CONVOLUTION_DIRECTION,
+    pub DimensionCount: u32,
+    pub Strides: *const u32,
+    pub Dilations: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+    pub OutputPadding: *const u32,
+    pub GroupCount: u32,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
+}
+impl Default for DML_CONVOLUTION_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_CREATE_DEVICE_FLAGS = u32;
+pub const DML_CREATE_DEVICE_FLAG_DEBUG: DML_CREATE_DEVICE_FLAGS = 1;
+pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = 0;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+    pub AxisDirection: DML_AXIS_DIRECTION,
+    pub HasExclusiveProduct: windows_sys::core::BOOL,
+}
+impl Default for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+    pub AxisDirection: DML_AXIS_DIRECTION,
+    pub HasExclusiveSum: windows_sys::core::BOOL,
+}
+impl Default for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_DEPTH_SPACE_ORDER = i32;
+pub const DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH: DML_DEPTH_SPACE_ORDER = 1;
+pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER = 0;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub BlockSize: u32,
+    pub Order: DML_DEPTH_SPACE_ORDER,
+}
+impl Default for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_DEPTH_TO_SPACE_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub BlockSize: u32,
+}
+impl Default for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_DIAGONAL_MATRIX_OPERATOR_DESC {
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Offset: i32,
+    pub Value: f32,
+}
+impl Default for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+    pub MinMaxDataType: DML_TENSOR_DATA_TYPE,
+    pub Min: DML_SCALAR_UNION,
+    pub Max: DML_SCALAR_UNION,
+}
+impl Default for DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_CLIP_GRAD1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub MinMaxDataType: DML_TENSOR_DATA_TYPE,
+    pub Min: DML_SCALAR_UNION,
+    pub Max: DML_SCALAR_UNION,
+}
+impl Default for DML_ELEMENT_WISE_CLIP_GRAD1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub Min: f32,
+    pub Max: f32,
+}
+impl Default for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+    pub Min: f32,
+    pub Max: f32,
+}
+impl Default for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+    pub Exponent: f32,
+}
+impl Default for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_COS_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub ZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_IF_OPERATOR_DESC {
+    pub ConditionTensor: *const DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub InfinityMode: DML_IS_INFINITY_MODE,
+}
+impl Default for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_NEGATE_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_NEGATE_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_POW_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ExponentTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub AScaleTensor: *const DML_TENSOR_DESC,
+    pub AZeroPointTensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub BScaleTensor: *const DML_TENSOR_DESC,
+    pub BZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub ZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub RoundingMode: DML_ROUNDING_MODE,
+}
+impl Default for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+}
+impl Default for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+    pub Min: f32,
+}
+impl Default for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_EXECUTION_FLAGS = u32;
+pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = 1;
+pub const DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE: DML_EXECUTION_FLAGS = 4;
+pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = 2;
+pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = 0;
+pub type DML_FEATURE = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DML_FEATURE_DATA_FEATURE_LEVELS {
+    pub MaxSupportedFeatureLevel: DML_FEATURE_LEVEL,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
+    pub IsSupported: windows_sys::core::BOOL,
+}
+pub const DML_FEATURE_FEATURE_LEVELS: DML_FEATURE = 1;
+pub type DML_FEATURE_LEVEL = i32;
+pub const DML_FEATURE_LEVEL_1_0: DML_FEATURE_LEVEL = 4096;
+pub const DML_FEATURE_LEVEL_2_0: DML_FEATURE_LEVEL = 8192;
+pub const DML_FEATURE_LEVEL_2_1: DML_FEATURE_LEVEL = 8448;
+pub const DML_FEATURE_LEVEL_3_0: DML_FEATURE_LEVEL = 12288;
+pub const DML_FEATURE_LEVEL_3_1: DML_FEATURE_LEVEL = 12544;
+pub const DML_FEATURE_LEVEL_4_0: DML_FEATURE_LEVEL = 16384;
+pub const DML_FEATURE_LEVEL_4_1: DML_FEATURE_LEVEL = 16640;
+pub const DML_FEATURE_LEVEL_5_0: DML_FEATURE_LEVEL = 20480;
+pub const DML_FEATURE_LEVEL_5_1: DML_FEATURE_LEVEL = 20736;
+pub const DML_FEATURE_LEVEL_5_2: DML_FEATURE_LEVEL = 20992;
+pub const DML_FEATURE_LEVEL_6_0: DML_FEATURE_LEVEL = 24576;
+pub const DML_FEATURE_LEVEL_6_1: DML_FEATURE_LEVEL = 24832;
+pub const DML_FEATURE_LEVEL_6_2: DML_FEATURE_LEVEL = 25088;
+pub const DML_FEATURE_LEVEL_6_3: DML_FEATURE_LEVEL = 25344;
+pub const DML_FEATURE_LEVEL_6_4: DML_FEATURE_LEVEL = 25600;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_FEATURE_QUERY_FEATURE_LEVELS {
+    pub RequestedFeatureLevelCount: u32,
+    pub RequestedFeatureLevels: *const DML_FEATURE_LEVEL,
+}
+impl Default for DML_FEATURE_QUERY_FEATURE_LEVELS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
+    pub DataType: DML_TENSOR_DATA_TYPE,
+}
+pub const DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT: DML_FEATURE = 0;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ValueDataType: DML_TENSOR_DATA_TYPE,
+    pub Value: DML_SCALAR_UNION,
+}
+impl Default for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ValueDataType: DML_TENSOR_DATA_TYPE,
+    pub ValueStart: DML_SCALAR_UNION,
+    pub ValueDelta: DML_SCALAR_UNION,
+}
+impl Default for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_GATHER_ELEMENTS_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+}
+impl Default for DML_GATHER_ELEMENTS_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_GATHER_ND1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub InputDimensionCount: u32,
+    pub IndicesDimensionCount: u32,
+    pub BatchDimensionCount: u32,
+}
+impl Default for DML_GATHER_ND1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_GATHER_ND_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub InputDimensionCount: u32,
+    pub IndicesDimensionCount: u32,
+}
+impl Default for DML_GATHER_ND_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_GATHER_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+    pub IndexDimensions: u32,
+}
+impl Default for DML_GATHER_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_GEMM_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub CTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub TransA: DML_MATRIX_TRANSFORM,
+    pub TransB: DML_MATRIX_TRANSFORM,
+    pub Alpha: f32,
+    pub Beta: f32,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
+}
+impl Default for DML_GEMM_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_GRAPH_DESC {
+    pub InputCount: u32,
+    pub OutputCount: u32,
+    pub NodeCount: u32,
+    pub Nodes: *const DML_GRAPH_NODE_DESC,
+    pub InputEdgeCount: u32,
+    pub InputEdges: *const DML_GRAPH_EDGE_DESC,
+    pub OutputEdgeCount: u32,
+    pub OutputEdges: *const DML_GRAPH_EDGE_DESC,
+    pub IntermediateEdgeCount: u32,
+    pub IntermediateEdges: *const DML_GRAPH_EDGE_DESC,
+}
+impl Default for DML_GRAPH_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_GRAPH_EDGE_DESC {
+    pub Type: DML_GRAPH_EDGE_TYPE,
+    pub Desc: *const core::ffi::c_void,
+}
+impl Default for DML_GRAPH_EDGE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_GRAPH_EDGE_TYPE = i32;
+pub const DML_GRAPH_EDGE_TYPE_INPUT: DML_GRAPH_EDGE_TYPE = 1;
+pub const DML_GRAPH_EDGE_TYPE_INTERMEDIATE: DML_GRAPH_EDGE_TYPE = 3;
+pub const DML_GRAPH_EDGE_TYPE_INVALID: DML_GRAPH_EDGE_TYPE = 0;
+pub const DML_GRAPH_EDGE_TYPE_OUTPUT: DML_GRAPH_EDGE_TYPE = 2;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_GRAPH_NODE_DESC {
+    pub Type: DML_GRAPH_NODE_TYPE,
+    pub Desc: *const core::ffi::c_void,
+}
+impl Default for DML_GRAPH_NODE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_GRAPH_NODE_TYPE = i32;
+pub const DML_GRAPH_NODE_TYPE_INVALID: DML_GRAPH_NODE_TYPE = 0;
+pub const DML_GRAPH_NODE_TYPE_OPERATOR: DML_GRAPH_NODE_TYPE = 1;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_GRU_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub WeightTensor: *const DML_TENSOR_DESC,
+    pub RecurrenceTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub HiddenInitTensor: *const DML_TENSOR_DESC,
+    pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
+    pub OutputSequenceTensor: *const DML_TENSOR_DESC,
+    pub OutputSingleTensor: *const DML_TENSOR_DESC,
+    pub ActivationDescCount: u32,
+    pub ActivationDescs: *const DML_OPERATOR_DESC,
+    pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
+    pub LinearBeforeReset: windows_sys::core::BOOL,
+}
+impl Default for DML_GRU_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_INPUT_GRAPH_EDGE_DESC {
+    pub GraphInputIndex: u32,
+    pub ToNodeIndex: u32,
+    pub ToNodeInputIndex: u32,
+    pub Name: *const i8,
+}
+impl Default for DML_INPUT_GRAPH_EDGE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_INTERMEDIATE_GRAPH_EDGE_DESC {
+    pub FromNodeIndex: u32,
+    pub FromNodeOutputIndex: u32,
+    pub ToNodeIndex: u32,
+    pub ToNodeInputIndex: u32,
+    pub Name: *const i8,
+}
+impl Default for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_INTERPOLATION_MODE = i32;
+pub const DML_INTERPOLATION_MODE_LINEAR: DML_INTERPOLATION_MODE = 1;
+pub const DML_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DML_INTERPOLATION_MODE = 0;
+pub type DML_IS_INFINITY_MODE = i32;
+pub const DML_IS_INFINITY_MODE_EITHER: DML_IS_INFINITY_MODE = 0;
+pub const DML_IS_INFINITY_MODE_NEGATIVE: DML_IS_INFINITY_MODE = 2;
+pub const DML_IS_INFINITY_MODE_POSITIVE: DML_IS_INFINITY_MODE = 1;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_JOIN_OPERATOR_DESC {
+    pub InputCount: u32,
+    pub InputTensors: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+}
+impl Default for DML_JOIN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub CrossChannel: windows_sys::core::BOOL,
+    pub LocalSize: u32,
+    pub Alpha: f32,
+    pub Beta: f32,
+    pub Bias: f32,
+}
+impl Default for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub CrossChannel: windows_sys::core::BOOL,
+    pub LocalSize: u32,
+    pub Alpha: f32,
+    pub Beta: f32,
+    pub Bias: f32,
+}
+impl Default for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_LP_NORMALIZATION_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+    pub Epsilon: f32,
+    pub P: u32,
+}
+impl Default for DML_LP_NORMALIZATION_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_LP_POOLING_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+    pub P: u32,
+}
+impl Default for DML_LP_POOLING_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_LSTM_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub WeightTensor: *const DML_TENSOR_DESC,
+    pub RecurrenceTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub HiddenInitTensor: *const DML_TENSOR_DESC,
+    pub CellMemInitTensor: *const DML_TENSOR_DESC,
+    pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
+    pub PeepholeTensor: *const DML_TENSOR_DESC,
+    pub OutputSequenceTensor: *const DML_TENSOR_DESC,
+    pub OutputSingleTensor: *const DML_TENSOR_DESC,
+    pub OutputCellSingleTensor: *const DML_TENSOR_DESC,
+    pub ActivationDescCount: u32,
+    pub ActivationDescs: *const DML_OPERATOR_DESC,
+    pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
+    pub ClipThreshold: f32,
+    pub UseClipThreshold: windows_sys::core::BOOL,
+    pub CoupleInputForget: windows_sys::core::BOOL,
+}
+impl Default for DML_LSTM_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub AZeroPointTensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub BZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_MATRIX_TRANSFORM = i32;
+pub const DML_MATRIX_TRANSFORM_NONE: DML_MATRIX_TRANSFORM = 0;
+pub const DML_MATRIX_TRANSFORM_TRANSPOSE: DML_MATRIX_TRANSFORM = 1;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_MAX_POOLING1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub OutputIndicesTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+}
+impl Default for DML_MAX_POOLING1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_MAX_POOLING2_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub OutputIndicesTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+    pub Dilations: *const u32,
+}
+impl Default for DML_MAX_POOLING2_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+    pub Dilations: *const u32,
+}
+impl Default for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_MAX_POOLING_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+}
+impl Default for DML_MAX_POOLING_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_MAX_UNPOOLING_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_MAX_UNPOOLING_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub AxisCount: u32,
+    pub Axes: *const u32,
+    pub NormalizeVariance: windows_sys::core::BOOL,
+    pub Epsilon: f32,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
+}
+impl Default for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub CrossChannel: windows_sys::core::BOOL,
+    pub NormalizeVariance: windows_sys::core::BOOL,
+    pub Epsilon: f32,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
+}
+impl Default for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputCountTensor: *const DML_TENSOR_DESC,
+    pub OutputCoordinatesTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_NONZERO_COORDINATES_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ONE_HOT_OPERATOR_DESC {
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub ValuesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+}
+impl Default for DML_ONE_HOT_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const DML_OPERATOR_ACTIVATION_CELU: DML_OPERATOR_TYPE = 128;
+pub const DML_OPERATOR_ACTIVATION_ELU: DML_OPERATOR_TYPE = 35;
+pub const DML_OPERATOR_ACTIVATION_HARDMAX: DML_OPERATOR_TYPE = 36;
+pub const DML_OPERATOR_ACTIVATION_HARD_SIGMOID: DML_OPERATOR_TYPE = 37;
+pub const DML_OPERATOR_ACTIVATION_IDENTITY: DML_OPERATOR_TYPE = 38;
+pub const DML_OPERATOR_ACTIVATION_LEAKY_RELU: DML_OPERATOR_TYPE = 39;
+pub const DML_OPERATOR_ACTIVATION_LINEAR: DML_OPERATOR_TYPE = 40;
+pub const DML_OPERATOR_ACTIVATION_LOG_SOFTMAX: DML_OPERATOR_TYPE = 41;
+pub const DML_OPERATOR_ACTIVATION_PARAMETERIZED_RELU: DML_OPERATOR_TYPE = 42;
+pub const DML_OPERATOR_ACTIVATION_PARAMETRIC_SOFTPLUS: DML_OPERATOR_TYPE = 43;
+pub const DML_OPERATOR_ACTIVATION_RELU: DML_OPERATOR_TYPE = 44;
+pub const DML_OPERATOR_ACTIVATION_RELU_GRAD: DML_OPERATOR_TYPE = 129;
+pub const DML_OPERATOR_ACTIVATION_SCALED_ELU: DML_OPERATOR_TYPE = 45;
+pub const DML_OPERATOR_ACTIVATION_SCALED_TANH: DML_OPERATOR_TYPE = 46;
+pub const DML_OPERATOR_ACTIVATION_SHRINK: DML_OPERATOR_TYPE = 90;
+pub const DML_OPERATOR_ACTIVATION_SIGMOID: DML_OPERATOR_TYPE = 47;
+pub const DML_OPERATOR_ACTIVATION_SOFTMAX: DML_OPERATOR_TYPE = 48;
+pub const DML_OPERATOR_ACTIVATION_SOFTPLUS: DML_OPERATOR_TYPE = 49;
+pub const DML_OPERATOR_ACTIVATION_SOFTSIGN: DML_OPERATOR_TYPE = 50;
+pub const DML_OPERATOR_ACTIVATION_TANH: DML_OPERATOR_TYPE = 51;
+pub const DML_OPERATOR_ACTIVATION_THRESHOLDED_RELU: DML_OPERATOR_TYPE = 52;
+pub const DML_OPERATOR_ADAM_OPTIMIZER: DML_OPERATOR_TYPE = 136;
+pub const DML_OPERATOR_ARGMAX: DML_OPERATOR_TYPE = 138;
+pub const DML_OPERATOR_ARGMIN: DML_OPERATOR_TYPE = 137;
+pub const DML_OPERATOR_AVERAGE_POOLING: DML_OPERATOR_TYPE = 56;
+pub const DML_OPERATOR_AVERAGE_POOLING_GRAD: DML_OPERATOR_TYPE = 130;
+pub const DML_OPERATOR_BATCH_NORMALIZATION: DML_OPERATOR_TYPE = 72;
+pub const DML_OPERATOR_BATCH_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = 146;
+pub const DML_OPERATOR_BATCH_NORMALIZATION_TRAINING: DML_OPERATOR_TYPE = 151;
+pub const DML_OPERATOR_BATCH_NORMALIZATION_TRAINING_GRAD: DML_OPERATOR_TYPE = 152;
+pub const DML_OPERATOR_CAST: DML_OPERATOR_TYPE = 61;
+pub const DML_OPERATOR_CONVOLUTION: DML_OPERATOR_TYPE = 53;
+pub const DML_OPERATOR_CONVOLUTION_INTEGER: DML_OPERATOR_TYPE = 119;
+pub const DML_OPERATOR_CUMULATIVE_PRODUCT: DML_OPERATOR_TYPE = 145;
+pub const DML_OPERATOR_CUMULATIVE_SUMMATION: DML_OPERATOR_TYPE = 105;
+pub const DML_OPERATOR_DEPTH_TO_SPACE: DML_OPERATOR_TYPE = 69;
+pub const DML_OPERATOR_DEPTH_TO_SPACE1: DML_OPERATOR_TYPE = 113;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_OPERATOR_DESC {
+    pub Type: DML_OPERATOR_TYPE,
+    pub Desc: *const core::ffi::c_void,
+}
+impl Default for DML_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const DML_OPERATOR_DIAGONAL_MATRIX: DML_OPERATOR_TYPE = 93;
+pub const DML_OPERATOR_DYNAMIC_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = 148;
+pub const DML_OPERATOR_ELEMENT_WISE_ABS: DML_OPERATOR_TYPE = 2;
+pub const DML_OPERATOR_ELEMENT_WISE_ACOS: DML_OPERATOR_TYPE = 3;
+pub const DML_OPERATOR_ELEMENT_WISE_ACOSH: DML_OPERATOR_TYPE = 86;
+pub const DML_OPERATOR_ELEMENT_WISE_ADD: DML_OPERATOR_TYPE = 4;
+pub const DML_OPERATOR_ELEMENT_WISE_ADD1: DML_OPERATOR_TYPE = 89;
+pub const DML_OPERATOR_ELEMENT_WISE_ASIN: DML_OPERATOR_TYPE = 5;
+pub const DML_OPERATOR_ELEMENT_WISE_ASINH: DML_OPERATOR_TYPE = 85;
+pub const DML_OPERATOR_ELEMENT_WISE_ATAN: DML_OPERATOR_TYPE = 6;
+pub const DML_OPERATOR_ELEMENT_WISE_ATANH: DML_OPERATOR_TYPE = 87;
+pub const DML_OPERATOR_ELEMENT_WISE_ATAN_YX: DML_OPERATOR_TYPE = 141;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_AND: DML_OPERATOR_TYPE = 121;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_COUNT: DML_OPERATOR_TYPE = 125;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_NOT: DML_OPERATOR_TYPE = 124;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_OR: DML_OPERATOR_TYPE = 122;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_LEFT: DML_OPERATOR_TYPE = 97;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_RIGHT: DML_OPERATOR_TYPE = 98;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_XOR: DML_OPERATOR_TYPE = 123;
+pub const DML_OPERATOR_ELEMENT_WISE_CEIL: DML_OPERATOR_TYPE = 7;
+pub const DML_OPERATOR_ELEMENT_WISE_CLIP: DML_OPERATOR_TYPE = 8;
+pub const DML_OPERATOR_ELEMENT_WISE_CLIP1: DML_OPERATOR_TYPE = 153;
+pub const DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD: DML_OPERATOR_TYPE = 142;
+pub const DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD1: DML_OPERATOR_TYPE = 154;
+pub const DML_OPERATOR_ELEMENT_WISE_CONSTANT_POW: DML_OPERATOR_TYPE = 26;
+pub const DML_OPERATOR_ELEMENT_WISE_COS: DML_OPERATOR_TYPE = 9;
+pub const DML_OPERATOR_ELEMENT_WISE_COSH: DML_OPERATOR_TYPE = 83;
+pub const DML_OPERATOR_ELEMENT_WISE_DEQUANTIZE_LINEAR: DML_OPERATOR_TYPE = 34;
+pub const DML_OPERATOR_ELEMENT_WISE_DIFFERENCE_SQUARE: DML_OPERATOR_TYPE = 143;
+pub const DML_OPERATOR_ELEMENT_WISE_DIVIDE: DML_OPERATOR_TYPE = 10;
+pub const DML_OPERATOR_ELEMENT_WISE_ERF: DML_OPERATOR_TYPE = 81;
+pub const DML_OPERATOR_ELEMENT_WISE_EXP: DML_OPERATOR_TYPE = 11;
+pub const DML_OPERATOR_ELEMENT_WISE_FLOOR: DML_OPERATOR_TYPE = 12;
+pub const DML_OPERATOR_ELEMENT_WISE_IDENTITY: DML_OPERATOR_TYPE = 1;
+pub const DML_OPERATOR_ELEMENT_WISE_IF: DML_OPERATOR_TYPE = 88;
+pub const DML_OPERATOR_ELEMENT_WISE_IS_INFINITY: DML_OPERATOR_TYPE = 100;
+pub const DML_OPERATOR_ELEMENT_WISE_IS_NAN: DML_OPERATOR_TYPE = 80;
+pub const DML_OPERATOR_ELEMENT_WISE_LOG: DML_OPERATOR_TYPE = 13;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_AND: DML_OPERATOR_TYPE = 14;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_EQUALS: DML_OPERATOR_TYPE = 15;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN: DML_OPERATOR_TYPE = 16;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL: DML_OPERATOR_TYPE = 126;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN: DML_OPERATOR_TYPE = 17;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL: DML_OPERATOR_TYPE = 127;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_NOT: DML_OPERATOR_TYPE = 18;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_OR: DML_OPERATOR_TYPE = 19;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_XOR: DML_OPERATOR_TYPE = 20;
+pub const DML_OPERATOR_ELEMENT_WISE_MAX: DML_OPERATOR_TYPE = 21;
+pub const DML_OPERATOR_ELEMENT_WISE_MEAN: DML_OPERATOR_TYPE = 22;
+pub const DML_OPERATOR_ELEMENT_WISE_MIN: DML_OPERATOR_TYPE = 23;
+pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_FLOOR: DML_OPERATOR_TYPE = 102;
+pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_TRUNCATE: DML_OPERATOR_TYPE = 101;
+pub const DML_OPERATOR_ELEMENT_WISE_MULTIPLY: DML_OPERATOR_TYPE = 24;
+pub const DML_OPERATOR_ELEMENT_WISE_NEGATE: DML_OPERATOR_TYPE = 156;
+pub const DML_OPERATOR_ELEMENT_WISE_POW: DML_OPERATOR_TYPE = 25;
+pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZED_LINEAR_ADD: DML_OPERATOR_TYPE = 147;
+pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = 33;
+pub const DML_OPERATOR_ELEMENT_WISE_RECIP: DML_OPERATOR_TYPE = 27;
+pub const DML_OPERATOR_ELEMENT_WISE_ROUND: DML_OPERATOR_TYPE = 99;
+pub const DML_OPERATOR_ELEMENT_WISE_SIGN: DML_OPERATOR_TYPE = 79;
+pub const DML_OPERATOR_ELEMENT_WISE_SIN: DML_OPERATOR_TYPE = 28;
+pub const DML_OPERATOR_ELEMENT_WISE_SINH: DML_OPERATOR_TYPE = 82;
+pub const DML_OPERATOR_ELEMENT_WISE_SQRT: DML_OPERATOR_TYPE = 29;
+pub const DML_OPERATOR_ELEMENT_WISE_SUBTRACT: DML_OPERATOR_TYPE = 30;
+pub const DML_OPERATOR_ELEMENT_WISE_TAN: DML_OPERATOR_TYPE = 31;
+pub const DML_OPERATOR_ELEMENT_WISE_TANH: DML_OPERATOR_TYPE = 84;
+pub const DML_OPERATOR_ELEMENT_WISE_THRESHOLD: DML_OPERATOR_TYPE = 32;
+pub const DML_OPERATOR_FILL_VALUE_CONSTANT: DML_OPERATOR_TYPE = 103;
+pub const DML_OPERATOR_FILL_VALUE_SEQUENCE: DML_OPERATOR_TYPE = 104;
+pub const DML_OPERATOR_GATHER: DML_OPERATOR_TYPE = 67;
+pub const DML_OPERATOR_GATHER_ELEMENTS: DML_OPERATOR_TYPE = 107;
+pub const DML_OPERATOR_GATHER_ND: DML_OPERATOR_TYPE = 108;
+pub const DML_OPERATOR_GATHER_ND1: DML_OPERATOR_TYPE = 140;
+pub const DML_OPERATOR_GEMM: DML_OPERATOR_TYPE = 54;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_OPERATOR_GRAPH_NODE_DESC {
+    pub Operator: *mut core::ffi::c_void,
+    pub Name: *const i8,
+}
+impl Default for DML_OPERATOR_GRAPH_NODE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const DML_OPERATOR_GRU: DML_OPERATOR_TYPE = 78;
+pub const DML_OPERATOR_INVALID: DML_OPERATOR_TYPE = 0;
+pub const DML_OPERATOR_JOIN: DML_OPERATOR_TYPE = 63;
+pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION: DML_OPERATOR_TYPE = 74;
+pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = 144;
+pub const DML_OPERATOR_LP_NORMALIZATION: DML_OPERATOR_TYPE = 75;
+pub const DML_OPERATOR_LP_POOLING: DML_OPERATOR_TYPE = 57;
+pub const DML_OPERATOR_LSTM: DML_OPERATOR_TYPE = 77;
+pub const DML_OPERATOR_MATRIX_MULTIPLY_INTEGER: DML_OPERATOR_TYPE = 117;
+pub const DML_OPERATOR_MAX_POOLING: DML_OPERATOR_TYPE = 58;
+pub const DML_OPERATOR_MAX_POOLING1: DML_OPERATOR_TYPE = 91;
+pub const DML_OPERATOR_MAX_POOLING2: DML_OPERATOR_TYPE = 110;
+pub const DML_OPERATOR_MAX_POOLING_GRAD: DML_OPERATOR_TYPE = 131;
+pub const DML_OPERATOR_MAX_UNPOOLING: DML_OPERATOR_TYPE = 92;
+pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION: DML_OPERATOR_TYPE = 73;
+pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION1: DML_OPERATOR_TYPE = 115;
+pub const DML_OPERATOR_NONZERO_COORDINATES: DML_OPERATOR_TYPE = 133;
+pub const DML_OPERATOR_ONE_HOT: DML_OPERATOR_TYPE = 95;
+pub const DML_OPERATOR_PADDING: DML_OPERATOR_TYPE = 64;
+pub const DML_OPERATOR_PADDING1: DML_OPERATOR_TYPE = 155;
+pub const DML_OPERATOR_QUANTIZED_LINEAR_CONVOLUTION: DML_OPERATOR_TYPE = 120;
+pub const DML_OPERATOR_QUANTIZED_LINEAR_MATRIX_MULTIPLY: DML_OPERATOR_TYPE = 118;
+pub const DML_OPERATOR_RANDOM_GENERATOR: DML_OPERATOR_TYPE = 132;
+pub const DML_OPERATOR_REDUCE: DML_OPERATOR_TYPE = 55;
+pub const DML_OPERATOR_RESAMPLE: DML_OPERATOR_TYPE = 96;
+pub const DML_OPERATOR_RESAMPLE1: DML_OPERATOR_TYPE = 116;
+pub const DML_OPERATOR_RESAMPLE_GRAD: DML_OPERATOR_TYPE = 134;
+pub const DML_OPERATOR_REVERSE_SUBSEQUENCES: DML_OPERATOR_TYPE = 106;
+pub const DML_OPERATOR_RNN: DML_OPERATOR_TYPE = 76;
+pub const DML_OPERATOR_ROI_ALIGN: DML_OPERATOR_TYPE = 139;
+pub const DML_OPERATOR_ROI_ALIGN1: DML_OPERATOR_TYPE = 149;
+pub const DML_OPERATOR_ROI_ALIGN_GRAD: DML_OPERATOR_TYPE = 150;
+pub const DML_OPERATOR_ROI_POOLING: DML_OPERATOR_TYPE = 59;
+pub const DML_OPERATOR_SCATTER: DML_OPERATOR_TYPE = 94;
+pub const DML_OPERATOR_SCATTER_ELEMENTS: DML_OPERATOR_TYPE = 94;
+pub const DML_OPERATOR_SCATTER_ND: DML_OPERATOR_TYPE = 109;
+pub const DML_OPERATOR_SLICE: DML_OPERATOR_TYPE = 60;
+pub const DML_OPERATOR_SLICE1: DML_OPERATOR_TYPE = 111;
+pub const DML_OPERATOR_SLICE_GRAD: DML_OPERATOR_TYPE = 135;
+pub const DML_OPERATOR_SPACE_TO_DEPTH: DML_OPERATOR_TYPE = 68;
+pub const DML_OPERATOR_SPACE_TO_DEPTH1: DML_OPERATOR_TYPE = 114;
+pub const DML_OPERATOR_SPLIT: DML_OPERATOR_TYPE = 62;
+pub const DML_OPERATOR_TILE: DML_OPERATOR_TYPE = 70;
+pub const DML_OPERATOR_TOP_K: DML_OPERATOR_TYPE = 71;
+pub const DML_OPERATOR_TOP_K1: DML_OPERATOR_TYPE = 112;
+pub type DML_OPERATOR_TYPE = i32;
+pub const DML_OPERATOR_UPSAMPLE_2D: DML_OPERATOR_TYPE = 66;
+pub const DML_OPERATOR_VALUE_SCALE_2D: DML_OPERATOR_TYPE = 65;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_OUTPUT_GRAPH_EDGE_DESC {
+    pub FromNodeIndex: u32,
+    pub FromNodeOutputIndex: u32,
+    pub GraphOutputIndex: u32,
+    pub Name: *const i8,
+}
+impl Default for DML_OUTPUT_GRAPH_EDGE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_PADDING1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub PaddingMode: DML_PADDING_MODE,
+    pub PaddingValueDataType: DML_TENSOR_DATA_TYPE,
+    pub PaddingValue: DML_SCALAR_UNION,
+    pub DimensionCount: u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+}
+impl Default for DML_PADDING1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_PADDING_MODE = i32;
+pub const DML_PADDING_MODE_CONSTANT: DML_PADDING_MODE = 0;
+pub const DML_PADDING_MODE_EDGE: DML_PADDING_MODE = 1;
+pub const DML_PADDING_MODE_REFLECTION: DML_PADDING_MODE = 2;
+pub const DML_PADDING_MODE_SYMMETRIC: DML_PADDING_MODE = 3;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_PADDING_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub PaddingMode: DML_PADDING_MODE,
+    pub PaddingValue: f32,
+    pub DimensionCount: u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+}
+impl Default for DML_PADDING_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputScaleTensor: *const DML_TENSOR_DESC,
+    pub InputZeroPointTensor: *const DML_TENSOR_DESC,
+    pub FilterTensor: *const DML_TENSOR_DESC,
+    pub FilterScaleTensor: *const DML_TENSOR_DESC,
+    pub FilterZeroPointTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub Strides: *const u32,
+    pub Dilations: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+    pub GroupCount: u32,
+}
+impl Default for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub AScaleTensor: *const DML_TENSOR_DESC,
+    pub AZeroPointTensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub BScaleTensor: *const DML_TENSOR_DESC,
+    pub BZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_RANDOM_GENERATOR_OPERATOR_DESC {
+    pub InputStateTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub OutputStateTensor: *const DML_TENSOR_DESC,
+    pub Type: DML_RANDOM_GENERATOR_TYPE,
+}
+impl Default for DML_RANDOM_GENERATOR_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_RANDOM_GENERATOR_TYPE = i32;
+pub const DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10: DML_RANDOM_GENERATOR_TYPE = 0;
+pub type DML_RECURRENT_NETWORK_DIRECTION = i32;
+pub const DML_RECURRENT_NETWORK_DIRECTION_BACKWARD: DML_RECURRENT_NETWORK_DIRECTION = 1;
+pub const DML_RECURRENT_NETWORK_DIRECTION_BIDIRECTIONAL: DML_RECURRENT_NETWORK_DIRECTION = 2;
+pub const DML_RECURRENT_NETWORK_DIRECTION_FORWARD: DML_RECURRENT_NETWORK_DIRECTION = 0;
+pub type DML_REDUCE_FUNCTION = i32;
+pub const DML_REDUCE_FUNCTION_ARGMAX: DML_REDUCE_FUNCTION = 0;
+pub const DML_REDUCE_FUNCTION_ARGMIN: DML_REDUCE_FUNCTION = 1;
+pub const DML_REDUCE_FUNCTION_AVERAGE: DML_REDUCE_FUNCTION = 2;
+pub const DML_REDUCE_FUNCTION_L1: DML_REDUCE_FUNCTION = 3;
+pub const DML_REDUCE_FUNCTION_L2: DML_REDUCE_FUNCTION = 4;
+pub const DML_REDUCE_FUNCTION_LOG_SUM: DML_REDUCE_FUNCTION = 5;
+pub const DML_REDUCE_FUNCTION_LOG_SUM_EXP: DML_REDUCE_FUNCTION = 6;
+pub const DML_REDUCE_FUNCTION_MAX: DML_REDUCE_FUNCTION = 7;
+pub const DML_REDUCE_FUNCTION_MIN: DML_REDUCE_FUNCTION = 8;
+pub const DML_REDUCE_FUNCTION_MULTIPLY: DML_REDUCE_FUNCTION = 9;
+pub const DML_REDUCE_FUNCTION_SUM: DML_REDUCE_FUNCTION = 10;
+pub const DML_REDUCE_FUNCTION_SUM_SQUARE: DML_REDUCE_FUNCTION = 11;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_REDUCE_OPERATOR_DESC {
+    pub Function: DML_REDUCE_FUNCTION,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub AxisCount: u32,
+    pub Axes: *const u32,
+}
+impl Default for DML_REDUCE_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_RESAMPLE1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub InterpolationMode: DML_INTERPOLATION_MODE,
+    pub DimensionCount: u32,
+    pub Scales: *const f32,
+    pub InputPixelOffsets: *const f32,
+    pub OutputPixelOffsets: *const f32,
+}
+impl Default for DML_RESAMPLE1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub InterpolationMode: DML_INTERPOLATION_MODE,
+    pub DimensionCount: u32,
+    pub Scales: *const f32,
+    pub InputPixelOffsets: *const f32,
+    pub OutputPixelOffsets: *const f32,
+}
+impl Default for DML_RESAMPLE_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_RESAMPLE_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub InterpolationMode: DML_INTERPOLATION_MODE,
+    pub ScaleCount: u32,
+    pub Scales: *const f32,
+}
+impl Default for DML_RESAMPLE_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+}
+impl Default for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_RNN_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub WeightTensor: *const DML_TENSOR_DESC,
+    pub RecurrenceTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub HiddenInitTensor: *const DML_TENSOR_DESC,
+    pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
+    pub OutputSequenceTensor: *const DML_TENSOR_DESC,
+    pub OutputSingleTensor: *const DML_TENSOR_DESC,
+    pub ActivationDescCount: u32,
+    pub ActivationDescs: *const DML_OPERATOR_DESC,
+    pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
+}
+impl Default for DML_RNN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ROITensor: *const DML_TENSOR_DESC,
+    pub BatchIndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ReductionFunction: DML_REDUCE_FUNCTION,
+    pub InterpolationMode: DML_INTERPOLATION_MODE,
+    pub SpatialScaleX: f32,
+    pub SpatialScaleY: f32,
+    pub InputPixelOffset: f32,
+    pub OutputPixelOffset: f32,
+    pub OutOfBoundsInputValue: f32,
+    pub MinimumSamplesPerOutput: u32,
+    pub MaximumSamplesPerOutput: u32,
+    pub AlignRegionsToCorners: windows_sys::core::BOOL,
+}
+impl Default for DML_ROI_ALIGN1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ROI_ALIGN_GRAD_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub ROITensor: *const DML_TENSOR_DESC,
+    pub BatchIndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputROIGradientTensor: *const DML_TENSOR_DESC,
+    pub ReductionFunction: DML_REDUCE_FUNCTION,
+    pub InterpolationMode: DML_INTERPOLATION_MODE,
+    pub SpatialScaleX: f32,
+    pub SpatialScaleY: f32,
+    pub InputPixelOffset: f32,
+    pub OutputPixelOffset: f32,
+    pub MinimumSamplesPerOutput: u32,
+    pub MaximumSamplesPerOutput: u32,
+    pub AlignRegionsToCorners: windows_sys::core::BOOL,
+}
+impl Default for DML_ROI_ALIGN_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ROI_ALIGN_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ROITensor: *const DML_TENSOR_DESC,
+    pub BatchIndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ReductionFunction: DML_REDUCE_FUNCTION,
+    pub InterpolationMode: DML_INTERPOLATION_MODE,
+    pub SpatialScaleX: f32,
+    pub SpatialScaleY: f32,
+    pub OutOfBoundsInputValue: f32,
+    pub MinimumSamplesPerOutput: u32,
+    pub MaximumSamplesPerOutput: u32,
+}
+impl Default for DML_ROI_ALIGN_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ROI_POOLING_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ROITensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub SpatialScale: f32,
+    pub PooledSize: DML_SIZE_2D,
+}
+impl Default for DML_ROI_POOLING_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_ROUNDING_MODE = i32;
+pub const DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN: DML_ROUNDING_MODE = 0;
+pub const DML_ROUNDING_MODE_TOWARD_INFINITY: DML_ROUNDING_MODE = 2;
+pub const DML_ROUNDING_MODE_TOWARD_ZERO: DML_ROUNDING_MODE = 1;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DML_SCALAR_UNION {
+    pub Bytes: [u8; 8],
+    pub Int8: i8,
+    pub UInt8: u8,
+    pub Int16: i16,
+    pub UInt16: u16,
+    pub Int32: i32,
+    pub UInt32: u32,
+    pub Int64: i64,
+    pub UInt64: u64,
+    pub Float32: f32,
+    pub Float64: f64,
+}
+impl Default for DML_SCALAR_UNION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DML_SCALE_BIAS {
+    pub Scale: f32,
+    pub Bias: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_SCATTER_ND_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub UpdatesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub InputDimensionCount: u32,
+    pub IndicesDimensionCount: u32,
+}
+impl Default for DML_SCATTER_ND_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_SCATTER_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub UpdatesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+}
+impl Default for DML_SCATTER_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DML_SIZE_2D {
+    pub Width: u32,
+    pub Height: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_SLICE1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub InputWindowOffsets: *const u32,
+    pub InputWindowSizes: *const u32,
+    pub InputWindowStrides: *const i32,
+}
+impl Default for DML_SLICE1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_SLICE_GRAD_OPERATOR_DESC {
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub InputWindowOffsets: *const u32,
+    pub InputWindowSizes: *const u32,
+    pub InputWindowStrides: *const i32,
+}
+impl Default for DML_SLICE_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_SLICE_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub DimensionCount: u32,
+    pub Offsets: *const u32,
+    pub Sizes: *const u32,
+    pub Strides: *const u32,
+}
+impl Default for DML_SLICE_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub BlockSize: u32,
+    pub Order: DML_DEPTH_SPACE_ORDER,
+}
+impl Default for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_SPACE_TO_DEPTH_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub BlockSize: u32,
+}
+impl Default for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_SPLIT_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputCount: u32,
+    pub OutputTensors: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+}
+impl Default for DML_SPLIT_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const DML_TARGET_VERSION: u32 = 20480;
+pub type DML_TENSOR_DATA_TYPE = i32;
+pub const DML_TENSOR_DATA_TYPE_FLOAT16: DML_TENSOR_DATA_TYPE = 2;
+pub const DML_TENSOR_DATA_TYPE_FLOAT32: DML_TENSOR_DATA_TYPE = 1;
+pub const DML_TENSOR_DATA_TYPE_FLOAT64: DML_TENSOR_DATA_TYPE = 9;
+pub const DML_TENSOR_DATA_TYPE_INT16: DML_TENSOR_DATA_TYPE = 7;
+pub const DML_TENSOR_DATA_TYPE_INT32: DML_TENSOR_DATA_TYPE = 6;
+pub const DML_TENSOR_DATA_TYPE_INT64: DML_TENSOR_DATA_TYPE = 11;
+pub const DML_TENSOR_DATA_TYPE_INT8: DML_TENSOR_DATA_TYPE = 8;
+pub const DML_TENSOR_DATA_TYPE_UINT16: DML_TENSOR_DATA_TYPE = 4;
+pub const DML_TENSOR_DATA_TYPE_UINT32: DML_TENSOR_DATA_TYPE = 3;
+pub const DML_TENSOR_DATA_TYPE_UINT64: DML_TENSOR_DATA_TYPE = 10;
+pub const DML_TENSOR_DATA_TYPE_UINT8: DML_TENSOR_DATA_TYPE = 5;
+pub const DML_TENSOR_DATA_TYPE_UNKNOWN: DML_TENSOR_DATA_TYPE = 0;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_TENSOR_DESC {
+    pub Type: DML_TENSOR_TYPE,
+    pub Desc: *const core::ffi::c_void,
+}
+impl Default for DML_TENSOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DML_TENSOR_FLAGS = u32;
+pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = 0;
+pub const DML_TENSOR_FLAG_OWNED_BY_DML: DML_TENSOR_FLAGS = 1;
+pub type DML_TENSOR_TYPE = i32;
+pub const DML_TENSOR_TYPE_BUFFER: DML_TENSOR_TYPE = 1;
+pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = 0;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_TILE_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub RepeatsCount: u32,
+    pub Repeats: *const u32,
+}
+impl Default for DML_TILE_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_TOP_K1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputValueTensor: *const DML_TENSOR_DESC,
+    pub OutputIndexTensor: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+    pub K: u32,
+    pub AxisDirection: DML_AXIS_DIRECTION,
+}
+impl Default for DML_TOP_K1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_TOP_K_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputValueTensor: *const DML_TENSOR_DESC,
+    pub OutputIndexTensor: *const DML_TENSOR_DESC,
+    pub Axis: u32,
+    pub K: u32,
+}
+impl Default for DML_TOP_K_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_UPSAMPLE_2D_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleSize: DML_SIZE_2D,
+    pub InterpolationMode: DML_INTERPOLATION_MODE,
+}
+impl Default for DML_UPSAMPLE_2D_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub Scale: f32,
+    pub ChannelCount: u32,
+    pub Bias: *const f32,
+}
+impl Default for DML_VALUE_SCALE_2D_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}

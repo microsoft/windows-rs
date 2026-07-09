@@ -1,0 +1,1086 @@
+pub const ICMP4_DST_UNREACH: ICMP4_TYPE = 3;
+pub const ICMP4_ECHO_REPLY: ICMP4_TYPE = 0;
+pub const ICMP4_ECHO_REQUEST: ICMP4_TYPE = 8;
+pub const ICMP4_MASK_REPLY: ICMP4_TYPE = 18;
+pub const ICMP4_MASK_REQUEST: ICMP4_TYPE = 17;
+pub const ICMP4_PARAM_PROB: ICMP4_TYPE = 12;
+pub const ICMP4_REDIRECT: ICMP4_TYPE = 5;
+pub const ICMP4_ROUTER_ADVERT: ICMP4_TYPE = 9;
+pub const ICMP4_ROUTER_SOLICIT: ICMP4_TYPE = 10;
+pub const ICMP4_SOURCE_QUENCH: ICMP4_TYPE = 4;
+pub const ICMP4_TIMESTAMP_REPLY: ICMP4_TYPE = 14;
+pub const ICMP4_TIMESTAMP_REQUEST: ICMP4_TYPE = 13;
+pub const ICMP4_TIME_EXCEEDED: ICMP4_TYPE = 11;
+pub type ICMP4_TYPE = i32;
+pub const ICMP6_DST_UNREACH: ICMP6_TYPE = 1;
+pub const ICMP6_ECHO_REPLY: ICMP6_TYPE = 129;
+pub const ICMP6_ECHO_REQUEST: ICMP6_TYPE = 128;
+pub const ICMP6_INFOMSG_MASK: u32 = 128;
+pub const ICMP6_MEMBERSHIP_QUERY: ICMP6_TYPE = 130;
+pub const ICMP6_MEMBERSHIP_REDUCTION: ICMP6_TYPE = 132;
+pub const ICMP6_MEMBERSHIP_REPORT: ICMP6_TYPE = 131;
+pub const ICMP6_PACKET_TOO_BIG: ICMP6_TYPE = 2;
+pub const ICMP6_PARAM_PROB: ICMP6_TYPE = 4;
+pub const ICMP6_TIME_EXCEEDED: ICMP6_TYPE = 3;
+pub type ICMP6_TYPE = i32;
+pub const ICMP6_V2_MEMBERSHIP_REPORT: ICMP6_TYPE = 143;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIBICMPINFO {
+    pub icmpInStats: MIBICMPSTATS,
+    pub icmpOutStats: MIBICMPSTATS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIBICMPSTATS {
+    pub dwMsgs: u32,
+    pub dwErrors: u32,
+    pub dwDestUnreachs: u32,
+    pub dwTimeExcds: u32,
+    pub dwParmProbs: u32,
+    pub dwSrcQuenchs: u32,
+    pub dwRedirects: u32,
+    pub dwEchos: u32,
+    pub dwEchoReps: u32,
+    pub dwTimestamps: u32,
+    pub dwTimestampReps: u32,
+    pub dwAddrMasks: u32,
+    pub dwAddrMaskReps: u32,
+}
+pub type MIBICMPSTATS_EX = MIBICMPSTATS_EX_XPSP1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIBICMPSTATS_EX_XPSP1 {
+    pub dwMsgs: u32,
+    pub dwErrors: u32,
+    pub rgdwTypeCount: [u32; 256],
+}
+impl Default for MIBICMPSTATS_EX_XPSP1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIB_ICMP {
+    pub stats: MIBICMPINFO,
+}
+pub type MIB_ICMP_EX = MIB_ICMP_EX_XPSP1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIB_ICMP_EX_XPSP1 {
+    pub icmpInStats: MIBICMPSTATS_EX,
+    pub icmpOutStats: MIBICMPSTATS_EX,
+}
+#[cfg(feature = "Win32_ifdef")]
+pub type MIB_IPADDRROW = MIB_IPADDRROW_XP;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIB_IPADDRROW_W2K {
+    pub dwAddr: u32,
+    pub dwIndex: u32,
+    pub dwMask: u32,
+    pub dwBCastAddr: u32,
+    pub dwReasmSize: u32,
+    pub unused1: u16,
+    pub unused2: u16,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_ifdef")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIB_IPADDRROW_XP {
+    pub dwAddr: u32,
+    pub dwIndex: super::ifdef::IF_INDEX,
+    pub dwMask: u32,
+    pub dwBCastAddr: u32,
+    pub dwReasmSize: u32,
+    pub unused1: u16,
+    pub wType: u16,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_ifdef")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIB_IPADDRTABLE {
+    pub dwNumEntries: u32,
+    pub table: [MIB_IPADDRROW; 1],
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for MIB_IPADDRTABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const MIB_IPADDR_DELETED: u32 = 64;
+pub const MIB_IPADDR_DISCONNECTED: u32 = 8;
+pub const MIB_IPADDR_DNS_ELIGIBLE: u32 = 256;
+pub const MIB_IPADDR_DYNAMIC: u32 = 4;
+pub const MIB_IPADDR_PRIMARY: u32 = 1;
+pub const MIB_IPADDR_TRANSIENT: u32 = 128;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIB_IPFORWARDNUMBER {
+    pub dwValue: u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[derive(Clone, Copy)]
+pub struct MIB_IPFORWARDROW {
+    pub dwForwardDest: u32,
+    pub dwForwardMask: u32,
+    pub dwForwardPolicy: u32,
+    pub dwForwardNextHop: u32,
+    pub dwForwardIfIndex: super::ifdef::IF_INDEX,
+    pub Anonymous: MIB_IPFORWARDROW_0,
+    pub Anonymous2: MIB_IPFORWARDROW_1,
+    pub dwForwardAge: u32,
+    pub dwForwardNextHopAS: u32,
+    pub dwForwardMetric1: u32,
+    pub dwForwardMetric2: u32,
+    pub dwForwardMetric3: u32,
+    pub dwForwardMetric4: u32,
+    pub dwForwardMetric5: u32,
+}
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+impl Default for MIB_IPFORWARDROW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[derive(Clone, Copy)]
+pub union MIB_IPFORWARDROW_0 {
+    pub dwForwardType: u32,
+    pub ForwardType: MIB_IPFORWARD_TYPE,
+}
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+impl Default for MIB_IPFORWARDROW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[derive(Clone, Copy)]
+pub union MIB_IPFORWARDROW_1 {
+    pub dwForwardProto: u32,
+    pub ForwardProto: MIB_IPFORWARD_PROTO,
+}
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+impl Default for MIB_IPFORWARDROW_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[derive(Clone, Copy)]
+pub struct MIB_IPFORWARDTABLE {
+    pub dwNumEntries: u32,
+    pub table: [MIB_IPFORWARDROW; 1],
+}
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+impl Default for MIB_IPFORWARDTABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_nldef")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct MIB_IPFORWARD_PROTO(pub super::nldef::NL_ROUTE_PROTOCOL);
+pub type MIB_IPFORWARD_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIB_IPMCAST_GLOBAL {
+    pub dwEnable: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIB_IPMCAST_IF_ENTRY {
+    pub dwIfIndex: u32,
+    pub dwTtl: u32,
+    pub dwProtocol: u32,
+    pub dwRateLimit: u32,
+    pub ulInMcastOctets: u32,
+    pub ulOutMcastOctets: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIB_IPMCAST_IF_TABLE {
+    pub dwNumEntries: u32,
+    pub table: [MIB_IPMCAST_IF_ENTRY; 1],
+}
+impl Default for MIB_IPMCAST_IF_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIB_IPMCAST_MFE {
+    pub dwGroup: u32,
+    pub dwSource: u32,
+    pub dwSrcMask: u32,
+    pub dwUpStrmNgbr: u32,
+    pub dwInIfIndex: u32,
+    pub dwInIfProtocol: u32,
+    pub dwRouteProtocol: u32,
+    pub dwRouteNetwork: u32,
+    pub dwRouteMask: u32,
+    pub ulUpTime: u32,
+    pub ulExpiryTime: u32,
+    pub ulTimeOut: u32,
+    pub ulNumOutIf: u32,
+    pub fFlags: u32,
+    pub dwReserved: u32,
+    pub rgmioOutInfo: [MIB_IPMCAST_OIF; 1],
+}
+impl Default for MIB_IPMCAST_MFE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIB_IPMCAST_MFE_STATS {
+    pub dwGroup: u32,
+    pub dwSource: u32,
+    pub dwSrcMask: u32,
+    pub dwUpStrmNgbr: u32,
+    pub dwInIfIndex: u32,
+    pub dwInIfProtocol: u32,
+    pub dwRouteProtocol: u32,
+    pub dwRouteNetwork: u32,
+    pub dwRouteMask: u32,
+    pub ulUpTime: u32,
+    pub ulExpiryTime: u32,
+    pub ulNumOutIf: u32,
+    pub ulInPkts: u32,
+    pub ulInOctets: u32,
+    pub ulPktsDifferentIf: u32,
+    pub ulQueueOverflow: u32,
+    pub rgmiosOutStats: [MIB_IPMCAST_OIF_STATS; 1],
+}
+impl Default for MIB_IPMCAST_MFE_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type MIB_IPMCAST_MFE_STATS_EX = MIB_IPMCAST_MFE_STATS_EX_XP;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIB_IPMCAST_MFE_STATS_EX_XP {
+    pub dwGroup: u32,
+    pub dwSource: u32,
+    pub dwSrcMask: u32,
+    pub dwUpStrmNgbr: u32,
+    pub dwInIfIndex: u32,
+    pub dwInIfProtocol: u32,
+    pub dwRouteProtocol: u32,
+    pub dwRouteNetwork: u32,
+    pub dwRouteMask: u32,
+    pub ulUpTime: u32,
+    pub ulExpiryTime: u32,
+    pub ulNumOutIf: u32,
+    pub ulInPkts: u32,
+    pub ulInOctets: u32,
+    pub ulPktsDifferentIf: u32,
+    pub ulQueueOverflow: u32,
+    pub ulUninitMfe: u32,
+    pub ulNegativeMfe: u32,
+    pub ulInDiscards: u32,
+    pub ulInHdrErrors: u32,
+    pub ulTotalOutPackets: u32,
+    pub rgmiosOutStats: [MIB_IPMCAST_OIF_STATS; 1],
+}
+impl Default for MIB_IPMCAST_MFE_STATS_EX_XP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type MIB_IPMCAST_OIF = MIB_IPMCAST_OIF_XP;
+pub type MIB_IPMCAST_OIF_STATS = MIB_IPMCAST_OIF_STATS_LH;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIB_IPMCAST_OIF_STATS_LH {
+    pub dwOutIfIndex: u32,
+    pub dwNextHopAddr: u32,
+    pub dwDialContext: u32,
+    pub ulTtlTooLow: u32,
+    pub ulFragNeeded: u32,
+    pub ulOutPackets: u32,
+    pub ulOutDiscards: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIB_IPMCAST_OIF_STATS_W2K {
+    pub dwOutIfIndex: u32,
+    pub dwNextHopAddr: u32,
+    pub pvDialContext: *mut core::ffi::c_void,
+    pub ulTtlTooLow: u32,
+    pub ulFragNeeded: u32,
+    pub ulOutPackets: u32,
+    pub ulOutDiscards: u32,
+}
+impl Default for MIB_IPMCAST_OIF_STATS_W2K {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIB_IPMCAST_OIF_W2K {
+    pub dwOutIfIndex: u32,
+    pub dwNextHopAddr: u32,
+    pub pvReserved: *mut core::ffi::c_void,
+    pub dwReserved: u32,
+}
+impl Default for MIB_IPMCAST_OIF_W2K {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIB_IPMCAST_OIF_XP {
+    pub dwOutIfIndex: u32,
+    pub dwNextHopAddr: u32,
+    pub dwReserved: u32,
+    pub dwReserved1: u32,
+}
+#[cfg(feature = "Win32_ifdef")]
+pub type MIB_IPNETROW = MIB_IPNETROW_LH;
+#[repr(C)]
+#[cfg(feature = "Win32_ifdef")]
+#[derive(Clone, Copy)]
+pub struct MIB_IPNETROW_LH {
+    pub dwIndex: super::ifdef::IF_INDEX,
+    pub dwPhysAddrLen: u32,
+    pub bPhysAddr: [u8; 8],
+    pub dwAddr: u32,
+    pub Anonymous: MIB_IPNETROW_LH_0,
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for MIB_IPNETROW_LH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_ifdef")]
+#[derive(Clone, Copy)]
+pub union MIB_IPNETROW_LH_0 {
+    pub dwType: u32,
+    pub Type: MIB_IPNET_TYPE,
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for MIB_IPNETROW_LH_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_ifdef")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIB_IPNETROW_W2K {
+    pub dwIndex: super::ifdef::IF_INDEX,
+    pub dwPhysAddrLen: u32,
+    pub bPhysAddr: [u8; 8],
+    pub dwAddr: u32,
+    pub dwType: u32,
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for MIB_IPNETROW_W2K {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_ifdef")]
+#[derive(Clone, Copy)]
+pub struct MIB_IPNETTABLE {
+    pub dwNumEntries: u32,
+    pub table: [MIB_IPNETROW; 1],
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for MIB_IPNETTABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type MIB_IPNET_TYPE = i32;
+pub const MIB_IPNET_TYPE_DYNAMIC: MIB_IPNET_TYPE = 3;
+pub const MIB_IPNET_TYPE_INVALID: MIB_IPNET_TYPE = 2;
+pub const MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = 1;
+pub const MIB_IPNET_TYPE_STATIC: MIB_IPNET_TYPE = 4;
+pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295;
+pub const MIB_IPROUTE_TYPE_DIRECT: MIB_IPFORWARD_TYPE = 3;
+pub const MIB_IPROUTE_TYPE_INDIRECT: MIB_IPFORWARD_TYPE = 4;
+pub const MIB_IPROUTE_TYPE_INVALID: MIB_IPFORWARD_TYPE = 2;
+pub const MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = 1;
+pub type MIB_IPSTATS = MIB_IPSTATS_LH;
+pub type MIB_IPSTATS_FORWARDING = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MIB_IPSTATS_LH {
+    pub Anonymous: MIB_IPSTATS_LH_0,
+    pub dwDefaultTTL: u32,
+    pub dwInReceives: u32,
+    pub dwInHdrErrors: u32,
+    pub dwInAddrErrors: u32,
+    pub dwForwDatagrams: u32,
+    pub dwInUnknownProtos: u32,
+    pub dwInDiscards: u32,
+    pub dwInDelivers: u32,
+    pub dwOutRequests: u32,
+    pub dwRoutingDiscards: u32,
+    pub dwOutDiscards: u32,
+    pub dwOutNoRoutes: u32,
+    pub dwReasmTimeout: u32,
+    pub dwReasmReqds: u32,
+    pub dwReasmOks: u32,
+    pub dwReasmFails: u32,
+    pub dwFragOks: u32,
+    pub dwFragFails: u32,
+    pub dwFragCreates: u32,
+    pub dwNumIf: u32,
+    pub dwNumAddr: u32,
+    pub dwNumRoutes: u32,
+}
+impl Default for MIB_IPSTATS_LH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union MIB_IPSTATS_LH_0 {
+    pub dwForwarding: u32,
+    pub Forwarding: MIB_IPSTATS_FORWARDING,
+}
+impl Default for MIB_IPSTATS_LH_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MIB_IPSTATS_W2K {
+    pub dwForwarding: u32,
+    pub dwDefaultTTL: u32,
+    pub dwInReceives: u32,
+    pub dwInHdrErrors: u32,
+    pub dwInAddrErrors: u32,
+    pub dwForwDatagrams: u32,
+    pub dwInUnknownProtos: u32,
+    pub dwInDiscards: u32,
+    pub dwInDelivers: u32,
+    pub dwOutRequests: u32,
+    pub dwRoutingDiscards: u32,
+    pub dwOutDiscards: u32,
+    pub dwOutNoRoutes: u32,
+    pub dwReasmTimeout: u32,
+    pub dwReasmReqds: u32,
+    pub dwReasmOks: u32,
+    pub dwReasmFails: u32,
+    pub dwFragOks: u32,
+    pub dwFragFails: u32,
+    pub dwFragCreates: u32,
+    pub dwNumIf: u32,
+    pub dwNumAddr: u32,
+    pub dwNumRoutes: u32,
+}
+pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = 1;
+pub const MIB_IP_NOT_FORWARDING: MIB_IPSTATS_FORWARDING = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIB_MFE_STATS_TABLE {
+    pub dwNumEntries: u32,
+    pub table: [MIB_IPMCAST_MFE_STATS; 1],
+}
+impl Default for MIB_MFE_STATS_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type MIB_MFE_STATS_TABLE_EX = MIB_MFE_STATS_TABLE_EX_XP;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIB_MFE_STATS_TABLE_EX_XP {
+    pub dwNumEntries: u32,
+    pub table: [PMIB_IPMCAST_MFE_STATS_EX_XP; 1],
+}
+impl Default for MIB_MFE_STATS_TABLE_EX_XP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MIB_MFE_TABLE {
+    pub dwNumEntries: u32,
+    pub table: [MIB_IPMCAST_MFE; 1],
+}
+impl Default for MIB_MFE_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const MIB_USE_CURRENT_FORWARDING: u32 = 4294967295;
+pub const MIB_USE_CURRENT_TTL: u32 = 4294967295;
+pub const ND_NEIGHBOR_ADVERT: ICMP6_TYPE = 136;
+pub const ND_NEIGHBOR_SOLICIT: ICMP6_TYPE = 135;
+pub const ND_REDIRECT: ICMP6_TYPE = 137;
+pub const ND_ROUTER_ADVERT: ICMP6_TYPE = 134;
+pub const ND_ROUTER_SOLICIT: ICMP6_TYPE = 133;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PICMP4_TYPE(pub *mut ICMP4_TYPE);
+impl PICMP4_TYPE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PICMP4_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PICMP6_TYPE(pub *mut ICMP6_TYPE);
+impl PICMP6_TYPE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PICMP6_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIBICMPSTATS(pub *mut MIBICMPSTATS);
+impl PMIBICMPSTATS {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIBICMPSTATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIBICMPSTATS_EX(pub *mut MIBICMPSTATS_EX_XPSP1);
+impl PMIBICMPSTATS_EX {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIBICMPSTATS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIBICMPSTATS_EX_XPSP1(pub *mut MIBICMPSTATS_EX_XPSP1);
+impl PMIBICMPSTATS_EX_XPSP1 {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIBICMPSTATS_EX_XPSP1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_ICMP(pub *mut MIB_ICMP);
+impl PMIB_ICMP {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_ICMP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_ICMP_EX(pub *mut MIB_ICMP_EX_XPSP1);
+impl PMIB_ICMP_EX {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_ICMP_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_ICMP_EX_XPSP1(pub *mut MIB_ICMP_EX_XPSP1);
+impl PMIB_ICMP_EX_XPSP1 {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_ICMP_EX_XPSP1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPADDRROW(pub *mut MIB_IPADDRROW_XP);
+#[cfg(feature = "Win32_ifdef")]
+impl PMIB_IPADDRROW {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for PMIB_IPADDRROW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPADDRROW_W2K(pub *mut MIB_IPADDRROW_W2K);
+impl PMIB_IPADDRROW_W2K {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPADDRROW_W2K {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPADDRROW_XP(pub *mut MIB_IPADDRROW_XP);
+#[cfg(feature = "Win32_ifdef")]
+impl PMIB_IPADDRROW_XP {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for PMIB_IPADDRROW_XP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPADDRTABLE(pub *mut MIB_IPADDRTABLE);
+#[cfg(feature = "Win32_ifdef")]
+impl PMIB_IPADDRTABLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for PMIB_IPADDRTABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPFORWARDNUMBER(pub *mut MIB_IPFORWARDNUMBER);
+impl PMIB_IPFORWARDNUMBER {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPFORWARDNUMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPFORWARDROW(pub *mut MIB_IPFORWARDROW);
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+impl PMIB_IPFORWARDROW {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+impl Default for PMIB_IPFORWARDROW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPFORWARDTABLE(pub *mut MIB_IPFORWARDTABLE);
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+impl PMIB_IPFORWARDTABLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef"))]
+impl Default for PMIB_IPFORWARDTABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_GLOBAL(pub *mut MIB_IPMCAST_GLOBAL);
+impl PMIB_IPMCAST_GLOBAL {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_GLOBAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_IF_ENTRY(pub *mut MIB_IPMCAST_IF_ENTRY);
+impl PMIB_IPMCAST_IF_ENTRY {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_IF_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_IF_TABLE(pub *mut MIB_IPMCAST_IF_TABLE);
+impl PMIB_IPMCAST_IF_TABLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_IF_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_MFE(pub *mut MIB_IPMCAST_MFE);
+impl PMIB_IPMCAST_MFE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_MFE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_MFE_STATS(pub *mut MIB_IPMCAST_MFE_STATS);
+impl PMIB_IPMCAST_MFE_STATS {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_MFE_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_MFE_STATS_EX(pub *mut MIB_IPMCAST_MFE_STATS_EX_XP);
+impl PMIB_IPMCAST_MFE_STATS_EX {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_MFE_STATS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_MFE_STATS_EX_XP(pub *mut MIB_IPMCAST_MFE_STATS_EX_XP);
+impl PMIB_IPMCAST_MFE_STATS_EX_XP {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_MFE_STATS_EX_XP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_OIF(pub *mut MIB_IPMCAST_OIF_XP);
+impl PMIB_IPMCAST_OIF {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_OIF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_OIF_STATS(pub *mut MIB_IPMCAST_OIF_STATS_LH);
+impl PMIB_IPMCAST_OIF_STATS {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_OIF_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_OIF_STATS_LH(pub *mut MIB_IPMCAST_OIF_STATS_LH);
+impl PMIB_IPMCAST_OIF_STATS_LH {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_OIF_STATS_LH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_OIF_STATS_W2K(pub *mut MIB_IPMCAST_OIF_STATS_W2K);
+impl PMIB_IPMCAST_OIF_STATS_W2K {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_OIF_STATS_W2K {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_OIF_W2K(pub *mut MIB_IPMCAST_OIF_W2K);
+impl PMIB_IPMCAST_OIF_W2K {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_OIF_W2K {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPMCAST_OIF_XP(pub *mut MIB_IPMCAST_OIF_XP);
+impl PMIB_IPMCAST_OIF_XP {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPMCAST_OIF_XP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPNETROW(pub *mut MIB_IPNETROW_LH);
+#[cfg(feature = "Win32_ifdef")]
+impl PMIB_IPNETROW {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for PMIB_IPNETROW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPNETROW_LH(pub *mut MIB_IPNETROW_LH);
+#[cfg(feature = "Win32_ifdef")]
+impl PMIB_IPNETROW_LH {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for PMIB_IPNETROW_LH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPNETROW_W2K(pub *mut MIB_IPNETROW_W2K);
+#[cfg(feature = "Win32_ifdef")]
+impl PMIB_IPNETROW_W2K {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for PMIB_IPNETROW_W2K {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPNETTABLE(pub *mut MIB_IPNETTABLE);
+#[cfg(feature = "Win32_ifdef")]
+impl PMIB_IPNETTABLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(feature = "Win32_ifdef")]
+impl Default for PMIB_IPNETTABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPSTATS(pub *mut MIB_IPSTATS_LH);
+impl PMIB_IPSTATS {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPSTATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPSTATS_FORWARDING(pub *mut MIB_IPSTATS_FORWARDING);
+impl PMIB_IPSTATS_FORWARDING {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPSTATS_FORWARDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPSTATS_LH(pub *mut MIB_IPSTATS_LH);
+impl PMIB_IPSTATS_LH {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPSTATS_LH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_IPSTATS_W2K(pub *mut MIB_IPSTATS_W2K);
+impl PMIB_IPSTATS_W2K {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_IPSTATS_W2K {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_MFE_STATS_TABLE(pub *mut MIB_MFE_STATS_TABLE);
+impl PMIB_MFE_STATS_TABLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_MFE_STATS_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_MFE_STATS_TABLE_EX(pub *mut MIB_MFE_STATS_TABLE_EX_XP);
+impl PMIB_MFE_STATS_TABLE_EX {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_MFE_STATS_TABLE_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_MFE_STATS_TABLE_EX_XP(pub *mut MIB_MFE_STATS_TABLE_EX_XP);
+impl PMIB_MFE_STATS_TABLE_EX_XP {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_MFE_STATS_TABLE_EX_XP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PMIB_MFE_TABLE(pub *mut MIB_MFE_TABLE);
+impl PMIB_MFE_TABLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PMIB_MFE_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const SIZEOF_BASIC_MIB_MFE: u32 = 60;
+pub const SIZEOF_BASIC_MIB_MFE_STATS: u32 = 64;
+pub const SIZEOF_BASIC_MIB_MFE_STATS_EX: u32 = 84;

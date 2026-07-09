@@ -1,8 +1,6 @@
 pub mod Test {
-    #[repr(transparent)]
-    #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-    pub struct Enum(pub i32);
-    pub const First: Enum = Enum(1);
-    pub const Second: Enum = Enum(2);
-    pub const Third: Enum = Enum(3);
+    pub type Enum = i32;
+    pub const First: Enum = 1;
+    pub const Second: Enum = 2;
+    pub const Third: Enum = 3;
 }

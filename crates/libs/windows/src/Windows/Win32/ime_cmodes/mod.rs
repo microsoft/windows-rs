@@ -1,0 +1,12 @@
+pub const IME_CMODE_ALPHANUMERIC: u32 = 0;
+pub const IME_CMODE_CHARCODE: u32 = 32;
+pub const IME_CMODE_CHINESE: u32 = 1;
+pub const IME_CMODE_FULLSHAPE: u32 = 8;
+pub const IME_CMODE_HANGUL: u32 = 1;
+pub const IME_CMODE_HANJACONVERT: u32 = 64;
+pub const IME_CMODE_JAPANESE: u32 = 1;
+pub const IME_CMODE_KATAKANA: u32 = 2;
+pub const IME_CMODE_LANGUAGE: u32 = 3;
+pub const IME_CMODE_NATIVE: u32 = 1;
+pub const IME_CMODE_NATIVESYMBOL: u32 = 128;
+pub const IME_CMODE_ROMAN: u32 = 16;

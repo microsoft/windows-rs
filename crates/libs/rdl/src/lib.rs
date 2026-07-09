@@ -126,6 +126,17 @@ pub fn reader() -> Reader {
     Reader::new()
 }
 
+/// Parses a single `.rdl` file and returns the names of every type, function, and constant
+/// it defines under `namespace`. This is a pure syntactic walk — cross-file references are
+/// not resolved — so it succeeds even on a partition that references types defined elsewhere.
+///
+/// This is the routing signal for the downstream namespace map: each canonical `.rdl` file
+/// corresponds to one defining header, so its item names identify which types/functions/
+/// constants a header-based namespace should own.
+pub fn item_names(path: &str, namespace: &str) -> Result<Vec<String>, Error> {
+    reader::item_names(path, namespace)
+}
+
 /// Creates a [`Writer`] that converts `.winmd` metadata into RDL.
 pub fn writer() -> Writer {
     Writer::new()
