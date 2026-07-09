@@ -8,6 +8,11 @@ members = [
     "crates/samples/windows/file_dialogs",
     "crates/samples/windows/dcomp",
     "crates/samples/windows/direct3d12",
+    "crates/samples/windows/ocr",
+    "crates/samples/windows/overlapped",
+    "crates/samples/windows/core_app",
+    "crates/samples/windows/uiautomation",
+    "crates/samples/windows/samples",
 ]
 exclude = [
     "crates/targets/baseline",

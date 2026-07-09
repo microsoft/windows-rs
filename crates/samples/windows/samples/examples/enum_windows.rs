@@ -1,5 +1,8 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*, core::*};
+    use windows::{
+        Win32::{minwindef::*, windef::*, winuser::*},
+        core::*,
+    };
 
     extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
         unsafe {
@@ -13,7 +16,7 @@ fn main() -> windows::core::Result<()> {
             };
             GetWindowInfo(window, &mut info).unwrap();
 
-            if !text.is_empty() && info.dwStyle.contains(WS_VISIBLE) {
+            if !text.is_empty() && info.dwStyle & WS_VISIBLE != 0 {
                 println!("{} ({}, {})", text, info.rcWindow.left, info.rcWindow.top);
             }
 
@@ -21,5 +24,5 @@ fn main() -> windows::core::Result<()> {
         }
     }
 
-    unsafe { EnumWindows(Some(enum_window), LPARAM(0)) }
+    unsafe { EnumWindows(Some(enum_window), LPARAM(0)).ok() }
 }

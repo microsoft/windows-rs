@@ -7,10 +7,12 @@ publish = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_System_Com",
-    "Win32_UI_Accessibility",
-    "Win32_UI_WindowsAndMessaging",
     "UI_UIAutomation",
+    "combaseapi",
+    "objbase",
+    "uiautomationclient",
+    "winuser",
+    "windef",
 ]
 
 [lints]

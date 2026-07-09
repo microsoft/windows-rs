@@ -1,6 +1,7 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        Win32::Networking::BackgroundIntelligentTransferService::*, Win32::System::Com::*, core::*,
+        Win32::{bits::*, combaseapi::*, objbase::*, wtypesbase::*},
+        core::*,
     };
 
     #[implement(IBackgroundCopyCallback)]
@@ -38,7 +39,7 @@ fn main() -> windows::core::Result<()> {
     }
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
 
         let manager: IBackgroundCopyManager =
             CoCreateInstance(&BackgroundCopyManager, None, CLSCTX_LOCAL_SERVER)?;

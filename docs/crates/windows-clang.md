@@ -787,8 +787,10 @@ the feature and the `use windows::Win32::<stem>::*` path. Enable those stems in 
 temporarily listed individually in the workspace `members` while the migration is in progress; the
 `crates/samples/*/*` glob is restored once all samples build.)
 
-Migrated: `windows_direct2d`, `windows_dcomp`, `windows_direct3d12` (plus the pre-existing
-`task_dialog`/`file_dialogs`). The faithful in-house metadata differs in shape from the old
+Migrated: `windows_direct2d`, `windows_dcomp`, `windows_direct3d12`, `windows_ocr`,
+`windows_overlapped`, `windows_core_app`, `windows_uiautomation`, and the `windows_samples`
+aggregator (plus the pre-existing `task_dialog`/`file_dialogs`). The faithful in-house metadata
+differs in shape from the old
 editorial winmd in ways unrelated to namespaces, so each port hits a recurring set of call-site
 edits (all correct-by-design, not projection defects):
 
@@ -811,3 +813,84 @@ edits (all correct-by-design, not projection defects):
   `D3D12_MAX_DEPTH` are absent, so the sample uses the literal `0.0`/`1.0`.
 - **Optional-array parameters are faithful slices**, not `Option`: `ClearRenderTargetView`'s
   `prects` is `&[D3D12_RECT]` — pass `&[]` where the old binding took `None`.
+
+Also migrated: `windows_ocr` (WinRT-only — no changes needed, see below), `windows_overlapped`.
+Additional drift patterns surfaced by these:
+
+- **WinRT-only samples need no source edits.** WinRT features keep their full dotted path joined
+  with `_` (`Media_Ocr`, `Graphics_Imaging`, `Storage_Streams`, `ApplicationModel_Core`,
+  `UI_UIAutomation`); only the Win32 editorial features were removed. `windows_ocr` built unchanged
+  once added to the workspace `members`.
+- **Handle typedefs carry no `RAIIFree`, so `Owned<HANDLE>` does not compile.** The faithful
+  in-house metadata scraped by `windows-clang` does not emit the `RAIIFreeAttribute` the editorial
+  winmd hand-added, so `windows-bindgen` generates no `windows_core::Free` impl for `HANDLE` and
+  friends (`cpp_handle.rs` only emits `Free` when `type_def.rs::free_function` finds the attribute).
+  `windows_overlapped` therefore keeps the raw `HANDLE` and calls `CloseHandle(...)` explicitly
+  instead of relying on `Owned` RAII. (Restoring `RAIIFree` would be a `windows-clang` metadata
+  enhancement, tracked separately from the sample port.)
+- **Win32 error constants are bare `u32`, not `WIN32_ERROR`.** `ERROR_IO_PENDING` etc. are plain
+  integers with no `Into<HRESULT>`; wrap for comparison against `Error::code()`:
+  `WIN32_ERROR(ERROR_IO_PENDING).into()`.
+- **`ReadFile`/`WriteFile` take an explicit buffer pointer + length**, not a slice: the buffer is
+  `Option<*mut c_void>` with a separate `nNumberOfBytesToRead: u32` — pass
+  `Some(buffer.as_mut_ptr() as *mut c_void)` and `buffer.len() as u32`, and `.ok()` the returned
+  `BOOL`. Access-flag constants (`FILE_GENERIC_READ`, `FILE_SHARE_READ`, `OPEN_EXISTING`,
+  `FILE_FLAG_OVERLAPPED`) are bare `u32` (drop any `.0`).
+
+Also migrated: `windows_core_app`, `windows_uiautomation` (both mixed WinRT + Win32). The WinRT
+features (`ApplicationModel_Core`, `UI_Core`, `UI_UIAutomation`) are unchanged; only the Win32
+editorial features are remapped (`System_Com` → `combaseapi`/`objbase`, `UI_WindowsAndMessaging` →
+`winuser`, `UI_Accessibility` → `uiautomationclient`). Further drift:
+
+- **`CoInitializeEx` takes a bare `u32`; `COINIT_*` are bare `i32`.** `COINIT` is an unscoped C enum,
+  so `CoInitializeEx(None, COINIT_MULTITHREADED as u32)`.
+- **User32/Com functions referencing `windef::HWND` are cfg-gated on the `windef` feature** even
+  when `HWND` is not named directly (`MessageBoxW`, `FindWindowA`, …). Symptom is "cannot find
+  function X in this scope"; add `windef` to `features` (same transitive-feature pattern as
+  direct3d12's `minwinbase`).
+- **`FindWindowA` returns a raw `HWND`** (no `Result`): drop `?` and check `is_invalid()`.
+- **`UIA_HWND` is a distinct native-typedef newtype**, not `HWND`, and there is no automatic `Param`
+  conversion: `automation.ElementFromHandle(UIA_HWND(window.0))`.
+
+Also migrated: the `windows_samples` aggregator (21 `examples/`, one shared feature set). WinRT-only
+or `windows-window`-only examples (`simple`, `xml`, `rss`, `device_watcher`, `create_window`) needed
+no source edits; the Win32/COM examples hit the patterns above plus these:
+
+- **`CoInitializeSecurity`'s `asAuthSvc` is a faithful slice** `Option<&[SOLE_AUTHENTICATION_SERVICE]>`,
+  which encodes the old `cAuthSvc` count. Pass `None` (drop the explicit `-1`); `None` correctly
+  means "count `-1`, null array".
+- **`VARIANT` has no fabricated ergonomics.** There is no `From<&str>`, `Display`, or `Drop` — the
+  editorial winmd hand-added those. To pass a string `VARIANT` you build the union by hand
+  (`vt: VARTYPE(VT_BSTR as u16)`, `bstrVal: ManuallyDrop::new(BSTR::from(s))`), read it by matching
+  on `vt`, and free it with `VariantClear`. `VT_*` are bare `i32` (cast to `u16` for `VARTYPE`);
+  `EOAC_*` are bare `i32` (cast to `u32`).
+- **WMI (`IWbemServices`/`IEnumWbemClassObject`) methods are faithful COM.** `Next` takes an explicit
+  count + `*mut Option<_>` array pointer (not a slice + retval); the optional `[out]` params of
+  `Get`/`GetObject`/`ExecMethod` are raw `*mut` (pass `std::ptr::null_mut()` for the ones you skip,
+  and `&mut out` — not `Some(&mut out)` — for the ones you want). `Put` takes `CIMTYPE(CIM_STRING)`.
+- **`IServiceProvider::QueryService` is raw** (no generic retval helper).
+
+### Follow-up work (not done in this branch)
+
+- **Missing WinRT `*Interop` bridge interfaces (metadata coverage gap).** The in-house metadata is
+  missing some of the WinRT-to-Win32 interop interfaces the editorial winmd carried:
+  `IUserConsentVerifierInterop`, `IWindowNative`, and `IGraphicsCaptureItemInterop` are absent, while
+  others (`IInitializeWithWindow`, `IMemoryBufferByteAccess`, `IBufferByteAccess`,
+  `ICoreWindowInterop`) are present. As a stopgap the `consent` example was reworked to call
+  `UserConsentVerifier::RequestVerificationAsync` (no HWND) instead of the interop
+  `RequestVerificationForWindowAsync`, which changes what the sample demonstrates. **TODO:** scrape
+  the missing interop interfaces in `windows-clang` and restore the original interop-based `consent`
+  sample.
+- **Handle `RAIIFree`/`Owned` gap.** As noted above, no handle type carries `RAIIFreeAttribute`, so
+  `Owned<HANDLE>` (and `Owned<HLOCAL>`, `Owned<HMODULE>`, …) do not compile and samples fall back to
+  explicit `CloseHandle`/`LocalFree`. **TODO:** decide whether `windows-clang` should re-add
+  `RAIIFree` (and the `Owned` ergonomics) to the in-house metadata.
+- **Move and rename the `spellchecker` sample.** `windows_spellchecker` does not use the `windows`
+  crate — it generates its own bindings with `windows-bindgen` (`build.rs`) on top of `windows-core`,
+  so it belongs with the other bindgen-driven samples, not under `crates/samples/windows/`. **TODO:**
+  relocate it to the bindgen sample directory and rename it for consistency. It is intentionally left
+  out of the workspace `members` for now. Note it also still needs the one in-house-metadata fix its
+  peers needed (`COINIT_MULTITHREADED.0 as u32` → `COINIT_MULTITHREADED as u32`, since `COINIT` is now
+  a bare `i32` enum alias) before it will compile against the current default metadata.
+- **Restore the `crates/samples/*/*` glob** in the workspace `Cargo.toml` `members` once every
+  sample builds (currently each sample is listed individually while the migration is in progress).

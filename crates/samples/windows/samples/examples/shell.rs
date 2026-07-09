@@ -1,16 +1,50 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        Win32::System::Com::*, Win32::System::Variant::*, Win32::UI::Shell::*,
-        Win32::UI::WindowsAndMessaging::*, core::*,
+        Win32::{
+            combaseapi::*, exdisp::*, oaidl::*, objbase::*, oleauto::*, servprov::*, shldisp::*,
+            shlguid::*, shlobj_core::*, shobjidl_core::*, winuser::*, wtypes::*,
+        },
+        core::*,
     };
 
-    // Ported from https://devblogs.microsoft.com/oldnewthing/20131118-00/?p=2643
+    use std::mem::ManuallyDrop;
+
+    fn variant_bstr(value: &str) -> VARIANT {
+        VARIANT {
+            Anonymous: VARIANT_0 {
+                Anonymous: ManuallyDrop::new(VARIANT_0_0 {
+                    vt: VARTYPE(VT_BSTR as u16),
+                    wReserved1: 0,
+                    wReserved2: 0,
+                    wReserved3: 0,
+                    Anonymous: VARIANT_0_0_0 {
+                        bstrVal: ManuallyDrop::new(BSTR::from(value)),
+                    },
+                }),
+            },
+        }
+    }
+
+    fn variant_i4(value: i32) -> VARIANT {
+        VARIANT {
+            Anonymous: VARIANT_0 {
+                Anonymous: ManuallyDrop::new(VARIANT_0_0 {
+                    vt: VARTYPE(VT_I4 as u16),
+                    wReserved1: 0,
+                    wReserved2: 0,
+                    wReserved3: 0,
+                    Anonymous: VARIANT_0_0_0 { lVal: value },
+                }),
+            },
+        }
+    }
+
     fn shell_execute_from_explorer(
         file: &str,
         args: &str,
         directory: &str,
         operation: &str,
-        show: SHOW_WINDOW_CMD,
+        show: u32,
     ) -> Result<()> {
         unsafe {
             let view: IShellView = find_desktop_folder_view()?;
@@ -18,15 +52,20 @@ fn main() -> windows::core::Result<()> {
             let folder: IShellFolderViewDual = background.cast()?;
             let shell: IShellDispatch2 = folder.Application()?.cast()?;
 
+            let mut args = variant_bstr(args);
+            let mut directory = variant_bstr(directory);
+            let mut operation = variant_bstr(operation);
+            let mut show = variant_i4(show as i32);
+
             shell
-                .ShellExecute(
-                    &BSTR::from(file),
-                    &VARIANT::from(args),
-                    &VARIANT::from(directory),
-                    &VARIANT::from(operation),
-                    &VARIANT::from(show.0),
-                )
-                .ok()
+                .ShellExecute(&BSTR::from(file), &args, &directory, &operation, &show)
+                .ok()?;
+
+            VariantClear(&mut args).ok()?;
+            VariantClear(&mut directory).ok()?;
+            VariantClear(&mut operation).ok()?;
+            VariantClear(&mut show).ok()?;
+            Ok(())
         }
     }
 
@@ -37,7 +76,7 @@ fn main() -> windows::core::Result<()> {
             let mut handle = 0;
 
             let desktop = windows.FindWindowSW(
-                &VARIANT::from(CSIDL_DESKTOP),
+                &variant_i4(CSIDL_DESKTOP as i32),
                 &VARIANT::default(),
                 SWC_DESKTOP,
                 &mut handle,
@@ -45,7 +84,15 @@ fn main() -> windows::core::Result<()> {
             )?;
 
             let provider: IServiceProvider = desktop.cast()?;
-            let browser: IShellBrowser = provider.QueryService(&SID_STopLevelBrowser)?;
+            let mut browser = None;
+            provider
+                .QueryService(
+                    &SID_STopLevelBrowser,
+                    &IShellBrowser::IID,
+                    &mut browser as *mut _ as _,
+                )
+                .ok()?;
+            let browser: IShellBrowser = browser.unwrap();
             let view = browser.QueryActiveShellView()?;
             view.cast()
         }

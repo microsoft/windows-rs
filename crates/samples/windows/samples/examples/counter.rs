@@ -1,5 +1,5 @@
 fn main() {
-    use windows::{Win32::System::Performance::*, core::*};
+    use windows::{Win32::pdh::*, core::*};
 
     unsafe {
         let mut query = PDH_HQUERY::default();
@@ -18,7 +18,9 @@ fn main() {
             PdhCollectQueryData(query);
 
             let mut value = Default::default();
-            if 0 == PdhGetFormattedCounterValue(counter, PDH_FMT_DOUBLE, None, &mut value) {
+            if PDH_STATUS(0)
+                == PdhGetFormattedCounterValue(counter, PDH_FMT_DOUBLE, None, &mut value)
+            {
                 println!("{:.2}", value.Anonymous.doubleValue);
             }
         }

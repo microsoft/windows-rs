@@ -1,21 +1,28 @@
 fn main() -> windows::core::Result<()> {
-    use windows::Win32::System::Threading::*;
+    use windows::Win32::{threadpoolapiset::*, winnt::*};
 
     static COUNTER: std::sync::RwLock<i32> = std::sync::RwLock::new(0);
 
-    extern "system" fn callback(_: PTP_CALLBACK_INSTANCE, _: *mut std::ffi::c_void, _: PTP_WORK) {
+    unsafe extern "system" fn callback(
+        _: *mut TP_CALLBACK_INSTANCE,
+        _: *mut std::ffi::c_void,
+        _: *mut TP_WORK,
+    ) {
         let mut counter = COUNTER.write().unwrap();
         *counter += 1;
     }
 
     unsafe {
-        let work = CreateThreadpoolWork(Some(callback), None, None)?;
-
-        for _ in 0..10 {
-            SubmitThreadpoolWork(work);
+        let work = CreateThreadpoolWork(Some(callback), None, None);
+        if work.is_invalid() {
+            return Err(windows::core::Error::from_thread());
         }
 
-        WaitForThreadpoolWorkCallbacks(work, false);
+        for _ in 0..10 {
+            SubmitThreadpoolWork(work.0);
+        }
+
+        WaitForThreadpoolWorkCallbacks(work.0, false);
     }
 
     let counter = COUNTER.read().unwrap();

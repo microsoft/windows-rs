@@ -1,16 +1,19 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        UI::UIAutomation::*, Win32::System::Com::*, Win32::UI::Accessibility::*,
-        Win32::UI::WindowsAndMessaging::*, core::*,
+        UI::UIAutomation::*, Win32::combaseapi::*, Win32::objbase::*, Win32::uiautomationclient::*,
+        Win32::winuser::*, core::*,
     };
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
-        let window = FindWindowA(None, s!("Calculator"))?;
+        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
+        let window = FindWindowA(None, s!("Calculator"));
+        if window.is_invalid() {
+            return Err(Error::from_thread());
+        }
 
         // Start with COM API
         let automation: IUIAutomation = CoCreateInstance(&CUIAutomation, None, CLSCTX_ALL)?;
-        let element: IUIAutomationElement = automation.ElementFromHandle(window)?;
+        let element: IUIAutomationElement = automation.ElementFromHandle(UIA_HWND(window.0))?;
 
         // Use COM API
         let name = element.CurrentName()?;

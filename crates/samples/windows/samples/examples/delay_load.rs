@@ -1,5 +1,5 @@
 fn main() {
-    use windows::{Win32::Foundation::*, Win32::System::LibraryLoader::*, core::*};
+    use windows::{Win32::libloaderapi::*, core::*};
 
     /// # Safety
     ///
@@ -8,7 +8,7 @@ fn main() {
         unsafe {
             let library = LoadLibraryExA(library, None, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
 
-            let Ok(library) = library else {
+            if library.0.0.is_null() {
                 return None;
             };
 
