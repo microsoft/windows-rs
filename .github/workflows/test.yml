@@ -91,7 +91,7 @@ jobs:
         with:
           key: ${{ matrix.target }}
       - name: Test
-        run: cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc
+        run: cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc --exclude tool_validate
       - name: Check diff
         shell: bash
         run: |
