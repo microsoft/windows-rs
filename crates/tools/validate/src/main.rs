@@ -14,11 +14,7 @@ fn main() {
 
     // The three styles are independent (distinct output files, no shared state),
     // so generate them in parallel to overlap the slow bindgen passes.
-    let jobs: [&[&str]; 3] = [
-        &["--out", "crates/tools/validate/src/bindings_default.rs", "--flat", "--filter", "Windows.Win32", "--rustfmt", "max_width=800,newline_style=Unix"],
-        &["--out", "crates/tools/validate/src/bindings_sys.rs", "--flat", "--sys", "--filter", "Windows.Win32", "--rustfmt", "max_width=800,newline_style=Unix"],
-        &["--out", "crates/tools/validate/src/bindings_minimal.rs", "--flat", "--minimal", "--filter", "Windows.Win32", "--rustfmt", "max_width=800,newline_style=Unix"],
-    ];
+    let jobs: [&[&str]; 3] = [&["--out", "crates/tools/validate/src/bindings_default.rs", "--flat", "--filter", "Windows.Win32", "--rustfmt", "max_width=800,newline_style=Unix"], &["--out", "crates/tools/validate/src/bindings_sys.rs", "--flat", "--sys", "--filter", "Windows.Win32", "--rustfmt", "max_width=800,newline_style=Unix"], &["--out", "crates/tools/validate/src/bindings_minimal.rs", "--flat", "--minimal", "--filter", "Windows.Win32", "--rustfmt", "max_width=800,newline_style=Unix"]];
 
     windows_threading::for_each(jobs.into_iter(), |args| {
         windows_bindgen::bindgen(args.iter().copied());
