@@ -186,13 +186,13 @@ fn main() -> windows::core::Result<()> {
                         }
 
                         let front_visual = create_visual(&desktop)?;
-                        front_visual.SetOffsetX(card.offset.0).ok()?;
-                        front_visual.SetOffsetY(card.offset.1).ok()?;
+                        front_visual.SetOffsetX2(card.offset.0).ok()?;
+                        front_visual.SetOffsetY2(card.offset.1).ok()?;
                         root_visual.AddVisual(&front_visual, false, None).ok()?;
 
                         let back_visual = create_visual(&desktop)?;
-                        back_visual.SetOffsetX(card.offset.0).ok()?;
-                        back_visual.SetOffsetY(card.offset.1).ok()?;
+                        back_visual.SetOffsetX2(card.offset.0).ok()?;
+                        back_visual.SetOffsetY2(card.offset.1).ok()?;
                         root_visual.AddVisual(&back_visual, false, None).ok()?;
 
                         let front_surface = create_surface(&desktop, width, height)?;
@@ -212,11 +212,11 @@ fn main() -> windows::core::Result<()> {
                         let rotation = desktop.CreateRotateTransform3D()?;
 
                         if card.status == Status::Selected {
-                            rotation.SetAngle(180.0).ok()?;
+                            rotation.SetAngle2(180.0).ok()?;
                         }
 
-                        rotation.SetAxisZ(0.0).ok()?;
-                        rotation.SetAxisY(1.0).ok()?;
+                        rotation.SetAxisZ2(0.0).ok()?;
+                        rotation.SetAxisY2(1.0).ok()?;
                         create_effect(&desktop, &front_visual, &rotation, true, self.dpi)?;
                         create_effect(&desktop, &back_visual, &rotation, false, self.dpi)?;
                         card.rotation = Some(rotation);
@@ -388,7 +388,7 @@ fn main() -> windows::core::Result<()> {
             }
         }
 
-        fn create_handler(&mut self) -> Result<()> {
+        fn create_handler(&mut self) -> Result<(i32, i32)> {
             unsafe {
                 let monitor = MonitorFromWindow(self.handle, MONITOR_DEFAULTTONEAREST);
                 let mut dpi = (0, 0);
@@ -399,18 +399,7 @@ fn main() -> windows::core::Result<()> {
                     println!("initial dpi: {:?}", self.dpi);
                 }
 
-                let size = self.effective_window_size()?;
-
-                SetWindowPos(
-                    self.handle,
-                    None,
-                    0,
-                    0,
-                    size.0,
-                    size.1,
-                    SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER,
-                )
-                .ok()
+                self.effective_window_size()
             }
         }
 
@@ -587,7 +576,7 @@ fn main() -> windows::core::Result<()> {
             card.rotation
                 .as_ref()
                 .expect("IDCompositionRotateTransform3D")
-                .SetAngle2(&animation)
+                .SetAngle(&animation)
                 .ok()
         }
     }
@@ -762,7 +751,22 @@ fn main() -> windows::core::Result<()> {
         .create()?;
 
     app.borrow_mut().handle = HWND(window.hwnd());
-    app.borrow_mut().create_handler()?;
+    let size = app.borrow_mut().create_handler()?;
+
+    // Resize the window outside of any `RefCell` borrow: `SetWindowPos` dispatches
+    // messages synchronously, which reenter the message handler and borrow the app.
+    unsafe {
+        SetWindowPos(
+            HWND(window.hwnd()),
+            None,
+            0,
+            0,
+            size.0,
+            size.1,
+            SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER,
+        )
+        .ok()?;
+    }
 
     run();
     Ok(())

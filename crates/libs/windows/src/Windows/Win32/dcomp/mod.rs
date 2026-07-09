@@ -190,23 +190,23 @@ impl IDCompositionAffineTransform2DEffect {
     pub unsafe fn SetTransformMatrix(&self, transformmatrix: *const windows_numerics::Matrix3x2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTransformMatrix)(windows_core::Interface::as_raw(self), transformmatrix) }
     }
-    pub unsafe fn SetTransformMatrixElement(&self, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTransformMatrixElement)(windows_core::Interface::as_raw(self), row, column, value) }
-    }
-    pub unsafe fn SetTransformMatrixElement2<P2>(&self, row: i32, column: i32, animation: P2) -> windows_core::HRESULT
+    pub unsafe fn SetTransformMatrixElement<P2>(&self, row: i32, column: i32, animation: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTransformMatrixElement2)(windows_core::Interface::as_raw(self), row, column, animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetTransformMatrixElement)(windows_core::Interface::as_raw(self), row, column, animation.param().abi()) }
     }
-    pub unsafe fn SetSharpness(&self, sharpness: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSharpness)(windows_core::Interface::as_raw(self), sharpness) }
+    pub unsafe fn SetTransformMatrixElement2(&self, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTransformMatrixElement2)(windows_core::Interface::as_raw(self), row, column, value) }
     }
-    pub unsafe fn SetSharpness2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetSharpness<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSharpness2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetSharpness)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetSharpness2(&self, sharpness: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSharpness2)(windows_core::Interface::as_raw(self), sharpness) }
     }
 }
 #[repr(C)]
@@ -222,20 +222,20 @@ pub struct IDCompositionAffineTransform2DEffect_Vtbl {
     #[cfg(not(feature = "d2d"))]
     SetBorderMode: usize,
     pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix3x2) -> windows_core::HRESULT,
-    pub SetTransformMatrixElement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32) -> windows_core::HRESULT,
-    pub SetTransformMatrixElement2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSharpness: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetSharpness2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTransformMatrixElement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTransformMatrixElement2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32) -> windows_core::HRESULT,
+    pub SetSharpness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSharpness2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "d2d")]
 pub trait IDCompositionAffineTransform2DEffect_Impl: IDCompositionFilterEffect_Impl {
     fn SetInterpolationMode(&self, interpolationmode: super::d2d::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> windows_core::Result<()>;
     fn SetBorderMode(&self, bordermode: super::d2d::D2D1_BORDER_MODE) -> windows_core::Result<()>;
     fn SetTransformMatrix(&self, transformmatrix: *const windows_numerics::Matrix3x2) -> windows_core::Result<()>;
-    fn SetTransformMatrixElement(&self, row: i32, column: i32, value: f32) -> windows_core::Result<()>;
-    fn SetTransformMatrixElement2(&self, row: i32, column: i32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetSharpness(&self, sharpness: f32) -> windows_core::Result<()>;
-    fn SetSharpness2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetTransformMatrixElement(&self, row: i32, column: i32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetTransformMatrixElement2(&self, row: i32, column: i32, value: f32) -> windows_core::Result<()>;
+    fn SetSharpness(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetSharpness2(&self, sharpness: f32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "d2d")]
 impl IDCompositionAffineTransform2DEffect_Vtbl {
@@ -258,28 +258,28 @@ impl IDCompositionAffineTransform2DEffect_Vtbl {
                 IDCompositionAffineTransform2DEffect_Impl::SetTransformMatrix(this, core::mem::transmute_copy(&transformmatrix)).into()
             }
         }
-        unsafe extern "system" fn SetTransformMatrixElement<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransformMatrixElement<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionAffineTransform2DEffect_Impl::SetTransformMatrixElement(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&value)).into()
+                IDCompositionAffineTransform2DEffect_Impl::SetTransformMatrixElement(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetTransformMatrixElement2<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransformMatrixElement2<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionAffineTransform2DEffect_Impl::SetTransformMatrixElement2(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&animation)).into()
+                IDCompositionAffineTransform2DEffect_Impl::SetTransformMatrixElement2(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn SetSharpness<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sharpness: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSharpness<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionAffineTransform2DEffect_Impl::SetSharpness(this, core::mem::transmute_copy(&sharpness)).into()
+                IDCompositionAffineTransform2DEffect_Impl::SetSharpness(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetSharpness2<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSharpness2<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sharpness: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionAffineTransform2DEffect_Impl::SetSharpness2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionAffineTransform2DEffect_Impl::SetSharpness2(this, core::mem::transmute_copy(&sharpness)).into()
             }
         }
         Self {
@@ -408,41 +408,41 @@ impl IDCompositionArithmeticCompositeEffect {
     pub unsafe fn SetClampOutput(&self, clampoutput: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClampOutput)(windows_core::Interface::as_raw(self), clampoutput.into()) }
     }
-    pub unsafe fn SetCoefficient1(&self, coeffcient1: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCoefficient1)(windows_core::Interface::as_raw(self), coeffcient1) }
-    }
-    pub unsafe fn SetCoefficient12<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCoefficient1<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCoefficient12)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCoefficient1)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCoefficient2(&self, coefficient2: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCoefficient2)(windows_core::Interface::as_raw(self), coefficient2) }
+    pub unsafe fn SetCoefficient12(&self, coeffcient1: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCoefficient12)(windows_core::Interface::as_raw(self), coeffcient1) }
     }
-    pub unsafe fn SetCoefficient22<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCoefficient2<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCoefficient22)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCoefficient2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCoefficient3(&self, coefficient3: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCoefficient3)(windows_core::Interface::as_raw(self), coefficient3) }
+    pub unsafe fn SetCoefficient22(&self, coefficient2: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCoefficient22)(windows_core::Interface::as_raw(self), coefficient2) }
     }
-    pub unsafe fn SetCoefficient32<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCoefficient3<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCoefficient32)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCoefficient3)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCoefficient4(&self, coefficient4: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCoefficient4)(windows_core::Interface::as_raw(self), coefficient4) }
+    pub unsafe fn SetCoefficient32(&self, coefficient3: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCoefficient32)(windows_core::Interface::as_raw(self), coefficient3) }
     }
-    pub unsafe fn SetCoefficient42<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCoefficient4<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCoefficient42)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCoefficient4)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetCoefficient42(&self, coefficient4: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCoefficient42)(windows_core::Interface::as_raw(self), coefficient4) }
     }
 }
 #[repr(C)]
@@ -451,26 +451,26 @@ pub struct IDCompositionArithmeticCompositeEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetCoefficients: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector4) -> windows_core::HRESULT,
     pub SetClampOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    pub SetCoefficient1: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCoefficient12: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCoefficient2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCoefficient22: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCoefficient3: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCoefficient32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCoefficient4: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCoefficient42: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCoefficient1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCoefficient12: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCoefficient2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCoefficient22: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCoefficient3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCoefficient32: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCoefficient4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCoefficient42: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionArithmeticCompositeEffect_Impl: IDCompositionFilterEffect_Impl {
     fn SetCoefficients(&self, coefficients: *const windows_numerics::Vector4) -> windows_core::Result<()>;
     fn SetClampOutput(&self, clampoutput: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetCoefficient1(&self, coeffcient1: f32) -> windows_core::Result<()>;
-    fn SetCoefficient12(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCoefficient2(&self, coefficient2: f32) -> windows_core::Result<()>;
-    fn SetCoefficient22(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCoefficient3(&self, coefficient3: f32) -> windows_core::Result<()>;
-    fn SetCoefficient32(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCoefficient4(&self, coefficient4: f32) -> windows_core::Result<()>;
-    fn SetCoefficient42(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCoefficient1(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCoefficient12(&self, coeffcient1: f32) -> windows_core::Result<()>;
+    fn SetCoefficient2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCoefficient22(&self, coefficient2: f32) -> windows_core::Result<()>;
+    fn SetCoefficient3(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCoefficient32(&self, coefficient3: f32) -> windows_core::Result<()>;
+    fn SetCoefficient4(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCoefficient42(&self, coefficient4: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionArithmeticCompositeEffect_Vtbl {
     pub const fn new<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>() -> Self {
@@ -486,52 +486,52 @@ impl IDCompositionArithmeticCompositeEffect_Vtbl {
                 IDCompositionArithmeticCompositeEffect_Impl::SetClampOutput(this, core::mem::transmute_copy(&clampoutput)).into()
             }
         }
-        unsafe extern "system" fn SetCoefficient1<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coeffcient1: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCoefficient1<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient1(this, core::mem::transmute_copy(&coeffcient1)).into()
+                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient1(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCoefficient12<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCoefficient12<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coeffcient1: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient12(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient12(this, core::mem::transmute_copy(&coeffcient1)).into()
             }
         }
-        unsafe extern "system" fn SetCoefficient2<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coefficient2: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCoefficient2<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient2(this, core::mem::transmute_copy(&coefficient2)).into()
+                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient2(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCoefficient22<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCoefficient22<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coefficient2: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient22(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient22(this, core::mem::transmute_copy(&coefficient2)).into()
             }
         }
-        unsafe extern "system" fn SetCoefficient3<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coefficient3: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCoefficient3<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient3(this, core::mem::transmute_copy(&coefficient3)).into()
+                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient3(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCoefficient32<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCoefficient32<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coefficient3: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient32(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient32(this, core::mem::transmute_copy(&coefficient3)).into()
             }
         }
-        unsafe extern "system" fn SetCoefficient4<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coefficient4: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCoefficient4<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient4(this, core::mem::transmute_copy(&coefficient4)).into()
+                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient4(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCoefficient42<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCoefficient42<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coefficient4: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient42(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionArithmeticCompositeEffect_Impl::SetCoefficient42(this, core::mem::transmute_copy(&coefficient4)).into()
             }
         }
         Self {
@@ -612,41 +612,41 @@ impl IDCompositionBrightnessEffect {
     pub unsafe fn SetBlackPoint(&self, blackpoint: *const windows_numerics::Vector2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBlackPoint)(windows_core::Interface::as_raw(self), blackpoint) }
     }
-    pub unsafe fn SetWhitePointX(&self, whitepointx: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWhitePointX)(windows_core::Interface::as_raw(self), whitepointx) }
-    }
-    pub unsafe fn SetWhitePointX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetWhitePointX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWhitePointX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetWhitePointX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetWhitePointY(&self, whitepointy: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWhitePointY)(windows_core::Interface::as_raw(self), whitepointy) }
+    pub unsafe fn SetWhitePointX2(&self, whitepointx: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetWhitePointX2)(windows_core::Interface::as_raw(self), whitepointx) }
     }
-    pub unsafe fn SetWhitePointY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetWhitePointY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWhitePointY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetWhitePointY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetBlackPointX(&self, blackpointx: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBlackPointX)(windows_core::Interface::as_raw(self), blackpointx) }
+    pub unsafe fn SetWhitePointY2(&self, whitepointy: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetWhitePointY2)(windows_core::Interface::as_raw(self), whitepointy) }
     }
-    pub unsafe fn SetBlackPointX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetBlackPointX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBlackPointX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBlackPointX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetBlackPointY(&self, blackpointy: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBlackPointY)(windows_core::Interface::as_raw(self), blackpointy) }
+    pub unsafe fn SetBlackPointX2(&self, blackpointx: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBlackPointX2)(windows_core::Interface::as_raw(self), blackpointx) }
     }
-    pub unsafe fn SetBlackPointY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetBlackPointY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBlackPointY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBlackPointY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetBlackPointY2(&self, blackpointy: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBlackPointY2)(windows_core::Interface::as_raw(self), blackpointy) }
     }
 }
 #[repr(C)]
@@ -655,26 +655,26 @@ pub struct IDCompositionBrightnessEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetWhitePoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector2) -> windows_core::HRESULT,
     pub SetBlackPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector2) -> windows_core::HRESULT,
-    pub SetWhitePointX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetWhitePointX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetWhitePointY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetWhitePointY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBlackPointX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetBlackPointX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBlackPointY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetBlackPointY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetWhitePointX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetWhitePointX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetWhitePointY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetWhitePointY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetBlackPointX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBlackPointX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetBlackPointY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBlackPointY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionBrightnessEffect_Impl: IDCompositionFilterEffect_Impl {
     fn SetWhitePoint(&self, whitepoint: *const windows_numerics::Vector2) -> windows_core::Result<()>;
     fn SetBlackPoint(&self, blackpoint: *const windows_numerics::Vector2) -> windows_core::Result<()>;
-    fn SetWhitePointX(&self, whitepointx: f32) -> windows_core::Result<()>;
-    fn SetWhitePointX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetWhitePointY(&self, whitepointy: f32) -> windows_core::Result<()>;
-    fn SetWhitePointY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetBlackPointX(&self, blackpointx: f32) -> windows_core::Result<()>;
-    fn SetBlackPointX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetBlackPointY(&self, blackpointy: f32) -> windows_core::Result<()>;
-    fn SetBlackPointY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetWhitePointX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetWhitePointX2(&self, whitepointx: f32) -> windows_core::Result<()>;
+    fn SetWhitePointY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetWhitePointY2(&self, whitepointy: f32) -> windows_core::Result<()>;
+    fn SetBlackPointX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBlackPointX2(&self, blackpointx: f32) -> windows_core::Result<()>;
+    fn SetBlackPointY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBlackPointY2(&self, blackpointy: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionBrightnessEffect_Vtbl {
     pub const fn new<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>() -> Self {
@@ -690,52 +690,52 @@ impl IDCompositionBrightnessEffect_Vtbl {
                 IDCompositionBrightnessEffect_Impl::SetBlackPoint(this, core::mem::transmute_copy(&blackpoint)).into()
             }
         }
-        unsafe extern "system" fn SetWhitePointX<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, whitepointx: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWhitePointX<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionBrightnessEffect_Impl::SetWhitePointX(this, core::mem::transmute_copy(&whitepointx)).into()
+                IDCompositionBrightnessEffect_Impl::SetWhitePointX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetWhitePointX2<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWhitePointX2<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, whitepointx: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionBrightnessEffect_Impl::SetWhitePointX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionBrightnessEffect_Impl::SetWhitePointX2(this, core::mem::transmute_copy(&whitepointx)).into()
             }
         }
-        unsafe extern "system" fn SetWhitePointY<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, whitepointy: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWhitePointY<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionBrightnessEffect_Impl::SetWhitePointY(this, core::mem::transmute_copy(&whitepointy)).into()
+                IDCompositionBrightnessEffect_Impl::SetWhitePointY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetWhitePointY2<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWhitePointY2<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, whitepointy: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionBrightnessEffect_Impl::SetWhitePointY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionBrightnessEffect_Impl::SetWhitePointY2(this, core::mem::transmute_copy(&whitepointy)).into()
             }
         }
-        unsafe extern "system" fn SetBlackPointX<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blackpointx: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlackPointX<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionBrightnessEffect_Impl::SetBlackPointX(this, core::mem::transmute_copy(&blackpointx)).into()
+                IDCompositionBrightnessEffect_Impl::SetBlackPointX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBlackPointX2<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlackPointX2<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blackpointx: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionBrightnessEffect_Impl::SetBlackPointX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionBrightnessEffect_Impl::SetBlackPointX2(this, core::mem::transmute_copy(&blackpointx)).into()
             }
         }
-        unsafe extern "system" fn SetBlackPointY<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blackpointy: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlackPointY<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionBrightnessEffect_Impl::SetBlackPointY(this, core::mem::transmute_copy(&blackpointy)).into()
+                IDCompositionBrightnessEffect_Impl::SetBlackPointY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBlackPointY2<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlackPointY2<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blackpointy: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionBrightnessEffect_Impl::SetBlackPointY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionBrightnessEffect_Impl::SetBlackPointY2(this, core::mem::transmute_copy(&blackpointy)).into()
             }
         }
         Self {
@@ -787,14 +787,14 @@ impl IDCompositionColorMatrixEffect {
     pub unsafe fn SetMatrix(&self, matrix: *const super::dcommon::D2D_MATRIX_5X4_F) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMatrix)(windows_core::Interface::as_raw(self), matrix) }
     }
-    pub unsafe fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement)(windows_core::Interface::as_raw(self), row, column, value) }
-    }
-    pub unsafe fn SetMatrixElement2<P2>(&self, row: i32, column: i32, animation: P2) -> windows_core::HRESULT
+    pub unsafe fn SetMatrixElement<P2>(&self, row: i32, column: i32, animation: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement2)(windows_core::Interface::as_raw(self), row, column, animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement)(windows_core::Interface::as_raw(self), row, column, animation.param().abi()) }
+    }
+    pub unsafe fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement2)(windows_core::Interface::as_raw(self), row, column, value) }
     }
     #[cfg(feature = "d2d")]
     pub unsafe fn SetAlphaMode(&self, mode: super::d2d::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::HRESULT {
@@ -812,8 +812,8 @@ pub struct IDCompositionColorMatrixEffect_Vtbl {
     pub SetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::dcommon::D2D_MATRIX_5X4_F) -> windows_core::HRESULT,
     #[cfg(not(feature = "dcommon"))]
     SetMatrix: usize,
-    pub SetMatrixElement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32) -> windows_core::HRESULT,
-    pub SetMatrixElement2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMatrixElement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMatrixElement2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32) -> windows_core::HRESULT,
     #[cfg(feature = "d2d")]
     pub SetAlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::HRESULT,
     #[cfg(not(feature = "d2d"))]
@@ -823,8 +823,8 @@ pub struct IDCompositionColorMatrixEffect_Vtbl {
 #[cfg(all(feature = "d2d", feature = "dcommon"))]
 pub trait IDCompositionColorMatrixEffect_Impl: IDCompositionFilterEffect_Impl {
     fn SetMatrix(&self, matrix: *const super::dcommon::D2D_MATRIX_5X4_F) -> windows_core::Result<()>;
-    fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> windows_core::Result<()>;
-    fn SetMatrixElement2(&self, row: i32, column: i32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetMatrixElement(&self, row: i32, column: i32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> windows_core::Result<()>;
     fn SetAlphaMode(&self, mode: super::d2d::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::Result<()>;
     fn SetClampOutput(&self, clamp: windows_core::BOOL) -> windows_core::Result<()>;
 }
@@ -837,16 +837,16 @@ impl IDCompositionColorMatrixEffect_Vtbl {
                 IDCompositionColorMatrixEffect_Impl::SetMatrix(this, core::mem::transmute_copy(&matrix)).into()
             }
         }
-        unsafe extern "system" fn SetMatrixElement<Identity: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMatrixElement<Identity: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionColorMatrixEffect_Impl::SetMatrixElement(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&value)).into()
+                IDCompositionColorMatrixEffect_Impl::SetMatrixElement(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetMatrixElement2<Identity: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMatrixElement2<Identity: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionColorMatrixEffect_Impl::SetMatrixElement2(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&animation)).into()
+                IDCompositionColorMatrixEffect_Impl::SetMatrixElement2(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn SetAlphaMode<Identity: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::d2d::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::HRESULT {
@@ -2582,48 +2582,48 @@ impl windows_core::RuntimeName for IDCompositionDeviceDebug {}
 windows_core::imp::define_interface!(IDCompositionDynamicTexture, IDCompositionDynamicTexture_Vtbl, 0xa1de1d3f_6405_447f_8e95_1383a34b0277);
 windows_core::imp::interface_hierarchy!(IDCompositionDynamicTexture, windows_core::IUnknown);
 impl IDCompositionDynamicTexture {
-    pub unsafe fn SetTexture<P0>(&self, ptexture: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<IDCompositionTexture>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetTexture)(windows_core::Interface::as_raw(self), ptexture.param().abi()) }
-    }
     #[cfg(all(feature = "dcommon", feature = "windef"))]
-    pub unsafe fn SetTexture2<P0>(&self, ptexture: P0, prects: *const super::dcommon::D2D_RECT_L, rectcount: usize) -> windows_core::HRESULT
+    pub unsafe fn SetTexture<P0>(&self, ptexture: P0, prects: *const super::dcommon::D2D_RECT_L, rectcount: usize) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionTexture>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTexture2)(windows_core::Interface::as_raw(self), ptexture.param().abi(), prects, rectcount) }
+        unsafe { (windows_core::Interface::vtable(self).SetTexture)(windows_core::Interface::as_raw(self), ptexture.param().abi(), prects, rectcount) }
+    }
+    pub unsafe fn SetTexture2<P0>(&self, ptexture: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<IDCompositionTexture>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetTexture2)(windows_core::Interface::as_raw(self), ptexture.param().abi()) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDynamicTexture_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "dcommon", feature = "windef"))]
-    pub SetTexture2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::dcommon::D2D_RECT_L, usize) -> windows_core::HRESULT,
+    pub SetTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::dcommon::D2D_RECT_L, usize) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "dcommon", feature = "windef")))]
-    SetTexture2: usize,
+    SetTexture: usize,
+    pub SetTexture2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "dcommon", feature = "windef"))]
 pub trait IDCompositionDynamicTexture_Impl: windows_core::IUnknownImpl {
-    fn SetTexture(&self, ptexture: windows_core::Ref<IDCompositionTexture>) -> windows_core::Result<()>;
-    fn SetTexture2(&self, ptexture: windows_core::Ref<IDCompositionTexture>, prects: *const super::dcommon::D2D_RECT_L, rectcount: usize) -> windows_core::Result<()>;
+    fn SetTexture(&self, ptexture: windows_core::Ref<IDCompositionTexture>, prects: *const super::dcommon::D2D_RECT_L, rectcount: usize) -> windows_core::Result<()>;
+    fn SetTexture2(&self, ptexture: windows_core::Ref<IDCompositionTexture>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "dcommon", feature = "windef"))]
 impl IDCompositionDynamicTexture_Vtbl {
     pub const fn new<Identity: IDCompositionDynamicTexture_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetTexture<Identity: IDCompositionDynamicTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptexture: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTexture<Identity: IDCompositionDynamicTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptexture: *mut core::ffi::c_void, prects: *const super::dcommon::D2D_RECT_L, rectcount: usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionDynamicTexture_Impl::SetTexture(this, core::mem::transmute_copy(&ptexture)).into()
+                IDCompositionDynamicTexture_Impl::SetTexture(this, core::mem::transmute_copy(&ptexture), core::mem::transmute_copy(&prects), core::mem::transmute_copy(&rectcount)).into()
             }
         }
-        unsafe extern "system" fn SetTexture2<Identity: IDCompositionDynamicTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptexture: *mut core::ffi::c_void, prects: *const super::dcommon::D2D_RECT_L, rectcount: usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTexture2<Identity: IDCompositionDynamicTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptexture: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionDynamicTexture_Impl::SetTexture2(this, core::mem::transmute_copy(&ptexture), core::mem::transmute_copy(&prects), core::mem::transmute_copy(&rectcount)).into()
+                IDCompositionDynamicTexture_Impl::SetTexture2(this, core::mem::transmute_copy(&ptexture)).into()
             }
         }
         Self {
@@ -2664,14 +2664,14 @@ impl core::ops::Deref for IDCompositionEffectGroup {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionEffectGroup, windows_core::IUnknown, IDCompositionEffect);
 impl IDCompositionEffectGroup {
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), opacity) }
-    }
-    pub unsafe fn SetOpacity2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetOpacity<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetOpacity2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetOpacity2(&self, opacity: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOpacity2)(windows_core::Interface::as_raw(self), opacity) }
     }
     pub unsafe fn SetTransform3D<P0>(&self, transform3d: P0) -> windows_core::HRESULT
     where
@@ -2684,27 +2684,27 @@ impl IDCompositionEffectGroup {
 #[doc(hidden)]
 pub struct IDCompositionEffectGroup_Vtbl {
     pub base__: IDCompositionEffect_Vtbl,
-    pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetOpacity2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOpacity2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub SetTransform3D: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDCompositionEffectGroup_Impl: IDCompositionEffect_Impl {
-    fn SetOpacity(&self, opacity: f32) -> windows_core::Result<()>;
-    fn SetOpacity2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOpacity(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOpacity2(&self, opacity: f32) -> windows_core::Result<()>;
     fn SetTransform3D(&self, transform3d: windows_core::Ref<IDCompositionTransform3D>) -> windows_core::Result<()>;
 }
 impl IDCompositionEffectGroup_Vtbl {
     pub const fn new<Identity: IDCompositionEffectGroup_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetOpacity<Identity: IDCompositionEffectGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOpacity<Identity: IDCompositionEffectGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionEffectGroup_Impl::SetOpacity(this, core::mem::transmute_copy(&opacity)).into()
+                IDCompositionEffectGroup_Impl::SetOpacity(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetOpacity2<Identity: IDCompositionEffectGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOpacity2<Identity: IDCompositionEffectGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionEffectGroup_Impl::SetOpacity2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionEffectGroup_Impl::SetOpacity2(this, core::mem::transmute_copy(&opacity)).into()
             }
         }
         unsafe extern "system" fn SetTransform3D<Identity: IDCompositionEffectGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform3d: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2774,14 +2774,14 @@ impl core::ops::Deref for IDCompositionGaussianBlurEffect {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionGaussianBlurEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionGaussianBlurEffect {
-    pub unsafe fn SetStandardDeviation(&self, amount: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetStandardDeviation)(windows_core::Interface::as_raw(self), amount) }
-    }
-    pub unsafe fn SetStandardDeviation2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetStandardDeviation<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetStandardDeviation2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetStandardDeviation)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetStandardDeviation2(&self, amount: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetStandardDeviation2)(windows_core::Interface::as_raw(self), amount) }
     }
     #[cfg(feature = "d2d")]
     pub unsafe fn SetBorderMode(&self, mode: super::d2d::D2D1_BORDER_MODE) -> windows_core::HRESULT {
@@ -2792,8 +2792,8 @@ impl IDCompositionGaussianBlurEffect {
 #[doc(hidden)]
 pub struct IDCompositionGaussianBlurEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    pub SetStandardDeviation: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetStandardDeviation2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetStandardDeviation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetStandardDeviation2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     #[cfg(feature = "d2d")]
     pub SetBorderMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d::D2D1_BORDER_MODE) -> windows_core::HRESULT,
     #[cfg(not(feature = "d2d"))]
@@ -2801,23 +2801,23 @@ pub struct IDCompositionGaussianBlurEffect_Vtbl {
 }
 #[cfg(feature = "d2d")]
 pub trait IDCompositionGaussianBlurEffect_Impl: IDCompositionFilterEffect_Impl {
-    fn SetStandardDeviation(&self, amount: f32) -> windows_core::Result<()>;
-    fn SetStandardDeviation2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetStandardDeviation(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetStandardDeviation2(&self, amount: f32) -> windows_core::Result<()>;
     fn SetBorderMode(&self, mode: super::d2d::D2D1_BORDER_MODE) -> windows_core::Result<()>;
 }
 #[cfg(feature = "d2d")]
 impl IDCompositionGaussianBlurEffect_Vtbl {
     pub const fn new<Identity: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetStandardDeviation<Identity: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStandardDeviation<Identity: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionGaussianBlurEffect_Impl::SetStandardDeviation(this, core::mem::transmute_copy(&amount)).into()
+                IDCompositionGaussianBlurEffect_Impl::SetStandardDeviation(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetStandardDeviation2<Identity: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStandardDeviation2<Identity: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionGaussianBlurEffect_Impl::SetStandardDeviation2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionGaussianBlurEffect_Impl::SetStandardDeviation2(this, core::mem::transmute_copy(&amount)).into()
             }
         }
         unsafe extern "system" fn SetBorderMode<Identity: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::d2d::D2D1_BORDER_MODE) -> windows_core::HRESULT {
@@ -2848,39 +2848,39 @@ impl core::ops::Deref for IDCompositionHueRotationEffect {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionHueRotationEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionHueRotationEffect {
-    pub unsafe fn SetAngle(&self, amountdegrees: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAngle)(windows_core::Interface::as_raw(self), amountdegrees) }
-    }
-    pub unsafe fn SetAngle2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAngle<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAngle2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAngle)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetAngle2(&self, amountdegrees: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAngle2)(windows_core::Interface::as_raw(self), amountdegrees) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionHueRotationEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    pub SetAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetAngle2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAngle2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionHueRotationEffect_Impl: IDCompositionFilterEffect_Impl {
-    fn SetAngle(&self, amountdegrees: f32) -> windows_core::Result<()>;
-    fn SetAngle2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAngle(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAngle2(&self, amountdegrees: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionHueRotationEffect_Vtbl {
     pub const fn new<Identity: IDCompositionHueRotationEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetAngle<Identity: IDCompositionHueRotationEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amountdegrees: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAngle<Identity: IDCompositionHueRotationEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionHueRotationEffect_Impl::SetAngle(this, core::mem::transmute_copy(&amountdegrees)).into()
+                IDCompositionHueRotationEffect_Impl::SetAngle(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAngle2<Identity: IDCompositionHueRotationEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAngle2<Identity: IDCompositionHueRotationEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amountdegrees: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionHueRotationEffect_Impl::SetAngle2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionHueRotationEffect_Impl::SetAngle2(this, core::mem::transmute_copy(&amountdegrees)).into()
             }
         }
         Self {
@@ -2970,86 +2970,86 @@ impl core::ops::Deref for IDCompositionLinearTransferEffect {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionLinearTransferEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionLinearTransferEffect {
-    pub unsafe fn SetRedYIntercept(&self, redyintercept: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRedYIntercept)(windows_core::Interface::as_raw(self), redyintercept) }
-    }
-    pub unsafe fn SetRedYIntercept2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetRedYIntercept<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRedYIntercept2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetRedYIntercept)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetRedSlope(&self, redslope: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRedSlope)(windows_core::Interface::as_raw(self), redslope) }
+    pub unsafe fn SetRedYIntercept2(&self, redyintercept: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRedYIntercept2)(windows_core::Interface::as_raw(self), redyintercept) }
     }
-    pub unsafe fn SetRedSlope2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetRedSlope<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRedSlope2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetRedSlope)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetRedSlope2(&self, redslope: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRedSlope2)(windows_core::Interface::as_raw(self), redslope) }
     }
     pub unsafe fn SetRedDisable(&self, reddisable: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRedDisable)(windows_core::Interface::as_raw(self), reddisable.into()) }
     }
-    pub unsafe fn SetGreenYIntercept(&self, greenyintercept: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetGreenYIntercept)(windows_core::Interface::as_raw(self), greenyintercept) }
-    }
-    pub unsafe fn SetGreenYIntercept2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetGreenYIntercept<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetGreenYIntercept2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetGreenYIntercept)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetGreenSlope(&self, greenslope: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetGreenSlope)(windows_core::Interface::as_raw(self), greenslope) }
+    pub unsafe fn SetGreenYIntercept2(&self, greenyintercept: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetGreenYIntercept2)(windows_core::Interface::as_raw(self), greenyintercept) }
     }
-    pub unsafe fn SetGreenSlope2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetGreenSlope<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetGreenSlope2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetGreenSlope)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetGreenSlope2(&self, greenslope: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetGreenSlope2)(windows_core::Interface::as_raw(self), greenslope) }
     }
     pub unsafe fn SetGreenDisable(&self, greendisable: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetGreenDisable)(windows_core::Interface::as_raw(self), greendisable.into()) }
     }
-    pub unsafe fn SetBlueYIntercept(&self, blueyintercept: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBlueYIntercept)(windows_core::Interface::as_raw(self), blueyintercept) }
-    }
-    pub unsafe fn SetBlueYIntercept2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetBlueYIntercept<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBlueYIntercept2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBlueYIntercept)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetBlueSlope(&self, blueslope: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBlueSlope)(windows_core::Interface::as_raw(self), blueslope) }
+    pub unsafe fn SetBlueYIntercept2(&self, blueyintercept: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBlueYIntercept2)(windows_core::Interface::as_raw(self), blueyintercept) }
     }
-    pub unsafe fn SetBlueSlope2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetBlueSlope<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBlueSlope2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBlueSlope)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetBlueSlope2(&self, blueslope: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBlueSlope2)(windows_core::Interface::as_raw(self), blueslope) }
     }
     pub unsafe fn SetBlueDisable(&self, bluedisable: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBlueDisable)(windows_core::Interface::as_raw(self), bluedisable.into()) }
     }
-    pub unsafe fn SetAlphaYIntercept(&self, alphayintercept: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAlphaYIntercept)(windows_core::Interface::as_raw(self), alphayintercept) }
-    }
-    pub unsafe fn SetAlphaYIntercept2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAlphaYIntercept<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAlphaYIntercept2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAlphaYIntercept)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetAlphaSlope(&self, alphaslope: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAlphaSlope)(windows_core::Interface::as_raw(self), alphaslope) }
+    pub unsafe fn SetAlphaYIntercept2(&self, alphayintercept: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAlphaYIntercept2)(windows_core::Interface::as_raw(self), alphayintercept) }
     }
-    pub unsafe fn SetAlphaSlope2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAlphaSlope<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAlphaSlope2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAlphaSlope)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetAlphaSlope2(&self, alphaslope: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAlphaSlope2)(windows_core::Interface::as_raw(self), alphaslope) }
     }
     pub unsafe fn SetAlphaDisable(&self, alphadisable: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAlphaDisable)(windows_core::Interface::as_raw(self), alphadisable.into()) }
@@ -3062,75 +3062,75 @@ impl IDCompositionLinearTransferEffect {
 #[doc(hidden)]
 pub struct IDCompositionLinearTransferEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    pub SetRedYIntercept: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetRedYIntercept2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetRedSlope: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetRedSlope2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRedYIntercept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRedYIntercept2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetRedSlope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRedSlope2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub SetRedDisable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    pub SetGreenYIntercept: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetGreenYIntercept2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetGreenSlope: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetGreenSlope2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetGreenYIntercept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetGreenYIntercept2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetGreenSlope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetGreenSlope2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub SetGreenDisable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    pub SetBlueYIntercept: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetBlueYIntercept2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBlueSlope: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetBlueSlope2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBlueYIntercept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBlueYIntercept2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetBlueSlope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBlueSlope2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub SetBlueDisable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    pub SetAlphaYIntercept: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetAlphaYIntercept2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAlphaSlope: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetAlphaSlope2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAlphaYIntercept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAlphaYIntercept2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetAlphaSlope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAlphaSlope2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub SetAlphaDisable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetClampOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IDCompositionLinearTransferEffect_Impl: IDCompositionFilterEffect_Impl {
-    fn SetRedYIntercept(&self, redyintercept: f32) -> windows_core::Result<()>;
-    fn SetRedYIntercept2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetRedSlope(&self, redslope: f32) -> windows_core::Result<()>;
-    fn SetRedSlope2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetRedYIntercept(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetRedYIntercept2(&self, redyintercept: f32) -> windows_core::Result<()>;
+    fn SetRedSlope(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetRedSlope2(&self, redslope: f32) -> windows_core::Result<()>;
     fn SetRedDisable(&self, reddisable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetGreenYIntercept(&self, greenyintercept: f32) -> windows_core::Result<()>;
-    fn SetGreenYIntercept2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetGreenSlope(&self, greenslope: f32) -> windows_core::Result<()>;
-    fn SetGreenSlope2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetGreenYIntercept(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetGreenYIntercept2(&self, greenyintercept: f32) -> windows_core::Result<()>;
+    fn SetGreenSlope(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetGreenSlope2(&self, greenslope: f32) -> windows_core::Result<()>;
     fn SetGreenDisable(&self, greendisable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetBlueYIntercept(&self, blueyintercept: f32) -> windows_core::Result<()>;
-    fn SetBlueYIntercept2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetBlueSlope(&self, blueslope: f32) -> windows_core::Result<()>;
-    fn SetBlueSlope2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBlueYIntercept(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBlueYIntercept2(&self, blueyintercept: f32) -> windows_core::Result<()>;
+    fn SetBlueSlope(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBlueSlope2(&self, blueslope: f32) -> windows_core::Result<()>;
     fn SetBlueDisable(&self, bluedisable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetAlphaYIntercept(&self, alphayintercept: f32) -> windows_core::Result<()>;
-    fn SetAlphaYIntercept2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetAlphaSlope(&self, alphaslope: f32) -> windows_core::Result<()>;
-    fn SetAlphaSlope2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAlphaYIntercept(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAlphaYIntercept2(&self, alphayintercept: f32) -> windows_core::Result<()>;
+    fn SetAlphaSlope(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAlphaSlope2(&self, alphaslope: f32) -> windows_core::Result<()>;
     fn SetAlphaDisable(&self, alphadisable: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetClampOutput(&self, clampoutput: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IDCompositionLinearTransferEffect_Vtbl {
     pub const fn new<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetRedYIntercept<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, redyintercept: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRedYIntercept<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetRedYIntercept(this, core::mem::transmute_copy(&redyintercept)).into()
+                IDCompositionLinearTransferEffect_Impl::SetRedYIntercept(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetRedYIntercept2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRedYIntercept2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, redyintercept: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetRedYIntercept2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionLinearTransferEffect_Impl::SetRedYIntercept2(this, core::mem::transmute_copy(&redyintercept)).into()
             }
         }
-        unsafe extern "system" fn SetRedSlope<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, redslope: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRedSlope<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetRedSlope(this, core::mem::transmute_copy(&redslope)).into()
+                IDCompositionLinearTransferEffect_Impl::SetRedSlope(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetRedSlope2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRedSlope2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, redslope: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetRedSlope2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionLinearTransferEffect_Impl::SetRedSlope2(this, core::mem::transmute_copy(&redslope)).into()
             }
         }
         unsafe extern "system" fn SetRedDisable<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reddisable: windows_core::BOOL) -> windows_core::HRESULT {
@@ -3139,28 +3139,28 @@ impl IDCompositionLinearTransferEffect_Vtbl {
                 IDCompositionLinearTransferEffect_Impl::SetRedDisable(this, core::mem::transmute_copy(&reddisable)).into()
             }
         }
-        unsafe extern "system" fn SetGreenYIntercept<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, greenyintercept: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGreenYIntercept<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetGreenYIntercept(this, core::mem::transmute_copy(&greenyintercept)).into()
+                IDCompositionLinearTransferEffect_Impl::SetGreenYIntercept(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetGreenYIntercept2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGreenYIntercept2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, greenyintercept: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetGreenYIntercept2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionLinearTransferEffect_Impl::SetGreenYIntercept2(this, core::mem::transmute_copy(&greenyintercept)).into()
             }
         }
-        unsafe extern "system" fn SetGreenSlope<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, greenslope: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGreenSlope<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetGreenSlope(this, core::mem::transmute_copy(&greenslope)).into()
+                IDCompositionLinearTransferEffect_Impl::SetGreenSlope(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetGreenSlope2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGreenSlope2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, greenslope: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetGreenSlope2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionLinearTransferEffect_Impl::SetGreenSlope2(this, core::mem::transmute_copy(&greenslope)).into()
             }
         }
         unsafe extern "system" fn SetGreenDisable<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, greendisable: windows_core::BOOL) -> windows_core::HRESULT {
@@ -3169,28 +3169,28 @@ impl IDCompositionLinearTransferEffect_Vtbl {
                 IDCompositionLinearTransferEffect_Impl::SetGreenDisable(this, core::mem::transmute_copy(&greendisable)).into()
             }
         }
-        unsafe extern "system" fn SetBlueYIntercept<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blueyintercept: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlueYIntercept<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetBlueYIntercept(this, core::mem::transmute_copy(&blueyintercept)).into()
+                IDCompositionLinearTransferEffect_Impl::SetBlueYIntercept(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBlueYIntercept2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlueYIntercept2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blueyintercept: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetBlueYIntercept2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionLinearTransferEffect_Impl::SetBlueYIntercept2(this, core::mem::transmute_copy(&blueyintercept)).into()
             }
         }
-        unsafe extern "system" fn SetBlueSlope<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blueslope: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlueSlope<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetBlueSlope(this, core::mem::transmute_copy(&blueslope)).into()
+                IDCompositionLinearTransferEffect_Impl::SetBlueSlope(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBlueSlope2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlueSlope2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blueslope: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetBlueSlope2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionLinearTransferEffect_Impl::SetBlueSlope2(this, core::mem::transmute_copy(&blueslope)).into()
             }
         }
         unsafe extern "system" fn SetBlueDisable<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bluedisable: windows_core::BOOL) -> windows_core::HRESULT {
@@ -3199,28 +3199,28 @@ impl IDCompositionLinearTransferEffect_Vtbl {
                 IDCompositionLinearTransferEffect_Impl::SetBlueDisable(this, core::mem::transmute_copy(&bluedisable)).into()
             }
         }
-        unsafe extern "system" fn SetAlphaYIntercept<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alphayintercept: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAlphaYIntercept<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetAlphaYIntercept(this, core::mem::transmute_copy(&alphayintercept)).into()
+                IDCompositionLinearTransferEffect_Impl::SetAlphaYIntercept(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAlphaYIntercept2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAlphaYIntercept2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alphayintercept: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetAlphaYIntercept2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionLinearTransferEffect_Impl::SetAlphaYIntercept2(this, core::mem::transmute_copy(&alphayintercept)).into()
             }
         }
-        unsafe extern "system" fn SetAlphaSlope<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alphaslope: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAlphaSlope<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetAlphaSlope(this, core::mem::transmute_copy(&alphaslope)).into()
+                IDCompositionLinearTransferEffect_Impl::SetAlphaSlope(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAlphaSlope2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAlphaSlope2<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alphaslope: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionLinearTransferEffect_Impl::SetAlphaSlope2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionLinearTransferEffect_Impl::SetAlphaSlope2(this, core::mem::transmute_copy(&alphaslope)).into()
             }
         }
         unsafe extern "system" fn SetAlphaDisable<Identity: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alphadisable: windows_core::BOOL) -> windows_core::HRESULT {
@@ -3277,14 +3277,14 @@ impl IDCompositionMatrixTransform {
     pub unsafe fn SetMatrix(&self, matrix: *const windows_numerics::Matrix3x2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMatrix)(windows_core::Interface::as_raw(self), matrix) }
     }
-    pub unsafe fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement)(windows_core::Interface::as_raw(self), row, column, value) }
-    }
-    pub unsafe fn SetMatrixElement2<P2>(&self, row: i32, column: i32, animation: P2) -> windows_core::HRESULT
+    pub unsafe fn SetMatrixElement<P2>(&self, row: i32, column: i32, animation: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement2)(windows_core::Interface::as_raw(self), row, column, animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement)(windows_core::Interface::as_raw(self), row, column, animation.param().abi()) }
+    }
+    pub unsafe fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement2)(windows_core::Interface::as_raw(self), row, column, value) }
     }
 }
 #[repr(C)]
@@ -3292,13 +3292,13 @@ impl IDCompositionMatrixTransform {
 pub struct IDCompositionMatrixTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
     pub SetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix3x2) -> windows_core::HRESULT,
-    pub SetMatrixElement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32) -> windows_core::HRESULT,
-    pub SetMatrixElement2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMatrixElement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMatrixElement2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionMatrixTransform_Impl: IDCompositionTransform_Impl {
     fn SetMatrix(&self, matrix: *const windows_numerics::Matrix3x2) -> windows_core::Result<()>;
-    fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> windows_core::Result<()>;
-    fn SetMatrixElement2(&self, row: i32, column: i32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetMatrixElement(&self, row: i32, column: i32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionMatrixTransform_Vtbl {
     pub const fn new<Identity: IDCompositionMatrixTransform_Impl, const OFFSET: isize>() -> Self {
@@ -3308,16 +3308,16 @@ impl IDCompositionMatrixTransform_Vtbl {
                 IDCompositionMatrixTransform_Impl::SetMatrix(this, core::mem::transmute_copy(&matrix)).into()
             }
         }
-        unsafe extern "system" fn SetMatrixElement<Identity: IDCompositionMatrixTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMatrixElement<Identity: IDCompositionMatrixTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionMatrixTransform_Impl::SetMatrixElement(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&value)).into()
+                IDCompositionMatrixTransform_Impl::SetMatrixElement(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetMatrixElement2<Identity: IDCompositionMatrixTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMatrixElement2<Identity: IDCompositionMatrixTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionMatrixTransform_Impl::SetMatrixElement2(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&animation)).into()
+                IDCompositionMatrixTransform_Impl::SetMatrixElement2(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&value)).into()
             }
         }
         Self {
@@ -3344,14 +3344,14 @@ impl IDCompositionMatrixTransform3D {
     pub unsafe fn SetMatrix(&self, matrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMatrix)(windows_core::Interface::as_raw(self), matrix) }
     }
-    pub unsafe fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement)(windows_core::Interface::as_raw(self), row, column, value) }
-    }
-    pub unsafe fn SetMatrixElement2<P2>(&self, row: i32, column: i32, animation: P2) -> windows_core::HRESULT
+    pub unsafe fn SetMatrixElement<P2>(&self, row: i32, column: i32, animation: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement2)(windows_core::Interface::as_raw(self), row, column, animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement)(windows_core::Interface::as_raw(self), row, column, animation.param().abi()) }
+    }
+    pub unsafe fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMatrixElement2)(windows_core::Interface::as_raw(self), row, column, value) }
     }
 }
 #[repr(C)]
@@ -3359,13 +3359,13 @@ impl IDCompositionMatrixTransform3D {
 pub struct IDCompositionMatrixTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
     pub SetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
-    pub SetMatrixElement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32) -> windows_core::HRESULT,
-    pub SetMatrixElement2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMatrixElement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMatrixElement2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionMatrixTransform3D_Impl: IDCompositionTransform3D_Impl {
     fn SetMatrix(&self, matrix: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
-    fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> windows_core::Result<()>;
-    fn SetMatrixElement2(&self, row: i32, column: i32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetMatrixElement(&self, row: i32, column: i32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionMatrixTransform3D_Vtbl {
     pub const fn new<Identity: IDCompositionMatrixTransform3D_Impl, const OFFSET: isize>() -> Self {
@@ -3375,16 +3375,16 @@ impl IDCompositionMatrixTransform3D_Vtbl {
                 IDCompositionMatrixTransform3D_Impl::SetMatrix(this, core::mem::transmute_copy(&matrix)).into()
             }
         }
-        unsafe extern "system" fn SetMatrixElement<Identity: IDCompositionMatrixTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMatrixElement<Identity: IDCompositionMatrixTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionMatrixTransform3D_Impl::SetMatrixElement(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&value)).into()
+                IDCompositionMatrixTransform3D_Impl::SetMatrixElement(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetMatrixElement2<Identity: IDCompositionMatrixTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMatrixElement2<Identity: IDCompositionMatrixTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionMatrixTransform3D_Impl::SetMatrixElement2(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&animation)).into()
+                IDCompositionMatrixTransform3D_Impl::SetMatrixElement2(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&value)).into()
             }
         }
         Self {
@@ -3408,314 +3408,314 @@ impl core::ops::Deref for IDCompositionRectangleClip {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionRectangleClip, windows_core::IUnknown, IDCompositionClip);
 impl IDCompositionRectangleClip {
-    pub unsafe fn SetLeft(&self, left: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetLeft)(windows_core::Interface::as_raw(self), left) }
-    }
-    pub unsafe fn SetLeft2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetLeft<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetLeft2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetLeft)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetTop(&self, top: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTop)(windows_core::Interface::as_raw(self), top) }
+    pub unsafe fn SetLeft2(&self, left: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetLeft2)(windows_core::Interface::as_raw(self), left) }
     }
-    pub unsafe fn SetTop2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetTop<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTop2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetTop)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetRight(&self, right: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRight)(windows_core::Interface::as_raw(self), right) }
+    pub unsafe fn SetTop2(&self, top: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTop2)(windows_core::Interface::as_raw(self), top) }
     }
-    pub unsafe fn SetRight2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetRight<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRight2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetRight)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetBottom(&self, bottom: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBottom)(windows_core::Interface::as_raw(self), bottom) }
+    pub unsafe fn SetRight2(&self, right: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRight2)(windows_core::Interface::as_raw(self), right) }
     }
-    pub unsafe fn SetBottom2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetBottom<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBottom2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBottom)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetTopLeftRadiusX(&self, radius: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTopLeftRadiusX)(windows_core::Interface::as_raw(self), radius) }
+    pub unsafe fn SetBottom2(&self, bottom: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBottom2)(windows_core::Interface::as_raw(self), bottom) }
     }
-    pub unsafe fn SetTopLeftRadiusX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetTopLeftRadiusX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTopLeftRadiusX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetTopLeftRadiusX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetTopLeftRadiusY(&self, radius: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTopLeftRadiusY)(windows_core::Interface::as_raw(self), radius) }
+    pub unsafe fn SetTopLeftRadiusX2(&self, radius: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTopLeftRadiusX2)(windows_core::Interface::as_raw(self), radius) }
     }
-    pub unsafe fn SetTopLeftRadiusY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetTopLeftRadiusY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTopLeftRadiusY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetTopLeftRadiusY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetTopRightRadiusX(&self, radius: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTopRightRadiusX)(windows_core::Interface::as_raw(self), radius) }
+    pub unsafe fn SetTopLeftRadiusY2(&self, radius: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTopLeftRadiusY2)(windows_core::Interface::as_raw(self), radius) }
     }
-    pub unsafe fn SetTopRightRadiusX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetTopRightRadiusX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTopRightRadiusX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetTopRightRadiusX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetTopRightRadiusY(&self, radius: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTopRightRadiusY)(windows_core::Interface::as_raw(self), radius) }
+    pub unsafe fn SetTopRightRadiusX2(&self, radius: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTopRightRadiusX2)(windows_core::Interface::as_raw(self), radius) }
     }
-    pub unsafe fn SetTopRightRadiusY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetTopRightRadiusY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTopRightRadiusY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetTopRightRadiusY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetBottomLeftRadiusX(&self, radius: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBottomLeftRadiusX)(windows_core::Interface::as_raw(self), radius) }
+    pub unsafe fn SetTopRightRadiusY2(&self, radius: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTopRightRadiusY2)(windows_core::Interface::as_raw(self), radius) }
     }
-    pub unsafe fn SetBottomLeftRadiusX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetBottomLeftRadiusX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBottomLeftRadiusX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBottomLeftRadiusX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetBottomLeftRadiusY(&self, radius: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBottomLeftRadiusY)(windows_core::Interface::as_raw(self), radius) }
+    pub unsafe fn SetBottomLeftRadiusX2(&self, radius: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBottomLeftRadiusX2)(windows_core::Interface::as_raw(self), radius) }
     }
-    pub unsafe fn SetBottomLeftRadiusY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetBottomLeftRadiusY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBottomLeftRadiusY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBottomLeftRadiusY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetBottomRightRadiusX(&self, radius: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBottomRightRadiusX)(windows_core::Interface::as_raw(self), radius) }
+    pub unsafe fn SetBottomLeftRadiusY2(&self, radius: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBottomLeftRadiusY2)(windows_core::Interface::as_raw(self), radius) }
     }
-    pub unsafe fn SetBottomRightRadiusX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetBottomRightRadiusX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBottomRightRadiusX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBottomRightRadiusX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetBottomRightRadiusY(&self, radius: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBottomRightRadiusY)(windows_core::Interface::as_raw(self), radius) }
+    pub unsafe fn SetBottomRightRadiusX2(&self, radius: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBottomRightRadiusX2)(windows_core::Interface::as_raw(self), radius) }
     }
-    pub unsafe fn SetBottomRightRadiusY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetBottomRightRadiusY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBottomRightRadiusY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBottomRightRadiusY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetBottomRightRadiusY2(&self, radius: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBottomRightRadiusY2)(windows_core::Interface::as_raw(self), radius) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionRectangleClip_Vtbl {
     pub base__: IDCompositionClip_Vtbl,
-    pub SetLeft: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetLeft2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTop: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetTop2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetRight: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetRight2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBottom: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetBottom2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTopLeftRadiusX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetTopLeftRadiusX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTopLeftRadiusY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetTopLeftRadiusY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTopRightRadiusX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetTopRightRadiusX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTopRightRadiusY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetTopRightRadiusY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBottomLeftRadiusX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetBottomLeftRadiusX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBottomLeftRadiusY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetBottomLeftRadiusY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBottomRightRadiusX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetBottomRightRadiusX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBottomRightRadiusY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetBottomRightRadiusY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLeft: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLeft2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTop2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetRight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRight2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetBottom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBottom2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetTopLeftRadiusX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTopLeftRadiusX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetTopLeftRadiusY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTopLeftRadiusY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetTopRightRadiusX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTopRightRadiusX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetTopRightRadiusY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTopRightRadiusY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetBottomLeftRadiusX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBottomLeftRadiusX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetBottomLeftRadiusY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBottomLeftRadiusY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetBottomRightRadiusX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBottomRightRadiusX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetBottomRightRadiusY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBottomRightRadiusY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionRectangleClip_Impl: IDCompositionClip_Impl {
-    fn SetLeft(&self, left: f32) -> windows_core::Result<()>;
-    fn SetLeft2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetTop(&self, top: f32) -> windows_core::Result<()>;
-    fn SetTop2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetRight(&self, right: f32) -> windows_core::Result<()>;
-    fn SetRight2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetBottom(&self, bottom: f32) -> windows_core::Result<()>;
-    fn SetBottom2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetTopLeftRadiusX(&self, radius: f32) -> windows_core::Result<()>;
-    fn SetTopLeftRadiusX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetTopLeftRadiusY(&self, radius: f32) -> windows_core::Result<()>;
-    fn SetTopLeftRadiusY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetTopRightRadiusX(&self, radius: f32) -> windows_core::Result<()>;
-    fn SetTopRightRadiusX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetTopRightRadiusY(&self, radius: f32) -> windows_core::Result<()>;
-    fn SetTopRightRadiusY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetBottomLeftRadiusX(&self, radius: f32) -> windows_core::Result<()>;
-    fn SetBottomLeftRadiusX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetBottomLeftRadiusY(&self, radius: f32) -> windows_core::Result<()>;
-    fn SetBottomLeftRadiusY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetBottomRightRadiusX(&self, radius: f32) -> windows_core::Result<()>;
-    fn SetBottomRightRadiusX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetBottomRightRadiusY(&self, radius: f32) -> windows_core::Result<()>;
-    fn SetBottomRightRadiusY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetLeft(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetLeft2(&self, left: f32) -> windows_core::Result<()>;
+    fn SetTop(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetTop2(&self, top: f32) -> windows_core::Result<()>;
+    fn SetRight(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetRight2(&self, right: f32) -> windows_core::Result<()>;
+    fn SetBottom(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBottom2(&self, bottom: f32) -> windows_core::Result<()>;
+    fn SetTopLeftRadiusX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetTopLeftRadiusX2(&self, radius: f32) -> windows_core::Result<()>;
+    fn SetTopLeftRadiusY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetTopLeftRadiusY2(&self, radius: f32) -> windows_core::Result<()>;
+    fn SetTopRightRadiusX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetTopRightRadiusX2(&self, radius: f32) -> windows_core::Result<()>;
+    fn SetTopRightRadiusY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetTopRightRadiusY2(&self, radius: f32) -> windows_core::Result<()>;
+    fn SetBottomLeftRadiusX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBottomLeftRadiusX2(&self, radius: f32) -> windows_core::Result<()>;
+    fn SetBottomLeftRadiusY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBottomLeftRadiusY2(&self, radius: f32) -> windows_core::Result<()>;
+    fn SetBottomRightRadiusX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBottomRightRadiusX2(&self, radius: f32) -> windows_core::Result<()>;
+    fn SetBottomRightRadiusY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBottomRightRadiusY2(&self, radius: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionRectangleClip_Vtbl {
     pub const fn new<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetLeft<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, left: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLeft<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetLeft(this, core::mem::transmute_copy(&left)).into()
+                IDCompositionRectangleClip_Impl::SetLeft(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetLeft2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLeft2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, left: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetLeft2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetLeft2(this, core::mem::transmute_copy(&left)).into()
             }
         }
-        unsafe extern "system" fn SetTop<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, top: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTop<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetTop(this, core::mem::transmute_copy(&top)).into()
+                IDCompositionRectangleClip_Impl::SetTop(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetTop2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTop2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, top: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetTop2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetTop2(this, core::mem::transmute_copy(&top)).into()
             }
         }
-        unsafe extern "system" fn SetRight<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, right: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRight<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetRight(this, core::mem::transmute_copy(&right)).into()
+                IDCompositionRectangleClip_Impl::SetRight(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetRight2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRight2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, right: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetRight2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetRight2(this, core::mem::transmute_copy(&right)).into()
             }
         }
-        unsafe extern "system" fn SetBottom<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bottom: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBottom<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetBottom(this, core::mem::transmute_copy(&bottom)).into()
+                IDCompositionRectangleClip_Impl::SetBottom(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBottom2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBottom2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bottom: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetBottom2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetBottom2(this, core::mem::transmute_copy(&bottom)).into()
             }
         }
-        unsafe extern "system" fn SetTopLeftRadiusX<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTopLeftRadiusX<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetTopLeftRadiusX(this, core::mem::transmute_copy(&radius)).into()
+                IDCompositionRectangleClip_Impl::SetTopLeftRadiusX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetTopLeftRadiusX2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTopLeftRadiusX2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetTopLeftRadiusX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetTopLeftRadiusX2(this, core::mem::transmute_copy(&radius)).into()
             }
         }
-        unsafe extern "system" fn SetTopLeftRadiusY<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTopLeftRadiusY<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetTopLeftRadiusY(this, core::mem::transmute_copy(&radius)).into()
+                IDCompositionRectangleClip_Impl::SetTopLeftRadiusY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetTopLeftRadiusY2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTopLeftRadiusY2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetTopLeftRadiusY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetTopLeftRadiusY2(this, core::mem::transmute_copy(&radius)).into()
             }
         }
-        unsafe extern "system" fn SetTopRightRadiusX<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTopRightRadiusX<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetTopRightRadiusX(this, core::mem::transmute_copy(&radius)).into()
+                IDCompositionRectangleClip_Impl::SetTopRightRadiusX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetTopRightRadiusX2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTopRightRadiusX2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetTopRightRadiusX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetTopRightRadiusX2(this, core::mem::transmute_copy(&radius)).into()
             }
         }
-        unsafe extern "system" fn SetTopRightRadiusY<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTopRightRadiusY<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetTopRightRadiusY(this, core::mem::transmute_copy(&radius)).into()
+                IDCompositionRectangleClip_Impl::SetTopRightRadiusY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetTopRightRadiusY2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTopRightRadiusY2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetTopRightRadiusY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetTopRightRadiusY2(this, core::mem::transmute_copy(&radius)).into()
             }
         }
-        unsafe extern "system" fn SetBottomLeftRadiusX<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBottomLeftRadiusX<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetBottomLeftRadiusX(this, core::mem::transmute_copy(&radius)).into()
+                IDCompositionRectangleClip_Impl::SetBottomLeftRadiusX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBottomLeftRadiusX2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBottomLeftRadiusX2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetBottomLeftRadiusX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetBottomLeftRadiusX2(this, core::mem::transmute_copy(&radius)).into()
             }
         }
-        unsafe extern "system" fn SetBottomLeftRadiusY<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBottomLeftRadiusY<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetBottomLeftRadiusY(this, core::mem::transmute_copy(&radius)).into()
+                IDCompositionRectangleClip_Impl::SetBottomLeftRadiusY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBottomLeftRadiusY2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBottomLeftRadiusY2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetBottomLeftRadiusY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetBottomLeftRadiusY2(this, core::mem::transmute_copy(&radius)).into()
             }
         }
-        unsafe extern "system" fn SetBottomRightRadiusX<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBottomRightRadiusX<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetBottomRightRadiusX(this, core::mem::transmute_copy(&radius)).into()
+                IDCompositionRectangleClip_Impl::SetBottomRightRadiusX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBottomRightRadiusX2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBottomRightRadiusX2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetBottomRightRadiusX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetBottomRightRadiusX2(this, core::mem::transmute_copy(&radius)).into()
             }
         }
-        unsafe extern "system" fn SetBottomRightRadiusY<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBottomRightRadiusY<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetBottomRightRadiusY(this, core::mem::transmute_copy(&radius)).into()
+                IDCompositionRectangleClip_Impl::SetBottomRightRadiusY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBottomRightRadiusY2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBottomRightRadiusY2<Identity: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radius: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRectangleClip_Impl::SetBottomRightRadiusY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRectangleClip_Impl::SetBottomRightRadiusY2(this, core::mem::transmute_copy(&radius)).into()
             }
         }
         Self {
@@ -3760,89 +3760,89 @@ impl core::ops::Deref for IDCompositionRotateTransform {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionRotateTransform, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl IDCompositionRotateTransform {
-    pub unsafe fn SetAngle(&self, angle: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAngle)(windows_core::Interface::as_raw(self), angle) }
-    }
-    pub unsafe fn SetAngle2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAngle<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAngle2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAngle)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterX(&self, centerx: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterX)(windows_core::Interface::as_raw(self), centerx) }
+    pub unsafe fn SetAngle2(&self, angle: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAngle2)(windows_core::Interface::as_raw(self), angle) }
     }
-    pub unsafe fn SetCenterX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterY(&self, centery: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterY)(windows_core::Interface::as_raw(self), centery) }
+    pub unsafe fn SetCenterX2(&self, centerx: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterX2)(windows_core::Interface::as_raw(self), centerx) }
     }
-    pub unsafe fn SetCenterY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetCenterY2(&self, centery: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterY2)(windows_core::Interface::as_raw(self), centery) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionRotateTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
-    pub SetAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetAngle2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAngle2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionRotateTransform_Impl: IDCompositionTransform_Impl {
-    fn SetAngle(&self, angle: f32) -> windows_core::Result<()>;
-    fn SetAngle2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterX(&self, centerx: f32) -> windows_core::Result<()>;
-    fn SetCenterX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterY(&self, centery: f32) -> windows_core::Result<()>;
-    fn SetCenterY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAngle(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAngle2(&self, angle: f32) -> windows_core::Result<()>;
+    fn SetCenterX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterX2(&self, centerx: f32) -> windows_core::Result<()>;
+    fn SetCenterY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterY2(&self, centery: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionRotateTransform_Vtbl {
     pub const fn new<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetAngle<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, angle: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAngle<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform_Impl::SetAngle(this, core::mem::transmute_copy(&angle)).into()
+                IDCompositionRotateTransform_Impl::SetAngle(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAngle2<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAngle2<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, angle: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform_Impl::SetAngle2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRotateTransform_Impl::SetAngle2(this, core::mem::transmute_copy(&angle)).into()
             }
         }
-        unsafe extern "system" fn SetCenterX<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerx: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterX<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform_Impl::SetCenterX(this, core::mem::transmute_copy(&centerx)).into()
+                IDCompositionRotateTransform_Impl::SetCenterX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterX2<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterX2<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerx: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform_Impl::SetCenterX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRotateTransform_Impl::SetCenterX2(this, core::mem::transmute_copy(&centerx)).into()
             }
         }
-        unsafe extern "system" fn SetCenterY<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centery: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterY<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform_Impl::SetCenterY(this, core::mem::transmute_copy(&centery)).into()
+                IDCompositionRotateTransform_Impl::SetCenterY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterY2<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterY2<Identity: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centery: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform_Impl::SetCenterY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRotateTransform_Impl::SetCenterY2(this, core::mem::transmute_copy(&centery)).into()
             }
         }
         Self {
@@ -3869,189 +3869,189 @@ impl core::ops::Deref for IDCompositionRotateTransform3D {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionRotateTransform3D, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl IDCompositionRotateTransform3D {
-    pub unsafe fn SetAngle(&self, angle: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAngle)(windows_core::Interface::as_raw(self), angle) }
-    }
-    pub unsafe fn SetAngle2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAngle<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAngle2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAngle)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetAxisX(&self, axisx: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAxisX)(windows_core::Interface::as_raw(self), axisx) }
+    pub unsafe fn SetAngle2(&self, angle: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAngle2)(windows_core::Interface::as_raw(self), angle) }
     }
-    pub unsafe fn SetAxisX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAxisX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAxisX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAxisX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetAxisY(&self, axisy: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAxisY)(windows_core::Interface::as_raw(self), axisy) }
+    pub unsafe fn SetAxisX2(&self, axisx: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAxisX2)(windows_core::Interface::as_raw(self), axisx) }
     }
-    pub unsafe fn SetAxisY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAxisY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAxisY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAxisY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetAxisZ(&self, axisz: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAxisZ)(windows_core::Interface::as_raw(self), axisz) }
+    pub unsafe fn SetAxisY2(&self, axisy: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAxisY2)(windows_core::Interface::as_raw(self), axisy) }
     }
-    pub unsafe fn SetAxisZ2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAxisZ<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAxisZ2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAxisZ)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterX(&self, centerx: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterX)(windows_core::Interface::as_raw(self), centerx) }
+    pub unsafe fn SetAxisZ2(&self, axisz: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAxisZ2)(windows_core::Interface::as_raw(self), axisz) }
     }
-    pub unsafe fn SetCenterX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterY(&self, centery: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterY)(windows_core::Interface::as_raw(self), centery) }
+    pub unsafe fn SetCenterX2(&self, centerx: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterX2)(windows_core::Interface::as_raw(self), centerx) }
     }
-    pub unsafe fn SetCenterY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterZ(&self, centerz: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterZ)(windows_core::Interface::as_raw(self), centerz) }
+    pub unsafe fn SetCenterY2(&self, centery: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterY2)(windows_core::Interface::as_raw(self), centery) }
     }
-    pub unsafe fn SetCenterZ2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterZ<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterZ2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterZ)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetCenterZ2(&self, centerz: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterZ2)(windows_core::Interface::as_raw(self), centerz) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionRotateTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
-    pub SetAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetAngle2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAxisX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetAxisX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAxisY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetAxisY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAxisZ: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetAxisZ2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterZ: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterZ2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAngle2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetAxisX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAxisX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetAxisY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAxisY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetAxisZ: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAxisZ2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterZ: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterZ2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionRotateTransform3D_Impl: IDCompositionTransform3D_Impl {
-    fn SetAngle(&self, angle: f32) -> windows_core::Result<()>;
-    fn SetAngle2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetAxisX(&self, axisx: f32) -> windows_core::Result<()>;
-    fn SetAxisX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetAxisY(&self, axisy: f32) -> windows_core::Result<()>;
-    fn SetAxisY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetAxisZ(&self, axisz: f32) -> windows_core::Result<()>;
-    fn SetAxisZ2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterX(&self, centerx: f32) -> windows_core::Result<()>;
-    fn SetCenterX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterY(&self, centery: f32) -> windows_core::Result<()>;
-    fn SetCenterY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterZ(&self, centerz: f32) -> windows_core::Result<()>;
-    fn SetCenterZ2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAngle(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAngle2(&self, angle: f32) -> windows_core::Result<()>;
+    fn SetAxisX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAxisX2(&self, axisx: f32) -> windows_core::Result<()>;
+    fn SetAxisY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAxisY2(&self, axisy: f32) -> windows_core::Result<()>;
+    fn SetAxisZ(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAxisZ2(&self, axisz: f32) -> windows_core::Result<()>;
+    fn SetCenterX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterX2(&self, centerx: f32) -> windows_core::Result<()>;
+    fn SetCenterY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterY2(&self, centery: f32) -> windows_core::Result<()>;
+    fn SetCenterZ(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterZ2(&self, centerz: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionRotateTransform3D_Vtbl {
     pub const fn new<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetAngle<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, angle: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAngle<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetAngle(this, core::mem::transmute_copy(&angle)).into()
+                IDCompositionRotateTransform3D_Impl::SetAngle(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAngle2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAngle2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, angle: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetAngle2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRotateTransform3D_Impl::SetAngle2(this, core::mem::transmute_copy(&angle)).into()
             }
         }
-        unsafe extern "system" fn SetAxisX<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, axisx: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAxisX<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetAxisX(this, core::mem::transmute_copy(&axisx)).into()
+                IDCompositionRotateTransform3D_Impl::SetAxisX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAxisX2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAxisX2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, axisx: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetAxisX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRotateTransform3D_Impl::SetAxisX2(this, core::mem::transmute_copy(&axisx)).into()
             }
         }
-        unsafe extern "system" fn SetAxisY<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, axisy: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAxisY<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetAxisY(this, core::mem::transmute_copy(&axisy)).into()
+                IDCompositionRotateTransform3D_Impl::SetAxisY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAxisY2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAxisY2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, axisy: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetAxisY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRotateTransform3D_Impl::SetAxisY2(this, core::mem::transmute_copy(&axisy)).into()
             }
         }
-        unsafe extern "system" fn SetAxisZ<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, axisz: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAxisZ<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetAxisZ(this, core::mem::transmute_copy(&axisz)).into()
+                IDCompositionRotateTransform3D_Impl::SetAxisZ(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAxisZ2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAxisZ2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, axisz: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetAxisZ2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRotateTransform3D_Impl::SetAxisZ2(this, core::mem::transmute_copy(&axisz)).into()
             }
         }
-        unsafe extern "system" fn SetCenterX<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerx: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterX<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetCenterX(this, core::mem::transmute_copy(&centerx)).into()
+                IDCompositionRotateTransform3D_Impl::SetCenterX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterX2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterX2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerx: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetCenterX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRotateTransform3D_Impl::SetCenterX2(this, core::mem::transmute_copy(&centerx)).into()
             }
         }
-        unsafe extern "system" fn SetCenterY<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centery: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterY<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetCenterY(this, core::mem::transmute_copy(&centery)).into()
+                IDCompositionRotateTransform3D_Impl::SetCenterY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterY2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterY2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centery: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetCenterY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRotateTransform3D_Impl::SetCenterY2(this, core::mem::transmute_copy(&centery)).into()
             }
         }
-        unsafe extern "system" fn SetCenterZ<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerz: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterZ<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetCenterZ(this, core::mem::transmute_copy(&centerz)).into()
+                IDCompositionRotateTransform3D_Impl::SetCenterZ(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterZ2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterZ2<Identity: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerz: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionRotateTransform3D_Impl::SetCenterZ2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionRotateTransform3D_Impl::SetCenterZ2(this, core::mem::transmute_copy(&centerz)).into()
             }
         }
         Self {
@@ -4086,39 +4086,39 @@ impl core::ops::Deref for IDCompositionSaturationEffect {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionSaturationEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionSaturationEffect {
-    pub unsafe fn SetSaturation(&self, ratio: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSaturation)(windows_core::Interface::as_raw(self), ratio) }
-    }
-    pub unsafe fn SetSaturation2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetSaturation<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSaturation2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetSaturation)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetSaturation2(&self, ratio: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSaturation2)(windows_core::Interface::as_raw(self), ratio) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSaturationEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    pub SetSaturation: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetSaturation2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSaturation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSaturation2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionSaturationEffect_Impl: IDCompositionFilterEffect_Impl {
-    fn SetSaturation(&self, ratio: f32) -> windows_core::Result<()>;
-    fn SetSaturation2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetSaturation(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetSaturation2(&self, ratio: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionSaturationEffect_Vtbl {
     pub const fn new<Identity: IDCompositionSaturationEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetSaturation<Identity: IDCompositionSaturationEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ratio: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSaturation<Identity: IDCompositionSaturationEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionSaturationEffect_Impl::SetSaturation(this, core::mem::transmute_copy(&ratio)).into()
+                IDCompositionSaturationEffect_Impl::SetSaturation(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetSaturation2<Identity: IDCompositionSaturationEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSaturation2<Identity: IDCompositionSaturationEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ratio: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionSaturationEffect_Impl::SetSaturation2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionSaturationEffect_Impl::SetSaturation2(this, core::mem::transmute_copy(&ratio)).into()
             }
         }
         Self {
@@ -4141,114 +4141,114 @@ impl core::ops::Deref for IDCompositionScaleTransform {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionScaleTransform, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl IDCompositionScaleTransform {
-    pub unsafe fn SetScaleX(&self, scalex: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetScaleX)(windows_core::Interface::as_raw(self), scalex) }
-    }
-    pub unsafe fn SetScaleX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetScaleX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetScaleX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetScaleX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetScaleY(&self, scaley: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetScaleY)(windows_core::Interface::as_raw(self), scaley) }
+    pub unsafe fn SetScaleX2(&self, scalex: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetScaleX2)(windows_core::Interface::as_raw(self), scalex) }
     }
-    pub unsafe fn SetScaleY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetScaleY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetScaleY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetScaleY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterX(&self, centerx: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterX)(windows_core::Interface::as_raw(self), centerx) }
+    pub unsafe fn SetScaleY2(&self, scaley: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetScaleY2)(windows_core::Interface::as_raw(self), scaley) }
     }
-    pub unsafe fn SetCenterX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterY(&self, centery: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterY)(windows_core::Interface::as_raw(self), centery) }
+    pub unsafe fn SetCenterX2(&self, centerx: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterX2)(windows_core::Interface::as_raw(self), centerx) }
     }
-    pub unsafe fn SetCenterY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetCenterY2(&self, centery: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterY2)(windows_core::Interface::as_raw(self), centery) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionScaleTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
-    pub SetScaleX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetScaleX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetScaleY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetScaleY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetScaleX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetScaleX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetScaleY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetScaleY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionScaleTransform_Impl: IDCompositionTransform_Impl {
-    fn SetScaleX(&self, scalex: f32) -> windows_core::Result<()>;
-    fn SetScaleX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetScaleY(&self, scaley: f32) -> windows_core::Result<()>;
-    fn SetScaleY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterX(&self, centerx: f32) -> windows_core::Result<()>;
-    fn SetCenterX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterY(&self, centery: f32) -> windows_core::Result<()>;
-    fn SetCenterY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetScaleX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetScaleX2(&self, scalex: f32) -> windows_core::Result<()>;
+    fn SetScaleY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetScaleY2(&self, scaley: f32) -> windows_core::Result<()>;
+    fn SetCenterX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterX2(&self, centerx: f32) -> windows_core::Result<()>;
+    fn SetCenterY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterY2(&self, centery: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionScaleTransform_Vtbl {
     pub const fn new<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetScaleX<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scalex: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScaleX<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform_Impl::SetScaleX(this, core::mem::transmute_copy(&scalex)).into()
+                IDCompositionScaleTransform_Impl::SetScaleX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetScaleX2<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScaleX2<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scalex: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform_Impl::SetScaleX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionScaleTransform_Impl::SetScaleX2(this, core::mem::transmute_copy(&scalex)).into()
             }
         }
-        unsafe extern "system" fn SetScaleY<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scaley: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScaleY<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform_Impl::SetScaleY(this, core::mem::transmute_copy(&scaley)).into()
+                IDCompositionScaleTransform_Impl::SetScaleY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetScaleY2<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScaleY2<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scaley: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform_Impl::SetScaleY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionScaleTransform_Impl::SetScaleY2(this, core::mem::transmute_copy(&scaley)).into()
             }
         }
-        unsafe extern "system" fn SetCenterX<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerx: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterX<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform_Impl::SetCenterX(this, core::mem::transmute_copy(&centerx)).into()
+                IDCompositionScaleTransform_Impl::SetCenterX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterX2<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterX2<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerx: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform_Impl::SetCenterX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionScaleTransform_Impl::SetCenterX2(this, core::mem::transmute_copy(&centerx)).into()
             }
         }
-        unsafe extern "system" fn SetCenterY<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centery: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterY<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform_Impl::SetCenterY(this, core::mem::transmute_copy(&centery)).into()
+                IDCompositionScaleTransform_Impl::SetCenterY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterY2<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterY2<Identity: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centery: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform_Impl::SetCenterY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionScaleTransform_Impl::SetCenterY2(this, core::mem::transmute_copy(&centery)).into()
             }
         }
         Self {
@@ -4277,164 +4277,164 @@ impl core::ops::Deref for IDCompositionScaleTransform3D {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionScaleTransform3D, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl IDCompositionScaleTransform3D {
-    pub unsafe fn SetScaleX(&self, scalex: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetScaleX)(windows_core::Interface::as_raw(self), scalex) }
-    }
-    pub unsafe fn SetScaleX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetScaleX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetScaleX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetScaleX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetScaleY(&self, scaley: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetScaleY)(windows_core::Interface::as_raw(self), scaley) }
+    pub unsafe fn SetScaleX2(&self, scalex: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetScaleX2)(windows_core::Interface::as_raw(self), scalex) }
     }
-    pub unsafe fn SetScaleY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetScaleY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetScaleY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetScaleY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetScaleZ(&self, scalez: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetScaleZ)(windows_core::Interface::as_raw(self), scalez) }
+    pub unsafe fn SetScaleY2(&self, scaley: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetScaleY2)(windows_core::Interface::as_raw(self), scaley) }
     }
-    pub unsafe fn SetScaleZ2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetScaleZ<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetScaleZ2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetScaleZ)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterX(&self, centerx: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterX)(windows_core::Interface::as_raw(self), centerx) }
+    pub unsafe fn SetScaleZ2(&self, scalez: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetScaleZ2)(windows_core::Interface::as_raw(self), scalez) }
     }
-    pub unsafe fn SetCenterX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterY(&self, centery: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterY)(windows_core::Interface::as_raw(self), centery) }
+    pub unsafe fn SetCenterX2(&self, centerx: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterX2)(windows_core::Interface::as_raw(self), centerx) }
     }
-    pub unsafe fn SetCenterY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterZ(&self, centerz: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterZ)(windows_core::Interface::as_raw(self), centerz) }
+    pub unsafe fn SetCenterY2(&self, centery: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterY2)(windows_core::Interface::as_raw(self), centery) }
     }
-    pub unsafe fn SetCenterZ2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterZ<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterZ2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterZ)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetCenterZ2(&self, centerz: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterZ2)(windows_core::Interface::as_raw(self), centerz) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionScaleTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
-    pub SetScaleX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetScaleX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetScaleY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetScaleY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetScaleZ: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetScaleZ2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterZ: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterZ2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetScaleX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetScaleX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetScaleY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetScaleY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetScaleZ: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetScaleZ2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterZ: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterZ2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionScaleTransform3D_Impl: IDCompositionTransform3D_Impl {
-    fn SetScaleX(&self, scalex: f32) -> windows_core::Result<()>;
-    fn SetScaleX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetScaleY(&self, scaley: f32) -> windows_core::Result<()>;
-    fn SetScaleY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetScaleZ(&self, scalez: f32) -> windows_core::Result<()>;
-    fn SetScaleZ2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterX(&self, centerx: f32) -> windows_core::Result<()>;
-    fn SetCenterX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterY(&self, centery: f32) -> windows_core::Result<()>;
-    fn SetCenterY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterZ(&self, centerz: f32) -> windows_core::Result<()>;
-    fn SetCenterZ2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetScaleX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetScaleX2(&self, scalex: f32) -> windows_core::Result<()>;
+    fn SetScaleY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetScaleY2(&self, scaley: f32) -> windows_core::Result<()>;
+    fn SetScaleZ(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetScaleZ2(&self, scalez: f32) -> windows_core::Result<()>;
+    fn SetCenterX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterX2(&self, centerx: f32) -> windows_core::Result<()>;
+    fn SetCenterY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterY2(&self, centery: f32) -> windows_core::Result<()>;
+    fn SetCenterZ(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterZ2(&self, centerz: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionScaleTransform3D_Vtbl {
     pub const fn new<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetScaleX<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scalex: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScaleX<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetScaleX(this, core::mem::transmute_copy(&scalex)).into()
+                IDCompositionScaleTransform3D_Impl::SetScaleX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetScaleX2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScaleX2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scalex: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetScaleX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionScaleTransform3D_Impl::SetScaleX2(this, core::mem::transmute_copy(&scalex)).into()
             }
         }
-        unsafe extern "system" fn SetScaleY<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scaley: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScaleY<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetScaleY(this, core::mem::transmute_copy(&scaley)).into()
+                IDCompositionScaleTransform3D_Impl::SetScaleY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetScaleY2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScaleY2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scaley: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetScaleY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionScaleTransform3D_Impl::SetScaleY2(this, core::mem::transmute_copy(&scaley)).into()
             }
         }
-        unsafe extern "system" fn SetScaleZ<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scalez: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScaleZ<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetScaleZ(this, core::mem::transmute_copy(&scalez)).into()
+                IDCompositionScaleTransform3D_Impl::SetScaleZ(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetScaleZ2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScaleZ2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scalez: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetScaleZ2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionScaleTransform3D_Impl::SetScaleZ2(this, core::mem::transmute_copy(&scalez)).into()
             }
         }
-        unsafe extern "system" fn SetCenterX<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerx: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterX<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetCenterX(this, core::mem::transmute_copy(&centerx)).into()
+                IDCompositionScaleTransform3D_Impl::SetCenterX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterX2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterX2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerx: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetCenterX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionScaleTransform3D_Impl::SetCenterX2(this, core::mem::transmute_copy(&centerx)).into()
             }
         }
-        unsafe extern "system" fn SetCenterY<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centery: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterY<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetCenterY(this, core::mem::transmute_copy(&centery)).into()
+                IDCompositionScaleTransform3D_Impl::SetCenterY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterY2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterY2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centery: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetCenterY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionScaleTransform3D_Impl::SetCenterY2(this, core::mem::transmute_copy(&centery)).into()
             }
         }
-        unsafe extern "system" fn SetCenterZ<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerz: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterZ<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetCenterZ(this, core::mem::transmute_copy(&centerz)).into()
+                IDCompositionScaleTransform3D_Impl::SetCenterZ(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterZ2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterZ2<Identity: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerz: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionScaleTransform3D_Impl::SetCenterZ2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionScaleTransform3D_Impl::SetCenterZ2(this, core::mem::transmute_copy(&centerz)).into()
             }
         }
         Self {
@@ -4467,96 +4467,96 @@ impl core::ops::Deref for IDCompositionShadowEffect {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionShadowEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionShadowEffect {
-    pub unsafe fn SetStandardDeviation(&self, amount: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetStandardDeviation)(windows_core::Interface::as_raw(self), amount) }
-    }
-    pub unsafe fn SetStandardDeviation2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetStandardDeviation<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetStandardDeviation2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetStandardDeviation)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetStandardDeviation2(&self, amount: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetStandardDeviation2)(windows_core::Interface::as_raw(self), amount) }
     }
     pub unsafe fn SetColor(&self, color: *const windows_numerics::Vector4) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), color) }
     }
-    pub unsafe fn SetRed(&self, amount: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRed)(windows_core::Interface::as_raw(self), amount) }
-    }
-    pub unsafe fn SetRed2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetRed<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRed2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetRed)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetGreen(&self, amount: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetGreen)(windows_core::Interface::as_raw(self), amount) }
+    pub unsafe fn SetRed2(&self, amount: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRed2)(windows_core::Interface::as_raw(self), amount) }
     }
-    pub unsafe fn SetGreen2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetGreen<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetGreen2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetGreen)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetBlue(&self, amount: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBlue)(windows_core::Interface::as_raw(self), amount) }
+    pub unsafe fn SetGreen2(&self, amount: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetGreen2)(windows_core::Interface::as_raw(self), amount) }
     }
-    pub unsafe fn SetBlue2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetBlue<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBlue2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBlue)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetAlpha(&self, amount: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAlpha)(windows_core::Interface::as_raw(self), amount) }
+    pub unsafe fn SetBlue2(&self, amount: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBlue2)(windows_core::Interface::as_raw(self), amount) }
     }
-    pub unsafe fn SetAlpha2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAlpha<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAlpha2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAlpha)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetAlpha2(&self, amount: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAlpha2)(windows_core::Interface::as_raw(self), amount) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionShadowEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    pub SetStandardDeviation: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetStandardDeviation2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetStandardDeviation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetStandardDeviation2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector4) -> windows_core::HRESULT,
-    pub SetRed: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetRed2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetGreen: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetGreen2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBlue: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetBlue2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAlpha: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetAlpha2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRed2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetGreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetGreen2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetBlue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBlue2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetAlpha: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAlpha2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionShadowEffect_Impl: IDCompositionFilterEffect_Impl {
-    fn SetStandardDeviation(&self, amount: f32) -> windows_core::Result<()>;
-    fn SetStandardDeviation2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetStandardDeviation(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetStandardDeviation2(&self, amount: f32) -> windows_core::Result<()>;
     fn SetColor(&self, color: *const windows_numerics::Vector4) -> windows_core::Result<()>;
-    fn SetRed(&self, amount: f32) -> windows_core::Result<()>;
-    fn SetRed2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetGreen(&self, amount: f32) -> windows_core::Result<()>;
-    fn SetGreen2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetBlue(&self, amount: f32) -> windows_core::Result<()>;
-    fn SetBlue2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetAlpha(&self, amount: f32) -> windows_core::Result<()>;
-    fn SetAlpha2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetRed(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetRed2(&self, amount: f32) -> windows_core::Result<()>;
+    fn SetGreen(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetGreen2(&self, amount: f32) -> windows_core::Result<()>;
+    fn SetBlue(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBlue2(&self, amount: f32) -> windows_core::Result<()>;
+    fn SetAlpha(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAlpha2(&self, amount: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionShadowEffect_Vtbl {
     pub const fn new<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetStandardDeviation<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStandardDeviation<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionShadowEffect_Impl::SetStandardDeviation(this, core::mem::transmute_copy(&amount)).into()
+                IDCompositionShadowEffect_Impl::SetStandardDeviation(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetStandardDeviation2<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStandardDeviation2<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionShadowEffect_Impl::SetStandardDeviation2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionShadowEffect_Impl::SetStandardDeviation2(this, core::mem::transmute_copy(&amount)).into()
             }
         }
         unsafe extern "system" fn SetColor<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const windows_numerics::Vector4) -> windows_core::HRESULT {
@@ -4565,52 +4565,52 @@ impl IDCompositionShadowEffect_Vtbl {
                 IDCompositionShadowEffect_Impl::SetColor(this, core::mem::transmute_copy(&color)).into()
             }
         }
-        unsafe extern "system" fn SetRed<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRed<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionShadowEffect_Impl::SetRed(this, core::mem::transmute_copy(&amount)).into()
+                IDCompositionShadowEffect_Impl::SetRed(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetRed2<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRed2<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionShadowEffect_Impl::SetRed2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionShadowEffect_Impl::SetRed2(this, core::mem::transmute_copy(&amount)).into()
             }
         }
-        unsafe extern "system" fn SetGreen<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGreen<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionShadowEffect_Impl::SetGreen(this, core::mem::transmute_copy(&amount)).into()
+                IDCompositionShadowEffect_Impl::SetGreen(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetGreen2<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGreen2<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionShadowEffect_Impl::SetGreen2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionShadowEffect_Impl::SetGreen2(this, core::mem::transmute_copy(&amount)).into()
             }
         }
-        unsafe extern "system" fn SetBlue<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlue<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionShadowEffect_Impl::SetBlue(this, core::mem::transmute_copy(&amount)).into()
+                IDCompositionShadowEffect_Impl::SetBlue(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBlue2<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlue2<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionShadowEffect_Impl::SetBlue2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionShadowEffect_Impl::SetBlue2(this, core::mem::transmute_copy(&amount)).into()
             }
         }
-        unsafe extern "system" fn SetAlpha<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAlpha<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionShadowEffect_Impl::SetAlpha(this, core::mem::transmute_copy(&amount)).into()
+                IDCompositionShadowEffect_Impl::SetAlpha(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAlpha2<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAlpha2<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionShadowEffect_Impl::SetAlpha2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionShadowEffect_Impl::SetAlpha2(this, core::mem::transmute_copy(&amount)).into()
             }
         }
         Self {
@@ -4642,114 +4642,114 @@ impl core::ops::Deref for IDCompositionSkewTransform {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionSkewTransform, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl IDCompositionSkewTransform {
-    pub unsafe fn SetAngleX(&self, anglex: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAngleX)(windows_core::Interface::as_raw(self), anglex) }
-    }
-    pub unsafe fn SetAngleX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAngleX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAngleX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAngleX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetAngleY(&self, angley: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAngleY)(windows_core::Interface::as_raw(self), angley) }
+    pub unsafe fn SetAngleX2(&self, anglex: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAngleX2)(windows_core::Interface::as_raw(self), anglex) }
     }
-    pub unsafe fn SetAngleY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAngleY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAngleY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAngleY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterX(&self, centerx: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterX)(windows_core::Interface::as_raw(self), centerx) }
+    pub unsafe fn SetAngleY2(&self, angley: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAngleY2)(windows_core::Interface::as_raw(self), angley) }
     }
-    pub unsafe fn SetCenterX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetCenterY(&self, centery: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterY)(windows_core::Interface::as_raw(self), centery) }
+    pub unsafe fn SetCenterX2(&self, centerx: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterX2)(windows_core::Interface::as_raw(self), centerx) }
     }
-    pub unsafe fn SetCenterY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCenterY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetCenterY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetCenterY2(&self, centery: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCenterY2)(windows_core::Interface::as_raw(self), centery) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSkewTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
-    pub SetAngleX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetAngleX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAngleY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetAngleY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAngleX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAngleX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetAngleY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAngleY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetCenterY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionSkewTransform_Impl: IDCompositionTransform_Impl {
-    fn SetAngleX(&self, anglex: f32) -> windows_core::Result<()>;
-    fn SetAngleX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetAngleY(&self, angley: f32) -> windows_core::Result<()>;
-    fn SetAngleY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterX(&self, centerx: f32) -> windows_core::Result<()>;
-    fn SetCenterX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetCenterY(&self, centery: f32) -> windows_core::Result<()>;
-    fn SetCenterY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAngleX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAngleX2(&self, anglex: f32) -> windows_core::Result<()>;
+    fn SetAngleY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAngleY2(&self, angley: f32) -> windows_core::Result<()>;
+    fn SetCenterX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterX2(&self, centerx: f32) -> windows_core::Result<()>;
+    fn SetCenterY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetCenterY2(&self, centery: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionSkewTransform_Vtbl {
     pub const fn new<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetAngleX<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, anglex: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAngleX<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionSkewTransform_Impl::SetAngleX(this, core::mem::transmute_copy(&anglex)).into()
+                IDCompositionSkewTransform_Impl::SetAngleX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAngleX2<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAngleX2<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, anglex: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionSkewTransform_Impl::SetAngleX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionSkewTransform_Impl::SetAngleX2(this, core::mem::transmute_copy(&anglex)).into()
             }
         }
-        unsafe extern "system" fn SetAngleY<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, angley: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAngleY<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionSkewTransform_Impl::SetAngleY(this, core::mem::transmute_copy(&angley)).into()
+                IDCompositionSkewTransform_Impl::SetAngleY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAngleY2<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAngleY2<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, angley: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionSkewTransform_Impl::SetAngleY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionSkewTransform_Impl::SetAngleY2(this, core::mem::transmute_copy(&angley)).into()
             }
         }
-        unsafe extern "system" fn SetCenterX<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerx: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterX<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionSkewTransform_Impl::SetCenterX(this, core::mem::transmute_copy(&centerx)).into()
+                IDCompositionSkewTransform_Impl::SetCenterX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterX2<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterX2<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centerx: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionSkewTransform_Impl::SetCenterX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionSkewTransform_Impl::SetCenterX2(this, core::mem::transmute_copy(&centerx)).into()
             }
         }
-        unsafe extern "system" fn SetCenterY<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centery: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterY<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionSkewTransform_Impl::SetCenterY(this, core::mem::transmute_copy(&centery)).into()
+                IDCompositionSkewTransform_Impl::SetCenterY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetCenterY2<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCenterY2<Identity: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, centery: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionSkewTransform_Impl::SetCenterY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionSkewTransform_Impl::SetCenterY2(this, core::mem::transmute_copy(&centery)).into()
             }
         }
         Self {
@@ -4973,41 +4973,41 @@ impl IDCompositionTableTransferEffect {
     pub unsafe fn SetClampOutput(&self, clampoutput: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClampOutput)(windows_core::Interface::as_raw(self), clampoutput.into()) }
     }
-    pub unsafe fn SetRedTableValue(&self, index: u32, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRedTableValue)(windows_core::Interface::as_raw(self), index, value) }
-    }
-    pub unsafe fn SetRedTableValue2<P1>(&self, index: u32, animation: P1) -> windows_core::HRESULT
+    pub unsafe fn SetRedTableValue<P1>(&self, index: u32, animation: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRedTableValue2)(windows_core::Interface::as_raw(self), index, animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetRedTableValue)(windows_core::Interface::as_raw(self), index, animation.param().abi()) }
     }
-    pub unsafe fn SetGreenTableValue(&self, index: u32, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetGreenTableValue)(windows_core::Interface::as_raw(self), index, value) }
+    pub unsafe fn SetRedTableValue2(&self, index: u32, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRedTableValue2)(windows_core::Interface::as_raw(self), index, value) }
     }
-    pub unsafe fn SetGreenTableValue2<P1>(&self, index: u32, animation: P1) -> windows_core::HRESULT
+    pub unsafe fn SetGreenTableValue<P1>(&self, index: u32, animation: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetGreenTableValue2)(windows_core::Interface::as_raw(self), index, animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetGreenTableValue)(windows_core::Interface::as_raw(self), index, animation.param().abi()) }
     }
-    pub unsafe fn SetBlueTableValue(&self, index: u32, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBlueTableValue)(windows_core::Interface::as_raw(self), index, value) }
+    pub unsafe fn SetGreenTableValue2(&self, index: u32, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetGreenTableValue2)(windows_core::Interface::as_raw(self), index, value) }
     }
-    pub unsafe fn SetBlueTableValue2<P1>(&self, index: u32, animation: P1) -> windows_core::HRESULT
+    pub unsafe fn SetBlueTableValue<P1>(&self, index: u32, animation: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBlueTableValue2)(windows_core::Interface::as_raw(self), index, animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBlueTableValue)(windows_core::Interface::as_raw(self), index, animation.param().abi()) }
     }
-    pub unsafe fn SetAlphaTableValue(&self, index: u32, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAlphaTableValue)(windows_core::Interface::as_raw(self), index, value) }
+    pub unsafe fn SetBlueTableValue2(&self, index: u32, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBlueTableValue2)(windows_core::Interface::as_raw(self), index, value) }
     }
-    pub unsafe fn SetAlphaTableValue2<P1>(&self, index: u32, animation: P1) -> windows_core::HRESULT
+    pub unsafe fn SetAlphaTableValue<P1>(&self, index: u32, animation: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAlphaTableValue2)(windows_core::Interface::as_raw(self), index, animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAlphaTableValue)(windows_core::Interface::as_raw(self), index, animation.param().abi()) }
+    }
+    pub unsafe fn SetAlphaTableValue2(&self, index: u32, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAlphaTableValue2)(windows_core::Interface::as_raw(self), index, value) }
     }
 }
 #[repr(C)]
@@ -5023,14 +5023,14 @@ pub struct IDCompositionTableTransferEffect_Vtbl {
     pub SetBlueDisable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetAlphaDisable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetClampOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    pub SetRedTableValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32) -> windows_core::HRESULT,
-    pub SetRedTableValue2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetGreenTableValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32) -> windows_core::HRESULT,
-    pub SetGreenTableValue2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBlueTableValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32) -> windows_core::HRESULT,
-    pub SetBlueTableValue2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAlphaTableValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32) -> windows_core::HRESULT,
-    pub SetAlphaTableValue2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRedTableValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRedTableValue2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32) -> windows_core::HRESULT,
+    pub SetGreenTableValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetGreenTableValue2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32) -> windows_core::HRESULT,
+    pub SetBlueTableValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBlueTableValue2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32) -> windows_core::HRESULT,
+    pub SetAlphaTableValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAlphaTableValue2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionTableTransferEffect_Impl: IDCompositionFilterEffect_Impl {
     fn SetRedTable(&self, tablevalues: *const f32, count: u32) -> windows_core::Result<()>;
@@ -5042,14 +5042,14 @@ pub trait IDCompositionTableTransferEffect_Impl: IDCompositionFilterEffect_Impl 
     fn SetBlueDisable(&self, bluedisable: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetAlphaDisable(&self, alphadisable: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetClampOutput(&self, clampoutput: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetRedTableValue(&self, index: u32, value: f32) -> windows_core::Result<()>;
-    fn SetRedTableValue2(&self, index: u32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetGreenTableValue(&self, index: u32, value: f32) -> windows_core::Result<()>;
-    fn SetGreenTableValue2(&self, index: u32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetBlueTableValue(&self, index: u32, value: f32) -> windows_core::Result<()>;
-    fn SetBlueTableValue2(&self, index: u32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetAlphaTableValue(&self, index: u32, value: f32) -> windows_core::Result<()>;
-    fn SetAlphaTableValue2(&self, index: u32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetRedTableValue(&self, index: u32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetRedTableValue2(&self, index: u32, value: f32) -> windows_core::Result<()>;
+    fn SetGreenTableValue(&self, index: u32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetGreenTableValue2(&self, index: u32, value: f32) -> windows_core::Result<()>;
+    fn SetBlueTableValue(&self, index: u32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetBlueTableValue2(&self, index: u32, value: f32) -> windows_core::Result<()>;
+    fn SetAlphaTableValue(&self, index: u32, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetAlphaTableValue2(&self, index: u32, value: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionTableTransferEffect_Vtbl {
     pub const fn new<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>() -> Self {
@@ -5107,52 +5107,52 @@ impl IDCompositionTableTransferEffect_Vtbl {
                 IDCompositionTableTransferEffect_Impl::SetClampOutput(this, core::mem::transmute_copy(&clampoutput)).into()
             }
         }
-        unsafe extern "system" fn SetRedTableValue<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRedTableValue<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTableTransferEffect_Impl::SetRedTableValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
+                IDCompositionTableTransferEffect_Impl::SetRedTableValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetRedTableValue2<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRedTableValue2<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTableTransferEffect_Impl::SetRedTableValue2(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&animation)).into()
+                IDCompositionTableTransferEffect_Impl::SetRedTableValue2(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn SetGreenTableValue<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGreenTableValue<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTableTransferEffect_Impl::SetGreenTableValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
+                IDCompositionTableTransferEffect_Impl::SetGreenTableValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetGreenTableValue2<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGreenTableValue2<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTableTransferEffect_Impl::SetGreenTableValue2(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&animation)).into()
+                IDCompositionTableTransferEffect_Impl::SetGreenTableValue2(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn SetBlueTableValue<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlueTableValue<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTableTransferEffect_Impl::SetBlueTableValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
+                IDCompositionTableTransferEffect_Impl::SetBlueTableValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBlueTableValue2<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlueTableValue2<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTableTransferEffect_Impl::SetBlueTableValue2(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&animation)).into()
+                IDCompositionTableTransferEffect_Impl::SetBlueTableValue2(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn SetAlphaTableValue<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAlphaTableValue<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTableTransferEffect_Impl::SetAlphaTableValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
+                IDCompositionTableTransferEffect_Impl::SetAlphaTableValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAlphaTableValue2<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAlphaTableValue2<Identity: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTableTransferEffect_Impl::SetAlphaTableValue2(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&animation)).into()
+                IDCompositionTableTransferEffect_Impl::SetAlphaTableValue2(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
             }
         }
         Self {
@@ -5355,64 +5355,64 @@ impl core::ops::Deref for IDCompositionTranslateTransform {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTranslateTransform, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl IDCompositionTranslateTransform {
-    pub unsafe fn SetOffsetX(&self, offsetx: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetX)(windows_core::Interface::as_raw(self), offsetx) }
-    }
-    pub unsafe fn SetOffsetX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetOffsetY(&self, offsety: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetY)(windows_core::Interface::as_raw(self), offsety) }
+    pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetX2)(windows_core::Interface::as_raw(self), offsetx) }
     }
-    pub unsafe fn SetOffsetY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetOffsetY2(&self, offsety: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetY2)(windows_core::Interface::as_raw(self), offsety) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTranslateTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
-    pub SetOffsetX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetOffsetX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetOffsetY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetOffsetY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetOffsetY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionTranslateTransform_Impl: IDCompositionTransform_Impl {
-    fn SetOffsetX(&self, offsetx: f32) -> windows_core::Result<()>;
-    fn SetOffsetX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetOffsetY(&self, offsety: f32) -> windows_core::Result<()>;
-    fn SetOffsetY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOffsetX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOffsetX2(&self, offsetx: f32) -> windows_core::Result<()>;
+    fn SetOffsetY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOffsetY2(&self, offsety: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionTranslateTransform_Vtbl {
     pub const fn new<Identity: IDCompositionTranslateTransform_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetOffsetX<Identity: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetx: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetX<Identity: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTranslateTransform_Impl::SetOffsetX(this, core::mem::transmute_copy(&offsetx)).into()
+                IDCompositionTranslateTransform_Impl::SetOffsetX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetX2<Identity: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetX2<Identity: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetx: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTranslateTransform_Impl::SetOffsetX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionTranslateTransform_Impl::SetOffsetX2(this, core::mem::transmute_copy(&offsetx)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetY<Identity: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsety: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetY<Identity: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTranslateTransform_Impl::SetOffsetY(this, core::mem::transmute_copy(&offsety)).into()
+                IDCompositionTranslateTransform_Impl::SetOffsetY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetY2<Identity: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetY2<Identity: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsety: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTranslateTransform_Impl::SetOffsetY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionTranslateTransform_Impl::SetOffsetY2(this, core::mem::transmute_copy(&offsety)).into()
             }
         }
         Self {
@@ -5437,89 +5437,89 @@ impl core::ops::Deref for IDCompositionTranslateTransform3D {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTranslateTransform3D, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl IDCompositionTranslateTransform3D {
-    pub unsafe fn SetOffsetX(&self, offsetx: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetX)(windows_core::Interface::as_raw(self), offsetx) }
-    }
-    pub unsafe fn SetOffsetX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetOffsetY(&self, offsety: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetY)(windows_core::Interface::as_raw(self), offsety) }
+    pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetX2)(windows_core::Interface::as_raw(self), offsetx) }
     }
-    pub unsafe fn SetOffsetY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetOffsetZ(&self, offsetz: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetZ)(windows_core::Interface::as_raw(self), offsetz) }
+    pub unsafe fn SetOffsetY2(&self, offsety: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetY2)(windows_core::Interface::as_raw(self), offsety) }
     }
-    pub unsafe fn SetOffsetZ2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetOffsetZ<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetZ2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetZ)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+    }
+    pub unsafe fn SetOffsetZ2(&self, offsetz: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetZ2)(windows_core::Interface::as_raw(self), offsetz) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTranslateTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
-    pub SetOffsetX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetOffsetX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetOffsetY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetOffsetY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetOffsetZ: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetOffsetZ2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetOffsetY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetOffsetZ: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetZ2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 pub trait IDCompositionTranslateTransform3D_Impl: IDCompositionTransform3D_Impl {
-    fn SetOffsetX(&self, offsetx: f32) -> windows_core::Result<()>;
-    fn SetOffsetX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetOffsetY(&self, offsety: f32) -> windows_core::Result<()>;
-    fn SetOffsetY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetOffsetZ(&self, offsetz: f32) -> windows_core::Result<()>;
-    fn SetOffsetZ2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOffsetX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOffsetX2(&self, offsetx: f32) -> windows_core::Result<()>;
+    fn SetOffsetY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOffsetY2(&self, offsety: f32) -> windows_core::Result<()>;
+    fn SetOffsetZ(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOffsetZ2(&self, offsetz: f32) -> windows_core::Result<()>;
 }
 impl IDCompositionTranslateTransform3D_Vtbl {
     pub const fn new<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetOffsetX<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetx: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetX<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTranslateTransform3D_Impl::SetOffsetX(this, core::mem::transmute_copy(&offsetx)).into()
+                IDCompositionTranslateTransform3D_Impl::SetOffsetX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetX2<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetX2<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetx: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTranslateTransform3D_Impl::SetOffsetX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionTranslateTransform3D_Impl::SetOffsetX2(this, core::mem::transmute_copy(&offsetx)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetY<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsety: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetY<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTranslateTransform3D_Impl::SetOffsetY(this, core::mem::transmute_copy(&offsety)).into()
+                IDCompositionTranslateTransform3D_Impl::SetOffsetY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetY2<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetY2<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsety: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTranslateTransform3D_Impl::SetOffsetY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionTranslateTransform3D_Impl::SetOffsetY2(this, core::mem::transmute_copy(&offsety)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetZ<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetz: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetZ<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTranslateTransform3D_Impl::SetOffsetZ(this, core::mem::transmute_copy(&offsetz)).into()
+                IDCompositionTranslateTransform3D_Impl::SetOffsetZ(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetZ2<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetZ2<Identity: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetz: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionTranslateTransform3D_Impl::SetOffsetZ2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionTranslateTransform3D_Impl::SetOffsetZ2(this, core::mem::transmute_copy(&offsetz)).into()
             }
         }
         Self {
@@ -5714,32 +5714,32 @@ impl windows_core::RuntimeName for IDCompositionVirtualSurface {}
 windows_core::imp::define_interface!(IDCompositionVisual, IDCompositionVisual_Vtbl, 0x4d93059d_097b_4651_9a60_f0f25116e2f3);
 windows_core::imp::interface_hierarchy!(IDCompositionVisual, windows_core::IUnknown);
 impl IDCompositionVisual {
-    pub unsafe fn SetOffsetX(&self, offsetx: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetX)(windows_core::Interface::as_raw(self), offsetx) }
-    }
-    pub unsafe fn SetOffsetX2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetX2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetX)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetOffsetY(&self, offsety: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetY)(windows_core::Interface::as_raw(self), offsety) }
+    pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetX2)(windows_core::Interface::as_raw(self), offsetx) }
     }
-    pub unsafe fn SetOffsetY2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetY2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetY)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetTransform(&self, matrix: *const windows_numerics::Matrix3x2) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), matrix) }
+    pub unsafe fn SetOffsetY2(&self, offsety: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetY2)(windows_core::Interface::as_raw(self), offsety) }
     }
-    pub unsafe fn SetTransform2<P0>(&self, transform: P0) -> windows_core::HRESULT
+    pub unsafe fn SetTransform<P0>(&self, transform: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionTransform>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTransform2)(windows_core::Interface::as_raw(self), transform.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), transform.param().abi()) }
+    }
+    pub unsafe fn SetTransform2(&self, matrix: *const windows_numerics::Matrix3x2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTransform2)(windows_core::Interface::as_raw(self), matrix) }
     }
     pub unsafe fn SetTransformParent<P0>(&self, visual: P0) -> windows_core::HRESULT
     where
@@ -5759,15 +5759,15 @@ impl IDCompositionVisual {
     pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBorderMode)(windows_core::Interface::as_raw(self), bordermode) }
     }
-    #[cfg(feature = "dcommon")]
-    pub unsafe fn SetClip(&self, rect: *const super::dcommon::D2D_RECT_F) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetClip)(windows_core::Interface::as_raw(self), rect) }
-    }
-    pub unsafe fn SetClip2<P0>(&self, clip: P0) -> windows_core::HRESULT
+    pub unsafe fn SetClip<P0>(&self, clip: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionClip>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClip2)(windows_core::Interface::as_raw(self), clip.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetClip)(windows_core::Interface::as_raw(self), clip.param().abi()) }
+    }
+    #[cfg(feature = "dcommon")]
+    pub unsafe fn SetClip2(&self, rect: *const super::dcommon::D2D_RECT_F) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetClip2)(windows_core::Interface::as_raw(self), rect) }
     }
     pub unsafe fn SetContent<P0>(&self, content: P0) -> windows_core::HRESULT
     where
@@ -5799,21 +5799,21 @@ impl IDCompositionVisual {
 #[doc(hidden)]
 pub struct IDCompositionVisual_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetOffsetX: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetOffsetX2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetOffsetY: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetOffsetY2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix3x2) -> windows_core::HRESULT,
-    pub SetTransform2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetOffsetY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTransform2: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix3x2) -> windows_core::HRESULT,
     pub SetTransformParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetBitmapInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> windows_core::HRESULT,
     pub SetBorderMode: unsafe extern "system" fn(*mut core::ffi::c_void, DCOMPOSITION_BORDER_MODE) -> windows_core::HRESULT,
+    pub SetClip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "dcommon")]
-    pub SetClip: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::dcommon::D2D_RECT_F) -> windows_core::HRESULT,
+    pub SetClip2: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::dcommon::D2D_RECT_F) -> windows_core::HRESULT,
     #[cfg(not(feature = "dcommon"))]
-    SetClip: usize,
-    pub SetClip2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    SetClip2: usize,
     pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5822,18 +5822,18 @@ pub struct IDCompositionVisual_Vtbl {
 }
 #[cfg(feature = "dcommon")]
 pub trait IDCompositionVisual_Impl: windows_core::IUnknownImpl {
-    fn SetOffsetX(&self, offsetx: f32) -> windows_core::Result<()>;
-    fn SetOffsetX2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetOffsetY(&self, offsety: f32) -> windows_core::Result<()>;
-    fn SetOffsetY2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetTransform(&self, matrix: *const windows_numerics::Matrix3x2) -> windows_core::Result<()>;
-    fn SetTransform2(&self, transform: windows_core::Ref<IDCompositionTransform>) -> windows_core::Result<()>;
+    fn SetOffsetX(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOffsetX2(&self, offsetx: f32) -> windows_core::Result<()>;
+    fn SetOffsetY(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOffsetY2(&self, offsety: f32) -> windows_core::Result<()>;
+    fn SetTransform(&self, transform: windows_core::Ref<IDCompositionTransform>) -> windows_core::Result<()>;
+    fn SetTransform2(&self, matrix: *const windows_numerics::Matrix3x2) -> windows_core::Result<()>;
     fn SetTransformParent(&self, visual: windows_core::Ref<IDCompositionVisual>) -> windows_core::Result<()>;
     fn SetEffect(&self, effect: windows_core::Ref<IDCompositionEffect>) -> windows_core::Result<()>;
     fn SetBitmapInterpolationMode(&self, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> windows_core::Result<()>;
     fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> windows_core::Result<()>;
-    fn SetClip(&self, rect: *const super::dcommon::D2D_RECT_F) -> windows_core::Result<()>;
-    fn SetClip2(&self, clip: windows_core::Ref<IDCompositionClip>) -> windows_core::Result<()>;
+    fn SetClip(&self, clip: windows_core::Ref<IDCompositionClip>) -> windows_core::Result<()>;
+    fn SetClip2(&self, rect: *const super::dcommon::D2D_RECT_F) -> windows_core::Result<()>;
     fn SetContent(&self, content: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn AddVisual(&self, visual: windows_core::Ref<IDCompositionVisual>, insertabove: windows_core::BOOL, referencevisual: windows_core::Ref<IDCompositionVisual>) -> windows_core::Result<()>;
     fn RemoveVisual(&self, visual: windows_core::Ref<IDCompositionVisual>) -> windows_core::Result<()>;
@@ -5843,40 +5843,40 @@ pub trait IDCompositionVisual_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "dcommon")]
 impl IDCompositionVisual_Vtbl {
     pub const fn new<Identity: IDCompositionVisual_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetOffsetX<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetx: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetX<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual_Impl::SetOffsetX(this, core::mem::transmute_copy(&offsetx)).into()
+                IDCompositionVisual_Impl::SetOffsetX(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetX2<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetX2<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetx: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual_Impl::SetOffsetX2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionVisual_Impl::SetOffsetX2(this, core::mem::transmute_copy(&offsetx)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetY<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsety: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetY<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual_Impl::SetOffsetY(this, core::mem::transmute_copy(&offsety)).into()
+                IDCompositionVisual_Impl::SetOffsetY(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetY2<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetY2<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsety: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual_Impl::SetOffsetY2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionVisual_Impl::SetOffsetY2(this, core::mem::transmute_copy(&offsety)).into()
             }
         }
-        unsafe extern "system" fn SetTransform<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *const windows_numerics::Matrix3x2) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransform<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual_Impl::SetTransform(this, core::mem::transmute_copy(&matrix)).into()
+                IDCompositionVisual_Impl::SetTransform(this, core::mem::transmute_copy(&transform)).into()
             }
         }
-        unsafe extern "system" fn SetTransform2<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransform2<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *const windows_numerics::Matrix3x2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual_Impl::SetTransform2(this, core::mem::transmute_copy(&transform)).into()
+                IDCompositionVisual_Impl::SetTransform2(this, core::mem::transmute_copy(&matrix)).into()
             }
         }
         unsafe extern "system" fn SetTransformParent<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visual: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5903,16 +5903,16 @@ impl IDCompositionVisual_Vtbl {
                 IDCompositionVisual_Impl::SetBorderMode(this, core::mem::transmute_copy(&bordermode)).into()
             }
         }
-        unsafe extern "system" fn SetClip<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: *const super::dcommon::D2D_RECT_F) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClip<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clip: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual_Impl::SetClip(this, core::mem::transmute_copy(&rect)).into()
+                IDCompositionVisual_Impl::SetClip(this, core::mem::transmute_copy(&clip)).into()
             }
         }
-        unsafe extern "system" fn SetClip2<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clip: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClip2<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: *const super::dcommon::D2D_RECT_F) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual_Impl::SetClip2(this, core::mem::transmute_copy(&clip)).into()
+                IDCompositionVisual_Impl::SetClip2(this, core::mem::transmute_copy(&rect)).into()
             }
         }
         unsafe extern "system" fn SetContent<Identity: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, content: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6039,32 +6039,32 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetDepthMode(&self, mode: DCOMPOSITION_DEPTH_MODE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDepthMode)(windows_core::Interface::as_raw(self), mode) }
     }
-    pub unsafe fn SetOffsetZ(&self, offsetz: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetZ)(windows_core::Interface::as_raw(self), offsetz) }
-    }
-    pub unsafe fn SetOffsetZ2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetOffsetZ<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetOffsetZ2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetZ)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), opacity) }
+    pub unsafe fn SetOffsetZ2(&self, offsetz: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOffsetZ2)(windows_core::Interface::as_raw(self), offsetz) }
     }
-    pub unsafe fn SetOpacity2<P0>(&self, animation: P0) -> windows_core::HRESULT
+    pub unsafe fn SetOpacity<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetOpacity2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    pub unsafe fn SetTransform(&self, matrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), matrix) }
+    pub unsafe fn SetOpacity2(&self, opacity: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOpacity2)(windows_core::Interface::as_raw(self), opacity) }
     }
-    pub unsafe fn SetTransform2<P0>(&self, transform: P0) -> windows_core::HRESULT
+    pub unsafe fn SetTransform<P0>(&self, transform: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionTransform3D>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTransform2)(windows_core::Interface::as_raw(self), transform.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), transform.param().abi()) }
+    }
+    pub unsafe fn SetTransform2(&self, matrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTransform2)(windows_core::Interface::as_raw(self), matrix) }
     }
     pub unsafe fn SetVisible(&self, visible: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), visible.into()) }
@@ -6075,23 +6075,23 @@ impl IDCompositionVisual3 {
 pub struct IDCompositionVisual3_Vtbl {
     pub base__: IDCompositionVisualDebug_Vtbl,
     pub SetDepthMode: unsafe extern "system" fn(*mut core::ffi::c_void, DCOMPOSITION_DEPTH_MODE) -> windows_core::HRESULT,
-    pub SetOffsetZ: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetOffsetZ2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SetOpacity2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
-    pub SetTransform2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetZ: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOffsetZ2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOpacity2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTransform2: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
     pub SetVisible: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
 pub trait IDCompositionVisual3_Impl: IDCompositionVisualDebug_Impl {
     fn SetDepthMode(&self, mode: DCOMPOSITION_DEPTH_MODE) -> windows_core::Result<()>;
-    fn SetOffsetZ(&self, offsetz: f32) -> windows_core::Result<()>;
-    fn SetOffsetZ2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetOpacity(&self, opacity: f32) -> windows_core::Result<()>;
-    fn SetOpacity2(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetTransform(&self, matrix: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
-    fn SetTransform2(&self, transform: windows_core::Ref<IDCompositionTransform3D>) -> windows_core::Result<()>;
+    fn SetOffsetZ(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOffsetZ2(&self, offsetz: f32) -> windows_core::Result<()>;
+    fn SetOpacity(&self, animation: windows_core::Ref<IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn SetOpacity2(&self, opacity: f32) -> windows_core::Result<()>;
+    fn SetTransform(&self, transform: windows_core::Ref<IDCompositionTransform3D>) -> windows_core::Result<()>;
+    fn SetTransform2(&self, matrix: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
     fn SetVisible(&self, visible: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi"))]
@@ -6103,40 +6103,40 @@ impl IDCompositionVisual3_Vtbl {
                 IDCompositionVisual3_Impl::SetDepthMode(this, core::mem::transmute_copy(&mode)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetZ<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetz: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetZ<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual3_Impl::SetOffsetZ(this, core::mem::transmute_copy(&offsetz)).into()
+                IDCompositionVisual3_Impl::SetOffsetZ(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetOffsetZ2<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffsetZ2<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetz: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual3_Impl::SetOffsetZ2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionVisual3_Impl::SetOffsetZ2(this, core::mem::transmute_copy(&offsetz)).into()
             }
         }
-        unsafe extern "system" fn SetOpacity<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOpacity<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual3_Impl::SetOpacity(this, core::mem::transmute_copy(&opacity)).into()
+                IDCompositionVisual3_Impl::SetOpacity(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetOpacity2<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOpacity2<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual3_Impl::SetOpacity2(this, core::mem::transmute_copy(&animation)).into()
+                IDCompositionVisual3_Impl::SetOpacity2(this, core::mem::transmute_copy(&opacity)).into()
             }
         }
-        unsafe extern "system" fn SetTransform<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransform<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual3_Impl::SetTransform(this, core::mem::transmute_copy(&matrix)).into()
+                IDCompositionVisual3_Impl::SetTransform(this, core::mem::transmute_copy(&transform)).into()
             }
         }
-        unsafe extern "system" fn SetTransform2<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransform2<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionVisual3_Impl::SetTransform2(this, core::mem::transmute_copy(&transform)).into()
+                IDCompositionVisual3_Impl::SetTransform2(this, core::mem::transmute_copy(&matrix)).into()
             }
         }
         unsafe extern "system" fn SetVisible<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visible: windows_core::BOOL) -> windows_core::HRESULT {

@@ -167,6 +167,39 @@ losing its `[Optional]` flag (the `specstrings_strict.h` shim clobber) — was f
 covered by `crates/tests/libs/clang/input/interface_outptr_opt.h`; contrast that with the
 four above, which are faithful by design.
 
+### Overloaded virtual methods are emitted in reverse (MSVC vtable order)
+
+A COM/C++ interface method's position in the metadata **is** its vtable slot — bindgen
+lays the generated function pointers out in emission order, so the order the scraper
+records must match the order MSVC lays the virtual functions into the vtable. For most
+interfaces declaration order and vtable order are identical, but there is one exception:
+**MSVC emits a run of consecutive same-name (overloaded) virtual functions into the
+vtable in *reverse* declaration order.** A header that declares
+
+```cpp
+STDMETHOD(SetOffsetX)(IDCompositionAnimation *animation) PURE;  // declared 1st
+STDMETHOD(SetOffsetX)(float offsetX) PURE;                      // declared 2nd
+```
+
+places the `float` overload in the *earlier* vtable slot and the animation overload in
+the *later* one. Non-overloaded methods, and singleton "runs" of one, keep their order;
+only the overloaded group is flipped. A three-overload run `A, B, C` becomes `C, B, A`.
+
+`Interface::parse` (`interface.rs`) collects the pure-virtual methods in declaration
+order, then walks the list and reverses each maximal run of consecutive methods sharing
+a name — reproducing the MSVC layout so slot *N* in the metadata is slot *N* in the real
+vtable. Downstream, `windows-bindgen` disambiguates the overloads by emission order, so
+after the reversal the animation overload keeps the base name `SetOffsetX` and the scalar
+overload becomes `SetOffsetX2` — matching both the true ABI and the pre-in-house
+`windows` crate.
+
+This is ABI-critical, not cosmetic: before the fix the `SetOffsetX`/`SetOffsetX2` slots
+were swapped, so calling the scalar setter dispatched through the animation slot and
+tripped `/GS` stack-cookie fail-fast (`0xC0000409`, `STATUS_STACK_BUFFER_OVERRUN`) — see
+the `windows_dcomp` sample. The corpus blast radius is tiny (overloaded pure-virtual COM
+methods are rare — DirectComposition, a few Direct2D SVG and DirectWrite interfaces).
+Covered by `crates/tests/libs/clang/input/interface_overload.h`.
+
 ### Base-interface `_COM_Outptr_` creators are not auto-promoted (rejected heuristic)
 
 A creator like `DWriteCreateFactory(_In_ REFIID iid, _COM_Outptr_ IUnknown **factory)`
@@ -609,7 +642,7 @@ definition went missing and references to it failed to compile. The multi-copy g
 `Type::combine` (`crates/libs/bindgen/src/types/mod.rs`) only covered `CppStruct`/`CppFn`; it
 now also covers `CppDelegate` and `CppConst` — the full set of arch-bearing (`.arches()`)
 types. Directly-filtered types were never affected (both copies always emit), so full-corpus
-generation (`tool_package`, `tool_validate`) shows no drift; only narrow/minimal filters could
+generation (`tool_package`) shows no drift; only narrow/minimal filters could
 hit it. Regression: `crates/tests/libs/bindgen/input/arch_delegate_dependency_sys.rdl`.
 
 **To investigate: inconsistent handle modelling between `--package` and `--minimal`/`--sys`.**
