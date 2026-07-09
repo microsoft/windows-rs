@@ -58,7 +58,7 @@ jobs:
         with:
           key: ${{ matrix.tool }}
       - name: Run
-        run: cargo run -p tool_${{ matrix.tool }}
+        run: cargo run -p tool_${{ matrix.tool }} --release
       - name: Check
         shell: bash
         run: |
