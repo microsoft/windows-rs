@@ -21,12 +21,20 @@ fn main() -> Result<()> {
 
         // Make sure that the "en-US" locale is supported.
         let locale = w!("en-US");
-        assert!(factory.IsSupported(locale)?.as_bool(), "en-US is supported");
+        assert!(
+            factory.IsSupported(locale)?.as_bool(),
+            "en-US must be supported"
+        );
 
         let checker = factory.CreateSpellChecker(locale)?;
 
         println!("Checking the text: '{input}'");
-        let errors = checker.ComprehensiveCheck(&HSTRING::from(&input))?;
+        let text = HSTRING::from(&input);
+        let errors = checker.ComprehensiveCheck(&text)?;
+
+        // `ISpellingError` reports offsets into the UTF-16 text the spell checker
+        // sees, so slice the wide `HSTRING` rather than the original UTF-8 `String`.
+        let wide: &[u16] = &text;
 
         // `IEnumSpellingError::Next` carries a `[retval]`, so it projects as
         // `-> Result<ISpellingError>`; the terminal `S_FALSE` surfaces as `Err`, so
@@ -34,7 +42,7 @@ fn main() -> Result<()> {
         while let Ok(error) = errors.Next() {
             let start_index = error.StartIndex()? as usize;
             let length = error.Length()? as usize;
-            let substring = &input[start_index..start_index + length];
+            let substring = String::from_utf16_lossy(&wide[start_index..start_index + length]);
 
             let action = error.CorrectiveAction()?;
             println!("{action:?}");
@@ -49,14 +57,15 @@ fn main() -> Result<()> {
                     CoTaskMemFree(replacement.as_ptr() as *mut _);
                 }
                 CORRECTIVE_ACTION_GET_SUGGESTIONS => {
-                    let suggestions = checker.Suggest(&HSTRING::from(substring))?;
+                    let suggestions = checker.Suggest(&HSTRING::from(&substring))?;
 
                     // `IEnumString::Next` has no `[retval]` (it takes an array plus a
-                    // count out-param), so it projects as `-> HRESULT`; a null slot
-                    // signals the end of the enumeration.
+                    // count out-param), so it projects as `-> HRESULT`; propagate real
+                    // failures with `.ok()?`, then a null slot signals the end of the
+                    // enumeration.
                     loop {
                         let mut suggestion = [PWSTR::null()];
-                        _ = suggestions.Next(&mut suggestion, None);
+                        suggestions.Next(&mut suggestion, None).ok()?;
 
                         if suggestion[0].is_null() {
                             break;
