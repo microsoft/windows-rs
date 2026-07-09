@@ -52,7 +52,9 @@ impl CppConst {
             return config.write_cpp_const_guid(name, &guid);
         }
 
+        let arches = write_arches(self.field);
         let cfg = self.write_cfg(config);
+        let cfg = quote! { #arches #cfg };
 
         if let Some(constant) = self.field.constant() {
             let constant_ty = constant.constant_type(config.reader);
