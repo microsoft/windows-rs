@@ -13,11 +13,11 @@ fn main() -> Result<()> {
         CoIncrementMTAUsage()?;
 
         let backup = CreateVssBackupComponentsInternal()?;
-        backup.InitializeForBackup(&BSTR::new())?;
-        backup.SetBackupState(true, true, VSS_BT_FULL, false)?;
+        backup.InitializeForBackup(&BSTR::new()).ok()?;
+        backup.SetBackupState(true, true, VSS_BT_FULL, false).ok()?;
 
         let mut xml = BSTR::new();
-        backup.SaveAsXML(&mut xml)?;
+        backup.SaveAsXML(&mut xml).ok()?;
         println!("{}", xml.display());
         Ok(())
     }

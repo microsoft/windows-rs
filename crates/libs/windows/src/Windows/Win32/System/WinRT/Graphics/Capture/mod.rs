@@ -63,8 +63,8 @@ windows_core::imp::define_interface!(IMonitorGraphicsCaptureItemInterop, IMonito
 windows_core::imp::interface_hierarchy!(IMonitorGraphicsCaptureItemInterop, windows_core::IUnknown);
 impl IMonitorGraphicsCaptureItemInterop {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetMonitor(&self, monitor: *mut super::super::super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMonitor)(windows_core::Interface::as_raw(self), monitor as _).ok() }
+    pub unsafe fn GetMonitor(&self, monitor: *mut super::super::super::super::Graphics::Gdi::HMONITOR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMonitor)(windows_core::Interface::as_raw(self), monitor as _) }
     }
 }
 #[repr(C)]
@@ -100,8 +100,8 @@ impl windows_core::RuntimeName for IMonitorGraphicsCaptureItemInterop {}
 windows_core::imp::define_interface!(IWindowGraphicsCaptureItemInterop, IWindowGraphicsCaptureItemInterop_Vtbl, 0x38e4c48b_94e6_4c44_9cfa_968193316c0c);
 windows_core::imp::interface_hierarchy!(IWindowGraphicsCaptureItemInterop, windows_core::IUnknown);
 impl IWindowGraphicsCaptureItemInterop {
-    pub unsafe fn GetWindow(&self, window: *mut super::super::super::super::Foundation::HWND) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetWindow)(windows_core::Interface::as_raw(self), window as _).ok() }
+    pub unsafe fn GetWindow(&self, window: *mut super::super::super::super::Foundation::HWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWindow)(windows_core::Interface::as_raw(self), window as _) }
     }
 }
 #[repr(C)]

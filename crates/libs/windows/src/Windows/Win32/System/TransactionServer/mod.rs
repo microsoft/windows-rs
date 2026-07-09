@@ -27,11 +27,11 @@ impl ICatalog {
             (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnectstring), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MajorVersion(&self, retval: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MajorVersion)(windows_core::Interface::as_raw(self), retval as _).ok() }
+    pub unsafe fn MajorVersion(&self, retval: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).MajorVersion)(windows_core::Interface::as_raw(self), retval as _) }
     }
-    pub unsafe fn MinorVersion(&self, retval: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MinorVersion)(windows_core::Interface::as_raw(self), retval as _).ok() }
+    pub unsafe fn MinorVersion(&self, retval: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).MinorVersion)(windows_core::Interface::as_raw(self), retval as _) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -117,17 +117,17 @@ impl core::ops::Deref for IComponentUtil {
 windows_core::imp::interface_hierarchy!(IComponentUtil, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentUtil {
-    pub unsafe fn InstallComponent(&self, bstrdllfile: &windows_core::BSTR, bstrtypelibfile: &windows_core::BSTR, bstrproxystubdllfile: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InstallComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdllfile), core::mem::transmute_copy(bstrtypelibfile), core::mem::transmute_copy(bstrproxystubdllfile)).ok() }
+    pub unsafe fn InstallComponent(&self, bstrdllfile: &windows_core::BSTR, bstrtypelibfile: &windows_core::BSTR, bstrproxystubdllfile: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InstallComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdllfile), core::mem::transmute_copy(bstrtypelibfile), core::mem::transmute_copy(bstrproxystubdllfile)) }
     }
-    pub unsafe fn ImportComponent(&self, bstrclsid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ImportComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclsid)).ok() }
+    pub unsafe fn ImportComponent(&self, bstrclsid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ImportComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclsid)) }
     }
-    pub unsafe fn ImportComponentByName(&self, bstrprogid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ImportComponentByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprogid)).ok() }
+    pub unsafe fn ImportComponentByName(&self, bstrprogid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ImportComponentByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprogid)) }
     }
-    pub unsafe fn GetCLSIDs(&self, bstrdllfile: &windows_core::BSTR, bstrtypelibfile: &windows_core::BSTR, aclsids: *mut *mut super::Com::SAFEARRAY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCLSIDs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdllfile), core::mem::transmute_copy(bstrtypelibfile), aclsids as _).ok() }
+    pub unsafe fn GetCLSIDs(&self, bstrdllfile: &windows_core::BSTR, bstrtypelibfile: &windows_core::BSTR, aclsids: *mut *mut super::Com::SAFEARRAY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCLSIDs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdllfile), core::mem::transmute_copy(bstrtypelibfile), aclsids as _) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -201,14 +201,14 @@ impl core::ops::Deref for IPackageUtil {
 windows_core::imp::interface_hierarchy!(IPackageUtil, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IPackageUtil {
-    pub unsafe fn InstallPackage(&self, bstrpackagefile: &windows_core::BSTR, bstrinstallpath: &windows_core::BSTR, loptions: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InstallPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackagefile), core::mem::transmute_copy(bstrinstallpath), loptions).ok() }
+    pub unsafe fn InstallPackage(&self, bstrpackagefile: &windows_core::BSTR, bstrinstallpath: &windows_core::BSTR, loptions: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InstallPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackagefile), core::mem::transmute_copy(bstrinstallpath), loptions) }
     }
-    pub unsafe fn ExportPackage(&self, bstrpackageid: &windows_core::BSTR, bstrpackagefile: &windows_core::BSTR, loptions: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ExportPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackageid), core::mem::transmute_copy(bstrpackagefile), loptions).ok() }
+    pub unsafe fn ExportPackage(&self, bstrpackageid: &windows_core::BSTR, bstrpackagefile: &windows_core::BSTR, loptions: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ExportPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackageid), core::mem::transmute_copy(bstrpackagefile), loptions) }
     }
-    pub unsafe fn ShutdownPackage(&self, bstrpackageid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ShutdownPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackageid)).ok() }
+    pub unsafe fn ShutdownPackage(&self, bstrpackageid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ShutdownPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpackageid)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -273,11 +273,11 @@ impl core::ops::Deref for IRemoteComponentUtil {
 windows_core::imp::interface_hierarchy!(IRemoteComponentUtil, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRemoteComponentUtil {
-    pub unsafe fn InstallRemoteComponent(&self, bstrserver: &windows_core::BSTR, bstrpackageid: &windows_core::BSTR, bstrclsid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InstallRemoteComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrserver), core::mem::transmute_copy(bstrpackageid), core::mem::transmute_copy(bstrclsid)).ok() }
+    pub unsafe fn InstallRemoteComponent(&self, bstrserver: &windows_core::BSTR, bstrpackageid: &windows_core::BSTR, bstrclsid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InstallRemoteComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrserver), core::mem::transmute_copy(bstrpackageid), core::mem::transmute_copy(bstrclsid)) }
     }
-    pub unsafe fn InstallRemoteComponentByName(&self, bstrserver: &windows_core::BSTR, bstrpackagename: &windows_core::BSTR, bstrprogid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InstallRemoteComponentByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrserver), core::mem::transmute_copy(bstrpackagename), core::mem::transmute_copy(bstrprogid)).ok() }
+    pub unsafe fn InstallRemoteComponentByName(&self, bstrserver: &windows_core::BSTR, bstrpackagename: &windows_core::BSTR, bstrprogid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InstallRemoteComponentByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrserver), core::mem::transmute_copy(bstrpackagename), core::mem::transmute_copy(bstrprogid)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -333,11 +333,11 @@ impl core::ops::Deref for IRoleAssociationUtil {
 windows_core::imp::interface_hierarchy!(IRoleAssociationUtil, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRoleAssociationUtil {
-    pub unsafe fn AssociateRole(&self, bstrroleid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AssociateRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleid)).ok() }
+    pub unsafe fn AssociateRole(&self, bstrroleid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AssociateRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleid)) }
     }
-    pub unsafe fn AssociateRoleByName(&self, bstrrolename: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AssociateRoleByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename)).ok() }
+    pub unsafe fn AssociateRoleByName(&self, bstrrolename: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AssociateRoleByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]

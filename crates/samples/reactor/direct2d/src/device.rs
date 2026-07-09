@@ -13,12 +13,8 @@ use std::ops::Deref;
 use std::rc::Rc;
 use std::sync::LazyLock;
 
-use windows::Win32::Foundation::D2DERR_RECREATE_TARGET;
-use windows::Win32::Graphics::Direct2D::*;
-use windows::Win32::Graphics::Direct3D::*;
-use windows::Win32::Graphics::Direct3D11::*;
-use windows::Win32::Graphics::Dxgi::*;
-use windows::core::{HRESULT, Interface, Result};
+use crate::bindings::*;
+use windows_core::{HRESULT, Interface, Result};
 use windows_reactor::{Context, Updater};
 
 /// The app-wide shared GPU device: the D3D11 device, the `MULTI_THREADED` D2D
@@ -33,6 +29,11 @@ pub struct SharedDevice {
     dxgi_factory: IDXGIFactory2,
 }
 
+// SAFETY: every interface here is an agile COM object, so an owned snapshot can be
+// moved onto the swap-chain sample's render thread. The faithful metadata cannot
+// express agility (it is not in the headers), so it is asserted here.
+unsafe impl Send for SharedDevice {}
+
 impl SharedDevice {
     /// Create a hardware-backed shared device.
     fn new() -> Result<Self> {
@@ -41,21 +42,32 @@ impl SharedDevice {
             D3D11CreateDevice(
                 None,
                 D3D_DRIVER_TYPE_HARDWARE,
-                None,
-                D3D11_CREATE_DEVICE_BGRA_SUPPORT,
+                HMODULE::default(),
+                D3D11_CREATE_DEVICE_BGRA_SUPPORT.0 as u32,
                 Some(&[D3D_FEATURE_LEVEL_11_0]),
                 D3D11_SDK_VERSION,
                 Some(&mut d3d_device),
                 None,
                 None,
-            )?;
+            )
+            .ok()?;
         }
         let d3d_device = d3d_device.unwrap();
 
         // MULTI_THREADED so the one D2D device works from both the UI and render
-        // threads.
-        let d2d_factory: ID2D1Factory1 =
-            unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_MULTI_THREADED, None)? };
+        // threads. The header links `riid`/`ppIFactory` with no SAL, so the faithful
+        // binding is the raw `REFIID`/`void**` form rather than a generic `Result<T>`.
+        let mut d2d_factory: Option<ID2D1Factory1> = None;
+        unsafe {
+            D2D1CreateFactory(
+                D2D1_FACTORY_TYPE_MULTI_THREADED,
+                &ID2D1Factory1::IID,
+                None,
+                &mut d2d_factory as *mut _ as *mut *mut core::ffi::c_void,
+            )
+            .ok()?;
+        }
+        let d2d_factory = d2d_factory.unwrap();
 
         let dxgi_device: IDXGIDevice = d3d_device.cast()?;
         let d2d_device = unsafe { d2d_factory.CreateDevice(&dxgi_device)? };

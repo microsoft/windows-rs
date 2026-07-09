@@ -17,12 +17,12 @@ where
     unsafe { EditSecurity(hwndowner, psi.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn EditSecurityAdvanced<P1>(hwndowner: super::super::super::Foundation::HWND, psi: P1, usipage: SI_PAGE_TYPE) -> windows_core::Result<()>
+pub unsafe fn EditSecurityAdvanced<P1>(hwndowner: super::super::super::Foundation::HWND, psi: P1, usipage: SI_PAGE_TYPE) -> windows_core::HRESULT
 where
     P1: windows_core::Param<ISecurityInformation>,
 {
     windows_core::link!("aclui.dll" "system" fn EditSecurityAdvanced(hwndowner : super::super::super::Foundation::HWND, psi : *mut core::ffi::c_void, usipage : SI_PAGE_TYPE) -> windows_core::HRESULT);
-    unsafe { EditSecurityAdvanced(hwndowner, psi.param().abi(), usipage).ok() }
+    unsafe { EditSecurityAdvanced(hwndowner, psi.param().abi(), usipage) }
 }
 pub const CFSTR_ACLUI_SID_INFO_LIST: windows_core::PCWSTR = windows_core::w!("CFSTR_ACLUI_SID_INFO_LIST");
 pub const DOBJ_COND_NTACLS: i32 = 8;
@@ -46,11 +46,11 @@ impl Default for EFFPERM_RESULT_LIST {
 windows_core::imp::define_interface!(IEffectivePermission, IEffectivePermission_Vtbl, 0x3853dc76_9f35_407c_88a1_d19344365fbc);
 windows_core::imp::interface_hierarchy!(IEffectivePermission, windows_core::IUnknown);
 impl IEffectivePermission {
-    pub unsafe fn GetEffectivePermission<P2>(&self, pguidobjecttype: *const windows_core::GUID, pusersid: super::super::PSID, pszservername: P2, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetEffectivePermission<P2>(&self, pguidobjecttype: *const windows_core::GUID, pusersid: super::super::PSID, pszservername: P2, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), pguidobjecttype, pusersid, pszservername.param().abi(), psd, ppobjecttypelist as _, pcobjecttypelistlength as _, ppgrantedaccesslist as _, pcgrantedaccesslistlength as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), pguidobjecttype, pusersid, pszservername.param().abi(), psd, ppobjecttypelist as _, pcobjecttypelistlength as _, ppgrantedaccesslist as _, pcgrantedaccesslistlength as _) }
     }
 }
 #[repr(C)]
@@ -96,7 +96,7 @@ impl IEffectivePermission2 {
         pauthzdeviceclaims: Option<*const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>,
         pauthzdeviceclaimsoperations: Option<*const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION>,
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -118,7 +118,6 @@ impl IEffectivePermission2 {
                 pauthzdeviceclaimsoperations.unwrap_or(core::mem::zeroed()) as _,
                 peffpermresultlists as _,
             )
-            .ok()
         }
     }
 }
@@ -201,27 +200,27 @@ impl windows_core::RuntimeName for IEffectivePermission2 {}
 windows_core::imp::define_interface!(ISecurityInformation, ISecurityInformation_Vtbl, 0x965fc360_16ff_11d0_91cb_00aa00bbb723);
 windows_core::imp::interface_hierarchy!(ISecurityInformation, windows_core::IUnknown);
 impl ISecurityInformation {
-    pub unsafe fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetObjectInformation)(windows_core::Interface::as_raw(self), pobjectinfo as _).ok() }
+    pub unsafe fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetObjectInformation)(windows_core::Interface::as_raw(self), pobjectinfo as _) }
     }
-    pub unsafe fn GetSecurity(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), requestedinformation, ppsecuritydescriptor as _, fdefault.into()).ok() }
+    pub unsafe fn GetSecurity(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), requestedinformation, ppsecuritydescriptor as _, fdefault.into()) }
     }
-    pub unsafe fn SetSecurity(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), securityinformation, psecuritydescriptor).ok() }
+    pub unsafe fn SetSecurity(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), securityinformation, psecuritydescriptor) }
     }
-    pub unsafe fn GetAccessRights(&self, pguidobjecttype: *const windows_core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAccessRights)(windows_core::Interface::as_raw(self), pguidobjecttype, dwflags, ppaccess as _, pcaccesses as _, pidefaultaccess as _).ok() }
+    pub unsafe fn GetAccessRights(&self, pguidobjecttype: *const windows_core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAccessRights)(windows_core::Interface::as_raw(self), pguidobjecttype, dwflags, ppaccess as _, pcaccesses as _, pidefaultaccess as _) }
     }
-    pub unsafe fn MapGeneric(&self, pguidobjecttype: *const windows_core::GUID, paceflags: *mut u8, pmask: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MapGeneric)(windows_core::Interface::as_raw(self), pguidobjecttype, paceflags as _, pmask as _).ok() }
+    pub unsafe fn MapGeneric(&self, pguidobjecttype: *const windows_core::GUID, paceflags: *mut u8, pmask: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).MapGeneric)(windows_core::Interface::as_raw(self), pguidobjecttype, paceflags as _, pmask as _) }
     }
-    pub unsafe fn GetInheritTypes(&self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInheritTypes)(windows_core::Interface::as_raw(self), ppinherittypes as _, pcinherittypes as _).ok() }
+    pub unsafe fn GetInheritTypes(&self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInheritTypes)(windows_core::Interface::as_raw(self), ppinherittypes as _, pcinherittypes as _) }
     }
     #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn PropertySheetPageCallback(&self, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PropertySheetPageCallback)(windows_core::Interface::as_raw(self), hwnd, umsg, upage).ok() }
+    pub unsafe fn PropertySheetPageCallback(&self, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PropertySheetPageCallback)(windows_core::Interface::as_raw(self), hwnd, umsg, upage) }
     }
 }
 #[repr(C)]
@@ -382,8 +381,8 @@ impl ISecurityInformation3 {
             (windows_core::Interface::vtable(self).GetFullResourceName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OpenElevatedEditor(&self, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OpenElevatedEditor)(windows_core::Interface::as_raw(self), hwnd, upage).ok() }
+    pub unsafe fn OpenElevatedEditor(&self, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OpenElevatedEditor)(windows_core::Interface::as_raw(self), hwnd, upage) }
     }
 }
 #[repr(C)]
@@ -431,8 +430,8 @@ impl windows_core::RuntimeName for ISecurityInformation3 {}
 windows_core::imp::define_interface!(ISecurityInformation4, ISecurityInformation4_Vtbl, 0xea961070_cd14_4621_ace4_f63c03e583e4);
 windows_core::imp::interface_hierarchy!(ISecurityInformation4, windows_core::IUnknown);
 impl ISecurityInformation4 {
-    pub unsafe fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSecondarySecurity)(windows_core::Interface::as_raw(self), psecurityobjects as _, psecurityobjectcount as _).ok() }
+    pub unsafe fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSecondarySecurity)(windows_core::Interface::as_raw(self), psecurityobjects as _, psecurityobjectcount as _) }
     }
 }
 #[repr(C)]
@@ -462,8 +461,8 @@ impl windows_core::RuntimeName for ISecurityInformation4 {}
 windows_core::imp::define_interface!(ISecurityObjectTypeInfo, ISecurityObjectTypeInfo_Vtbl, 0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
 windows_core::imp::interface_hierarchy!(ISecurityObjectTypeInfo, windows_core::IUnknown);
 impl ISecurityObjectTypeInfo {
-    pub unsafe fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInheritSource)(windows_core::Interface::as_raw(self), si, pacl as _, ppinheritarray as _).ok() }
+    pub unsafe fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInheritSource)(windows_core::Interface::as_raw(self), si, pacl as _, ppinheritarray as _) }
     }
 }
 #[repr(C)]

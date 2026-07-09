@@ -1,39 +1,39 @@
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn BindIFilterFromStorage<P0, P1>(pstg: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn BindIFilterFromStorage<P0, P1>(pstg: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::super::System::Com::StructuredStorage::IStorage>,
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { BindIFilterFromStorage(pstg.param().abi(), punkouter.param().abi(), ppiunk as _).ok() }
+    unsafe { BindIFilterFromStorage(pstg.param().abi(), punkouter.param().abi(), ppiunk as _) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn BindIFilterFromStream<P0, P1>(pstm: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn BindIFilterFromStream<P0, P1>(pstm: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::super::System::Com::IStream>,
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("query.dll" "system" fn BindIFilterFromStream(pstm : *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { BindIFilterFromStream(pstm.param().abi(), punkouter.param().abi(), ppiunk as _).ok() }
+    unsafe { BindIFilterFromStream(pstm.param().abi(), punkouter.param().abi(), ppiunk as _) }
 }
 #[inline]
-pub unsafe fn LoadIFilter<P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn LoadIFilter<P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_core::PCWSTR, punkouter : *mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), ppiunk as _).ok() }
+    unsafe { LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), ppiunk as _) }
 }
 #[inline]
-pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { LoadIFilterEx(pwcspath.param().abi(), dwflags, riid, ppiunk as _).ok() }
+    unsafe { LoadIFilterEx(pwcspath.param().abi(), dwflags, riid, ppiunk as _) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -398,18 +398,18 @@ pub struct IMAGE_PIXELFORMAT(pub i32);
 windows_core::imp::define_interface!(IPhraseSink, IPhraseSink_Vtbl, 0xcc906ff0_c058_101a_b554_08002b33b0e6);
 windows_core::imp::interface_hierarchy!(IPhraseSink, windows_core::IUnknown);
 impl IPhraseSink {
-    pub unsafe fn PutSmallPhrase<P0, P2>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P2, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::Result<()>
+    pub unsafe fn PutSmallPhrase<P0, P2>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P2, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), cwcnoun, pwcmodifier.param().abi(), cwcmodifier, ulattachmenttype).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), cwcnoun, pwcmodifier.param().abi(), cwcmodifier, ulattachmenttype) }
     }
-    pub unsafe fn PutPhrase<P0>(&self, pwcphrase: P0, cwcphrase: u32) -> windows_core::Result<()>
+    pub unsafe fn PutPhrase<P0>(&self, pwcphrase: P0, cwcphrase: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), pwcphrase.param().abi(), cwcphrase).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), pwcphrase.param().abi(), cwcphrase) }
     }
 }
 #[repr(C)]
@@ -463,8 +463,8 @@ impl IPixelFilter {
             (windows_core::Interface::vtable(self).GetImageInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPixelsForImage(&self, scalingfactor: f32, sourcerect: *const super::super::Foundation::RECT, pixelbuffer: &mut [u8]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPixelsForImage)(windows_core::Interface::as_raw(self), scalingfactor, sourcerect, pixelbuffer.len().try_into().unwrap(), core::mem::transmute(pixelbuffer.as_ptr())).ok() }
+    pub unsafe fn GetPixelsForImage(&self, scalingfactor: f32, sourcerect: *const super::super::Foundation::RECT, pixelbuffer: &mut [u8]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelsForImage)(windows_core::Interface::as_raw(self), scalingfactor, sourcerect, pixelbuffer.len().try_into().unwrap(), core::mem::transmute(pixelbuffer.as_ptr())) }
     }
 }
 #[repr(C)]

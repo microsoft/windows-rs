@@ -1,12 +1,11 @@
 windows_core::imp::define_interface!(Interface, Interface_Vtbl);
 impl Interface {
-    pub unsafe fn Method(&self, value: u32) -> windows_core::Result<()> {
+    pub unsafe fn Method(&self, value: u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Method)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
-            .ok()
         }
     }
     pub unsafe fn GetValue(&self) -> windows_core::Result<Struct> {

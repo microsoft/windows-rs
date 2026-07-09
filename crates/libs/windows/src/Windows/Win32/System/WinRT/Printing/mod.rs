@@ -12,12 +12,12 @@ impl IPrintDocumentPageSource {
         }
     }
     #[cfg(feature = "Win32_Storage_Xps_Printing")]
-    pub unsafe fn MakeDocument<P0, P1>(&self, printtaskoptions: P0, docpackagetarget: P1) -> windows_core::Result<()>
+    pub unsafe fn MakeDocument<P0, P1>(&self, printtaskoptions: P0, docpackagetarget: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<super::super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget>,
     {
-        unsafe { (windows_core::Interface::vtable(self).MakeDocument)(windows_core::Interface::as_raw(self), printtaskoptions.param().abi(), docpackagetarget.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MakeDocument)(windows_core::Interface::as_raw(self), printtaskoptions.param().abi(), docpackagetarget.param().abi()) }
     }
 }
 #[repr(C)]
@@ -128,14 +128,14 @@ impl windows_core::RuntimeName for IPrintManagerInterop {}
 windows_core::imp::define_interface!(IPrintPreviewPageCollection, IPrintPreviewPageCollection_Vtbl, 0x0b31cc62_d7ec_4747_9d6e_f2537d870f2b);
 windows_core::imp::interface_hierarchy!(IPrintPreviewPageCollection, windows_core::IUnknown);
 impl IPrintPreviewPageCollection {
-    pub unsafe fn Paginate<P1>(&self, currentjobpage: u32, printtaskoptions: P1) -> windows_core::Result<()>
+    pub unsafe fn Paginate<P1>(&self, currentjobpage: u32, printtaskoptions: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::IInspectable>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Paginate)(windows_core::Interface::as_raw(self), currentjobpage, printtaskoptions.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Paginate)(windows_core::Interface::as_raw(self), currentjobpage, printtaskoptions.param().abi()) }
     }
-    pub unsafe fn MakePage(&self, desiredjobpage: u32, width: f32, height: f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MakePage)(windows_core::Interface::as_raw(self), desiredjobpage, width, height).ok() }
+    pub unsafe fn MakePage(&self, desiredjobpage: u32, width: f32, height: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).MakePage)(windows_core::Interface::as_raw(self), desiredjobpage, width, height) }
     }
 }
 #[repr(C)]
@@ -273,11 +273,11 @@ impl windows_core::RuntimeName for IPrintWorkflowConfigurationNative {}
 windows_core::imp::define_interface!(IPrintWorkflowObjectModelSourceFileContentNative, IPrintWorkflowObjectModelSourceFileContentNative_Vtbl, 0x68c9e477_993e_4052_8ac6_454eff58db9d);
 windows_core::imp::interface_hierarchy!(IPrintWorkflowObjectModelSourceFileContentNative, windows_core::IUnknown);
 impl IPrintWorkflowObjectModelSourceFileContentNative {
-    pub unsafe fn StartXpsOMGeneration<P0>(&self, receiver: P0) -> windows_core::Result<()>
+    pub unsafe fn StartXpsOMGeneration<P0>(&self, receiver: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IPrintWorkflowXpsReceiver>,
     {
-        unsafe { (windows_core::Interface::vtable(self).StartXpsOMGeneration)(windows_core::Interface::as_raw(self), receiver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StartXpsOMGeneration)(windows_core::Interface::as_raw(self), receiver.param().abi()) }
     }
     #[cfg(feature = "Win32_Storage_Xps")]
     pub unsafe fn ObjectFactory(&self) -> windows_core::Result<super::super::super::Storage::Xps::IXpsOMObjectFactory1> {
@@ -386,36 +386,36 @@ windows_core::imp::define_interface!(IPrintWorkflowXpsReceiver, IPrintWorkflowXp
 windows_core::imp::interface_hierarchy!(IPrintWorkflowXpsReceiver, windows_core::IUnknown);
 impl IPrintWorkflowXpsReceiver {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDocumentSequencePrintTicket<P0>(&self, documentsequenceprintticket: P0) -> windows_core::Result<()>
+    pub unsafe fn SetDocumentSequencePrintTicket<P0>(&self, documentsequenceprintticket: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDocumentSequencePrintTicket)(windows_core::Interface::as_raw(self), documentsequenceprintticket.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetDocumentSequencePrintTicket)(windows_core::Interface::as_raw(self), documentsequenceprintticket.param().abi()) }
     }
-    pub unsafe fn SetDocumentSequenceUri<P0>(&self, documentsequenceuri: P0) -> windows_core::Result<()>
+    pub unsafe fn SetDocumentSequenceUri<P0>(&self, documentsequenceuri: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDocumentSequenceUri)(windows_core::Interface::as_raw(self), documentsequenceuri.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetDocumentSequenceUri)(windows_core::Interface::as_raw(self), documentsequenceuri.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddDocumentData<P1, P2>(&self, documentid: u32, documentprintticket: P1, documenturi: P2) -> windows_core::Result<()>
+    pub unsafe fn AddDocumentData<P1, P2>(&self, documentid: u32, documentprintticket: P1, documenturi: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::super::Com::IStream>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddDocumentData)(windows_core::Interface::as_raw(self), documentid, documentprintticket.param().abi(), documenturi.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddDocumentData)(windows_core::Interface::as_raw(self), documentid, documentprintticket.param().abi(), documenturi.param().abi()) }
     }
     #[cfg(feature = "Win32_Storage_Xps")]
-    pub unsafe fn AddPage<P2, P3>(&self, documentid: u32, pageid: u32, pagereference: P2, pageuri: P3) -> windows_core::Result<()>
+    pub unsafe fn AddPage<P2, P3>(&self, documentid: u32, pageid: u32, pagereference: P2, pageuri: P3) -> windows_core::HRESULT
     where
         P2: windows_core::Param<super::super::super::Storage::Xps::IXpsOMPageReference>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPage)(windows_core::Interface::as_raw(self), documentid, pageid, pagereference.param().abi(), pageuri.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPage)(windows_core::Interface::as_raw(self), documentid, pageid, pagereference.param().abi(), pageuri.param().abi()) }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -502,8 +502,8 @@ impl core::ops::Deref for IPrintWorkflowXpsReceiver2 {
 }
 windows_core::imp::interface_hierarchy!(IPrintWorkflowXpsReceiver2, windows_core::IUnknown, IPrintWorkflowXpsReceiver);
 impl IPrintWorkflowXpsReceiver2 {
-    pub unsafe fn Failed(&self, xpserror: windows_core::HRESULT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Failed)(windows_core::Interface::as_raw(self), xpserror).ok() }
+    pub unsafe fn Failed(&self, xpserror: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Failed)(windows_core::Interface::as_raw(self), xpserror) }
     }
 }
 #[repr(C)]

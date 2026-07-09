@@ -320,8 +320,8 @@ impl ID2D1SimplifiedGeometrySink {
             (windows_core::Interface::vtable(self).EndFigure)(windows_core::Interface::as_raw(self), figureend);
         }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]

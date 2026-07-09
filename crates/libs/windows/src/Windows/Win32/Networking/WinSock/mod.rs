@@ -324,9 +324,9 @@ pub unsafe fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, 
     unsafe { SetServiceW(dwnamespace, dwoperation, dwflags, lpserviceinfo, lpserviceasyncinfo.unwrap_or(core::mem::zeroed()) as _, lpdwstatusflags as _) }
 }
 #[inline]
-pub unsafe fn SetSocketMediaStreamingMode(value: bool) -> windows_core::Result<()> {
+pub unsafe fn SetSocketMediaStreamingMode(value: bool) -> windows_core::HRESULT {
     windows_core::link!("windows.networking.dll" "system" fn SetSocketMediaStreamingMode(value : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { SetSocketMediaStreamingMode(value.into()).ok() }
+    unsafe { SetSocketMediaStreamingMode(value.into()) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]

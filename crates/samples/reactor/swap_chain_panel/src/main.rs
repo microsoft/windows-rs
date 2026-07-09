@@ -30,7 +30,8 @@ fn create_d3d_swap_chain(
             Some(&mut device),
             None,
             Some(&mut context),
-        )?;
+        )
+        .ok()?;
     }
 
     let device = device.unwrap();

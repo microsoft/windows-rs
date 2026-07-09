@@ -155,7 +155,7 @@ fn com() -> Result<()> {
         assert!(copied == 4);
 
         let mut position = 0;
-        stream.Seek(0, STREAM_SEEK_SET, Some(&mut position))?;
+        stream.Seek(0, STREAM_SEEK_SET, Some(&mut position)).ok()?;
         assert!(position == 0);
 
         let mut values = vec![0, 0, 0, 0];

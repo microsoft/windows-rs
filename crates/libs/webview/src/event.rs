@@ -50,7 +50,7 @@ impl NavigationStartingArgs {
 
     /// Cancels (or un-cancels) the navigation.
     pub fn set_cancel(&self, cancel: bool) -> Result<()> {
-        unsafe { self.0.SetCancel(cancel) }
+        unsafe { self.0.SetCancel(cancel) }.ok()
     }
 }
 
@@ -121,13 +121,13 @@ impl NewWindowRequestedArgs {
     /// window. Set this (without providing a [new window](Self::set_new_window))
     /// to block the popup entirely.
     pub fn set_handled(&self, handled: bool) -> Result<()> {
-        unsafe { self.0.SetHandled(handled) }
+        unsafe { self.0.SetHandled(handled) }.ok()
     }
 
     /// Provides an existing [`WebView`] to host the requested content instead of
     /// creating a new window.
     pub fn set_new_window(&self, webview: &WebView) -> Result<()> {
-        unsafe { self.0.SetNewWindow(&webview.0) }
+        unsafe { self.0.SetNewWindow(&webview.0) }.ok()
     }
 
     /// Takes a [`Deferral`] so the request can be resolved after the handler
@@ -235,7 +235,7 @@ impl PermissionRequestedArgs {
 
     /// Sets how the request should be resolved.
     pub fn set_state(&self, state: PermissionState) -> Result<()> {
-        unsafe { self.0.SetState(state.to_raw()) }
+        unsafe { self.0.SetState(state.to_raw()) }.ok()
     }
 
     /// Takes a [`Deferral`] so the request can be resolved after the handler
@@ -346,7 +346,7 @@ impl MoveFocusRequestedArgs {
     /// Marks the request as handled, indicating the host moved focus itself and
     /// WebView2 should not apply its default focus behaviour.
     pub fn set_handled(&self, handled: bool) -> Result<()> {
-        unsafe { self.0.SetHandled(handled) }
+        unsafe { self.0.SetHandled(handled) }.ok()
     }
 }
 
@@ -399,7 +399,7 @@ impl AcceleratorKeyPressedArgs {
     /// Marks the key as handled, preventing WebView2's default processing so the
     /// host can act on the shortcut itself.
     pub fn set_handled(&self, handled: bool) -> Result<()> {
-        unsafe { self.0.SetHandled(handled) }
+        unsafe { self.0.SetHandled(handled) }.ok()
     }
 }
 

@@ -13,7 +13,7 @@ fn main() -> windows::core::Result<()> {
         let mut len = 0;
 
         unsafe {
-            interop.GetBuffer(&mut data, &mut len)?;
+            interop.GetBuffer(&mut data, &mut len).ok()?;
             Ok(std::slice::from_raw_parts_mut(data, len as usize))
         }
     }

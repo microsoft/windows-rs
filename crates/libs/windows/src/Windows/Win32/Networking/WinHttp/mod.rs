@@ -477,18 +477,18 @@ windows_core::imp::interface_hierarchy!(IWinHttpRequest, windows_core::IUnknown,
 #[cfg(feature = "Win32_System_Com")]
 impl IWinHttpRequest {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProxy(&self, proxysetting: i32, proxyserver: &super::super::System::Variant::VARIANT, bypasslist: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProxy)(windows_core::Interface::as_raw(self), proxysetting, core::mem::transmute_copy(proxyserver), core::mem::transmute_copy(bypasslist)).ok() }
+    pub unsafe fn SetProxy(&self, proxysetting: i32, proxyserver: &super::super::System::Variant::VARIANT, bypasslist: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProxy)(windows_core::Interface::as_raw(self), proxysetting, core::mem::transmute_copy(proxyserver), core::mem::transmute_copy(bypasslist)) }
     }
-    pub unsafe fn SetCredentials(&self, username: &windows_core::BSTR, password: &windows_core::BSTR, flags: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(username), core::mem::transmute_copy(password), flags).ok() }
+    pub unsafe fn SetCredentials(&self, username: &windows_core::BSTR, password: &windows_core::BSTR, flags: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(username), core::mem::transmute_copy(password), flags) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Open(&self, method: &windows_core::BSTR, url: &windows_core::BSTR, r#async: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(method), core::mem::transmute_copy(url), core::mem::transmute_copy(r#async)).ok() }
+    pub unsafe fn Open(&self, method: &windows_core::BSTR, url: &windows_core::BSTR, r#async: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(method), core::mem::transmute_copy(url), core::mem::transmute_copy(r#async)) }
     }
-    pub unsafe fn SetRequestHeader(&self, header: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetRequestHeader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(header), core::mem::transmute_copy(value)).ok() }
+    pub unsafe fn SetRequestHeader(&self, header: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRequestHeader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(header), core::mem::transmute_copy(value)) }
     }
     pub unsafe fn GetResponseHeader(&self, header: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -503,8 +503,8 @@ impl IWinHttpRequest {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Send(&self, body: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(body)).ok() }
+    pub unsafe fn Send(&self, body: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(body)) }
     }
     pub unsafe fn Status(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -546,8 +546,8 @@ impl IWinHttpRequest {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn put_Option(&self, option: WinHttpRequestOption, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).put_Option)(windows_core::Interface::as_raw(self), option, core::mem::transmute_copy(value)).ok() }
+    pub unsafe fn put_Option(&self, option: WinHttpRequestOption, value: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Option)(windows_core::Interface::as_raw(self), option, core::mem::transmute_copy(value)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn WaitForResponse(&self, timeout: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -556,17 +556,17 @@ impl IWinHttpRequest {
             (windows_core::Interface::vtable(self).WaitForResponse)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(timeout), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Abort(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Abort(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetTimeouts)(windows_core::Interface::as_raw(self), resolvetimeout, connecttimeout, sendtimeout, receivetimeout).ok() }
+    pub unsafe fn SetTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTimeouts)(windows_core::Interface::as_raw(self), resolvetimeout, connecttimeout, sendtimeout, receivetimeout) }
     }
-    pub unsafe fn SetClientCertificate(&self, clientcertificate: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetClientCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clientcertificate)).ok() }
+    pub unsafe fn SetClientCertificate(&self, clientcertificate: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetClientCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clientcertificate)) }
     }
-    pub unsafe fn SetAutoLogonPolicy(&self, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAutoLogonPolicy)(windows_core::Interface::as_raw(self), autologonpolicy).ok() }
+    pub unsafe fn SetAutoLogonPolicy(&self, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAutoLogonPolicy)(windows_core::Interface::as_raw(self), autologonpolicy) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]

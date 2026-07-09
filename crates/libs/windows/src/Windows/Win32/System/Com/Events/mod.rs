@@ -51,14 +51,14 @@ impl IEnumEventObject {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Next(&self, ppinterface: &mut [Option<windows_core::IUnknown>], cretelem: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppinterface.len().try_into().unwrap(), core::mem::transmute(ppinterface.as_ptr()), cretelem as _).ok() }
+    pub unsafe fn Next(&self, ppinterface: &mut [Option<windows_core::IUnknown>], cretelem: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppinterface.len().try_into().unwrap(), core::mem::transmute(ppinterface.as_ptr()), cretelem as _) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Skip(&self, cskipelem: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cskipelem).ok() }
+    pub unsafe fn Skip(&self, cskipelem: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cskipelem) }
     }
 }
 #[repr(C)]
@@ -136,8 +136,8 @@ impl IEventClass {
             (windows_core::Interface::vtable(self).EventClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetEventClassID(&self, bstreventclassid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEventClassID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstreventclassid)).ok() }
+    pub unsafe fn SetEventClassID(&self, bstreventclassid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEventClassID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstreventclassid)) }
     }
     pub unsafe fn EventClassName(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -145,8 +145,8 @@ impl IEventClass {
             (windows_core::Interface::vtable(self).EventClassName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetEventClassName(&self, bstreventclassname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEventClassName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstreventclassname)).ok() }
+    pub unsafe fn SetEventClassName(&self, bstreventclassname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEventClassName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstreventclassname)) }
     }
     pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -154,8 +154,8 @@ impl IEventClass {
             (windows_core::Interface::vtable(self).OwnerSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetOwnerSID(&self, bstrownersid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrownersid)).ok() }
+    pub unsafe fn SetOwnerSID(&self, bstrownersid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrownersid)) }
     }
     pub unsafe fn FiringInterfaceID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -163,8 +163,8 @@ impl IEventClass {
             (windows_core::Interface::vtable(self).FiringInterfaceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFiringInterfaceID(&self, bstrfiringinterfaceid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetFiringInterfaceID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfiringinterfaceid)).ok() }
+    pub unsafe fn SetFiringInterfaceID(&self, bstrfiringinterfaceid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFiringInterfaceID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfiringinterfaceid)) }
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -172,8 +172,8 @@ impl IEventClass {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)).ok() }
+    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)) }
     }
     pub unsafe fn CustomConfigCLSID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -181,8 +181,8 @@ impl IEventClass {
             (windows_core::Interface::vtable(self).CustomConfigCLSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetCustomConfigCLSID(&self, bstrcustomconfigclsid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetCustomConfigCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcustomconfigclsid)).ok() }
+    pub unsafe fn SetCustomConfigCLSID(&self, bstrcustomconfigclsid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCustomConfigCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcustomconfigclsid)) }
     }
     pub unsafe fn TypeLib(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -190,8 +190,8 @@ impl IEventClass {
             (windows_core::Interface::vtable(self).TypeLib)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetTypeLib(&self, bstrtypelib: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetTypeLib)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtypelib)).ok() }
+    pub unsafe fn SetTypeLib(&self, bstrtypelib: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTypeLib)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtypelib)) }
     }
 }
 #[repr(C)]
@@ -398,8 +398,8 @@ impl IEventClass2 {
             (windows_core::Interface::vtable(self).PublisherID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetPublisherID(&self, bstrpublisherid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpublisherid)).ok() }
+    pub unsafe fn SetPublisherID(&self, bstrpublisherid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpublisherid)) }
     }
     pub unsafe fn MultiInterfacePublisherFilterCLSID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -407,8 +407,8 @@ impl IEventClass2 {
             (windows_core::Interface::vtable(self).MultiInterfacePublisherFilterCLSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMultiInterfacePublisherFilterCLSID(&self, bstrpubfilclsid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMultiInterfacePublisherFilterCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpubfilclsid)).ok() }
+    pub unsafe fn SetMultiInterfacePublisherFilterCLSID(&self, bstrpubfilclsid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMultiInterfacePublisherFilterCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpubfilclsid)) }
     }
     pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -416,8 +416,8 @@ impl IEventClass2 {
             (windows_core::Interface::vtable(self).AllowInprocActivation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAllowInprocActivation(&self, fallowinprocactivation: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into()).ok() }
+    pub unsafe fn SetAllowInprocActivation(&self, fallowinprocactivation: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into()) }
     }
     pub unsafe fn FireInParallel(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -425,8 +425,8 @@ impl IEventClass2 {
             (windows_core::Interface::vtable(self).FireInParallel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFireInParallel(&self, ffireinparallel: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.into()).ok() }
+    pub unsafe fn SetFireInParallel(&self, ffireinparallel: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.into()) }
     }
 }
 #[repr(C)]
@@ -555,11 +555,11 @@ impl core::ops::Deref for IEventControl {
 }
 windows_core::imp::interface_hierarchy!(IEventControl, windows_core::IUnknown, super::IDispatch);
 impl IEventControl {
-    pub unsafe fn SetPublisherFilter<P1>(&self, methodname: &windows_core::BSTR, ppublisherfilter: P1) -> windows_core::Result<()>
+    pub unsafe fn SetPublisherFilter<P1>(&self, methodname: &windows_core::BSTR, ppublisherfilter: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IPublisherFilter>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPublisherFilter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(methodname), ppublisherfilter.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPublisherFilter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(methodname), ppublisherfilter.param().abi()) }
     }
     pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -567,8 +567,8 @@ impl IEventControl {
             (windows_core::Interface::vtable(self).AllowInprocActivation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAllowInprocActivation(&self, fallowinprocactivation: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into()).ok() }
+    pub unsafe fn SetAllowInprocActivation(&self, fallowinprocactivation: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into()) }
     }
     pub unsafe fn GetSubscriptions(&self, methodname: &windows_core::BSTR, optionalcriteria: &windows_core::BSTR, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection> {
         unsafe {
@@ -670,14 +670,14 @@ impl windows_core::RuntimeName for IEventControl {}
 windows_core::imp::define_interface!(IEventObjectChange, IEventObjectChange_Vtbl, 0xf4a07d70_2e25_11d1_9964_00c04fbbb345);
 windows_core::imp::interface_hierarchy!(IEventObjectChange, windows_core::IUnknown);
 impl IEventObjectChange {
-    pub unsafe fn ChangedSubscription(&self, changetype: EOC_ChangeType, bstrsubscriptionid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ChangedSubscription)(windows_core::Interface::as_raw(self), changetype, core::mem::transmute_copy(bstrsubscriptionid)).ok() }
+    pub unsafe fn ChangedSubscription(&self, changetype: EOC_ChangeType, bstrsubscriptionid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ChangedSubscription)(windows_core::Interface::as_raw(self), changetype, core::mem::transmute_copy(bstrsubscriptionid)) }
     }
-    pub unsafe fn ChangedEventClass(&self, changetype: EOC_ChangeType, bstreventclassid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ChangedEventClass)(windows_core::Interface::as_raw(self), changetype, core::mem::transmute_copy(bstreventclassid)).ok() }
+    pub unsafe fn ChangedEventClass(&self, changetype: EOC_ChangeType, bstreventclassid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ChangedEventClass)(windows_core::Interface::as_raw(self), changetype, core::mem::transmute_copy(bstreventclassid)) }
     }
-    pub unsafe fn ChangedPublisher(&self, changetype: EOC_ChangeType, bstrpublisherid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ChangedPublisher)(windows_core::Interface::as_raw(self), changetype, core::mem::transmute_copy(bstrpublisherid)).ok() }
+    pub unsafe fn ChangedPublisher(&self, changetype: EOC_ChangeType, bstrpublisherid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ChangedPublisher)(windows_core::Interface::as_raw(self), changetype, core::mem::transmute_copy(bstrpublisherid)) }
     }
 }
 #[repr(C)]
@@ -728,11 +728,11 @@ impl windows_core::RuntimeName for IEventObjectChange {}
 windows_core::imp::define_interface!(IEventObjectChange2, IEventObjectChange2_Vtbl, 0x7701a9c3_bd68_438f_83e0_67bf4f53a422);
 windows_core::imp::interface_hierarchy!(IEventObjectChange2, windows_core::IUnknown);
 impl IEventObjectChange2 {
-    pub unsafe fn ChangedSubscription(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ChangedSubscription)(windows_core::Interface::as_raw(self), core::mem::transmute(pinfo)).ok() }
+    pub unsafe fn ChangedSubscription(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ChangedSubscription)(windows_core::Interface::as_raw(self), core::mem::transmute(pinfo)) }
     }
-    pub unsafe fn ChangedEventClass(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ChangedEventClass)(windows_core::Interface::as_raw(self), core::mem::transmute(pinfo)).ok() }
+    pub unsafe fn ChangedEventClass(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ChangedEventClass)(windows_core::Interface::as_raw(self), core::mem::transmute(pinfo)) }
     }
 }
 #[repr(C)]
@@ -806,11 +806,11 @@ impl IEventObjectCollection {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Add(&self, item: *const super::super::Variant::VARIANT, objectid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(item), core::mem::transmute_copy(objectid)).ok() }
+    pub unsafe fn Add(&self, item: *const super::super::Variant::VARIANT, objectid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(item), core::mem::transmute_copy(objectid)) }
     }
-    pub unsafe fn Remove(&self, objectid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(objectid)).ok() }
+    pub unsafe fn Remove(&self, objectid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(objectid)) }
     }
 }
 #[repr(C)]
@@ -933,8 +933,8 @@ impl IEventProperty {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname)).ok() }
+    pub unsafe fn SetName(&self, propertyname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Value(&self) -> windows_core::Result<super::super::Variant::VARIANT> {
@@ -944,8 +944,8 @@ impl IEventProperty {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetValue(&self, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyvalue)).ok() }
+    pub unsafe fn SetValue(&self, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyvalue)) }
     }
 }
 #[repr(C)]
@@ -1038,8 +1038,8 @@ impl IEventPublisher {
             (windows_core::Interface::vtable(self).PublisherID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetPublisherID(&self, bstrpublisherid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpublisherid)).ok() }
+    pub unsafe fn SetPublisherID(&self, bstrpublisherid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpublisherid)) }
     }
     pub unsafe fn PublisherName(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1047,8 +1047,8 @@ impl IEventPublisher {
             (windows_core::Interface::vtable(self).PublisherName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetPublisherName(&self, bstrpublishername: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPublisherName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpublishername)).ok() }
+    pub unsafe fn SetPublisherName(&self, bstrpublishername: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPublisherName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpublishername)) }
     }
     pub unsafe fn PublisherType(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1056,8 +1056,8 @@ impl IEventPublisher {
             (windows_core::Interface::vtable(self).PublisherType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetPublisherType(&self, bstrpublishertype: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPublisherType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpublishertype)).ok() }
+    pub unsafe fn SetPublisherType(&self, bstrpublishertype: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPublisherType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpublishertype)) }
     }
     pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1065,8 +1065,8 @@ impl IEventPublisher {
             (windows_core::Interface::vtable(self).OwnerSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetOwnerSID(&self, bstrownersid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrownersid)).ok() }
+    pub unsafe fn SetOwnerSID(&self, bstrownersid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrownersid)) }
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1074,8 +1074,8 @@ impl IEventPublisher {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)).ok() }
+    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetDefaultProperty(&self, bstrpropertyname: &windows_core::BSTR) -> windows_core::Result<super::super::Variant::VARIANT> {
@@ -1085,11 +1085,11 @@ impl IEventPublisher {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PutDefaultProperty(&self, bstrpropertyname: &windows_core::BSTR, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PutDefaultProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname), core::mem::transmute(propertyvalue)).ok() }
+    pub unsafe fn PutDefaultProperty(&self, bstrpropertyname: &windows_core::BSTR, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PutDefaultProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname), core::mem::transmute(propertyvalue)) }
     }
-    pub unsafe fn RemoveDefaultProperty(&self, bstrpropertyname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveDefaultProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname)).ok() }
+    pub unsafe fn RemoveDefaultProperty(&self, bstrpropertyname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDefaultProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname)) }
     }
     pub unsafe fn GetDefaultPropertyCollection(&self) -> windows_core::Result<IEventObjectCollection> {
         unsafe {
@@ -1308,8 +1308,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).SubscriptionID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSubscriptionID(&self, bstrsubscriptionid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSubscriptionID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsubscriptionid)).ok() }
+    pub unsafe fn SetSubscriptionID(&self, bstrsubscriptionid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSubscriptionID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsubscriptionid)) }
     }
     pub unsafe fn SubscriptionName(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1317,8 +1317,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).SubscriptionName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSubscriptionName(&self, bstrsubscriptionname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSubscriptionName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsubscriptionname)).ok() }
+    pub unsafe fn SetSubscriptionName(&self, bstrsubscriptionname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSubscriptionName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsubscriptionname)) }
     }
     pub unsafe fn PublisherID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1326,8 +1326,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).PublisherID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetPublisherID(&self, bstrpublisherid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpublisherid)).ok() }
+    pub unsafe fn SetPublisherID(&self, bstrpublisherid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpublisherid)) }
     }
     pub unsafe fn EventClassID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1335,8 +1335,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).EventClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetEventClassID(&self, bstreventclassid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEventClassID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstreventclassid)).ok() }
+    pub unsafe fn SetEventClassID(&self, bstreventclassid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEventClassID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstreventclassid)) }
     }
     pub unsafe fn MethodName(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1344,8 +1344,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).MethodName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMethodName(&self, bstrmethodname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMethodName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrmethodname)).ok() }
+    pub unsafe fn SetMethodName(&self, bstrmethodname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMethodName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrmethodname)) }
     }
     pub unsafe fn SubscriberCLSID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1353,8 +1353,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).SubscriberCLSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSubscriberCLSID(&self, bstrsubscriberclsid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSubscriberCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsubscriberclsid)).ok() }
+    pub unsafe fn SetSubscriberCLSID(&self, bstrsubscriberclsid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSubscriberCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsubscriberclsid)) }
     }
     pub unsafe fn SubscriberInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -1362,11 +1362,11 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).SubscriberInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetSubscriberInterface<P0>(&self, psubscriberinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSubscriberInterface<P0>(&self, psubscriberinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSubscriberInterface)(windows_core::Interface::as_raw(self), psubscriberinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSubscriberInterface)(windows_core::Interface::as_raw(self), psubscriberinterface.param().abi()) }
     }
     pub unsafe fn PerUser(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -1374,8 +1374,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).PerUser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPerUser(&self, fperuser: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPerUser)(windows_core::Interface::as_raw(self), fperuser.into()).ok() }
+    pub unsafe fn SetPerUser(&self, fperuser: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPerUser)(windows_core::Interface::as_raw(self), fperuser.into()) }
     }
     pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1383,8 +1383,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).OwnerSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetOwnerSID(&self, bstrownersid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrownersid)).ok() }
+    pub unsafe fn SetOwnerSID(&self, bstrownersid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrownersid)) }
     }
     pub unsafe fn Enabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -1392,8 +1392,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, fenabled: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenabled.into()).ok() }
+    pub unsafe fn SetEnabled(&self, fenabled: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenabled.into()) }
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1401,8 +1401,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)).ok() }
+    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)) }
     }
     pub unsafe fn MachineName(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1410,8 +1410,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).MachineName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMachineName(&self, bstrmachinename: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMachineName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrmachinename)).ok() }
+    pub unsafe fn SetMachineName(&self, bstrmachinename: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMachineName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrmachinename)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPublisherProperty(&self, bstrpropertyname: &windows_core::BSTR) -> windows_core::Result<super::super::Variant::VARIANT> {
@@ -1421,11 +1421,11 @@ impl IEventSubscription {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PutPublisherProperty(&self, bstrpropertyname: &windows_core::BSTR, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PutPublisherProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname), core::mem::transmute(propertyvalue)).ok() }
+    pub unsafe fn PutPublisherProperty(&self, bstrpropertyname: &windows_core::BSTR, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PutPublisherProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname), core::mem::transmute(propertyvalue)) }
     }
-    pub unsafe fn RemovePublisherProperty(&self, bstrpropertyname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePublisherProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname)).ok() }
+    pub unsafe fn RemovePublisherProperty(&self, bstrpropertyname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemovePublisherProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname)) }
     }
     pub unsafe fn GetPublisherPropertyCollection(&self) -> windows_core::Result<IEventObjectCollection> {
         unsafe {
@@ -1441,11 +1441,11 @@ impl IEventSubscription {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PutSubscriberProperty(&self, bstrpropertyname: &windows_core::BSTR, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PutSubscriberProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname), core::mem::transmute(propertyvalue)).ok() }
+    pub unsafe fn PutSubscriberProperty(&self, bstrpropertyname: &windows_core::BSTR, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PutSubscriberProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname), core::mem::transmute(propertyvalue)) }
     }
-    pub unsafe fn RemoveSubscriberProperty(&self, bstrpropertyname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSubscriberProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname)).ok() }
+    pub unsafe fn RemoveSubscriberProperty(&self, bstrpropertyname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveSubscriberProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname)) }
     }
     pub unsafe fn GetSubscriberPropertyCollection(&self) -> windows_core::Result<IEventObjectCollection> {
         unsafe {
@@ -1459,8 +1459,8 @@ impl IEventSubscription {
             (windows_core::Interface::vtable(self).InterfaceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetInterfaceID(&self, bstrinterfaceid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetInterfaceID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinterfaceid)).ok() }
+    pub unsafe fn SetInterfaceID(&self, bstrinterfaceid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetInterfaceID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinterfaceid)) }
     }
 }
 #[repr(C)]
@@ -1919,11 +1919,11 @@ impl IEventSystem {
             (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(progid), core::mem::transmute_copy(querycriteria), errorindex as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Store<P1>(&self, progid: &windows_core::BSTR, pinterface: P1) -> windows_core::Result<()>
+    pub unsafe fn Store<P1>(&self, progid: &windows_core::BSTR, pinterface: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Store)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(progid), pinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Store)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(progid), pinterface.param().abi()) }
     }
     pub unsafe fn Remove(&self, progid: &windows_core::BSTR, querycriteria: &windows_core::BSTR) -> windows_core::Result<i32> {
         unsafe {
@@ -1943,8 +1943,8 @@ impl IEventSystem {
             (windows_core::Interface::vtable(self).QueryS)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(progid), core::mem::transmute_copy(querycriteria), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RemoveS(&self, progid: &windows_core::BSTR, querycriteria: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveS)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(progid), core::mem::transmute_copy(querycriteria)).ok() }
+    pub unsafe fn RemoveS(&self, progid: &windows_core::BSTR, querycriteria: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveS)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(progid), core::mem::transmute_copy(querycriteria)) }
     }
 }
 #[repr(C)]
@@ -2055,11 +2055,11 @@ impl core::ops::Deref for IFiringControl {
 }
 windows_core::imp::interface_hierarchy!(IFiringControl, windows_core::IUnknown, super::IDispatch);
 impl IFiringControl {
-    pub unsafe fn FireSubscription<P0>(&self, subscription: P0) -> windows_core::Result<()>
+    pub unsafe fn FireSubscription<P0>(&self, subscription: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IEventSubscription>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FireSubscription)(windows_core::Interface::as_raw(self), subscription.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FireSubscription)(windows_core::Interface::as_raw(self), subscription.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2092,11 +2092,11 @@ impl windows_core::RuntimeName for IFiringControl {}
 windows_core::imp::define_interface!(IMultiInterfaceEventControl, IMultiInterfaceEventControl_Vtbl, 0x0343e2f5_86f6_11d1_b760_00c04fb926af);
 windows_core::imp::interface_hierarchy!(IMultiInterfaceEventControl, windows_core::IUnknown);
 impl IMultiInterfaceEventControl {
-    pub unsafe fn SetMultiInterfacePublisherFilter<P0>(&self, classfilter: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMultiInterfacePublisherFilter<P0>(&self, classfilter: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMultiInterfacePublisherFilter>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMultiInterfacePublisherFilter)(windows_core::Interface::as_raw(self), classfilter.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetMultiInterfacePublisherFilter)(windows_core::Interface::as_raw(self), classfilter.param().abi()) }
     }
     pub unsafe fn GetSubscriptions(&self, eventiid: *const windows_core::GUID, bstrmethodname: &windows_core::BSTR, optionalcriteria: &windows_core::BSTR, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection> {
         unsafe {
@@ -2116,8 +2116,8 @@ impl IMultiInterfaceEventControl {
             (windows_core::Interface::vtable(self).AllowInprocActivation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAllowInprocActivation(&self, fallowinprocactivation: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into()).ok() }
+    pub unsafe fn SetAllowInprocActivation(&self, fallowinprocactivation: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into()) }
     }
     pub unsafe fn FireInParallel(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -2125,8 +2125,8 @@ impl IMultiInterfaceEventControl {
             (windows_core::Interface::vtable(self).FireInParallel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFireInParallel(&self, ffireinparallel: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.into()).ok() }
+    pub unsafe fn SetFireInParallel(&self, ffireinparallel: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.into()) }
     }
 }
 #[repr(C)]
@@ -2237,17 +2237,17 @@ impl windows_core::RuntimeName for IMultiInterfaceEventControl {}
 windows_core::imp::define_interface!(IMultiInterfacePublisherFilter, IMultiInterfacePublisherFilter_Vtbl, 0x465e5cc1_7b26_11d1_88fb_0080c7d771bf);
 windows_core::imp::interface_hierarchy!(IMultiInterfacePublisherFilter, windows_core::IUnknown);
 impl IMultiInterfacePublisherFilter {
-    pub unsafe fn Initialize<P0>(&self, peic: P0) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, peic: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMultiInterfaceEventControl>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), peic.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), peic.param().abi()) }
     }
-    pub unsafe fn PrepareToFire<P2>(&self, iid: *const windows_core::GUID, methodname: &windows_core::BSTR, firingcontrol: P2) -> windows_core::Result<()>
+    pub unsafe fn PrepareToFire<P2>(&self, iid: *const windows_core::GUID, methodname: &windows_core::BSTR, firingcontrol: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IFiringControl>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PrepareToFire)(windows_core::Interface::as_raw(self), iid, core::mem::transmute_copy(methodname), firingcontrol.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PrepareToFire)(windows_core::Interface::as_raw(self), iid, core::mem::transmute_copy(methodname), firingcontrol.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2289,17 +2289,17 @@ impl windows_core::RuntimeName for IMultiInterfacePublisherFilter {}
 windows_core::imp::define_interface!(IPublisherFilter, IPublisherFilter_Vtbl, 0x465e5cc0_7b26_11d1_88fb_0080c7d771bf);
 windows_core::imp::interface_hierarchy!(IPublisherFilter, windows_core::IUnknown);
 impl IPublisherFilter {
-    pub unsafe fn Initialize<P1>(&self, methodname: &windows_core::BSTR, dispuserdefined: P1) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P1>(&self, methodname: &windows_core::BSTR, dispuserdefined: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(methodname), dispuserdefined.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(methodname), dispuserdefined.param().abi()) }
     }
-    pub unsafe fn PrepareToFire<P1>(&self, methodname: &windows_core::BSTR, firingcontrol: P1) -> windows_core::Result<()>
+    pub unsafe fn PrepareToFire<P1>(&self, methodname: &windows_core::BSTR, firingcontrol: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IFiringControl>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PrepareToFire)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(methodname), firingcontrol.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PrepareToFire)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(methodname), firingcontrol.param().abi()) }
     }
 }
 #[repr(C)]

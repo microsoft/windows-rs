@@ -324,8 +324,8 @@ impl ILocationPermissions {
             (windows_core::Interface::vtable(self).GetGlobalLocationPermission)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CheckLocationCapability(&self, dwclientthreadid: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CheckLocationCapability)(windows_core::Interface::as_raw(self), dwclientthreadid).ok() }
+    pub unsafe fn CheckLocationCapability(&self, dwclientthreadid: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CheckLocationCapability)(windows_core::Interface::as_raw(self), dwclientthreadid) }
     }
 }
 #[repr(C)]
@@ -455,17 +455,17 @@ impl ISensor {
             (windows_core::Interface::vtable(self).SupportsEvent)(windows_core::Interface::as_raw(self), eventguid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetEventInterest(&self, ppvalues: *mut *mut windows_core::GUID, pcount: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetEventInterest)(windows_core::Interface::as_raw(self), ppvalues as _, pcount as _).ok() }
+    pub unsafe fn GetEventInterest(&self, ppvalues: *mut *mut windows_core::GUID, pcount: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEventInterest)(windows_core::Interface::as_raw(self), ppvalues as _, pcount as _) }
     }
-    pub unsafe fn SetEventInterest(&self, pvalues: Option<&[windows_core::GUID]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), core::mem::transmute(pvalues.map_or(core::ptr::null(), |slice| slice.as_ptr())), pvalues.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+    pub unsafe fn SetEventInterest(&self, pvalues: Option<&[windows_core::GUID]>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), core::mem::transmute(pvalues.map_or(core::ptr::null(), |slice| slice.as_ptr())), pvalues.map_or(0, |slice| slice.len().try_into().unwrap())) }
     }
-    pub unsafe fn SetEventSink<P0>(&self, pevents: P0) -> windows_core::Result<()>
+    pub unsafe fn SetEventSink<P0>(&self, pevents: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISensorEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), pevents.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), pevents.param().abi()) }
     }
 }
 #[repr(C)]
@@ -723,23 +723,23 @@ impl ISensorCollection {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Add<P0>(&self, psensor: P0) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, psensor: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISensor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), psensor.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), psensor.param().abi()) }
     }
-    pub unsafe fn Remove<P0>(&self, psensor: P0) -> windows_core::Result<()>
+    pub unsafe fn Remove<P0>(&self, psensor: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISensor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), psensor.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), psensor.param().abi()) }
     }
-    pub unsafe fn RemoveByID(&self, sensorid: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveByID)(windows_core::Interface::as_raw(self), sensorid).ok() }
+    pub unsafe fn RemoveByID(&self, sensorid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveByID)(windows_core::Interface::as_raw(self), sensorid) }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Clear(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -928,29 +928,29 @@ impl windows_core::RuntimeName for ISensorDataReport {}
 windows_core::imp::define_interface!(ISensorEvents, ISensorEvents_Vtbl, 0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391);
 windows_core::imp::interface_hierarchy!(ISensorEvents, windows_core::IUnknown);
 impl ISensorEvents {
-    pub unsafe fn OnStateChanged<P0>(&self, psensor: P0, state: SensorState) -> windows_core::Result<()>
+    pub unsafe fn OnStateChanged<P0>(&self, psensor: P0, state: SensorState) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISensor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnStateChanged)(windows_core::Interface::as_raw(self), psensor.param().abi(), state).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnStateChanged)(windows_core::Interface::as_raw(self), psensor.param().abi(), state) }
     }
-    pub unsafe fn OnDataUpdated<P0, P1>(&self, psensor: P0, pnewdata: P1) -> windows_core::Result<()>
+    pub unsafe fn OnDataUpdated<P0, P1>(&self, psensor: P0, pnewdata: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISensor>,
         P1: windows_core::Param<ISensorDataReport>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDataUpdated)(windows_core::Interface::as_raw(self), psensor.param().abi(), pnewdata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDataUpdated)(windows_core::Interface::as_raw(self), psensor.param().abi(), pnewdata.param().abi()) }
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub unsafe fn OnEvent<P0, P2>(&self, psensor: P0, eventid: *const windows_core::GUID, peventdata: P2) -> windows_core::Result<()>
+    pub unsafe fn OnEvent<P0, P2>(&self, psensor: P0, eventid: *const windows_core::GUID, peventdata: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISensor>,
         P2: windows_core::Param<super::PortableDevices::IPortableDeviceValues>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), psensor.param().abi(), eventid, peventdata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), psensor.param().abi(), eventid, peventdata.param().abi()) }
     }
-    pub unsafe fn OnLeave(&self, id: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnLeave)(windows_core::Interface::as_raw(self), id).ok() }
+    pub unsafe fn OnLeave(&self, id: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnLeave)(windows_core::Interface::as_raw(self), id) }
     }
 }
 #[repr(C)]
@@ -1034,17 +1034,17 @@ impl ISensorManager {
             (windows_core::Interface::vtable(self).GetSensorByID)(windows_core::Interface::as_raw(self), sensorid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetEventSink<P0>(&self, pevents: P0) -> windows_core::Result<()>
+    pub unsafe fn SetEventSink<P0>(&self, pevents: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISensorManagerEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), pevents.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), pevents.param().abi()) }
     }
-    pub unsafe fn RequestPermissions<P1>(&self, hparent: super::super::Foundation::HWND, psensors: P1, fmodal: bool) -> windows_core::Result<()>
+    pub unsafe fn RequestPermissions<P1>(&self, hparent: super::super::Foundation::HWND, psensors: P1, fmodal: bool) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ISensorCollection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hparent, psensors.param().abi(), fmodal.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hparent, psensors.param().abi(), fmodal.into()) }
     }
 }
 #[repr(C)]
@@ -1131,11 +1131,11 @@ impl windows_core::RuntimeName for ISensorManager {}
 windows_core::imp::define_interface!(ISensorManagerEvents, ISensorManagerEvents_Vtbl, 0x9b3b0b86_266a_4aad_b21f_fde5501001b7);
 windows_core::imp::interface_hierarchy!(ISensorManagerEvents, windows_core::IUnknown);
 impl ISensorManagerEvents {
-    pub unsafe fn OnSensorEnter<P0>(&self, psensor: P0, state: SensorState) -> windows_core::Result<()>
+    pub unsafe fn OnSensorEnter<P0>(&self, psensor: P0, state: SensorState) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISensor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSensorEnter)(windows_core::Interface::as_raw(self), psensor.param().abi(), state).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSensorEnter)(windows_core::Interface::as_raw(self), psensor.param().abi(), state) }
     }
 }
 #[repr(C)]

@@ -157,9 +157,9 @@ pub unsafe fn RoActivateInstance(activatableclassid: &windows_core::HSTRING) -> 
     }
 }
 #[inline]
-pub unsafe fn RoCaptureErrorContext(hr: windows_core::HRESULT) -> windows_core::Result<()> {
+pub unsafe fn RoCaptureErrorContext(hr: windows_core::HRESULT) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoCaptureErrorContext(hr : windows_core::HRESULT) -> windows_core::HRESULT);
-    unsafe { RoCaptureErrorContext(hr).ok() }
+    unsafe { RoCaptureErrorContext(hr) }
 }
 #[inline]
 pub unsafe fn RoClearError() {
@@ -225,19 +225,19 @@ pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: windows_core::HRESULT) -> w
     }
 }
 #[inline]
-pub unsafe fn RoGetServerActivatableClasses(servername: &windows_core::HSTRING, activatableclassids: *mut *mut windows_core::HSTRING, count: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn RoGetServerActivatableClasses(servername: &windows_core::HSTRING, activatableclassids: *mut *mut windows_core::HSTRING, count: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-registration-l1-1-0.dll" "system" fn RoGetServerActivatableClasses(servername : *mut core::ffi::c_void, activatableclassids : *mut *mut *mut core::ffi::c_void, count : *mut u32) -> windows_core::HRESULT);
-    unsafe { RoGetServerActivatableClasses(core::mem::transmute_copy(servername), activatableclassids as _, count as _).ok() }
+    unsafe { RoGetServerActivatableClasses(core::mem::transmute_copy(servername), activatableclassids as _, count as _) }
 }
 #[inline]
-pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> windows_core::Result<()> {
+pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoInitialize(inittype : RO_INIT_TYPE) -> windows_core::HRESULT);
-    unsafe { RoInitialize(inittype).ok() }
+    unsafe { RoInitialize(inittype) }
 }
 #[inline]
-pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: Option<*const core::ffi::c_void>, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> windows_core::Result<()> {
+pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: Option<*const core::ffi::c_void>, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress : usize, machine : u16, readmemorycallback : PINSPECT_MEMORY_CALLBACK, context : *const core::ffi::c_void, framecount : *mut u32, targetbacktraceaddress : *mut usize) -> windows_core::HRESULT);
-    unsafe { RoInspectCapturedStackBackTrace(targeterrorinfoaddress, machine, readmemorycallback, context.unwrap_or(core::mem::zeroed()) as _, framecount as _, targetbacktraceaddress as _).ok() }
+    unsafe { RoInspectCapturedStackBackTrace(targeterrorinfoaddress, machine, readmemorycallback, context.unwrap_or(core::mem::zeroed()) as _, framecount as _, targetbacktraceaddress as _) }
 }
 #[inline]
 pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: Option<*const core::ffi::c_void>) -> windows_core::Result<usize> {
@@ -274,29 +274,29 @@ pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const windows_
     }
 }
 #[inline]
-pub unsafe fn RoRegisterForApartmentShutdown<P0>(callbackobject: P0, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::Result<()>
+pub unsafe fn RoRegisterForApartmentShutdown<P0>(callbackobject: P0, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IApartmentShutdown>,
 {
     windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterForApartmentShutdown(callbackobject : *mut core::ffi::c_void, apartmentidentifier : *mut u64, regcookie : *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::HRESULT);
-    unsafe { RoRegisterForApartmentShutdown(callbackobject.param().abi(), apartmentidentifier as _, regcookie as _).ok() }
+    unsafe { RoRegisterForApartmentShutdown(callbackobject.param().abi(), apartmentidentifier as _, regcookie as _) }
 }
 #[inline]
-pub unsafe fn RoReportFailedDelegate<P0, P1>(punkdelegate: P0, prestrictederrorinfo: P1) -> windows_core::Result<()>
+pub unsafe fn RoReportFailedDelegate<P0, P1>(punkdelegate: P0, prestrictederrorinfo: P1) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<IRestrictedErrorInfo>,
 {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportFailedDelegate(punkdelegate : *mut core::ffi::c_void, prestrictederrorinfo : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RoReportFailedDelegate(punkdelegate.param().abi(), prestrictederrorinfo.param().abi()).ok() }
+    unsafe { RoReportFailedDelegate(punkdelegate.param().abi(), prestrictederrorinfo.param().abi()) }
 }
 #[inline]
-pub unsafe fn RoReportUnhandledError<P0>(prestrictederrorinfo: P0) -> windows_core::Result<()>
+pub unsafe fn RoReportUnhandledError<P0>(prestrictederrorinfo: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IRestrictedErrorInfo>,
 {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportUnhandledError(prestrictederrorinfo : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RoReportUnhandledError(prestrictederrorinfo.param().abi()).ok() }
+    unsafe { RoReportUnhandledError(prestrictederrorinfo.param().abi()) }
 }
 #[inline]
 pub unsafe fn RoResolveRestrictedErrorInfoReference<P0>(reference: P0) -> windows_core::Result<IRestrictedErrorInfo>
@@ -315,9 +315,9 @@ pub unsafe fn RoRevokeActivationFactories(cookie: RO_REGISTRATION_COOKIE) {
     unsafe { RoRevokeActivationFactories(cookie) }
 }
 #[inline]
-pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> windows_core::Result<()> {
+pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoSetErrorReportingFlags(flags : u32) -> windows_core::HRESULT);
-    unsafe { RoSetErrorReportingFlags(flags).ok() }
+    unsafe { RoSetErrorReportingFlags(flags) }
 }
 #[inline]
 pub unsafe fn RoTransformError(olderror: windows_core::HRESULT, newerror: windows_core::HRESULT, message: &windows_core::HSTRING) -> windows_core::BOOL {
@@ -335,17 +335,17 @@ pub unsafe fn RoUninitialize() {
     unsafe { RoUninitialize() }
 }
 #[inline]
-pub unsafe fn RoUnregisterForApartmentShutdown(regcookie: APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::Result<()> {
+pub unsafe fn RoUnregisterForApartmentShutdown(regcookie: APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoUnregisterForApartmentShutdown(regcookie : APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::HRESULT);
-    unsafe { RoUnregisterForApartmentShutdown(regcookie).ok() }
+    unsafe { RoUnregisterForApartmentShutdown(regcookie) }
 }
 #[inline]
-pub unsafe fn SetRestrictedErrorInfo<P0>(prestrictederrorinfo: P0) -> windows_core::Result<()>
+pub unsafe fn SetRestrictedErrorInfo<P0>(prestrictederrorinfo: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IRestrictedErrorInfo>,
 {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn SetRestrictedErrorInfo(prestrictederrorinfo : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SetRestrictedErrorInfo(prestrictederrorinfo.param().abi()).ok() }
+    unsafe { SetRestrictedErrorInfo(prestrictederrorinfo.param().abi()) }
 }
 #[inline]
 pub unsafe fn WindowsCompareStringOrdinal(string1: &windows_core::HSTRING, string2: &windows_core::HSTRING) -> windows_core::Result<i32> {
@@ -372,22 +372,22 @@ pub unsafe fn WindowsCreateString(sourcestring: Option<&[u16]>) -> windows_core:
     }
 }
 #[inline]
-pub unsafe fn WindowsCreateStringReference<P0>(sourcestring: P0, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut windows_core::HSTRING) -> windows_core::Result<()>
+pub unsafe fn WindowsCreateStringReference<P0>(sourcestring: P0, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut windows_core::HSTRING) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateStringReference(sourcestring : windows_core::PCWSTR, length : u32, hstringheader : *mut HSTRING_HEADER, string : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WindowsCreateStringReference(sourcestring.param().abi(), length, hstringheader as _, core::mem::transmute(string)).ok() }
+    unsafe { WindowsCreateStringReference(sourcestring.param().abi(), length, hstringheader as _, core::mem::transmute(string)) }
 }
 #[inline]
-pub unsafe fn WindowsDeleteString(string: &windows_core::HSTRING) -> windows_core::Result<()> {
+pub unsafe fn WindowsDeleteString(string: &windows_core::HSTRING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteString(string : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WindowsDeleteString(core::mem::transmute_copy(string)).ok() }
+    unsafe { WindowsDeleteString(core::mem::transmute_copy(string)) }
 }
 #[inline]
-pub unsafe fn WindowsDeleteStringBuffer(bufferhandle: Option<HSTRING_BUFFER>) -> windows_core::Result<()> {
+pub unsafe fn WindowsDeleteStringBuffer(bufferhandle: Option<HSTRING_BUFFER>) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteStringBuffer(bufferhandle : HSTRING_BUFFER) -> windows_core::HRESULT);
-    unsafe { WindowsDeleteStringBuffer(bufferhandle.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WindowsDeleteStringBuffer(bufferhandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WindowsDuplicateString(string: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
@@ -408,14 +408,14 @@ pub unsafe fn WindowsGetStringRawBuffer(string: &windows_core::HSTRING, length: 
     unsafe { WindowsGetStringRawBuffer(core::mem::transmute_copy(string), length.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, context: Option<*const core::ffi::c_void>, length: *mut u32, targetstringaddress: *mut usize) -> windows_core::Result<()> {
+pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, context: Option<*const core::ffi::c_void>, length: *mut u32, targetstringaddress: *mut usize) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsInspectString(targethstring : usize, machine : u16, callback : PINSPECT_HSTRING_CALLBACK, context : *const core::ffi::c_void, length : *mut u32, targetstringaddress : *mut usize) -> windows_core::HRESULT);
-    unsafe { WindowsInspectString(targethstring, machine, callback, context.unwrap_or(core::mem::zeroed()) as _, length as _, targetstringaddress as _).ok() }
+    unsafe { WindowsInspectString(targethstring, machine, callback, context.unwrap_or(core::mem::zeroed()) as _, length as _, targetstringaddress as _) }
 }
 #[inline]
-pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, context: Option<*const core::ffi::c_void>, length: *mut u32, targetstringaddress: *mut u64) -> windows_core::Result<()> {
+pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, context: Option<*const core::ffi::c_void>, length: *mut u32, targetstringaddress: *mut u64) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-1.dll" "system" fn WindowsInspectString2(targethstring : u64, machine : u16, callback : PINSPECT_HSTRING_CALLBACK2, context : *const core::ffi::c_void, length : *mut u32, targetstringaddress : *mut u64) -> windows_core::HRESULT);
-    unsafe { WindowsInspectString2(targethstring, machine, callback, context.unwrap_or(core::mem::zeroed()) as _, length as _, targetstringaddress as _).ok() }
+    unsafe { WindowsInspectString2(targethstring, machine, callback, context.unwrap_or(core::mem::zeroed()) as _, length as _, targetstringaddress as _) }
 }
 #[inline]
 pub unsafe fn WindowsIsStringEmpty(string: &windows_core::HSTRING) -> windows_core::BOOL {
@@ -423,9 +423,9 @@ pub unsafe fn WindowsIsStringEmpty(string: &windows_core::HSTRING) -> windows_co
     unsafe { WindowsIsStringEmpty(core::mem::transmute_copy(string)) }
 }
 #[inline]
-pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut u16, bufferhandle: *mut HSTRING_BUFFER) -> windows_core::Result<()> {
+pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut u16, bufferhandle: *mut HSTRING_BUFFER) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsPreallocateStringBuffer(length : u32, charbuffer : *mut *mut u16, bufferhandle : *mut HSTRING_BUFFER) -> windows_core::HRESULT);
-    unsafe { WindowsPreallocateStringBuffer(length, charbuffer as _, bufferhandle as _).ok() }
+    unsafe { WindowsPreallocateStringBuffer(length, charbuffer as _, bufferhandle as _) }
 }
 #[inline]
 pub unsafe fn WindowsPromoteStringBuffer(bufferhandle: HSTRING_BUFFER) -> windows_core::Result<windows_core::HSTRING> {
@@ -845,18 +845,18 @@ impl windows_core::RuntimeName for IBufferByteAccess {}
 windows_core::imp::define_interface!(ICastingController, ICastingController_Vtbl, 0xf0a56423_a664_4fbd_8b43_409a45e8d9a1);
 windows_core::imp::interface_hierarchy!(ICastingController, windows_core::IUnknown);
 impl ICastingController {
-    pub unsafe fn Initialize<P0, P1>(&self, castingengine: P0, castingsource: P1) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, castingengine: P0, castingsource: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), castingengine.param().abi(), castingsource.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), castingengine.param().abi(), castingsource.param().abi()) }
     }
-    pub unsafe fn Connect(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Connect(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Disconnect(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Disconnect(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Advise<P0>(&self, eventhandler: P0) -> windows_core::Result<u32>
     where
@@ -867,8 +867,8 @@ impl ICastingController {
             (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UnAdvise(&self, cookie: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UnAdvise)(windows_core::Interface::as_raw(self), cookie).ok() }
+    pub unsafe fn UnAdvise(&self, cookie: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnAdvise)(windows_core::Interface::as_raw(self), cookie) }
     }
 }
 #[repr(C)]
@@ -943,14 +943,14 @@ impl windows_core::RuntimeName for ICastingController {}
 windows_core::imp::define_interface!(ICastingEventHandler, ICastingEventHandler_Vtbl, 0xc79a6cb7_bebd_47a6_a2ad_4d45ad79c7bc);
 windows_core::imp::interface_hierarchy!(ICastingEventHandler, windows_core::IUnknown);
 impl ICastingEventHandler {
-    pub unsafe fn OnStateChanged(&self, newstate: CASTING_CONNECTION_STATE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnStateChanged)(windows_core::Interface::as_raw(self), newstate).ok() }
+    pub unsafe fn OnStateChanged(&self, newstate: CASTING_CONNECTION_STATE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnStateChanged)(windows_core::Interface::as_raw(self), newstate) }
     }
-    pub unsafe fn OnError<P1>(&self, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: P1) -> windows_core::Result<()>
+    pub unsafe fn OnError<P1>(&self, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), errorstatus, errormessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), errorstatus, errormessage.param().abi()) }
     }
 }
 #[repr(C)]
@@ -1063,14 +1063,14 @@ impl windows_core::RuntimeName for ICastingSourceInfo {}
 windows_core::imp::define_interface!(ICoreInputInterop, ICoreInputInterop_Vtbl, 0x40bfe3e3_b75a_4479_ac96_475365749bb8);
 windows_core::imp::interface_hierarchy!(ICoreInputInterop, windows_core::IUnknown);
 impl ICoreInputInterop {
-    pub unsafe fn SetInputSource<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetInputSource<P0>(&self, value: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetInputSource)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetInputSource)(windows_core::Interface::as_raw(self), value.param().abi()) }
     }
-    pub unsafe fn SetMessageHandled(&self, value: u8) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMessageHandled)(windows_core::Interface::as_raw(self), value).ok() }
+    pub unsafe fn SetMessageHandled(&self, value: u8) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMessageHandled)(windows_core::Interface::as_raw(self), value) }
     }
 }
 #[repr(C)]
@@ -1118,8 +1118,8 @@ impl ICoreInputInterop2 {
             (windows_core::Interface::vtable(self).WindowHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ChangeHostingContext(&self, newparentwindow: super::super::Foundation::HWND, newviewinstanceid: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ChangeHostingContext)(windows_core::Interface::as_raw(self), newparentwindow, newviewinstanceid).ok() }
+    pub unsafe fn ChangeHostingContext(&self, newparentwindow: super::super::Foundation::HWND, newviewinstanceid: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ChangeHostingContext)(windows_core::Interface::as_raw(self), newparentwindow, newviewinstanceid) }
     }
 }
 #[repr(C)]
@@ -1209,11 +1209,11 @@ impl ICoreWindowAdapterInterop {
             (windows_core::Interface::vtable(self).TitleBarClientAdapter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetWindowClientAdapter<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetWindowClientAdapter<P0>(&self, value: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWindowClientAdapter)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetWindowClientAdapter)(windows_core::Interface::as_raw(self), value.param().abi()) }
     }
 }
 #[repr(C)]
@@ -1351,11 +1351,11 @@ impl windows_core::RuntimeName for ICoreWindowAdapterInterop {}
 windows_core::imp::define_interface!(ICoreWindowComponentInterop, ICoreWindowComponentInterop_Vtbl, 0x0576ab31_a310_4c40_ba31_fd37e0298dfa);
 windows_core::imp::interface_hierarchy!(ICoreWindowComponentInterop, windows_core::IUnknown);
 impl ICoreWindowComponentInterop {
-    pub unsafe fn ConfigureComponentInput<P2>(&self, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: P2) -> windows_core::Result<()>
+    pub unsafe fn ConfigureComponentInput<P2>(&self, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ConfigureComponentInput)(windows_core::Interface::as_raw(self), hostviewinstanceid, hwndhost, inputsourcevisual.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ConfigureComponentInput)(windows_core::Interface::as_raw(self), hostviewinstanceid, hwndhost, inputsourcevisual.param().abi()) }
     }
     pub unsafe fn GetViewInstanceId(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1415,8 +1415,8 @@ impl ICoreWindowInterop {
             (windows_core::Interface::vtable(self).WindowHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMessageHandled(&self, value: u8) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMessageHandled)(windows_core::Interface::as_raw(self), value).ok() }
+    pub unsafe fn SetMessageHandled(&self, value: u8) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMessageHandled)(windows_core::Interface::as_raw(self), value) }
     }
 }
 #[repr(C)]
@@ -1476,8 +1476,8 @@ impl ICorrelationVectorInformation {
             (windows_core::Interface::vtable(self).NextCorrelationVectorForThread)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetNextCorrelationVectorForThread(&self, cv: &windows_core::HSTRING) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetNextCorrelationVectorForThread)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(cv)).ok() }
+    pub unsafe fn SetNextCorrelationVectorForThread(&self, cv: &windows_core::HSTRING) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetNextCorrelationVectorForThread)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(cv)) }
     }
 }
 #[repr(C)]
@@ -1740,11 +1740,11 @@ impl ILanguageExceptionErrorInfo2 {
             (windows_core::Interface::vtable(self).GetPreviousLanguageExceptionErrorInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CapturePropagationContext<P0>(&self, languageexception: P0) -> windows_core::Result<()>
+    pub unsafe fn CapturePropagationContext<P0>(&self, languageexception: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CapturePropagationContext)(windows_core::Interface::as_raw(self), languageexception.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CapturePropagationContext)(windows_core::Interface::as_raw(self), languageexception.param().abi()) }
     }
     pub unsafe fn GetPropagationContextHead(&self) -> windows_core::Result<Self> {
         unsafe {
@@ -1813,8 +1813,8 @@ impl windows_core::RuntimeName for ILanguageExceptionErrorInfo2 {}
 windows_core::imp::define_interface!(ILanguageExceptionStackBackTrace, ILanguageExceptionStackBackTrace_Vtbl, 0xcbe53fb5_f967_4258_8d34_42f5e25833de);
 windows_core::imp::interface_hierarchy!(ILanguageExceptionStackBackTrace, windows_core::IUnknown);
 impl ILanguageExceptionStackBackTrace {
-    pub unsafe fn GetStackBackTrace(&self, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStackBackTrace)(windows_core::Interface::as_raw(self), maxframestocapture, stackbacktrace as _, framescaptured as _).ok() }
+    pub unsafe fn GetStackBackTrace(&self, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStackBackTrace)(windows_core::Interface::as_raw(self), maxframestocapture, stackbacktrace as _, framescaptured as _) }
     }
 }
 #[repr(C)]
@@ -1887,8 +1887,8 @@ impl windows_core::RuntimeName for ILanguageExceptionTransform {}
 windows_core::imp::define_interface!(IMemoryBufferByteAccess, IMemoryBufferByteAccess_Vtbl, 0x5b0d3235_4dba_4d44_865e_8f1d0e4fd04d);
 windows_core::imp::interface_hierarchy!(IMemoryBufferByteAccess, windows_core::IUnknown);
 impl IMemoryBufferByteAccess {
-    pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), value as _, capacity as _).ok() }
+    pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), value as _, capacity as _) }
     }
 }
 #[repr(C)]
@@ -1918,8 +1918,8 @@ impl windows_core::RuntimeName for IMemoryBufferByteAccess {}
 windows_core::imp::define_interface!(IMessageDispatcher, IMessageDispatcher_Vtbl, 0xf5f84c8f_cfd0_4cd6_b66b_c5d26ff1689d);
 windows_core::imp::interface_hierarchy!(IMessageDispatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl IMessageDispatcher {
-    pub unsafe fn PumpMessages(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PumpMessages)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn PumpMessages(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PumpMessages)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -1956,8 +1956,8 @@ impl IPlayToManagerInterop {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn ShowPlayToUIForWindow(&self, appwindow: super::super::Foundation::HWND) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ShowPlayToUIForWindow)(windows_core::Interface::as_raw(self), appwindow).ok() }
+    pub unsafe fn ShowPlayToUIForWindow(&self, appwindow: super::super::Foundation::HWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ShowPlayToUIForWindow)(windows_core::Interface::as_raw(self), appwindow) }
     }
 }
 #[repr(C)]
@@ -1999,8 +1999,8 @@ impl windows_core::RuntimeName for IPlayToManagerInterop {}
 windows_core::imp::define_interface!(IRestrictedErrorInfo, IRestrictedErrorInfo_Vtbl, 0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
 windows_core::imp::interface_hierarchy!(IRestrictedErrorInfo, windows_core::IUnknown);
 impl IRestrictedErrorInfo {
-    pub unsafe fn GetErrorDetails(&self, description: *mut windows_core::BSTR, error: *mut windows_core::HRESULT, restricteddescription: *mut windows_core::BSTR, capabilitysid: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetErrorDetails)(windows_core::Interface::as_raw(self), core::mem::transmute(description), error as _, core::mem::transmute(restricteddescription), core::mem::transmute(capabilitysid)).ok() }
+    pub unsafe fn GetErrorDetails(&self, description: *mut windows_core::BSTR, error: *mut windows_core::HRESULT, restricteddescription: *mut windows_core::BSTR, capabilitysid: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetErrorDetails)(windows_core::Interface::as_raw(self), core::mem::transmute(description), error as _, core::mem::transmute(restricteddescription), core::mem::transmute(capabilitysid)) }
     }
     pub unsafe fn GetReference(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -2318,8 +2318,8 @@ impl windows_core::RuntimeName for IUserActivityRequestManagerInterop {}
 windows_core::imp::define_interface!(IUserActivitySourceHostInterop, IUserActivitySourceHostInterop_Vtbl, 0xc15df8bc_8844_487a_b85b_7578e0f61419);
 windows_core::imp::interface_hierarchy!(IUserActivitySourceHostInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IUserActivitySourceHostInterop {
-    pub unsafe fn SetActivitySourceHost(&self, activitysourcehost: &windows_core::HSTRING) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetActivitySourceHost)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(activitysourcehost)).ok() }
+    pub unsafe fn SetActivitySourceHost(&self, activitysourcehost: &windows_core::HSTRING) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetActivitySourceHost)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(activitysourcehost)) }
     }
 }
 #[repr(C)]

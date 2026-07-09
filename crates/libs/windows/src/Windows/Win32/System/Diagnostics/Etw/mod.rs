@@ -1960,32 +1960,32 @@ impl ITraceEvent {
             (windows_core::Interface::vtable(self).GetEventRecord)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPayload(&self, payload: &[u8]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPayload)(windows_core::Interface::as_raw(self), core::mem::transmute(payload.as_ptr()), payload.len().try_into().unwrap()).ok() }
+    pub unsafe fn SetPayload(&self, payload: &[u8]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPayload)(windows_core::Interface::as_raw(self), core::mem::transmute(payload.as_ptr()), payload.len().try_into().unwrap()) }
     }
-    pub unsafe fn SetEventDescriptor(&self, eventdescriptor: *const EVENT_DESCRIPTOR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEventDescriptor)(windows_core::Interface::as_raw(self), eventdescriptor).ok() }
+    pub unsafe fn SetEventDescriptor(&self, eventdescriptor: *const EVENT_DESCRIPTOR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEventDescriptor)(windows_core::Interface::as_raw(self), eventdescriptor) }
     }
-    pub unsafe fn SetProcessId(&self, processid: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProcessId)(windows_core::Interface::as_raw(self), processid).ok() }
+    pub unsafe fn SetProcessId(&self, processid: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProcessId)(windows_core::Interface::as_raw(self), processid) }
     }
-    pub unsafe fn SetProcessorIndex(&self, processorindex: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProcessorIndex)(windows_core::Interface::as_raw(self), processorindex).ok() }
+    pub unsafe fn SetProcessorIndex(&self, processorindex: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProcessorIndex)(windows_core::Interface::as_raw(self), processorindex) }
     }
-    pub unsafe fn SetThreadId(&self, threadid: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetThreadId)(windows_core::Interface::as_raw(self), threadid).ok() }
+    pub unsafe fn SetThreadId(&self, threadid: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetThreadId)(windows_core::Interface::as_raw(self), threadid) }
     }
-    pub unsafe fn SetThreadTimes(&self, kerneltime: u32, usertime: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetThreadTimes)(windows_core::Interface::as_raw(self), kerneltime, usertime).ok() }
+    pub unsafe fn SetThreadTimes(&self, kerneltime: u32, usertime: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetThreadTimes)(windows_core::Interface::as_raw(self), kerneltime, usertime) }
     }
-    pub unsafe fn SetActivityId(&self, activityid: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetActivityId)(windows_core::Interface::as_raw(self), activityid).ok() }
+    pub unsafe fn SetActivityId(&self, activityid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetActivityId)(windows_core::Interface::as_raw(self), activityid) }
     }
-    pub unsafe fn SetTimeStamp(&self, timestamp: *const i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetTimeStamp)(windows_core::Interface::as_raw(self), timestamp).ok() }
+    pub unsafe fn SetTimeStamp(&self, timestamp: *const i64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTimeStamp)(windows_core::Interface::as_raw(self), timestamp) }
     }
-    pub unsafe fn SetProviderId(&self, providerid: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProviderId)(windows_core::Interface::as_raw(self), providerid).ok() }
+    pub unsafe fn SetProviderId(&self, providerid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProviderId)(windows_core::Interface::as_raw(self), providerid) }
     }
 }
 #[repr(C)]
@@ -2135,25 +2135,25 @@ impl windows_core::RuntimeName for ITraceEvent {}
 windows_core::imp::define_interface!(ITraceEventCallback, ITraceEventCallback_Vtbl, 0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
 windows_core::imp::interface_hierarchy!(ITraceEventCallback, windows_core::IUnknown);
 impl ITraceEventCallback {
-    pub unsafe fn OnBeginProcessTrace<P0, P1>(&self, headerevent: P0, relogger: P1) -> windows_core::Result<()>
+    pub unsafe fn OnBeginProcessTrace<P0, P1>(&self, headerevent: P0, relogger: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ITraceEvent>,
         P1: windows_core::Param<ITraceRelogger>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnBeginProcessTrace)(windows_core::Interface::as_raw(self), headerevent.param().abi(), relogger.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnBeginProcessTrace)(windows_core::Interface::as_raw(self), headerevent.param().abi(), relogger.param().abi()) }
     }
-    pub unsafe fn OnFinalizeProcessTrace<P0>(&self, relogger: P0) -> windows_core::Result<()>
+    pub unsafe fn OnFinalizeProcessTrace<P0>(&self, relogger: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ITraceRelogger>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnFinalizeProcessTrace)(windows_core::Interface::as_raw(self), relogger.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnFinalizeProcessTrace)(windows_core::Interface::as_raw(self), relogger.param().abi()) }
     }
-    pub unsafe fn OnEvent<P0, P1>(&self, event: P0, relogger: P1) -> windows_core::Result<()>
+    pub unsafe fn OnEvent<P0, P1>(&self, event: P0, relogger: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ITraceEvent>,
         P1: windows_core::Param<ITraceRelogger>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), event.param().abi(), relogger.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), event.param().abi(), relogger.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2216,17 +2216,17 @@ impl ITraceRelogger {
             (windows_core::Interface::vtable(self).AddRealtimeTraceStream)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(loggername), usercontext, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RegisterCallback<P0>(&self, callback: P0) -> windows_core::Result<()>
+    pub unsafe fn RegisterCallback<P0>(&self, callback: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ITraceEventCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterCallback)(windows_core::Interface::as_raw(self), callback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterCallback)(windows_core::Interface::as_raw(self), callback.param().abi()) }
     }
-    pub unsafe fn Inject<P0>(&self, event: P0) -> windows_core::Result<()>
+    pub unsafe fn Inject<P0>(&self, event: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ITraceEvent>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Inject)(windows_core::Interface::as_raw(self), event.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Inject)(windows_core::Interface::as_raw(self), event.param().abi()) }
     }
     pub unsafe fn CreateEventInstance(&self, tracestreamid: u64, flags: u32) -> windows_core::Result<ITraceEvent> {
         unsafe {
@@ -2234,17 +2234,17 @@ impl ITraceRelogger {
             (windows_core::Interface::vtable(self).CreateEventInstance)(windows_core::Interface::as_raw(self), tracestreamid, flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ProcessTrace(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ProcessTrace)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn ProcessTrace(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ProcessTrace)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetOutputFilename(&self, logfilename: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetOutputFilename)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(logfilename)).ok() }
+    pub unsafe fn SetOutputFilename(&self, logfilename: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOutputFilename)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(logfilename)) }
     }
-    pub unsafe fn SetCompressionMode(&self, compressionmode: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetCompressionMode)(windows_core::Interface::as_raw(self), compressionmode).ok() }
+    pub unsafe fn SetCompressionMode(&self, compressionmode: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCompressionMode)(windows_core::Interface::as_raw(self), compressionmode) }
     }
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Cancel(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]

@@ -1,12 +1,12 @@
 windows_core::imp::define_interface!(ITpmVirtualSmartCardManager, ITpmVirtualSmartCardManager_Vtbl, 0x112b1dff_d9dc_41f7_869f_d67fee7cb591);
 windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManager, windows_core::IUnknown);
 impl ITpmVirtualSmartCardManager {
-    pub unsafe fn CreateVirtualSmartCard<P0, P11>(&self, pszfriendlyname: P0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], fgenerate: bool, pstatuscallback: P11, ppszinstanceid: *mut windows_core::PWSTR, pfneedreboot: *mut windows_core::BOOL) -> windows_core::Result<()>
+    pub unsafe fn CreateVirtualSmartCard<P0, P11>(&self, pszfriendlyname: P0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], fgenerate: bool, pstatuscallback: P11, ppszinstanceid: *mut windows_core::PWSTR, pfneedreboot: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P11: windows_core::Param<ITpmVirtualSmartCardManagerStatusCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateVirtualSmartCard)(windows_core::Interface::as_raw(self), pszfriendlyname.param().abi(), badminalgid, core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len().try_into().unwrap(), core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len().try_into().unwrap(), core::mem::transmute(pbpuk.as_ptr()), pbpuk.len().try_into().unwrap(), core::mem::transmute(pbpin.as_ptr()), pbpin.len().try_into().unwrap(), fgenerate.into(), pstatuscallback.param().abi(), ppszinstanceid as _, pfneedreboot as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateVirtualSmartCard)(windows_core::Interface::as_raw(self), pszfriendlyname.param().abi(), badminalgid, core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len().try_into().unwrap(), core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len().try_into().unwrap(), core::mem::transmute(pbpuk.as_ptr()), pbpuk.len().try_into().unwrap(), core::mem::transmute(pbpin.as_ptr()), pbpin.len().try_into().unwrap(), fgenerate.into(), pstatuscallback.param().abi(), ppszinstanceid as _, pfneedreboot as _) }
     }
     pub unsafe fn DestroyVirtualSmartCard<P0, P1>(&self, pszinstanceid: P0, pstatuscallback: P1) -> windows_core::Result<windows_core::BOOL>
     where
@@ -87,7 +87,7 @@ impl core::ops::Deref for ITpmVirtualSmartCardManager2 {
 }
 windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManager2, windows_core::IUnknown, ITpmVirtualSmartCardManager);
 impl ITpmVirtualSmartCardManager2 {
-    pub unsafe fn CreateVirtualSmartCardWithPinPolicy<P0, P13>(&self, pszfriendlyname: P0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], pbpinpolicy: &[u8], fgenerate: bool, pstatuscallback: P13, ppszinstanceid: *mut windows_core::PWSTR, pfneedreboot: *mut windows_core::BOOL) -> windows_core::Result<()>
+    pub unsafe fn CreateVirtualSmartCardWithPinPolicy<P0, P13>(&self, pszfriendlyname: P0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], pbpinpolicy: &[u8], fgenerate: bool, pstatuscallback: P13, ppszinstanceid: *mut windows_core::PWSTR, pfneedreboot: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P13: windows_core::Param<ITpmVirtualSmartCardManagerStatusCallback>,
@@ -112,7 +112,6 @@ impl ITpmVirtualSmartCardManager2 {
                 ppszinstanceid as _,
                 pfneedreboot as _,
             )
-            .ok()
         }
     }
 }
@@ -254,11 +253,11 @@ impl windows_core::RuntimeName for ITpmVirtualSmartCardManager3 {}
 windows_core::imp::define_interface!(ITpmVirtualSmartCardManagerStatusCallback, ITpmVirtualSmartCardManagerStatusCallback_Vtbl, 0x1a1bb35f_abb8_451c_a1ae_33d98f1bef4a);
 windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManagerStatusCallback, windows_core::IUnknown);
 impl ITpmVirtualSmartCardManagerStatusCallback {
-    pub unsafe fn ReportProgress(&self, status: TPMVSCMGR_STATUS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReportProgress)(windows_core::Interface::as_raw(self), status).ok() }
+    pub unsafe fn ReportProgress(&self, status: TPMVSCMGR_STATUS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReportProgress)(windows_core::Interface::as_raw(self), status) }
     }
-    pub unsafe fn ReportError(&self, error: TPMVSCMGR_ERROR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReportError)(windows_core::Interface::as_raw(self), error).ok() }
+    pub unsafe fn ReportError(&self, error: TPMVSCMGR_ERROR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReportError)(windows_core::Interface::as_raw(self), error) }
     }
 }
 #[repr(C)]

@@ -75,7 +75,9 @@ fn main() -> windows::core::Result<()> {
             let variable = unsafe {
                 let variable = manager.CreateAnimationVariable(0.0)?;
 
-                manager.ScheduleTransition(&variable, &transition, get_time(frequency)?)?;
+                manager
+                    .ScheduleTransition(&variable, &transition, get_time(frequency)?)
+                    .ok()?;
 
                 variable
             };
@@ -120,7 +122,7 @@ fn main() -> windows::core::Result<()> {
             self.draw(target)?;
 
             unsafe {
-                target.EndDraw(None, None)?;
+                target.EndDraw(None, None).ok()?;
             }
 
             if let Err(error) = self.present(1, DXGI_PRESENT(0)) {
@@ -159,7 +161,7 @@ fn main() -> windows::core::Result<()> {
             let shadow = self.shadow.as_ref().unwrap();
 
             unsafe {
-                self.manager.Update(get_time(self.frequency)?, None)?;
+                self.manager.Update(get_time(self.frequency)?, None).ok()?;
 
                 target.Clear(Some(&D2D1_COLOR_F {
                     r: 1.0,
@@ -449,7 +451,7 @@ fn main() -> windows::core::Result<()> {
                 None,
                 None,
             )
-            .map(|()| device.unwrap())
+            .map(|| device.unwrap())
         }
     }
 

@@ -130,10 +130,12 @@ fn test_custom_interface() -> Result<()> {
         b.GetDomain(&mut domain).ok()?;
         assert_eq!(domain, "kennykerr.ca");
         let mut property = BSTR::new();
-        a.GetPropertyBSTR(Uri_PROPERTY_DOMAIN, &mut property, 0)?;
+        a.GetPropertyBSTR(Uri_PROPERTY_DOMAIN, &mut property, 0)
+            .ok()?;
         assert_eq!(property, "kennykerr.ca");
         let mut property = 0;
-        a.GetPropertyDWORD(Uri_PROPERTY_PORT, &mut property, 0)?;
+        a.GetPropertyDWORD(Uri_PROPERTY_PORT, &mut property, 0)
+            .ok()?;
         assert_eq!(property, 80);
 
         // Use the custom implementation of `Persist` through the OS `IPersistMemory` interface
@@ -146,10 +148,10 @@ fn test_custom_interface() -> Result<()> {
         );
         assert_eq!(p.GetSizeMax()?, 10);
         assert_eq!(p.IsDirty(), S_FALSE);
-        p.Load(&[0xAAu8, 0xBB, 0xCC])?;
+        p.Load(&[0xAAu8, 0xBB, 0xCC]).ok()?;
         assert_eq!(p.IsDirty(), S_OK);
         let mut memory = [0x00u8, 0x00, 0x00, 0x00];
-        p.Save(&mut memory, true)?;
+        p.Save(&mut memory, true).ok()?;
         assert_eq!(memory, [0xAAu8, 0xBB, 0xCC, 0x00]);
         assert_eq!(p.IsDirty(), S_FALSE);
 

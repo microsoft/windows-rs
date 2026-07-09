@@ -30,7 +30,7 @@ impl SurfaceImageSource {
     /// Associate the Direct2D device used for drawing. Pass an `ID2D1Device`
     /// (or `IDXGIDevice`). Must be called before [`begin_draw`](Self::begin_draw).
     pub fn set_device(&self, device: &impl Interface) -> Result<()> {
-        unsafe { self.native.SetDevice(device.as_raw()) }
+        unsafe { self.native.SetDevice(device.as_raw()).ok() }
     }
 
     /// Begin drawing into the surface, returning the drawing target `T`
@@ -55,24 +55,25 @@ impl SurfaceImageSource {
         let mut object = core::ptr::null_mut();
         unsafe {
             self.native
-                .BeginDraw(&update_rect, &T::IID, &mut object, &mut offset)?;
+                .BeginDraw(&update_rect, &T::IID, &mut object, &mut offset)
+                .ok()?;
             Ok((T::from_raw(object), (offset.x, offset.y)))
         }
     }
 
     /// Finish drawing and present the surface contents.
     pub fn end_draw(&self) -> Result<()> {
-        unsafe { self.native.EndDraw() }
+        unsafe { self.native.EndDraw().ok() }
     }
 
     /// Suspend drawing, allowing GPU resources to be reclaimed.
     pub fn suspend_draw(&self) -> Result<()> {
-        unsafe { self.native.SuspendDraw() }
+        unsafe { self.native.SuspendDraw().ok() }
     }
 
     /// Resume drawing after a [`suspend_draw`](Self::suspend_draw).
     pub fn resume_draw(&self) -> Result<()> {
-        unsafe { self.native.ResumeDraw() }
+        unsafe { self.native.ResumeDraw().ok() }
     }
 
     /// Cast the underlying source to the `ImageSource` the backend assigns to

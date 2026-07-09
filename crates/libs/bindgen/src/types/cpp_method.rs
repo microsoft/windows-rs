@@ -16,6 +16,7 @@ pub enum ReturnHint {
     QueryOptional(usize, usize),
     ResultValue,
     ResultVoid,
+    HResult,
     ReturnStruct,
     ReturnValue,
 }
@@ -171,8 +172,13 @@ impl CppMethod {
                     if is_retval {
                         return_hint = ReturnHint::ResultValue;
                     } else {
-                        return_hint = ReturnHint::ResultVoid;
-                    };
+                        // A non-retval HRESULT method returns raw `-> HRESULT` on the
+                        // consumer side so success codes other than S_OK (S_FALSE,
+                        // DXGI_STATUS_OCCLUDED, …) survive; callers append `.ok()` for a
+                        // `Result`. The `_Impl` producer side still uses `Result<()>` so
+                        // implementers keep `?` (the upcall converts it back to HRESULT).
+                        return_hint = ReturnHint::HResult;
+                    }
 
                     if signature.params.len() >= 2 {
                         if let Some((guid, object)) = signature_param_is_query(&signature.params) {
@@ -356,7 +362,7 @@ impl CppMethod {
                     }
                 }
             }
-            ReturnHint::None => {
+            ReturnHint::None | ReturnHint::HResult => {
                 let where_clause = self.write_where(config, false);
 
                 if matches!(self.signature.return_type, Type::Void) {
@@ -411,7 +417,10 @@ impl CppMethod {
                     }
                 }
             }
-            ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::ResultVoid => {
+            ReturnHint::Query(..)
+            | ReturnHint::QueryOptional(..)
+            | ReturnHint::ResultVoid
+            | ReturnHint::HResult => {
                 let invoke_args = self
                     .signature
                     .params
@@ -480,7 +489,10 @@ impl CppMethod {
         let result = config.write_core();
 
         let return_type = match self.return_hint {
-            ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::ResultVoid => {
+            ReturnHint::Query(..)
+            | ReturnHint::QueryOptional(..)
+            | ReturnHint::ResultVoid
+            | ReturnHint::HResult => {
                 quote! { -> #result Result<()> }
             }
             ReturnHint::ResultValue => {

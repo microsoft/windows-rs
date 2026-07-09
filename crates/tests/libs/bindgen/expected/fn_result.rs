@@ -4,9 +4,9 @@ pub unsafe fn BoolFunction(value: u32) -> BOOL {
     unsafe { BoolFunction(value) }
 }
 #[inline]
-pub unsafe fn HresultFunction(value: u32) -> windows_core::Result<()> {
+pub unsafe fn HresultFunction(value: u32) -> windows_core::HRESULT {
     windows_core::link!("test.dll" "system" fn HresultFunction(value : u32) -> windows_core::HRESULT);
-    unsafe { HresultFunction(value).ok() }
+    unsafe { HresultFunction(value) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

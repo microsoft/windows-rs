@@ -142,7 +142,7 @@ fn main() -> windows::core::Result<()> {
                 self.target = None;
                 let target = desktop.CreateTargetForHwnd(self.handle, true)?;
                 let root_visual = create_visual(&desktop)?;
-                target.SetRoot(&root_visual)?;
+                target.SetRoot(&root_visual).ok()?;
                 self.target = Some(target);
 
                 let dc = device_2d.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?;
@@ -181,17 +181,17 @@ fn main() -> windows::core::Result<()> {
                         }
 
                         let front_visual = create_visual(&desktop)?;
-                        front_visual.SetOffsetX2(card.offset.0)?;
-                        front_visual.SetOffsetY2(card.offset.1)?;
-                        root_visual.AddVisual(&front_visual, false, None)?;
+                        front_visual.SetOffsetX2(card.offset.0).ok()?;
+                        front_visual.SetOffsetY2(card.offset.1).ok()?;
+                        root_visual.AddVisual(&front_visual, false, None).ok()?;
 
                         let back_visual = create_visual(&desktop)?;
-                        back_visual.SetOffsetX2(card.offset.0)?;
-                        back_visual.SetOffsetY2(card.offset.1)?;
-                        root_visual.AddVisual(&back_visual, false, None)?;
+                        back_visual.SetOffsetX2(card.offset.0).ok()?;
+                        back_visual.SetOffsetY2(card.offset.1).ok()?;
+                        root_visual.AddVisual(&back_visual, false, None).ok()?;
 
                         let front_surface = create_surface(&desktop, width, height)?;
-                        front_visual.SetContent(&front_surface)?;
+                        front_visual.SetContent(&front_surface).ok()?;
                         draw_card_front(
                             &front_surface,
                             card.value,
@@ -201,24 +201,24 @@ fn main() -> windows::core::Result<()> {
                         )?;
 
                         let back_surface = create_surface(&desktop, width, height)?;
-                        back_visual.SetContent(&back_surface)?;
+                        back_visual.SetContent(&back_surface).ok()?;
                         draw_card_back(&back_surface, &bitmap, card.offset, self.dpi)?;
 
                         let rotation = desktop.CreateRotateTransform3D()?;
 
                         if card.status == Status::Selected {
-                            rotation.SetAngle2(180.0)?;
+                            rotation.SetAngle2(180.0).ok()?;
                         }
 
-                        rotation.SetAxisZ2(0.0)?;
-                        rotation.SetAxisY2(1.0)?;
+                        rotation.SetAxisZ2(0.0).ok()?;
+                        rotation.SetAxisY2(1.0).ok()?;
                         create_effect(&desktop, &front_visual, &rotation, true, self.dpi)?;
                         create_effect(&desktop, &back_visual, &rotation, false, self.dpi)?;
                         card.rotation = Some(rotation);
                     }
                 }
 
-                desktop.Commit()?;
+                desktop.Commit().ok()?;
                 self.desktop = Some(desktop);
                 Ok(())
             }
@@ -284,7 +284,7 @@ fn main() -> windows::core::Result<()> {
                     let next_frame: f64 =
                         stats.nextEstimatedFrameTime as f64 / stats.timeFrequency as f64;
 
-                    self.manager.Update(next_frame, None)?;
+                    self.manager.Update(next_frame, None).ok()?;
                     let storyboard = self.manager.CreateStoryboard()?;
                     let key_frame =
                         add_show_transition(&self.library, &storyboard, &self.cards[next])?;
@@ -317,17 +317,17 @@ fn main() -> windows::core::Result<()> {
                             &self.cards[next],
                         )?;
 
-                        storyboard.Schedule(next_frame, None)?;
+                        storyboard.Schedule(next_frame, None).ok()?;
                         update_animation(desktop, &self.cards[first])?;
                         update_animation(desktop, &self.cards[next])?;
                     } else {
                         self.first = Some(next);
                         self.cards[next].status = Status::Selected;
-                        storyboard.Schedule(next_frame, None)?;
+                        storyboard.Schedule(next_frame, None).ok()?;
                         update_animation(desktop, &self.cards[next])?;
                     }
 
-                    desktop.Commit()?;
+                    desktop.Commit().ok()?;
                 } else if cfg!(debug_assertions) {
                     println!("missed");
                 }
@@ -342,7 +342,7 @@ fn main() -> windows::core::Result<()> {
                     if cfg!(debug_assertions) {
                         println!("check device");
                     }
-                    device.GetDeviceRemovedReason()?;
+                    device.GetDeviceRemovedReason().ok()?;
                 } else {
                     if cfg!(debug_assertions) {
                         println!("build device");
@@ -384,7 +384,7 @@ fn main() -> windows::core::Result<()> {
             unsafe {
                 let monitor = MonitorFromWindow(self.handle, MONITOR_DEFAULTTONEAREST);
                 let mut dpi = (0, 0);
-                GetDpiForMonitor(monitor, MDT_EFFECTIVE_DPI, &mut dpi.0, &mut dpi.1)?;
+                GetDpiForMonitor(monitor, MDT_EFFECTIVE_DPI, &mut dpi.0, &mut dpi.1).ok()?;
                 self.dpi = (dpi.0 as f32, dpi.1 as f32);
 
                 if cfg!(debug_assertions) {
@@ -447,8 +447,10 @@ fn main() -> windows::core::Result<()> {
                 w!("en"),
             )?;
 
-            format.SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER)?;
-            format.SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER)?;
+            format.SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER).ok()?;
+            format
+                .SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER)
+                .ok()?;
             Ok(format)
         }
     }
@@ -475,14 +477,16 @@ fn main() -> windows::core::Result<()> {
             let source = decoder.GetFrame(0)?;
             let image = factory.CreateFormatConverter()?;
 
-            image.Initialize(
-                &source,
-                &GUID_WICPixelFormat32bppBGR,
-                WICBitmapDitherTypeNone,
-                None,
-                0.0,
-                WICBitmapPaletteTypeMedianCut,
-            )?;
+            image
+                .Initialize(
+                    &source,
+                    &GUID_WICPixelFormat32bppBGR,
+                    WICBitmapDitherTypeNone,
+                    None,
+                    0.0,
+                    WICBitmapPaletteTypeMedianCut,
+                )
+                .ok()?;
 
             Ok(image)
         }
@@ -503,7 +507,7 @@ fn main() -> windows::core::Result<()> {
                 None,
                 None,
             )
-            .map(|()| device.unwrap())
+            .map(|| device.unwrap())
         }
     }
 
@@ -515,7 +519,9 @@ fn main() -> windows::core::Result<()> {
     fn create_visual(device: &IDCompositionDesktopDevice) -> Result<IDCompositionVisual2> {
         unsafe {
             let visual = device.CreateVisual()?;
-            visual.SetBackFaceVisibility(DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN)?;
+            visual
+                .SetBackFaceVisibility(DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN)
+                .ok()?;
             Ok(visual)
         }
     }
@@ -543,7 +549,7 @@ fn main() -> windows::core::Result<()> {
         unsafe {
             let duration = (180.0 - card.variable.GetValue()?) / 180.0;
             let transition = create_transition(library, duration, 180.0)?;
-            storyboard.AddTransition(&card.variable, &transition)?;
+            storyboard.AddTransition(&card.variable, &transition).ok()?;
             storyboard.AddKeyframeAfterTransition(&transition)
         }
     }
@@ -557,19 +563,22 @@ fn main() -> windows::core::Result<()> {
     ) -> Result<()> {
         unsafe {
             let transition = create_transition(library, 1.0, final_value)?;
-            storyboard.AddTransitionAtKeyframe(&card.variable, &transition, key_frame)
+            storyboard
+                .AddTransitionAtKeyframe(&card.variable, &transition, key_frame)
+                .ok()
         }
     }
 
     fn update_animation(device: &IDCompositionDesktopDevice, card: &Card) -> Result<()> {
         unsafe {
             let animation = device.CreateAnimation()?;
-            card.variable.GetCurve(&animation)?;
+            card.variable.GetCurve(&animation).ok()?;
 
             card.rotation
                 .as_ref()
                 .expect("IDCompositionRotateTransform3D")
                 .SetAngle(&animation)
+                .ok()
         }
     }
 
@@ -596,13 +605,13 @@ fn main() -> windows::core::Result<()> {
                 * Matrix4x4::rotation_y(if front { 180.0 } else { 0.0 });
 
             let pre_transform = device.CreateMatrixTransform3D()?;
-            pre_transform.SetMatrix(&pre_matrix)?;
+            pre_transform.SetMatrix(&pre_matrix).ok()?;
 
             let post_matrix = Matrix4x4::perspective_projection(width * 2.0)
                 * Matrix4x4::translation(width / 2.0, height / 2.0, 0.0);
 
             let post_transform = device.CreateMatrixTransform3D()?;
-            post_transform.SetMatrix(&post_matrix)?;
+            post_transform.SetMatrix(&post_matrix).ok()?;
 
             let transform = device.CreateTransform3DGroup(&[
                 pre_transform.cast().ok(),
@@ -610,7 +619,7 @@ fn main() -> windows::core::Result<()> {
                 post_transform.cast().ok(),
             ])?;
 
-            visual.SetEffect(&transform)
+            visual.SetEffect(&transform).ok()
         }
     }
 
@@ -652,7 +661,7 @@ fn main() -> windows::core::Result<()> {
                 DWRITE_MEASURING_MODE_NATURAL,
             );
 
-            surface.EndDraw()
+            surface.EndDraw().ok()
         }
     }
 
@@ -689,7 +698,7 @@ fn main() -> windows::core::Result<()> {
                 None,
             );
 
-            surface.EndDraw()
+            surface.EndDraw().ok()
         }
     }
 

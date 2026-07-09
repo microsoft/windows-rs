@@ -17,7 +17,7 @@ macro_rules! settings_bool {
 
         $(#[$meta])*
         pub fn $set(&self, value: bool) -> Result<()> {
-            unsafe { self.0.$com_set(value) }
+            unsafe { self.0.$com_set(value) }.ok()
         }
     };
 }
@@ -33,7 +33,7 @@ macro_rules! settings_versioned_bool {
         $(#[$meta])*
         pub fn $set(&self, value: bool) -> Result<()> {
             let source: $iface = self.0.cast()?;
-            unsafe { source.$com_set(value) }
+            unsafe { source.$com_set(value) }.ok()
         }
     };
 }
@@ -98,7 +98,7 @@ impl Settings {
     pub fn set_user_agent(&self, user_agent: &str) -> Result<()> {
         let source: ICoreWebView2Settings2 = self.0.cast()?;
         let user_agent = HSTRING::from(user_agent);
-        unsafe { source.SetUserAgent(&user_agent) }
+        unsafe { source.SetUserAgent(&user_agent) }.ok()
     }
 
     settings_versioned_bool! {

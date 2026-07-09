@@ -1547,8 +1547,8 @@ impl IAzApplication {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)).ok() }
+    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)) }
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1556,8 +1556,8 @@ impl IAzApplication {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)).ok() }
+    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)) }
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1565,8 +1565,8 @@ impl IAzApplication {
             (windows_core::Interface::vtable(self).ApplicationData)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)).ok() }
+    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)) }
     }
     pub unsafe fn AuthzInterfaceClsid(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1574,8 +1574,8 @@ impl IAzApplication {
             (windows_core::Interface::vtable(self).AuthzInterfaceClsid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetAuthzInterfaceClsid(&self, bstrprop: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAuthzInterfaceClsid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)).ok() }
+    pub unsafe fn SetAuthzInterfaceClsid(&self, bstrprop: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAuthzInterfaceClsid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)) }
     }
     pub unsafe fn Version(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1583,8 +1583,8 @@ impl IAzApplication {
             (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetVersion(&self, bstrprop: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)).ok() }
+    pub unsafe fn SetVersion(&self, bstrprop: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)) }
     }
     pub unsafe fn GenerateAudits(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -1592,8 +1592,8 @@ impl IAzApplication {
             (windows_core::Interface::vtable(self).GenerateAudits)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetGenerateAudits(&self, bprop: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.into()).ok() }
+    pub unsafe fn SetGenerateAudits(&self, bprop: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.into()) }
     }
     pub unsafe fn ApplyStoreSacl(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -1601,8 +1601,8 @@ impl IAzApplication {
             (windows_core::Interface::vtable(self).ApplyStoreSacl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetApplyStoreSacl(&self, bprop: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bprop.into()).ok() }
+    pub unsafe fn SetApplyStoreSacl(&self, bprop: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bprop.into()) }
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -1618,8 +1618,8 @@ impl IAzApplication {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PolicyAdministrators(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -1636,20 +1636,20 @@ impl IAzApplication {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn Scopes(&self) -> windows_core::Result<IAzScopes> {
         unsafe {
@@ -1672,8 +1672,8 @@ impl IAzApplication {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteScope(&self, bstrscopename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteScope)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteScope(&self, bstrscopename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteScope)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn Operations(&self) -> windows_core::Result<IAzOperations> {
         unsafe {
@@ -1696,8 +1696,8 @@ impl IAzApplication {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteOperation(&self, bstroperationname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstroperationname), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteOperation(&self, bstroperationname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstroperationname), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn Tasks(&self) -> windows_core::Result<IAzTasks> {
         unsafe {
@@ -1720,8 +1720,8 @@ impl IAzApplication {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask(&self, bstrtaskname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteTask(&self, bstrtaskname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
         unsafe {
@@ -1744,8 +1744,8 @@ impl IAzApplication {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn Roles(&self) -> windows_core::Result<IAzRoles> {
         unsafe {
@@ -1768,8 +1768,8 @@ impl IAzApplication {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteRole(&self, bstrrolename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteRole(&self, bstrrolename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn InitializeClientContextFromToken(&self, ulltokenhandle: u64, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzClientContext> {
@@ -1779,16 +1779,16 @@ impl IAzApplication {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn InitializeClientContextFromName(&self, clientname: &windows_core::BSTR, domainname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzClientContext> {
@@ -1805,12 +1805,12 @@ impl IAzApplication {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUser(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddDelegatedPolicyUser(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUser(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteDelegatedPolicyUser(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn InitializeClientContextFromStringSid(&self, sidstring: &windows_core::BSTR, loptions: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzClientContext> {
@@ -1834,20 +1834,20 @@ impl IAzApplication {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DelegatedPolicyUsersName(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -1857,12 +1857,12 @@ impl IAzApplication {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUserName(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddDelegatedPolicyUserName(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUserName(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteDelegatedPolicyUserName(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2874,8 +2874,8 @@ impl IAzApplication3 {
             (windows_core::Interface::vtable(self).CreateScope2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeleteScope2(&self, bstrscopename: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteScope2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename)).ok() }
+    pub unsafe fn DeleteScope2(&self, bstrscopename: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteScope2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename)) }
     }
     pub unsafe fn RoleDefinitions(&self) -> windows_core::Result<IAzRoleDefinitions> {
         unsafe {
@@ -2895,8 +2895,8 @@ impl IAzApplication3 {
             (windows_core::Interface::vtable(self).OpenRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeleteRoleDefinition(&self, bstrroledefinitionname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname)).ok() }
+    pub unsafe fn DeleteRoleDefinition(&self, bstrroledefinitionname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname)) }
     }
     pub unsafe fn RoleAssignments(&self) -> windows_core::Result<IAzRoleAssignments> {
         unsafe {
@@ -2916,8 +2916,8 @@ impl IAzApplication3 {
             (windows_core::Interface::vtable(self).OpenRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeleteRoleAssignment(&self, bstrroleassignmentname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname)).ok() }
+    pub unsafe fn DeleteRoleAssignment(&self, bstrroleassignmentname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname)) }
     }
     pub unsafe fn BizRulesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -2925,8 +2925,8 @@ impl IAzApplication3 {
             (windows_core::Interface::vtable(self).BizRulesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBizRulesEnabled(&self, benabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetBizRulesEnabled)(windows_core::Interface::as_raw(self), benabled).ok() }
+    pub unsafe fn SetBizRulesEnabled(&self, benabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBizRulesEnabled)(windows_core::Interface::as_raw(self), benabled) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3156,8 +3156,8 @@ impl IAzApplicationGroup {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)).ok() }
+    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)) }
     }
     pub unsafe fn Type(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -3165,8 +3165,8 @@ impl IAzApplicationGroup {
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetType(&self, lprop: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), lprop).ok() }
+    pub unsafe fn SetType(&self, lprop: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), lprop) }
     }
     pub unsafe fn LdapQuery(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -3174,8 +3174,8 @@ impl IAzApplicationGroup {
             (windows_core::Interface::vtable(self).LdapQuery)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetLdapQuery(&self, bstrprop: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetLdapQuery)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)).ok() }
+    pub unsafe fn SetLdapQuery(&self, bstrprop: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetLdapQuery)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AppMembers(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -3211,40 +3211,40 @@ impl IAzApplicationGroup {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)).ok() }
+    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddAppMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddAppMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddAppMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddAppMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteAppMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAppMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteAppMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteAppMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddAppNonMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddAppNonMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddAppNonMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddAppNonMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteAppNonMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAppNonMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteAppNonMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteAppNonMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddNonMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddNonMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddNonMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddNonMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteNonMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteNonMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteNonMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteNonMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -3260,36 +3260,36 @@ impl IAzApplicationGroup {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddNonMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddNonMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddNonMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddNonMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteNonMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteNonMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteNonMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteNonMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn MembersName(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -3776,8 +3776,8 @@ impl IAzApplicationGroup2 {
             (windows_core::Interface::vtable(self).BizRule)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetBizRule(&self, bstrprop: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetBizRule)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)).ok() }
+    pub unsafe fn SetBizRule(&self, bstrprop: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBizRule)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)) }
     }
     pub unsafe fn BizRuleLanguage(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -3785,8 +3785,8 @@ impl IAzApplicationGroup2 {
             (windows_core::Interface::vtable(self).BizRuleLanguage)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetBizRuleLanguage(&self, bstrprop: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetBizRuleLanguage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)).ok() }
+    pub unsafe fn SetBizRuleLanguage(&self, bstrprop: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBizRuleLanguage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)) }
     }
     pub unsafe fn BizRuleImportedPath(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -3794,8 +3794,8 @@ impl IAzApplicationGroup2 {
             (windows_core::Interface::vtable(self).BizRuleImportedPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetBizRuleImportedPath(&self, bstrprop: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)).ok() }
+    pub unsafe fn SetBizRuleImportedPath(&self, bstrprop: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)) }
     }
     pub unsafe fn RoleAssignments(&self, bstrscopename: &windows_core::BSTR, brecursive: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IAzRoleAssignments> {
         unsafe {
@@ -4138,8 +4138,8 @@ impl IAzAuthorizationStore {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)).ok() }
+    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)) }
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -4147,8 +4147,8 @@ impl IAzAuthorizationStore {
             (windows_core::Interface::vtable(self).ApplicationData)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)).ok() }
+    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)) }
     }
     pub unsafe fn DomainTimeout(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -4156,8 +4156,8 @@ impl IAzAuthorizationStore {
             (windows_core::Interface::vtable(self).DomainTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDomainTimeout(&self, lprop: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDomainTimeout)(windows_core::Interface::as_raw(self), lprop).ok() }
+    pub unsafe fn SetDomainTimeout(&self, lprop: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDomainTimeout)(windows_core::Interface::as_raw(self), lprop) }
     }
     pub unsafe fn ScriptEngineTimeout(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -4165,8 +4165,8 @@ impl IAzAuthorizationStore {
             (windows_core::Interface::vtable(self).ScriptEngineTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetScriptEngineTimeout(&self, lprop: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetScriptEngineTimeout)(windows_core::Interface::as_raw(self), lprop).ok() }
+    pub unsafe fn SetScriptEngineTimeout(&self, lprop: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetScriptEngineTimeout)(windows_core::Interface::as_raw(self), lprop) }
     }
     pub unsafe fn MaxScriptEngines(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -4174,8 +4174,8 @@ impl IAzAuthorizationStore {
             (windows_core::Interface::vtable(self).MaxScriptEngines)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaxScriptEngines(&self, lprop: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMaxScriptEngines)(windows_core::Interface::as_raw(self), lprop).ok() }
+    pub unsafe fn SetMaxScriptEngines(&self, lprop: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMaxScriptEngines)(windows_core::Interface::as_raw(self), lprop) }
     }
     pub unsafe fn GenerateAudits(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -4183,8 +4183,8 @@ impl IAzAuthorizationStore {
             (windows_core::Interface::vtable(self).GenerateAudits)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetGenerateAudits(&self, bprop: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.into()).ok() }
+    pub unsafe fn SetGenerateAudits(&self, bprop: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.into()) }
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -4200,16 +4200,16 @@ impl IAzAuthorizationStore {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: AZ_PROP_CONSTANTS, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPropertyItem(&self, lpropid: AZ_PROP_CONSTANTS, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PolicyAdministrators(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -4226,32 +4226,32 @@ impl IAzAuthorizationStore {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Initialize(&self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrpolicyurl), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn Initialize(&self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrpolicyurl), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn UpdateCache(&self, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UpdateCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn UpdateCache(&self, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Delete(&self, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn Delete(&self, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn Applications(&self) -> windows_core::Result<IAzApplications> {
         unsafe {
@@ -4274,8 +4274,8 @@ impl IAzAuthorizationStore {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplication(&self, bstrapplicationname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteApplication(&self, bstrapplicationname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
         unsafe {
@@ -4298,12 +4298,12 @@ impl IAzAuthorizationStore {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DelegatedPolicyUsers(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -4313,12 +4313,12 @@ impl IAzAuthorizationStore {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUser(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddDelegatedPolicyUser(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUser(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteDelegatedPolicyUser(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn TargetMachine(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -4332,8 +4332,8 @@ impl IAzAuthorizationStore {
             (windows_core::Interface::vtable(self).ApplyStoreSacl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetApplyStoreSacl(&self, bapplystoresacl: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bapplystoresacl.into()).ok() }
+    pub unsafe fn SetApplyStoreSacl(&self, bapplystoresacl: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bapplystoresacl.into()) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PolicyAdministratorsName(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -4350,20 +4350,20 @@ impl IAzAuthorizationStore {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DelegatedPolicyUsersName(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -4373,15 +4373,15 @@ impl IAzAuthorizationStore {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUserName(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddDelegatedPolicyUserName(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUserName(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteDelegatedPolicyUserName(&self, bstrdelegatedpolicyuser: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdelegatedpolicyuser), core::mem::transmute_copy(varreserved)) }
     }
-    pub unsafe fn CloseApplication(&self, bstrapplicationname: &windows_core::BSTR, lflag: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CloseApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), lflag).ok() }
+    pub unsafe fn CloseApplication(&self, bstrapplicationname: &windows_core::BSTR, lflag: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CloseApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), lflag) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5204,8 +5204,8 @@ impl IAzAuthorizationStore3 {
             (windows_core::Interface::vtable(self).BizruleGroupSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UpgradeStoresFunctionalLevel(&self, lfunctionallevel: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UpgradeStoresFunctionalLevel)(windows_core::Interface::as_raw(self), lfunctionallevel).ok() }
+    pub unsafe fn UpgradeStoresFunctionalLevel(&self, lfunctionallevel: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpgradeStoresFunctionalLevel)(windows_core::Interface::as_raw(self), lfunctionallevel) }
     }
     pub unsafe fn IsFunctionalLevelUpgradeSupported(&self, lfunctionallevel: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -5213,8 +5213,8 @@ impl IAzAuthorizationStore3 {
             (windows_core::Interface::vtable(self).IsFunctionalLevelUpgradeSupported)(windows_core::Interface::as_raw(self), lfunctionallevel, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSchemaVersion(&self, plmajorversion: *mut i32, plminorversion: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSchemaVersion)(windows_core::Interface::as_raw(self), plmajorversion as _, plminorversion as _).ok() }
+    pub unsafe fn GetSchemaVersion(&self, plmajorversion: *mut i32, plminorversion: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSchemaVersion)(windows_core::Interface::as_raw(self), plmajorversion as _, plminorversion as _) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5315,11 +5315,11 @@ impl core::ops::Deref for IAzBizRuleContext {
 windows_core::imp::interface_hierarchy!(IAzBizRuleContext, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzBizRuleContext {
-    pub unsafe fn SetBusinessRuleResult(&self, bresult: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetBusinessRuleResult)(windows_core::Interface::as_raw(self), bresult.into()).ok() }
+    pub unsafe fn SetBusinessRuleResult(&self, bresult: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBusinessRuleResult)(windows_core::Interface::as_raw(self), bresult.into()) }
     }
-    pub unsafe fn SetBusinessRuleString(&self, bstrbusinessrulestring: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetBusinessRuleString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrbusinessrulestring)).ok() }
+    pub unsafe fn SetBusinessRuleString(&self, bstrbusinessrulestring: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBusinessRuleString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrbusinessrulestring)) }
     }
     pub unsafe fn BusinessRuleString(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -5422,22 +5422,22 @@ windows_core::imp::interface_hierarchy!(IAzBizRuleInterfaces, windows_core::IUnk
 #[cfg(feature = "Win32_System_Com")]
 impl IAzBizRuleInterfaces {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddInterface(&self, bstrinterfacename: &windows_core::BSTR, linterfaceflag: i32, varinterface: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddInterface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinterfacename), linterfaceflag, core::mem::transmute_copy(varinterface)).ok() }
+    pub unsafe fn AddInterface(&self, bstrinterfacename: &windows_core::BSTR, linterfaceflag: i32, varinterface: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddInterface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinterfacename), linterfaceflag, core::mem::transmute_copy(varinterface)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddInterfaces(&self, varinterfacenames: &super::super::System::Variant::VARIANT, varinterfaceflags: &super::super::System::Variant::VARIANT, varinterfaces: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddInterfaces)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varinterfacenames), core::mem::transmute_copy(varinterfaceflags), core::mem::transmute_copy(varinterfaces)).ok() }
+    pub unsafe fn AddInterfaces(&self, varinterfacenames: &super::super::System::Variant::VARIANT, varinterfaceflags: &super::super::System::Variant::VARIANT, varinterfaces: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddInterfaces)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varinterfacenames), core::mem::transmute_copy(varinterfaceflags), core::mem::transmute_copy(varinterfaces)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetInterfaceValue(&self, bstrinterfacename: &windows_core::BSTR, linterfaceflag: *mut i32, varinterface: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInterfaceValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinterfacename), linterfaceflag as _, core::mem::transmute(varinterface)).ok() }
+    pub unsafe fn GetInterfaceValue(&self, bstrinterfacename: &windows_core::BSTR, linterfaceflag: *mut i32, varinterface: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInterfaceValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinterfacename), linterfaceflag as _, core::mem::transmute(varinterface)) }
     }
-    pub unsafe fn Remove(&self, bstrinterfacename: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinterfacename)).ok() }
+    pub unsafe fn Remove(&self, bstrinterfacename: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinterfacename)) }
     }
-    pub unsafe fn RemoveAll(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAll)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn RemoveAll(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveAll)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -5551,12 +5551,12 @@ windows_core::imp::interface_hierarchy!(IAzBizRuleParameters, windows_core::IUnk
 #[cfg(feature = "Win32_System_Com")]
 impl IAzBizRuleParameters {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddParameter(&self, bstrparametername: &windows_core::BSTR, varparametervalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddParameter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrparametername), core::mem::transmute_copy(varparametervalue)).ok() }
+    pub unsafe fn AddParameter(&self, bstrparametername: &windows_core::BSTR, varparametervalue: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddParameter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrparametername), core::mem::transmute_copy(varparametervalue)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddParameters(&self, varparameternames: &super::super::System::Variant::VARIANT, varparametervalues: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddParameters)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varparameternames), core::mem::transmute_copy(varparametervalues)).ok() }
+    pub unsafe fn AddParameters(&self, varparameternames: &super::super::System::Variant::VARIANT, varparametervalues: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddParameters)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varparameternames), core::mem::transmute_copy(varparametervalues)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParameterValue(&self, bstrparametername: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -5565,11 +5565,11 @@ impl IAzBizRuleParameters {
             (windows_core::Interface::vtable(self).GetParameterValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrparametername), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Remove(&self, varparametername: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varparametername)).ok() }
+    pub unsafe fn Remove(&self, varparametername: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varparametername)) }
     }
-    pub unsafe fn RemoveAll(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAll)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn RemoveAll(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveAll)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -5763,8 +5763,8 @@ impl IAzClientContext {
             (windows_core::Interface::vtable(self).RoleForAccessCheck)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetRoleForAccessCheck(&self, bstrprop: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetRoleForAccessCheck)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)).ok() }
+    pub unsafe fn SetRoleForAccessCheck(&self, bstrprop: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRoleForAccessCheck)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6001,23 +6001,23 @@ windows_core::imp::interface_hierarchy!(IAzClientContext2, windows_core::IUnknow
 #[cfg(feature = "Win32_System_Com")]
 impl IAzClientContext2 {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Variant::VARIANT, pvarscopenames: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAssignedScopesPage)(windows_core::Interface::as_raw(self), loptions, pagesize, core::mem::transmute(pvarcursor), core::mem::transmute(pvarscopenames)).ok() }
+    pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Variant::VARIANT, pvarscopenames: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAssignedScopesPage)(windows_core::Interface::as_raw(self), loptions, pagesize, core::mem::transmute(pvarcursor), core::mem::transmute(pvarscopenames)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddRoles(&self, varroles: &super::super::System::Variant::VARIANT, bstrscopename: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddRoles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varroles), core::mem::transmute_copy(bstrscopename)).ok() }
+    pub unsafe fn AddRoles(&self, varroles: &super::super::System::Variant::VARIANT, bstrscopename: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddRoles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varroles), core::mem::transmute_copy(bstrscopename)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddApplicationGroups(&self, varapplicationgroups: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddApplicationGroups)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varapplicationgroups)).ok() }
+    pub unsafe fn AddApplicationGroups(&self, varapplicationgroups: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddApplicationGroups)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varapplicationgroups)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddStringSids(&self, varstringsids: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddStringSids)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varstringsids)).ok() }
+    pub unsafe fn AddStringSids(&self, varstringsids: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddStringSids)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varstringsids)) }
     }
-    pub unsafe fn SetLDAPQueryDN(&self, bstrldapquerydn: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetLDAPQueryDN)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrldapquerydn)).ok() }
+    pub unsafe fn SetLDAPQueryDN(&self, bstrldapquerydn: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetLDAPQueryDN)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrldapquerydn)) }
     }
     pub unsafe fn LDAPQueryDN(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -6345,12 +6345,12 @@ impl core::ops::Deref for IAzNameResolver {
 windows_core::imp::interface_hierarchy!(IAzNameResolver, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzNameResolver {
-    pub unsafe fn NameFromSid(&self, bstrsid: &windows_core::BSTR, psidtype: *mut i32, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).NameFromSid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsid), psidtype as _, core::mem::transmute(pbstrname)).ok() }
+    pub unsafe fn NameFromSid(&self, bstrsid: &windows_core::BSTR, psidtype: *mut i32, pbstrname: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).NameFromSid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsid), psidtype as _, core::mem::transmute(pbstrname)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn NamesFromSids(&self, vsids: &super::super::System::Variant::VARIANT, pvsidtypes: *mut super::super::System::Variant::VARIANT, pvnames: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).NamesFromSids)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vsids), core::mem::transmute(pvsidtypes), core::mem::transmute(pvnames)).ok() }
+    pub unsafe fn NamesFromSids(&self, vsids: &super::super::System::Variant::VARIANT, pvsidtypes: *mut super::super::System::Variant::VARIANT, pvnames: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).NamesFromSids)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vsids), core::mem::transmute(pvsidtypes), core::mem::transmute(pvnames)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6410,8 +6410,8 @@ windows_core::imp::interface_hierarchy!(IAzObjectPicker, windows_core::IUnknown,
 #[cfg(feature = "Win32_System_Com")]
 impl IAzObjectPicker {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPrincipals(&self, hparentwnd: super::super::Foundation::HWND, bstrtitle: &windows_core::BSTR, pvsidtypes: *mut super::super::System::Variant::VARIANT, pvnames: *mut super::super::System::Variant::VARIANT, pvsids: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPrincipals)(windows_core::Interface::as_raw(self), hparentwnd, core::mem::transmute_copy(bstrtitle), core::mem::transmute(pvsidtypes), core::mem::transmute(pvnames), core::mem::transmute(pvsids)).ok() }
+    pub unsafe fn GetPrincipals(&self, hparentwnd: super::super::Foundation::HWND, bstrtitle: &windows_core::BSTR, pvsidtypes: *mut super::super::System::Variant::VARIANT, pvnames: *mut super::super::System::Variant::VARIANT, pvsids: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPrincipals)(windows_core::Interface::as_raw(self), hparentwnd, core::mem::transmute_copy(bstrtitle), core::mem::transmute(pvsidtypes), core::mem::transmute(pvnames), core::mem::transmute(pvsids)) }
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -6488,8 +6488,8 @@ impl IAzOperation {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)).ok() }
+    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)) }
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -6497,8 +6497,8 @@ impl IAzOperation {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)).ok() }
+    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)) }
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -6506,8 +6506,8 @@ impl IAzOperation {
             (windows_core::Interface::vtable(self).ApplicationData)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)).ok() }
+    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)) }
     }
     pub unsafe fn OperationID(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -6515,8 +6515,8 @@ impl IAzOperation {
             (windows_core::Interface::vtable(self).OperationID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOperationID(&self, lprop: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetOperationID)(windows_core::Interface::as_raw(self), lprop).ok() }
+    pub unsafe fn SetOperationID(&self, lprop: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOperationID)(windows_core::Interface::as_raw(self), lprop) }
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -6532,12 +6532,12 @@ impl IAzOperation {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6969,8 +6969,8 @@ impl IAzRole {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)).ok() }
+    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)) }
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -6978,8 +6978,8 @@ impl IAzRole {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)).ok() }
+    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)) }
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -6987,40 +6987,40 @@ impl IAzRole {
             (windows_core::Interface::vtable(self).ApplicationData)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)).ok() }
+    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddAppMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddAppMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddAppMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddAppMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteAppMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAppMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteAppMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteAppMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddTask(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddTask(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteTask(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddOperation(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddOperation(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteOperation(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteOperation(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteMember(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteMember)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -7036,8 +7036,8 @@ impl IAzRole {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AppMembers(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -7068,24 +7068,24 @@ impl IAzRole {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteMemberName(&self, bstrprop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteMemberName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn MembersName(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -7493,11 +7493,11 @@ impl core::ops::Deref for IAzRoleAssignment {
 windows_core::imp::interface_hierarchy!(IAzRoleAssignment, windows_core::IUnknown, super::super::System::Com::IDispatch, IAzRole);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzRoleAssignment {
-    pub unsafe fn AddRoleDefinition(&self, bstrroledefinition: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinition)).ok() }
+    pub unsafe fn AddRoleDefinition(&self, bstrroledefinition: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinition)) }
     }
-    pub unsafe fn DeleteRoleDefinition(&self, bstrroledefinition: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinition)).ok() }
+    pub unsafe fn DeleteRoleDefinition(&self, bstrroledefinition: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinition)) }
     }
     pub unsafe fn RoleDefinitions(&self) -> windows_core::Result<IAzRoleDefinitions> {
         unsafe {
@@ -7704,11 +7704,11 @@ impl IAzRoleDefinition {
             (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), brecursive, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddRoleDefinition(&self, bstrroledefinition: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinition)).ok() }
+    pub unsafe fn AddRoleDefinition(&self, bstrroledefinition: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinition)) }
     }
-    pub unsafe fn DeleteRoleDefinition(&self, bstrroledefinition: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinition)).ok() }
+    pub unsafe fn DeleteRoleDefinition(&self, bstrroledefinition: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinition)) }
     }
     pub unsafe fn RoleDefinitions(&self) -> windows_core::Result<IAzRoleDefinitions> {
         unsafe {
@@ -8012,8 +8012,8 @@ impl IAzScope {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)).ok() }
+    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)) }
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -8021,8 +8021,8 @@ impl IAzScope {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)).ok() }
+    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)) }
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -8030,8 +8030,8 @@ impl IAzScope {
             (windows_core::Interface::vtable(self).ApplicationData)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)).ok() }
+    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)) }
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -8047,16 +8047,16 @@ impl IAzScope {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PolicyAdministrators(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -8073,20 +8073,20 @@ impl IAzScope {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyAdministrator(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyReader(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
         unsafe {
@@ -8109,8 +8109,8 @@ impl IAzScope {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn Roles(&self) -> windows_core::Result<IAzRoles> {
         unsafe {
@@ -8133,8 +8133,8 @@ impl IAzScope {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteRole(&self, bstrrolename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteRole(&self, bstrrolename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn Tasks(&self) -> windows_core::Result<IAzTasks> {
         unsafe {
@@ -8157,12 +8157,12 @@ impl IAzScope {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask(&self, bstrtaskname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteTask(&self, bstrtaskname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn CanBeDelegated(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -8191,20 +8191,20 @@ impl IAzScope {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyAdministratorName(&self, bstradmin: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstradmin), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePolicyReaderName(&self, bstrreader: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreader), core::mem::transmute_copy(varreserved)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8800,8 +8800,8 @@ impl IAzScope2 {
             (windows_core::Interface::vtable(self).OpenRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeleteRoleDefinition(&self, bstrroledefinitionname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname)).ok() }
+    pub unsafe fn DeleteRoleDefinition(&self, bstrroledefinitionname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname)) }
     }
     pub unsafe fn RoleAssignments(&self) -> windows_core::Result<IAzRoleAssignments> {
         unsafe {
@@ -8821,8 +8821,8 @@ impl IAzScope2 {
             (windows_core::Interface::vtable(self).OpenRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeleteRoleAssignment(&self, bstrroleassignmentname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname)).ok() }
+    pub unsafe fn DeleteRoleAssignment(&self, bstrroleassignmentname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9077,8 +9077,8 @@ impl IAzTask {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)).ok() }
+    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)) }
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -9086,8 +9086,8 @@ impl IAzTask {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)).ok() }
+    pub unsafe fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdescription)) }
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -9095,8 +9095,8 @@ impl IAzTask {
             (windows_core::Interface::vtable(self).ApplicationData)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)).ok() }
+    pub unsafe fn SetApplicationData(&self, bstrapplicationdata: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationdata)) }
     }
     pub unsafe fn BizRule(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -9104,8 +9104,8 @@ impl IAzTask {
             (windows_core::Interface::vtable(self).BizRule)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetBizRule(&self, bstrprop: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetBizRule)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)).ok() }
+    pub unsafe fn SetBizRule(&self, bstrprop: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBizRule)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)) }
     }
     pub unsafe fn BizRuleLanguage(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -9113,8 +9113,8 @@ impl IAzTask {
             (windows_core::Interface::vtable(self).BizRuleLanguage)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetBizRuleLanguage(&self, bstrprop: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetBizRuleLanguage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)).ok() }
+    pub unsafe fn SetBizRuleLanguage(&self, bstrprop: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBizRuleLanguage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)) }
     }
     pub unsafe fn BizRuleImportedPath(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -9122,8 +9122,8 @@ impl IAzTask {
             (windows_core::Interface::vtable(self).BizRuleImportedPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetBizRuleImportedPath(&self, bstrprop: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)).ok() }
+    pub unsafe fn SetBizRuleImportedPath(&self, bstrprop: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprop)) }
     }
     pub unsafe fn IsRoleDefinition(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -9131,8 +9131,8 @@ impl IAzTask {
             (windows_core::Interface::vtable(self).IsRoleDefinition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIsRoleDefinition(&self, fprop: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetIsRoleDefinition)(windows_core::Interface::as_raw(self), fprop.into()).ok() }
+    pub unsafe fn SetIsRoleDefinition(&self, fprop: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetIsRoleDefinition)(windows_core::Interface::as_raw(self), fprop.into()) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Operations(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -9149,20 +9149,20 @@ impl IAzTask {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddOperation(&self, bstrop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddOperation(&self, bstrop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteOperation(&self, bstrop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteOperation(&self, bstrop: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddTask(&self, bstrtask: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtask), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddTask(&self, bstrtask: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtask), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask(&self, bstrtask: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtask), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeleteTask(&self, bstrtask: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtask), core::mem::transmute_copy(varreserved)) }
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -9178,20 +9178,20 @@ impl IAzTask {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Variant::VARIANT, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, core::mem::transmute_copy(varprop), core::mem::transmute_copy(varreserved)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)).ok() }
+    pub unsafe fn Submit(&self, lflags: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(varreserved)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]

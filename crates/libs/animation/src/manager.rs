@@ -32,7 +32,7 @@ impl Manager {
 
     /// Advances the animation manager to the specified time.
     pub fn update(&self, time: f64) -> Result<()> {
-        unsafe { self.0.Update(time, None) }?;
+        unsafe { self.0.Update(time, None) }.ok()?;
         Ok(())
     }
 
@@ -43,6 +43,6 @@ impl Manager {
         transition: &Transition,
         time: f64,
     ) -> Result<()> {
-        unsafe { self.0.ScheduleTransition(&variable.0, &transition.0, time) }
+        unsafe { self.0.ScheduleTransition(&variable.0, &transition.0, time) }.ok()
     }
 }

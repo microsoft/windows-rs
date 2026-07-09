@@ -1,30 +1,30 @@
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
+pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> windows_core::HRESULT {
     windows_core::link!("ualapi.dll" "system" fn UalInstrument(data : *const UAL_DATA_BLOB) -> windows_core::HRESULT);
-    unsafe { UalInstrument(data).ok() }
+    unsafe { UalInstrument(data) }
 }
 #[inline]
-pub unsafe fn UalRegisterProduct<P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> windows_core::Result<()>
+pub unsafe fn UalRegisterProduct<P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ualapi.dll" "system" fn UalRegisterProduct(wszproductname : windows_core::PCWSTR, wszrolename : windows_core::PCWSTR, wszguid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { UalRegisterProduct(wszproductname.param().abi(), wszrolename.param().abi(), wszguid.param().abi()).ok() }
+    unsafe { UalRegisterProduct(wszproductname.param().abi(), wszrolename.param().abi(), wszguid.param().abi()) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
+pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> windows_core::HRESULT {
     windows_core::link!("ualapi.dll" "system" fn UalStart(data : *const UAL_DATA_BLOB) -> windows_core::HRESULT);
-    unsafe { UalStart(data).ok() }
+    unsafe { UalStart(data) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
+pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> windows_core::HRESULT {
     windows_core::link!("ualapi.dll" "system" fn UalStop(data : *const UAL_DATA_BLOB) -> windows_core::HRESULT);
-    unsafe { UalStop(data).ok() }
+    unsafe { UalStop(data) }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]

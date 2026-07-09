@@ -50,7 +50,7 @@ impl Environment {
         handler: F,
     ) -> Result<()> {
         let handler = handler::ControllerCompleted::create(handler);
-        unsafe { self.0.CreateCoreWebView2Controller(parent, &handler) }
+        unsafe { self.0.CreateCoreWebView2Controller(parent, &handler) }.ok()
     }
 
     /// Creates a [`Controller`] configured by `options` (profile, private mode,

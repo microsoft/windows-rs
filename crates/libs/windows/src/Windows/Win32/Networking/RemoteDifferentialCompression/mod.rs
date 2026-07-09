@@ -17,8 +17,8 @@ impl IFindSimilarResults {
             (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetNextFileId(&self, numtraitsmatched: *mut u32, similarityfileid: *mut SimilarityFileId) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNextFileId)(windows_core::Interface::as_raw(self), numtraitsmatched as _, similarityfileid as _).ok() }
+    pub unsafe fn GetNextFileId(&self, numtraitsmatched: *mut u32, similarityfileid: *mut SimilarityFileId) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNextFileId)(windows_core::Interface::as_raw(self), numtraitsmatched as _, similarityfileid as _) }
     }
 }
 #[repr(C)]
@@ -66,8 +66,8 @@ impl windows_core::RuntimeName for IFindSimilarResults {}
 windows_core::imp::define_interface!(IRdcComparator, IRdcComparator_Vtbl, 0x96236a77_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(IRdcComparator, windows_core::IUnknown);
 impl IRdcComparator {
-    pub unsafe fn Process(&self, endofinput: bool, endofoutput: *mut windows_core::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), endofinput.into(), endofoutput as _, inputbuffer as _, outputbuffer as _, rdc_errorcode as _).ok() }
+    pub unsafe fn Process(&self, endofinput: bool, endofoutput: *mut windows_core::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), endofinput.into(), endofoutput as _, inputbuffer as _, outputbuffer as _, rdc_errorcode as _) }
     }
 }
 #[repr(C)]
@@ -103,8 +103,8 @@ impl IRdcFileReader {
             (windows_core::Interface::vtable(self).GetFileSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut windows_core::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), offsetfilestart, bytestoread, bytesactuallyread as _, buffer as _, eof as _).ok() }
+    pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), offsetfilestart, bytestoread, bytesactuallyread as _, buffer as _, eof as _) }
     }
     pub unsafe fn GetFilePosition(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -185,11 +185,11 @@ impl IRdcFileWriter {
             (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), offsetfilestart, bytestowrite, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Truncate(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Truncate)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Truncate(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Truncate)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn DeleteOnClose(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteOnClose)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn DeleteOnClose(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteOnClose)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -252,8 +252,8 @@ impl IRdcGenerator {
             (windows_core::Interface::vtable(self).GetGeneratorParameters)(windows_core::Interface::as_raw(self), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Process(&self, endofinput: bool, endofoutput: *mut windows_core::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffers: &mut [*mut RdcBufferPointer], rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), endofinput.into(), endofoutput as _, inputbuffer as _, outputbuffers.len().try_into().unwrap(), core::mem::transmute(outputbuffers.as_ptr()), rdc_errorcode as _).ok() }
+    pub unsafe fn Process(&self, endofinput: bool, endofoutput: *mut windows_core::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffers: &mut [*mut RdcBufferPointer], rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), endofinput.into(), endofoutput as _, inputbuffer as _, outputbuffers.len().try_into().unwrap(), core::mem::transmute(outputbuffers.as_ptr()), rdc_errorcode as _) }
     }
 }
 #[repr(C)]
@@ -307,8 +307,8 @@ impl IRdcGeneratorFilterMaxParameters {
             (windows_core::Interface::vtable(self).GetHorizonSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetHorizonSize(&self, horizonsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetHorizonSize)(windows_core::Interface::as_raw(self), horizonsize).ok() }
+    pub unsafe fn SetHorizonSize(&self, horizonsize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetHorizonSize)(windows_core::Interface::as_raw(self), horizonsize) }
     }
     pub unsafe fn GetHashWindowSize(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -316,8 +316,8 @@ impl IRdcGeneratorFilterMaxParameters {
             (windows_core::Interface::vtable(self).GetHashWindowSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetHashWindowSize(&self, hashwindowsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetHashWindowSize)(windows_core::Interface::as_raw(self), hashwindowsize).ok() }
+    pub unsafe fn SetHashWindowSize(&self, hashwindowsize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetHashWindowSize)(windows_core::Interface::as_raw(self), hashwindowsize) }
     }
 }
 #[repr(C)]
@@ -395,8 +395,8 @@ impl IRdcGeneratorParameters {
             (windows_core::Interface::vtable(self).GetGeneratorParametersType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetParametersVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetParametersVersion)(windows_core::Interface::as_raw(self), currentversion as _, minimumcompatibleappversion as _).ok() }
+    pub unsafe fn GetParametersVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetParametersVersion)(windows_core::Interface::as_raw(self), currentversion as _, minimumcompatibleappversion as _) }
     }
     pub unsafe fn GetSerializeSize(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -404,8 +404,8 @@ impl IRdcGeneratorParameters {
             (windows_core::Interface::vtable(self).GetSerializeSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Serialize(&self, size: u32, parametersblob: *mut u8, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), size, parametersblob as _, byteswritten as _).ok() }
+    pub unsafe fn Serialize(&self, size: u32, parametersblob: *mut u8, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), size, parametersblob as _, byteswritten as _) }
     }
 }
 #[repr(C)]
@@ -519,8 +519,8 @@ impl IRdcLibrary {
             (windows_core::Interface::vtable(self).CreateSignatureReader)(windows_core::Interface::as_raw(self), ifilereader.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetRDCVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRDCVersion)(windows_core::Interface::as_raw(self), currentversion as _, minimumcompatibleappversion as _).ok() }
+    pub unsafe fn GetRDCVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRDCVersion)(windows_core::Interface::as_raw(self), currentversion as _, minimumcompatibleappversion as _) }
     }
 }
 #[repr(C)]
@@ -649,8 +649,8 @@ impl IRdcSignatureReader {
             (windows_core::Interface::vtable(self).ReadHeader)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ReadSignatures(&self, rdcsignaturepointer: *mut RdcSignaturePointer, endofoutput: *mut windows_core::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReadSignatures)(windows_core::Interface::as_raw(self), rdcsignaturepointer as _, endofoutput as _).ok() }
+    pub unsafe fn ReadSignatures(&self, rdcsignaturepointer: *mut RdcSignaturePointer, endofoutput: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReadSignatures)(windows_core::Interface::as_raw(self), rdcsignaturepointer as _, endofoutput as _) }
     }
 }
 #[repr(C)]
@@ -698,8 +698,8 @@ impl windows_core::RuntimeName for IRdcSignatureReader {}
 windows_core::imp::define_interface!(IRdcSimilarityGenerator, IRdcSimilarityGenerator_Vtbl, 0x96236a80_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(IRdcSimilarityGenerator, windows_core::IUnknown);
 impl IRdcSimilarityGenerator {
-    pub unsafe fn EnableSimilarity(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnableSimilarity)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn EnableSimilarity(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnableSimilarity)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Results(&self) -> windows_core::Result<SimilarityData> {
         unsafe {
@@ -772,11 +772,11 @@ impl ISimilarity {
             (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), mapping.param().abi(), fileidfile.param().abi(), truncate.into(), recordsize, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CloseTable(&self, isvalid: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CloseTable)(windows_core::Interface::as_raw(self), isvalid.into()).ok() }
+    pub unsafe fn CloseTable(&self, isvalid: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CloseTable)(windows_core::Interface::as_raw(self), isvalid.into()) }
     }
-    pub unsafe fn Append(&self, similarityfileid: *const SimilarityFileId, similaritydata: *const SimilarityData) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), similarityfileid, similaritydata).ok() }
+    pub unsafe fn Append(&self, similarityfileid: *const SimilarityFileId, similaritydata: *const SimilarityData) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), similarityfileid, similaritydata) }
     }
     pub unsafe fn FindSimilarFileId(&self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, resultssize: u32) -> windows_core::Result<IFindSimilarResults> {
         unsafe {
@@ -784,12 +784,12 @@ impl ISimilarity {
             (windows_core::Interface::vtable(self).FindSimilarFileId)(windows_core::Interface::as_raw(self), similaritydata, numberofmatchesrequired, resultssize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CopyAndSwap<P0, P1>(&self, newsimilaritytables: P0, reportprogress: P1) -> windows_core::Result<()>
+    pub unsafe fn CopyAndSwap<P0, P1>(&self, newsimilaritytables: P0, reportprogress: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
         P1: windows_core::Param<ISimilarityReportProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyAndSwap)(windows_core::Interface::as_raw(self), newsimilaritytables.param().abi(), reportprogress.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyAndSwap)(windows_core::Interface::as_raw(self), newsimilaritytables.param().abi(), reportprogress.param().abi()) }
     }
     pub unsafe fn GetRecordCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -924,8 +924,8 @@ impl ISimilarityFileIdTable {
             (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), fileidfile.param().abi(), truncate.into(), recordsize, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CloseTable(&self, isvalid: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CloseTable)(windows_core::Interface::as_raw(self), isvalid.into()).ok() }
+    pub unsafe fn CloseTable(&self, isvalid: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CloseTable)(windows_core::Interface::as_raw(self), isvalid.into()) }
     }
     pub unsafe fn Append(&self, similarityfileid: *const SimilarityFileId) -> windows_core::Result<u32> {
         unsafe {
@@ -933,11 +933,11 @@ impl ISimilarityFileIdTable {
             (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), similarityfileid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Lookup(&self, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Lookup)(windows_core::Interface::as_raw(self), similarityfileindex, similarityfileid as _).ok() }
+    pub unsafe fn Lookup(&self, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Lookup)(windows_core::Interface::as_raw(self), similarityfileindex, similarityfileid as _) }
     }
-    pub unsafe fn Invalidate(&self, similarityfileindex: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Invalidate)(windows_core::Interface::as_raw(self), similarityfileindex).ok() }
+    pub unsafe fn Invalidate(&self, similarityfileindex: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Invalidate)(windows_core::Interface::as_raw(self), similarityfileindex) }
     }
     pub unsafe fn GetRecordCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1054,8 +1054,8 @@ impl windows_core::RuntimeName for ISimilarityFileIdTable {}
 windows_core::imp::define_interface!(ISimilarityReportProgress, ISimilarityReportProgress_Vtbl, 0x96236a7a_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(ISimilarityReportProgress, windows_core::IUnknown);
 impl ISimilarityReportProgress {
-    pub unsafe fn ReportProgress(&self, percentcompleted: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReportProgress)(windows_core::Interface::as_raw(self), percentcompleted).ok() }
+    pub unsafe fn ReportProgress(&self, percentcompleted: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReportProgress)(windows_core::Interface::as_raw(self), percentcompleted) }
     }
 }
 #[repr(C)]
@@ -1085,8 +1085,8 @@ impl windows_core::RuntimeName for ISimilarityReportProgress {}
 windows_core::imp::define_interface!(ISimilarityTableDumpState, ISimilarityTableDumpState_Vtbl, 0x96236a7b_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(ISimilarityTableDumpState, windows_core::IUnknown);
 impl ISimilarityTableDumpState {
-    pub unsafe fn GetNextData(&self, resultssize: u32, resultsused: *mut u32, eof: *mut windows_core::BOOL, results: *mut SimilarityDumpData) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNextData)(windows_core::Interface::as_raw(self), resultssize, resultsused as _, eof as _, results as _).ok() }
+    pub unsafe fn GetNextData(&self, resultssize: u32, resultsused: *mut u32, eof: *mut windows_core::BOOL, results: *mut SimilarityDumpData) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNextData)(windows_core::Interface::as_raw(self), resultssize, resultsused as _, eof as _, results as _) }
     }
 }
 #[repr(C)]
@@ -1116,11 +1116,11 @@ impl windows_core::RuntimeName for ISimilarityTableDumpState {}
 windows_core::imp::define_interface!(ISimilarityTraitsMappedView, ISimilarityTraitsMappedView_Vtbl, 0x96236a7c_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(ISimilarityTraitsMappedView, windows_core::IUnknown);
 impl ISimilarityTraitsMappedView {
-    pub unsafe fn Flush(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Flush(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Unmap(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Unmap)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Unmap(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Unmap)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Get(&self, index: u64, dirty: bool, numelements: u32) -> windows_core::Result<SimilarityMappedViewInfo> {
         unsafe {
@@ -1202,8 +1202,8 @@ impl ISimilarityTraitsMapping {
             (windows_core::Interface::vtable(self).CloseMapping)(windows_core::Interface::as_raw(self));
         }
     }
-    pub unsafe fn SetFileSize(&self, filesize: u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetFileSize)(windows_core::Interface::as_raw(self), filesize).ok() }
+    pub unsafe fn SetFileSize(&self, filesize: u64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFileSize)(windows_core::Interface::as_raw(self), filesize) }
     }
     pub unsafe fn GetFileSize(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -1363,14 +1363,14 @@ impl ISimilarityTraitsTable {
             (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), mapping.param().abi(), truncate.into(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CloseTable(&self, isvalid: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CloseTable)(windows_core::Interface::as_raw(self), isvalid.into()).ok() }
+    pub unsafe fn CloseTable(&self, isvalid: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CloseTable)(windows_core::Interface::as_raw(self), isvalid.into()) }
     }
-    pub unsafe fn Append(&self, data: *const SimilarityData, fileindex: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), data, fileindex).ok() }
+    pub unsafe fn Append(&self, data: *const SimilarityData, fileindex: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), data, fileindex) }
     }
-    pub unsafe fn FindSimilarFileIndex(&self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, findsimilarfileindexresults: *mut FindSimilarFileIndexResults, resultssize: u32, resultsused: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FindSimilarFileIndex)(windows_core::Interface::as_raw(self), similaritydata, numberofmatchesrequired, findsimilarfileindexresults as _, resultssize, resultsused as _).ok() }
+    pub unsafe fn FindSimilarFileIndex(&self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, findsimilarfileindexresults: *mut FindSimilarFileIndexResults, resultssize: u32, resultsused: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FindSimilarFileIndex)(windows_core::Interface::as_raw(self), similaritydata, numberofmatchesrequired, findsimilarfileindexresults as _, resultssize, resultsused as _) }
     }
     pub unsafe fn BeginDump(&self) -> windows_core::Result<ISimilarityTableDumpState> {
         unsafe {

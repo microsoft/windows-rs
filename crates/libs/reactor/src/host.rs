@@ -460,7 +460,10 @@ fn create_window(
 
     let mut hwnd = HWND::default();
     unsafe {
-        window.cast::<IWindowNative>()?.WindowHandle(&mut hwnd)?;
+        window
+            .cast::<IWindowNative>()?
+            .WindowHandle(&mut hwnd)
+            .ok()?;
     }
     let dpi = unsafe { GetDpiForWindow(hwnd) };
     let dpi = if dpi == 0 { 96 } else { dpi };

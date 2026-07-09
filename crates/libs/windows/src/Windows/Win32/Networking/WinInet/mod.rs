@@ -2991,11 +2991,11 @@ pub const IDSI_FLAG_TUNNEL: u32 = 8;
 windows_core::imp::define_interface!(IDialBranding, IDialBranding_Vtbl, 0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
 windows_core::imp::interface_hierarchy!(IDialBranding, windows_core::IUnknown);
 impl IDialBranding {
-    pub unsafe fn Initialize<P0>(&self, pwzconnectoid: P0) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pwzconnectoid: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pwzconnectoid.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pwzconnectoid.param().abi()) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self, dwindex: u32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
@@ -3056,32 +3056,32 @@ impl windows_core::RuntimeName for IDialBranding {}
 windows_core::imp::define_interface!(IDialEngine, IDialEngine_Vtbl, 0x39fd782b_7905_40d5_9148_3c9b190423d5);
 windows_core::imp::interface_hierarchy!(IDialEngine, windows_core::IUnknown);
 impl IDialEngine {
-    pub unsafe fn Initialize<P0, P1>(&self, pwzconnectoid: P0, pides: P1) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, pwzconnectoid: P0, pides: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IDialEventSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pwzconnectoid.param().abi(), pides.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pwzconnectoid.param().abi(), pides.param().abi()) }
     }
-    pub unsafe fn GetProperty<P0, P1>(&self, pwzproperty: P0, pwzvalue: P1, dwbufsize: u32) -> windows_core::Result<()>
+    pub unsafe fn GetProperty<P0, P1>(&self, pwzproperty: P0, pwzvalue: P1, dwbufsize: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), pwzproperty.param().abi(), pwzvalue.param().abi(), dwbufsize).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), pwzproperty.param().abi(), pwzvalue.param().abi(), dwbufsize) }
     }
-    pub unsafe fn SetProperty<P0, P1>(&self, pwzproperty: P0, pwzvalue: P1) -> windows_core::Result<()>
+    pub unsafe fn SetProperty<P0, P1>(&self, pwzproperty: P0, pwzvalue: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwzproperty.param().abi(), pwzvalue.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwzproperty.param().abi(), pwzvalue.param().abi()) }
     }
-    pub unsafe fn Dial(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Dial)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Dial(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Dial)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn HangUp(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).HangUp)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn HangUp(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).HangUp)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetConnectedState(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -3192,8 +3192,8 @@ impl windows_core::RuntimeName for IDialEngine {}
 windows_core::imp::define_interface!(IDialEventSink, IDialEventSink_Vtbl, 0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
 windows_core::imp::interface_hierarchy!(IDialEventSink, windows_core::IUnknown);
 impl IDialEventSink {
-    pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), dwevent, dwstatus).ok() }
+    pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), dwevent, dwstatus) }
     }
 }
 #[repr(C)]
@@ -4281,11 +4281,11 @@ pub struct INTERNET_VERSION_INFO {
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager, IProofOfPossessionCookieInfoManager_Vtbl, 0xcdaece56_4edf_43df_b113_88e4556fa1bb);
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager, windows_core::IUnknown);
 impl IProofOfPossessionCookieInfoManager {
-    pub unsafe fn GetCookieInfoForUri<P0>(&self, uri: P0, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>
+    pub unsafe fn GetCookieInfoForUri<P0>(&self, uri: P0, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoForUri)(windows_core::Interface::as_raw(self), uri.param().abi(), cookieinfocount as _, cookieinfo as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoForUri)(windows_core::Interface::as_raw(self), uri.param().abi(), cookieinfocount as _, cookieinfo as _) }
     }
 }
 #[repr(C)]
@@ -4315,12 +4315,12 @@ impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager {}
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager2, IProofOfPossessionCookieInfoManager2_Vtbl, 0x15e41407_b42f_4ae7_9966_34a087b2d713);
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager2, windows_core::IUnknown);
 impl IProofOfPossessionCookieInfoManager2 {
-    pub unsafe fn GetCookieInfoWithUriForAccount<P0, P1>(&self, webaccount: P0, uri: P1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>
+    pub unsafe fn GetCookieInfoWithUriForAccount<P0, P1>(&self, webaccount: P0, uri: P1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoWithUriForAccount)(windows_core::Interface::as_raw(self), webaccount.param().abi(), uri.param().abi(), cookieinfocount as _, cookieinfo as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoWithUriForAccount)(windows_core::Interface::as_raw(self), webaccount.param().abi(), uri.param().abi(), cookieinfocount as _, cookieinfo as _) }
     }
 }
 #[repr(C)]
@@ -4353,11 +4353,11 @@ impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager2 {}
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager3, IProofOfPossessionCookieInfoManager3_Vtbl, 0xc8891744_32bd_4a77_b92c_0e79a2823b96);
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager3, windows_core::IUnknown);
 impl IProofOfPossessionCookieInfoManager3 {
-    pub unsafe fn GetCookieInfoForUriWithOptions<P0>(&self, uri: P0, options: u32, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>
+    pub unsafe fn GetCookieInfoForUriWithOptions<P0>(&self, uri: P0, options: u32, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoForUriWithOptions)(windows_core::Interface::as_raw(self), uri.param().abi(), options, cookieinfocount as _, cookieinfo as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoForUriWithOptions)(windows_core::Interface::as_raw(self), uri.param().abi(), options, cookieinfocount as _, cookieinfo as _) }
     }
 }
 #[repr(C)]
@@ -4390,20 +4390,20 @@ impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager3 {}
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager4, IProofOfPossessionCookieInfoManager4_Vtbl, 0x3b74c75b_6e3f_494e_95ec_13174e12a89f);
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager4, windows_core::IUnknown);
 impl IProofOfPossessionCookieInfoManager4 {
-    pub unsafe fn GetCookieInfoForUriWithUserAgentId<P0, P1>(&self, uri: P0, uaclientid: P1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>
+    pub unsafe fn GetCookieInfoForUriWithUserAgentId<P0, P1>(&self, uri: P0, uaclientid: P1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoForUriWithUserAgentId)(windows_core::Interface::as_raw(self), uri.param().abi(), uaclientid.param().abi(), cookieinfocount as _, cookieinfo as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoForUriWithUserAgentId)(windows_core::Interface::as_raw(self), uri.param().abi(), uaclientid.param().abi(), cookieinfocount as _, cookieinfo as _) }
     }
-    pub unsafe fn GetCookieInfoWithUriAndUserAgentIdForAccount<P0, P1, P2>(&self, webaccount: P0, uri: P1, uaclientid: P2, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>
+    pub unsafe fn GetCookieInfoWithUriAndUserAgentIdForAccount<P0, P1, P2>(&self, webaccount: P0, uri: P1, uaclientid: P2, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoWithUriAndUserAgentIdForAccount)(windows_core::Interface::as_raw(self), webaccount.param().abi(), uri.param().abi(), uaclientid.param().abi(), cookieinfocount as _, cookieinfo as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoWithUriAndUserAgentIdForAccount)(windows_core::Interface::as_raw(self), webaccount.param().abi(), uri.param().abi(), uaclientid.param().abi(), cookieinfocount as _, cookieinfo as _) }
     }
 }
 #[repr(C)]

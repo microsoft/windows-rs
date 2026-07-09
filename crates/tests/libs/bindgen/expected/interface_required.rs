@@ -1,11 +1,10 @@
 windows_core::imp::define_interface!(IBase, IBase_Vtbl);
 impl IBase {
-    pub unsafe fn BaseMethod(&self) -> windows_core::Result<()> {
+    pub unsafe fn BaseMethod(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).BaseMethod)(windows_core::Interface::as_raw(
                 self,
             ))
-            .ok()
         }
     }
 }
@@ -55,10 +54,9 @@ impl core::ops::Deref for IInterface {
 }
 windows_core::imp::interface_hierarchy!(IInterface, IBase);
 impl IInterface {
-    pub unsafe fn Method(&self) -> windows_core::Result<()> {
+    pub unsafe fn Method(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Method)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
 }

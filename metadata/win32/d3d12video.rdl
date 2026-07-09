@@ -2597,7 +2597,7 @@ mod Windows {
         }
         #[guid(0x79a2e5fb_ccd2_469a_9fde_195d10951f7e)]
         interface ID3D12VideoDecoder1: ID3D12VideoDecoder {
-            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0946b7c9_ebf6_4047_bb73_8683e27dbb1f)]
         interface ID3D12VideoDecoderHeap: ID3D12Pageable {
@@ -2605,7 +2605,7 @@ mod Windows {
         }
         #[guid(0xda1d98c5_539f_41b2_bf6b_1198a03b6d26)]
         interface ID3D12VideoDecoderHeap1: ID3D12VideoDecoderHeap {
-            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0x1f052807_0b46_4acc_8a89_364f793718a4)]
         interface ID3D12VideoDevice: IUnknown {
@@ -2702,17 +2702,17 @@ mod Windows {
         #[guid(0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4)]
         interface ID3D12VideoExtensionCommand: ID3D12Pageable {
             fn GetDesc(&self) -> D3D12_VIDEO_EXTENSION_COMMAND_DESC;
-            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0x33fdae0e_098b_428f_87bb_34b695de08f8)]
         interface ID3D12VideoMotionEstimator: ID3D12Pageable {
             fn GetDesc(&self) -> D3D12_VIDEO_MOTION_ESTIMATOR_DESC;
-            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0x5be17987_743a_4061_834b_23d22daea505)]
         interface ID3D12VideoMotionVectorHeap: ID3D12Pageable {
             fn GetDesc(&self) -> D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC;
-            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0xaeb2543a_167f_4682_acc8_d159ed4a6209)]
         interface ID3D12VideoProcessCommandList: ID3D12CommandList {
@@ -2754,7 +2754,7 @@ mod Windows {
         }
         #[guid(0xf3cfe615_553f_425c_86d8_ee8c1b1fb01c)]
         interface ID3D12VideoProcessor1: ID3D12VideoProcessor {
-            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
     }
 }

@@ -17,7 +17,7 @@ impl Deferral {
     /// state set on the originating event args.
     pub fn complete(mut self) -> Result<()> {
         match self.0.take() {
-            Some(deferral) => unsafe { deferral.Complete() },
+            Some(deferral) => unsafe { deferral.Complete() }.ok(),
             None => Ok(()),
         }
     }

@@ -55,7 +55,7 @@ mod Windows {
         #[guid(0x9d06dffa_d1e5_4d07_83a8_1bb123f2f841)]
         interface ID3D11Device2: ID3D11Device1 {
             fn GetImmediateContext2(&self, ppImmediateContext: *mut ID3D11DeviceContext2);
-            fn CreateDeferredContext2(&self, ContextFlags: u32, ppDeferredContext: *mut ID3D11DeviceContext2) -> HRESULT;
+            fn CreateDeferredContext2(&self, ContextFlags: u32, #[opt] ppDeferredContext: *mut ID3D11DeviceContext2) -> HRESULT;
             fn GetResourceTiling(&self, pTiledResource: ID3D11Resource, #[opt] pNumTilesForEntireResource: *mut u32, #[opt] pPackedMipDesc: *mut D3D11_PACKED_MIP_DESC, #[opt] pStandardTileShapeForNonPackedMips: *mut D3D11_TILE_SHAPE, #[in] #[out] #[opt] pNumSubresourceTilings: *mut u32, FirstSubresourceTilingToGet: u32, #[len_param(4)] pSubresourceTilingsForNonPackedMips: *mut D3D11_SUBRESOURCE_TILING);
             fn CheckMultisampleQualityLevels1(&self, Format: DXGI_FORMAT, SampleCount: u32, Flags: u32, pNumQualityLevels: *mut u32) -> HRESULT;
         }

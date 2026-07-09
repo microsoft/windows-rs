@@ -38,7 +38,7 @@ fn main() -> windows::core::Result<()> {
 
         let mut selection = 0;
 
-        TaskDialogIndirect(&config, Some(&mut selection), None, None)?;
+        TaskDialogIndirect(&config, Some(&mut selection), None, None).ok()?;
 
         if selection == buttons[0].nButtonID {
             println!("custom button");

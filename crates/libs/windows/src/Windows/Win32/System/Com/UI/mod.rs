@@ -2,8 +2,8 @@ windows_core::imp::define_interface!(IDummyHICONIncluder, IDummyHICONIncluder_Vt
 windows_core::imp::interface_hierarchy!(IDummyHICONIncluder, windows_core::IUnknown);
 impl IDummyHICONIncluder {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn Dummy(&self, h1: super::super::super::UI::WindowsAndMessaging::HICON, h2: super::super::super::Graphics::Gdi::HDC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Dummy)(windows_core::Interface::as_raw(self), h1, h2).ok() }
+    pub unsafe fn Dummy(&self, h1: super::super::super::UI::WindowsAndMessaging::HICON, h2: super::super::super::Graphics::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Dummy)(windows_core::Interface::as_raw(self), h1, h2) }
     }
 }
 #[repr(C)]
@@ -40,18 +40,18 @@ windows_core::imp::define_interface!(IThumbnailExtractor, IThumbnailExtractor_Vt
 windows_core::imp::interface_hierarchy!(IThumbnailExtractor, windows_core::IUnknown);
 impl IThumbnailExtractor {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn ExtractThumbnail<P0>(&self, pstg: P0, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>
+    pub unsafe fn ExtractThumbnail<P0>(&self, pstg: P0, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::StructuredStorage::IStorage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ExtractThumbnail)(windows_core::Interface::as_raw(self), pstg.param().abi(), ullength, ulheight, puloutputlength as _, puloutputheight as _, phoutputbitmap as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ExtractThumbnail)(windows_core::Interface::as_raw(self), pstg.param().abi(), ullength, ulheight, puloutputlength as _, puloutputheight as _, phoutputbitmap as _) }
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn OnFileUpdated<P0>(&self, pstg: P0) -> windows_core::Result<()>
+    pub unsafe fn OnFileUpdated<P0>(&self, pstg: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::StructuredStorage::IStorage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnFileUpdated)(windows_core::Interface::as_raw(self), pstg.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnFileUpdated)(windows_core::Interface::as_raw(self), pstg.param().abi()) }
     }
 }
 #[repr(C)]

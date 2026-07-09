@@ -1559,29 +1559,29 @@ impl IGameInput {
             (windows_core::Interface::vtable(self).GetTemporalReading)(windows_core::Interface::as_raw(self), timestamp, device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RegisterReadingCallback<P0>(&self, device: P0, inputkind: GameInputKind, analogthreshold: f32, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputReadingCallback, callbacktoken: Option<*mut u64>) -> windows_core::Result<()>
+    pub unsafe fn RegisterReadingCallback<P0>(&self, device: P0, inputkind: GameInputKind, analogthreshold: f32, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputReadingCallback, callbacktoken: Option<*mut u64>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IGameInputDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterReadingCallback)(windows_core::Interface::as_raw(self), device.param().abi(), inputkind, analogthreshold, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterReadingCallback)(windows_core::Interface::as_raw(self), device.param().abi(), inputkind, analogthreshold, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn RegisterDeviceCallback<P0>(&self, device: P0, inputkind: GameInputKind, statusfilter: GameInputDeviceStatus, enumerationkind: GameInputEnumerationKind, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputDeviceCallback, callbacktoken: Option<*mut u64>) -> windows_core::Result<()>
+    pub unsafe fn RegisterDeviceCallback<P0>(&self, device: P0, inputkind: GameInputKind, statusfilter: GameInputDeviceStatus, enumerationkind: GameInputEnumerationKind, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputDeviceCallback, callbacktoken: Option<*mut u64>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IGameInputDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterDeviceCallback)(windows_core::Interface::as_raw(self), device.param().abi(), inputkind, statusfilter, enumerationkind, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterDeviceCallback)(windows_core::Interface::as_raw(self), device.param().abi(), inputkind, statusfilter, enumerationkind, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn RegisterSystemButtonCallback<P0>(&self, device: P0, buttonfilter: GameInputSystemButtons, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputSystemButtonCallback, callbacktoken: Option<*mut u64>) -> windows_core::Result<()>
+    pub unsafe fn RegisterSystemButtonCallback<P0>(&self, device: P0, buttonfilter: GameInputSystemButtons, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputSystemButtonCallback, callbacktoken: Option<*mut u64>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IGameInputDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterSystemButtonCallback)(windows_core::Interface::as_raw(self), device.param().abi(), buttonfilter, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterSystemButtonCallback)(windows_core::Interface::as_raw(self), device.param().abi(), buttonfilter, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn RegisterKeyboardLayoutCallback<P0>(&self, device: P0, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputKeyboardLayoutCallback, callbacktoken: Option<*mut u64>) -> windows_core::Result<()>
+    pub unsafe fn RegisterKeyboardLayoutCallback<P0>(&self, device: P0, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputKeyboardLayoutCallback, callbacktoken: Option<*mut u64>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IGameInputDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterKeyboardLayoutCallback)(windows_core::Interface::as_raw(self), device.param().abi(), context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterKeyboardLayoutCallback)(windows_core::Interface::as_raw(self), device.param().abi(), context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn StopCallback(&self, callbacktoken: u64) {
         unsafe {
@@ -1633,8 +1633,8 @@ impl IGameInput {
             (windows_core::Interface::vtable(self).FindDeviceFromPlatformString)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnableOemDeviceSupport(&self, vendorid: u16, productid: u16, interfacenumber: u8, collectionnumber: u8) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnableOemDeviceSupport)(windows_core::Interface::as_raw(self), vendorid, productid, interfacenumber, collectionnumber).ok() }
+    pub unsafe fn EnableOemDeviceSupport(&self, vendorid: u16, productid: u16, interfacenumber: u8, collectionnumber: u8) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnableOemDeviceSupport)(windows_core::Interface::as_raw(self), vendorid, productid, interfacenumber, collectionnumber) }
     }
     pub unsafe fn SetFocusPolicy(&self, policy: GameInputFocusPolicy) {
         unsafe {
@@ -1919,8 +1919,8 @@ impl IGameInputDevice {
             (windows_core::Interface::vtable(self).SetForceFeedbackMotorGain)(windows_core::Interface::as_raw(self), motorindex, mastergain);
         }
     }
-    pub unsafe fn SetHapticMotorState(&self, motorindex: u32, params: Option<*const GameInputHapticFeedbackParams>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetHapticMotorState)(windows_core::Interface::as_raw(self), motorindex, params.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetHapticMotorState(&self, motorindex: u32, params: Option<*const GameInputHapticFeedbackParams>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetHapticMotorState)(windows_core::Interface::as_raw(self), motorindex, params.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetRumbleState(&self, params: Option<*const GameInputRumbleParams>) {
         unsafe {
@@ -1954,17 +1954,17 @@ impl IGameInputDevice {
             (windows_core::Interface::vtable(self).GetRawDeviceFeature)(windows_core::Interface::as_raw(self), reportid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetRawDeviceFeature<P0>(&self, report: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRawDeviceFeature<P0>(&self, report: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IGameInputRawDeviceReport>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRawDeviceFeature)(windows_core::Interface::as_raw(self), report.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetRawDeviceFeature)(windows_core::Interface::as_raw(self), report.param().abi()) }
     }
-    pub unsafe fn SendRawDeviceOutput<P0>(&self, report: P0) -> windows_core::Result<()>
+    pub unsafe fn SendRawDeviceOutput<P0>(&self, report: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IGameInputRawDeviceReport>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SendRawDeviceOutput)(windows_core::Interface::as_raw(self), report.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SendRawDeviceOutput)(windows_core::Interface::as_raw(self), report.param().abi()) }
     }
     pub unsafe fn SendRawDeviceOutputWithResponse<P0>(&self, requestreport: P0) -> windows_core::Result<IGameInputRawDeviceReport>
     where
@@ -1975,8 +1975,8 @@ impl IGameInputDevice {
             (windows_core::Interface::vtable(self).SendRawDeviceOutputWithResponse)(windows_core::Interface::as_raw(self), requestreport.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ExecuteRawDeviceIoControl(&self, controlcode: u32, inputbuffersize: usize, inputbuffer: Option<*const core::ffi::c_void>, outputbuffersize: usize, outputbuffer: Option<*mut core::ffi::c_void>, outputsize: Option<*mut usize>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ExecuteRawDeviceIoControl)(windows_core::Interface::as_raw(self), controlcode, inputbuffersize, inputbuffer.unwrap_or(core::mem::zeroed()) as _, outputbuffersize, outputbuffer.unwrap_or(core::mem::zeroed()) as _, outputsize.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn ExecuteRawDeviceIoControl(&self, controlcode: u32, inputbuffersize: usize, inputbuffer: Option<*const core::ffi::c_void>, outputbuffersize: usize, outputbuffer: Option<*mut core::ffi::c_void>, outputsize: Option<*mut usize>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ExecuteRawDeviceIoControl)(windows_core::Interface::as_raw(self), controlcode, inputbuffersize, inputbuffer.unwrap_or(core::mem::zeroed()) as _, outputbuffersize, outputbuffer.unwrap_or(core::mem::zeroed()) as _, outputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn AcquireExclusiveRawDeviceAccess(&self, timeoutinmicroseconds: u64) -> bool {
         unsafe { (windows_core::Interface::vtable(self).AcquireExclusiveRawDeviceAccess)(windows_core::Interface::as_raw(self), timeoutinmicroseconds) }

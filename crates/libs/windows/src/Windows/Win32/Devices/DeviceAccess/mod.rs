@@ -57,14 +57,14 @@ pub const ED_VIDEO: i32 = 33554432;
 windows_core::imp::define_interface!(ICreateDeviceAccessAsync, ICreateDeviceAccessAsync_Vtbl, 0x3474628f_683d_42d2_abcb_db018c6503bc);
 windows_core::imp::interface_hierarchy!(ICreateDeviceAccessAsync, windows_core::IUnknown);
 impl ICreateDeviceAccessAsync {
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Cancel(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Wait(&self, timeout: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), timeout).ok() }
+    pub unsafe fn Wait(&self, timeout: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), timeout) }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetResult<T>(&self) -> windows_core::Result<T>
     where
@@ -131,17 +131,17 @@ impl windows_core::RuntimeName for ICreateDeviceAccessAsync {}
 windows_core::imp::define_interface!(IDeviceIoControl, IDeviceIoControl_Vtbl, 0x9eefe161_23ab_4f18_9b49_991b586ae970);
 windows_core::imp::interface_hierarchy!(IDeviceIoControl, windows_core::IUnknown);
 impl IDeviceIoControl {
-    pub unsafe fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: Option<&[u8]>, outputbuffer: Option<&mut [u8]>, bytesreturned: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeviceIoControlSync)(windows_core::Interface::as_raw(self), iocontrolcode, core::mem::transmute(inputbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(outputbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), bytesreturned as _).ok() }
+    pub unsafe fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: Option<&[u8]>, outputbuffer: Option<&mut [u8]>, bytesreturned: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeviceIoControlSync)(windows_core::Interface::as_raw(self), iocontrolcode, core::mem::transmute(inputbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(outputbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), bytesreturned as _) }
     }
-    pub unsafe fn DeviceIoControlAsync<P5>(&self, iocontrolcode: u32, inputbuffer: Option<&[u8]>, outputbuffer: Option<&mut [u8]>, requestcompletioncallback: P5, cancelcontext: Option<*mut usize>) -> windows_core::Result<()>
+    pub unsafe fn DeviceIoControlAsync<P5>(&self, iocontrolcode: u32, inputbuffer: Option<&[u8]>, outputbuffer: Option<&mut [u8]>, requestcompletioncallback: P5, cancelcontext: Option<*mut usize>) -> windows_core::HRESULT
     where
         P5: windows_core::Param<IDeviceRequestCompletionCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeviceIoControlAsync)(windows_core::Interface::as_raw(self), iocontrolcode, core::mem::transmute(inputbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(outputbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requestcompletioncallback.param().abi(), cancelcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeviceIoControlAsync)(windows_core::Interface::as_raw(self), iocontrolcode, core::mem::transmute(inputbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(outputbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requestcompletioncallback.param().abi(), cancelcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn CancelOperation(&self, cancelcontext: usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CancelOperation)(windows_core::Interface::as_raw(self), cancelcontext).ok() }
+    pub unsafe fn CancelOperation(&self, cancelcontext: usize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CancelOperation)(windows_core::Interface::as_raw(self), cancelcontext) }
     }
 }
 #[repr(C)]
@@ -192,8 +192,8 @@ impl windows_core::RuntimeName for IDeviceIoControl {}
 windows_core::imp::define_interface!(IDeviceRequestCompletionCallback, IDeviceRequestCompletionCallback_Vtbl, 0x999bad24_9acd_45bb_8669_2a2fc0288b04);
 windows_core::imp::interface_hierarchy!(IDeviceRequestCompletionCallback, windows_core::IUnknown);
 impl IDeviceRequestCompletionCallback {
-    pub unsafe fn Invoke(&self, requestresult: windows_core::HRESULT, bytesreturned: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), requestresult, bytesreturned).ok() }
+    pub unsafe fn Invoke(&self, requestresult: windows_core::HRESULT, bytesreturned: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), requestresult, bytesreturned) }
     }
 }
 #[repr(C)]

@@ -103,7 +103,7 @@ impl CookieManager {
     ) -> Result<()> {
         let uri = HSTRING::from(uri);
         let handler = handler::GetCookiesCompleted::create(handler);
-        unsafe { self.0.GetCookies(&uri, &handler) }
+        unsafe { self.0.GetCookies(&uri, &handler) }.ok()
     }
 
     /// Adds the cookie, or updates the existing cookie with the same name,
@@ -115,13 +115,13 @@ impl CookieManager {
         let path = HSTRING::from(&cookie.path);
         unsafe {
             let raw = self.0.CreateCookie(&name, &value, &domain, &path)?;
-            raw.SetIsSecure(cookie.is_secure)?;
-            raw.SetIsHttpOnly(cookie.is_http_only)?;
-            raw.SetSameSite(cookie.same_site.to_raw())?;
+            raw.SetIsSecure(cookie.is_secure).ok()?;
+            raw.SetIsHttpOnly(cookie.is_http_only).ok()?;
+            raw.SetSameSite(cookie.same_site.to_raw()).ok()?;
             if let Some(expires) = cookie.expires {
-                raw.SetExpires(expires)?;
+                raw.SetExpires(expires).ok()?;
             }
-            self.0.AddOrUpdateCookie(&raw)
+            self.0.AddOrUpdateCookie(&raw).ok()
         }
     }
 
@@ -129,7 +129,7 @@ impl CookieManager {
     pub fn delete_cookies(&self, name: &str, uri: &str) -> Result<()> {
         let name = HSTRING::from(name);
         let uri = HSTRING::from(uri);
-        unsafe { self.0.DeleteCookies(&name, &uri) }
+        unsafe { self.0.DeleteCookies(&name, &uri) }.ok()
     }
 
     /// Deletes cookies with the matching `name`, `domain`, and `path`.
@@ -142,12 +142,12 @@ impl CookieManager {
         let name = HSTRING::from(name);
         let domain = HSTRING::from(domain);
         let path = HSTRING::from(path);
-        unsafe { self.0.DeleteCookiesWithDomainAndPath(&name, &domain, &path) }
+        unsafe { self.0.DeleteCookiesWithDomainAndPath(&name, &domain, &path) }.ok()
     }
 
     /// Deletes all cookies.
     pub fn delete_all_cookies(&self) -> Result<()> {
-        unsafe { self.0.DeleteAllCookies() }
+        unsafe { self.0.DeleteAllCookies() }.ok()
     }
 }
 

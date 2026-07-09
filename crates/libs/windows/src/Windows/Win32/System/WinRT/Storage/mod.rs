@@ -134,8 +134,8 @@ pub const HSO_SHARE_WRITE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(2);
 windows_core::imp::define_interface!(IOplockBreakingHandler, IOplockBreakingHandler_Vtbl, 0x826abe3d_3acd_47d3_84f2_88aaedcf6304);
 windows_core::imp::interface_hierarchy!(IOplockBreakingHandler, windows_core::IUnknown);
 impl IOplockBreakingHandler {
-    pub unsafe fn OplockBreaking(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OplockBreaking)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn OplockBreaking(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OplockBreaking)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -292,8 +292,8 @@ impl windows_core::RuntimeName for IStorageItemHandleAccess {}
 windows_core::imp::define_interface!(IUnbufferedFileHandleOplockCallback, IUnbufferedFileHandleOplockCallback_Vtbl, 0xd1019a0e_6243_4329_8497_2e75894d7710);
 windows_core::imp::interface_hierarchy!(IUnbufferedFileHandleOplockCallback, windows_core::IUnknown);
 impl IUnbufferedFileHandleOplockCallback {
-    pub unsafe fn OnBrokenCallback(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnBrokenCallback)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn OnBrokenCallback(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnBrokenCallback)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -332,8 +332,8 @@ impl IUnbufferedFileHandleProvider {
             (windows_core::Interface::vtable(self).OpenUnbufferedFileHandle)(windows_core::Interface::as_raw(self), oplockbreakcallback.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CloseUnbufferedFileHandle(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CloseUnbufferedFileHandle)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn CloseUnbufferedFileHandle(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CloseUnbufferedFileHandle)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
