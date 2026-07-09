@@ -648,3 +648,37 @@ bare integer aliases and no longer emit `BitOr`/`BitAnd`/`Not`/`contains` impls 
 integer supports `|`/`&`/`!`/`|=`/`&=` natively. Regenerated goldens: `enum_default`, `enum_flags`,
 `derive_enum`, `derive_multiple`, `enum_name_conflict`, `modules` in
 `crates/tests/libs/bindgen/expected/`.
+
+**To investigate before concluding the PR: redundant `Win32_`/`Wdk_` feature-name prefix.**
+Because every feature now derives from a unique source-header name, the `Win32_`/`Wdk_` preamble
+carries no disambiguating information — there is no `Win32_bcrypt` vs `Wdk_bcrypt` collision to
+resolve, so `bcrypt`/`wdm` would be unambiguous feature names on their own. The prefix comes from
+`package_writer.rs` joining the namespace components after `Windows.` with `_`
+(`Windows.Win32.bcrypt` → `Win32_bcrypt`). Worth weighing before shipping: dropping the prefix
+(feature = bare header stem) is terser and matches the "flat, global" reality of the Win32 surface,
+but (a) `windows` and `windows-sys` share a feature namespace with the WinRT umbrellas (`Foundation`,
+`Networking`, …) and Win32 headers could in principle collide with a WinRT top-level name, and
+(b) the `Win32`/`Wdk` umbrella features (enable-everything toggles) and the `Wdk → Win32` dependency
+edge rely on the two-level dot structure, so the parent-derivation in `package_writer.rs` would need
+to key off something other than the stripped prefix. Decide whether to keep the prefix for namespace
+hygiene/umbrellas or drop it for ergonomics.
+
+**Sample ergonomics: unannotated `_COM_Outptr_` factory functions.** Faithful metadata surfaces a
+minor call-site wart in `windows_direct2d`: `D2D1CreateFactory` (d2d1.h) annotates neither its
+`riid`/`ppvObject` out-parameters (`_COM_Outptr_`) nor links them (`#[iid_is]`), so bindgen cannot
+generate the usual generic `D2D1CreateFactory::<ID2D1Factory1>(..)` convenience wrapper and the
+sample calls the raw 4-arg form (`&ID2D1Factory1::IID`, `&mut factory as *mut _ as *mut *mut c_void`).
+This is faithful to the header, not a projection defect; the sample now carries a short comment at the
+call site explaining why. No fix is planned unless the annotations are added upstream.
+
+**Fixed: use-after-free on window teardown (`windows-window`).** `wndproc`
+(`crates/libs/window/src/window.rs`) took the message/resize handlers out of the boxed `State`
+before invoking them (so reentrant dispatch sees empty slots) and restored them afterwards. But a
+handler can *synchronously destroy the window* — e.g. letting `DefWindowProc` handle `WM_CLOSE`
+calls `DestroyWindow`, which sends a reentrant `WM_NCDESTROY` that frees the `State` box in a nested
+`wndproc` frame. The outer frame then wrote the handlers back into freed memory
+(`(*state).message = …`), corrupting the heap and later faulting (access violation) while dropping
+the closure box. Fix: after invoking the handlers, re-read `GWLP_USERDATA`; if it is now null the
+window was destroyed during the handler, so skip the restore (the taken handlers drop locally,
+which is correct) and skip the `WM_NCDESTROY` free. Verified with `windows_direct2d`: the debug
+build previously terminated with an access violation on exit and now exits cleanly.

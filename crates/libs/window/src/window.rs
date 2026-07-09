@@ -277,13 +277,25 @@ unsafe extern "system" fn wndproc(
                 handled = Some(0);
             }
 
-            (*state).message = message_handler;
-            (*state).resize = resize_handler;
+            // Invoking a handler can synchronously destroy the window (for
+            // example by calling DestroyWindow, or by letting DefWindowProc
+            // handle WM_CLOSE), in which case a reentrant WM_NCDESTROY has
+            // already freed the state below. Re-read the pointer to detect that
+            // and avoid restoring the handlers into freed memory; the taken
+            // handlers then drop here, which is correct.
+            let state = GetWindowLongPtrW(hwnd, GWLP_USERDATA) as *mut State;
+            if !state.is_null() {
+                (*state).message = message_handler;
+                (*state).resize = resize_handler;
+            }
         }
 
-        if message == WM_NCDESTROY && !state.is_null() {
-            SetWindowLongPtrW(hwnd, GWLP_USERDATA, 0);
-            drop(Box::from_raw(state));
+        if message == WM_NCDESTROY {
+            let state = GetWindowLongPtrW(hwnd, GWLP_USERDATA) as *mut State;
+            if !state.is_null() {
+                SetWindowLongPtrW(hwnd, GWLP_USERDATA, 0);
+                drop(Box::from_raw(state));
+            }
         }
 
         if let Some(result) = handled {
