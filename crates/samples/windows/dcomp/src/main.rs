@@ -1,20 +1,9 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
         Win32::{
-            Foundation::*,
-            Graphics::{
-                Direct2D::{Common::*, *},
-                Direct3D::*,
-                Direct3D11::*,
-                DirectComposition::*,
-                DirectWrite::*,
-                Dxgi::{Common::*, *},
-                Gdi::*,
-                Imaging::{D2D::*, *},
-            },
-            Security::Cryptography::{BCRYPT_USE_SYSTEM_PREFERRED_RNG, BCryptGenRandom},
-            System::Com::*,
-            UI::{Animation::*, HiDpi::*, Shell::*, WindowsAndMessaging::*},
+            bcrypt::*, combaseapi::*, d2d::*, d3d11::*, d3dcommon::*, dcommon::*, dcomp::*,
+            dwrite::*, dxgi::*, minwindef::*, objbase::*, shellscalingapi::*, shlwapi::*,
+            uianimation::*, wincodec::*, windef::*, winnt::*, winuser::*, wtypesbase::*,
         },
         core::*,
     };
@@ -70,7 +59,10 @@ fn main() -> windows::core::Result<()> {
                 let mut values = [b'?'; CARD_ROWS * CARD_COLUMNS];
                 let mut random_bytes = vec![0u8; values.len()];
 
-                BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).ok()?;
+                assert!(
+                    BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).0
+                        == 0
+                );
 
                 for i in 0..values.len() / 2 {
                     let value = b'A' + (random_bytes[i] % 26);
@@ -78,7 +70,10 @@ fn main() -> windows::core::Result<()> {
                     values[i * 2 + 1] = value + b'a' - b'A';
                 }
 
-                BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).ok()?;
+                assert!(
+                    BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).0
+                        == 0
+                );
 
                 (0..values.len()).for_each(|i| {
                     let j = (random_bytes[i] as usize) % values.len();
@@ -136,7 +131,17 @@ fn main() -> windows::core::Result<()> {
                 let device_3d = create_device_3d()?;
                 let device_2d = create_device_2d(&device_3d)?;
                 self.device = Some(device_3d);
-                let desktop: IDCompositionDesktopDevice = DCompositionCreateDevice2(&device_2d)?;
+                // dcompapi.h annotates the riid/ppv pair with neither `_COM_Outptr_` nor
+                // `#[iid_is]`, so the projection can't offer the generic wrapper and we call
+                // the raw form.
+                let mut desktop: Option<IDCompositionDesktopDevice> = None;
+                DCompositionCreateDevice2(
+                    &device_2d,
+                    &IDCompositionDesktopDevice::IID,
+                    &mut desktop as *mut _ as *mut *mut core::ffi::c_void,
+                )
+                .ok()?;
+                let desktop = desktop.unwrap();
 
                 // First release any previous target, otherwise `CreateTargetForHwnd` will find the HWND occupied.
                 self.target = None;
@@ -148,7 +153,7 @@ fn main() -> windows::core::Result<()> {
                 let dc = device_2d.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?;
 
                 let brush = dc.CreateSolidColorBrush(
-                    &D2D1_COLOR_F {
+                    &D2D_COLOR_F {
                         r: 0.0,
                         g: 0.0,
                         b: 0.0,
@@ -181,13 +186,13 @@ fn main() -> windows::core::Result<()> {
                         }
 
                         let front_visual = create_visual(&desktop)?;
-                        front_visual.SetOffsetX2(card.offset.0).ok()?;
-                        front_visual.SetOffsetY2(card.offset.1).ok()?;
+                        front_visual.SetOffsetX(card.offset.0).ok()?;
+                        front_visual.SetOffsetY(card.offset.1).ok()?;
                         root_visual.AddVisual(&front_visual, false, None).ok()?;
 
                         let back_visual = create_visual(&desktop)?;
-                        back_visual.SetOffsetX2(card.offset.0).ok()?;
-                        back_visual.SetOffsetY2(card.offset.1).ok()?;
+                        back_visual.SetOffsetX(card.offset.0).ok()?;
+                        back_visual.SetOffsetY(card.offset.1).ok()?;
                         root_visual.AddVisual(&back_visual, false, None).ok()?;
 
                         let front_surface = create_surface(&desktop, width, height)?;
@@ -207,11 +212,11 @@ fn main() -> windows::core::Result<()> {
                         let rotation = desktop.CreateRotateTransform3D()?;
 
                         if card.status == Status::Selected {
-                            rotation.SetAngle2(180.0).ok()?;
+                            rotation.SetAngle(180.0).ok()?;
                         }
 
-                        rotation.SetAxisZ2(0.0).ok()?;
-                        rotation.SetAxisY2(1.0).ok()?;
+                        rotation.SetAxisZ(0.0).ok()?;
+                        rotation.SetAxisY(1.0).ok()?;
                         create_effect(&desktop, &front_visual, &rotation, true, self.dpi)?;
                         create_effect(&desktop, &back_visual, &rotation, false, self.dpi)?;
                         card.rotation = Some(rotation);
@@ -235,9 +240,10 @@ fn main() -> windows::core::Result<()> {
 
                 AdjustWindowRect(
                     &mut rect,
-                    WINDOW_STYLE(GetWindowLongW(self.handle, GWL_STYLE) as u32),
+                    GetWindowLongW(self.handle, GWL_STYLE) as u32,
                     false,
-                )?;
+                )
+                .ok()?;
 
                 Ok((rect.right - rect.left, rect.bottom - rect.top))
             }
@@ -279,7 +285,8 @@ fn main() -> windows::core::Result<()> {
                     }
 
                     let desktop = self.desktop.as_ref().expect("IDCompositionDesktopDevice");
-                    let stats = desktop.GetFrameStatistics()?;
+                    let mut stats = DCOMPOSITION_FRAME_STATISTICS::default();
+                    desktop.GetFrameStatistics(&mut stats).ok()?;
 
                     let next_frame: f64 =
                         stats.nextEstimatedFrameTime as f64 / stats.timeFrequency as f64;
@@ -373,7 +380,8 @@ fn main() -> windows::core::Result<()> {
                     size.0,
                     size.1,
                     SWP_NOACTIVATE | SWP_NOZORDER,
-                )?;
+                )
+                .ok()?;
 
                 self.device = None;
                 Ok(())
@@ -402,6 +410,7 @@ fn main() -> windows::core::Result<()> {
                     size.1,
                     SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER,
                 )
+                .ok()
             }
         }
 
@@ -435,7 +444,8 @@ fn main() -> windows::core::Result<()> {
 
     fn create_text_format() -> Result<IDWriteTextFormat> {
         unsafe {
-            let factory: IDWriteFactory2 = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED)?;
+            let factory: IDWriteFactory2 =
+                DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, &IDWriteFactory2::IID)?.cast()?;
 
             let format = factory.CreateTextFormat(
                 w!("Candara"),
@@ -461,7 +471,7 @@ fn main() -> windows::core::Result<()> {
                 CoCreateInstance(&CLSID_WICImagingFactory, None, CLSCTX_INPROC_SERVER)?;
 
             // Just a little hack to make it simpler to run the sample from the root of the workspace.
-            let path = if PathFileExistsW(w!("image.jpg")).is_ok() {
+            let path = if PathFileExistsW(w!("image.jpg")).as_bool() {
                 w!("image.jpg")
             } else {
                 w!("crates/samples/windows/dcomp/image.jpg")
@@ -469,7 +479,7 @@ fn main() -> windows::core::Result<()> {
 
             let decoder = factory.CreateDecoderFromFilename(
                 path,
-                None,
+                core::ptr::null(),
                 GENERIC_READ,
                 WICDecodeMetadataCacheOnDemand,
             )?;
@@ -480,7 +490,7 @@ fn main() -> windows::core::Result<()> {
             image
                 .Initialize(
                     &source,
-                    &GUID_WICPixelFormat32bppBGR,
+                    REFWICPixelFormatGUID(&GUID_WICPixelFormat32bppBGR),
                     WICBitmapDitherTypeNone,
                     None,
                     0.0,
@@ -499,8 +509,8 @@ fn main() -> windows::core::Result<()> {
             D3D11CreateDevice(
                 None,
                 D3D_DRIVER_TYPE_HARDWARE,
-                None,
-                D3D11_CREATE_DEVICE_BGRA_SUPPORT,
+                HMODULE::default(),
+                D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32,
                 None,
                 D3D11_SDK_VERSION,
                 Some(&mut device),
@@ -577,7 +587,7 @@ fn main() -> windows::core::Result<()> {
             card.rotation
                 .as_ref()
                 .expect("IDCompositionRotateTransform3D")
-                .SetAngle(&animation)
+                .SetAngle2(&animation)
                 .ok()
         }
     }
@@ -631,8 +641,19 @@ fn main() -> windows::core::Result<()> {
         dpi: (f32, f32),
     ) -> Result<()> {
         unsafe {
-            let mut offset = Default::default();
-            let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut offset)?;
+            // dcomp.h models BeginDraw's riid/ppv without `_COM_Outptr_`/`#[iid_is]`, so
+            // there is no generic wrapper; call the raw form.
+            let mut offset = POINT::default();
+            let mut dc: Option<ID2D1DeviceContext> = None;
+            surface
+                .BeginDraw(
+                    None,
+                    &ID2D1DeviceContext::IID,
+                    &mut dc as *mut _ as *mut *mut core::ffi::c_void,
+                    &mut offset,
+                )
+                .ok()?;
+            let dc = dc.unwrap();
             dc.SetDpi(dpi.0, dpi.1);
 
             dc.SetTransform(&Matrix3x2::translation(
@@ -640,7 +661,7 @@ fn main() -> windows::core::Result<()> {
                 physical_to_logical(offset.y as f32, dpi.1),
             ));
 
-            dc.Clear(Some(&D2D1_COLOR_F {
+            dc.Clear(Some(&D2D_COLOR_F {
                 r: 1.0,
                 g: 1.0,
                 b: 1.0,
@@ -672,8 +693,17 @@ fn main() -> windows::core::Result<()> {
         dpi: (f32, f32),
     ) -> Result<()> {
         unsafe {
-            let mut dc_offset = Default::default();
-            let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut dc_offset)?;
+            let mut dc_offset = POINT::default();
+            let mut dc: Option<ID2D1DeviceContext> = None;
+            surface
+                .BeginDraw(
+                    None,
+                    &ID2D1DeviceContext::IID,
+                    &mut dc as *mut _ as *mut *mut core::ffi::c_void,
+                    &mut dc_offset,
+                )
+                .ok()?;
+            let dc = dc.unwrap();
             dc.SetDpi(dpi.0, dpi.1);
 
             dc.SetTransform(&Matrix3x2::translation(
@@ -711,16 +741,16 @@ fn main() -> windows::core::Result<()> {
     }
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
-        SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
+        SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2).ok()?;
     }
 
     let app = Rc::new(RefCell::new(App::new()?));
 
     let handler = app.clone();
     let window = Window::new("Sample Window")
-        .style((WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX).0)
-        .ex_style(WS_EX_NOREDIRECTIONBITMAP.0)
+        .style(WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX)
+        .ex_style(WS_EX_NOREDIRECTIONBITMAP)
         .on_message(move |_, message, wparam, lparam| {
             Some(
                 handler

@@ -46,6 +46,7 @@ const FOLD_PREFIXES: &[&str] = &[
     "d3d11",
     "d3d12",
     "d3d9",
+    "dcomp",
     "dwrite",
     "dxgi",
     "functiondiscovery",

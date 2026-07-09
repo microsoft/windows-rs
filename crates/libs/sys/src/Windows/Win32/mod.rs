@@ -164,10 +164,6 @@ pub mod dbghelp;
 pub mod dcommon;
 #[cfg(feature = "dcomp")]
 pub mod dcomp;
-#[cfg(feature = "dcompanimation")]
-pub mod dcompanimation;
-#[cfg(feature = "dcomptypes")]
-pub mod dcomptypes;
 #[cfg(feature = "dde")]
 pub mod dde;
 #[cfg(feature = "ddeml")]

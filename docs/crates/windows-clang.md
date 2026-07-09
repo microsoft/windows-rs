@@ -167,6 +167,34 @@ losing its `[Optional]` flag (the `specstrings_strict.h` shim clobber) — was f
 covered by `crates/tests/libs/clang/input/interface_outptr_opt.h`; contrast that with the
 four above, which are faithful by design.
 
+### Base-interface `_COM_Outptr_` creators are not auto-promoted (rejected heuristic)
+
+A creator like `DWriteCreateFactory(_In_ REFIID iid, _COM_Outptr_ IUnknown **factory)`
+(`um/dwrite.h`) is a caller-chosen-type factory whose out-parameter *should* have been
+declared `void**` with `[iid_is(iid)]` — the header spells the pointee as the base interface
+`IUnknown**` (and elsewhere `IInspectable**`) instead. This is a source bug in the SDK header
+that cannot be fixed upstream now, so the faithful scrape keeps `factory: *mut IUnknown` and
+bindgen projects `-> Result<IUnknown>`; the caller passes `&IDWriteFactory2::IID` and
+`.cast()`s the result. (`IWeakReference::Resolve` looks identical but the *MIDL-generated*
+`winrt/WeakReference.h` carries an explicit `[iid_is][out]` comment, so it is already promoted
+via the `[iid_is]`-comment path — the difference is the annotation, not the pointee type.)
+
+Auto-promoting the SAL-only form (`com_out_ptr_token` on an `IUnknown**`/`IInspectable**`
+pointee with a sibling `REFIID`) was investigated and **rejected**: the signal is not
+unambiguous, and an ambiguous promotion would be a lossy transform of the metadata, which is
+not acceptable. A corpus scan of `um`/`shared` shows the base-interface `_COM_Outptr_` shape is
+dominated by genuine fixed-type returns with **no** `REFIID` sibling (`SHGetThreadRef`,
+`GetProcessReference`, `InstantiateComponentFromPackage`, the D3D11 interop
+`CreateDirect3D11Device*` accessors, `IDWriteTextLayout::GetDrawingEffect`, …) that must stay
+typed; the `REFIID`-sibling subset that *would* be promoted is a mix of last-parameter cases
+(`DWriteCreateFactory`) and mid-list cases (`DbgModel` concept accessors,
+`IDCompositionSurface::BeginDraw`) where the `REFIID`/out-pointer pair is not even adjacent to
+the end of the signature — so no positional rule cleanly separates true creators from
+coincidental `REFIID`+`IUnknown**` pairings without risking a wrong (lossy) promotion. Only a
+literal `void**` pointee (`is_void_double_ptr`) or an explicit MIDL `[iid_is]` promotes to
+`ComOutPtr`; everything else stays faithfully typed and is handled with a `.cast()` at the call
+site.
+
 ### UNICODE is deliberately not defined
 
 The translation unit is built *without* `UNICODE`/`_UNICODE` (only `SECURITY_WIN32`

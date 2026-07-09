@@ -3420,15 +3420,15 @@ impl IUIAnimationVariable2 {
     pub unsafe fn GetVectorValue(&self, value: &mut [f64]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetVectorValue)(windows_core::Interface::as_raw(self), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()) }
     }
-    #[cfg(feature = "dcompanimation")]
+    #[cfg(feature = "dcomp")]
     pub unsafe fn GetCurve<P0>(&self, animation: P0) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::dcompanimation::IDCompositionAnimation>,
+        P0: windows_core::Param<super::dcomp::IDCompositionAnimation>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetCurve)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    #[cfg(feature = "dcompanimation")]
-    pub unsafe fn GetVectorCurve(&self, animation: &[Option<super::dcompanimation::IDCompositionAnimation>]) -> windows_core::HRESULT {
+    #[cfg(feature = "dcomp")]
+    pub unsafe fn GetVectorCurve(&self, animation: &[Option<super::dcomp::IDCompositionAnimation>]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetVectorCurve)(windows_core::Interface::as_raw(self), core::mem::transmute(animation.as_ptr()), animation.len().try_into().unwrap()) }
     }
     pub unsafe fn GetFinalValue(&self) -> windows_core::Result<f64> {
@@ -3532,13 +3532,13 @@ pub struct IUIAnimationVariable2_Vtbl {
     pub GetDimension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub GetVectorValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "dcompanimation")]
+    #[cfg(feature = "dcomp")]
     pub GetCurve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "dcompanimation"))]
+    #[cfg(not(feature = "dcomp"))]
     GetCurve: usize,
-    #[cfg(feature = "dcompanimation")]
+    #[cfg(feature = "dcomp")]
     pub GetVectorCurve: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "dcompanimation"))]
+    #[cfg(not(feature = "dcomp"))]
     GetVectorCurve: usize,
     pub GetFinalValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub GetFinalVectorValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64, u32) -> windows_core::HRESULT,
@@ -3562,13 +3562,13 @@ pub struct IUIAnimationVariable2_Vtbl {
     pub SetVariableIntegerChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetVariableCurveChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "dcompanimation")]
+#[cfg(feature = "dcomp")]
 pub trait IUIAnimationVariable2_Impl: windows_core::IUnknownImpl {
     fn GetDimension(&self) -> windows_core::Result<u32>;
     fn GetValue(&self) -> windows_core::Result<f64>;
     fn GetVectorValue(&self, value: *mut f64, cdimension: u32) -> windows_core::Result<()>;
-    fn GetCurve(&self, animation: windows_core::Ref<super::dcompanimation::IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn GetVectorCurve(&self, animation: *const Option<super::dcompanimation::IDCompositionAnimation>, cdimension: u32) -> windows_core::Result<()>;
+    fn GetCurve(&self, animation: windows_core::Ref<super::dcomp::IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn GetVectorCurve(&self, animation: *const Option<super::dcomp::IDCompositionAnimation>, cdimension: u32) -> windows_core::Result<()>;
     fn GetFinalValue(&self) -> windows_core::Result<f64>;
     fn GetFinalVectorValue(&self, finalvalue: *mut f64, cdimension: u32) -> windows_core::Result<()>;
     fn GetPreviousValue(&self) -> windows_core::Result<f64>;
@@ -3591,7 +3591,7 @@ pub trait IUIAnimationVariable2_Impl: windows_core::IUnknownImpl {
     fn SetVariableIntegerChangeHandler(&self, handler: windows_core::Ref<IUIAnimationVariableIntegerChangeHandler2>, fregisterfornextanimationevent: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetVariableCurveChangeHandler(&self, handler: windows_core::Ref<IUIAnimationVariableCurveChangeHandler2>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "dcompanimation")]
+#[cfg(feature = "dcomp")]
 impl IUIAnimationVariable2_Vtbl {
     pub const fn new<Identity: IUIAnimationVariable2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDimension<Identity: IUIAnimationVariable2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dimension: *mut u32) -> windows_core::HRESULT {
@@ -3832,7 +3832,7 @@ impl IUIAnimationVariable2_Vtbl {
         iid == &<IUIAnimationVariable2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "dcompanimation")]
+#[cfg(feature = "dcomp")]
 impl windows_core::RuntimeName for IUIAnimationVariable2 {}
 windows_core::imp::define_interface!(IUIAnimationVariableChangeHandler, IUIAnimationVariableChangeHandler_Vtbl, 0x6358b7ba_87d2_42d5_bf71_82e919dd5862);
 windows_core::imp::interface_hierarchy!(IUIAnimationVariableChangeHandler, windows_core::IUnknown);

@@ -6,29 +6,31 @@ publish = false
 
 [dependencies.windows]
 workspace = true
-default-features = true
 features = [
-    "Win32_Graphics_Direct2D_Common",
-    "Win32_Graphics_Direct3D",
-    "Win32_Graphics_Direct3D11",
-    "Win32_Graphics_DirectComposition",
-    "Win32_Graphics_DirectWrite",
-    "Win32_Graphics_Dxgi_Common",
-    "Win32_Graphics_Gdi",
-    "Win32_Graphics_Imaging_D2D",
-    "Win32_Security_Cryptography",
-    "Win32_System_Com",
-    "Win32_System_Performance",
-    "Win32_System_SystemInformation",
-    "Win32_System_SystemServices",
-    "Win32_UI_Animation",
-    "Win32_UI_HiDpi",
-    "Win32_UI_WindowsAndMessaging",
-    "Win32_UI_Shell",
+    "bcrypt",
+    "combaseapi",
+    "d2d",
+    "d3d11",
+    "d3dcommon",
+    "dcommon",
+    "dcomp",
+    "dwrite",
+    "dxgi",
+    "minwindef",
+    "objbase",
+    "shellscalingapi",
+    "shlwapi",
+    "uianimation",
+    "wincodec",
+    "windef",
+    "winnt",
+    "winuser",
+    "wtypesbase",
 ]
 
 [dependencies.windows-numerics]
 workspace = true
+features = ["std"]
 
 [dependencies.windows-window]
 workspace = true
