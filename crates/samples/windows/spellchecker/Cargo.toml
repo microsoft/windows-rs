@@ -4,12 +4,11 @@ version = "0.0.0"
 edition = "2024"
 publish = false
 
-[dependencies.windows]
-workspace = true
-features = [
-    "Win32_System_Com",
-    "Win32_Globalization",
-]
+[dependencies]
+windows-core = { workspace = true }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
 
 [lints]
 workspace = true

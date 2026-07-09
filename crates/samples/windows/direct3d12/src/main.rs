@@ -35,8 +35,7 @@ fn main() -> windows::core::Result<()> {
 
         // we need to keep this around to keep the reference alive, even though
         // nothing reads from it
-        #[expect(dead_code)]
-        vertex_buffer: ID3D12Resource,
+        _vertex_buffer: ID3D12Resource,
 
         vbv: D3D12_VERTEX_BUFFER_VIEW,
         fence: ID3D12Fence,
@@ -171,7 +170,7 @@ fn main() -> windows::core::Result<()> {
 
             let aspect_ratio = WIDTH as f32 / HEIGHT as f32;
 
-            let (vertex_buffer, vbv) = create_vertex_buffer(&self.device, aspect_ratio)?;
+            let (_vertex_buffer, vbv) = create_vertex_buffer(&self.device, aspect_ratio)?;
 
             let fence = unsafe { self.device.CreateFence(0, D3D12_FENCE_FLAG_NONE) }?;
 
@@ -192,7 +191,7 @@ fn main() -> windows::core::Result<()> {
                 root_signature,
                 pso,
                 command_list,
-                vertex_buffer,
+                _vertex_buffer,
                 vbv,
                 fence,
                 fence_value,
