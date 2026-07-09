@@ -1,89 +1,79 @@
-fn main() -> windows::core::Result<()> {
-    use windows::{Win32::Foundation::*, Win32::Globalization::*, Win32::System::Com::*, core::*};
+// Generates the Windows spell-checking API (`ISpellCheckerFactory`, `ISpellChecker`,
+// `IEnumSpellingError`, …) from the in-house Win32 metadata with `windows-bindgen`,
+// then checks a line of text supplied on the command line and prints corrections.
 
+#![allow(unused_qualifications, nonstandard_style, clippy::all)]
+
+include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+
+use windows_core::*;
+
+fn main() -> Result<()> {
     let input = std::env::args()
         .nth(1)
         .expect("Expected one command line argument for text to be spell-corrected");
-    // Initialize the COM runtime for this thread
+
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
-    }
+        CoInitializeEx(None, COINIT_MULTITHREADED.0 as u32).ok()?;
 
-    // Create ISpellCheckerFactory
-    let factory: ISpellCheckerFactory =
-        unsafe { CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL)? };
+        let factory: ISpellCheckerFactory =
+            CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL)?;
 
-    // Make sure that the "en-US" locale is supported
-    let locale = w!("en-US");
-    let supported = unsafe { factory.IsSupported(locale)? };
-    supported.expect("en-US is supported");
+        // Make sure that the "en-US" locale is supported.
+        let locale = w!("en-US");
+        assert!(factory.IsSupported(locale)?.as_bool(), "en-US is supported");
 
-    // Create a ISpellChecker
-    let checker = unsafe { factory.CreateSpellChecker(locale)? };
+        let checker = factory.CreateSpellChecker(locale)?;
 
-    // Get errors enumerator for the supplied string
-    println!("Checking the text: '{input}'");
-    let errors = unsafe { checker.ComprehensiveCheck(&HSTRING::from(&input))? };
+        println!("Checking the text: '{input}'");
+        let errors = checker.ComprehensiveCheck(&HSTRING::from(&input))?;
 
-    // Loop through all the errors
-    loop {
-        let mut error = None;
+        // `IEnumSpellingError::Next` carries a `[retval]`, so it projects as
+        // `-> Result<ISpellingError>`; the terminal `S_FALSE` surfaces as `Err`, so
+        // iterating until the first `Err` walks the whole enumeration.
+        while let Ok(error) = errors.Next() {
+            let start_index = error.StartIndex()? as usize;
+            let length = error.Length()? as usize;
+            let substring = &input[start_index..start_index + length];
 
-        if unsafe { errors.Next(&mut error) } != S_OK {
-            break;
-        }
+            let action = error.CorrectiveAction()?;
+            println!("{action:?}");
 
-        let error = error.unwrap();
-
-        // Get the start index and length of the error
-        let start_index = unsafe { error.StartIndex()? };
-        let length = unsafe { error.Length()? };
-
-        // Get the substring from the utf8 encoded string
-        let substring = &input[start_index as usize..(start_index + length) as usize];
-
-        // Get the corrective action
-        let action = unsafe { error.CorrectiveAction()? };
-        println!("{action:?}");
-
-        match action {
-            CORRECTIVE_ACTION_DELETE => {
-                println!("Delete '{substring}'");
-            }
-            CORRECTIVE_ACTION_REPLACE => {
-                // Get the replacement as a widestring and convert to a Rust String
-                let replacement = unsafe { error.Replacement()? };
-
-                println!("Replace: {substring} with {}", unsafe {
-                    replacement.display()
-                });
-
-                unsafe { CoTaskMemFree(Some(replacement.as_ptr() as *mut _)) };
-            }
-            CORRECTIVE_ACTION_GET_SUGGESTIONS => {
-                // Get an enumerator for all the suggestions for a substring
-                let suggestions = unsafe { checker.Suggest(&HSTRING::from(substring))? };
-
-                // Loop through the suggestions
-                loop {
-                    // Get the next suggestion breaking if the call to `Next` failed
-                    let mut suggestion = [PWSTR::null()];
-                    unsafe {
-                        _ = suggestions.Next(&mut suggestion, None);
-                    }
-                    if suggestion[0].is_null() {
-                        break;
-                    }
-
-                    println!("Maybe replace: {substring} with {}", unsafe {
-                        suggestion[0].display()
-                    });
-
-                    unsafe { CoTaskMemFree(Some(suggestion[0].as_ptr() as *mut _)) };
+            match action {
+                CORRECTIVE_ACTION_DELETE => {
+                    println!("Delete '{substring}'");
                 }
+                CORRECTIVE_ACTION_REPLACE => {
+                    let replacement = error.Replacement()?;
+                    println!("Replace: {substring} with {}", replacement.display());
+                    CoTaskMemFree(replacement.as_ptr() as *mut _);
+                }
+                CORRECTIVE_ACTION_GET_SUGGESTIONS => {
+                    let suggestions = checker.Suggest(&HSTRING::from(substring))?;
+
+                    // `IEnumString::Next` has no `[retval]` (it takes an array plus a
+                    // count out-param), so it projects as `-> HRESULT`; a null slot
+                    // signals the end of the enumeration.
+                    loop {
+                        let mut suggestion = [PWSTR::null()];
+                        _ = suggestions.Next(&mut suggestion, None);
+
+                        if suggestion[0].is_null() {
+                            break;
+                        }
+
+                        println!(
+                            "Maybe replace: {substring} with {}",
+                            suggestion[0].display()
+                        );
+
+                        CoTaskMemFree(suggestion[0].as_ptr() as *mut _);
+                    }
+                }
+                _ => {}
             }
-            _ => {}
         }
     }
+
     Ok(())
 }
